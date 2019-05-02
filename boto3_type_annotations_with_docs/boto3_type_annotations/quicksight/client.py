@@ -1,9 +1,9 @@
-from typing import Union
-from botocore.paginate import Paginator
 from typing import Optional
-from botocore.waiter import Waiter
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
 
 
 class Client(BaseClient):
@@ -47,7 +47,8 @@ class Client(BaseClient):
                 'Group': {
                     'Arn': 'string',
                     'GroupName': 'string',
-                    'Description': 'string'
+                    'Description': 'string',
+                    'PrincipalId': 'string'
                 },
                 'RequestId': 'string',
                 'Status': 123
@@ -64,6 +65,8 @@ class Client(BaseClient):
                 The name of the group.
               - **Description** *(string) --* 
                 The group description.
+              - **PrincipalId** *(string) --* 
+                The principal ID of the group.
             - **RequestId** *(string) --* 
               The AWS request ID for this operation.
             - **Status** *(integer) --* 
@@ -284,6 +287,46 @@ class Client(BaseClient):
         """
         pass
 
+    def delete_user_by_principal_id(self, PrincipalId: str, AwsAccountId: str, Namespace: str) -> Dict:
+        """
+        Deletes a user after locating the user by its principal ID.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/DeleteUserByPrincipalId>`_
+        
+        **Request Syntax**
+        ::
+          response = client.delete_user_by_principal_id(
+              PrincipalId='string',
+              AwsAccountId='string',
+              Namespace='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'RequestId': 'string',
+                'Status': 123
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **RequestId** *(string) --* 
+              The AWS request ID for this operation.
+            - **Status** *(integer) --* 
+              The http status of the request.
+        :type PrincipalId: string
+        :param PrincipalId: **[REQUIRED]**
+          The principal ID of the user.
+        :type AwsAccountId: string
+        :param AwsAccountId: **[REQUIRED]**
+          The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+        :type Namespace: string
+        :param Namespace: **[REQUIRED]**
+          The namespace. Currently, you should set this to ``default`` .
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def describe_group(self, GroupName: str, AwsAccountId: str, Namespace: str) -> Dict:
         """
         Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). 
@@ -308,7 +351,8 @@ class Client(BaseClient):
                 'Group': {
                     'Arn': 'string',
                     'GroupName': 'string',
-                    'Description': 'string'
+                    'Description': 'string',
+                    'PrincipalId': 'string'
                 },
                 'RequestId': 'string',
                 'Status': 123
@@ -324,6 +368,8 @@ class Client(BaseClient):
                 The name of the group.
               - **Description** *(string) --* 
                 The group description.
+              - **PrincipalId** *(string) --* 
+                The principal ID of the group.
             - **RequestId** *(string) --* 
               The AWS request ID for this operation.
             - **Status** *(integer) --* 
@@ -369,7 +415,8 @@ class Client(BaseClient):
                     'Email': 'string',
                     'Role': 'ADMIN'|'AUTHOR'|'READER'|'RESTRICTED_AUTHOR'|'RESTRICTED_READER',
                     'IdentityType': 'IAM'|'QUICKSIGHT',
-                    'Active': True|False
+                    'Active': True|False,
+                    'PrincipalId': 'string'
                 },
                 'RequestId': 'string',
                 'Status': 123
@@ -391,6 +438,8 @@ class Client(BaseClient):
                 The type of identity authentication used by the user.
               - **Active** *(boolean) --* 
                 Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an AD user, that user is inactive until they sign in and provide a password
+              - **PrincipalId** *(string) --* 
+                The principal ID of the user.
             - **RequestId** *(string) --* 
               The AWS request ID for this operation.
             - **Status** *(integer) --* 
@@ -616,7 +665,8 @@ class Client(BaseClient):
                     {
                         'Arn': 'string',
                         'GroupName': 'string',
-                        'Description': 'string'
+                        'Description': 'string',
+                        'PrincipalId': 'string'
                     },
                 ],
                 'NextToken': 'string',
@@ -636,6 +686,8 @@ class Client(BaseClient):
                   The name of the group.
                 - **Description** *(string) --* 
                   The group description.
+                - **PrincipalId** *(string) --* 
+                  The principal ID of the group.
             - **NextToken** *(string) --* 
               A pagination token that can be used in a subsequent request.
             - **RequestId** *(string) --* 
@@ -686,7 +738,8 @@ class Client(BaseClient):
                     {
                         'Arn': 'string',
                         'GroupName': 'string',
-                        'Description': 'string'
+                        'Description': 'string',
+                        'PrincipalId': 'string'
                     },
                 ],
                 'NextToken': 'string',
@@ -706,6 +759,8 @@ class Client(BaseClient):
                   The name of the group.
                 - **Description** *(string) --* 
                   The group description.
+                - **PrincipalId** *(string) --* 
+                  The principal ID of the group.
             - **NextToken** *(string) --* 
               A pagination token that can be used in a subsequent request.
             - **RequestId** *(string) --* 
@@ -761,7 +816,8 @@ class Client(BaseClient):
                         'Email': 'string',
                         'Role': 'ADMIN'|'AUTHOR'|'READER'|'RESTRICTED_AUTHOR'|'RESTRICTED_READER',
                         'IdentityType': 'IAM'|'QUICKSIGHT',
-                        'Active': True|False
+                        'Active': True|False,
+                        'PrincipalId': 'string'
                     },
                 ],
                 'NextToken': 'string',
@@ -787,6 +843,8 @@ class Client(BaseClient):
                   The type of identity authentication used by the user.
                 - **Active** *(boolean) --* 
                   Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an AD user, that user is inactive until they sign in and provide a password
+                - **PrincipalId** *(string) --* 
+                  The principal ID of the user.
             - **NextToken** *(string) --* 
               A pagination token that can be used in a subsequent request.
             - **RequestId** *(string) --* 
@@ -844,7 +902,8 @@ class Client(BaseClient):
                     'Email': 'string',
                     'Role': 'ADMIN'|'AUTHOR'|'READER'|'RESTRICTED_AUTHOR'|'RESTRICTED_READER',
                     'IdentityType': 'IAM'|'QUICKSIGHT',
-                    'Active': True|False
+                    'Active': True|False,
+                    'PrincipalId': 'string'
                 },
                 'UserInvitationUrl': 'string',
                 'RequestId': 'string',
@@ -867,6 +926,8 @@ class Client(BaseClient):
                 The type of identity authentication used by the user.
               - **Active** *(boolean) --* 
                 Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an AD user, that user is inactive until they sign in and provide a password
+              - **PrincipalId** *(string) --* 
+                The principal ID of the user.
             - **UserInvitationUrl** *(string) --* 
               The URL the user visits to complete registration and provide a password. This is returned only for users with an identity type of ``QUICKSIGHT`` .
             - **RequestId** *(string) --* 
@@ -932,7 +993,8 @@ class Client(BaseClient):
                 'Group': {
                     'Arn': 'string',
                     'GroupName': 'string',
-                    'Description': 'string'
+                    'Description': 'string',
+                    'PrincipalId': 'string'
                 },
                 'RequestId': 'string',
                 'Status': 123
@@ -948,6 +1010,8 @@ class Client(BaseClient):
                 The name of the group.
               - **Description** *(string) --* 
                 The group description.
+              - **PrincipalId** *(string) --* 
+                The principal ID of the group.
             - **RequestId** *(string) --* 
               The AWS request ID for this operation.
             - **Status** *(integer) --* 
@@ -998,7 +1062,8 @@ class Client(BaseClient):
                     'Email': 'string',
                     'Role': 'ADMIN'|'AUTHOR'|'READER'|'RESTRICTED_AUTHOR'|'RESTRICTED_READER',
                     'IdentityType': 'IAM'|'QUICKSIGHT',
-                    'Active': True|False
+                    'Active': True|False,
+                    'PrincipalId': 'string'
                 },
                 'RequestId': 'string',
                 'Status': 123
@@ -1020,6 +1085,8 @@ class Client(BaseClient):
                 The type of identity authentication used by the user.
               - **Active** *(boolean) --* 
                 Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an AD user, that user is inactive until they sign in and provide a password
+              - **PrincipalId** *(string) --* 
+                The principal ID of the user.
             - **RequestId** *(string) --* 
               The AWS request ID for this operation.
             - **Status** *(integer) --* 

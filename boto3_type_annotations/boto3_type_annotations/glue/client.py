@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -44,7 +44,7 @@ class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None) -> Dict:
+    def create_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None, CsvClassifier: Dict = None) -> Dict:
         pass
 
     def create_connection(self, ConnectionInput: Dict, CatalogId: str = None) -> Dict:
@@ -56,10 +56,10 @@ class Client(BaseClient):
     def create_database(self, DatabaseInput: Dict, CatalogId: str = None) -> Dict:
         pass
 
-    def create_dev_endpoint(self, EndpointName: str, RoleArn: str, SecurityGroupIds: List = None, SubnetId: str = None, PublicKey: str = None, PublicKeys: List = None, NumberOfNodes: int = None, ExtraPythonLibsS3Path: str = None, ExtraJarsS3Path: str = None, SecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
+    def create_dev_endpoint(self, EndpointName: str, RoleArn: str, SecurityGroupIds: List = None, SubnetId: str = None, PublicKey: str = None, PublicKeys: List = None, NumberOfNodes: int = None, ExtraPythonLibsS3Path: str = None, ExtraJarsS3Path: str = None, SecurityConfiguration: str = None, Tags: Dict = None, Arguments: Dict = None) -> Dict:
         pass
 
-    def create_job(self, Name: str, Role: str, Command: Dict, Description: str = None, LogUri: str = None, ExecutionProperty: Dict = None, DefaultArguments: Dict = None, Connections: Dict = None, MaxRetries: int = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, NotificationProperty: Dict = None, SecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
+    def create_job(self, Name: str, Role: str, Command: Dict, Description: str = None, LogUri: str = None, ExecutionProperty: Dict = None, DefaultArguments: Dict = None, Connections: Dict = None, MaxRetries: int = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, NotificationProperty: Dict = None, WorkerType: str = None, NumberOfWorkers: int = None, SecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_partition(self, DatabaseName: str, TableName: str, PartitionInput: Dict, CatalogId: str = None) -> Dict:
@@ -260,7 +260,7 @@ class Client(BaseClient):
     def start_crawler_schedule(self, CrawlerName: str) -> Dict:
         pass
 
-    def start_job_run(self, JobName: str, JobRunId: str = None, Arguments: Dict = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, NotificationProperty: Dict = None, SecurityConfiguration: str = None) -> Dict:
+    def start_job_run(self, JobName: str, JobRunId: str = None, Arguments: Dict = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, WorkerType: str = None, NumberOfWorkers: int = None, SecurityConfiguration: str = None, NotificationProperty: Dict = None) -> Dict:
         pass
 
     def start_trigger(self, Name: str) -> Dict:
@@ -281,7 +281,7 @@ class Client(BaseClient):
     def untag_resource(self, ResourceArn: str, TagsToRemove: List) -> Dict:
         pass
 
-    def update_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None) -> Dict:
+    def update_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None, CsvClassifier: Dict = None) -> Dict:
         pass
 
     def update_connection(self, Name: str, ConnectionInput: Dict, CatalogId: str = None) -> Dict:
@@ -296,7 +296,7 @@ class Client(BaseClient):
     def update_database(self, Name: str, DatabaseInput: Dict, CatalogId: str = None) -> Dict:
         pass
 
-    def update_dev_endpoint(self, EndpointName: str, PublicKey: str = None, AddPublicKeys: List = None, DeletePublicKeys: List = None, CustomLibraries: Dict = None, UpdateEtlLibraries: bool = None) -> Dict:
+    def update_dev_endpoint(self, EndpointName: str, PublicKey: str = None, AddPublicKeys: List = None, DeletePublicKeys: List = None, CustomLibraries: Dict = None, UpdateEtlLibraries: bool = None, DeleteArguments: List = None, AddArguments: Dict = None) -> Dict:
         pass
 
     def update_job(self, JobName: str, JobUpdate: Dict) -> Dict:

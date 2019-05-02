@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -1473,7 +1473,7 @@ class Client(BaseClient):
                 - **errorInformation** *(dict) --* 
                   Information about any error associated with this deployment.
                   - **code** *(string) --* 
-                    For more information, see `Error Codes for AWS CodeDeploy <http://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html>`__ in the `AWS CodeDeploy User Guide <http://docs.aws.amazon.com/codedeploy/latest/userguide>`__ .
+                    For more information, see `Error Codes for AWS CodeDeploy <https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html>`__ in the `AWS CodeDeploy User Guide <https://docs.aws.amazon.com/codedeploy/latest/userguide>`__ .
                     The error code:
                     * APPLICATION_MISSING: The application was missing. This error code is most likely raised if the application is deleted after the deployment is created, but before it is started. 
                     * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code is most likely raised if the deployment group is deleted after the deployment is created, but before it is started. 
@@ -1519,8 +1519,10 @@ class Client(BaseClient):
                   * autoscaling: Amazon EC2 Auto Scaling created the deployment. 
                   * codeDeployRollback: A rollback process created the deployment. 
                 - **ignoreApplicationStopFailures** *(boolean) --* 
-                  If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance is not considered to have failed at that point and continues on to the BeforeInstall deployment lifecycle event.
-                  If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance stops, and the deployment to that instance is considered to have failed.
+                  If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. For example, if ApplicationStop fails, the deployment continues with DownloadBundle. If BeforeBlockTraffic fails, the deployment continues with BlockTraffic. If AfterBlockTraffic fails, the deployment continues with ApplicationStop. 
+                  If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted. 
+                  During a deployment, the AWS CodeDeploy agent runs the scripts specified for ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful deployment. (All other scripts are run from the AppSpec file in the current deployment.) If one of these scripts contains an error and does not run successfully, the deployment can fail. 
+                  If the cause of the failure is a script from the last successful deployment that will never run successfully, create a new deployment and use ``ignoreApplicationStopFailures`` to specify that the ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic failures should be ignored. 
                 - **autoRollbackConfiguration** *(dict) --* 
                   Information about the automatic rollback configuration associated with the deployment.
                   - **enabled** *(boolean) --* 
@@ -1944,8 +1946,10 @@ class Client(BaseClient):
           A comment about the deployment.
         :type ignoreApplicationStopFailures: boolean
         :param ignoreApplicationStopFailures:
-          If set to true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance is considered to have failed at that point and continues on to the BeforeInstall deployment lifecycle event.
-          If set to false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to fail to an instance, the deployment to that instance stops, and the deployment to that instance is considered to have failed.
+          If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. For example, if ApplicationStop fails, the deployment continues with DownloadBundle. If BeforeBlockTraffic fails, the deployment continues with BlockTraffic. If AfterBlockTraffic fails, the deployment continues with ApplicationStop.
+          If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted.
+          During a deployment, the AWS CodeDeploy agent runs the scripts specified for ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful deployment. (All other scripts are run from the AppSpec file in the current deployment.) If one of these scripts contains an error and does not run successfully, the deployment can fail.
+          If the cause of the failure is a script from the last successful deployment that will never run successfully, create a new deployment and use ``ignoreApplicationStopFailures`` to specify that the ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic failures should be ignored.
         :type targetInstances: dict
         :param targetInstances:
           Information about the instances that belong to the replacement environment in a blue/green deployment.
@@ -2062,7 +2066,7 @@ class Client(BaseClient):
             In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
             .. note::
               In a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
-            For more information, see `AWS CodeDeploy Instance Health <http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html>`__ in the *AWS CodeDeploy User Guide* .
+            For more information, see `AWS CodeDeploy Instance Health <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html>`__ in the *AWS CodeDeploy User Guide* .
         :type trafficRoutingConfig: dict
         :param trafficRoutingConfig:
           The configuration that specifies how the deployment traffic is routed.
@@ -2240,7 +2244,7 @@ class Client(BaseClient):
         :param deploymentConfigName:
           If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation.
           CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if a configuration isn\'t specified for the deployment or deployment group.
-          For more information about the predefined deployment configurations in AWS CodeDeploy, see `Working with Deployment Groups in AWS CodeDeploy <http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html>`__ in the AWS CodeDeploy User Guide.
+          For more information about the predefined deployment configurations in AWS CodeDeploy, see `Working with Deployment Groups in AWS CodeDeploy <https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html>`__ in the AWS CodeDeploy User Guide.
         :type ec2TagFilters: list
         :param ec2TagFilters:
           The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags. Cannot be used in the same call as ec2TagSet.
@@ -2278,7 +2282,7 @@ class Client(BaseClient):
           A service role ARN that allows AWS CodeDeploy to act on the user\'s behalf when interacting with AWS services.
         :type triggerConfigurations: list
         :param triggerConfigurations:
-          Information about triggers to create when the deployment group is created. For examples, see `Create a Trigger for an AWS CodeDeploy Event <http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html>`__ in the AWS CodeDeploy User Guide.
+          Information about triggers to create when the deployment group is created. For examples, see `Create a Trigger for an AWS CodeDeploy Event <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html>`__ in the AWS CodeDeploy User Guide.
           - *(dict) --*
             Information about notification triggers for the deployment group.
             - **triggerName** *(string) --*
@@ -2817,6 +2821,8 @@ class Client(BaseClient):
     def get_deployment(self, deploymentId: str) -> Dict:
         """
         Gets information about a deployment.
+        .. note::
+          The ``content`` property of the ``appSpecContent`` object in the returned revision is always null. Use ``GetApplicationRevision`` and the ``sha256`` property of the returned ``appSpecContent`` object to get the content of the deployment’s AppSpec file. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codedeploy-2014-10-06/GetDeployment>`_
         
         **Request Syntax**
@@ -3099,7 +3105,7 @@ class Client(BaseClient):
               - **errorInformation** *(dict) --* 
                 Information about any error associated with this deployment.
                 - **code** *(string) --* 
-                  For more information, see `Error Codes for AWS CodeDeploy <http://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html>`__ in the `AWS CodeDeploy User Guide <http://docs.aws.amazon.com/codedeploy/latest/userguide>`__ .
+                  For more information, see `Error Codes for AWS CodeDeploy <https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html>`__ in the `AWS CodeDeploy User Guide <https://docs.aws.amazon.com/codedeploy/latest/userguide>`__ .
                   The error code:
                   * APPLICATION_MISSING: The application was missing. This error code is most likely raised if the application is deleted after the deployment is created, but before it is started. 
                   * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code is most likely raised if the deployment group is deleted after the deployment is created, but before it is started. 
@@ -3145,8 +3151,10 @@ class Client(BaseClient):
                 * autoscaling: Amazon EC2 Auto Scaling created the deployment. 
                 * codeDeployRollback: A rollback process created the deployment. 
               - **ignoreApplicationStopFailures** *(boolean) --* 
-                If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance is not considered to have failed at that point and continues on to the BeforeInstall deployment lifecycle event.
-                If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance stops, and the deployment to that instance is considered to have failed.
+                If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. For example, if ApplicationStop fails, the deployment continues with DownloadBundle. If BeforeBlockTraffic fails, the deployment continues with BlockTraffic. If AfterBlockTraffic fails, the deployment continues with ApplicationStop. 
+                If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted. 
+                During a deployment, the AWS CodeDeploy agent runs the scripts specified for ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful deployment. (All other scripts are run from the AppSpec file in the current deployment.) If one of these scripts contains an error and does not run successfully, the deployment can fail. 
+                If the cause of the failure is a script from the last successful deployment that will never run successfully, create a new deployment and use ``ignoreApplicationStopFailures`` to specify that the ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic failures should be ignored. 
               - **autoRollbackConfiguration** *(dict) --* 
                 Information about the automatic rollback configuration associated with the deployment.
                 - **enabled** *(boolean) --* 
@@ -3345,7 +3353,7 @@ class Client(BaseClient):
                   In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
                   .. note::
                     In a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
-                  For more information, see `AWS CodeDeploy Instance Health <http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html>`__ in the *AWS CodeDeploy User Guide* .
+                  For more information, see `AWS CodeDeploy Instance Health <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html>`__ in the *AWS CodeDeploy User Guide* .
               - **createTime** *(datetime) --* 
                 The time at which the deployment configuration was created.
               - **computePlatform** *(string) --* 
@@ -5315,7 +5323,7 @@ class Client(BaseClient):
           A replacement ARN for the service role, if you want to change it.
         :type triggerConfigurations: list
         :param triggerConfigurations:
-          Information about triggers to change when the deployment group is updated. For examples, see `Modify Triggers in an AWS CodeDeploy Deployment Group <http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html>`__ in the AWS CodeDeploy User Guide.
+          Information about triggers to change when the deployment group is updated. For examples, see `Modify Triggers in an AWS CodeDeploy Deployment Group <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html>`__ in the AWS CodeDeploy User Guide.
           - *(dict) --*
             Information about notification triggers for the deployment group.
             - **triggerName** *(string) --*

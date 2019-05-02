@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from datetime import datetime
 from botocore.paginate import Paginator
 
@@ -48,8 +48,8 @@ class DescribeDBClusterParameterGroups(Paginator):
             - **DBClusterParameterGroups** *(list) --* 
               A list of DB cluster parameter groups.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB cluster parameter group. 
-                This data type is used as a response element in the  DescribeDBClusterParameterGroups action. 
+                Contains the details of an Amazon Neptune DB cluster parameter group.
+                This data type is used as a response element in the  DescribeDBClusterParameterGroups action.
                 - **DBClusterParameterGroupName** *(string) --* 
                   Provides the name of the DB cluster parameter group.
                 - **DBParameterGroupFamily** *(string) --* 
@@ -138,12 +138,10 @@ class DescribeDBClusterParameters(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.
             - **Parameters** *(list) --* 
               Provides a list of parameters for the DB cluster parameter group.
               - *(dict) --* 
-                This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions. 
-                This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+                Specifies a parameter.
                 - **ParameterName** *(string) --* 
                   Specifies the name of the parameter.
                 - **ParameterValue** *(string) --* 
@@ -159,7 +157,7 @@ class DescribeDBClusterParameters(Paginator):
                 - **AllowedValues** *(string) --* 
                   Specifies the valid range of values for the parameter.
                 - **IsModifiable** *(boolean) --* 
-                  Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
+                  Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
                 - **MinimumEngineVersion** *(string) --* 
                   The earliest engine version to which the parameter can apply.
                 - **ApplyMethod** *(string) --* 
@@ -262,12 +260,11 @@ class DescribeDBClusterSnapshots(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Provides a list of DB cluster snapshots for the user as the result of a call to the  DescribeDBClusterSnapshots action. 
             - **DBClusterSnapshots** *(list) --* 
               Provides a list of DB cluster snapshots for the user.
               - *(dict) --* 
-                Contains the details for an Amazon Neptune DB cluster snapshot 
-                This data type is used as a response element in the  DescribeDBClusterSnapshots action. 
+                Contains the details for an Amazon Neptune DB cluster snapshot
+                This data type is used as a response element in the  DescribeDBClusterSnapshots action.
                 - **AvailabilityZones** *(list) --* 
                   Provides the list of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
                   - *(string) --* 
@@ -462,12 +459,11 @@ class DescribeDBClusters(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBClusters action.
             - **DBClusters** *(list) --* 
               Contains a list of DB clusters for the user.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB cluster. 
-                This data type is used as a response element in the  DescribeDBClusters action. 
+                Contains the details of an Amazon Neptune DB cluster.
+                This data type is used as a response element in the  DescribeDBClusters action.
                 - **AllocatedStorage** *(integer) --* 
                    ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
                 - **AvailabilityZones** *(list) --* 
@@ -494,7 +490,7 @@ class DescribeDBClusters(Paginator):
                 - **Endpoint** *(string) --* 
                   Specifies the connection endpoint for the primary instance of the DB cluster.
                 - **ReaderEndpoint** *(string) --* 
-                  The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                  The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                   If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
                 - **MultiAZ** *(boolean) --* 
                   Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -517,11 +513,11 @@ class DescribeDBClusters(Paginator):
                     - **Status** *(string) --* 
                       Specifies the status of the DB cluster option group.
                 - **PreferredBackupWindow** *(string) --* 
-                  Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                  Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
                 - **PreferredMaintenanceWindow** *(string) --* 
                   Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
                 - **ReplicationSourceIdentifier** *(string) --* 
-                  Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                  Not supported by Neptune.
                 - **ReadReplicaIdentifiers** *(list) --* 
                   Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                   - *(string) --* 
@@ -536,7 +532,7 @@ class DescribeDBClusters(Paginator):
                     - **DBClusterParameterGroupStatus** *(string) --* 
                       Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                     - **PromotionTier** *(integer) --* 
-                      A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                      A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
                 - **VpcSecurityGroups** *(list) --* 
                   Provides a list of VPC security groups that the DB cluster belongs to.
                   - *(dict) --* 
@@ -682,11 +678,10 @@ class DescribeDBEngineVersions(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBEngineVersions action. 
             - **DBEngineVersions** *(list) --* 
-              A list of ``DBEngineVersion`` elements. 
+              A list of ``DBEngineVersion`` elements.
               - *(dict) --* 
-                This data type is used as a response element in the action  DescribeDBEngineVersions . 
+                This data type is used as a response element in the action  DescribeDBEngineVersions .
                 - **Engine** *(string) --* 
                   The name of the database engine.
                 - **EngineVersion** *(string) --* 
@@ -698,15 +693,15 @@ class DescribeDBEngineVersions(Paginator):
                 - **DBEngineVersionDescription** *(string) --* 
                   The description of the database engine version.
                 - **DefaultCharacterSet** *(dict) --* 
-                  The default character set for new instances of this engine version, if the ``CharacterSetName`` parameter of the CreateDBInstance API is not specified. 
+                  The default character set for new instances of this engine version, if the ``CharacterSetName`` parameter of the CreateDBInstance API is not specified.
                   - **CharacterSetName** *(string) --* 
                     The name of the character set.
                   - **CharacterSetDescription** *(string) --* 
                     The description of the character set.
                 - **SupportedCharacterSets** *(list) --* 
-                  A list of the character sets supported by this engine for the ``CharacterSetName`` parameter of the ``CreateDBInstance`` action. 
+                  A list of the character sets supported by this engine for the ``CharacterSetName`` parameter of the ``CreateDBInstance`` action.
                   - *(dict) --* 
-                    This data type is used as a response element in the action  DescribeDBEngineVersions . 
+                    Specifies a character set.
                     - **CharacterSetName** *(string) --* 
                       The name of the character set.
                     - **CharacterSetDescription** *(string) --* 
@@ -726,9 +721,9 @@ class DescribeDBEngineVersions(Paginator):
                     - **IsMajorVersionUpgrade** *(boolean) --* 
                       A value that indicates whether a database engine is upgraded to a major version.
                 - **SupportedTimezones** *(list) --* 
-                  A list of the time zones supported by this engine for the ``Timezone`` parameter of the ``CreateDBInstance`` action. 
+                  A list of the time zones supported by this engine for the ``Timezone`` parameter of the ``CreateDBInstance`` action.
                   - *(dict) --* 
-                    A time zone associated with a  DBInstance . This data type is an element in the response to the  DescribeDBInstances , and the  DescribeDBEngineVersions actions. 
+                    A time zone associated with a  DBInstance .
                     - **TimezoneName** *(string) --* 
                       The name of the time zone.
                 - **ExportableLogTypes** *(list) --* 
@@ -956,12 +951,11 @@ class DescribeDBInstances(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBInstances action. 
             - **DBInstances** *(list) --* 
-              A list of  DBInstance instances. 
+              A list of  DBInstance instances.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB instance. 
-                This data type is used as a response element in the  DescribeDBInstances action. 
+                Contains the details of an Amazon Neptune DB instance.
+                This data type is used as a response element in the  DescribeDBInstances action.
                 - **DBInstanceIdentifier** *(string) --* 
                   Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
                 - **DBInstanceClass** *(string) --* 
@@ -987,15 +981,13 @@ class DescribeDBInstances(Paginator):
                 - **InstanceCreateTime** *(datetime) --* 
                   Provides the date and time the DB instance was created.
                 - **PreferredBackupWindow** *(string) --* 
-                  Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                  Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
                 - **BackupRetentionPeriod** *(integer) --* 
                   Specifies the number of days for which automatic DB snapshots are retained.
                 - **DBSecurityGroups** *(list) --* 
-                  Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements. 
+                  Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements.
                   - *(dict) --* 
-                    This data type is used as a response element in the following actions:
-                    *  ModifyDBInstance   
-                    *  RebootDBInstance   
+                    Specifies membership in a designated DB security group.
                     - **DBSecurityGroupName** *(string) --* 
                       The name of the DB security group.
                     - **Status** *(string) --* 
@@ -1034,15 +1026,14 @@ class DescribeDBInstances(Paginator):
                   - **SubnetGroupStatus** *(string) --* 
                     Provides the status of the DB subnet group.
                   - **Subnets** *(list) --* 
-                    Contains a list of  Subnet elements. 
+                    Contains a list of  Subnet elements.
                     - *(dict) --* 
-                      This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                      Specifies a subnet.
+                      This data type is used as a response element in the  DescribeDBSubnetGroups action.
                       - **SubnetIdentifier** *(string) --* 
                         Specifies the identifier of the subnet.
                       - **SubnetAvailabilityZone** *(dict) --* 
-                        Contains Availability Zone information.
-                        This data type is used as an element in the following data type:
-                        *  OrderableDBInstanceOption   
+                        Specifies the EC2 Availability Zone that the subnet is in.
                         - **Name** *(string) --* 
                           The name of the availability zone.
                       - **SubnetStatus** *(string) --* 
@@ -1054,9 +1045,9 @@ class DescribeDBInstances(Paginator):
                 - **PendingModifiedValues** *(dict) --* 
                   Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
                   - **DBInstanceClass** *(string) --* 
-                    Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied. 
+                    Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied.
                   - **AllocatedStorage** *(integer) --* 
-                    Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied. 
+                    Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied.
                   - **MasterUserPassword** *(string) --* 
                     Contains the pending or currently-in-progress change of the master credentials for the DB instance.
                   - **Port** *(integer) --* 
@@ -1073,15 +1064,15 @@ class DescribeDBInstances(Paginator):
                   - **Iops** *(integer) --* 
                     Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
                   - **DBInstanceIdentifier** *(string) --* 
-                    Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied. 
+                    Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied.
                   - **StorageType** *(string) --* 
                     Specifies the storage type to be associated with the DB instance.
                   - **CACertificateIdentifier** *(string) --* 
                     Specifies the identifier of the CA certificate for the DB instance.
                   - **DBSubnetGroupName** *(string) --* 
-                    The new DB subnet group for the DB instance. 
+                    The new DB subnet group for the DB instance.
                   - **PendingCloudwatchLogsExports** *(dict) --* 
-                    A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
+                    Specifies the CloudWatch logs to be exported.
                     - **LogTypesToEnable** *(list) --* 
                       Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
                       - *(string) --* 
@@ -1115,13 +1106,13 @@ class DescribeDBInstances(Paginator):
                     - **OptionGroupName** *(string) --* 
                       The name of the option group that the instance belongs to.
                     - **Status** *(string) --* 
-                      The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                      The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` .
                 - **CharacterSetName** *(string) --* 
                   If present, specifies the name of the character set that this instance is associated with.
                 - **SecondaryAvailabilityZone** *(string) --* 
                   If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
                 - **PubliclyAccessible** *(boolean) --* 
-                  This parameter is not supported.
+                  This flag should no longer be used.
                 - **StatusInfos** *(list) --* 
                   The status of a Read Replica. If the instance is not a Read Replica, this is blank.
                   - *(dict) --* 
@@ -1143,9 +1134,9 @@ class DescribeDBInstances(Paginator):
                 - **DBClusterIdentifier** *(string) --* 
                   If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
                 - **StorageEncrypted** *(boolean) --* 
-                  Specifies whether the DB instance is encrypted.
+                  Not supported: The encryption for DB instances is managed by the DB cluster.
                 - **KmsKeyId** *(string) --* 
-                  If ``StorageEncrypted`` is true, the AWS KMS key identifier for the encrypted DB instance. 
+                  Not supported: The encryption for DB instances is managed by the DB cluster.
                 - **DbiResourceId** *(string) --* 
                   The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
                 - **CACertificateIdentifier** *(string) --* 
@@ -1153,7 +1144,7 @@ class DescribeDBInstances(Paginator):
                 - **DomainMemberships** *(list) --* 
                   Not supported
                   - *(dict) --* 
-                    An Active Directory Domain membership record associated with the DB instance.
+                    An Active Directory Domain membership record associated with a DB instance.
                     - **Domain** *(string) --* 
                       The identifier of the Active Directory Domain.
                     - **Status** *(string) --* 
@@ -1175,7 +1166,7 @@ class DescribeDBInstances(Paginator):
                 - **DBInstanceArn** *(string) --* 
                   The Amazon Resource Name (ARN) for the DB instance.
                 - **Timezone** *(string) --* 
-                  Not supported. 
+                  Not supported.
                 - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                   True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise false.
                 - **PerformanceInsightsEnabled** *(boolean) --* 
@@ -1261,12 +1252,11 @@ class DescribeDBParameterGroups(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBParameterGroups action. 
             - **DBParameterGroups** *(list) --* 
-              A list of  DBParameterGroup instances. 
+              A list of  DBParameterGroup instances.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB parameter group. 
-                This data type is used as a response element in the  DescribeDBParameterGroups action. 
+                Contains the details of an Amazon Neptune DB parameter group.
+                This data type is used as a response element in the  DescribeDBParameterGroups action.
                 - **DBParameterGroupName** *(string) --* 
                   Provides the name of the DB parameter group.
                 - **DBParameterGroupFamily** *(string) --* 
@@ -1355,12 +1345,10 @@ class DescribeDBParameters(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBParameters action. 
             - **Parameters** *(list) --* 
-              A list of  Parameter values. 
+              A list of  Parameter values.
               - *(dict) --* 
-                This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions. 
-                This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+                Specifies a parameter.
                 - **ParameterName** *(string) --* 
                   Specifies the name of the parameter.
                 - **ParameterValue** *(string) --* 
@@ -1376,7 +1364,7 @@ class DescribeDBParameters(Paginator):
                 - **AllowedValues** *(string) --* 
                   Specifies the valid range of values for the parameter.
                 - **IsModifiable** *(boolean) --* 
-                  Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
+                  Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
                 - **MinimumEngineVersion** *(string) --* 
                   The earliest engine version to which the parameter can apply.
                 - **ApplyMethod** *(string) --* 
@@ -1469,12 +1457,11 @@ class DescribeDBSubnetGroups(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBSubnetGroups action. 
             - **DBSubnetGroups** *(list) --* 
-              A list of  DBSubnetGroup instances. 
+              A list of  DBSubnetGroup instances.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB subnet group. 
-                This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                Contains the details of an Amazon Neptune DB subnet group.
+                This data type is used as a response element in the  DescribeDBSubnetGroups action.
                 - **DBSubnetGroupName** *(string) --* 
                   The name of the DB subnet group.
                 - **DBSubnetGroupDescription** *(string) --* 
@@ -1484,15 +1471,14 @@ class DescribeDBSubnetGroups(Paginator):
                 - **SubnetGroupStatus** *(string) --* 
                   Provides the status of the DB subnet group.
                 - **Subnets** *(list) --* 
-                  Contains a list of  Subnet elements. 
+                  Contains a list of  Subnet elements.
                   - *(dict) --* 
-                    This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                    Specifies a subnet.
+                    This data type is used as a response element in the  DescribeDBSubnetGroups action.
                     - **SubnetIdentifier** *(string) --* 
                       Specifies the identifier of the subnet.
                     - **SubnetAvailabilityZone** *(dict) --* 
-                      Contains Availability Zone information.
-                      This data type is used as an element in the following data type:
-                      *  OrderableDBInstanceOption   
+                      Specifies the EC2 Availability Zone that the subnet is in.
                       - **Name** *(string) --* 
                         The name of the availability zone.
                     - **SubnetStatus** *(string) --* 
@@ -1581,16 +1567,15 @@ class DescribeEngineDefaultParameters(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **EngineDefaults** *(dict) --* 
-              Contains the result of a successful invocation of the  DescribeEngineDefaultParameters action. 
+              Contains the result of a successful invocation of the  DescribeEngineDefaultParameters action.
               - **DBParameterGroupFamily** *(string) --* 
                 Specifies the name of the DB parameter group family that the engine default parameters apply to.
               - **Marker** *(string) --* 
-                An optional pagination token provided by a previous EngineDefaults request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+                An optional pagination token provided by a previous EngineDefaults request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
               - **Parameters** *(list) --* 
                 Contains a list of engine default parameters.
                 - *(dict) --* 
-                  This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions. 
-                  This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+                  Specifies a parameter.
                   - **ParameterName** *(string) --* 
                     Specifies the name of the parameter.
                   - **ParameterValue** *(string) --* 
@@ -1606,7 +1591,7 @@ class DescribeEngineDefaultParameters(Paginator):
                   - **AllowedValues** *(string) --* 
                     Specifies the valid range of values for the parameter.
                   - **IsModifiable** *(boolean) --* 
-                    Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
+                    Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
                   - **MinimumEngineVersion** *(string) --* 
                     The earliest engine version to which the parameter can apply.
                   - **ApplyMethod** *(string) --* 
@@ -1692,7 +1677,6 @@ class DescribeEventSubscriptions(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Data returned by the **DescribeEventSubscriptions** action.
             - **EventSubscriptionsList** *(list) --* 
               A list of EventSubscriptions data types.
               - *(dict) --* 
@@ -1804,11 +1788,10 @@ class DescribeEvents(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeEvents action. 
             - **Events** *(list) --* 
-              A list of  Event instances. 
+              A list of  Event instances.
               - *(dict) --* 
-                This data type is used as a response element in the  DescribeEvents action. 
+                This data type is used as a response element in the  DescribeEvents action.
                 - **SourceIdentifier** *(string) --* 
                   Provides the identifier for the source of the event.
                 - **SourceType** *(string) --* 
@@ -1943,12 +1926,11 @@ class DescribeOrderableDBInstanceOptions(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeOrderableDBInstanceOptions action. 
             - **OrderableDBInstanceOptions** *(list) --* 
               An  OrderableDBInstanceOption structure containing information about orderable options for the DB instance.
               - *(dict) --* 
                 Contains a list of available options for a DB instance.
-                This data type is used as a response element in the  DescribeOrderableDBInstanceOptions action. 
+                This data type is used as a response element in the  DescribeOrderableDBInstanceOptions action.
                 - **Engine** *(string) --* 
                   The engine type of a DB instance.
                 - **EngineVersion** *(string) --* 
@@ -1960,9 +1942,7 @@ class DescribeOrderableDBInstanceOptions(Paginator):
                 - **AvailabilityZones** *(list) --* 
                   A list of Availability Zones for a DB instance.
                   - *(dict) --* 
-                    Contains Availability Zone information.
-                    This data type is used as an element in the following data type:
-                    *  OrderableDBInstanceOption   
+                    Specifies an Availability Zone.
                     - **Name** *(string) --* 
                       The name of the availability zone.
                 - **MultiAZCapable** *(boolean) --* 
@@ -2085,7 +2065,6 @@ class DescribePendingMaintenanceActions(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Data returned from the **DescribePendingMaintenanceActions** action.
             - **PendingMaintenanceActions** *(list) --* 
               A list of the pending maintenance actions for the resource.
               - *(dict) --* 

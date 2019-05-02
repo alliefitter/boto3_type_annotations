@@ -1,9 +1,10 @@
-from typing import Union
-from botocore.paginate import Paginator
 from typing import Optional
-from botocore.waiter import Waiter
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
+from typing import Union
 
 
 class Client(BaseClient):
@@ -68,7 +69,11 @@ class Client(BaseClient):
           The ID of the policy that you want to delete. ``PolicyId`` is returned by ``PutPolicy`` and by ``ListPolicies`` .
         :type DeleteAllPolicyResources: boolean
         :param DeleteAllPolicyResources:
-          If ``True`` , the request will also delete all web ACLs in this policy. Associated resources will no longer be protected by web ACLs in this policy.
+          If ``True`` , the request will also perform a clean-up process that will:
+          * Delete rule groups created by AWS Firewall Manager
+          * Remove web ACLs from in-scope resources
+          * Delete web ACLs that contain no rules or rule groups
+          After the cleanup, in-scope resources will no longer be protected by web ACLs in this policy. Protection of out-of-scope resources will remain unchanged. Scope is determined by tags and accounts associated with the policy. When creating the policy, if you specified that only resources in specific accounts or with specific tags be protected by the policy, those resources are in-scope. All others are out of scope. If you did not specify tags or accounts, all resources are in-scope.
         :returns: None
         """
         pass
@@ -152,7 +157,7 @@ class Client(BaseClient):
                     'Violators': [
                         {
                             'ResourceId': 'string',
-                            'ViolationReason': 'WEB_ACL_MISSING_RULE_GROUP'|'RESOURCE_MISSING_WEB_ACL'|'RESOURCE_INCORRECT_WEB_ACL',
+                            'ViolationReason': 'WEB_ACL_MISSING_RULE_GROUP'|'RESOURCE_MISSING_WEB_ACL'|'RESOURCE_INCORRECT_WEB_ACL'|'RESOURCE_MISSING_SHIELD_PROTECTION',
                             'ResourceType': 'string'
                         },
                     ],
@@ -183,7 +188,7 @@ class Client(BaseClient):
                   - **ViolationReason** *(string) --* 
                     The reason that the resource is not protected by the policy.
                   - **ResourceType** *(string) --* 
-                    The resource type. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . Valid values are ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+                    The resource type. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . For example: ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
               - **EvaluationLimitExceeded** *(boolean) --* 
                 Indicates if over 100 resources are non-compliant with the AWS Firewall Manager policy.
               - **ExpiredAt** *(datetime) --* 
@@ -267,10 +272,13 @@ class Client(BaseClient):
                     'PolicyName': 'string',
                     'PolicyUpdateToken': 'string',
                     'SecurityServicePolicyData': {
-                        'Type': 'WAF',
+                        'Type': 'WAF'|'SHIELD_ADVANCED',
                         'ManagedServiceData': 'string'
                     },
                     'ResourceType': 'string',
+                    'ResourceTypeList': [
+                        'string',
+                    ],
                     'ResourceTags': [
                         {
                             'Key': 'string',
@@ -306,12 +314,16 @@ class Client(BaseClient):
               - **SecurityServicePolicyData** *(dict) --* 
                 Details about the security service that is being used to protect the resources.
                 - **Type** *(string) --* 
-                  The service that the policy is using to protect the resources. This value is ``WAF`` .
+                  The service that the policy is using to protect the resources. This specifies the type of policy that is created, either a WAF policy or Shield Advanced policy.
                 - **ManagedServiceData** *(string) --* 
                   Details about the service. This contains ``WAF`` data in JSON format, as shown in the following example:
                    ``ManagedServiceData": "{\"type\": \"WAF\", \"ruleGroups\": [{\"id\": \"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\": \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}``  
+                  If this is a Shield Advanced policy, this string will be empty.
               - **ResourceType** *(string) --* 
-                The type of resource to protect with the policy, either an Application Load Balancer or a CloudFront distribution. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . Valid values are ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+                The type of resource to protect with the policy. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . For example: ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+              - **ResourceTypeList** *(list) --* 
+                An array of ``ResourceType`` .
+                - *(string) --* 
               - **ResourceTags** *(list) --* 
                 An array of ``ResourceTag`` objects.
                 - *(dict) --* 
@@ -341,6 +353,71 @@ class Client(BaseClient):
         :type PolicyId: string
         :param PolicyId: **[REQUIRED]**
           The ID of the AWS Firewall Manager policy that you want the details for.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def get_protection_status(self, PolicyId: str, MemberAccountId: str = None, StartTime: datetime = None, EndTime: datetime = None, NextToken: str = None, MaxResults: int = None) -> Dict:
+        """
+        If you created a Shield Advanced policy, returns policy-level attack summary information in the event of a potential DDoS attack.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/GetProtectionStatus>`_
+        
+        **Request Syntax**
+        ::
+          response = client.get_protection_status(
+              PolicyId='string',
+              MemberAccountId='string',
+              StartTime=datetime(2015, 1, 1),
+              EndTime=datetime(2015, 1, 1),
+              NextToken='string',
+              MaxResults=123
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'AdminAccountId': 'string',
+                'ServiceType': 'WAF'|'SHIELD_ADVANCED',
+                'Data': 'string',
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **AdminAccountId** *(string) --* 
+              The ID of the AWS Firewall administrator account for this policy.
+            - **ServiceType** *(string) --* 
+              The service type that is protected by the policy. Currently, this is always ``SHIELD_ADVANCED`` .
+            - **Data** *(string) --* 
+              Details about the attack, including the following:
+              * Attack type 
+              * Account ID 
+              * ARN of the resource attacked 
+              * Start time of the attack 
+              * End time of the attack (ongoing attacks will not have an end time) 
+              The details are in JSON format. An example is shown in the Examples section below.
+            - **NextToken** *(string) --* 
+              If you have more objects than the number that you specified for ``MaxResults`` in the request, the response includes a ``NextToken`` value. To list more objects, submit another ``GetProtectionStatus`` request, and specify the ``NextToken`` value from the response in the ``NextToken`` value in the next request.
+              AWS SDKs provide auto-pagination that identify ``NextToken`` in a response and make subsequent request calls automatically on your behalf. However, this feature is not supported by ``GetProtectionStatus`` . You must submit subsequent requests with ``NextToken`` using your own processes. 
+        :type PolicyId: string
+        :param PolicyId: **[REQUIRED]**
+          The ID of the policy for which you want to get the attack information.
+        :type MemberAccountId: string
+        :param MemberAccountId:
+          The AWS account that is in scope of the policy that you want to get the details for.
+        :type StartTime: datetime
+        :param StartTime:
+          The start of the time period to query for the attacks. This is a ``timestamp`` type. The sample request above indicates a number type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid ``timestamp`` format is allowed.
+        :type EndTime: datetime
+        :param EndTime:
+          The end of the time period to query for the attacks. This is a ``timestamp`` type. The sample request above indicates a number type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid ``timestamp`` format is allowed.
+        :type NextToken: string
+        :param NextToken:
+          If you specify a value for ``MaxResults`` and you have more objects than the number that you specify for ``MaxResults`` , AWS Firewall Manager returns a ``NextToken`` value in the response that allows you to list another group of objects. For the second and subsequent ``GetProtectionStatus`` requests, specify the value of ``NextToken`` from the previous response to get information about another batch of objects.
+        :type MaxResults: integer
+        :param MaxResults:
+          Specifies the number of objects that you want AWS Firewall Manager to return for this request. If you have more objects than the number that you specify for ``MaxResults`` , the response includes a ``NextToken`` value that you can use to get another batch of objects.
         :rtype: dict
         :returns:
         """
@@ -502,7 +579,7 @@ class Client(BaseClient):
                         'PolicyId': 'string',
                         'PolicyName': 'string',
                         'ResourceType': 'string',
-                        'SecurityServiceType': 'WAF',
+                        'SecurityServiceType': 'WAF'|'SHIELD_ADVANCED',
                         'RemediationEnabled': True|False
                     },
                 ],
@@ -522,9 +599,9 @@ class Client(BaseClient):
                 - **PolicyName** *(string) --* 
                   The friendly name of the specified policy.
                 - **ResourceType** *(string) --* 
-                  The type of resource to protect with the policy, either an Application Load Balancer or a CloudFront distribution. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . Valid values are ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+                  The type of resource to protect with the policy. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . For example: ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
                 - **SecurityServiceType** *(string) --* 
-                  The service that the policy is using to protect the resources. This value is ``WAF`` .
+                  The service that the policy is using to protect the resources. This specifies the type of policy that is created, either a WAF policy or Shield Advanced policy.
                 - **RemediationEnabled** *(boolean) --* 
                   Indicates if the policy should be automatically applied to new resources.
             - **NextToken** *(string) --* 
@@ -564,6 +641,8 @@ class Client(BaseClient):
     def put_policy(self, Policy: Dict) -> Dict:
         """
         Creates an AWS Firewall Manager policy.
+        Firewall Manager provides two types of policies: A Shield Advanced policy, which applies Shield Advanced protection to specified accounts and resources, or a WAF policy, which contains a rule group and defines which resources are to be protected by that rule group. A policy is specific to either WAF or Shield Advanced. If you want to enforce both WAF rules and Shield Advanced protection across accounts, you can create multiple policies. You can create one or more policies for WAF rules, and one or more policies for Shield Advanced.
+        You must be subscribed to Shield Advanced to create a Shield Advanced policy. For more information on subscribing to Shield Advanced, see `CreateSubscription <https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/fms-2018-01-01/PutPolicy>`_
         
         **Request Syntax**
@@ -574,10 +653,13 @@ class Client(BaseClient):
                   'PolicyName': 'string',
                   'PolicyUpdateToken': 'string',
                   'SecurityServicePolicyData': {
-                      'Type': 'WAF',
+                      'Type': 'WAF'|'SHIELD_ADVANCED',
                       'ManagedServiceData': 'string'
                   },
                   'ResourceType': 'string',
+                  'ResourceTypeList': [
+                      'string',
+                  ],
                   'ResourceTags': [
                       {
                           'Key': 'string',
@@ -607,10 +689,13 @@ class Client(BaseClient):
                     'PolicyName': 'string',
                     'PolicyUpdateToken': 'string',
                     'SecurityServicePolicyData': {
-                        'Type': 'WAF',
+                        'Type': 'WAF'|'SHIELD_ADVANCED',
                         'ManagedServiceData': 'string'
                     },
                     'ResourceType': 'string',
+                    'ResourceTypeList': [
+                        'string',
+                    ],
                     'ResourceTags': [
                         {
                             'Key': 'string',
@@ -646,12 +731,16 @@ class Client(BaseClient):
               - **SecurityServicePolicyData** *(dict) --* 
                 Details about the security service that is being used to protect the resources.
                 - **Type** *(string) --* 
-                  The service that the policy is using to protect the resources. This value is ``WAF`` .
+                  The service that the policy is using to protect the resources. This specifies the type of policy that is created, either a WAF policy or Shield Advanced policy.
                 - **ManagedServiceData** *(string) --* 
                   Details about the service. This contains ``WAF`` data in JSON format, as shown in the following example:
                    ``ManagedServiceData": "{\"type\": \"WAF\", \"ruleGroups\": [{\"id\": \"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\": \"COUNT\"}}], \"defaultAction\": {\"type\": \"BLOCK\"}}``  
+                  If this is a Shield Advanced policy, this string will be empty.
               - **ResourceType** *(string) --* 
-                The type of resource to protect with the policy, either an Application Load Balancer or a CloudFront distribution. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . Valid values are ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+                The type of resource to protect with the policy. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . For example: ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+              - **ResourceTypeList** *(list) --* 
+                An array of ``ResourceType`` .
+                - *(string) --* 
               - **ResourceTags** *(list) --* 
                 An array of ``ResourceTag`` objects.
                 - *(dict) --* 
@@ -690,12 +779,16 @@ class Client(BaseClient):
           - **SecurityServicePolicyData** *(dict) --* **[REQUIRED]**
             Details about the security service that is being used to protect the resources.
             - **Type** *(string) --* **[REQUIRED]**
-              The service that the policy is using to protect the resources. This value is ``WAF`` .
+              The service that the policy is using to protect the resources. This specifies the type of policy that is created, either a WAF policy or Shield Advanced policy.
             - **ManagedServiceData** *(string) --*
               Details about the service. This contains ``WAF`` data in JSON format, as shown in the following example:
                ``ManagedServiceData\": \"{\\"type\\": \\"WAF\\", \\"ruleGroups\\": [{\\"id\\": \\"12345678-1bcd-9012-efga-0987654321ab\\", \\"overrideAction\\" : {\\"type\\": \\"COUNT\\"}}], \\"defaultAction\\": {\\"type\\": \\"BLOCK\\"}}``
+              If this is a Shield Advanced policy, this string will be empty.
           - **ResourceType** *(string) --* **[REQUIRED]**
-            The type of resource to protect with the policy, either an Application Load Balancer or a CloudFront distribution. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . Valid values are ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+            The type of resource to protect with the policy. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . For example: ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+          - **ResourceTypeList** *(list) --*
+            An array of ``ResourceType`` .
+            - *(string) --*
           - **ResourceTags** *(list) --*
             An array of ``ResourceTag`` objects.
             - *(dict) --*

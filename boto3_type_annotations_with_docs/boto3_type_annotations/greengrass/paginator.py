@@ -48,7 +48,7 @@ class ListBulkDeploymentDetailedReports(Paginator):
                 - **CreatedAt** *(string) --* The time, in ISO format, when the deployment was created.
                 - **DeploymentArn** *(string) --* The ARN of the group deployment.
                 - **DeploymentId** *(string) --* The ID of the group deployment.
-                - **DeploymentStatus** *(string) --* The current status of the group deployment: ''Pending'', ''InProgress'', ''Success'', or ''Failure''.
+                - **DeploymentStatus** *(string) --* The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
                 - **DeploymentType** *(string) --* The type of the deployment.
                 - **ErrorDetails** *(list) --* Details about the error.
                   - *(dict) --* Details about the error.
@@ -205,7 +205,10 @@ class ListConnectorDefinitions(Paginator):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -221,6 +224,9 @@ class ListConnectorDefinitions(Paginator):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -318,7 +324,10 @@ class ListCoreDefinitions(Paginator):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -334,6 +343,9 @@ class ListCoreDefinitions(Paginator):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -488,7 +500,10 @@ class ListDeviceDefinitions(Paginator):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -504,6 +519,9 @@ class ListDeviceDefinitions(Paginator):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -601,7 +619,10 @@ class ListFunctionDefinitions(Paginator):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -617,6 +638,9 @@ class ListFunctionDefinitions(Paginator):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -827,7 +851,10 @@ class ListLoggerDefinitions(Paginator):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -843,6 +870,9 @@ class ListLoggerDefinitions(Paginator):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -940,7 +970,10 @@ class ListResourceDefinitions(Paginator):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -956,6 +989,9 @@ class ListResourceDefinitions(Paginator):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -1053,7 +1089,10 @@ class ListSubscriptionDefinitions(Paginator):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -1069,6 +1108,9 @@ class ListSubscriptionDefinitions(Paginator):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.

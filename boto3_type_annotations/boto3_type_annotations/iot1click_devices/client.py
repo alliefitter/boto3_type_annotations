@@ -1,10 +1,11 @@
 from typing import Optional
 from botocore.client import BaseClient
-from datetime import datetime
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -17,7 +18,7 @@ class Client(BaseClient):
     def describe_device(self, DeviceId: str) -> Dict:
         pass
 
-    def finalize_device_claim(self, DeviceId: str) -> Dict:
+    def finalize_device_claim(self, DeviceId: str, Tags: Dict = None) -> Dict:
         pass
 
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
@@ -44,7 +45,16 @@ class Client(BaseClient):
     def list_devices(self, DeviceType: str = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: Dict):
+        pass
+
     def unclaim_device(self, DeviceId: str) -> Dict:
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
         pass
 
     def update_device_state(self, DeviceId: str, Enabled: bool = None) -> Dict:

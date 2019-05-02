@@ -1,10 +1,10 @@
-from typing import Union
-from botocore.paginate import Paginator
 from typing import Optional
-from botocore.waiter import Waiter
-from datetime import datetime
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
+from typing import Union
 
 
 class Client(BaseClient):

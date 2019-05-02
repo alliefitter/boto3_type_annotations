@@ -1,16 +1,16 @@
 from typing import Optional
-from typing import Union
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
 from typing import Dict
+from botocore.paginate import Paginator
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_cluster(self, name: str, roleArn: str, resourcesVpcConfig: Dict, version: str = None, clientRequestToken: str = None) -> Dict:
+    def create_cluster(self, name: str, roleArn: str, resourcesVpcConfig: Dict, version: str = None, logging: Dict = None, clientRequestToken: str = None) -> Dict:
         pass
 
     def delete_cluster(self, name: str) -> Dict:
@@ -35,6 +35,9 @@ class Client(BaseClient):
         pass
 
     def list_updates(self, name: str, nextToken: str = None, maxResults: int = None) -> Dict:
+        pass
+
+    def update_cluster_config(self, name: str, resourcesVpcConfig: Dict = None, logging: Dict = None, clientRequestToken: str = None) -> Dict:
         pass
 
     def update_cluster_version(self, name: str, version: str, clientRequestToken: str = None) -> Dict:

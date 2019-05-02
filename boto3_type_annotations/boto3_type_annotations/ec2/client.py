@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
-from datetime import datetime
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -189,7 +189,7 @@ class Client(BaseClient):
     def create_network_acl_entry(self, Egress: bool, NetworkAclId: str, Protocol: str, RuleAction: str, RuleNumber: int, CidrBlock: str = None, DryRun: bool = None, IcmpTypeCode: Dict = None, Ipv6CidrBlock: str = None, PortRange: Dict = None):
         pass
 
-    def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> Dict:
+    def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None, InterfaceType: str = None) -> Dict:
         pass
 
     def create_network_interface_permission(self, NetworkInterfaceId: str, Permission: str, AwsAccountId: str = None, AwsService: str = None, DryRun: bool = None) -> Dict:
@@ -498,7 +498,7 @@ class Client(BaseClient):
     def describe_instances(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def describe_internet_gateways(self, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None) -> Dict:
+    def describe_internet_gateways(self, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def describe_key_pairs(self, Filters: List = None, KeyNames: List = None, DryRun: bool = None) -> Dict:
@@ -516,7 +516,7 @@ class Client(BaseClient):
     def describe_nat_gateways(self, Filters: List = None, MaxResults: int = None, NatGatewayIds: List = None, NextToken: str = None) -> Dict:
         pass
 
-    def describe_network_acls(self, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None) -> Dict:
+    def describe_network_acls(self, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def describe_network_interface_attribute(self, NetworkInterfaceId: str, Attribute: str = None, DryRun: bool = None) -> Dict:
@@ -657,7 +657,7 @@ class Client(BaseClient):
     def describe_vpc_peering_connections(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
-    def describe_vpcs(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None) -> Dict:
+    def describe_vpcs(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def describe_vpn_connections(self, Filters: List = None, VpnConnectionIds: List = None, DryRun: bool = None) -> Dict:
@@ -825,6 +825,9 @@ class Client(BaseClient):
     def modify_instance_credit_specification(self, InstanceCreditSpecifications: List, DryRun: bool = None, ClientToken: str = None) -> Dict:
         pass
 
+    def modify_instance_event_start_time(self, InstanceId: str, InstanceEventId: str, NotBefore: datetime, DryRun: bool = None) -> Dict:
+        pass
+
     def modify_instance_placement(self, InstanceId: str, Affinity: str = None, GroupName: str = None, HostId: str = None, Tenancy: str = None, PartitionNumber: int = None) -> Dict:
         pass
 
@@ -874,6 +877,9 @@ class Client(BaseClient):
         pass
 
     def modify_vpc_tenancy(self, VpcId: str, InstanceTenancy: str, DryRun: bool = None) -> Dict:
+        pass
+
+    def modify_vpn_connection(self, VpnConnectionId: str, TransitGatewayId: str = None, VpnGatewayId: str = None, DryRun: bool = None) -> Dict:
         pass
 
     def monitor_instances(self, InstanceIds: List, DryRun: bool = None) -> Dict:

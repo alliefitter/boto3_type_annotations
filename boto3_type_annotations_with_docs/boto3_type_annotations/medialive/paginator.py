@@ -32,6 +32,13 @@ class DescribeSchedule(Paginator):
                             'InputSwitchSettings': {
                                 'InputAttachmentNameReference': 'string'
                             },
+                            'PauseStateSettings': {
+                                'Pipelines': [
+                                    {
+                                        'PipelineId': 'PIPELINE_0'|'PIPELINE_1'
+                                    },
+                                ]
+                            },
                             'Scte35ReturnToNetworkSettings': {
                                 'SpliceEventId': 123
                             },
@@ -105,16 +112,20 @@ class DescribeSchedule(Paginator):
               - *(dict) --* Contains information on a single schedule action.
                 - **ActionName** *(string) --* The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
                 - **ScheduleActionSettings** *(dict) --* Settings for this schedule action.
-                  - **HlsTimedMetadataSettings** *(dict) --* Settings to emit HLS metadata
+                  - **HlsTimedMetadataSettings** *(dict) --* Action to insert HLS metadata
                     - **Id3** *(string) --* Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
-                  - **InputSwitchSettings** *(dict) --* Settings to switch an input
+                  - **InputSwitchSettings** *(dict) --* Action to switch the input
                     - **InputAttachmentNameReference** *(string) --* The name of the input attachment that should be switched to by this action.
-                  - **Scte35ReturnToNetworkSettings** *(dict) --* Settings for SCTE-35 return_to_network message
+                  - **PauseStateSettings** *(dict) --* Action to pause or unpause one or both channel pipelines
+                    - **Pipelines** *(list) --* Placeholder documentation for __listOfPipelinePauseStateSettings
+                      - *(dict) --* Settings for pausing a pipeline.
+                        - **PipelineId** *(string) --* Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
+                  - **Scte35ReturnToNetworkSettings** *(dict) --* Action to insert SCTE-35 return_to_network message
                     - **SpliceEventId** *(integer) --* The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                  - **Scte35SpliceInsertSettings** *(dict) --* Settings for SCTE-35 splice_insert message
+                  - **Scte35SpliceInsertSettings** *(dict) --* Action to insert SCTE-35 splice_insert message
                     - **Duration** *(integer) --* Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
                     - **SpliceEventId** *(integer) --* The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                  - **Scte35TimeSignalSettings** *(dict) --* Settings for SCTE-35 time_signal message
+                  - **Scte35TimeSignalSettings** *(dict) --* Action to insert SCTE-35 time_signal message
                     - **Scte35Descriptors** *(list) --* The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
                       - *(dict) --* Holds one set of SCTE-35 Descriptor Settings.
                         - **Scte35DescriptorSettings** *(dict) --* SCTE-35 Descriptor Settings.
@@ -134,7 +145,7 @@ class DescribeSchedule(Paginator):
                             - **SegmentsExpected** *(integer) --* Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
                             - **SubSegmentNum** *(integer) --* Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
                             - **SubSegmentsExpected** *(integer) --* Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
-                  - **StaticImageActivateSettings** *(dict) --* Settings to activate a static image overlay
+                  - **StaticImageActivateSettings** *(dict) --* Action to activate a static image overlay
                     - **Duration** *(integer) --* The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
                     - **FadeIn** *(integer) --* The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
                     - **FadeOut** *(integer) --* Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
@@ -148,7 +159,7 @@ class DescribeSchedule(Paginator):
                     - **Layer** *(integer) --* The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
                     - **Opacity** *(integer) --* Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
                     - **Width** *(integer) --* The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
-                  - **StaticImageDeactivateSettings** *(dict) --* Settings to deactivate a static image overlay
+                  - **StaticImageDeactivateSettings** *(dict) --* Action to deactivate a static image overlay
                     - **FadeOut** *(integer) --* The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
                     - **Layer** *(integer) --* The image overlay layer to deactivate, 0 to 7. Default is 0.
                 - **ScheduleActionStartSettings** *(dict) --* The time for the action to start in the channel.
@@ -196,9 +207,15 @@ class ListChannels(Paginator):
                 'Channels': [
                     {
                         'Arn': 'string',
+                        'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                         'Destinations': [
                             {
                                 'Id': 'string',
+                                'MediaPackageSettings': [
+                                    {
+                                        'ChannelId': 'string'
+                                    },
+                                ],
                                 'Settings': [
                                     {
                                         'PasswordParam': 'string',
@@ -300,7 +317,10 @@ class ListChannels(Paginator):
                         'Name': 'string',
                         'PipelinesRunningCount': 123,
                         'RoleArn': 'string',
-                        'State': 'CREATING'|'CREATE_FAILED'|'IDLE'|'STARTING'|'RUNNING'|'RECOVERING'|'STOPPING'|'DELETING'|'DELETED'
+                        'State': 'CREATING'|'CREATE_FAILED'|'IDLE'|'STARTING'|'RUNNING'|'RECOVERING'|'STOPPING'|'DELETING'|'DELETED',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -310,10 +330,14 @@ class ListChannels(Paginator):
             - **Channels** *(list) --* Placeholder documentation for __listOfChannelSummary
               - *(dict) --* Placeholder documentation for ChannelSummary
                 - **Arn** *(string) --* The unique arn of the channel.
+                - **ChannelClass** *(string) --* The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
                 - **Destinations** *(list) --* A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager. 
                   - *(dict) --* Placeholder documentation for OutputDestination
                     - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-                    - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+                    - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+                      - *(dict) --* Media Package Output Destination Settings
+                        - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+                    - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
                       - *(dict) --* Placeholder documentation for OutputDestinationSettings
                         - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                         - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -329,33 +353,33 @@ class ListChannels(Paginator):
                     - **InputId** *(string) --* The ID of the input
                     - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
                       - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                        - *(dict) --* Placeholder documentation for AudioSelector
+                        - *(dict) --* Audio Selector
                           - **Name** *(string) --* The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                           - **SelectorSettings** *(dict) --* The audio selector settings.
-                            - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                            - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                               - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                               - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
-                            - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                            - **AudioPidSelection** *(dict) --* Audio Pid Selection
                               - **Pid** *(integer) --* Selects a specific PID from within a source.
                       - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                         - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                           - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                           - **Name** *(string) --* Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                           - **SelectorSettings** *(dict) --* Caption selector settings.
-                            - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                            - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                            - **AribSourceSettings** *(dict) --* Arib Source Settings
+                            - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                               - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                            - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                            - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                               - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                               - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                               - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                               - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                            - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                            - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                               - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                               - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                            - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                            - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                               - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                            - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                            - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                               - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
                       - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                       - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -373,9 +397,9 @@ class ListChannels(Paginator):
                         - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                         - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                         - **SelectorSettings** *(dict) --* The video selector settings.
-                          - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                          - **VideoSelectorPid** *(dict) --* Video Selector Pid
                             - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                          - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                          - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                             - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
                 - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
                   - **Codec** *(string) --* Input codec
@@ -386,6 +410,9 @@ class ListChannels(Paginator):
                 - **PipelinesRunningCount** *(integer) --* The number of currently healthy pipelines.
                 - **RoleArn** *(string) --* The Amazon Resource Name (ARN) of the role assumed when running the Channel.
                 - **State** *(string) --* Placeholder documentation for ChannelState
+                - **Tags** *(dict) --* A collection of key-value pairs.
+                  - *(string) --* Placeholder documentation for __string
+                    - *(string) --* Placeholder documentation for __string
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -507,6 +534,7 @@ class ListInputs(Paginator):
                             },
                         ],
                         'Id': 'string',
+                        'InputClass': 'STANDARD'|'SINGLE_PIPELINE',
                         'MediaConnectFlows': [
                             {
                                 'FlowArn': 'string'
@@ -549,6 +577,7 @@ class ListInputs(Paginator):
                       - **AvailabilityZone** *(string) --* The availability zone of the Input destination. 
                       - **NetworkInterfaceId** *(string) --* The network interface ID of the Input destination in the VPC. 
                 - **Id** *(string) --* The generated ID of the input (unique for user account, immutable).
+                - **InputClass** *(string) --* STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input. 
                 - **MediaConnectFlows** *(list) --* A list of MediaConnect Flows for this input.
                   - *(dict) --* The settings for a MediaConnect Flow.
                     - **FlowArn** *(string) --* The unique ARN of the MediaConnect Flow being used as a source.
@@ -582,7 +611,7 @@ class ListInputs(Paginator):
 
 
 class ListOfferings(Paginator):
-    def paginate(self, ChannelConfiguration: str = None, Codec: str = None, MaximumBitrate: str = None, MaximumFramerate: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, ChannelClass: str = None, ChannelConfiguration: str = None, Codec: str = None, MaximumBitrate: str = None, MaximumFramerate: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None, PaginationConfig: Dict = None) -> Dict:
         """
         Creates an iterator that will paginate through responses from :py:meth:`MediaLive.Client.list_offerings`.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ListOfferings>`_
@@ -590,6 +619,7 @@ class ListOfferings(Paginator):
         **Request Syntax**
         ::
           response_iterator = paginator.paginate(
+              ChannelClass='string',
               ChannelConfiguration='string',
               Codec='string',
               MaximumBitrate='string',
@@ -620,6 +650,7 @@ class ListOfferings(Paginator):
                         'OfferingType': 'NO_UPFRONT',
                         'Region': 'string',
                         'ResourceSpecification': {
+                            'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                             'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
                             'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
                             'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
@@ -647,6 +678,7 @@ class ListOfferings(Paginator):
                 - **OfferingType** *(string) --* Offering type, e.g. 'NO_UPFRONT'
                 - **Region** *(string) --* AWS region, e.g. 'us-west-2'
                 - **ResourceSpecification** *(dict) --* Resource configuration details
+                  - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
                   - **Codec** *(string) --* Codec, e.g. 'AVC'
                   - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
                   - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
@@ -655,6 +687,8 @@ class ListOfferings(Paginator):
                   - **SpecialFeature** *(string) --* Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
                   - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
                 - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
+        :type ChannelClass: string
+        :param ChannelClass: Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
         :type ChannelConfiguration: string
         :param ChannelConfiguration: Filter to offerings that match the configuration of an existing channel, e.g. \'2345678\' (a channel ID)
         :type Codec: string
@@ -687,7 +721,7 @@ class ListOfferings(Paginator):
 
 
 class ListReservations(Paginator):
-    def paginate(self, Codec: str = None, MaximumBitrate: str = None, MaximumFramerate: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, ChannelClass: str = None, Codec: str = None, MaximumBitrate: str = None, MaximumFramerate: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None, PaginationConfig: Dict = None) -> Dict:
         """
         Creates an iterator that will paginate through responses from :py:meth:`MediaLive.Client.list_reservations`.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ListReservations>`_
@@ -695,6 +729,7 @@ class ListReservations(Paginator):
         **Request Syntax**
         ::
           response_iterator = paginator.paginate(
+              ChannelClass='string',
               Codec='string',
               MaximumBitrate='string',
               MaximumFramerate='string',
@@ -728,6 +763,7 @@ class ListReservations(Paginator):
                         'Region': 'string',
                         'ReservationId': 'string',
                         'ResourceSpecification': {
+                            'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                             'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
                             'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
                             'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
@@ -738,6 +774,9 @@ class ListReservations(Paginator):
                         },
                         'Start': 'string',
                         'State': 'ACTIVE'|'EXPIRED'|'CANCELED'|'DELETED',
+                        'Tags': {
+                            'string': 'string'
+                        },
                         'UsagePrice': 123.0
                     },
                 ]
@@ -761,6 +800,7 @@ class ListReservations(Paginator):
                 - **Region** *(string) --* AWS region, e.g. 'us-west-2'
                 - **ReservationId** *(string) --* Unique reservation ID, e.g. '1234567'
                 - **ResourceSpecification** *(dict) --* Resource configuration details
+                  - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
                   - **Codec** *(string) --* Codec, e.g. 'AVC'
                   - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
                   - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
@@ -770,7 +810,12 @@ class ListReservations(Paginator):
                   - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
                 - **Start** *(string) --* Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
                 - **State** *(string) --* Current state of reservation, e.g. 'ACTIVE'
+                - **Tags** *(dict) --* A collection of key-value pairs
+                  - *(string) --* Placeholder documentation for __string
+                    - *(string) --* Placeholder documentation for __string
                 - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
+        :type ChannelClass: string
+        :param ChannelClass: Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
         :type Codec: string
         :param Codec: Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', or \'AUDIO\'
         :type MaximumBitrate: string

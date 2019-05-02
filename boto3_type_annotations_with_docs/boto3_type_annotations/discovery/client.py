@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -61,7 +61,7 @@ class Client(BaseClient):
                 'errors': [
                     {
                         'importTaskId': 'string',
-                        'errorCode': 'NOT_FOUND'|'INTERNAL_SERVER_ERROR',
+                        'errorCode': 'NOT_FOUND'|'INTERNAL_SERVER_ERROR'|'OVER_LIMIT',
                         'errorDescription': 'string'
                     },
                 ]
@@ -699,7 +699,7 @@ class Client(BaseClient):
                         'clientRequestToken': 'string',
                         'name': 'string',
                         'importUrl': 'string',
-                        'status': 'IMPORT_IN_PROGRESS'|'IMPORT_COMPLETE'|'IMPORT_FAILED'|'IMPORT_FAILED_SERVER_LIMIT_EXCEEDED'|'IMPORT_FAILED_RECORD_LIMIT_EXCEEDED'|'DELETE_IN_PROGRESS'|'DELETE_COMPLETE'|'DELETE_FAILED'|'DELETE_FAILED_LIMIT_EXCEEDED',
+                        'status': 'IMPORT_IN_PROGRESS'|'IMPORT_COMPLETE'|'IMPORT_COMPLETE_WITH_ERRORS'|'IMPORT_FAILED'|'IMPORT_FAILED_SERVER_LIMIT_EXCEEDED'|'IMPORT_FAILED_RECORD_LIMIT_EXCEEDED'|'DELETE_IN_PROGRESS'|'DELETE_COMPLETE'|'DELETE_FAILED'|'DELETE_FAILED_LIMIT_EXCEEDED'|'INTERNAL_ERROR',
                         'importRequestTime': datetime(2015, 1, 1),
                         'importCompletionTime': datetime(2015, 1, 1),
                         'importDeletedTime': datetime(2015, 1, 1),
@@ -1379,7 +1379,7 @@ class Client(BaseClient):
                     'clientRequestToken': 'string',
                     'name': 'string',
                     'importUrl': 'string',
-                    'status': 'IMPORT_IN_PROGRESS'|'IMPORT_COMPLETE'|'IMPORT_FAILED'|'IMPORT_FAILED_SERVER_LIMIT_EXCEEDED'|'IMPORT_FAILED_RECORD_LIMIT_EXCEEDED'|'DELETE_IN_PROGRESS'|'DELETE_COMPLETE'|'DELETE_FAILED'|'DELETE_FAILED_LIMIT_EXCEEDED',
+                    'status': 'IMPORT_IN_PROGRESS'|'IMPORT_COMPLETE'|'IMPORT_COMPLETE_WITH_ERRORS'|'IMPORT_FAILED'|'IMPORT_FAILED_SERVER_LIMIT_EXCEEDED'|'IMPORT_FAILED_RECORD_LIMIT_EXCEEDED'|'DELETE_IN_PROGRESS'|'DELETE_COMPLETE'|'DELETE_FAILED'|'DELETE_FAILED_LIMIT_EXCEEDED'|'INTERNAL_ERROR',
                     'importRequestTime': datetime(2015, 1, 1),
                     'importCompletionTime': datetime(2015, 1, 1),
                     'importDeletedTime': datetime(2015, 1, 1),

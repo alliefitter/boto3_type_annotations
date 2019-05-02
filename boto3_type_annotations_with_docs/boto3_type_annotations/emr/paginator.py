@@ -1,6 +1,6 @@
+from typing import Dict
 from typing import List
 from datetime import datetime
-from typing import Dict
 from botocore.paginate import Paginator
 
 
@@ -325,7 +325,7 @@ class ListInstanceFleets(Paginator):
                       - *(dict) --* 
                         .. note::
                           Amazon EMR releases 4.x or later.
-                        An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                        An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                         - **Classification** *(string) --* 
                           The classification within a configuration.
                         - **Configurations** *(list) --* 
@@ -411,7 +411,7 @@ class ListInstanceGroups(Paginator):
                         'RequestedInstanceCount': 123,
                         'RunningInstanceCount': 123,
                         'Status': {
-                            'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
+                            'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RECONFIGURING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
                             'StateChangeReason': {
                                 'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'CLUSTER_TERMINATED',
                                 'Message': 'string'
@@ -431,6 +431,17 @@ class ListInstanceGroups(Paginator):
                                 }
                             },
                         ],
+                        'ConfigurationsVersion': 123,
+                        'LastSuccessfullyAppliedConfigurations': [
+                            {
+                                'Classification': 'string',
+                                'Configurations': {'... recursive ...'},
+                                'Properties': {
+                                    'string': 'string'
+                                }
+                            },
+                        ],
+                        'LastSuccessfullyAppliedConfigurationsVersion': 123,
                         'EbsBlockDevices': [
                             {
                                 'VolumeSpecification': {
@@ -553,7 +564,7 @@ class ListInstanceGroups(Paginator):
                   - *(dict) --* 
                     .. note::
                       Amazon EMR releases 4.x or later.
-                    An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                    An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                     - **Classification** *(string) --* 
                       The classification within a configuration.
                     - **Configurations** *(list) --* 
@@ -562,6 +573,24 @@ class ListInstanceGroups(Paginator):
                       A set of properties specified within a configuration classification.
                       - *(string) --* 
                         - *(string) --* 
+                - **ConfigurationsVersion** *(integer) --* 
+                  The version number of the requested configuration specification for this instance group.
+                - **LastSuccessfullyAppliedConfigurations** *(list) --* 
+                  A list of configurations that were successfully applied for an instance group last time.
+                  - *(dict) --* 
+                    .. note::
+                      Amazon EMR releases 4.x or later.
+                    An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                    - **Classification** *(string) --* 
+                      The classification within a configuration.
+                    - **Configurations** *(list) --* 
+                      A list of additional configurations to apply within a configuration object.
+                    - **Properties** *(dict) --* 
+                      A set of properties specified within a configuration classification.
+                      - *(string) --* 
+                        - *(string) --* 
+                - **LastSuccessfullyAppliedConfigurationsVersion** *(integer) --* 
+                  The version number of a configuration specification that was successfully applied for an instance group last time. 
                 - **EbsBlockDevices** *(list) --* 
                   The EBS block devices that are mapped to this instance group.
                   - *(dict) --* 

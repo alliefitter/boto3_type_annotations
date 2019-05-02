@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -43,6 +43,35 @@ class Client(BaseClient):
           * ``IMPORTED`` - Accept imported portfolios.
           * ``AWS_SERVICECATALOG`` - Not supported. (Throws ResourceNotFoundException.)
           For example, ``aws servicecatalog accept-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS``
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def associate_budget_with_resource(self, BudgetName: str, ResourceId: str) -> Dict:
+        """
+        Associates the specified budget with the specified resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/AssociateBudgetWithResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.associate_budget_with_resource(
+              BudgetName='string',
+              ResourceId='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type BudgetName: string
+        :param BudgetName: **[REQUIRED]**
+          The name of the budget you want to associate.
+        :type ResourceId: string
+        :param ResourceId: **[REQUIRED]**
+          The resource identifier. Either a portfolio-id or a product-id.
         :rtype: dict
         :returns:
         """
@@ -494,6 +523,10 @@ class Client(BaseClient):
             NOTIFICATION
           Specify the ``NotificationArns`` property as follows:
            ``{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}``
+            RESOURCE_UPDATE
+          Specify the ``TagUpdatesOnProvisionedProduct`` property as follows:
+           ``{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}``
+          The ``TagUpdatesOnProvisionedProduct`` property accepts a string value of ``ALLOWED`` or ``NOT_ALLOWED`` .
             STACKSET
           Specify the ``Parameters`` property as follows:
            ``{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}``
@@ -507,6 +540,7 @@ class Client(BaseClient):
           The type of constraint.
           * ``LAUNCH``
           * ``NOTIFICATION``
+          * ``RESOURCE_UPDATE``
           * ``STACKSET``
           * ``TEMPLATE``
         :type Description: string
@@ -698,7 +732,8 @@ class Client(BaseClient):
                   'Info': {
                       'string': 'string'
                   },
-                  'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR'
+                  'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR',
+                  'DisableTemplateValidation': True|False
               },
               IdempotencyToken='string'
           )
@@ -858,6 +893,8 @@ class Client(BaseClient):
             * ``CLOUD_FORMATION_TEMPLATE`` - AWS CloudFormation template
             * ``MARKETPLACE_AMI`` - AWS Marketplace AMI
             * ``MARKETPLACE_CAR`` - AWS Marketplace Clusters and AWS Resources
+          - **DisableTemplateValidation** *(boolean) --*
+            If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
         :type IdempotencyToken: string
         :param IdempotencyToken: **[REQUIRED]**
           A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
@@ -999,7 +1036,8 @@ class Client(BaseClient):
                   'Info': {
                       'string': 'string'
                   },
-                  'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR'
+                  'Type': 'CLOUD_FORMATION_TEMPLATE'|'MARKETPLACE_AMI'|'MARKETPLACE_CAR',
+                  'DisableTemplateValidation': True|False
               },
               IdempotencyToken='string'
           )
@@ -1072,6 +1110,8 @@ class Client(BaseClient):
             * ``CLOUD_FORMATION_TEMPLATE`` - AWS CloudFormation template
             * ``MARKETPLACE_AMI`` - AWS Marketplace AMI
             * ``MARKETPLACE_CAR`` - AWS Marketplace Clusters and AWS Resources
+          - **DisableTemplateValidation** *(boolean) --*
+            If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
         :type IdempotencyToken: string
         :param IdempotencyToken: **[REQUIRED]**
           A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
@@ -1635,6 +1675,11 @@ class Client(BaseClient):
                         'Active': True|False,
                         'Id': 'string'
                     },
+                ],
+                'Budgets': [
+                    {
+                        'BudgetName': 'string'
+                    },
                 ]
             }
         
@@ -1674,6 +1719,12 @@ class Client(BaseClient):
                   The TagOption active state.
                 - **Id** *(string) --* 
                   The TagOption identifier.
+            - **Budgets** *(list) --* 
+              Information about the associated budgets.
+              - *(dict) --* 
+                Information about a budget.
+                - **BudgetName** *(string) --* 
+                  Name of the associated budget.
         :type AcceptLanguage: string
         :param AcceptLanguage:
           The language code.
@@ -1791,6 +1842,11 @@ class Client(BaseClient):
                         'Description': 'string',
                         'CreatedTime': datetime(2015, 1, 1)
                     },
+                ],
+                'Budgets': [
+                    {
+                        'BudgetName': 'string'
+                    },
                 ]
             }
         
@@ -1832,6 +1888,12 @@ class Client(BaseClient):
                   The description of the provisioning artifact.
                 - **CreatedTime** *(datetime) --* 
                   The UTC time stamp of the creation time.
+            - **Budgets** *(list) --* 
+              Information about the associated budgets.
+              - *(dict) --* 
+                Information about a budget.
+                - **BudgetName** *(string) --* 
+                  Name of the associated budget.
         :type AcceptLanguage: string
         :param AcceptLanguage:
           The language code.
@@ -1902,6 +1964,11 @@ class Client(BaseClient):
                         'Value': 'string',
                         'Active': True|False,
                         'Id': 'string'
+                    },
+                ],
+                'Budgets': [
+                    {
+                        'BudgetName': 'string'
                     },
                 ]
             }
@@ -1979,6 +2046,12 @@ class Client(BaseClient):
                   The TagOption active state.
                 - **Id** *(string) --* 
                   The TagOption identifier.
+            - **Budgets** *(list) --* 
+              Information about the associated budgets.
+              - *(dict) --* 
+                Information about a budget.
+                - **BudgetName** *(string) --* 
+                  Name of the associated budget.
         :type AcceptLanguage: string
         :param AcceptLanguage:
           The language code.
@@ -2821,6 +2894,35 @@ class Client(BaseClient):
         """
         pass
 
+    def disassociate_budget_from_resource(self, BudgetName: str, ResourceId: str) -> Dict:
+        """
+        Disassociates the specified budget from the specified resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisassociateBudgetFromResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.disassociate_budget_from_resource(
+              BudgetName='string',
+              ResourceId='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type BudgetName: string
+        :param BudgetName: **[REQUIRED]**
+          The name of the budget you want to disassociate.
+        :type ResourceId: string
+        :param ResourceId: **[REQUIRED]**
+          The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def disassociate_principal_from_portfolio(self, PortfolioId: str, PrincipalARN: str, AcceptLanguage: str = None) -> Dict:
         """
         Disassociates a previously associated principal ARN from a specified portfolio.
@@ -3348,6 +3450,61 @@ class Client(BaseClient):
           * ``AWS_ORGANIZATIONS`` - List portfolios shared by the master account of your organization
           * ``AWS_SERVICECATALOG`` - List default portfolios
           * ``IMPORTED`` - List imported portfolios
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_budgets_for_resource(self, ResourceId: str, AcceptLanguage: str = None, PageSize: int = None, PageToken: str = None) -> Dict:
+        """
+        Lists all the budgets associated to the specified resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListBudgetsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_budgets_for_resource(
+              AcceptLanguage='string',
+              ResourceId='string',
+              PageSize=123,
+              PageToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Budgets': [
+                    {
+                        'BudgetName': 'string'
+                    },
+                ],
+                'NextPageToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Budgets** *(list) --* 
+              Information about the associated budgets.
+              - *(dict) --* 
+                Information about a budget.
+                - **BudgetName** *(string) --* 
+                  Name of the associated budget.
+            - **NextPageToken** *(string) --* 
+              The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+        :type AcceptLanguage: string
+        :param AcceptLanguage:
+          The language code.
+          * ``en`` - English (default)
+          * ``jp`` - Japanese
+          * ``zh`` - Chinese
+        :type ResourceId: string
+        :param ResourceId: **[REQUIRED]**
+          The resource identifier.
+        :type PageSize: integer
+        :param PageSize:
+          The maximum number of items to return with this call.
+        :type PageToken: string
+        :param PageToken:
+          The page token for the next set of results. To retrieve the first set of results, use null.
         :rtype: dict
         :returns:
         """
@@ -5653,7 +5810,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_provisioned_product(self, UpdateToken: str, AcceptLanguage: str = None, ProvisionedProductName: str = None, ProvisionedProductId: str = None, ProductId: str = None, ProvisioningArtifactId: str = None, PathId: str = None, ProvisioningParameters: List = None, ProvisioningPreferences: Dict = None) -> Dict:
+    def update_provisioned_product(self, UpdateToken: str, AcceptLanguage: str = None, ProvisionedProductName: str = None, ProvisionedProductId: str = None, ProductId: str = None, ProvisioningArtifactId: str = None, PathId: str = None, ProvisioningParameters: List = None, ProvisioningPreferences: Dict = None, Tags: List = None) -> Dict:
         """
         Requests updates to the configuration of the specified provisioned product.
         If there are tags associated with the object, they cannot be updated or added. Depending on the specific updates requested, this operation can update with no interruption, with some interruption, or replace the provisioned product entirely.
@@ -5689,6 +5846,12 @@ class Client(BaseClient):
                   'StackSetMaxConcurrencyPercentage': 123,
                   'StackSetOperationType': 'CREATE'|'UPDATE'|'DELETE'
               },
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ],
               UpdateToken='string'
           )
         
@@ -5849,6 +6012,15 @@ class Client(BaseClient):
             Updates the stack set represented by the provisioned product and also its stack instances.
               DELETE
             Deletes a stack instance in the stack set represented by the provisioned product.
+        :type Tags: list
+        :param Tags:
+          One or more tags. Requires the product to have ``RESOURCE_UPDATE`` constraint with ``TagUpdatesOnProvisionedProduct`` set to ``ALLOWED`` to allow tag updates.
+          - *(dict) --*
+            Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+            - **Key** *(string) --* **[REQUIRED]**
+              The tag key.
+            - **Value** *(string) --* **[REQUIRED]**
+              The value for this key.
         :type UpdateToken: string
         :param UpdateToken: **[REQUIRED]**
           The idempotency token that uniquely identifies the provisioning update request.

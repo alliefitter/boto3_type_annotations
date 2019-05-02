@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -49,7 +49,6 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **ExchangedReservedNode** *(dict) --* 
-              Describes a reserved node. You can call the  DescribeReservedNodeOfferings API to obtain the available reserved node offerings. 
               - **ReservedNodeId** *(string) --* 
                 The unique identifier for the reservation.
               - **ReservedNodeOfferingId** *(string) --* 
@@ -103,7 +102,7 @@ class Client(BaseClient):
         Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether the application accessing your cluster is running on the Internet or an Amazon EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as many as 20 ingress rules to an Amazon Redshift security group.
         If you authorize access to an Amazon EC2 security group, specify *EC2SecurityGroupName* and *EC2SecurityGroupOwnerId* . The Amazon EC2 security group and Amazon Redshift cluster must be in the same AWS Region. 
         If you authorize access to a CIDR/IP address range, specify *CIDRIP* . For an overview of CIDR blocks, see the Wikipedia article on `Classless Inter-Domain Routing <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__ . 
-        You must also associate the security group with a cluster so that clients running on these IP addresses or the EC2 instance are authorized to connect to the cluster. For information about managing security groups, go to `Working with Security Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        You must also associate the security group with a cluster so that clients running on these IP addresses or the EC2 instance are authorized to connect to the cluster. For information about managing security groups, go to `Working with Security Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/AuthorizeClusterSecurityGroupIngress>`_
         
         **Request Syntax**
@@ -226,7 +225,7 @@ class Client(BaseClient):
     def authorize_snapshot_access(self, SnapshotIdentifier: str, AccountWithRestoreAccess: str, SnapshotClusterIdentifier: str = None) -> Dict:
         """
         Authorizes the specified AWS customer account to restore the specified snapshot.
-        For more information about working with snapshots, go to `Amazon Redshift Snapshots <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about working with snapshots, go to `Amazon Redshift Snapshots <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/AuthorizeSnapshotAccess>`_
         
         **Request Syntax**
@@ -366,7 +365,7 @@ class Client(BaseClient):
                 The list of node types that this cluster snapshot is able to restore into.
                 - *(string) --* 
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **MaintenanceTrackName** *(string) --* 
@@ -571,7 +570,8 @@ class Client(BaseClient):
                 'EstimatedTimeToCompletionInSeconds': 123,
                 'ResizeType': 'string',
                 'Message': 'string',
-                'TargetEncryptionType': 'string'
+                'TargetEncryptionType': 'string',
+                'DataTransferProgressPercent': 123.0
             }
         
         **Response Structure**
@@ -616,6 +616,8 @@ class Client(BaseClient):
             - **TargetEncryptionType** *(string) --* 
               The type of encryption for the cluster after the resize is complete.
               Possible values are ``KMS`` and ``None`` . In the China region possible values are: ``Legacy`` and ``None`` .
+            - **DataTransferProgressPercent** *(float) --* 
+              The percent of data transferred from source cluster to target cluster.
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]**
           The unique identifier for the cluster that you want to cancel a resize operation for.
@@ -628,7 +630,7 @@ class Client(BaseClient):
         """
         Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated snapshot and it must be in the available state.
         When you delete a cluster, Amazon Redshift deletes any automated snapshots of the cluster. Also, when the retention period of the snapshot expires, Amazon Redshift automatically deletes it. If you want to keep an automated snapshot for a longer period, you can make a manual copy of the snapshot. Manual snapshots are retained until you delete them.
-        For more information about working with snapshots, go to `Amazon Redshift Snapshots <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about working with snapshots, go to `Amazon Redshift Snapshots <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CopyClusterSnapshot>`_
         
         **Request Syntax**
@@ -769,7 +771,7 @@ class Client(BaseClient):
                 The list of node types that this cluster snapshot is able to restore into.
                 - *(string) --* 
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **MaintenanceTrackName** *(string) --* 
@@ -813,7 +815,7 @@ class Client(BaseClient):
     def create_cluster(self, ClusterIdentifier: str, NodeType: str, MasterUsername: str, MasterUserPassword: str, DBName: str = None, ClusterType: str = None, ClusterSecurityGroups: List = None, VpcSecurityGroupIds: List = None, ClusterSubnetGroupName: str = None, AvailabilityZone: str = None, PreferredMaintenanceWindow: str = None, ClusterParameterGroupName: str = None, AutomatedSnapshotRetentionPeriod: int = None, ManualSnapshotRetentionPeriod: int = None, Port: int = None, ClusterVersion: str = None, AllowVersionUpgrade: bool = None, NumberOfNodes: int = None, PubliclyAccessible: bool = None, Encrypted: bool = None, HsmClientCertificateIdentifier: str = None, HsmConfigurationIdentifier: str = None, ElasticIp: str = None, Tags: List = None, KmsKeyId: str = None, EnhancedVpcRouting: bool = None, AdditionalInfo: str = None, IamRoles: List = None, MaintenanceTrackName: str = None, SnapshotScheduleIdentifier: str = None) -> Dict:
         """
         Creates a new cluster.
-        To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to `Amazon Redshift Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateCluster>`_
         
         **Request Syntax**
@@ -1076,7 +1078,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -1120,7 +1122,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -1152,7 +1154,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -1217,7 +1218,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -1264,12 +1265,12 @@ class Client(BaseClient):
         :type DBName: string
         :param DBName:
           The name of the first database to be created when the cluster is created.
-          To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to `Create a Database <http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html>`__ in the Amazon Redshift Database Developer Guide.
+          To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to `Create a Database <https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html>`__ in the Amazon Redshift Database Developer Guide.
           Default: ``dev``
           Constraints:
           * Must contain 1 to 64 alphanumeric characters.
           * Must contain only lowercase letters.
-          * Cannot be a word that is reserved by the service. A list of reserved words can be found in `Reserved Words <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html>`__ in the Amazon Redshift Database Developer Guide.
+          * Cannot be a word that is reserved by the service. A list of reserved words can be found in `Reserved Words <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html>`__ in the Amazon Redshift Database Developer Guide.
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]**
           A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console.
@@ -1289,7 +1290,7 @@ class Client(BaseClient):
           Default: ``multi-node``
         :type NodeType: string
         :param NodeType: **[REQUIRED]**
-          The node type to be provisioned for the cluster. For information about node types, go to `Working with Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes>`__ in the *Amazon Redshift Cluster Management Guide* .
+          The node type to be provisioned for the cluster. For information about node types, go to `Working with Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes>`__ in the *Amazon Redshift Cluster Management Guide* .
           Valid Values: ``ds2.xlarge`` | ``ds2.8xlarge`` | ``ds2.xlarge`` | ``ds2.8xlarge`` | ``dc1.large`` | ``dc1.8xlarge`` | ``dc2.large`` | ``dc2.8xlarge``
         :type MasterUsername: string
         :param MasterUsername: **[REQUIRED]**
@@ -1297,7 +1298,7 @@ class Client(BaseClient):
           Constraints:
           * Must be 1 - 128 alphanumeric characters. The user name can\'t be ``PUBLIC`` .
           * First character must be a letter.
-          * Cannot be a reserved word. A list of reserved words can be found in `Reserved Words <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html>`__ in the Amazon Redshift Database Developer Guide.
+          * Cannot be a reserved word. A list of reserved words can be found in `Reserved Words <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html>`__ in the Amazon Redshift Database Developer Guide.
         :type MasterUserPassword: string
         :param MasterUserPassword: **[REQUIRED]**
           The password associated with the master user account for the cluster that is being created.
@@ -1331,13 +1332,13 @@ class Client(BaseClient):
         :param PreferredMaintenanceWindow:
           The weekly time range (in UTC) during which automated cluster maintenance can occur.
           Format: ``ddd:hh24:mi-ddd:hh24:mi``
-          Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see `Maintenance Windows <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows>`__ in Amazon Redshift Cluster Management Guide.
+          Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see `Maintenance Windows <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows>`__ in Amazon Redshift Cluster Management Guide.
           Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
           Constraints: Minimum 30-minute window.
         :type ClusterParameterGroupName: string
         :param ClusterParameterGroupName:
           The name of the parameter group to be associated with this cluster.
-          Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to `Working with Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__
+          Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to `Working with Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__
           Constraints:
           * Must be 1 to 255 alphanumeric characters or hyphens.
           * First character must be a letter.
@@ -1371,7 +1372,7 @@ class Client(BaseClient):
         :type NumberOfNodes: integer
         :param NumberOfNodes:
           The number of compute nodes in the cluster. This parameter is required when the **ClusterType** parameter is specified as ``multi-node`` .
-          For information about determining how many nodes you need, go to `Working with Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes>`__ in the *Amazon Redshift Cluster Management Guide* .
+          For information about determining how many nodes you need, go to `Working with Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes>`__ in the *Amazon Redshift Cluster Management Guide* .
           If you don\'t specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster.
           Default: ``1``
           Constraints: Value must be at least 1 and no more than 100.
@@ -1391,7 +1392,7 @@ class Client(BaseClient):
         :type ElasticIp: string
         :param ElasticIp:
           The Elastic IP (EIP) address for the cluster.
-          Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to `Supported Platforms to Launch Your Cluster <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms>`__ in the Amazon Redshift Cluster Management Guide.
+          Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to `Supported Platforms to Launch Your Cluster <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms>`__ in the Amazon Redshift Cluster Management Guide.
         :type Tags: list
         :param Tags:
           A list of tag instances.
@@ -1406,7 +1407,7 @@ class Client(BaseClient):
           The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
         :type EnhancedVpcRouting: boolean
         :param EnhancedVpcRouting:
-          An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+          An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
           If this option is ``true`` , enhanced VPC routing is enabled.
           Default: false
         :type AdditionalInfo: string
@@ -1432,7 +1433,7 @@ class Client(BaseClient):
         """
         Creates an Amazon Redshift parameter group.
         Creating parameter groups is independent of creating clusters. You can associate a cluster with a parameter group when you create the cluster. You can also associate an existing cluster with a parameter group after the cluster is created by using  ModifyCluster . 
-        Parameters in the parameter group define specific behavior that applies to the databases you create on the cluster. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        Parameters in the parameter group define specific behavior that applies to the databases you create on the cluster. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateClusterParameterGroup>`_
         
         **Request Syntax**
@@ -1517,7 +1518,7 @@ class Client(BaseClient):
     def create_cluster_security_group(self, ClusterSecurityGroupName: str, Description: str, Tags: List = None) -> Dict:
         """
         Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
-        For information about managing security groups, go to `Amazon Redshift Cluster Security Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For information about managing security groups, go to `Amazon Redshift Cluster Security Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateClusterSecurityGroup>`_
         
         **Request Syntax**
@@ -1651,7 +1652,7 @@ class Client(BaseClient):
     def create_cluster_snapshot(self, SnapshotIdentifier: str, ClusterIdentifier: str, ManualSnapshotRetentionPeriod: int = None, Tags: List = None) -> Dict:
         """
         Creates a manual snapshot of the specified cluster. The cluster must be in the ``available`` state. 
-        For more information about working with snapshots, go to `Amazon Redshift Snapshots <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about working with snapshots, go to `Amazon Redshift Snapshots <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateClusterSnapshot>`_
         
         **Request Syntax**
@@ -1797,7 +1798,7 @@ class Client(BaseClient):
                 The list of node types that this cluster snapshot is able to restore into.
                 - *(string) --* 
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **MaintenanceTrackName** *(string) --* 
@@ -1843,7 +1844,7 @@ class Client(BaseClient):
     def create_cluster_subnet_group(self, ClusterSubnetGroupName: str, Description: str, SubnetIds: List, Tags: List = None) -> Dict:
         """
         Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
-        For information about subnet groups, go to `Amazon Redshift Cluster Subnet Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For information about subnet groups, go to `Amazon Redshift Cluster Subnet Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateClusterSubnetGroup>`_
         
         **Request Syntax**
@@ -1912,7 +1913,6 @@ class Client(BaseClient):
                   - **SubnetIdentifier** *(string) --* 
                     The identifier of the subnet.
                   - **SubnetAvailabilityZone** *(dict) --* 
-                    Describes an availability zone.
                     - **Name** *(string) --* 
                       The name of the availability zone.
                     - **SupportedPlatforms** *(list) --* 
@@ -2103,7 +2103,7 @@ class Client(BaseClient):
     def create_hsm_client_certificate(self, HsmClientCertificateIdentifier: str, Tags: List = None) -> Dict:
         """
         Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
-        The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate, you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and use encryption keys in the HSM. For more information, go to `Hardware Security Modules <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html>`__ in the Amazon Redshift Cluster Management Guide.
+        The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate, you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and use encryption keys in the HSM. For more information, go to `Hardware Security Modules <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html>`__ in the Amazon Redshift Cluster Management Guide.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateHsmClientCertificate>`_
         
         **Request Syntax**
@@ -2169,7 +2169,7 @@ class Client(BaseClient):
     def create_hsm_configuration(self, HsmConfigurationIdentifier: str, Description: str, HsmIpAddress: str, HsmPartitionName: str, HsmPartitionPassword: str, HsmServerPublicCertificate: str, Tags: List = None) -> Dict:
         """
         Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.
-        In addition to creating an HSM configuration, you must also create an HSM client certificate. For more information, go to `Hardware Security Modules <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html>`__ in the Amazon Redshift Cluster Management Guide.
+        In addition to creating an HSM configuration, you must also create an HSM client certificate. For more information, go to `Hardware Security Modules <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html>`__ in the Amazon Redshift Cluster Management Guide.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateHsmConfiguration>`_
         
         **Request Syntax**
@@ -2261,7 +2261,7 @@ class Client(BaseClient):
     def create_snapshot_copy_grant(self, SnapshotCopyGrantName: str, KmsKeyId: str = None, Tags: List = None) -> Dict:
         """
         Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a destination region.
-        For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
+        For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateSnapshotCopyGrant>`_
         
         **Request Syntax**
@@ -2296,7 +2296,7 @@ class Client(BaseClient):
           - *(dict) --* 
             - **SnapshotCopyGrant** *(dict) --* 
               The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.
-              For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
+              For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
               - **SnapshotCopyGrantName** *(string) --* 
                 The name of the snapshot copy grant.
               - **KmsKeyId** *(string) --* 
@@ -2388,7 +2388,7 @@ class Client(BaseClient):
           - *(dict) --* 
             Describes a snapshot schedule. You can set a regular interval for creating snapshots of a cluster. You can also schedule snapshots for specific dates. 
             - **ScheduleDefinitions** *(list) --* 
-              A list of ScheduleDefinitions
+              A list of ScheduleDefinitions.
               - *(string) --* 
             - **ScheduleIdentifier** *(string) --* 
               A unique identifier for the schedule.
@@ -2405,7 +2405,9 @@ class Client(BaseClient):
             - **NextInvocations** *(list) --* 
               - *(datetime) --* 
             - **AssociatedClusterCount** *(integer) --* 
+              The number of clusters associated with the schedule.
             - **AssociatedClusters** *(list) --* 
+              A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
               - *(dict) --* 
                 - **ClusterIdentifier** *(string) --* 
                 - **ScheduleAssociationState** *(string) --* 
@@ -2421,6 +2423,7 @@ class Client(BaseClient):
           The description of the snapshot schedule.
         :type Tags: list
         :param Tags:
+          An optional set of tags you can use to search for the schedule.
           - *(dict) --*
             A tag consisting of a name/value pair for a resource.
             - **Key** *(string) --*
@@ -2472,9 +2475,9 @@ class Client(BaseClient):
 
     def delete_cluster(self, ClusterIdentifier: str, SkipFinalClusterSnapshot: bool = None, FinalClusterSnapshotIdentifier: str = None, FinalClusterSnapshotRetentionPeriod: int = None) -> Dict:
         """
-        Deletes a previously provisioned cluster. A successful response from the web service indicates that the request was received correctly. Use  DescribeClusters to monitor the status of the deletion. The delete operation cannot be canceled or reverted once submitted. For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        Deletes a previously provisioned cluster. A successful response from the web service indicates that the request was received correctly. Use  DescribeClusters to monitor the status of the deletion. The delete operation cannot be canceled or reverted once submitted. For more information about managing clusters, go to `Amazon Redshift Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         If you want to shut down the cluster and retain it for future use, set *SkipFinalClusterSnapshot* to ``false`` and specify a name for *FinalClusterSnapshotIdentifier* . You can later restore this snapshot to resume using the cluster. If a final cluster snapshot is requested, the status of the cluster will be "final-snapshot" while the snapshot is being taken, then it's "deleting" once Amazon Redshift begins deleting the cluster. 
-        For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about managing clusters, go to `Amazon Redshift Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteCluster>`_
         
         **Request Syntax**
@@ -2700,7 +2703,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -2744,7 +2747,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -2776,7 +2779,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -2841,7 +2843,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -2943,7 +2945,7 @@ class Client(BaseClient):
         Deletes an Amazon Redshift security group.
         .. note::
           You cannot delete a security group that is associated with any clusters. You cannot delete the default security group.
-        For information about managing security groups, go to `Amazon Redshift Cluster Security Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For information about managing security groups, go to `Amazon Redshift Cluster Security Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteClusterSecurityGroup>`_
         
         **Request Syntax**
@@ -3100,7 +3102,7 @@ class Client(BaseClient):
                 The list of node types that this cluster snapshot is able to restore into.
                 - *(string) --* 
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **MaintenanceTrackName** *(string) --* 
@@ -3379,7 +3381,7 @@ class Client(BaseClient):
     def describe_cluster_parameter_groups(self, ParameterGroupName: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None) -> Dict:
         """
         Returns a list of Amazon Redshift parameter groups, including parameter groups you created and the default parameter group. For each parameter group, the response includes the parameter group name, description, and parameter group family name. You can optionally specify a name to retrieve the description of a specific parameter group.
-        For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         If you specify both tag keys and tag values in the same request, Amazon Redshift returns all parameter groups that match any combination of the specified keys and values. For example, if you have ``owner`` and ``environment`` for tag keys, and ``admin`` and ``test`` for tag values, all parameter groups that have any combination of those values are returned.
         If both tag keys and values are omitted from the request, parameter groups are returned regardless of whether they have tag keys or values associated with them.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusterParameterGroups>`_
@@ -3468,7 +3470,7 @@ class Client(BaseClient):
         """
         Returns a detailed list of parameters contained within the specified Amazon Redshift parameter group. For each parameter the response includes information such as parameter name, description, data type, value, whether the parameter value is modifiable, and so on.
         You can specify *source* filter to retrieve parameters of only specific type. For example, to retrieve parameters that were modified by a user action such as from  ModifyClusterParameterGroup , you can specify *source* equal to *user* .
-        For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusterParameters>`_
         
         **Request Syntax**
@@ -3519,7 +3521,7 @@ class Client(BaseClient):
                 - **AllowedValues** *(string) --* 
                   The valid range of values for the parameter.
                 - **ApplyType** *(string) --* 
-                  Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                  Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                 - **IsModifiable** *(boolean) --* 
                   If ``true`` , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
                 - **MinimumEngineVersion** *(string) --* 
@@ -3550,7 +3552,7 @@ class Client(BaseClient):
     def describe_cluster_security_groups(self, ClusterSecurityGroupName: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None) -> Dict:
         """
         Returns information about Amazon Redshift security groups. If the name of a security group is specified, the response will contain only information about only that security group.
-        For information about managing security groups, go to `Amazon Redshift Cluster Security Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For information about managing security groups, go to `Amazon Redshift Cluster Security Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         If you specify both tag keys and tag values in the same request, Amazon Redshift returns all security groups that match any combination of the specified keys and values. For example, if you have ``owner`` and ``environment`` for tag keys, and ``admin`` and ``test`` for tag values, all security groups that have any combination of those values are returned.
         If both tag keys and values are omitted from the request, security groups are returned regardless of whether they have tag keys or values associated with them.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusterSecurityGroups>`_
@@ -3862,7 +3864,7 @@ class Client(BaseClient):
                   The list of node types that this cluster snapshot is able to restore into.
                   - *(string) --* 
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -3876,7 +3878,7 @@ class Client(BaseClient):
                   A timestamp representing the start of the retention period for the snapshot.
         :type ClusterIdentifier: string
         :param ClusterIdentifier:
-          The identifier of the cluster for which information about snapshots is requested.
+          The identifier of the cluster which generated the requested snapshots.
         :type SnapshotIdentifier: string
         :param SnapshotIdentifier:
           The snapshot identifier of the snapshot about which to return information.
@@ -3913,7 +3915,11 @@ class Client(BaseClient):
           - *(string) --*
         :type ClusterExists: boolean
         :param ClusterExists:
-          A value that indicates whether to return snapshots only for an existing cluster. Table-level restore can be performed only using a snapshot of an existing cluster, that is, a cluster that has not been deleted. If ``ClusterExists`` is set to ``true`` , ``ClusterIdentifier`` is required.
+          A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows:
+          * If ``ClusterExists`` is set to ``true`` , ``ClusterIdentifier`` is required.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` isn\'t specified, all snapshots associated with deleted clusters (orphaned snapshots) are returned.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` is specified for a deleted cluster, snapshots associated with that cluster are returned.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` is specified for an existing cluster, no snapshots are returned.
         :type SortingEntities: list
         :param SortingEntities:
           - *(dict) --*
@@ -4006,7 +4012,6 @@ class Client(BaseClient):
                     - **SubnetIdentifier** *(string) --* 
                       The identifier of the subnet.
                     - **SubnetAvailabilityZone** *(dict) --* 
-                      Describes an availability zone.
                       - **Name** *(string) --* 
                         The name of the availability zone.
                       - **SupportedPlatforms** *(list) --* 
@@ -4125,7 +4130,7 @@ class Client(BaseClient):
 
     def describe_cluster_versions(self, ClusterVersion: str = None, ClusterParameterGroupFamily: str = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
-        Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to `Amazon Redshift Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusterVersions>`_
         
         **Request Syntax**
@@ -4191,7 +4196,7 @@ class Client(BaseClient):
 
     def describe_clusters(self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None) -> Dict:
         """
-        Returns properties of provisioned clusters including general cluster properties, cluster database properties, maintenance and backup properties, and security and access properties. This operation supports pagination. For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        Returns properties of provisioned clusters including general cluster properties, cluster database properties, maintenance and backup properties, and security and access properties. This operation supports pagination. For more information about managing clusters, go to `Amazon Redshift Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         If you specify both tag keys and tag values in the same request, Amazon Redshift returns all clusters that match any combination of the specified keys and values. For example, if you have ``owner`` and ``environment`` for tag keys, and ``admin`` and ``test`` for tag values, all clusters that have any combination of those values are returned.
         If both tag keys and values are omitted from the request, clusters are returned regardless of whether they have tag keys or values associated with them.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeClusters>`_
@@ -4432,7 +4437,7 @@ class Client(BaseClient):
                       The status of parameter updates.
                     - **ClusterParameterStatusList** *(list) --* 
                       The list of parameter statuses.
-                      For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                      For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                       - *(dict) --* 
                         Describes the status of a parameter group.
                         - **ParameterName** *(string) --* 
@@ -4476,7 +4481,7 @@ class Client(BaseClient):
                   - **PubliclyAccessible** *(boolean) --* 
                     The pending or in-progress change of the ability to connect to the cluster from the public network.
                   - **EnhancedVpcRouting** *(boolean) --* 
-                    An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                    An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                     If this option is ``true`` , enhanced VPC routing is enabled. 
                     Default: false
                   - **MaintenanceTrackName** *(string) --* 
@@ -4508,7 +4513,6 @@ class Client(BaseClient):
                   - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                     The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
                 - **DataTransferProgress** *(dict) --* 
-                  Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                   - **Status** *(string) --* 
                     Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                   - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -4573,7 +4577,7 @@ class Client(BaseClient):
                 - **KmsKeyId** *(string) --* 
                   The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **IamRoles** *(list) --* 
@@ -4646,7 +4650,7 @@ class Client(BaseClient):
     def describe_default_cluster_parameters(self, ParameterGroupFamily: str, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns a list of parameter settings for the specified parameter group family.
-        For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeDefaultClusterParameters>`_
         
         **Request Syntax**
@@ -4704,7 +4708,7 @@ class Client(BaseClient):
                   - **AllowedValues** *(string) --* 
                     The valid range of values for the parameter.
                   - **ApplyType** *(string) --* 
-                    Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                   - **IsModifiable** *(boolean) --* 
                     If ``true`` , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
                   - **MinimumEngineVersion** *(string) --* 
@@ -4727,7 +4731,7 @@ class Client(BaseClient):
 
     def describe_event_categories(self, SourceType: str = None) -> Dict:
         """
-        Displays a list of event categories for all event source types, or for a specified source type. For a list of the event categories and source types, go to `Amazon Redshift Event Notifications <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html>`__ .
+        Displays a list of event categories for all event source types, or for a specified source type. For a list of the event categories and source types, go to `Amazon Redshift Event Notifications <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeEventCategories>`_
         
         **Request Syntax**
@@ -5229,7 +5233,7 @@ class Client(BaseClient):
 
     def describe_orderable_cluster_options(self, ClusterVersion: str = None, NodeType: str = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
-        Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS Region that you can specify, and the node types you can request. The node types differ by available storage, memory, CPU and price. With the cost involved you might want to obtain a list of cluster options in the specific region and specify values when creating a cluster. For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS Region that you can specify, and the node types you can request. The node types differ by available storage, memory, CPU and price. With the cost involved you might want to obtain a list of cluster options in the specific region and specify values when creating a cluster. For more information about managing clusters, go to `Amazon Redshift Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeOrderableClusterOptions>`_
         
         **Request Syntax**
@@ -5313,7 +5317,7 @@ class Client(BaseClient):
     def describe_reserved_node_offerings(self, ReservedNodeOfferingId: str = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns a list of the available reserved node offerings by Amazon Redshift with their descriptions including the node type, the fixed and recurring costs of reserving the node and duration the node will be reserved for you. These descriptions help you determine which reserve node offering you want to purchase. You then use the unique offering ID in you call to  PurchaseReservedNodeOffering to reserve one or more nodes for your Amazon Redshift cluster. 
-        For more information about reserved node offerings, go to `Purchasing Reserved Nodes <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about reserved node offerings, go to `Purchasing Reserved Nodes <https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeReservedNodeOfferings>`_
         
         **Request Syntax**
@@ -5532,7 +5536,8 @@ class Client(BaseClient):
                 'EstimatedTimeToCompletionInSeconds': 123,
                 'ResizeType': 'string',
                 'Message': 'string',
-                'TargetEncryptionType': 'string'
+                'TargetEncryptionType': 'string',
+                'DataTransferProgressPercent': 123.0
             }
         
         **Response Structure**
@@ -5577,6 +5582,8 @@ class Client(BaseClient):
             - **TargetEncryptionType** *(string) --* 
               The type of encryption for the cluster after the resize is complete.
               Possible values are ``KMS`` and ``None`` . In the China region possible values are: ``Legacy`` and ``None`` .
+            - **DataTransferProgressPercent** *(float) --* 
+              The percent of data transferred from source cluster to target cluster.
         :type ClusterIdentifier: string
         :param ClusterIdentifier: **[REQUIRED]**
           The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.
@@ -5589,7 +5596,7 @@ class Client(BaseClient):
     def describe_snapshot_copy_grants(self, SnapshotCopyGrantName: str = None, MaxRecords: int = None, Marker: str = None, TagKeys: List = None, TagValues: List = None) -> Dict:
         """
         Returns a list of snapshot copy grants owned by the AWS account in the destination region.
-        For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
+        For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeSnapshotCopyGrants>`_
         
         **Request Syntax**
@@ -5633,7 +5640,7 @@ class Client(BaseClient):
               The list of ``SnapshotCopyGrant`` objects.
               - *(dict) --* 
                 The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.
-                For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
+                For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
                 - **SnapshotCopyGrantName** *(string) --* 
                   The name of the snapshot copy grant.
                 - **KmsKeyId** *(string) --* 
@@ -5729,7 +5736,7 @@ class Client(BaseClient):
               - *(dict) --* 
                 Describes a snapshot schedule. You can set a regular interval for creating snapshots of a cluster. You can also schedule snapshots for specific dates. 
                 - **ScheduleDefinitions** *(list) --* 
-                  A list of ScheduleDefinitions
+                  A list of ScheduleDefinitions.
                   - *(string) --* 
                 - **ScheduleIdentifier** *(string) --* 
                   A unique identifier for the schedule.
@@ -5746,7 +5753,9 @@ class Client(BaseClient):
                 - **NextInvocations** *(list) --* 
                   - *(datetime) --* 
                 - **AssociatedClusterCount** *(integer) --* 
+                  The number of clusters associated with the schedule.
                 - **AssociatedClusters** *(list) --* 
+                  A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
                   - *(dict) --* 
                     - **ClusterIdentifier** *(string) --* 
                     - **ScheduleAssociationState** *(string) --* 
@@ -5963,7 +5972,7 @@ class Client(BaseClient):
                   * HSM connection 
                   * HSM certificate 
                   * Parameter group 
-                  For more information about Amazon Redshift resource types and constructing ARNs, go to `Constructing an Amazon Redshift Amazon Resource Name (ARN) <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions>`__ in the Amazon Redshift Cluster Management Guide. 
+                  For more information about Amazon Redshift resource types and constructing ARNs, go to `Constructing an Amazon Redshift Amazon Resource Name (ARN) <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions>`__ in the Amazon Redshift Cluster Management Guide. 
             - **Marker** *(string) --* 
               A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the ``Marker`` parameter and retrying the command. If the ``Marker`` field is empty, all response records have been retrieved for the request. 
         :type ResourceName: string
@@ -5982,7 +5991,7 @@ class Client(BaseClient):
           * HSM certificate
           * Parameter group
           * Snapshot copy grant
-          For more information about Amazon Redshift resource types and constructing ARNs, go to `Specifying Policy Elements\: Actions, Effects, Resources, and Principals <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions>`__ in the Amazon Redshift Cluster Management Guide.
+          For more information about Amazon Redshift resource types and constructing ARNs, go to `Specifying Policy Elements\: Actions, Effects, Resources, and Principals <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions>`__ in the Amazon Redshift Cluster Management Guide.
         :type MaxRecords: integer
         :param MaxRecords:
           The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified ``MaxRecords`` value, a value is returned in a ``marker`` field of the response. You can retrieve the next set of records by retrying the command with the returned ``marker`` value.
@@ -6274,7 +6283,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -6318,7 +6327,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -6350,7 +6359,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -6415,7 +6423,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -6762,7 +6770,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -6806,7 +6814,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -6838,7 +6846,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -6903,7 +6910,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -6954,7 +6961,7 @@ class Client(BaseClient):
         :type DestinationRegion: string
         :param DestinationRegion: **[REQUIRED]**
           The destination AWS Region that you want to copy snapshots to.
-          Constraints: Must be the name of a valid AWS Region. For more information, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region>`__ in the Amazon Web Services General Reference.
+          Constraints: Must be the name of a valid AWS Region. For more information, see `Regions and Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region>`__ in the Amazon Web Services General Reference.
         :type RetentionPeriod: integer
         :param RetentionPeriod:
           The number of days to retain automated snapshots in the destination region after they are copied from the source region.
@@ -6992,8 +6999,8 @@ class Client(BaseClient):
 
     def get_cluster_credentials(self, DbUser: str, ClusterIdentifier: str, DbName: str = None, DurationSeconds: int = None, AutoCreate: bool = None, DbGroups: List = None) -> Dict:
         """
-        Returns a database user name and temporary password with temporary authorization to log on to an Amazon Redshift database. The action returns the database user name prefixed with ``IAM:`` if ``AutoCreate`` is ``False`` or ``IAMA:`` if ``AutoCreate`` is ``True`` . You can optionally specify one or more database user groups that the user will join at log on. By default, the temporary credentials expire in 900 seconds. You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes). For more information, see `Using IAM Authentication to Generate Database User Credentials <http://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html>`__ in the Amazon Redshift Cluster Management Guide.
-        The AWS Identity and Access Management (IAM)user or role that executes GetClusterCredentials must have an IAM policy attached that allows access to all necessary actions and resources. For more information about permissions, see `Resource Policies for GetClusterCredentials <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources>`__ in the Amazon Redshift Cluster Management Guide.
+        Returns a database user name and temporary password with temporary authorization to log on to an Amazon Redshift database. The action returns the database user name prefixed with ``IAM:`` if ``AutoCreate`` is ``False`` or ``IAMA:`` if ``AutoCreate`` is ``True`` . You can optionally specify one or more database user groups that the user will join at log on. By default, the temporary credentials expire in 900 seconds. You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes). For more information, see `Using IAM Authentication to Generate Database User Credentials <https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html>`__ in the Amazon Redshift Cluster Management Guide.
+        The AWS Identity and Access Management (IAM)user or role that executes GetClusterCredentials must have an IAM policy attached that allows access to all necessary actions and resources. For more information about permissions, see `Resource Policies for GetClusterCredentials <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources>`__ in the Amazon Redshift Cluster Management Guide.
         If the ``DbGroups`` parameter is specified, the IAM policy must allow the ``redshift:JoinGroup`` action with access to the listed ``dbgroups`` . 
         In addition, if the ``AutoCreate`` parameter is set to ``True`` , then the policy must include the ``redshift:CreateClusterUser`` privilege.
         If the ``DbName`` parameter is specified, the IAM policy must allow access to the resource ``dbname`` for the specified database name. 
@@ -7032,7 +7039,7 @@ class Client(BaseClient):
         :type DbUser: string
         :param DbUser: **[REQUIRED]**
           The name of a database user. If a user name matching ``DbUser`` exists in the database, the temporary user credentials have the same permissions as the existing user. If ``DbUser`` doesn\'t exist in the database and ``Autocreate`` is ``True`` , a new user is created using the value for ``DbUser`` with PUBLIC permissions. If a database user matching the value for ``DbUser`` doesn\'t exist and ``Autocreate`` is ``False`` , then the command succeeds but the connection attempt will fail because the user doesn\'t exist in the database.
-          For more information, see `CREATE USER <http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html>`__ in the Amazon Redshift Database Developer Guide.
+          For more information, see `CREATE USER <https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html>`__ in the Amazon Redshift Database Developer Guide.
           Constraints:
           * Must be 1 to 64 alphanumeric characters or hyphens. The user name can\'t be ``PUBLIC`` .
           * Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.
@@ -7187,7 +7194,7 @@ class Client(BaseClient):
 
     def modify_cluster(self, ClusterIdentifier: str, ClusterType: str = None, NodeType: str = None, NumberOfNodes: int = None, ClusterSecurityGroups: List = None, VpcSecurityGroupIds: List = None, MasterUserPassword: str = None, ClusterParameterGroupName: str = None, AutomatedSnapshotRetentionPeriod: int = None, ManualSnapshotRetentionPeriod: int = None, PreferredMaintenanceWindow: str = None, ClusterVersion: str = None, AllowVersionUpgrade: bool = None, HsmClientCertificateIdentifier: str = None, HsmConfigurationIdentifier: str = None, NewClusterIdentifier: str = None, PubliclyAccessible: bool = None, ElasticIp: str = None, EnhancedVpcRouting: bool = None, MaintenanceTrackName: str = None, Encrypted: bool = None, KmsKeyId: str = None) -> Dict:
         """
-        Modifies the settings for a cluster. For example, you can add another security or parameter group, update the preferred maintenance window, or change the master user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect. For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        Modifies the settings for a cluster. For example, you can add another security or parameter group, update the preferred maintenance window, or change the master user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect. For more information about managing clusters, go to `Amazon Redshift Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         You can also change node type and the number of nodes to scale up or down the cluster. When resizing a cluster, you must specify both the number of nodes and the node type even if one of the parameters does not change.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyCluster>`_
         
@@ -7436,7 +7443,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -7480,7 +7487,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -7512,7 +7519,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -7577,7 +7583,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -7692,7 +7698,7 @@ class Client(BaseClient):
         :type ClusterVersion: string
         :param ClusterVersion:
           The new version number of the Amazon Redshift engine to upgrade to.
-          For major version upgrades, if a non-default cluster parameter group is currently in use, a new cluster parameter group in the cluster parameter group family for the new version must be specified. The new cluster parameter group can be the default for that cluster parameter group family. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+          For major version upgrades, if a non-default cluster parameter group is currently in use, a new cluster parameter group in the cluster parameter group family for the new version must be specified. The new cluster parameter group can be the default for that cluster parameter group family. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
           Example: ``1.0``
         :type AllowVersionUpgrade: boolean
         :param AllowVersionUpgrade:
@@ -7720,10 +7726,10 @@ class Client(BaseClient):
         :type ElasticIp: string
         :param ElasticIp:
           The Elastic IP (EIP) address for the cluster.
-          Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to `Supported Platforms to Launch Your Cluster <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms>`__ in the Amazon Redshift Cluster Management Guide.
+          Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to `Supported Platforms to Launch Your Cluster <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms>`__ in the Amazon Redshift Cluster Management Guide.
         :type EnhancedVpcRouting: boolean
         :param EnhancedVpcRouting:
-          An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+          An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
           If this option is ``true`` , enhanced VPC routing is enabled.
           Default: false
         :type MaintenanceTrackName: string
@@ -7966,7 +7972,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -8010,7 +8016,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -8042,7 +8048,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -8107,7 +8112,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -8395,7 +8400,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -8439,7 +8444,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -8471,7 +8476,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -8536,7 +8540,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -8826,7 +8830,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -8870,7 +8874,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -8902,7 +8906,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -8967,7 +8970,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -9028,7 +9031,7 @@ class Client(BaseClient):
           A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can\'t specify a duration.
         :type DeferMaintenanceDuration: integer
         :param DeferMaintenanceDuration:
-          An integer indicating the duration of the maintenance window in days. If you specify a duration, you can\'t specify an end time. The duration must be 14 days or less.
+          An integer indicating the duration of the maintenance window in days. If you specify a duration, you can\'t specify an end time. The duration must be 45 days or less.
         :rtype: dict
         :returns:
         """
@@ -9037,7 +9040,7 @@ class Client(BaseClient):
     def modify_cluster_parameter_group(self, ParameterGroupName: str, Parameters: List) -> Dict:
         """
         Modifies the parameters of a parameter group.
-        For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterParameterGroup>`_
         
         **Request Syntax**
@@ -9095,7 +9098,7 @@ class Client(BaseClient):
             - **AllowedValues** *(string) --*
               The valid range of values for the parameter.
             - **ApplyType** *(string) --*
-              Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+              Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
             - **IsModifiable** *(boolean) --*
               If ``true`` , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
             - **MinimumEngineVersion** *(string) --*
@@ -9247,7 +9250,7 @@ class Client(BaseClient):
                 The list of node types that this cluster snapshot is able to restore into.
                 - *(string) --* 
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **MaintenanceTrackName** *(string) --* 
@@ -9365,7 +9368,6 @@ class Client(BaseClient):
                   - **SubnetIdentifier** *(string) --* 
                     The identifier of the subnet.
                   - **SubnetAvailabilityZone** *(dict) --* 
-                    Describes an availability zone.
                     - **Name** *(string) --* 
                       The name of the availability zone.
                     - **SupportedPlatforms** *(list) --* 
@@ -9744,7 +9746,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -9788,7 +9790,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -9820,7 +9822,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -9885,7 +9886,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -9994,7 +9995,7 @@ class Client(BaseClient):
           - *(dict) --* 
             Describes a snapshot schedule. You can set a regular interval for creating snapshots of a cluster. You can also schedule snapshots for specific dates. 
             - **ScheduleDefinitions** *(list) --* 
-              A list of ScheduleDefinitions
+              A list of ScheduleDefinitions.
               - *(string) --* 
             - **ScheduleIdentifier** *(string) --* 
               A unique identifier for the schedule.
@@ -10011,7 +10012,9 @@ class Client(BaseClient):
             - **NextInvocations** *(list) --* 
               - *(datetime) --* 
             - **AssociatedClusterCount** *(integer) --* 
+              The number of clusters associated with the schedule.
             - **AssociatedClusters** *(list) --* 
+              A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
               - *(dict) --* 
                 - **ClusterIdentifier** *(string) --* 
                 - **ScheduleAssociationState** *(string) --* 
@@ -10030,7 +10033,7 @@ class Client(BaseClient):
     def purchase_reserved_node_offering(self, ReservedNodeOfferingId: str, NodeCount: int = None) -> Dict:
         """
         Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the  DescribeReservedNodeOfferings API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve. 
-        For more information about reserved node offerings, go to `Purchasing Reserved Nodes <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about reserved node offerings, go to `Purchasing Reserved Nodes <https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/PurchaseReservedNodeOffering>`_
         
         **Request Syntax**
@@ -10120,7 +10123,7 @@ class Client(BaseClient):
 
     def reboot_cluster(self, ClusterIdentifier: str) -> Dict:
         """
-        Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to ``rebooting`` . A cluster event is created when the reboot is completed. Any pending cluster modifications (see  ModifyCluster ) are applied at this reboot. For more information about managing clusters, go to `Amazon Redshift Clusters <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
+        Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to ``rebooting`` . A cluster event is created when the reboot is completed. Any pending cluster modifications (see  ModifyCluster ) are applied at this reboot. For more information about managing clusters, go to `Amazon Redshift Clusters <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/RebootCluster>`_
         
         **Request Syntax**
@@ -10343,7 +10346,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -10387,7 +10390,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -10419,7 +10422,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -10484,7 +10486,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -10600,7 +10602,7 @@ class Client(BaseClient):
             - **AllowedValues** *(string) --*
               The valid range of values for the parameter.
             - **ApplyType** *(string) --*
-              Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+              Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
             - **IsModifiable** *(boolean) --*
               If ``true`` , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
             - **MinimumEngineVersion** *(string) --*
@@ -10846,7 +10848,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -10890,7 +10892,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -10922,7 +10924,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -10987,7 +10988,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -11055,7 +11056,7 @@ class Client(BaseClient):
         """
         Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting cluster with the same configuration as the original cluster from which the snapshot was created, except that the new cluster is created with the default cluster security and parameter groups. After Amazon Redshift creates the cluster, you can use the  ModifyCluster API to associate a different security group and different parameter group with the restored cluster. If you are using a DS node type, you can also choose to change to another DS node type of the same size during restore.
         If you restore a cluster into a VPC, you must provide a cluster subnet group where you want the cluster restored.
-        For more information about working with snapshots, go to `Amazon Redshift Snapshots <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about working with snapshots, go to `Amazon Redshift Snapshots <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/RestoreFromClusterSnapshot>`_
         
         **Request Syntax**
@@ -11308,7 +11309,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -11352,7 +11353,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -11384,7 +11385,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -11449,7 +11449,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 
@@ -11545,7 +11545,7 @@ class Client(BaseClient):
         :type ClusterParameterGroupName: string
         :param ClusterParameterGroupName:
           The name of the parameter group to be associated with this cluster.
-          Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to `Working with Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ .
+          Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to `Working with Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ .
           Constraints:
           * Must be 1 to 255 alphanumeric characters or hyphens.
           * First character must be a letter.
@@ -11566,7 +11566,7 @@ class Client(BaseClient):
         :param PreferredMaintenanceWindow:
           The weekly time range (in UTC) during which automated cluster maintenance can occur.
           Format: ``ddd:hh24:mi-ddd:hh24:mi``
-          Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see `Maintenance Windows <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows>`__ in Amazon Redshift Cluster Management Guide.
+          Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see `Maintenance Windows <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows>`__ in Amazon Redshift Cluster Management Guide.
           Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
           Constraints: Minimum 30-minute window.
         :type AutomatedSnapshotRetentionPeriod: integer
@@ -11576,16 +11576,18 @@ class Client(BaseClient):
           Constraints: Must be a value from 0 to 35.
         :type ManualSnapshotRetentionPeriod: integer
         :param ManualSnapshotRetentionPeriod:
+          The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn\'t change the retention period of existing snapshots.
+          The value must be either -1 or an integer between 1 and 3,653.
         :type KmsKeyId: string
         :param KmsKeyId:
           The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster that you restore from a shared snapshot.
         :type NodeType: string
         :param NodeType:
           The node type that the restored cluster will be provisioned with.
-          Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can\'t restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize to a dc2.8large cluster. For more information about node types, see `About Clusters and Nodes <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes>`__ in the *Amazon Redshift Cluster Management Guide* .
+          Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can\'t restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize to a dc2.8large cluster. For more information about node types, see `About Clusters and Nodes <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes>`__ in the *Amazon Redshift Cluster Management Guide* .
         :type EnhancedVpcRouting: boolean
         :param EnhancedVpcRouting:
-          An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+          An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
           If this option is ``true`` , enhanced VPC routing is enabled.
           Default: false
         :type AdditionalInfo: string
@@ -11711,7 +11713,7 @@ class Client(BaseClient):
 
     def revoke_cluster_security_group_ingress(self, ClusterSecurityGroupName: str, CIDRIP: str = None, EC2SecurityGroupName: str = None, EC2SecurityGroupOwnerId: str = None) -> Dict:
         """
-        Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group. To add an ingress rule, see  AuthorizeClusterSecurityGroupIngress . For information about managing security groups, go to `Amazon Redshift Cluster Security Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
+        Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group. To add an ingress rule, see  AuthorizeClusterSecurityGroupIngress . For information about managing security groups, go to `Amazon Redshift Cluster Security Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/RevokeClusterSecurityGroupIngress>`_
         
         **Request Syntax**
@@ -11834,7 +11836,7 @@ class Client(BaseClient):
     def revoke_snapshot_access(self, SnapshotIdentifier: str, AccountWithRestoreAccess: str, SnapshotClusterIdentifier: str = None) -> Dict:
         """
         Removes the ability of the specified AWS customer account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.
-        For more information about working with snapshots, go to `Amazon Redshift Snapshots <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+        For more information about working with snapshots, go to `Amazon Redshift Snapshots <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html>`__ in the *Amazon Redshift Cluster Management Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/RevokeSnapshotAccess>`_
         
         **Request Syntax**
@@ -11974,7 +11976,7 @@ class Client(BaseClient):
                 The list of node types that this cluster snapshot is able to restore into.
                 - *(string) --* 
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **MaintenanceTrackName** *(string) --* 
@@ -12225,7 +12227,7 @@ class Client(BaseClient):
                     The status of parameter updates.
                   - **ClusterParameterStatusList** *(list) --* 
                     The list of parameter statuses.
-                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                     - *(dict) --* 
                       Describes the status of a parameter group.
                       - **ParameterName** *(string) --* 
@@ -12269,7 +12271,7 @@ class Client(BaseClient):
                 - **PubliclyAccessible** *(boolean) --* 
                   The pending or in-progress change of the ability to connect to the cluster from the public network.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -12301,7 +12303,6 @@ class Client(BaseClient):
                 - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                   The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
               - **DataTransferProgress** *(dict) --* 
-                Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                 - **Status** *(string) --* 
                   Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                 - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -12366,7 +12367,7 @@ class Client(BaseClient):
               - **KmsKeyId** *(string) --* 
                 The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
               - **EnhancedVpcRouting** *(boolean) --* 
-                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                 If this option is ``true`` , enhanced VPC routing is enabled. 
                 Default: false
               - **IamRoles** *(list) --* 

@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -23,7 +23,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_application(self, Author: str, Description: str, Name: str, HomePageUrl: str = None, Labels: List = None, LicenseBody: str = None, LicenseUrl: str = None, ReadmeBody: str = None, ReadmeUrl: str = None, SemanticVersion: str = None, SourceCodeUrl: str = None, SpdxLicenseId: str = None, TemplateBody: str = None, TemplateUrl: str = None) -> Dict:
+    def create_application(self, Author: str, Description: str, Name: str, HomePageUrl: str = None, Labels: List = None, LicenseBody: str = None, LicenseUrl: str = None, ReadmeBody: str = None, ReadmeUrl: str = None, SemanticVersion: str = None, SourceCodeArchiveUrl: str = None, SourceCodeUrl: str = None, SpdxLicenseId: str = None, TemplateBody: str = None, TemplateUrl: str = None) -> Dict:
         """
         Creates an application, optionally including an AWS SAM file to create the first application version in the same call.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/serverlessrepo-2017-09-08/CreateApplication>`_
@@ -43,6 +43,7 @@ class Client(BaseClient):
               ReadmeBody='string',
               ReadmeUrl='string',
               SemanticVersion='string',
+              SourceCodeArchiveUrl='string',
               SourceCodeUrl='string',
               SpdxLicenseId='string',
               TemplateBody='string',
@@ -93,6 +94,7 @@ class Client(BaseClient):
                     ],
                     'ResourcesSupported': True|False,
                     'SemanticVersion': 'string',
+                    'SourceCodeArchiveUrl': 'string',
                     'SourceCodeUrl': 'string',
                     'TemplateUrl': 'string'
                 }
@@ -183,11 +185,11 @@ class Client(BaseClient):
                     For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
               - **RequiredCapabilities** *(list) --* 
                 A list of values that you must specify before you can deploy certain applications. Some applications might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those applications, you must explicitly acknowledge their capabilities by specifying this parameter.
-                The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, and CAPABILITY_RESOURCE_POLICY.
+                The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
                 The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM: `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , and `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ . If the application contains IAM resources, you can specify either CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM.
                 The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:Lambda\:\:Permission <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html>`__ , `AWS\:\:IAM\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
+                Applications that contain one or more nested applications require you to specify CAPABILITY_AUTO_EXPAND.
                 If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
-                Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY 
                 - *(string) --* 
                   Values that must be specified in order to deploy some applications.
               - **ResourcesSupported** *(boolean) --* 
@@ -195,8 +197,11 @@ class Client(BaseClient):
               - **SemanticVersion** *(string) --* 
                 The semantic version of the application:
                  `https\://semver.org/ <https://semver.org/>`__  
+              - **SourceCodeArchiveUrl** *(string) --* 
+                A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+                Maximum size 50 MB
               - **SourceCodeUrl** *(string) --* 
-                A link to a public repository for the source code of your application.
+                A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
               - **TemplateUrl** *(string) --* 
                 A link to the packaged AWS SAM template of your application.
         :type Author: string
@@ -246,9 +251,13 @@ class Client(BaseClient):
         :param SemanticVersion:
           The semantic version of the application:
            `https\://semver.org/ <https://semver.org/>`__
+        :type SourceCodeArchiveUrl: string
+        :param SourceCodeArchiveUrl:
+          A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+          Maximum size 50 MB
         :type SourceCodeUrl: string
         :param SourceCodeUrl:
-          A link to a public repository for the source code of your application.
+          A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
         :type SpdxLicenseId: string
         :param SpdxLicenseId:
           A valid identifier from `https\://spdx.org/licenses/ <https://spdx.org/licenses/>`__ .
@@ -265,7 +274,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_application_version(self, ApplicationId: str, SemanticVersion: str, SourceCodeUrl: str = None, TemplateBody: str = None, TemplateUrl: str = None) -> Dict:
+    def create_application_version(self, ApplicationId: str, SemanticVersion: str, SourceCodeArchiveUrl: str = None, SourceCodeUrl: str = None, TemplateBody: str = None, TemplateUrl: str = None) -> Dict:
         """
         Creates an application version.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/serverlessrepo-2017-09-08/CreateApplicationVersion>`_
@@ -275,6 +284,7 @@ class Client(BaseClient):
           response = client.create_application_version(
               ApplicationId='string',
               SemanticVersion='string',
+              SourceCodeArchiveUrl='string',
               SourceCodeUrl='string',
               TemplateBody='string',
               TemplateUrl='string'
@@ -311,6 +321,7 @@ class Client(BaseClient):
                 ],
                 'ResourcesSupported': True|False,
                 'SemanticVersion': 'string',
+                'SourceCodeArchiveUrl': 'string',
                 'SourceCodeUrl': 'string',
                 'TemplateUrl': 'string'
             }
@@ -368,11 +379,11 @@ class Client(BaseClient):
                   For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
             - **RequiredCapabilities** *(list) --* 
               A list of values that you must specify before you can deploy certain applications. Some applications might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those applications, you must explicitly acknowledge their capabilities by specifying this parameter.
-              The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, and CAPABILITY_RESOURCE_POLICY.
+              The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
               The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM: `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , and `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ . If the application contains IAM resources, you can specify either CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM.
               The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:Lambda\:\:Permission <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html>`__ , `AWS\:\:IAM\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
+              Applications that contain one or more nested applications require you to specify CAPABILITY_AUTO_EXPAND.
               If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
-              Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY 
               - *(string) --* 
                 Values that must be specified in order to deploy some applications.
             - **ResourcesSupported** *(boolean) --* 
@@ -380,8 +391,11 @@ class Client(BaseClient):
             - **SemanticVersion** *(string) --* 
               The semantic version of the application:
                `https\://semver.org/ <https://semver.org/>`__  
+            - **SourceCodeArchiveUrl** *(string) --* 
+              A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+              Maximum size 50 MB
             - **SourceCodeUrl** *(string) --* 
-              A link to a public repository for the source code of your application.
+              A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
             - **TemplateUrl** *(string) --* 
               A link to the packaged AWS SAM template of your application.
         :type ApplicationId: string
@@ -390,9 +404,13 @@ class Client(BaseClient):
         :type SemanticVersion: string
         :param SemanticVersion: **[REQUIRED]**
           The semantic version of the new version.
+        :type SourceCodeArchiveUrl: string
+        :param SourceCodeArchiveUrl:
+          A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+          Maximum size 50 MB
         :type SourceCodeUrl: string
         :param SourceCodeUrl:
-          A link to a public repository for the source code of your application.
+          A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
         :type TemplateBody: string
         :param TemplateBody:
           The raw packaged AWS SAM template of your application.
@@ -480,24 +498,24 @@ class Client(BaseClient):
         :type Capabilities: list
         :param Capabilities:
           A list of values that you must specify before you can deploy certain applications. Some applications might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those applications, you must explicitly acknowledge their capabilities by specifying this parameter.
-          The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, and CAPABILITY_RESOURCE_POLICY.
+          The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
           The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM: `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , and `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ . If the application contains IAM resources, you can specify either CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM.
           The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:Lambda\:\:Permission <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html>`__ , `AWS\:\:IAM\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
+          Applications that contain one or more nested applications require you to specify CAPABILITY_AUTO_EXPAND.
           If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don\'t specify this parameter for an application that requires capabilities, the call will fail.
-          Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY
           - *(string) --*
         :type ChangeSetName: string
         :param ChangeSetName:
-          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__* API.
+          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__ * API.
         :type ClientToken: string
         :param ClientToken:
-          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__* API.
+          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__ * API.
         :type Description: string
         :param Description:
-          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__* API.
+          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__ * API.
         :type NotificationArns: list
         :param NotificationArns:
-          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__* API.
+          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__ * API.
           - *(string) --*
         :type ParameterOverrides: list
         :param ParameterOverrides:
@@ -510,35 +528,35 @@ class Client(BaseClient):
               The input value associated with the parameter.
         :type ResourceTypes: list
         :param ResourceTypes:
-          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__* API.
+          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__ * API.
           - *(string) --*
         :type RollbackConfiguration: dict
         :param RollbackConfiguration:
-          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__* API.
+          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__ * API.
           - **MonitoringTimeInMinutes** *(integer) --*
-            This property corresponds to the content of the same name for the *AWS CloudFormation `RollbackConfiguration <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration>`__* Data Type.
+            This property corresponds to the content of the same name for the *AWS CloudFormation `RollbackConfiguration <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration>`__ * Data Type.
           - **RollbackTriggers** *(list) --*
-            This property corresponds to the content of the same name for the *AWS CloudFormation `RollbackConfiguration <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration>`__* Data Type.
+            This property corresponds to the content of the same name for the *AWS CloudFormation `RollbackConfiguration <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration>`__ * Data Type.
             - *(dict) --*
-              This property corresponds to the *AWS CloudFormation `RollbackTrigger <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger>`__* Data Type.
+              This property corresponds to the *AWS CloudFormation `RollbackTrigger <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger>`__ * Data Type.
               - **Arn** *(string) --* **[REQUIRED]**
-                This property corresponds to the content of the same name for the *AWS CloudFormation `RollbackTrigger <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger>`__* Data Type.
+                This property corresponds to the content of the same name for the *AWS CloudFormation `RollbackTrigger <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger>`__ * Data Type.
               - **Type** *(string) --* **[REQUIRED]**
-                This property corresponds to the content of the same name for the *AWS CloudFormation `RollbackTrigger <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger>`__* Data Type.
+                This property corresponds to the content of the same name for the *AWS CloudFormation `RollbackTrigger <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger>`__ * Data Type.
         :type SemanticVersion: string
         :param SemanticVersion:
           The semantic version of the application:
            `https\://semver.org/ <https://semver.org/>`__
         :type StackName: string
         :param StackName: **[REQUIRED]**
-          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__* API.
+          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__ * API.
         :type Tags: list
         :param Tags:
-          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__* API.
+          This property corresponds to the parameter of the same name for the *AWS CloudFormation `CreateChangeSet <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet>`__ * API.
           - *(dict) --*
-            This property corresponds to the *AWS CloudFormation `Tag <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag>`__* Data Type.
+            This property corresponds to the *AWS CloudFormation `Tag <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag>`__ * Data Type.
             - **Key** *(string) --* **[REQUIRED]**
-              This property corresponds to the content of the same name for the *AWS CloudFormation `Tag <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag>`__* Data Type.
+              This property corresponds to the content of the same name for the *AWS CloudFormation `Tag <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag>`__ * Data Type.
             - **Value** *(string) --* **[REQUIRED]**
               This property corresponds to the content of the same name for the *AWS CloudFormation `Tag <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag>`__ * Data Type.
         :type TemplateId: string
@@ -588,7 +606,7 @@ class Client(BaseClient):
                `https\://semver.org/ <https://semver.org/>`__  
             - **Status** *(string) --* 
               Status of the template creation workflow.
-              Possible values: PREPARING | ACTIVE | EXPIRED
+              Possible values: PREPARING | ACTIVE | EXPIRED 
             - **TemplateId** *(string) --* 
               The UUID returned by CreateCloudFormationTemplate.
               Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
@@ -697,6 +715,7 @@ class Client(BaseClient):
                     ],
                     'ResourcesSupported': True|False,
                     'SemanticVersion': 'string',
+                    'SourceCodeArchiveUrl': 'string',
                     'SourceCodeUrl': 'string',
                     'TemplateUrl': 'string'
                 }
@@ -787,11 +806,11 @@ class Client(BaseClient):
                     For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
               - **RequiredCapabilities** *(list) --* 
                 A list of values that you must specify before you can deploy certain applications. Some applications might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those applications, you must explicitly acknowledge their capabilities by specifying this parameter.
-                The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, and CAPABILITY_RESOURCE_POLICY.
+                The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
                 The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM: `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , and `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ . If the application contains IAM resources, you can specify either CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM.
                 The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:Lambda\:\:Permission <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html>`__ , `AWS\:\:IAM\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
+                Applications that contain one or more nested applications require you to specify CAPABILITY_AUTO_EXPAND.
                 If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
-                Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY 
                 - *(string) --* 
                   Values that must be specified in order to deploy some applications.
               - **ResourcesSupported** *(boolean) --* 
@@ -799,8 +818,11 @@ class Client(BaseClient):
               - **SemanticVersion** *(string) --* 
                 The semantic version of the application:
                  `https\://semver.org/ <https://semver.org/>`__  
+              - **SourceCodeArchiveUrl** *(string) --* 
+                A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+                Maximum size 50 MB
               - **SourceCodeUrl** *(string) --* 
-                A link to a public repository for the source code of your application.
+                A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
               - **TemplateUrl** *(string) --* 
                 A link to the packaged AWS SAM template of your application.
         :type ApplicationId: string
@@ -852,7 +874,7 @@ class Client(BaseClient):
                   For the list of actions supported for this operation, see `Application Permissions <https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions>`__ .
                   - *(string) --* 
                 - **Principals** *(list) --* 
-                  An AWS account ID, or * to make the application public.
+                  An array of AWS account IDs, or * to make the application public.
                   - *(string) --* 
                 - **StatementId** *(string) --* 
                   A unique ID for the statement.
@@ -902,7 +924,7 @@ class Client(BaseClient):
                `https\://semver.org/ <https://semver.org/>`__  
             - **Status** *(string) --* 
               Status of the template creation workflow.
-              Possible values: PREPARING | ACTIVE | EXPIRED
+              Possible values: PREPARING | ACTIVE | EXPIRED 
             - **TemplateId** *(string) --* 
               The UUID returned by CreateCloudFormationTemplate.
               Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
@@ -1049,7 +1071,7 @@ class Client(BaseClient):
                   The semantic version of the application:
                    `https\://semver.org/ <https://semver.org/>`__  
                 - **SourceCodeUrl** *(string) --* 
-                  A link to a public repository for the source code of your application.
+                  A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the application.
@@ -1189,7 +1211,7 @@ class Client(BaseClient):
                   For the list of actions supported for this operation, see `Application Permissions <https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions>`__ .
                   - *(string) --* 
                 - **Principals** *(list) --* 
-                  An AWS account ID, or * to make the application public.
+                  An array of AWS account IDs, or * to make the application public.
                   - *(string) --* 
                 - **StatementId** *(string) --* 
                   A unique ID for the statement.
@@ -1205,7 +1227,7 @@ class Client(BaseClient):
               For the list of actions supported for this operation, see `Application Permissions <https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions>`__ .
               - *(string) --*
             - **Principals** *(list) --* **[REQUIRED]**
-              An AWS account ID, or * to make the application public.
+              An array of AWS account IDs, or * to make the application public.
               - *(string) --*
             - **StatementId** *(string) --*
               A unique ID for the statement.
@@ -1277,6 +1299,7 @@ class Client(BaseClient):
                     ],
                     'ResourcesSupported': True|False,
                     'SemanticVersion': 'string',
+                    'SourceCodeArchiveUrl': 'string',
                     'SourceCodeUrl': 'string',
                     'TemplateUrl': 'string'
                 }
@@ -1367,11 +1390,11 @@ class Client(BaseClient):
                     For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
               - **RequiredCapabilities** *(list) --* 
                 A list of values that you must specify before you can deploy certain applications. Some applications might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those applications, you must explicitly acknowledge their capabilities by specifying this parameter.
-                The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, and CAPABILITY_RESOURCE_POLICY.
+                The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
                 The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM: `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__ , `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__ , `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , and `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__ . If the application contains IAM resources, you can specify either CAPABILITY_IAM or CAPABILITY_NAMED_IAM. If the application contains IAM resources with custom names, you must specify CAPABILITY_NAMED_IAM.
                 The following resources require you to specify CAPABILITY_RESOURCE_POLICY: `AWS\:\:Lambda\:\:Permission <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html>`__ , `AWS\:\:IAM\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__ , `AWS\:\:ApplicationAutoScaling\:\:ScalingPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__ , `AWS\:\:S3\:\:BucketPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__ , `AWS\:\:SQS\:\:QueuePolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__ , and `AWS\:\:SNS\:\:TopicPolicy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__ .
+                Applications that contain one or more nested applications require you to specify CAPABILITY_AUTO_EXPAND.
                 If your application template contains any of the above resources, we recommend that you review all permissions associated with the application before deploying. If you don't specify this parameter for an application that requires capabilities, the call will fail.
-                Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY 
                 - *(string) --* 
                   Values that must be specified in order to deploy some applications.
               - **ResourcesSupported** *(boolean) --* 
@@ -1379,8 +1402,11 @@ class Client(BaseClient):
               - **SemanticVersion** *(string) --* 
                 The semantic version of the application:
                  `https\://semver.org/ <https://semver.org/>`__  
+              - **SourceCodeArchiveUrl** *(string) --* 
+                A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+                Maximum size 50 MB
               - **SourceCodeUrl** *(string) --* 
-                A link to a public repository for the source code of your application.
+                A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
               - **TemplateUrl** *(string) --* 
                 A link to the packaged AWS SAM template of your application.
         :type ApplicationId: string

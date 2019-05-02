@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -1520,7 +1520,7 @@ class Client(BaseClient):
     def get_content_moderation(self, JobId: str, MaxResults: int = None, NextToken: str = None, SortBy: str = None) -> Dict:
         """
         Gets the content moderation analysis results for a Amazon Rekognition Video analysis started by  StartContentModeration .
-        Content moderation analysis of a video is an asynchronous operation. You start analysis by calling  StartContentModeration . which returns a job identifier (``JobId`` ). When analysis finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to ``StartContentModeration`` . To get the results of the content moderation analysis, first check that the status value published to the Amazon SNS topic is ``SUCCEEDED`` . If so, call ``GetCelebrityDetection`` and pass the job identifier (``JobId`` ) from the initial call to ``StartCelebrityDetection`` . 
+        Content moderation analysis of a video is an asynchronous operation. You start analysis by calling  StartContentModeration which returns a job identifier (``JobId`` ). When analysis finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to ``StartContentModeration`` . To get the results of the content moderation analysis, first check that the status value published to the Amazon SNS topic is ``SUCCEEDED`` . If so, call ``GetContentModeration`` and pass the job identifier (``JobId`` ) from the initial call to ``StartContentModeration`` . 
         For more information, see Working with Stored Videos in the Amazon Rekognition Devlopers Guide.
          ``GetContentModeration`` returns detected content moderation labels, and the time they are detected, in an array, ``ModerationLabels`` , of  ContentModerationDetection objects. 
         By default, the moderated labels are returned sorted by time, in milliseconds from the start of the video. You can also sort them by moderated label by specifying ``NAME`` for the ``SortBy`` input parameter. 

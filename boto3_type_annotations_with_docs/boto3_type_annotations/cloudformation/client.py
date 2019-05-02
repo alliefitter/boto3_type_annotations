@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -48,7 +48,7 @@ class Client(BaseClient):
 
     def continue_update_rollback(self, StackName: str, RoleARN: str = None, ResourcesToSkip: List = None, ClientRequestToken: str = None) -> Dict:
         """
-        For a specified stack that is in the ``UPDATE_ROLLBACK_FAILED`` state, continues rolling it back to the ``UPDATE_ROLLBACK_COMPLETE`` state. Depending on the cause of the failure, you can manually `fix the error <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed>`__ and continue the rollback. By continuing the rollback, you can return your stack to a working state (the ``UPDATE_ROLLBACK_COMPLETE`` state), and then try to update the stack again.
+        For a specified stack that is in the ``UPDATE_ROLLBACK_FAILED`` state, continues rolling it back to the ``UPDATE_ROLLBACK_COMPLETE`` state. Depending on the cause of the failure, you can manually `fix the error <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed>`__ and continue the rollback. By continuing the rollback, you can return your stack to a working state (the ``UPDATE_ROLLBACK_COMPLETE`` state), and then try to update the stack again.
         A stack goes into the ``UPDATE_ROLLBACK_FAILED`` state when AWS CloudFormation cannot roll back all changes after a failed stack update. For example, you might have a stack that is rolling back to an old database instance that was deleted outside of AWS CloudFormation. Because AWS CloudFormation doesn't know the database was deleted, it assumes that the database instance still exists and attempts to roll back to it, causing the update rollback to fail.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/ContinueUpdateRollback>`_
         
@@ -83,11 +83,11 @@ class Client(BaseClient):
         :param ResourcesToSkip:
           A list of the logical IDs of the resources that AWS CloudFormation skips during the continue update rollback operation. You can specify only resources that are in the ``UPDATE_FAILED`` state because a rollback failed. You can\'t specify resources that are in the ``UPDATE_FAILED`` state for other reasons, for example, because an update was cancelled. To check why a resource update failed, use the  DescribeStackResources action, and view the resource status reason.
           .. warning::
-            Specify this property to skip rolling back resources that AWS CloudFormation can\'t successfully roll back. We recommend that you `troubleshoot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed>`__ resources before skipping them. AWS CloudFormation sets the status of the specified resources to ``UPDATE_COMPLETE`` and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don\'t, subsequent stack updates might fail, and the stack will become unrecoverable.
+            Specify this property to skip rolling back resources that AWS CloudFormation can\'t successfully roll back. We recommend that you `troubleshoot <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed>`__ resources before skipping them. AWS CloudFormation sets the status of the specified resources to ``UPDATE_COMPLETE`` and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don\'t, subsequent stack updates might fail, and the stack will become unrecoverable.
           Specify the minimum number of resources required to successfully roll back your stack. For example, a failed resource update might cause dependent resources to fail. In this case, it might not be necessary to skip the dependent resources.
           To skip resources that are part of nested stacks, use the following format: ``NestedStackName.ResourceLogicalID`` . If you want to specify the logical ID of a stack resource (``Type: AWS::CloudFormation::Stack`` ) in the ``ResourcesToSkip`` list, then its corresponding embedded stack must be in one of the following states: ``DELETE_IN_PROGRESS`` , ``DELETE_COMPLETE`` , or ``DELETE_FAILED`` .
           .. note::
-            Don\'t confuse a child stack\'s name with its corresponding logical ID defined in the parent stack. For an example of a continue update rollback operation with nested stacks, see `Using ResourcesToSkip to recover a nested stacks hierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks>`__ .
+            Don\'t confuse a child stack\'s name with its corresponding logical ID defined in the parent stack. For an example of a continue update rollback operation with nested stacks, see `Using ResourcesToSkip to recover a nested stacks hierarchy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks>`__ .
           - *(string) --*
         :type ClientRequestToken: string
         :param ClientRequestToken:
@@ -99,7 +99,7 @@ class Client(BaseClient):
 
     def create_change_set(self, StackName: str, ChangeSetName: str, TemplateBody: str = None, TemplateURL: str = None, UsePreviousTemplate: bool = None, Parameters: List = None, Capabilities: List = None, ResourceTypes: List = None, RoleARN: str = None, RollbackConfiguration: Dict = None, NotificationARNs: List = None, Tags: List = None, ClientToken: str = None, Description: str = None, ChangeSetType: str = None) -> Dict:
         """
-        .. _http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995
+        .. _https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995
         Creates a list of changes that will be applied to a stack so that you can review the changes before executing them. You can create a change set for a stack that doesn't exist or an existing stack. If you create a change set for a stack that doesn't exist, the change set shows all of the resources that AWS CloudFormation will create. If you create a change set for an existing stack, AWS CloudFormation compares the stack's information with the information that you submit in the change set and lists the differences. Use change sets to understand which resources AWS CloudFormation will create or change, and how it will change resources in an existing stack, before you create or update a stack.
         To create a change set for a stack that doesn't exist, for the ``ChangeSetType`` parameter, specify ``CREATE`` . To create a change set for an existing stack, specify ``UPDATE`` for the ``ChangeSetType`` parameter. After the ``CreateChangeSet`` call successfully completes, AWS CloudFormation starts creating the change set. To check the status of the change set or to review it, use the  DescribeChangeSet action.
         When you are satisfied with the changes the change set will make, execute the change set by using the  ExecuteChangeSet action. AWS CloudFormation doesn't make changes until you execute the change set.
@@ -191,7 +191,7 @@ class Client(BaseClient):
             - **UsePreviousValue** *(boolean) --*
               During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
             - **ResolvedValue** *(string) --*
-              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
         :type Capabilities: list
         :param Capabilities:
           In some cases, you must explicity acknowledge that your stack template contains certain capabilities in order for AWS CloudFormation to create the stack.
@@ -200,13 +200,13 @@ class Client(BaseClient):
             * If you have IAM resources with custom names, you *must* specify ``CAPABILITY_NAMED_IAM`` .
             * If you don\'t specify either of these capabilities, AWS CloudFormation returns an ``InsufficientCapabilities`` error.
           If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
-            * `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
-            * `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
-            * `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
-            * `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
-            * `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
-            * `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
-            * `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
+            * `AWS\:\:IAM\:\:AccessKey <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
+            * `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
+            * `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
+            * `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
+            * `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
+            * `AWS\:\:IAM\:\:User <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
+            * `AWS\:\:IAM\:\:UserToGroupAddition <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
           * ``CAPABILITY_AUTO_EXPAND``   Some template contain macros. Macros perform custom processing on templates; this can include simple actions like find-and-replace operations, all the way to extensive transformations of entire templates. Because of this, users typically create a change set from the processed template, so that they can review the changes resulting from the macros before actually creating the stack. If your stack template contains one or more macros, and you choose to create a stack directly from the processed template, without first reviewing the resulting changes in a change set, you must acknowledge this capability. This includes the `AWS\:\:Include <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html>`__ and `AWS\:\:Serverless <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html>`__ transforms, which are macros hosted by AWS CloudFormation.
           .. note::
@@ -216,7 +216,7 @@ class Client(BaseClient):
         :type ResourceTypes: list
         :param ResourceTypes:
           The template resource types that you have permissions to work with if you execute this change set, such as ``AWS::EC2::Instance`` , ``AWS::EC2::*`` , or ``Custom::MyCustomInstance`` .
-          If the list of resource types doesn\'t include a resource type that you\'re updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in IAM policies for AWS CloudFormation. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ in the AWS CloudFormation User Guide.
+          If the list of resource types doesn\'t include a resource type that you\'re updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in IAM policies for AWS CloudFormation. For more information, see `Controlling Access with AWS Identity and Access Management <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ in the AWS CloudFormation User Guide.
           - *(string) --*
         :type RoleARN: string
         :param RoleARN:
@@ -238,11 +238,11 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) of the rollback trigger.
                 If a specified trigger is missing, the entire stack operation fails and is rolled back.
               - **Type** *(string) --* **[REQUIRED]**
-                The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
+                The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
           - **MonitoringTimeInMinutes** *(integer) --*
             The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources.
             The default is 0 minutes.
-            If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
+            If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
             If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
         :type NotificationARNs: list
         :param NotificationARNs:
@@ -270,7 +270,7 @@ class Client(BaseClient):
         :type ChangeSetType: string
         :param ChangeSetType:
           The type of change set operation. To create a change set for a new stack, specify ``CREATE`` . To create a change set for an existing stack, specify ``UPDATE`` .
-          If you create a change set for a new stack, AWS Cloudformation creates a stack with a unique stack ID, but no template or resources. The stack will be in the ` ``REVIEW_IN_PROGRESS`` http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995`__ state until you execute the change set.
+          If you create a change set for a new stack, AWS Cloudformation creates a stack with a unique stack ID, but no template or resources. The stack will be in the ` ``REVIEW_IN_PROGRESS`` https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995`__ state until you execute the change set.
           By default, AWS CloudFormation specifies ``UPDATE`` . You can\'t use the ``UPDATE`` type to create a change set for a new stack or the ``CREATE`` type to create a change set for an existing stack.
         :rtype: dict
         :returns:
@@ -348,15 +348,15 @@ class Client(BaseClient):
             A stack name can contain only alphanumeric characters (case sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         :type TemplateBody: string
         :param TemplateBody:
-          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify either the ``TemplateBody`` or the ``TemplateURL`` parameter, but not both.
         :type TemplateURL: string
         :param TemplateURL:
-          Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to the `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to the `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify either the ``TemplateBody`` or the ``TemplateURL`` parameter, but not both.
         :type Parameters: list
         :param Parameters:
-          A list of ``Parameter`` structures that specify input parameters for the stack. For more information, see the `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html>`__ data type.
+          A list of ``Parameter`` structures that specify input parameters for the stack. For more information, see the `Parameter <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html>`__ data type.
           - *(dict) --*
             The Parameter data type.
             - **ParameterKey** *(string) --*
@@ -366,7 +366,7 @@ class Client(BaseClient):
             - **UsePreviousValue** *(boolean) --*
               During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
             - **ResolvedValue** *(string) --*
-              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
         :type DisableRollback: boolean
         :param DisableRollback:
           Set to ``true`` to disable rollback of the stack if stack creation failed. You can specify either ``DisableRollback`` or ``OnFailure`` , but not both.
@@ -387,11 +387,11 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) of the rollback trigger.
                 If a specified trigger is missing, the entire stack operation fails and is rolled back.
               - **Type** *(string) --* **[REQUIRED]**
-                The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
+                The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
           - **MonitoringTimeInMinutes** *(integer) --*
             The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources.
             The default is 0 minutes.
-            If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
+            If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
             If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
         :type TimeoutInMinutes: integer
         :param TimeoutInMinutes:
@@ -408,13 +408,13 @@ class Client(BaseClient):
             * If you have IAM resources with custom names, you *must* specify ``CAPABILITY_NAMED_IAM`` .
             * If you don\'t specify either of these capabilities, AWS CloudFormation returns an ``InsufficientCapabilities`` error.
           If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
-            * `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
-            * `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
-            * `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
-            * `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
-            * `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
-            * `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
-            * `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
+            * `AWS\:\:IAM\:\:AccessKey <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
+            * `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
+            * `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
+            * `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
+            * `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
+            * `AWS\:\:IAM\:\:User <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
+            * `AWS\:\:IAM\:\:UserToGroupAddition <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
           * ``CAPABILITY_AUTO_EXPAND``   Some template contain macros. Macros perform custom processing on templates; this can include simple actions like find-and-replace operations, all the way to extensive transformations of entire templates. Because of this, users typically create a change set from the processed template, so that they can review the changes resulting from the macros before actually creating the stack. If your stack template contains one or more macros, and you choose to create a stack directly from the processed template, without first reviewing the resulting changes in a change set, you must acknowledge this capability. This includes the `AWS\:\:Include <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html>`__ and `AWS\:\:Serverless <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html>`__ transforms, which are macros hosted by AWS CloudFormation. Change sets do not currently support nested stacks. If you want to create a stack from a stack template that contains macros *and* nested stacks, you must create the stack directly from the template using this capability.
           .. warning::
@@ -424,7 +424,7 @@ class Client(BaseClient):
         :type ResourceTypes: list
         :param ResourceTypes:
           The template resource types that you have permissions to work with for this create stack action, such as ``AWS::EC2::Instance`` , ``AWS::EC2::*`` , or ``Custom::MyCustomInstance`` . Use the following syntax to describe template resource types: ``AWS::*`` (for all AWS resource), ``Custom::*`` (for all custom resources), ``Custom::*logical_ID* `` (for a specific custom resource), ``AWS::*service_name* ::*`` (for all resources of a particular AWS service), and ``AWS::*service_name* ::*resource_logical_ID* `` (for a specific AWS resource).
-          If the list of resource types doesn\'t include a resource that you\'re creating, the stack creation fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
+          If the list of resource types doesn\'t include a resource that you\'re creating, the stack creation fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
           - *(string) --*
         :type RoleARN: string
         :param RoleARN:
@@ -436,7 +436,7 @@ class Client(BaseClient):
           Default: ``ROLLBACK``
         :type StackPolicyBody: string
         :param StackPolicyBody:
-          Structure containing the stack policy body. For more information, go to `Prevent Updates to Stack Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html>`__ in the *AWS CloudFormation User Guide* . You can specify either the ``StackPolicyBody`` or the ``StackPolicyURL`` parameter, but not both.
+          Structure containing the stack policy body. For more information, go to `Prevent Updates to Stack Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html>`__ in the *AWS CloudFormation User Guide* . You can specify either the ``StackPolicyBody`` or the ``StackPolicyURL`` parameter, but not both.
         :type StackPolicyURL: string
         :param StackPolicyURL:
           Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the ``StackPolicyBody`` or the ``StackPolicyURL`` parameter, but not both.
@@ -530,7 +530,7 @@ class Client(BaseClient):
           * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.
           * To leave all parameters set to their present values, do not specify this property at all.
           During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value.
-          You can only override the parameter *values* that are specified in the stack set; to add or delete a parameter itself, use `UpdateStackSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html>`__ to update the stack set template.
+          You can only override the parameter *values* that are specified in the stack set; to add or delete a parameter itself, use `UpdateStackSet <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html>`__ to update the stack set template.
           - *(dict) --*
             The Parameter data type.
             - **ParameterKey** *(string) --*
@@ -540,7 +540,7 @@ class Client(BaseClient):
             - **UsePreviousValue** *(boolean) --*
               During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
             - **ResolvedValue** *(string) --*
-              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
         :type OperationPreferences: dict
         :param OperationPreferences:
           Preferences for how AWS CloudFormation performs this stack set operation.
@@ -629,11 +629,11 @@ class Client(BaseClient):
           A description of the stack set. You can use the description to identify the stack set\'s purpose or other important information.
         :type TemplateBody: string
         :param TemplateBody:
-          The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, see `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, see `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but not both.
         :type TemplateURL: string
         :param TemplateURL:
-          The location of the file that contains the template body. The URL must point to a template (maximum size: 460,800 bytes) that\'s located in an Amazon S3 bucket. For more information, see `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          The location of the file that contains the template body. The URL must point to a template (maximum size: 460,800 bytes) that\'s located in an Amazon S3 bucket. For more information, see `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but not both.
         :type Parameters: list
         :param Parameters:
@@ -647,7 +647,7 @@ class Client(BaseClient):
             - **UsePreviousValue** *(boolean) --*
               During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
             - **ResolvedValue** *(string) --*
-              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
         :type Capabilities: list
         :param Capabilities:
           In some cases, you must explicity acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
@@ -656,13 +656,13 @@ class Client(BaseClient):
             * If you have IAM resources with custom names, you *must* specify ``CAPABILITY_NAMED_IAM`` .
             * If you don\'t specify either of these capabilities, AWS CloudFormation returns an ``InsufficientCapabilities`` error.
           If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
-            * `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
-            * `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
-            * `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
-            * `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
-            * `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
-            * `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
-            * `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
+            * `AWS\:\:IAM\:\:AccessKey <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
+            * `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
+            * `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
+            * `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
+            * `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
+            * `AWS\:\:IAM\:\:User <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
+            * `AWS\:\:IAM\:\:UserToGroupAddition <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
           * ``CAPABILITY_AUTO_EXPAND``   Some templates contain macros. If your stack template contains one or more macros, and you choose to create a stack directly from the processed template, without first reviewing the resulting changes in a change set, you must acknowledge this capability. For more information, see `Using AWS CloudFormation Macros to Perform Custom Processing on Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html>`__ .
           .. note::
@@ -837,7 +837,7 @@ class Client(BaseClient):
         :type RetainStacks: boolean
         :param RetainStacks: **[REQUIRED]**
           Removes the stack instances from the specified stack set, but doesn\'t delete the stacks. You can\'t reassociate a retained stack or add an existing, saved stack to a new stack set.
-          For more information, see `Stack set operation options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options>`__ .
+          For more information, see `Stack set operation options <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options>`__ .
         :type OperationId: string
         :param OperationId:
           The unique identifier for this stack set operation.
@@ -877,7 +877,7 @@ class Client(BaseClient):
 
     def describe_account_limits(self, NextToken: str = None) -> Dict:
         """
-        Retrieves your account's AWS CloudFormation limits, such as the maximum number of stacks that you can create in your account.
+        Retrieves your account's AWS CloudFormation limits, such as the maximum number of stacks that you can create in your account. For more information about account limits, see `AWS CloudFormation Limits <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html>`__ in the *AWS CloudFormation User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeAccountLimits>`_
         
         **Request Syntax**
@@ -904,9 +904,9 @@ class Client(BaseClient):
             - **AccountLimits** *(list) --* 
               An account limit structure that contain a list of AWS CloudFormation account limits and their values.
               - *(dict) --* 
-                The AccountLimit data type.
+                The AccountLimit data type. For more information about account limits, see `AWS CloudFormation Limits <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html>`__ in the *AWS CloudFormation User Guide* .
                 - **Name** *(string) --* 
-                  The name of the account limit. Currently, the only account limit is ``StackLimit`` .
+                  The name of the account limit.
                 - **Value** *(integer) --* 
                   The value that is associated with the account limit name.
             - **NextToken** *(string) --* 
@@ -921,7 +921,7 @@ class Client(BaseClient):
 
     def describe_change_set(self, ChangeSetName: str, StackName: str = None, NextToken: str = None) -> Dict:
         """
-        Returns the inputs for the change set and a list of changes that AWS CloudFormation will make if you execute the change set. For more information, see `Updating Stacks Using Change Sets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html>`__ in the AWS CloudFormation User Guide.
+        Returns the inputs for the change set and a list of changes that AWS CloudFormation will make if you execute the change set. For more information, see `Updating Stacks Using Change Sets <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html>`__ in the AWS CloudFormation User Guide.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeChangeSet>`_
         
         **Request Syntax**
@@ -1017,7 +1017,7 @@ class Client(BaseClient):
             - **Description** *(string) --* 
               Information about the change set.
             - **Parameters** *(list) --* 
-              A list of ``Parameter`` structures that describes the input parameters and their values used to create the change set. For more information, see the `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html>`__ data type.
+              A list of ``Parameter`` structures that describes the input parameters and their values used to create the change set. For more information, see the `Parameter <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html>`__ data type.
               - *(dict) --* 
                 The Parameter data type.
                 - **ParameterKey** *(string) --* 
@@ -1027,7 +1027,7 @@ class Client(BaseClient):
                 - **UsePreviousValue** *(boolean) --* 
                   During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
                 - **ResolvedValue** *(string) --* 
-                  Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+                  Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
             - **CreationTime** *(datetime) --* 
               The start time when the change set was created, in UTC.
             - **ExecutionStatus** *(string) --* 
@@ -1054,11 +1054,11 @@ class Client(BaseClient):
                     The Amazon Resource Name (ARN) of the rollback trigger.
                     If a specified trigger is missing, the entire stack operation fails and is rolled back. 
                   - **Type** *(string) --* 
-                    The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
+                    The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
               - **MonitoringTimeInMinutes** *(integer) --* 
                 The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources.
                 The default is 0 minutes.
-                If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
+                If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
                 If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
             - **Capabilities** *(list) --* 
               If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
@@ -1104,7 +1104,7 @@ class Client(BaseClient):
                         - **Name** *(string) --* 
                           If the ``Attribute`` value is ``Properties`` , the name of the property. For all other attributes, the value is null.
                         - **RequiresRecreation** *(string) --* 
-                          If the ``Attribute`` value is ``Properties`` , indicates whether a change to this property causes the resource to be recreated. The value can be ``Never`` , ``Always`` , or ``Conditionally`` . To determine the conditions for a ``Conditionally`` recreation, see the update behavior for that `property <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.
+                          If the ``Attribute`` value is ``Properties`` , indicates whether a change to this property causes the resource to be recreated. The value can be ``Never`` , ``Always`` , or ``Conditionally`` . To determine the conditions for a ``Conditionally`` recreation, see the update behavior for that `property <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.
                       - **Evaluation** *(string) --* 
                         Indicates whether AWS CloudFormation can determine the target value, and whether the target value will change before you execute a change set.
                         For ``Static`` evaluations, AWS CloudFormation can determine that the target value will change, and its value. For example, if you directly modify the ``InstanceType`` property of an EC2 instance, AWS CloudFormation knows that this property value will change, and its value, so this is a ``Static`` evaluation.
@@ -1137,7 +1137,7 @@ class Client(BaseClient):
 
     def describe_stack_drift_detection_status(self, StackDriftDetectionId: str) -> Dict:
         """
-        Returns information about a stack drift detection operation. A stack drift detection operation detects whether a stack's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. A stack is considered to have drifted if one or more of its resources have drifted. For more information on stack and resource drift, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+        Returns information about a stack drift detection operation. A stack drift detection operation detects whether a stack's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. A stack is considered to have drifted if one or more of its resources have drifted. For more information on stack and resource drift, see `Detecting Unregulated Configuration Changes to Stacks and Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         Use  DetectStackDrift to initiate a stack drift detection operation. ``DetectStackDrift`` returns a ``StackDriftDetectionId`` you can use to monitor the progress of the operation using ``DescribeStackDriftDetectionStatus`` . Once the drift detection operation has completed, use  DescribeStackResourceDrifts to return drift information about the stack and its resources.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeStackDriftDetectionStatus>`_
         
@@ -1194,7 +1194,7 @@ class Client(BaseClient):
 
     def describe_stack_events(self, StackName: str = None, NextToken: str = None) -> Dict:
         """
-        Returns all stack related events for a specified stack in reverse chronological order. For more information about a stack's event history, go to `Stacks <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html>`__ in the AWS CloudFormation User Guide.
+        Returns all stack related events for a specified stack in reverse chronological order. For more information about a stack's event history, go to `Stacks <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html>`__ in the AWS CloudFormation User Guide.
         .. note::
           You can list events for stacks that have failed to create or have been deleted by specifying the unique stack identifier (stack ID).
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeStackEvents>`_
@@ -1245,7 +1245,7 @@ class Client(BaseClient):
                 - **PhysicalResourceId** *(string) --* 
                   The name or unique identifier associated with the physical instance of the resource.
                 - **ResourceType** *(string) --* 
-                  Type of resource. (For more information, go to `AWS Resource Types Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
+                  Type of resource. (For more information, go to `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
                 - **Timestamp** *(datetime) --* 
                   Time the status was updated.
                 - **ResourceStatus** *(string) --* 
@@ -1332,7 +1332,7 @@ class Client(BaseClient):
                   - **UsePreviousValue** *(boolean) --* 
                     During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
                   - **ResolvedValue** *(string) --* 
-                    Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+                    Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
               - **Status** *(string) --* 
                 The status of the stack instance, in terms of its synchronization with its associated stack set.
                 * ``INOPERABLE`` : A ``DeleteStackInstances`` operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further ``UpdateStackSet`` operations. You might need to perform a ``DeleteStackInstances`` operation, with ``RetainStacks`` set to ``true`` , to delete the stack instance, and then delete the stack manually. 
@@ -1404,7 +1404,7 @@ class Client(BaseClient):
               - **PhysicalResourceId** *(string) --* 
                 The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
               - **ResourceType** *(string) --* 
-                Type of resource. ((For more information, go to `AWS Resource Types Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
+                Type of resource. ((For more information, go to `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
               - **LastUpdatedTimestamp** *(datetime) --* 
                 Time the status was updated.
               - **ResourceStatus** *(string) --* 
@@ -1414,14 +1414,14 @@ class Client(BaseClient):
               - **Description** *(string) --* 
                 User defined description associated with the resource.
               - **Metadata** *(string) --* 
-                The content of the ``Metadata`` attribute declared for the resource. For more information, see `Metadata Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html>`__ in the AWS CloudFormation User Guide.
+                The content of the ``Metadata`` attribute declared for the resource. For more information, see `Metadata Attribute <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html>`__ in the AWS CloudFormation User Guide.
               - **DriftInformation** *(dict) --* 
                 Information about whether the resource's actual configuration differs, or has *drifted* , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
                 - **StackResourceDriftStatus** *(string) --* 
                   Status of the resource's actual configuration compared to its expected configuration
                   * ``DELETED`` : The resource differs from its expected configuration in that it has been deleted. 
                   * ``MODIFIED`` : The resource differs from its expected configuration. 
-                  * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .  
+                  * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .  
                   * ``IN_SYNC`` : The resources's actual configuration matches its expected configuration. 
                 - **LastCheckTimestamp** *(datetime) --* 
                   When AWS CloudFormation last checked if the resource had drifted from its expected configuration.
@@ -1443,7 +1443,7 @@ class Client(BaseClient):
     def describe_stack_resource_drifts(self, StackName: str, StackResourceDriftStatusFilters: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
         Returns drift information for the resources that have been checked for drift in the specified stack. This includes actual and expected configuration values for resources where AWS CloudFormation detects configuration drift.
-        For a given stack, there will be one ``StackResourceDrift`` for each stack resource that has been checked for drift. Resources that have not yet been checked for drift are not included. Resources that do not currently support drift detection are not checked, and so not included. For a list of resources that support drift detection, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
+        For a given stack, there will be one ``StackResourceDrift`` for each stack resource that has been checked for drift. Resources that have not yet been checked for drift are not included. Resources that do not currently support drift detection are not checked, and so not included. For a list of resources that support drift detection, see `Resources that Support Drift Detection <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
         Use  DetectStackResourceDrift to detect drift on individual resources, or  DetectStackDrift to detect drift on all supported resources for a given stack.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeStackResourceDrifts>`_
         
@@ -1494,9 +1494,9 @@ class Client(BaseClient):
           - *(dict) --* 
             - **StackResourceDrifts** *(list) --* 
               Drift information for the resources that have been checked for drift in the specified stack. This includes actual and expected configuration values for resources where AWS CloudFormation detects drift.
-              For a given stack, there will be one ``StackResourceDrift`` for each stack resource that has been checked for drift. Resources that have not yet been checked for drift are not included. Resources that do not currently support drift detection are not checked, and so not included. For a list of resources that support drift detection, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
+              For a given stack, there will be one ``StackResourceDrift`` for each stack resource that has been checked for drift. Resources that have not yet been checked for drift are not included. Resources that do not currently support drift detection are not checked, and so not included. For a list of resources that support drift detection, see `Resources that Support Drift Detection <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
               - *(dict) --* 
-                Contains the drift information for a resource that has been checked for drift. This includes actual and expected property values for resources in which AWS CloudFormation has detected drift. Only resource properties explicitly defined in the stack template are checked for drift. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                Contains the drift information for a resource that has been checked for drift. This includes actual and expected property values for resources in which AWS CloudFormation has detected drift. Only resource properties explicitly defined in the stack template are checked for drift. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
                 Resources that do not currently support drift detection cannot be checked. For a list of resources that support drift detection, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
                 Use  DetectStackResourceDrift to detect drift on individual resources, or  DetectStackDrift to detect drift on all resources in a given stack that support drift detection.
                 - **StackId** *(string) --* 
@@ -1524,7 +1524,7 @@ class Client(BaseClient):
                 - **PropertyDifferences** *(list) --* 
                   A collection of the resource properties whose actual values differ from their expected values. These will be present only for resources whose ``StackResourceDriftStatus`` is ``MODIFIED`` . 
                   - *(dict) --* 
-                    Information about a resource property whose actual value differs from its expected value, as defined in the stack template and any values specified as template parameters. These will be present only for resources whose ``StackResourceDriftStatus`` is ``MODIFIED`` . For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                    Information about a resource property whose actual value differs from its expected value, as defined in the stack template and any values specified as template parameters. These will be present only for resources whose ``StackResourceDriftStatus`` is ``MODIFIED`` . For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
                     - **PropertyPath** *(string) --* 
                       The fully-qualified path to the resource property.
                     - **ExpectedValue** *(string) --* 
@@ -1574,7 +1574,7 @@ class Client(BaseClient):
         .. note::
           Only the first 100 resources will be returned. If your stack has more resources than this, you should use ``ListStackResources`` instead.
         For deleted stacks, ``DescribeStackResources`` returns resource information for up to 90 days after the stack has been deleted.
-        You must specify either ``StackName`` or ``PhysicalResourceId`` , but not both. In addition, you can specify ``LogicalResourceId`` to filter the returned result. For more information about resources, the ``LogicalResourceId`` and ``PhysicalResourceId`` , go to the `AWS CloudFormation User Guide <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/>`__ .
+        You must specify either ``StackName`` or ``PhysicalResourceId`` , but not both. In addition, you can specify ``LogicalResourceId`` to filter the returned result. For more information about resources, the ``LogicalResourceId`` and ``PhysicalResourceId`` , go to the `AWS CloudFormation User Guide <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/>`__ .
         .. note::
           A ``ValidationError`` is returned if you specify both ``StackName`` and ``PhysicalResourceId`` in the same request.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DescribeStackResources>`_
@@ -1625,7 +1625,7 @@ class Client(BaseClient):
                 - **PhysicalResourceId** *(string) --* 
                   The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
                 - **ResourceType** *(string) --* 
-                  Type of resource. (For more information, go to `AWS Resource Types Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
+                  Type of resource. (For more information, go to `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
                 - **Timestamp** *(datetime) --* 
                   Time the status was updated.
                 - **ResourceStatus** *(string) --* 
@@ -1640,7 +1640,7 @@ class Client(BaseClient):
                     Status of the resource's actual configuration compared to its expected configuration
                     * ``DELETED`` : The resource differs from its expected configuration in that it has been deleted. 
                     * ``MODIFIED`` : The resource differs from its expected configuration. 
-                    * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .  
+                    * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .  
                     * ``IN_SYNC`` : The resources's actual configuration matches its expected configuration. 
                   - **LastCheckTimestamp** *(datetime) --* 
                     When AWS CloudFormation last checked if the resource had drifted from its expected configuration.
@@ -1734,9 +1734,9 @@ class Client(BaseClient):
                   - **UsePreviousValue** *(boolean) --* 
                     During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
                   - **ResolvedValue** *(string) --* 
-                    Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+                    Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
               - **Capabilities** *(list) --* 
-                The capabilities that are allowed in the stack set. Some stack set templates might include resources that can affect permissions in your AWS account—for example, by creating new AWS Identity and Access Management (IAM) users. For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates. <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__  
+                The capabilities that are allowed in the stack set. Some stack set templates might include resources that can affect permissions in your AWS account—for example, by creating new AWS Identity and Access Management (IAM) users. For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates. <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__  
                 - *(string) --* 
               - **Tags** *(list) --* 
                 A list of tags that specify information about the stack set. A maximum number of 50 tags can be specified.
@@ -1966,7 +1966,7 @@ class Client(BaseClient):
                     - **UsePreviousValue** *(boolean) --* 
                       During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
                     - **ResolvedValue** *(string) --* 
-                      Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+                      Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
                 - **CreationTime** *(datetime) --* 
                   The time at which the stack was created.
                 - **DeletionTime** *(datetime) --* 
@@ -1988,11 +1988,11 @@ class Client(BaseClient):
                         The Amazon Resource Name (ARN) of the rollback trigger.
                         If a specified trigger is missing, the entire stack operation fails and is rolled back. 
                       - **Type** *(string) --* 
-                        The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
+                        The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
                   - **MonitoringTimeInMinutes** *(integer) --* 
                     The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources.
                     The default is 0 minutes.
-                    If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
+                    If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
                     If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
                 - **StackStatus** *(string) --* 
                   Current status of the stack.
@@ -2069,9 +2069,9 @@ class Client(BaseClient):
 
     def detect_stack_drift(self, StackName: str, LogicalResourceIds: List = None) -> Dict:
         """
-        Detects whether a stack's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For each resource in the stack that supports drift detection, AWS CloudFormation compares the actual configuration of the resource with its expected template configuration. Only resource properties explicitly defined in the stack template are checked for drift. A stack is considered to have drifted if one or more of its resources differ from their expected template configurations. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+        Detects whether a stack's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For each resource in the stack that supports drift detection, AWS CloudFormation compares the actual configuration of the resource with its expected template configuration. Only resource properties explicitly defined in the stack template are checked for drift. A stack is considered to have drifted if one or more of its resources differ from their expected template configurations. For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         Use ``DetectStackDrift`` to detect drift on all supported resources for a given stack, or  DetectStackResourceDrift to detect drift on individual resources.
-        For a list of stack resources that currently support drift detection, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
+        For a list of stack resources that currently support drift detection, see `Resources that Support Drift Detection <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
          ``DetectStackDrift`` can take up to several minutes, depending on the number of resources contained within the stack. Use  DescribeStackDriftDetectionStatus to monitor the progress of a detect stack drift operation. Once the drift detection operation has completed, use  DescribeStackResourceDrifts to return drift information about the stack and its resources.
         When detecting drift on a stack, AWS CloudFormation does not detect drift on any nested stacks belonging to that stack. Perform ``DetectStackDrift`` directly on the nested stack itself.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DetectStackDrift>`_
@@ -2110,9 +2110,9 @@ class Client(BaseClient):
 
     def detect_stack_resource_drift(self, StackName: str, LogicalResourceId: str) -> Dict:
         """
-        Returns information about whether a resource's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. This information includes actual and expected property values for resources in which AWS CloudFormation detects drift. Only resource properties explicitly defined in the stack template are checked for drift. For more information about stack and resource drift, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+        Returns information about whether a resource's actual configuration differs, or has *drifted* , from it's expected configuration, as defined in the stack template and any values specified as template parameters. This information includes actual and expected property values for resources in which AWS CloudFormation detects drift. Only resource properties explicitly defined in the stack template are checked for drift. For more information about stack and resource drift, see `Detecting Unregulated Configuration Changes to Stacks and Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
         Use ``DetectStackResourceDrift`` to detect drift on individual resources, or  DetectStackDrift to detect drift on all resources in a given stack that support drift detection.
-        Resources that do not currently support drift detection cannot be checked. For a list of resources that support drift detection, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
+        Resources that do not currently support drift detection cannot be checked. For a list of resources that support drift detection, see `Resources that Support Drift Detection <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/DetectStackResourceDrift>`_
         
         **Request Syntax**
@@ -2180,7 +2180,7 @@ class Client(BaseClient):
               - **PropertyDifferences** *(list) --* 
                 A collection of the resource properties whose actual values differ from their expected values. These will be present only for resources whose ``StackResourceDriftStatus`` is ``MODIFIED`` . 
                 - *(dict) --* 
-                  Information about a resource property whose actual value differs from its expected value, as defined in the stack template and any values specified as template parameters. These will be present only for resources whose ``StackResourceDriftStatus`` is ``MODIFIED`` . For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
+                  Information about a resource property whose actual value differs from its expected value, as defined in the stack template and any values specified as template parameters. These will be present only for resources whose ``StackResourceDriftStatus`` is ``MODIFIED`` . For more information, see `Detecting Unregulated Configuration Changes to Stacks and Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html>`__ .
                   - **PropertyPath** *(string) --* 
                     The fully-qualified path to the resource property.
                   - **ExpectedValue** *(string) --* 
@@ -2244,11 +2244,11 @@ class Client(BaseClient):
               An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
         :type TemplateBody: string
         :param TemplateBody:
-          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.)
+          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.)
           Conditional: You must pass ``TemplateBody`` or ``TemplateURL`` . If both are passed, only ``TemplateBody`` is used.
         :type TemplateURL: string
         :param TemplateURL:
-          Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must pass ``TemplateURL`` or ``TemplateBody`` . If both are passed, only ``TemplateBody`` is used.
         :type Parameters: list
         :param Parameters:
@@ -2262,7 +2262,7 @@ class Client(BaseClient):
             - **UsePreviousValue** *(boolean) --*
               During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
             - **ResolvedValue** *(string) --*
-              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
         :rtype: dict
         :returns:
         """
@@ -2361,7 +2361,7 @@ class Client(BaseClient):
           - *(dict) --* 
             The output for the  GetStackPolicy action.
             - **StackPolicyBody** *(string) --* 
-              Structure containing the stack policy body. (For more information, go to `Prevent Updates to Stack Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html>`__ in the AWS CloudFormation User Guide.)
+              Structure containing the stack policy body. (For more information, go to `Prevent Updates to Stack Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html>`__ in the AWS CloudFormation User Guide.)
         :type StackName: string
         :param StackName: **[REQUIRED]**
           The name or unique stack ID that is associated with the stack whose policy you want to get.
@@ -2399,7 +2399,7 @@ class Client(BaseClient):
           - *(dict) --* 
             The output for  GetTemplate action.
             - **TemplateBody** (*dict*) --
-              Structure containing the template body. (For more information, go to `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.)
+              Structure containing the template body. (For more information, go to `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.)
               AWS CloudFormation returns the same template that was used when the stack was created.
             - **StagesAvailable** *(list) --* 
               The stage of the template that you can retrieve. For stacks, the ``Original`` and ``Processed`` templates are always available. For change sets, the ``Original`` template is always available. After AWS CloudFormation finishes creating the change set, the ``Processed`` template becomes available.
@@ -2496,7 +2496,7 @@ class Client(BaseClient):
               The value that is defined in the ``Description`` property of the template.
             - **Capabilities** *(list) --* 
               The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the  CreateStack or  UpdateStack actions with your template; otherwise, those actions return an InsufficientCapabilities error.
-              For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
+              For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
               - *(string) --* 
             - **CapabilitiesReason** *(string) --* 
               The list of resources that generated the values in the ``Capabilities`` response element.
@@ -2512,11 +2512,11 @@ class Client(BaseClient):
               - *(string) --* 
         :type TemplateBody: string
         :param TemplateBody:
-          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify only one of the following parameters: ``StackName`` , ``StackSetName`` , ``TemplateBody`` , or ``TemplateURL`` .
         :type TemplateURL: string
         :param TemplateURL:
-          Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify only one of the following parameters: ``StackName`` , ``StackSetName`` , ``TemplateBody`` , or ``TemplateURL`` .
         :type StackName: string
         :param StackName:
@@ -2613,9 +2613,9 @@ class Client(BaseClient):
 
     def list_exports(self, NextToken: str = None) -> Dict:
         """
-        .. _http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html
-        Lists all exported output values in the account and region in which you call this action. Use this action to see the exported output values that you can import into other stacks. To import values, use the ` ``Fn::ImportValue`` http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html`__ function. 
-        For more information, see `AWS CloudFormation Export Stack Output Values <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html>`__ .
+        .. _https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html
+        Lists all exported output values in the account and region in which you call this action. Use this action to see the exported output values that you can import into other stacks. To import values, use the ` ``Fn::ImportValue`` https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html`__ function. 
+        For more information, see `AWS CloudFormation Export Stack Output Values <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/ListExports>`_
         
         **Request Syntax**
@@ -2661,9 +2661,9 @@ class Client(BaseClient):
 
     def list_imports(self, ExportName: str, NextToken: str = None) -> Dict:
         """
-        .. _http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html
+        .. _https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html
         Lists all stacks that are importing an exported output value. To modify or remove an exported output value, first use this action to see which stacks are using it. To see the exported output values in your account, see  ListExports . 
-        For more information about importing an exported output value, see the ` ``Fn::ImportValue`` http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html`__ function. 
+        For more information about importing an exported output value, see the ` ``Fn::ImportValue`` https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html`__ function. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/ListImports>`_
         
         **Request Syntax**
@@ -2821,7 +2821,7 @@ class Client(BaseClient):
                 - **PhysicalResourceId** *(string) --* 
                   The name or unique identifier that corresponds to a physical instance ID of the resource.
                 - **ResourceType** *(string) --* 
-                  Type of resource. (For more information, go to `AWS Resource Types Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
+                  Type of resource. (For more information, go to `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
                 - **LastUpdatedTimestamp** *(datetime) --* 
                   Time the status was updated.
                 - **ResourceStatus** *(string) --* 
@@ -2834,7 +2834,7 @@ class Client(BaseClient):
                     Status of the resource's actual configuration compared to its expected configuration
                     * ``DELETED`` : The resource differs from its expected configuration in that it has been deleted. 
                     * ``MODIFIED`` : The resource differs from its expected configuration. 
-                    * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ . If you performed an  ContinueUpdateRollback operation on a stack, any resources included in ``ResourcesToSkip`` will also have a status of ``NOT_CHECKED`` . For more information on skipping resources during rollback operations, see `Continue Rolling Back an Update <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html>`__ in the AWS CloudFormation User Guide. 
+                    * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ . If you performed an  ContinueUpdateRollback operation on a stack, any resources included in ``ResourcesToSkip`` will also have a status of ``NOT_CHECKED`` . For more information on skipping resources during rollback operations, see `Continue Rolling Back an Update <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html>`__ in the AWS CloudFormation User Guide. 
                     * ``IN_SYNC`` : The resources's actual configuration matches its expected configuration. 
                   - **LastCheckTimestamp** *(datetime) --* 
                     When AWS CloudFormation last checked if the resource had drifted from its expected configuration.
@@ -3166,7 +3166,7 @@ class Client(BaseClient):
           The name or unique stack ID that you want to associate a policy with.
         :type StackPolicyBody: string
         :param StackPolicyBody:
-          Structure containing the stack policy body. For more information, go to `Prevent Updates to Stack Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html>`__ in the AWS CloudFormation User Guide. You can specify either the ``StackPolicyBody`` or the ``StackPolicyURL`` parameter, but not both.
+          Structure containing the stack policy body. For more information, go to `Prevent Updates to Stack Resources <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html>`__ in the AWS CloudFormation User Guide. You can specify either the ``StackPolicyBody`` or the ``StackPolicyURL`` parameter, but not both.
         :type StackPolicyURL: string
         :param StackPolicyURL:
           Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the ``StackPolicyBody`` or the ``StackPolicyURL`` parameter, but not both.
@@ -3236,7 +3236,7 @@ class Client(BaseClient):
         """
         Updates a stack as specified in the template. After the call completes successfully, the stack update starts. You can check the status of the stack via the  DescribeStacks action.
         To get a copy of the template for an existing stack, you can use the  GetTemplate action.
-        For more information about creating an update template, updating a stack, and monitoring the progress of the update, see `Updating a Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html>`__ .
+        For more information about creating an update template, updating a stack, and monitoring the progress of the update, see `Updating a Stack <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/UpdateStack>`_
         
         **Request Syntax**
@@ -3302,11 +3302,11 @@ class Client(BaseClient):
           The name or unique stack ID of the stack to update.
         :type TemplateBody: string
         :param TemplateBody:
-          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.)
+          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.)
           Conditional: You must specify only one of the following parameters: ``TemplateBody`` , ``TemplateURL`` , or set the ``UsePreviousTemplate`` to ``true`` .
         :type TemplateURL: string
         :param TemplateURL:
-          Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify only one of the following parameters: ``TemplateBody`` , ``TemplateURL`` , or set the ``UsePreviousTemplate`` to ``true`` .
         :type UsePreviousTemplate: boolean
         :param UsePreviousTemplate:
@@ -3322,7 +3322,7 @@ class Client(BaseClient):
           If you want to update protected resources, specify a temporary overriding stack policy during this update. If you do not specify a stack policy, the current policy that is associated with the stack will be used.
         :type Parameters: list
         :param Parameters:
-          A list of ``Parameter`` structures that specify input parameters for the stack. For more information, see the `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html>`__ data type.
+          A list of ``Parameter`` structures that specify input parameters for the stack. For more information, see the `Parameter <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html>`__ data type.
           - *(dict) --*
             The Parameter data type.
             - **ParameterKey** *(string) --*
@@ -3332,7 +3332,7 @@ class Client(BaseClient):
             - **UsePreviousValue** *(boolean) --*
               During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
             - **ResolvedValue** *(string) --*
-              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
         :type Capabilities: list
         :param Capabilities:
           In some cases, you must explicity acknowledge that your stack template contains certain capabilities in order for AWS CloudFormation to update the stack.
@@ -3341,13 +3341,13 @@ class Client(BaseClient):
             * If you have IAM resources with custom names, you *must* specify ``CAPABILITY_NAMED_IAM`` .
             * If you don\'t specify either of these capabilities, AWS CloudFormation returns an ``InsufficientCapabilities`` error.
           If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
-            * `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
-            * `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
-            * `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
-            * `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
-            * `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
-            * `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
-            * `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
+            * `AWS\:\:IAM\:\:AccessKey <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
+            * `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
+            * `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
+            * `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
+            * `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
+            * `AWS\:\:IAM\:\:User <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
+            * `AWS\:\:IAM\:\:UserToGroupAddition <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
           * ``CAPABILITY_AUTO_EXPAND``   Some template contain macros. Macros perform custom processing on templates; this can include simple actions like find-and-replace operations, all the way to extensive transformations of entire templates. Because of this, users typically create a change set from the processed template, so that they can review the changes resulting from the macros before actually updating the stack. If your stack template contains one or more macros, and you choose to update a stack directly from the processed template, without first reviewing the resulting changes in a change set, you must acknowledge this capability. This includes the `AWS\:\:Include <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html>`__ and `AWS\:\:Serverless <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html>`__ transforms, which are macros hosted by AWS CloudFormation. Change sets do not currently support nested stacks. If you want to update a stack from a stack template that contains macros *and* nested stacks, you must update the stack directly from the template using this capability.
           .. warning::
@@ -3357,7 +3357,7 @@ class Client(BaseClient):
         :type ResourceTypes: list
         :param ResourceTypes:
           The template resource types that you have permissions to work with for this update stack action, such as ``AWS::EC2::Instance`` , ``AWS::EC2::*`` , or ``Custom::MyCustomInstance`` .
-          If the list of resource types doesn\'t include a resource that you\'re updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
+          If the list of resource types doesn\'t include a resource that you\'re updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific condition keys in IAM policies. For more information, see `Controlling Access with AWS Identity and Access Management <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html>`__ .
           - *(string) --*
         :type RoleARN: string
         :param RoleARN:
@@ -3379,11 +3379,11 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) of the rollback trigger.
                 If a specified trigger is missing, the entire stack operation fails and is rolled back.
               - **Type** *(string) --* **[REQUIRED]**
-                The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
+                The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
           - **MonitoringTimeInMinutes** *(integer) --*
             The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources.
             The default is 0 minutes.
-            If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
+            If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
             If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
         :type StackPolicyBody: string
         :param StackPolicyBody:
@@ -3420,9 +3420,9 @@ class Client(BaseClient):
     def update_stack_instances(self, StackSetName: str, Accounts: List, Regions: List, ParameterOverrides: List = None, OperationPreferences: Dict = None, OperationId: str = None) -> Dict:
         """
         Updates the parameter values for stack instances for the specified accounts, within the specified regions. A stack instance refers to a stack in a specific account and region. 
-        You can only update stack instances in regions and accounts where they already exist; to create additional stack instances, use `CreateStackInstances <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html>`__ . 
+        You can only update stack instances in regions and accounts where they already exist; to create additional stack instances, use `CreateStackInstances <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html>`__ . 
         During stack set updates, any parameters overridden for a stack instance are not updated, but retain their overridden value.
-        You can only update the parameter *values* that are specified in the stack set; to add or delete a parameter itself, use `UpdateStackSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html>`__ to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use `UpdateStackSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html>`__ to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using ``UpdateStackInstances`` .
+        You can only update the parameter *values* that are specified in the stack set; to add or delete a parameter itself, use `UpdateStackSet <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html>`__ to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use `UpdateStackSet <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html>`__ to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using ``UpdateStackInstances`` .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/UpdateStackInstances>`_
         
         **Request Syntax**
@@ -3487,7 +3487,7 @@ class Client(BaseClient):
           * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.
           * To leave all parameters set to their present values, do not specify this property at all.
           During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value.
-          You can only override the parameter *values* that are specified in the stack set; to add or delete a parameter itself, use ``UpdateStackSet`` to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use `UpdateStackSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html>`__ to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using ``UpdateStackInstances`` .
+          You can only override the parameter *values* that are specified in the stack set; to add or delete a parameter itself, use ``UpdateStackSet`` to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use `UpdateStackSet <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html>`__ to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using ``UpdateStackInstances`` .
           - *(dict) --*
             The Parameter data type.
             - **ParameterKey** *(string) --*
@@ -3497,7 +3497,7 @@ class Client(BaseClient):
             - **UsePreviousValue** *(boolean) --*
               During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
             - **ResolvedValue** *(string) --*
-              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
         :type OperationPreferences: dict
         :param OperationPreferences:
           Preferences for how AWS CloudFormation performs this stack set operation.
@@ -3600,11 +3600,11 @@ class Client(BaseClient):
           A brief description of updates that you are making.
         :type TemplateBody: string
         :param TemplateBody:
-          The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, see `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, see `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify only one of the following parameters: ``TemplateBody`` or ``TemplateURL`` —or set ``UsePreviousTemplate`` to true.
         :type TemplateURL: string
         :param TemplateURL:
-          The location of the file that contains the template body. The URL must point to a template (maximum size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, see `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          The location of the file that contains the template body. The URL must point to a template (maximum size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, see `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must specify only one of the following parameters: ``TemplateBody`` or ``TemplateURL`` —or set ``UsePreviousTemplate`` to true.
         :type UsePreviousTemplate: boolean
         :param UsePreviousTemplate:
@@ -3622,7 +3622,7 @@ class Client(BaseClient):
             - **UsePreviousValue** *(boolean) --*
               During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
             - **ResolvedValue** *(string) --*
-              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+              Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
         :type Capabilities: list
         :param Capabilities:
           In some cases, you must explicity acknowledge that your stack template contains certain capabilities in order for AWS CloudFormation to update the stack set and its associated stack instances.
@@ -3631,13 +3631,13 @@ class Client(BaseClient):
             * If you have IAM resources with custom names, you *must* specify ``CAPABILITY_NAMED_IAM`` .
             * If you don\'t specify either of these capabilities, AWS CloudFormation returns an ``InsufficientCapabilities`` error.
           If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary.
-            * `AWS\:\:IAM\:\:AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
-            * `AWS\:\:IAM\:\:Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
-            * `AWS\:\:IAM\:\:InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
-            * `AWS\:\:IAM\:\:Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
-            * `AWS\:\:IAM\:\:Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
-            * `AWS\:\:IAM\:\:User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
-            * `AWS\:\:IAM\:\:UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
+            * `AWS\:\:IAM\:\:AccessKey <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
+            * `AWS\:\:IAM\:\:Group <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
+            * `AWS\:\:IAM\:\:InstanceProfile <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
+            * `AWS\:\:IAM\:\:Policy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
+            * `AWS\:\:IAM\:\:Role <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
+            * `AWS\:\:IAM\:\:User <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
+            * `AWS\:\:IAM\:\:UserToGroupAddition <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
           For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
           * ``CAPABILITY_AUTO_EXPAND``   Some templates contain macros. If your stack template contains one or more macros, and you choose to update a stack directly from the processed template, without first reviewing the resulting changes in a change set, you must acknowledge this capability. For more information, see `Using AWS CloudFormation Macros to Perform Custom Processing on Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html>`__ .
           .. warning::
@@ -3682,8 +3682,8 @@ class Client(BaseClient):
         :type AdministrationRoleARN: string
         :param AdministrationRoleARN:
           The Amazon Resource Number (ARN) of the IAM role to use to update this stack set.
-          Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see `Define Permissions for Multiple Administrators <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html>`__ in the *AWS CloudFormation User Guide* .
-          If you specify a customized administrator role, AWS CloudFormation uses that role to update the stack. If you do not specify a customized administrator role, AWS CloudFormation performs the update using the role previously associated with the stack set, so long as you have permissions to perform operations on the stack set.
+          Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see `Granting Permissions for Stack Set Operations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html>`__ in the *AWS CloudFormation User Guide* .
+          If you specified a customized administrator role when you created the stack set, you must specify a customized administrator role, even if it is the same customized administrator role used with this stack set previously.
         :type ExecutionRoleName: string
         :param ExecutionRoleName:
           The name of the IAM execution role to use to update the stack set. If you do not specify an execution role, AWS CloudFormation uses the ``AWSCloudFormationStackSetExecutionRole`` role for the stack set operation.
@@ -3799,7 +3799,7 @@ class Client(BaseClient):
               The description found within the template.
             - **Capabilities** *(list) --* 
               The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the  CreateStack or  UpdateStack actions with your template; otherwise, those actions return an InsufficientCapabilities error.
-              For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
+              For more information, see `Acknowledging IAM Resources in AWS CloudFormation Templates <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities>`__ .
               - *(string) --* 
             - **CapabilitiesReason** *(string) --* 
               The list of resources that generated the values in the ``Capabilities`` response element.
@@ -3808,11 +3808,11 @@ class Client(BaseClient):
               - *(string) --* 
         :type TemplateBody: string
         :param TemplateBody:
-          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must pass ``TemplateURL`` or ``TemplateBody`` . If both are passed, only ``TemplateBody`` is used.
         :type TemplateURL: string
         :param TemplateURL:
-          Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to `Template Anatomy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
+          Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to `Template Anatomy <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html>`__ in the AWS CloudFormation User Guide.
           Conditional: You must pass ``TemplateURL`` or ``TemplateBody`` . If both are passed, only ``TemplateBody`` is used.
         :rtype: dict
         :returns:

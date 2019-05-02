@@ -1,24 +1,27 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
-    def add_role_to_db_cluster(self, DBClusterIdentifier: str, RoleArn: str):
+    def add_role_to_db_cluster(self, DBClusterIdentifier: str, RoleArn: str, FeatureName: str = None):
         """
-        Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB cluster. For more information, see `Authorizing Amazon Aurora MySQL to Access Other AWS Services on Your Behalf <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html>`__ in the *Amazon Aurora User Guide* .
+        Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB cluster. For more information, see `Authorizing Amazon Aurora MySQL to Access Other AWS Services on Your Behalf <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html>`__ in the *Amazon Aurora User Guide* .
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/AddRoleToDBCluster>`_
         
         **Request Syntax**
         ::
           response = client.add_role_to_db_cluster(
               DBClusterIdentifier='string',
-              RoleArn='string'
+              RoleArn='string',
+              FeatureName='string'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
@@ -26,6 +29,9 @@ class Client(BaseClient):
         :type RoleArn: string
         :param RoleArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster, for example ``arn:aws:iam::123456789012:role/AuroraAccessRole`` .
+        :type FeatureName: string
+        :param FeatureName:
+          The name of the feature for the DB cluster that the IAM role is to be associated with. For the list of supported feature names, see  DBEngineVersion .
         :returns: None
         """
         pass
@@ -33,6 +39,8 @@ class Client(BaseClient):
     def add_role_to_db_instance(self, DBInstanceIdentifier: str, RoleArn: str, FeatureName: str):
         """
         Associates an AWS Identity and Access Management (IAM) role with a DB instance.
+        .. note::
+          To add a role to a DB instance, the status of the DB instance must be ``available`` .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/AddRoleToDBInstance>`_
         
         **Request Syntax**
@@ -136,7 +144,7 @@ class Client(BaseClient):
     def add_tags_to_resource(self, ResourceName: str, Tags: List):
         """
         Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.
-        For an overview on tagging Amazon RDS resources, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html>`__ .
+        For an overview on tagging Amazon RDS resources, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/AddTagsToResource>`_
         
         **Request Syntax**
@@ -152,7 +160,7 @@ class Client(BaseClient):
           )
         :type ResourceName: string
         :param ResourceName: **[REQUIRED]**
-          The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an RDS Amazon Resource Name (ARN) <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ .
+          The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an RDS Amazon Resource Name (ARN) <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ .
         :type Tags: list
         :param Tags: **[REQUIRED]**
           The tags to be assigned to the Amazon RDS resource.
@@ -208,7 +216,7 @@ class Client(BaseClient):
                 - *(dict) --* 
                   Provides information about a pending maintenance action for a resource.
                   - **Action** *(string) --* 
-                    The type of pending maintenance action that is available for the resource.
+                    The type of pending maintenance action that is available for the resource. Valid actions are ``system-update`` , ``db-upgrade`` , and ``hardware-maintenance`` .
                   - **AutoAppliedAfterDate** *(datetime) --* 
                     The date of the maintenance window when the action is applied. The maintenance action is applied to the resource during its first maintenance window after this date. If this date is specified, any ``next-maintenance`` opt-in requests are ignored.
                   - **ForcedApplyDate** *(datetime) --* 
@@ -221,11 +229,11 @@ class Client(BaseClient):
                     A description providing more detail about the maintenance action.
         :type ResourceIdentifier: string
         :param ResourceIdentifier: **[REQUIRED]**
-          The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see `Constructing an RDS Amazon Resource Name (ARN) <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ .
+          The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see `Constructing an RDS Amazon Resource Name (ARN) <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ .
         :type ApplyAction: string
         :param ApplyAction: **[REQUIRED]**
           The pending maintenance action to apply to this resource.
-          Valid values: ``system-update`` , ``db-upgrade``
+          Valid values: ``system-update`` , ``db-upgrade`` , ``hardware-maintenance``
         :type OptInType: string
         :param OptInType: **[REQUIRED]**
           A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type ``immediate`` can\'t be undone.
@@ -343,7 +351,9 @@ class Client(BaseClient):
     def backtrack_db_cluster(self, DBClusterIdentifier: str, BacktrackTo: datetime, Force: bool = None, UseEarliestTimeOnPointInTimeUnavailable: bool = None) -> Dict:
         """
         Backtracks a DB cluster to a specific time, without creating a new DB cluster.
-        For more information on backtracking, see `Backtracking an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on backtracking, see `Backtracking an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/BacktrackDBCluster>`_
         
         **Request Syntax**
@@ -431,6 +441,8 @@ class Client(BaseClient):
     def copy_db_cluster_parameter_group(self, SourceDBClusterParameterGroupIdentifier: str, TargetDBClusterParameterGroupIdentifier: str, TargetDBClusterParameterGroupDescription: str, Tags: List = None) -> Dict:
         """
         Copies the specified DB cluster parameter group.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CopyDBClusterParameterGroup>`_
         
         **Request Syntax**
@@ -473,7 +485,7 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) for the DB cluster parameter group.
         :type SourceDBClusterParameterGroupIdentifier: string
         :param SourceDBClusterParameterGroupIdentifier: **[REQUIRED]**
-          The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see `Constructing an ARN for Amazon RDS <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon Aurora User Guide* .
+          The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see `Constructing an ARN for Amazon RDS <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon Aurora User Guide* .
           Constraints:
           * Must specify a valid DB cluster parameter group.
           * If the source DB cluster parameter group is in the same AWS Region as the copy, specify a valid DB parameter group identifier, for example ``my-db-cluster-param-group`` , or a valid ARN.
@@ -492,7 +504,7 @@ class Client(BaseClient):
           A description for the copied DB cluster parameter group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -514,12 +526,14 @@ class Client(BaseClient):
           * ``KmsKeyId`` - The KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the ``CopyDBClusterSnapshot`` action that is called in the destination AWS Region, and the action contained in the pre-signed URL. 
           * ``DestinationRegion`` - The name of the AWS Region that the DB cluster snapshot will be created in. 
           * ``SourceDBClusterSnapshotIdentifier`` - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your ``SourceDBClusterSnapshotIdentifier`` looks like the following example: ``arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115`` . 
-        To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+        To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
         * ``TargetDBClusterSnapshotIdentifier`` - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region. 
         * ``SourceDBClusterSnapshotIdentifier`` - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the ARN format for the source AWS Region and is the same value as the ``SourceDBClusterSnapshotIdentifier`` in the pre-signed URL.  
         To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified by ``TargetDBClusterSnapshotIdentifier`` while that DB cluster snapshot is in "copying" status.
-        For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see `Copying a Snapshot <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html>`__ in the *Amazon Aurora User Guide.*  
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see `Copying a Snapshot <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CopyDBClusterSnapshot>`_
         
         **Request Syntax**
@@ -620,7 +634,7 @@ class Client(BaseClient):
           Constraints:
           * Must specify a valid system snapshot in the \"available\" state.
           * If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot identifier.
-          * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more information, go to `Copying Snapshots Across AWS Regions <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions>`__ in the *Amazon Aurora User Guide.*
+          * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more information, go to `Copying Snapshots Across AWS Regions <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions>`__ in the *Amazon Aurora User Guide.*
           Example: ``my-cluster-snapshot1``
         :type TargetDBClusterSnapshotIdentifier: string
         :param TargetDBClusterSnapshotIdentifier: **[REQUIRED]**
@@ -644,14 +658,14 @@ class Client(BaseClient):
           * ``KmsKeyId`` - The AWS KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the ``CopyDBClusterSnapshot`` action that is called in the destination AWS Region, and the action contained in the pre-signed URL.
           * ``DestinationRegion`` - The name of the AWS Region that the DB cluster snapshot will be created in.
           * ``SourceDBClusterSnapshotIdentifier`` - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your ``SourceDBClusterSnapshotIdentifier`` looks like the following example: ``arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115`` .
-          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type CopyTags: boolean
         :param CopyTags:
           True to copy all tags from the source DB cluster snapshot to the target DB cluster snapshot, and otherwise false. The default is false.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -711,7 +725,7 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) for the DB parameter group.
         :type SourceDBParameterGroupIdentifier: string
         :param SourceDBParameterGroupIdentifier: **[REQUIRED]**
-          The identifier or ARN for the source DB parameter group. For information about creating an ARN, see `Constructing an ARN for Amazon RDS <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide* .
+          The identifier or ARN for the source DB parameter group. For information about creating an ARN, see `Constructing an ARN for Amazon RDS <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide* .
           Constraints:
           * Must specify a valid DB parameter group.
           * Must specify a valid DB parameter group identifier, for example ``my-db-param-group`` , or a valid ARN.
@@ -729,7 +743,7 @@ class Client(BaseClient):
           A description for the copied DB parameter group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -745,7 +759,7 @@ class Client(BaseClient):
         """
         Copies the specified DB snapshot. The source DB snapshot must be in the "available" state.
         You can copy a snapshot from one AWS Region to another. In that case, the AWS Region where you call the ``CopyDBSnapshot`` action is the destination AWS Region for the DB snapshot copy. 
-        For more information about copying snapshots, see `Copying a DB Snapshot <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html>`__ in the *Amazon RDS User Guide.*  
+        For more information about copying snapshots, see `Copying a DB Snapshot <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html>`__ in the *Amazon RDS User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CopyDBSnapshot>`_
         
         **Request Syntax**
@@ -878,7 +892,7 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
@@ -914,7 +928,7 @@ class Client(BaseClient):
           If you copy an encrypted snapshot to a different AWS Region, then you must specify a KMS key for the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can\'t use encryption keys from one AWS Region in another AWS Region.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -932,12 +946,12 @@ class Client(BaseClient):
           * ``DestinationRegion`` - The AWS Region that the encrypted DB snapshot is copied to. This AWS Region is the same one where the ``CopyDBSnapshot`` action is called that contains this presigned URL.  For example, if you copy an encrypted DB snapshot from the us-west-2 AWS Region to the us-east-1 AWS Region, then you call the ``CopyDBSnapshot`` action in the us-east-1 AWS Region and provide a presigned URL that contains a call to the ``CopyDBSnapshot`` action in the us-west-2 AWS Region. For this example, the ``DestinationRegion`` in the presigned URL must be set to the us-east-1 AWS Region.
           * ``KmsKeyId`` - The AWS KMS key identifier for the key to use to encrypt the copy of the DB snapshot in the destination AWS Region. This is the same identifier for both the ``CopyDBSnapshot`` action that is called in the destination AWS Region, and the action contained in the presigned URL.
           * ``SourceDBSnapshotIdentifier`` - The DB snapshot identifier for the encrypted snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB snapshot from the us-west-2 AWS Region, then your ``SourceDBSnapshotIdentifier`` looks like the following example: ``arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115`` .
-          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type OptionGroupName: string
         :param OptionGroupName:
           The name of an option group to associate with the copy of the snapshot.
-          Specify this option if you are copying a snapshot from one AWS Region to another, and your DB instance uses a nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server, you must specify this option when copying across AWS Regions. For more information, see `Option Group Considerations <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options>`__ in the *Amazon RDS User Guide.*
+          Specify this option if you are copying a snapshot from one AWS Region to another, and your DB instance uses a nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server, you must specify this option when copying across AWS Regions. For more information, see `Option Group Considerations <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options>`__ in the *Amazon RDS User Guide.*
         :type SourceRegion: string
         :param SourceRegion:
           The ID of the region that contains the snapshot to be copied.
@@ -1091,7 +1105,7 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) for the option group.
         :type SourceOptionGroupIdentifier: string
         :param SourceOptionGroupIdentifier: **[REQUIRED]**
-          The identifier or ARN for the source option group. For information about creating an ARN, see `Constructing an ARN for Amazon RDS <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide* .
+          The identifier or ARN for the source option group. For information about creating an ARN, see `Constructing an ARN for Amazon RDS <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide* .
           Constraints:
           * Must specify a valid option group.
           * If the source option group is in the same AWS Region as the copy, specify a valid option group identifier, for example ``my-option-group`` , or a valid ARN.
@@ -1110,7 +1124,7 @@ class Client(BaseClient):
           The description for the copied option group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -1122,11 +1136,13 @@ class Client(BaseClient):
         """
         pass
 
-    def create_db_cluster(self, DBClusterIdentifier: str, Engine: str, AvailabilityZones: List = None, BackupRetentionPeriod: int = None, CharacterSetName: str = None, DatabaseName: str = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, DBSubnetGroupName: str = None, EngineVersion: str = None, Port: int = None, MasterUsername: str = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, ReplicationSourceIdentifier: str = None, Tags: List = None, StorageEncrypted: bool = None, KmsKeyId: str = None, PreSignedUrl: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, EngineMode: str = None, ScalingConfiguration: Dict = None, DeletionProtection: bool = None, GlobalClusterIdentifier: str = None, SourceRegion: str = None) -> Dict:
+    def create_db_cluster(self, DBClusterIdentifier: str, Engine: str, AvailabilityZones: List = None, BackupRetentionPeriod: int = None, CharacterSetName: str = None, DatabaseName: str = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, DBSubnetGroupName: str = None, EngineVersion: str = None, Port: int = None, MasterUsername: str = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, ReplicationSourceIdentifier: str = None, Tags: List = None, StorageEncrypted: bool = None, KmsKeyId: str = None, PreSignedUrl: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, EngineMode: str = None, ScalingConfiguration: Dict = None, DeletionProtection: bool = None, GlobalClusterIdentifier: str = None, CopyTagsToSnapshot: bool = None, SourceRegion: str = None) -> Dict:
         """
         Creates a new Amazon Aurora DB cluster.
         You can use the ``ReplicationSourceIdentifier`` parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance. For cross-region replication where the DB cluster identified by ``ReplicationSourceIdentifier`` is encrypted, you must also specify the ``PreSignedUrl`` parameter.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateDBCluster>`_
         
         **Request Syntax**
@@ -1171,10 +1187,12 @@ class Client(BaseClient):
                   'MinCapacity': 123,
                   'MaxCapacity': 123,
                   'AutoPause': True|False,
-                  'SecondsUntilAutoPause': 123
+                  'SecondsUntilAutoPause': 123,
+                  'TimeoutAction': 'string'
               },
               DeletionProtection=True|False,
               GlobalClusterIdentifier='string',
+              CopyTagsToSnapshot=True|False,
               SourceRegion='string'
           )
         
@@ -1259,10 +1277,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -1342,7 +1362,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -1373,6 +1393,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -1387,24 +1408,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -1412,10 +1436,12 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type AvailabilityZones: list
         :param AvailabilityZones:
-          A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on AWS Regions and Availability Zones, see `Choosing the Regions and Availability Zones <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ in the *Amazon Aurora User Guide* .
+          A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on AWS Regions and Availability Zones, see `Choosing the Regions and Availability Zones <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ in the *Amazon Aurora User Guide* .
           - *(string) --*
         :type BackupRetentionPeriod: integer
         :param BackupRetentionPeriod:
@@ -1484,7 +1510,7 @@ class Client(BaseClient):
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow:
           The daily time range during which automated backups are created if automated backups are enabled using the ``BackupRetentionPeriod`` parameter.
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred DB Cluster Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred DB Cluster Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
           Constraints:
           * Must be in the format ``hh24:mi-hh24:mi`` .
           * Must be in Universal Coordinated Time (UTC).
@@ -1494,7 +1520,7 @@ class Client(BaseClient):
         :param PreferredMaintenanceWindow:
           The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
           Format: ``ddd:hh24:mi-ddd:hh24:mi``
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see `Adjusting the Preferred DB Cluster Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see `Adjusting the Preferred DB Cluster Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
           Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
           Constraints: Minimum 30-minute window.
         :type ReplicationSourceIdentifier: string
@@ -1502,7 +1528,7 @@ class Client(BaseClient):
           The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -1529,7 +1555,7 @@ class Client(BaseClient):
           * ``KmsKeyId`` - The AWS KMS key identifier for the key to use to encrypt the copy of the DB cluster in the destination AWS Region. This should refer to the same KMS key for both the ``CreateDBCluster`` action that is called in the destination AWS Region, and the action contained in the pre-signed URL.
           * ``DestinationRegion`` - The name of the AWS Region that Aurora Read Replica will be created in.
           * ``ReplicationSourceIdentifier`` - The DB cluster identifier for the encrypted DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster from the us-west-2 AWS Region, then your ``ReplicationSourceIdentifier`` would look like Example: ``arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1`` .
-          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type EnableIAMDatabaseAuthentication: boolean
         :param EnableIAMDatabaseAuthentication:
@@ -1543,7 +1569,7 @@ class Client(BaseClient):
           * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
+          The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
           - *(string) --*
         :type EngineMode: string
         :param EngineMode:
@@ -1565,12 +1591,20 @@ class Client(BaseClient):
               If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
           - **SecondsUntilAutoPause** *(integer) --*
             The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
+          - **TimeoutAction** *(string) --*
+            The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
+             ``ForceApplyCapacityChange`` , the default, sets the capacity to the specified value as soon as possible.
+             ``RollbackCapacityChange`` ignores the capacity change if a scaling point is not found in the timeout period.
+            For more information, see `Autoscaling for Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling>`__ in the *Amazon Aurora User Guide* .
         :type DeletionProtection: boolean
         :param DeletionProtection:
           Indicates if the DB cluster should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false.
         :type GlobalClusterIdentifier: string
         :param GlobalClusterIdentifier:
           The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database cluster.
+        :type CopyTagsToSnapshot: boolean
+        :param CopyTagsToSnapshot:
+          True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is false.
         :type SourceRegion: string
         :param SourceRegion:
           The ID of the region that contains the source for the db cluster.
@@ -1582,6 +1616,8 @@ class Client(BaseClient):
     def create_db_cluster_endpoint(self, DBClusterIdentifier: str, DBClusterEndpointIdentifier: str, EndpointType: str, StaticMembers: List = None, ExcludedMembers: List = None) -> Dict:
         """
         Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateDBClusterEndpoint>`_
         
         **Request Syntax**
@@ -1676,7 +1712,9 @@ class Client(BaseClient):
         A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using  ModifyDBClusterParameterGroup . Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using  ModifyDBCluster . When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect. 
         .. warning::
           After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the ``character_set_database`` parameter. You can use the *Parameter Groups* option of the `Amazon RDS console <https://console.aws.amazon.com/rds/>`__ or the  DescribeDBClusterParameters command to verify that your DB cluster parameter group has been created or modified.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateDBClusterParameterGroup>`_
         
         **Request Syntax**
@@ -1736,7 +1774,7 @@ class Client(BaseClient):
           The description for the DB cluster parameter group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -1750,7 +1788,9 @@ class Client(BaseClient):
 
     def create_db_cluster_snapshot(self, DBClusterSnapshotIdentifier: str, DBClusterIdentifier: str, Tags: List = None) -> Dict:
         """
-        Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateDBClusterSnapshot>`_
         
         **Request Syntax**
@@ -2122,7 +2162,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -2264,7 +2304,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -2314,7 +2354,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -2347,6 +2387,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -2354,7 +2397,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -2373,7 +2416,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -2391,13 +2434,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -2467,18 +2510,18 @@ class Client(BaseClient):
           Not applicable. Aurora cluster volumes automatically grow as the amount of data in your database increases, though you are only charged for the space that you use in an Aurora cluster volume.
            **MySQL**
           Constraints to the amount of storage for each storage type are the following:
-          * General Purpose (SSD) storage (gp2): Must be an integer from 20 to 16384.
-          * Provisioned IOPS storage (io1): Must be an integer from 100 to 16384.
+          * General Purpose (SSD) storage (gp2): Must be an integer from 20 to 32768.
+          * Provisioned IOPS storage (io1): Must be an integer from 100 to 32768.
           * Magnetic storage (standard): Must be an integer from 5 to 3072.
            **MariaDB**
           Constraints to the amount of storage for each storage type are the following:
-          * General Purpose (SSD) storage (gp2): Must be an integer from 20 to 16384.
-          * Provisioned IOPS storage (io1): Must be an integer from 100 to 16384.
+          * General Purpose (SSD) storage (gp2): Must be an integer from 20 to 32768.
+          * Provisioned IOPS storage (io1): Must be an integer from 100 to 32768.
           * Magnetic storage (standard): Must be an integer from 5 to 3072.
            **PostgreSQL**
           Constraints to the amount of storage for each storage type are the following:
-          * General Purpose (SSD) storage (gp2): Must be an integer from 20 to 16384.
-          * Provisioned IOPS storage (io1): Must be an integer from 100 to 16384.
+          * General Purpose (SSD) storage (gp2): Must be an integer from 20 to 32768.
+          * Provisioned IOPS storage (io1): Must be an integer from 100 to 32768.
           * Magnetic storage (standard): Must be an integer from 5 to 3072.
            **Oracle**
           Constraints to the amount of storage for each storage type are the following:
@@ -2498,7 +2541,7 @@ class Client(BaseClient):
             * Web and Express editions: Must be an integer from 20 to 1024.
         :type DBInstanceClass: string
         :param DBInstanceClass: **[REQUIRED]**
-          The compute and memory capacity of the DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
+          The compute and memory capacity of the DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
         :type Engine: string
         :param Engine: **[REQUIRED]**
           The name of the database engine to be used for this instance.
@@ -2581,7 +2624,7 @@ class Client(BaseClient):
           - *(string) --*
         :type AvailabilityZone: string
         :param AvailabilityZone:
-          The EC2 Availability Zone that the DB instance is created in. For information on AWS Regions and Availability Zones, see `Regions and Availability Zones <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ .
+          The EC2 Availability Zone that the DB instance is created in. For information on AWS Regions and Availability Zones, see `Regions and Availability Zones <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ .
           Default: A random, system-chosen Availability Zone in the endpoint\'s AWS Region.
           Example: ``us-east-1d``
           Constraint: The AvailabilityZone parameter can\'t be specified if the MultiAZ parameter is set to ``true`` . The specified Availability Zone must be in the same AWS Region as the current endpoint.
@@ -2591,7 +2634,7 @@ class Client(BaseClient):
           If there is no DB subnet group, then it is a non-VPC DB instance.
         :type PreferredMaintenanceWindow: string
         :param PreferredMaintenanceWindow:
-          The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see `Amazon RDS Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance>`__ .
+          The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see `Amazon RDS Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance>`__ .
           Format: ``ddd:hh24:mi-ddd:hh24:mi``
           The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week.
           Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -2614,10 +2657,10 @@ class Client(BaseClient):
           * Can\'t be set to 0 if the DB instance is a source to Read Replicas
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow:
-          The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter. For more information, see `The Backup Window <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow>`__ in the *Amazon RDS User Guide* .
+          The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter. For more information, see `The Backup Window <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow>`__ in the *Amazon RDS User Guide* .
            **Amazon Aurora**
           Not applicable. The daily time range for creating automated backups is managed by the DB cluster. For more information, see  CreateDBCluster .
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred DB Instance Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow>`__ in the *Amazon RDS User Guide* .
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred DB Instance Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow>`__ in the *Amazon RDS User Guide* .
           Constraints:
           * Must be in the format ``hh24:mi-hh24:mi`` .
           * Must be in Universal Coordinated Time (UTC).
@@ -2659,15 +2702,15 @@ class Client(BaseClient):
            **Amazon Aurora**
           Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster. For more information, see  CreateDBCluster .
            **MariaDB**
-          See `MariaDB on Amazon RDS Versions <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt>`__ in the *Amazon RDS User Guide.*
+          See `MariaDB on Amazon RDS Versions <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt>`__ in the *Amazon RDS User Guide.*
            **Microsoft SQL Server**
-          See `Version and Feature Support on Amazon RDS <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport>`__ in the *Amazon RDS User Guide.*
+          See `Version and Feature Support on Amazon RDS <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport>`__ in the *Amazon RDS User Guide.*
            **MySQL**
-          See `MySQL on Amazon RDS Versions <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt>`__ in the *Amazon RDS User Guide.*
+          See `MySQL on Amazon RDS Versions <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt>`__ in the *Amazon RDS User Guide.*
            **Oracle**
-          See `Oracle Database Engine Release Notes <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html>`__ in the *Amazon RDS User Guide.*
+          See `Oracle Database Engine Release Notes <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html>`__ in the *Amazon RDS User Guide.*
            **PostgreSQL**
-          See `Supported PostgreSQL Database Versions <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions>`__ in the *Amazon RDS User Guide.*
+          See `Supported PostgreSQL Database Versions <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions>`__ in the *Amazon RDS User Guide.*
         :type AutoMinorVersionUpgrade: boolean
         :param AutoMinorVersionUpgrade:
           Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
@@ -2678,7 +2721,7 @@ class Client(BaseClient):
           Valid values: ``license-included`` | ``bring-your-own-license`` | ``general-public-license``
         :type Iops: integer
         :param Iops:
-          The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. For information about valid Iops values, see see `Amazon RDS Provisioned IOPS Storage to Improve Performance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS>`__ in the *Amazon RDS User Guide* .
+          The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. For information about valid Iops values, see see `Amazon RDS Provisioned IOPS Storage to Improve Performance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS>`__ in the *Amazon RDS User Guide* .
           Constraints: Must be a multiple between 1 and 50 of the storage amount for the DB instance.
         :type OptionGroupName: string
         :param OptionGroupName:
@@ -2701,7 +2744,7 @@ class Client(BaseClient):
           * If the subnets are part of a VPC that has an Internet gateway attached to it, the DB instance is public.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -2744,6 +2787,8 @@ class Client(BaseClient):
         :type CopyTagsToSnapshot: boolean
         :param CopyTagsToSnapshot:
           True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise false. The default is false.
+           **Amazon Aurora**
+          Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  CreateDBCluster .
         :type MonitoringInterval: integer
         :param MonitoringInterval:
           The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -2751,19 +2796,19 @@ class Client(BaseClient):
           Valid Values: ``0, 1, 5, 10, 15, 30, 60``
         :type MonitoringRoleArn: string
         :param MonitoringRoleArn:
-          The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` . For information on creating a monitoring role, go to `Setting Up and Enabling Enhanced Monitoring <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling>`__ in the *Amazon RDS User Guide* .
+          The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` . For information on creating a monitoring role, go to `Setting Up and Enabling Enhanced Monitoring <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling>`__ in the *Amazon RDS User Guide* .
           If ``MonitoringInterval`` is set to a value other than 0, then you must supply a ``MonitoringRoleArn`` value.
         :type DomainIAMRoleName: string
         :param DomainIAMRoleName:
           Specify the name of the IAM role to be used when making API calls to the Directory Service.
         :type PromotionTier: integer
         :param PromotionTier:
-          A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* .
+          A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* .
           Default: 1
           Valid Values: 0 - 15
         :type Timezone: string
         :param Timezone:
-          The time zone of the DB instance. The time zone parameter is currently supported only by `Microsoft SQL Server <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone>`__ .
+          The time zone of the DB instance. The time zone parameter is currently supported only by `Microsoft SQL Server <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone>`__ .
         :type EnableIAMDatabaseAuthentication: boolean
         :param EnableIAMDatabaseAuthentication:
           True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false.
@@ -2777,7 +2822,7 @@ class Client(BaseClient):
         :type EnablePerformanceInsights: boolean
         :param EnablePerformanceInsights:
           True to enable Performance Insights for the DB instance, and otherwise false.
-          For more information, see `Using Amazon Performance Insights <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html>`__ in the *Amazon Relational Database Service User Guide* .
+          For more information, see `Using Amazon Performance Insights <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html>`__ in the *Amazon Relational Database Service User Guide* .
         :type PerformanceInsightsKMSKeyId: string
         :param PerformanceInsightsKMSKeyId:
           The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -2786,7 +2831,7 @@ class Client(BaseClient):
           The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Relational Database Service User Guide* .
+          The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Relational Database Service User Guide* .
           - *(string) --*
         :type ProcessorFeatures: list
         :param ProcessorFeatures:
@@ -2805,14 +2850,14 @@ class Client(BaseClient):
             *  DescribeDBInstances
             *  DescribeDBSnapshots
             *  DescribeValidDBInstanceModifications
-            For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
+            For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
             - **Name** *(string) --*
               The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
             - **Value** *(string) --*
               The value of a processor feature name.
         :type DeletionProtection: boolean
         :param DeletionProtection:
-          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
+          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -2820,7 +2865,7 @@ class Client(BaseClient):
 
     def create_db_instance_read_replica(self, DBInstanceIdentifier: str, SourceDBInstanceIdentifier: str, DBInstanceClass: str = None, AvailabilityZone: str = None, Port: int = None, MultiAZ: bool = None, AutoMinorVersionUpgrade: bool = None, Iops: int = None, OptionGroupName: str = None, PubliclyAccessible: bool = None, Tags: List = None, DBSubnetGroupName: str = None, VpcSecurityGroupIds: List = None, StorageType: str = None, CopyTagsToSnapshot: bool = None, MonitoringInterval: int = None, MonitoringRoleArn: str = None, KmsKeyId: str = None, PreSignedUrl: str = None, EnableIAMDatabaseAuthentication: bool = None, EnablePerformanceInsights: bool = None, PerformanceInsightsKMSKeyId: str = None, PerformanceInsightsRetentionPeriod: int = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DeletionProtection: bool = None, SourceRegion: str = None) -> Dict:
         """
-        Creates a new DB instance that acts as a Read Replica for an existing source DB instance. You can create a Read Replica for a DB instance running MySQL, MariaDB, or PostgreSQL. For more information, see `Working with PostgreSQL, MySQL, and MariaDB Read Replicas <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html>`__ in the *Amazon RDS User Guide* . 
+        Creates a new DB instance that acts as a Read Replica for an existing source DB instance. You can create a Read Replica for a DB instance running MySQL, MariaDB, Oracle, or PostgreSQL. For more information, see `Working with Read Replicas <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html>`__ in the *Amazon RDS User Guide* . 
         Amazon Aurora doesn't support this action. You must call the ``CreateDBInstance`` action to create a DB instance for an Aurora DB cluster. 
         All Read Replica DB instances are created with backups disabled. All other DB instance attributes (including DB security groups and DB parameter groups) are inherited from the source DB instance, except as specified following. 
         .. warning::
@@ -3055,7 +3100,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -3197,7 +3242,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -3247,7 +3292,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -3280,6 +3325,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -3287,7 +3335,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -3306,7 +3354,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -3324,13 +3372,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -3359,15 +3407,16 @@ class Client(BaseClient):
         :param SourceDBInstanceIdentifier: **[REQUIRED]**
           The identifier of the DB instance that will act as the source for the Read Replica. Each DB instance can have up to five Read Replicas.
           Constraints:
-          * Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.
+          * Must be the identifier of an existing MySQL, MariaDB, Oracle, or PostgreSQL DB instance.
           * Can specify a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6 or later.
+          * For the limitations of Oracle Read Replicas, see `Read Replica Limitations with Oracle <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html>`__ in the *Amazon RDS User Guide* .
           * Can specify a DB instance that is a PostgreSQL DB instance only if the source is running PostgreSQL 9.3.5 or later (9.4.7 and higher for cross-region replication).
           * The specified DB instance must have automatic backups enabled, its backup retention period must be greater than 0.
           * If the source DB instance is in the same AWS Region as the Read Replica, specify a valid DB instance identifier.
-          * If the source DB instance is in a different AWS Region than the Read Replica, specify a valid DB instance ARN. For more information, go to `Constructing an ARN for Amazon RDS <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide* .
+          * If the source DB instance is in a different AWS Region than the Read Replica, specify a valid DB instance ARN. For more information, go to `Constructing an ARN for Amazon RDS <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide* .
         :type DBInstanceClass: string
         :param DBInstanceClass:
-          The compute and memory capacity of the Read Replica, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
+          The compute and memory capacity of the Read Replica, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
           Default: Inherits from the source DB instance.
         :type AvailabilityZone: string
         :param AvailabilityZone:
@@ -3392,13 +3441,13 @@ class Client(BaseClient):
           The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
         :type OptionGroupName: string
         :param OptionGroupName:
-          The option group the DB instance is associated with. If omitted, the default option group for the engine specified is used.
+          The option group the DB instance is associated with. If omitted, the option group associated with the source instance is used.
         :type PubliclyAccessible: boolean
         :param PubliclyAccessible:
           Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. For more information, see  CreateDBInstance .
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -3437,7 +3486,7 @@ class Client(BaseClient):
           Valid Values: ``0, 1, 5, 10, 15, 30, 60``
         :type MonitoringRoleArn: string
         :param MonitoringRoleArn:
-          The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` . For information on creating a monitoring role, go to `To create an IAM role for Amazon RDS Enhanced Monitoring <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole>`__ in the *Amazon RDS User Guide* .
+          The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` . For information on creating a monitoring role, go to `To create an IAM role for Amazon RDS Enhanced Monitoring <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole>`__ in the *Amazon RDS User Guide* .
           If ``MonitoringInterval`` is set to a value other than 0, then you must supply a ``MonitoringRoleArn`` value.
         :type KmsKeyId: string
         :param KmsKeyId:
@@ -3453,7 +3502,7 @@ class Client(BaseClient):
           * ``DestinationRegion`` - The AWS Region that the encrypted Read Replica is created in. This AWS Region is the same one where the ``CreateDBInstanceReadReplica`` action is called that contains this presigned URL.  For example, if you create an encrypted DB instance in the us-west-1 AWS Region, from a source DB instance in the us-east-2 AWS Region, then you call the ``CreateDBInstanceReadReplica`` action in the us-east-1 AWS Region and provide a presigned URL that contains a call to the ``CreateDBInstanceReadReplica`` action in the us-west-2 AWS Region. For this example, the ``DestinationRegion`` in the presigned URL must be set to the us-east-1 AWS Region.
           * ``KmsKeyId`` - The AWS KMS key identifier for the key to use to encrypt the Read Replica in the destination AWS Region. This is the same identifier for both the ``CreateDBInstanceReadReplica`` action that is called in the destination AWS Region, and the action contained in the presigned URL.
           * ``SourceDBInstanceIdentifier`` - The DB instance identifier for the encrypted DB instance to be replicated. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are creating an encrypted Read Replica from a DB instance in the us-west-2 AWS Region, then your ``SourceDBInstanceIdentifier`` looks like the following example: ``arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115`` .
-          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type EnableIAMDatabaseAuthentication: boolean
         :param EnableIAMDatabaseAuthentication:
@@ -3465,8 +3514,8 @@ class Client(BaseClient):
           Default: ``false``
         :type EnablePerformanceInsights: boolean
         :param EnablePerformanceInsights:
-          True to enable Performance Insights for the read replica, and otherwise false.
-          For more information, see `Using Amazon Performance Insights <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html>`__ in the *Amazon RDS User Guide* .
+          True to enable Performance Insights for the Read Replica, and otherwise false.
+          For more information, see `Using Amazon Performance Insights <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html>`__ in the *Amazon RDS User Guide* .
         :type PerformanceInsightsKMSKeyId: string
         :param PerformanceInsightsKMSKeyId:
           The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -3475,7 +3524,7 @@ class Client(BaseClient):
           The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of logs that the new DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon RDS User Guide* .
+          The list of logs that the new DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon RDS User Guide* .
           - *(string) --*
         :type ProcessorFeatures: list
         :param ProcessorFeatures:
@@ -3494,7 +3543,7 @@ class Client(BaseClient):
             *  DescribeDBInstances
             *  DescribeDBSnapshots
             *  DescribeValidDBInstanceModifications
-            For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
+            For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
             - **Name** *(string) --*
               The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
             - **Value** *(string) --*
@@ -3504,7 +3553,7 @@ class Client(BaseClient):
           A value that specifies that the DB instance class of the DB instance uses its default processor features.
         :type DeletionProtection: boolean
         :param DeletionProtection:
-          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
+          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
         :type SourceRegion: string
         :param SourceRegion:
           The ID of the region that contains the source for the read replica.
@@ -3580,7 +3629,7 @@ class Client(BaseClient):
           The description for the DB parameter group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -3690,7 +3739,7 @@ class Client(BaseClient):
           The description for the DB security group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -3833,7 +3882,7 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
@@ -3856,7 +3905,7 @@ class Client(BaseClient):
           * Must match the identifier of an existing DBInstance.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -3953,7 +4002,7 @@ class Client(BaseClient):
           - *(string) --*
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -4056,7 +4105,7 @@ class Client(BaseClient):
           Valid values: ``db-instance`` | ``db-cluster`` | ``db-parameter-group`` | ``db-security-group`` | ``db-snapshot`` | ``db-cluster-snapshot``
         :type EventCategories: list
         :param EventCategories:
-          A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the `Events <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html>`__ topic in the *Amazon RDS User Guide* or by using the **DescribeEventCategories** action.
+          A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the `Events <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html>`__ topic in the *Amazon RDS User Guide* or by using the **DescribeEventCategories** action.
           - *(string) --*
         :type SourceIds: list
         :param SourceIds:
@@ -4073,7 +4122,7 @@ class Client(BaseClient):
           A Boolean value; set to **true** to activate the subscription, set to **false** to create the subscription but not active it.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -4089,6 +4138,8 @@ class Client(BaseClient):
         """
         Creates an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem. 
         You can create a global database that is initially empty, and then add a primary cluster and a secondary cluster to it. Or you can specify an existing Aurora cluster during the create operation, and this cluster becomes the primary cluster of the global database. 
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateGlobalCluster>`_
         
         **Request Syntax**
@@ -4350,7 +4401,7 @@ class Client(BaseClient):
           The description of the option group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -4365,7 +4416,9 @@ class Client(BaseClient):
     def delete_db_cluster(self, DBClusterIdentifier: str, SkipFinalSnapshot: bool = None, FinalDBSnapshotIdentifier: str = None) -> Dict:
         """
         The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBCluster>`_
         
         **Request Syntax**
@@ -4457,10 +4510,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -4540,7 +4595,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -4571,6 +4626,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -4585,24 +4641,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -4610,7 +4669,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
           The DB cluster identifier for the DB cluster to be deleted. This parameter isn\'t case-sensitive.
@@ -4639,6 +4700,8 @@ class Client(BaseClient):
     def delete_db_cluster_endpoint(self, DBClusterEndpointIdentifier: str) -> Dict:
         """
         Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBClusterEndpoint>`_
         
         **Request Syntax**
@@ -4707,7 +4770,9 @@ class Client(BaseClient):
     def delete_db_cluster_parameter_group(self, DBClusterParameterGroupName: str):
         """
         Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBClusterParameterGroup>`_
         
         **Request Syntax**
@@ -4731,7 +4796,9 @@ class Client(BaseClient):
         Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
         .. note::
           The DB cluster snapshot must be in the ``available`` state to be deleted.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBClusterSnapshot>`_
         
         **Request Syntax**
@@ -5026,7 +5093,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -5168,7 +5235,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -5218,7 +5285,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -5251,6 +5318,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -5258,7 +5328,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -5277,7 +5347,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -5295,13 +5365,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -5428,7 +5498,7 @@ class Client(BaseClient):
                 Default: Inherits from the source DB instance
                 Valid Values: ``1150-65535``  
               - **AvailabilityZone** *(string) --* 
-                The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see `Regions and Availability Zones <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ .
+                The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see `Regions and Availability Zones <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ .
               - **VpcId** *(string) --* 
                 Provides the VPC ID associated with the DB instance
               - **InstanceCreateTime** *(datetime) --* 
@@ -5638,7 +5708,7 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
@@ -5750,6 +5820,8 @@ class Client(BaseClient):
     def delete_global_cluster(self, GlobalClusterIdentifier: str) -> Dict:
         """
         Deletes a global database cluster. The primary and secondary clusters must already be detached or destroyed first. 
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteGlobalCluster>`_
         
         **Request Syntax**
@@ -5980,7 +6052,9 @@ class Client(BaseClient):
     def describe_db_cluster_backtracks(self, DBClusterIdentifier: str, BacktrackIdentifier: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns information about backtracks for a DB cluster.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterBacktracks>`_
         
         **Request Syntax**
@@ -6096,6 +6170,8 @@ class Client(BaseClient):
     def describe_db_cluster_endpoints(self, DBClusterIdentifier: str = None, DBClusterEndpointIdentifier: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns information about endpoints for an Amazon Aurora DB cluster.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterEndpoints>`_
         
         **Request Syntax**
@@ -6214,7 +6290,9 @@ class Client(BaseClient):
     def describe_db_cluster_parameter_groups(self, DBClusterParameterGroupName: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns a list of ``DBClusterParameterGroup`` descriptions. If a ``DBClusterParameterGroupName`` parameter is specified, the list will contain only the description of the specified DB cluster parameter group. 
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterParameterGroups>`_
         
         **Request Syntax**
@@ -6303,7 +6381,9 @@ class Client(BaseClient):
     def describe_db_cluster_parameters(self, DBClusterParameterGroupName: str, Source: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns the detailed parameter list for a particular DB cluster parameter group.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterParameters>`_
         
         **Request Syntax**
@@ -6423,6 +6503,8 @@ class Client(BaseClient):
         Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.
         When sharing snapshots with other AWS accounts, ``DescribeDBClusterSnapshotAttributes`` returns the ``restore`` attribute and a list of IDs for the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If ``all`` is included in the list of values for the ``restore`` attribute, then the manual DB cluster snapshot is public and can be copied or restored by all AWS accounts.
         To add or remove access for an AWS account to copy or restore a manual DB cluster snapshot, or to make the manual DB cluster snapshot public or private, use the  ModifyDBClusterSnapshotAttribute API action.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterSnapshotAttributes>`_
         
         **Request Syntax**
@@ -6477,7 +6559,9 @@ class Client(BaseClient):
     def describe_db_cluster_snapshots(self, DBClusterIdentifier: str = None, DBClusterSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None) -> Dict:
         """
         Returns information about DB cluster snapshots. This API action supports pagination.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusterSnapshots>`_
         
         **Request Syntax**
@@ -6645,7 +6729,9 @@ class Client(BaseClient):
     def describe_db_clusters(self, DBClusterIdentifier: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns information about provisioned Aurora DB clusters. This API supports pagination.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusters>`_
         
         **Request Syntax**
@@ -6747,10 +6833,12 @@ class Client(BaseClient):
                             'MinCapacity': 123,
                             'MaxCapacity': 123,
                             'AutoPause': True|False,
-                            'SecondsUntilAutoPause': 123
+                            'SecondsUntilAutoPause': 123,
+                            'TimeoutAction': 'string'
                         },
                         'DeletionProtection': True|False,
-                        'HttpEndpointEnabled': True|False
+                        'HttpEndpointEnabled': True|False,
+                        'CopyTagsToSnapshot': True|False
                     },
                 ]
             }
@@ -6836,7 +6924,7 @@ class Client(BaseClient):
                     - **DBClusterParameterGroupStatus** *(string) --* 
                       Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                     - **PromotionTier** *(integer) --* 
-                      A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                      A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
                 - **VpcSecurityGroups** *(list) --* 
                   Provides a list of VPC security groups that the DB cluster belongs to.
                   - *(dict) --* 
@@ -6867,6 +6955,7 @@ class Client(BaseClient):
                       * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                       * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                     - **FeatureName** *(string) --* 
+                      The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
                 - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                   True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
                 - **CloneGroupId** *(string) --* 
@@ -6881,24 +6970,27 @@ class Client(BaseClient):
                   The number of change records stored for Backtrack.
                 - **EnabledCloudwatchLogsExports** *(list) --* 
                   A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                  Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                  Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                   - *(string) --* 
                 - **Capacity** *(integer) --* 
                   The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                  For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                  For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **EngineMode** *(string) --* 
                   The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
                 - **ScalingConfigurationInfo** *(dict) --* 
                   Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                  For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                  For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                   - **MinCapacity** *(integer) --* 
                     The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                   - **MaxCapacity** *(integer) --* 
                     The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                   - **AutoPause** *(boolean) --* 
-                    A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                    A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                    When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                   - **SecondsUntilAutoPause** *(integer) --* 
                     The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                  - **TimeoutAction** *(string) --* 
+                    The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
                 - **DeletionProtection** *(boolean) --* 
                   Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
                 - **HttpEndpointEnabled** *(boolean) --* 
@@ -6906,7 +6998,9 @@ class Client(BaseClient):
                     HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                   Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                   When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                  For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                  For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                - **CopyTagsToSnapshot** *(boolean) --* 
+                  Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier:
           The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn\'t case-sensitive.
@@ -7080,7 +7174,7 @@ class Client(BaseClient):
                 - **SupportsLogExportsToCloudwatchLogs** *(boolean) --* 
                   A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
                 - **SupportsReadReplica** *(boolean) --* 
-                  Indicates whether the database engine version supports read replicas.
+                  Indicates whether the database engine version supports Read Replicas.
                 - **SupportedEngineModes** *(list) --* 
                   A list of the supported DB engine modes.
                   - *(string) --* 
@@ -7234,7 +7328,7 @@ class Client(BaseClient):
                   Default: Inherits from the source DB instance
                   Valid Values: ``1150-65535``  
                 - **AvailabilityZone** *(string) --* 
-                  The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see `Regions and Availability Zones <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ .
+                  The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see `Regions and Availability Zones <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ .
                 - **VpcId** *(string) --* 
                   Provides the VPC ID associated with the DB instance
                 - **InstanceCreateTime** *(datetime) --* 
@@ -7517,7 +7611,7 @@ class Client(BaseClient):
                 - **MasterUsername** *(string) --* 
                   Contains the master username for the DB instance.
                 - **DBName** *(string) --* 
-                  The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                  The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                   Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -7659,7 +7753,7 @@ class Client(BaseClient):
                       *  DescribeDBInstances   
                       *  DescribeDBSnapshots   
                       *  DescribeValidDBInstanceModifications   
-                      For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                      For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                       - **Name** *(string) --* 
                         The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                       - **Value** *(string) --* 
@@ -7709,7 +7803,7 @@ class Client(BaseClient):
                     - **Normal** *(boolean) --* 
                       Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                     - **Status** *(string) --* 
-                      Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                      Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                     - **Message** *(string) --* 
                       Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
                 - **StorageType** *(string) --* 
@@ -7742,6 +7836,9 @@ class Client(BaseClient):
                       The name of the IAM role to be used when making API calls to the Directory Service.
                 - **CopyTagsToSnapshot** *(boolean) --* 
                   Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                  Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
                 - **MonitoringInterval** *(integer) --* 
                   The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
                 - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -7749,7 +7846,7 @@ class Client(BaseClient):
                 - **MonitoringRoleArn** *(string) --* 
                   The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
                 - **PromotionTier** *(integer) --* 
-                  A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                  A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
                 - **DBInstanceArn** *(string) --* 
                   The Amazon Resource Name (ARN) for the DB instance.
                 - **Timezone** *(string) --* 
@@ -7768,7 +7865,7 @@ class Client(BaseClient):
                   The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
                 - **EnabledCloudwatchLogsExports** *(list) --* 
                   A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                  Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                  Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                   - *(string) --* 
                 - **ProcessorFeatures** *(list) --* 
                   The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -7786,13 +7883,13 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
                       The value of a processor feature name.
                 - **DeletionProtection** *(boolean) --* 
-                  Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                  Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
                 - **AssociatedRoles** *(list) --* 
                   The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                   - *(dict) --* 
@@ -8341,6 +8438,7 @@ class Client(BaseClient):
 
     def describe_db_snapshots(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None) -> Dict:
         """
+        .. _https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html: https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html
         Returns information about DB snapshots. This API action supports pagination.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBSnapshots>`_
         
@@ -8486,7 +8584,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -8511,6 +8609,7 @@ class Client(BaseClient):
           * ``manual`` - Return all DB snapshots that have been taken by my AWS account.
           * ``shared`` - Return all manual DB snapshots that have been shared to my AWS account.
           * ``public`` - Return all DB snapshots that have been marked as public.
+          * ``awsbackup`` - Return the DB snapshots managed by the AWS Backup service. For information about AWS Backup, see the ` *AWS Backup Developer Guide.* https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html`__   The ``awsbackup`` type does not apply to Aurora.
           If you don\'t specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
           The ``IncludeShared`` and ``IncludePublic`` parameters don\'t apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn\'t apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn\'t apply when ``SnapshotType`` is set to ``public`` .
         :type Filters: list
@@ -8672,7 +8771,7 @@ class Client(BaseClient):
     def describe_engine_default_cluster_parameters(self, DBParameterGroupFamily: str, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns the default engine and system parameter information for the cluster database engine.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeEngineDefaultClusterParameters>`_
         
         **Request Syntax**
@@ -8906,7 +9005,7 @@ class Client(BaseClient):
 
     def describe_event_categories(self, SourceType: str = None, Filters: List = None) -> Dict:
         """
-        Displays a list of categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in the `Events <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html>`__ topic in the *Amazon RDS User Guide.*  
+        Displays a list of categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in the `Events <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html>`__ topic in the *Amazon RDS User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeEventCategories>`_
         
         **Request Syntax**
@@ -9220,7 +9319,9 @@ class Client(BaseClient):
     def describe_global_clusters(self, GlobalClusterIdentifier: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns information about Aurora global database clusters. This API supports pagination. 
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeGlobalClusters>`_
         
         **Request Syntax**
@@ -9846,7 +9947,7 @@ class Client(BaseClient):
                   A list of the available processor features for the DB instance class of a DB instance.
                   - *(dict) --* 
                     Contains the available processor feature information for the DB instance class of a DB instance.
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **DefaultValue** *(string) --* 
@@ -9960,7 +10061,7 @@ class Client(BaseClient):
                   - *(dict) --* 
                     Provides information about a pending maintenance action for a resource.
                     - **Action** *(string) --* 
-                      The type of pending maintenance action that is available for the resource.
+                      The type of pending maintenance action that is available for the resource. Valid actions are ``system-update`` , ``db-upgrade`` , and ``hardware-maintenance`` .
                     - **AutoAppliedAfterDate** *(datetime) --* 
                       The date of the maintenance window when the action is applied. The maintenance action is applied to the resource during its first maintenance window after this date. If this date is specified, any ``next-maintenance`` opt-in requests are ignored.
                     - **ForcedApplyDate** *(datetime) --* 
@@ -10483,7 +10584,7 @@ class Client(BaseClient):
                 Valid processor features for your DB instance. 
                 - *(dict) --* 
                   Contains the available processor feature information for the DB instance class of a DB instance.
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **DefaultValue** *(string) --* 
@@ -10558,7 +10659,9 @@ class Client(BaseClient):
         Forces a failover for a DB cluster.
         A failover for a DB cluster promotes one of the Aurora Replicas (read-only instances) in the DB cluster to be the primary instance (the cluster writer).
         Amazon Aurora will automatically fail over to an Aurora Replica, if one exists, when the primary instance fails. You can force a failover when you want to simulate a failure of a primary instance for testing. Because each instance in a DB cluster has its own endpoint address, you will need to clean up and re-establish any existing connections that use those endpoint addresses when the failover is complete.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/FailoverDBCluster>`_
         
         **Request Syntax**
@@ -10649,10 +10752,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -10732,7 +10837,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -10763,6 +10868,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -10777,24 +10883,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -10802,7 +10911,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
           A DB cluster identifier to force a failover for. This parameter is not case-sensitive.
@@ -10883,7 +10994,7 @@ class Client(BaseClient):
     def list_tags_for_resource(self, ResourceName: str, Filters: List = None) -> Dict:
         """
         Lists all tags on an Amazon RDS resource.
-        For an overview on tagging an Amazon RDS resource, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html>`__ in the *Amazon RDS User Guide* .
+        For an overview on tagging an Amazon RDS resource, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html>`__ in the *Amazon RDS User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ListTagsForResource>`_
         
         **Request Syntax**
@@ -10923,7 +11034,7 @@ class Client(BaseClient):
                   A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
         :type ResourceName: string
         :param ResourceName: **[REQUIRED]**
-          The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an ARN for Amazon RDS <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide* .
+          The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an ARN for Amazon RDS <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide* .
         :type Filters: list
         :param Filters:
           This parameter is not currently supported.
@@ -10952,9 +11063,11 @@ class Client(BaseClient):
         Set the capacity of an Aurora Serverless DB cluster to a specific value.
         Aurora Serverless scales seamlessly based on the workload on the DB cluster. In some cases, the capacity might not scale fast enough to meet a sudden change in workload, such as a large number of new transactions. Call ``ModifyCurrentDBClusterCapacity`` to set the capacity explicitly.
         After this call sets the DB cluster capacity, Aurora Serverless can automatically scale the DB cluster based on the cooldown period for scaling up and the cooldown period for scaling down.
-        For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+        For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
         .. warning::
-          If you call ``ModifyCurrentDBClusterCapacity`` with the default ``TimeoutAction`` , connections that prevent Aurora Serverless from finding a scaling point might be dropped. For more information about scaling points, see `Autoscaling for Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling>`__ in the *Amazon Aurora User Guide* .
+          If you call ``ModifyCurrentDBClusterCapacity`` with the default ``TimeoutAction`` , connections that prevent Aurora Serverless from finding a scaling point might be dropped. For more information about scaling points, see `Autoscaling for Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling>`__ in the *Amazon Aurora User Guide* .
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyCurrentDBClusterCapacity>`_
         
         **Request Syntax**
@@ -10996,6 +11109,7 @@ class Client(BaseClient):
         :type Capacity: integer
         :param Capacity:
           The DB cluster capacity.
+          When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
           Constraints:
           * Value must be ``2`` , ``4`` , ``8`` , ``16`` , ``32`` , ``64`` , ``128`` , or ``256`` .
         :type SecondsBeforeTimeout: integer
@@ -11012,9 +11126,11 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_db_cluster(self, DBClusterIdentifier: str, NewDBClusterIdentifier: str = None, ApplyImmediately: bool = None, BackupRetentionPeriod: int = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, Port: int = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, CloudwatchLogsExportConfiguration: Dict = None, EngineVersion: str = None, ScalingConfiguration: Dict = None, DeletionProtection: bool = None, EnableHttpEndpoint: bool = None) -> Dict:
+    def modify_db_cluster(self, DBClusterIdentifier: str, NewDBClusterIdentifier: str = None, ApplyImmediately: bool = None, BackupRetentionPeriod: int = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, Port: int = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, CloudwatchLogsExportConfiguration: Dict = None, EngineVersion: str = None, ScalingConfiguration: Dict = None, DeletionProtection: bool = None, EnableHttpEndpoint: bool = None, CopyTagsToSnapshot: bool = None) -> Dict:
         """
-        Modify a setting for an Amazon Aurora DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        Modify a setting for an Amazon Aurora DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBCluster>`_
         
         **Request Syntax**
@@ -11048,10 +11164,12 @@ class Client(BaseClient):
                   'MinCapacity': 123,
                   'MaxCapacity': 123,
                   'AutoPause': True|False,
-                  'SecondsUntilAutoPause': 123
+                  'SecondsUntilAutoPause': 123,
+                  'TimeoutAction': 'string'
               },
               DeletionProtection=True|False,
-              EnableHttpEndpoint=True|False
+              EnableHttpEndpoint=True|False,
+              CopyTagsToSnapshot=True|False
           )
         
         **Response Syntax**
@@ -11135,10 +11253,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -11218,7 +11338,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -11249,6 +11369,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -11263,24 +11384,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -11288,7 +11412,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
           The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive.
@@ -11336,7 +11462,7 @@ class Client(BaseClient):
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow:
           The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter.
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred DB Cluster Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred DB Cluster Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
           Constraints:
           * Must be in the format ``hh24:mi-hh24:mi`` .
           * Must be in Universal Coordinated Time (UTC).
@@ -11346,7 +11472,7 @@ class Client(BaseClient):
         :param PreferredMaintenanceWindow:
           The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
           Format: ``ddd:hh24:mi-ddd:hh24:mi``
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see `Adjusting the Preferred DB Cluster Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see `Adjusting the Preferred DB Cluster Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
           Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
           Constraints: Minimum 30-minute window.
         :type EnableIAMDatabaseAuthentication: boolean
@@ -11389,6 +11515,11 @@ class Client(BaseClient):
               If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
           - **SecondsUntilAutoPause** *(integer) --*
             The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
+          - **TimeoutAction** *(string) --*
+            The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
+             ``ForceApplyCapacityChange`` , the default, sets the capacity to the specified value as soon as possible.
+             ``RollbackCapacityChange`` ignores the capacity change if a scaling point is not found in the timeout period.
+            For more information, see `Autoscaling for Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling>`__ in the *Amazon Aurora User Guide* .
         :type DeletionProtection: boolean
         :param DeletionProtection:
           Indicates if the DB cluster has deletion protection enabled. The database can\'t be deleted when this value is set to true.
@@ -11398,7 +11529,10 @@ class Client(BaseClient):
             HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
           A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
           When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-          For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+          For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+        :type CopyTagsToSnapshot: boolean
+        :param CopyTagsToSnapshot:
+          True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is false.
         :rtype: dict
         :returns:
         """
@@ -11407,6 +11541,8 @@ class Client(BaseClient):
     def modify_db_cluster_endpoint(self, DBClusterEndpointIdentifier: str, EndpointType: str = None, StaticMembers: List = None, ExcludedMembers: List = None) -> Dict:
         """
         Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterEndpoint>`_
         
         **Request Syntax**
@@ -11493,11 +11629,13 @@ class Client(BaseClient):
     def modify_db_cluster_parameter_group(self, DBClusterParameterGroupName: str, Parameters: List) -> Dict:
         """
         Modifies the parameters of a DB cluster parameter group. To modify more than one parameter, submit a list of the following: ``ParameterName`` , ``ParameterValue`` , and ``ApplyMethod`` . A maximum of 20 parameters can be modified in a single request. 
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
         .. note::
           Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot without failover to the DB cluster associated with the parameter group before the change can take effect.
         .. warning::
           After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the ``character_set_database`` parameter. You can use the *Parameter Groups* option of the `Amazon RDS console <https://console.aws.amazon.com/rds/>`__ or the  DescribeDBClusterParameters command to verify that your DB cluster parameter group has been created or modified.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterParameterGroup>`_
         
         **Request Syntax**
@@ -11581,6 +11719,8 @@ class Client(BaseClient):
         Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.
         To share a manual DB cluster snapshot with other AWS accounts, specify ``restore`` as the ``AttributeName`` and use the ``ValuesToAdd`` parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB cluster snapshot. Use the value ``all`` to make the manual DB cluster snapshot public, which means that it can be copied or restored by all AWS accounts. Do not add the ``all`` value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts. If a manual DB cluster snapshot is encrypted, it can be shared, but only by specifying a list of authorized AWS account IDs for the ``ValuesToAdd`` parameter. You can't use ``all`` as a value for that parameter in this case.
         To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or whether a manual DB cluster snapshot public or private, use the  DescribeDBClusterSnapshotAttributes API action.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterSnapshotAttribute>`_
         
         **Request Syntax**
@@ -11901,7 +12041,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -12043,7 +12183,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -12093,7 +12233,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -12126,6 +12266,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -12133,7 +12276,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -12152,7 +12295,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -12170,13 +12313,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -12210,7 +12353,7 @@ class Client(BaseClient):
           For the valid values for allocated storage for each engine, see  CreateDBInstance .
         :type DBInstanceClass: string
         :param DBInstanceClass:
-          The new compute and memory capacity of the DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
+          The new compute and memory capacity of the DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
           If you modify the DB instance class, an outage occurs during the change. The change is applied during the next maintenance window, unless ``ApplyImmediately`` is specified as ``true`` for this request.
           Default: Uses existing setting
         :type DBSubnetGroupName: string
@@ -12236,7 +12379,7 @@ class Client(BaseClient):
         :type ApplyImmediately: boolean
         :param ApplyImmediately:
           Specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the ``PreferredMaintenanceWindow`` setting for the DB instance.
-          If this parameter is set to ``false`` , changes to the DB instance are applied during the next maintenance window. Some parameter changes can cause an outage and are applied on the next call to  RebootDBInstance , or the next failure reboot. Review the table of parameters in `Modifying a DB Instance and Using the Apply Immediately Parameter <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html>`__ in the *Amazon RDS User Guide.* to see the impact that setting ``ApplyImmediately`` to ``true`` or ``false`` has for each modified parameter and to determine when the changes are applied.
+          If this parameter is set to ``false`` , changes to the DB instance are applied during the next maintenance window. Some parameter changes can cause an outage and are applied on the next call to  RebootDBInstance , or the next failure reboot. Review the table of parameters in `Modifying a DB Instance and Using the Apply Immediately Parameter <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html>`__ in the *Amazon RDS User Guide.* to see the impact that setting ``ApplyImmediately`` to ``true`` or ``false`` has for each modified parameter and to determine when the changes are applied.
           Default: ``false``
         :type MasterUserPassword: string
         :param MasterUserPassword:
@@ -12351,6 +12494,8 @@ class Client(BaseClient):
         :type CopyTagsToSnapshot: boolean
         :param CopyTagsToSnapshot:
           True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise false. The default is false.
+           **Amazon Aurora**
+          Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  ModifyDBCluster .
         :type MonitoringInterval: integer
         :param MonitoringInterval:
           The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -12388,14 +12533,14 @@ class Client(BaseClient):
           Default: false
         :type MonitoringRoleArn: string
         :param MonitoringRoleArn:
-          The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` . For information on creating a monitoring role, go to `To create an IAM role for Amazon RDS Enhanced Monitoring <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole>`__ in the *Amazon RDS User Guide.*
+          The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` . For information on creating a monitoring role, go to `To create an IAM role for Amazon RDS Enhanced Monitoring <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole>`__ in the *Amazon RDS User Guide.*
           If ``MonitoringInterval`` is set to a value other than 0, then you must supply a ``MonitoringRoleArn`` value.
         :type DomainIAMRoleName: string
         :param DomainIAMRoleName:
           The name of the IAM role to use when making API calls to the Directory Service.
         :type PromotionTier: integer
         :param PromotionTier:
-          A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* .
+          A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* .
           Default: 1
           Valid Values: 0 - 15
         :type EnableIAMDatabaseAuthentication: boolean
@@ -12411,7 +12556,7 @@ class Client(BaseClient):
         :type EnablePerformanceInsights: boolean
         :param EnablePerformanceInsights:
           True to enable Performance Insights for the DB instance, and otherwise false.
-          For more information, see `Using Amazon Performance Insights <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html>`__ in the *Amazon Relational Database Service User Guide* .
+          For more information, see `Using Amazon Performance Insights <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html>`__ in the *Amazon Relational Database Service User Guide* .
         :type PerformanceInsightsKMSKeyId: string
         :param PerformanceInsightsKMSKeyId:
           The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -12445,7 +12590,7 @@ class Client(BaseClient):
             *  DescribeDBInstances
             *  DescribeDBSnapshots
             *  DescribeValidDBInstanceModifications
-            For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
+            For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
             - **Name** *(string) --*
               The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
             - **Value** *(string) --*
@@ -12455,7 +12600,7 @@ class Client(BaseClient):
           A value that specifies that the DB instance class of the DB instance uses its default processor features.
         :type DeletionProtection: boolean
         :param DeletionProtection:
-          Indicates if the DB instance has deletion protection enabled. The database can\'t be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
+          Indicates if the DB instance has deletion protection enabled. The database can\'t be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -12673,7 +12818,7 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
@@ -12864,7 +13009,7 @@ class Client(BaseClient):
     def modify_event_subscription(self, SubscriptionName: str, SnsTopicArn: str = None, SourceType: str = None, EventCategories: List = None, Enabled: bool = None) -> Dict:
         """
         Modifies an existing RDS event notification subscription. Note that you can't modify the source identifiers using this call; to change source identifiers for a subscription, use the  AddSourceIdentifierToSubscription and  RemoveSourceIdentifierFromSubscription calls.
-        You can see a list of the event categories for a given SourceType in the `Events <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html>`__ topic in the *Amazon RDS User Guide* or by using the **DescribeEventCategories** action.
+        You can see a list of the event categories for a given SourceType in the `Events <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html>`__ topic in the *Amazon RDS User Guide* or by using the **DescribeEventCategories** action.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyEventSubscription>`_
         
         **Request Syntax**
@@ -12941,7 +13086,7 @@ class Client(BaseClient):
           Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
         :type EventCategories: list
         :param EventCategories:
-          A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the `Events <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html>`__ topic in the *Amazon RDS User Guide* or by using the **DescribeEventCategories** action.
+          A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the `Events <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html>`__ topic in the *Amazon RDS User Guide* or by using the **DescribeEventCategories** action.
           - *(string) --*
         :type Enabled: boolean
         :param Enabled:
@@ -12953,7 +13098,9 @@ class Client(BaseClient):
 
     def modify_global_cluster(self, GlobalClusterIdentifier: str = None, NewGlobalClusterIdentifier: str = None, DeletionProtection: bool = None) -> Dict:
         """
-        Modify a setting for an Amazon Aurora global cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        Modify a setting for an Amazon Aurora global cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyGlobalCluster>`_
         
         **Request Syntax**
@@ -13224,10 +13371,10 @@ class Client(BaseClient):
             - **OptionVersion** *(string) --*
               The version for the option.
             - **DBSecurityGroupMemberships** *(list) --*
-              A list of DBSecurityGroupMemebrship name strings used for this option.
+              A list of DBSecurityGroupMembership name strings used for this option.
               - *(string) --*
             - **VpcSecurityGroupMemberships** *(list) --*
-              A list of VpcSecurityGroupMemebrship name strings used for this option.
+              A list of VpcSecurityGroupMembership name strings used for this option.
               - *(string) --*
             - **OptionSettings** *(list) --*
               The option settings to include in an option group.
@@ -13461,7 +13608,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -13603,7 +13750,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -13653,7 +13800,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -13686,6 +13833,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -13693,7 +13843,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -13712,7 +13862,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -13730,13 +13880,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -13773,7 +13923,7 @@ class Client(BaseClient):
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow:
           The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter.
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html>`__ in the *Amazon RDS User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html>`__ in the *Amazon RDS User Guide.*
           Constraints:
           * Must be in the format ``hh24:mi-hh24:mi`` .
           * Must be in Universal Coordinated Time (UTC).
@@ -13787,6 +13937,8 @@ class Client(BaseClient):
     def promote_read_replica_db_cluster(self, DBClusterIdentifier: str) -> Dict:
         """
         Promotes a Read Replica DB cluster to a standalone DB cluster.
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/PromoteReadReplicaDBCluster>`_
         
         **Request Syntax**
@@ -13876,10 +14028,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -13959,7 +14113,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -13990,6 +14144,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -14004,24 +14159,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -14029,7 +14187,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
           The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.
@@ -14141,7 +14301,7 @@ class Client(BaseClient):
           Default: ``1``
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -14157,7 +14317,7 @@ class Client(BaseClient):
         """
         You might need to reboot your DB instance, usually for maintenance reasons. For example, if you make certain modifications, or if you change the DB parameter group associated with the DB instance, you must reboot the instance for the changes to take effect. 
         Rebooting a DB instance restarts the database engine service. Rebooting a DB instance results in a momentary outage, during which the DB instance status is set to rebooting. 
-        For more information about rebooting, see `Rebooting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html>`__ in the *Amazon RDS User Guide.*  
+        For more information about rebooting, see `Rebooting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html>`__ in the *Amazon RDS User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RebootDBInstance>`_
         
         **Request Syntax**
@@ -14349,7 +14509,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -14491,7 +14651,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -14541,7 +14701,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -14574,6 +14734,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -14581,7 +14744,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -14600,7 +14763,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -14618,13 +14781,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -14663,6 +14826,8 @@ class Client(BaseClient):
     def remove_from_global_cluster(self, GlobalClusterIdentifier: str = None, DbClusterIdentifier: str = None) -> Dict:
         """
         Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary cluster in a different region. 
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RemoveFromGlobalCluster>`_
         
         **Request Syntax**
@@ -14741,16 +14906,19 @@ class Client(BaseClient):
         """
         pass
 
-    def remove_role_from_db_cluster(self, DBClusterIdentifier: str, RoleArn: str):
+    def remove_role_from_db_cluster(self, DBClusterIdentifier: str, RoleArn: str, FeatureName: str = None):
         """
-        Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora DB cluster. For more information, see `Authorizing Amazon Aurora MySQL to Access Other AWS Services on Your Behalf <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html>`__ in the *Amazon Aurora User Guide* .
+        Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora DB cluster. For more information, see `Authorizing Amazon Aurora MySQL to Access Other AWS Services on Your Behalf <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html>`__ in the *Amazon Aurora User Guide* .
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RemoveRoleFromDBCluster>`_
         
         **Request Syntax**
         ::
           response = client.remove_role_from_db_cluster(
               DBClusterIdentifier='string',
-              RoleArn='string'
+              RoleArn='string',
+              FeatureName='string'
           )
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
@@ -14758,6 +14926,9 @@ class Client(BaseClient):
         :type RoleArn: string
         :param RoleArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example ``arn:aws:iam::123456789012:role/AuroraAccessRole`` .
+        :type FeatureName: string
+        :param FeatureName:
+          The name of the feature for the DB cluster that the IAM role is to be disassociated from. For the list of supported feature names, see  DBEngineVersion .
         :returns: None
         """
         pass
@@ -14863,7 +15034,7 @@ class Client(BaseClient):
     def remove_tags_from_resource(self, ResourceName: str, TagKeys: List):
         """
         Removes metadata tags from an Amazon RDS resource.
-        For an overview on tagging an Amazon RDS resource, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html>`__ in the *Amazon RDS User Guide.*  
+        For an overview on tagging an Amazon RDS resource, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html>`__ in the *Amazon RDS User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RemoveTagsFromResource>`_
         
         **Request Syntax**
@@ -14876,7 +15047,7 @@ class Client(BaseClient):
           )
         :type ResourceName: string
         :param ResourceName: **[REQUIRED]**
-          The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an ARN for Amazon RDS <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide.*
+          The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an ARN for Amazon RDS <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing>`__ in the *Amazon RDS User Guide.*
         :type TagKeys: list
         :param TagKeys: **[REQUIRED]**
           The tag key (name) of the tag to be removed.
@@ -14889,7 +15060,9 @@ class Client(BaseClient):
         """
         Modifies the parameters of a DB cluster parameter group to the default value. To reset specific parameters submit a list of the following: ``ParameterName`` and ``ApplyMethod`` . To reset the entire DB cluster parameter group, specify the ``DBClusterParameterGroupName`` and ``ResetAllParameters`` parameters. 
         When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to ``pending-reboot`` to take effect on the next DB instance restart or  RebootDBInstance request. You must call  RebootDBInstance for every DB instance in your DB cluster that you want the updated static parameter to apply to.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ResetDBClusterParameterGroup>`_
         
         **Request Syntax**
@@ -15063,9 +15236,11 @@ class Client(BaseClient):
         """
         pass
 
-    def restore_db_cluster_from_s3(self, DBClusterIdentifier: str, Engine: str, MasterUsername: str, MasterUserPassword: str, SourceEngine: str, SourceEngineVersion: str, S3BucketName: str, S3IngestionRoleArn: str, AvailabilityZones: List = None, BackupRetentionPeriod: int = None, CharacterSetName: str = None, DatabaseName: str = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, DBSubnetGroupName: str = None, EngineVersion: str = None, Port: int = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, Tags: List = None, StorageEncrypted: bool = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, S3Prefix: str = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, DeletionProtection: bool = None) -> Dict:
+    def restore_db_cluster_from_s3(self, DBClusterIdentifier: str, Engine: str, MasterUsername: str, MasterUserPassword: str, SourceEngine: str, SourceEngineVersion: str, S3BucketName: str, S3IngestionRoleArn: str, AvailabilityZones: List = None, BackupRetentionPeriod: int = None, CharacterSetName: str = None, DatabaseName: str = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, DBSubnetGroupName: str = None, EngineVersion: str = None, Port: int = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, Tags: List = None, StorageEncrypted: bool = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, S3Prefix: str = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, DeletionProtection: bool = None, CopyTagsToSnapshot: bool = None) -> Dict:
         """
-        Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as described in `Migrating Data to an Amazon Aurora MySQL DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html>`__ in the *Amazon Aurora User Guide* .
+        Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as described in `Migrating Data to an Amazon Aurora MySQL DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html>`__ in the *Amazon Aurora User Guide* .
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBClusterFromS3>`_
         
         **Request Syntax**
@@ -15109,7 +15284,8 @@ class Client(BaseClient):
               EnableCloudwatchLogsExports=[
                   'string',
               ],
-              DeletionProtection=True|False
+              DeletionProtection=True|False,
+              CopyTagsToSnapshot=True|False
           )
         
         **Response Syntax**
@@ -15193,10 +15369,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -15276,7 +15454,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -15307,6 +15485,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -15321,24 +15500,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -15346,7 +15528,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type AvailabilityZones: list
         :param AvailabilityZones:
           A list of EC2 Availability Zones that instances in the restored DB cluster can be created in.
@@ -15418,7 +15602,7 @@ class Client(BaseClient):
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow:
           The daily time range during which automated backups are created if automated backups are enabled using the ``BackupRetentionPeriod`` parameter.
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
           Constraints:
           * Must be in the format ``hh24:mi-hh24:mi`` .
           * Must be in Universal Coordinated Time (UTC).
@@ -15428,12 +15612,12 @@ class Client(BaseClient):
         :param PreferredMaintenanceWindow:
           The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
           Format: ``ddd:hh24:mi-ddd:hh24:mi``
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora>`__ in the *Amazon Aurora User Guide.*
           Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
           Constraints: Minimum 30-minute window.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -15478,22 +15662,27 @@ class Client(BaseClient):
           * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
+          The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
           - *(string) --*
         :type DeletionProtection: boolean
         :param DeletionProtection:
           Indicates if the DB cluster should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false.
+        :type CopyTagsToSnapshot: boolean
+        :param CopyTagsToSnapshot:
+          True to copy all tags from the restored DB cluster to snapshots of the restored DB cluster, and otherwise false. The default is false.
         :rtype: dict
         :returns:
         """
         pass
 
-    def restore_db_cluster_from_snapshot(self, DBClusterIdentifier: str, SnapshotIdentifier: str, Engine: str, AvailabilityZones: List = None, EngineVersion: str = None, Port: int = None, DBSubnetGroupName: str = None, DatabaseName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, EngineMode: str = None, ScalingConfiguration: Dict = None, DBClusterParameterGroupName: str = None, DeletionProtection: bool = None) -> Dict:
+    def restore_db_cluster_from_snapshot(self, DBClusterIdentifier: str, SnapshotIdentifier: str, Engine: str, AvailabilityZones: List = None, EngineVersion: str = None, Port: int = None, DBSubnetGroupName: str = None, DatabaseName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, EngineMode: str = None, ScalingConfiguration: Dict = None, DBClusterParameterGroupName: str = None, DeletionProtection: bool = None, CopyTagsToSnapshot: bool = None) -> Dict:
         """
         Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
         If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
         If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBClusterFromSnapshot>`_
         
         **Request Syntax**
@@ -15530,10 +15719,12 @@ class Client(BaseClient):
                   'MinCapacity': 123,
                   'MaxCapacity': 123,
                   'AutoPause': True|False,
-                  'SecondsUntilAutoPause': 123
+                  'SecondsUntilAutoPause': 123,
+                  'TimeoutAction': 'string'
               },
               DBClusterParameterGroupName='string',
-              DeletionProtection=True|False
+              DeletionProtection=True|False,
+              CopyTagsToSnapshot=True|False
           )
         
         **Response Syntax**
@@ -15617,10 +15808,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -15700,7 +15893,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -15731,6 +15924,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -15745,24 +15939,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -15770,7 +15967,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type AvailabilityZones: list
         :param AvailabilityZones:
           Provides the list of Amazon EC2 Availability Zones that instances in the restored DB cluster can be created in.
@@ -15845,7 +16044,7 @@ class Client(BaseClient):
           * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
+          The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
           - *(string) --*
         :type EngineMode: string
         :param EngineMode:
@@ -15867,6 +16066,11 @@ class Client(BaseClient):
               If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
           - **SecondsUntilAutoPause** *(integer) --*
             The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
+          - **TimeoutAction** *(string) --*
+            The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
+             ``ForceApplyCapacityChange`` , the default, sets the capacity to the specified value as soon as possible.
+             ``RollbackCapacityChange`` ignores the capacity change if a scaling point is not found in the timeout period.
+            For more information, see `Autoscaling for Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling>`__ in the *Amazon Aurora User Guide* .
         :type DBClusterParameterGroupName: string
         :param DBClusterParameterGroupName:
           The name of the DB cluster parameter group to associate with this DB cluster. If this argument is omitted, the default DB cluster parameter group for the specified engine is used.
@@ -15878,17 +16082,22 @@ class Client(BaseClient):
         :type DeletionProtection: boolean
         :param DeletionProtection:
           Indicates if the DB cluster should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false.
+        :type CopyTagsToSnapshot: boolean
+        :param CopyTagsToSnapshot:
+          True to copy all tags from the restored DB cluster to snapshots of the restored DB cluster, and otherwise false. The default is false.
         :rtype: dict
         :returns:
         """
         pass
 
-    def restore_db_cluster_to_point_in_time(self, DBClusterIdentifier: str, SourceDBClusterIdentifier: str, RestoreType: str = None, RestoreToTime: datetime = None, UseLatestRestorableTime: bool = None, Port: int = None, DBSubnetGroupName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, DBClusterParameterGroupName: str = None, DeletionProtection: bool = None) -> Dict:
+    def restore_db_cluster_to_point_in_time(self, DBClusterIdentifier: str, SourceDBClusterIdentifier: str, RestoreType: str = None, RestoreToTime: datetime = None, UseLatestRestorableTime: bool = None, Port: int = None, DBSubnetGroupName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, BacktrackWindow: int = None, EnableCloudwatchLogsExports: List = None, DBClusterParameterGroupName: str = None, DeletionProtection: bool = None, CopyTagsToSnapshot: bool = None) -> Dict:
         """
         Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before ``LatestRestorableTime`` for up to ``BackupRetentionPeriod`` days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group. 
         .. note::
           This action only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the  CreateDBInstance action to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in ``DBClusterIdentifier`` . You can create DB instances only after the ``RestoreDBClusterToPointInTime`` action has completed and the DB cluster is available.
-        For more information on Amazon Aurora, see `What Is Amazon Aurora? <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information on Amazon Aurora, see `What Is Amazon Aurora? <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBClusterToPointInTime>`_
         
         **Request Syntax**
@@ -15918,7 +16127,8 @@ class Client(BaseClient):
                   'string',
               ],
               DBClusterParameterGroupName='string',
-              DeletionProtection=True|False
+              DeletionProtection=True|False,
+              CopyTagsToSnapshot=True|False
           )
         
         **Response Syntax**
@@ -16002,10 +16212,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -16085,7 +16297,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -16116,6 +16328,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -16130,24 +16343,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -16155,7 +16371,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
           The name of the new DB cluster to be created.
@@ -16209,7 +16427,7 @@ class Client(BaseClient):
           - *(string) --*
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -16237,7 +16455,7 @@ class Client(BaseClient):
           * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
+          The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
           - *(string) --*
         :type DBClusterParameterGroupName: string
         :param DBClusterParameterGroupName:
@@ -16250,6 +16468,9 @@ class Client(BaseClient):
         :type DeletionProtection: boolean
         :param DeletionProtection:
           Indicates if the DB cluster should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false.
+        :type CopyTagsToSnapshot: boolean
+        :param CopyTagsToSnapshot:
+          True to copy all tags from the restored DB cluster to snapshots of the restored DB cluster, and otherwise false. The default is false.
         :rtype: dict
         :returns:
         """
@@ -16493,7 +16714,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -16635,7 +16856,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -16685,7 +16906,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -16718,6 +16939,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -16725,7 +16949,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -16744,7 +16968,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -16762,13 +16986,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -16806,7 +17030,7 @@ class Client(BaseClient):
           * If you are restoring from a shared manual DB snapshot, the ``DBSnapshotIdentifier`` must be the ARN of the shared DB snapshot.
         :type DBInstanceClass: string
         :param DBInstanceClass:
-          The compute and memory capacity of the Amazon RDS DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
+          The compute and memory capacity of the Amazon RDS DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
           Default: The same DBInstanceClass as the original DB instance.
         :type Port: integer
         :param Port:
@@ -16864,7 +17088,7 @@ class Client(BaseClient):
         :type Iops: integer
         :param Iops:
           Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O operations per second. If this parameter is not specified, the IOPS value is taken from the backup. If this parameter is set to 0, the new instance is converted to a non-PIOPS instance. The conversion takes additional time, though your DB instance is available for connections before the conversion starts.
-          The provisioned IOPS value must follow the requirements for your database engine. For more information, see `Amazon RDS Provisioned IOPS Storage to Improve Performance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS>`__ in the *Amazon RDS User Guide.*
+          The provisioned IOPS value must follow the requirements for your database engine. For more information, see `Amazon RDS Provisioned IOPS Storage to Improve Performance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS>`__ in the *Amazon RDS User Guide.*
           Constraints: Must be an integer greater than 1000.
         :type OptionGroupName: string
         :param OptionGroupName:
@@ -16872,7 +17096,7 @@ class Client(BaseClient):
           Permanent options, such as the TDE option for Oracle Advanced Security TDE, can\'t be removed from an option group, and that option group can\'t be removed from a DB instance once it is associated with a DB instance
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -16901,7 +17125,7 @@ class Client(BaseClient):
           Specify the Active Directory Domain to restore the instance in.
         :type CopyTagsToSnapshot: boolean
         :param CopyTagsToSnapshot:
-          True to copy all tags from the restored DB instance to snapshots of the DB instance, and otherwise false. The default is false.
+          True to copy all tags from the restored DB instance to snapshots of the restored DB instance, and otherwise false. The default is false.
         :type DomainIAMRoleName: string
         :param DomainIAMRoleName:
           Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -16914,7 +17138,7 @@ class Client(BaseClient):
           Default: ``false``
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
+          The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon Aurora User Guide* .
           - *(string) --*
         :type ProcessorFeatures: list
         :param ProcessorFeatures:
@@ -16933,7 +17157,7 @@ class Client(BaseClient):
             *  DescribeDBInstances
             *  DescribeDBSnapshots
             *  DescribeValidDBInstanceModifications
-            For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
+            For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
             - **Name** *(string) --*
               The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
             - **Value** *(string) --*
@@ -16951,7 +17175,7 @@ class Client(BaseClient):
           * Can\'t end with a hyphen or contain two consecutive hyphens.
         :type DeletionProtection: boolean
         :param DeletionProtection:
-          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
+          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -16959,7 +17183,7 @@ class Client(BaseClient):
 
     def restore_db_instance_from_s3(self, DBInstanceIdentifier: str, DBInstanceClass: str, Engine: str, SourceEngine: str, SourceEngineVersion: str, S3BucketName: str, S3IngestionRoleArn: str, DBName: str = None, AllocatedStorage: int = None, MasterUsername: str = None, MasterUserPassword: str = None, DBSecurityGroups: List = None, VpcSecurityGroupIds: List = None, AvailabilityZone: str = None, DBSubnetGroupName: str = None, PreferredMaintenanceWindow: str = None, DBParameterGroupName: str = None, BackupRetentionPeriod: int = None, PreferredBackupWindow: str = None, Port: int = None, MultiAZ: bool = None, EngineVersion: str = None, AutoMinorVersionUpgrade: bool = None, LicenseModel: str = None, Iops: int = None, OptionGroupName: str = None, PubliclyAccessible: bool = None, Tags: List = None, StorageType: str = None, StorageEncrypted: bool = None, KmsKeyId: str = None, CopyTagsToSnapshot: bool = None, MonitoringInterval: int = None, MonitoringRoleArn: str = None, EnableIAMDatabaseAuthentication: bool = None, S3Prefix: str = None, EnablePerformanceInsights: bool = None, PerformanceInsightsKMSKeyId: str = None, PerformanceInsightsRetentionPeriod: int = None, EnableCloudwatchLogsExports: List = None, ProcessorFeatures: List = None, UseDefaultProcessorFeatures: bool = None, DeletionProtection: bool = None) -> Dict:
         """
-        Amazon Relational Database Service (Amazon RDS) supports importing MySQL databases by using backup files. You can create a backup of your on-premises database, store it on Amazon Simple Storage Service (Amazon S3), and then restore the backup file onto a new Amazon RDS DB instance running MySQL. For more information, see `Importing Data into an Amazon RDS MySQL DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html>`__ in the *Amazon RDS User Guide.*  
+        Amazon Relational Database Service (Amazon RDS) supports importing MySQL databases by using backup files. You can create a backup of your on-premises database, store it on Amazon Simple Storage Service (Amazon S3), and then restore the backup file onto a new Amazon RDS DB instance running MySQL. For more information, see `Importing Data into an Amazon RDS MySQL DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html>`__ in the *Amazon RDS User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RestoreDBInstanceFromS3>`_
         
         **Request Syntax**
@@ -17208,7 +17432,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -17350,7 +17574,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -17400,7 +17624,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -17433,6 +17657,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -17440,7 +17667,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -17459,7 +17686,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -17477,13 +17704,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -17523,7 +17750,7 @@ class Client(BaseClient):
             Be sure to allocate enough memory for your new DB instance so that the restore operation can succeed. You can also allocate additional memory for future growth.
         :type DBInstanceClass: string
         :param DBInstanceClass: **[REQUIRED]**
-          The compute and memory capacity of the DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
+          The compute and memory capacity of the DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
           Importing from Amazon S3 is not supported on the db.t2.micro DB instance class.
         :type Engine: string
         :param Engine: **[REQUIRED]**
@@ -17551,7 +17778,7 @@ class Client(BaseClient):
           - *(string) --*
         :type AvailabilityZone: string
         :param AvailabilityZone:
-          The Availability Zone that the DB instance is created in. For information about AWS Regions and Availability Zones, see `Regions and Availability Zones <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ in the *Amazon RDS User Guide.*
+          The Availability Zone that the DB instance is created in. For information about AWS Regions and Availability Zones, see `Regions and Availability Zones <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html>`__ in the *Amazon RDS User Guide.*
           Default: A random, system-chosen Availability Zone in the endpoint\'s AWS Region.
           Example: ``us-east-1d``
           Constraint: The AvailabilityZone parameter can\'t be specified if the MultiAZ parameter is set to ``true`` . The specified Availability Zone must be in the same AWS Region as the current endpoint.
@@ -17560,7 +17787,7 @@ class Client(BaseClient):
           A DB subnet group to associate with this DB instance.
         :type PreferredMaintenanceWindow: string
         :param PreferredMaintenanceWindow:
-          The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see `Amazon RDS Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance>`__ in the *Amazon RDS User Guide.*
+          The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC). For more information, see `Amazon RDS Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance>`__ in the *Amazon RDS User Guide.*
           Constraints:
           * Must be in the format ``ddd:hh24:mi-ddd:hh24:mi`` .
           * Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
@@ -17575,7 +17802,7 @@ class Client(BaseClient):
           The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. For more information, see  CreateDBInstance .
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow:
-          The time range each day during which automated backups are created if automated backups are enabled. For more information, see `The Backup Window <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow>`__ in the *Amazon RDS User Guide.*
+          The time range each day during which automated backups are created if automated backups are enabled. For more information, see `The Backup Window <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow>`__ in the *Amazon RDS User Guide.*
           Constraints:
           * Must be in the format ``hh24:mi-hh24:mi`` .
           * Must be in Universal Coordinated Time (UTC).
@@ -17602,7 +17829,7 @@ class Client(BaseClient):
           The license model for this DB instance. Use ``general-public-license`` .
         :type Iops: integer
         :param Iops:
-          The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB instance. For information about valid Iops values, see see `Amazon RDS Provisioned IOPS Storage to Improve Performance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS>`__ in the *Amazon RDS User Guide.*
+          The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB instance. For information about valid Iops values, see see `Amazon RDS Provisioned IOPS Storage to Improve Performance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS>`__ in the *Amazon RDS User Guide.*
         :type OptionGroupName: string
         :param OptionGroupName:
           The name of the option group to associate with this DB instance. If this argument is omitted, the default option group for the specified engine is used.
@@ -17611,7 +17838,7 @@ class Client(BaseClient):
           Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. For more information, see  CreateDBInstance .
         :type Tags: list
         :param Tags:
-          A list of tags to associate with this DB instance. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags to associate with this DB instance. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -17634,7 +17861,7 @@ class Client(BaseClient):
           If the ``StorageEncrypted`` parameter is true, and you do not specify a value for the ``KmsKeyId`` parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
         :type CopyTagsToSnapshot: boolean
         :param CopyTagsToSnapshot:
-          True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise false.
+          True to copy all tags from the restored DB instance to snapshots of the restored DB instance, and otherwise false.
           Default: false.
         :type MonitoringInterval: integer
         :param MonitoringInterval:
@@ -17644,7 +17871,7 @@ class Client(BaseClient):
           Default: ``0``
         :type MonitoringRoleArn: string
         :param MonitoringRoleArn:
-          The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` . For information on creating a monitoring role, see `Setting Up and Enabling Enhanced Monitoring <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling>`__ in the *Amazon RDS User Guide.*
+          The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` . For information on creating a monitoring role, see `Setting Up and Enabling Enhanced Monitoring <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling>`__ in the *Amazon RDS User Guide.*
           If ``MonitoringInterval`` is set to a value other than 0, then you must supply a ``MonitoringRoleArn`` value.
         :type EnableIAMDatabaseAuthentication: boolean
         :param EnableIAMDatabaseAuthentication:
@@ -17670,7 +17897,7 @@ class Client(BaseClient):
         :type EnablePerformanceInsights: boolean
         :param EnablePerformanceInsights:
           True to enable Performance Insights for the DB instance, and otherwise false.
-          For more information, see `Using Amazon Performance Insights <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html>`__ in the *Amazon Relational Database Service User Guide* .
+          For more information, see `Using Amazon Performance Insights <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html>`__ in the *Amazon Relational Database Service User Guide* .
         :type PerformanceInsightsKMSKeyId: string
         :param PerformanceInsightsKMSKeyId:
           The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -17679,7 +17906,7 @@ class Client(BaseClient):
           The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon RDS User Guide* .
+          The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon RDS User Guide* .
           - *(string) --*
         :type ProcessorFeatures: list
         :param ProcessorFeatures:
@@ -17698,7 +17925,7 @@ class Client(BaseClient):
             *  DescribeDBInstances
             *  DescribeDBSnapshots
             *  DescribeValidDBInstanceModifications
-            For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
+            For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
             - **Name** *(string) --*
               The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
             - **Value** *(string) --*
@@ -17708,7 +17935,7 @@ class Client(BaseClient):
           A value that specifies that the DB instance class of the DB instance uses its default processor features.
         :type DeletionProtection: boolean
         :param DeletionProtection:
-          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
+          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -17954,7 +18181,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -18096,7 +18323,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -18146,7 +18373,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -18179,6 +18406,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -18186,7 +18416,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -18205,7 +18435,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -18223,13 +18453,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -18278,7 +18508,7 @@ class Client(BaseClient):
           Constraints: Can\'t be specified if RestoreTime parameter is provided.
         :type DBInstanceClass: string
         :param DBInstanceClass:
-          The compute and memory capacity of the Amazon RDS DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
+          The compute and memory capacity of the Amazon RDS DB instance, for example, ``db.m4.large`` . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see `DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html>`__ in the *Amazon RDS User Guide.*
           Default: The same DBInstanceClass as the original DB instance.
         :type Port: integer
         :param Port:
@@ -18345,10 +18575,10 @@ class Client(BaseClient):
           Permanent options, such as the TDE option for Oracle Advanced Security TDE, can\'t be removed from an option group, and that option group can\'t be removed from a DB instance once it is associated with a DB instance
         :type CopyTagsToSnapshot: boolean
         :param CopyTagsToSnapshot:
-          True to copy all tags from the restored DB instance to snapshots of the DB instance, and otherwise false. The default is false.
+          True to copy all tags from the restored DB instance to snapshots of the restored DB instance, and otherwise false. The default is false.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon RDS Resources <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
+          A list of tags. For more information, see `Tagging Amazon RDS Resources <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html>`__ in the *Amazon RDS User Guide.*
           - *(dict) --*
             Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -18387,7 +18617,7 @@ class Client(BaseClient):
           Default: ``false``
         :type EnableCloudwatchLogsExports: list
         :param EnableCloudwatchLogsExports:
-          The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon RDS User Guide* .
+          The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see `Publishing Database Logs to Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch>`__ in the *Amazon RDS User Guide* .
           - *(string) --*
         :type ProcessorFeatures: list
         :param ProcessorFeatures:
@@ -18406,7 +18636,7 @@ class Client(BaseClient):
             *  DescribeDBInstances
             *  DescribeDBSnapshots
             *  DescribeValidDBInstanceModifications
-            For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
+            For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*
             - **Name** *(string) --*
               The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
             - **Value** *(string) --*
@@ -18424,7 +18654,7 @@ class Client(BaseClient):
           * Can\'t end with a hyphen or contain two consecutive hyphens.
         :type DeletionProtection: boolean
         :param DeletionProtection:
-          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
+          Indicates if the DB instance should have deletion protection enabled. The database can\'t be deleted when this value is set to true. The default is false. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ .
         :type SourceDbiResourceId: string
         :param SourceDbiResourceId:
           The resource ID of the source DB instance from which to restore.
@@ -18535,7 +18765,9 @@ class Client(BaseClient):
     def start_db_cluster(self, DBClusterIdentifier: str) -> Dict:
         """
         Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the stop-db-cluster AWS CLI command, or the StopDBCluster action.
-        For more information, see `Stopping and Starting an Aurora Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information, see `Stopping and Starting an Aurora Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartDBCluster>`_
         
         **Request Syntax**
@@ -18625,10 +18857,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -18708,7 +18942,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -18739,6 +18973,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -18753,24 +18988,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -18778,7 +19016,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
           The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as a lowercase string.
@@ -18790,7 +19030,7 @@ class Client(BaseClient):
     def start_db_instance(self, DBInstanceIdentifier: str) -> Dict:
         """
         Starts an Amazon RDS DB instance that was stopped using the AWS console, the stop-db-instance AWS CLI command, or the StopDBInstance action. 
-        For more information, see `Starting an Amazon RDS DB instance That Was Previously Stopped <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html>`__ in the *Amazon RDS User Guide.*  
+        For more information, see `Starting an Amazon RDS DB instance That Was Previously Stopped <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html>`__ in the *Amazon RDS User Guide.*  
         .. note::
           This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora DB clusters, use  StartDBCluster instead. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartDBInstance>`_
@@ -18983,7 +19223,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -19125,7 +19365,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -19175,7 +19415,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -19208,6 +19448,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -19215,7 +19458,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -19234,7 +19477,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -19252,13 +19495,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 
@@ -19291,7 +19534,9 @@ class Client(BaseClient):
     def stop_db_cluster(self, DBClusterIdentifier: str) -> Dict:
         """
         Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains the DB cluster's metadata, including its endpoints and DB parameter groups. Aurora also retains the transaction logs so you can do a point-in-time restore if necessary. 
-        For more information, see `Stopping and Starting an Aurora Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html>`__ in the *Amazon Aurora User Guide.*  
+        For more information, see `Stopping and Starting an Aurora Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html>`__ in the *Amazon Aurora User Guide.*  
+        .. note::
+          This action only applies to Aurora DB clusters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBCluster>`_
         
         **Request Syntax**
@@ -19381,10 +19626,12 @@ class Client(BaseClient):
                         'MinCapacity': 123,
                         'MaxCapacity': 123,
                         'AutoPause': True|False,
-                        'SecondsUntilAutoPause': 123
+                        'SecondsUntilAutoPause': 123,
+                        'TimeoutAction': 'string'
                     },
                     'DeletionProtection': True|False,
-                    'HttpEndpointEnabled': True|False
+                    'HttpEndpointEnabled': True|False,
+                    'CopyTagsToSnapshot': True|False
                 }
             }
         
@@ -19464,7 +19711,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                    A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -19495,6 +19742,7 @@ class Client(BaseClient):
                     * ``PENDING`` - the IAM role ARN is being associated with the DB cluster. 
                     * ``INVALID`` - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf. 
                   - **FeatureName** *(string) --* 
+                    The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see  DBEngineVersion . 
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
               - **CloneGroupId** *(string) --* 
@@ -19509,24 +19757,27 @@ class Client(BaseClient):
                 The number of change records stored for Backtrack.
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB cluster is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html>`__ in the *Amazon Aurora User Guide.*  
                 - *(string) --* 
               - **Capacity** *(integer) --* 
                 The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
               - **EngineMode** *(string) --* 
                 The DB engine mode of the DB cluster, either ``provisioned`` , ``serverless`` , or ``parallelquery`` .
               - **ScalingConfigurationInfo** *(dict) --* 
                 Shows the scaling configuration for an Aurora DB cluster in ``serverless`` DB engine mode.
-                For more information, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
                 - **MinCapacity** *(integer) --* 
                   The maximum capacity for the Aurora DB cluster in ``serverless`` DB engine mode.
                 - **MaxCapacity** *(integer) --* 
                   The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
                 - **AutoPause** *(boolean) --* 
-                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode. 
+                  A value that indicates whether automatic pause is allowed for the Aurora DB cluster in ``serverless`` DB engine mode.
+                  When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
                 - **SecondsUntilAutoPause** *(integer) --* 
                   The remaining amount of time, in seconds, before the Aurora DB cluster in ``serverless`` mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+                - **TimeoutAction** *(string) --* 
+                  The timeout action of a call to ``ModifyCurrentDBClusterCapacity`` , either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange`` .
               - **DeletionProtection** *(boolean) --* 
                 Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true. 
               - **HttpEndpointEnabled** *(boolean) --* 
@@ -19534,7 +19785,9 @@ class Client(BaseClient):
                   HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.
                 Value that is ``true`` if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and ``false`` otherwise.
                 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
-                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+                For more information about Aurora Serverless, see `Using Amazon Aurora Serverless <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html>`__ in the *Amazon Aurora User Guide* .
+              - **CopyTagsToSnapshot** *(boolean) --* 
+                Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
           The DB cluster identifier of the Amazon Aurora DB cluster to be stopped. This parameter is stored as a lowercase string.
@@ -19546,7 +19799,7 @@ class Client(BaseClient):
     def stop_db_instance(self, DBInstanceIdentifier: str, DBSnapshotIdentifier: str = None) -> Dict:
         """
         Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if necessary. 
-        For more information, see `Stopping an Amazon RDS DB Instance Temporarily <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html>`__ in the *Amazon RDS User Guide.*  
+        For more information, see `Stopping an Amazon RDS DB Instance Temporarily <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html>`__ in the *Amazon RDS User Guide.*  
         .. note::
           This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora clusters, use  StopDBCluster instead. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBInstance>`_
@@ -19740,7 +19993,7 @@ class Client(BaseClient):
               - **MasterUsername** *(string) --* 
                 Contains the master username for the DB instance.
               - **DBName** *(string) --* 
-                The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
+                The meaning of this parameter differs according to the database engine you use.
         
         **MySQL, MariaDB, SQL Server, PostgreSQL**
                 Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
@@ -19882,7 +20135,7 @@ class Client(BaseClient):
                     *  DescribeDBInstances   
                     *  DescribeDBSnapshots   
                     *  DescribeValidDBInstanceModifications   
-                    For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                    For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                     - **Name** *(string) --* 
                       The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                     - **Value** *(string) --* 
@@ -19932,7 +20185,7 @@ class Client(BaseClient):
                   - **Normal** *(boolean) --* 
                     Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
                   - **Status** *(string) --* 
-                    Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+                    Status of the DB instance. For a StatusType of Read Replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
                   - **Message** *(string) --* 
                     Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
               - **StorageType** *(string) --* 
@@ -19965,6 +20218,9 @@ class Client(BaseClient):
                     The name of the IAM role to be used when making API calls to the Directory Service.
               - **CopyTagsToSnapshot** *(boolean) --* 
                 Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+        
+        **Amazon Aurora**
+                Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see  DBCluster .
               - **MonitoringInterval** *(integer) --* 
                 The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
               - **EnhancedMonitoringResourceArn** *(string) --* 
@@ -19972,7 +20228,7 @@ class Client(BaseClient):
               - **MonitoringRoleArn** *(string) --* 
                 The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
               - **PromotionTier** *(integer) --* 
-                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
+                A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see `Fault Tolerance for an Aurora DB Cluster <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance>`__ in the *Amazon Aurora User Guide* . 
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
@@ -19991,7 +20247,7 @@ class Client(BaseClient):
                 The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
               - **EnabledCloudwatchLogsExports** *(list) --* 
                 A list of log types that this DB instance is configured to export to CloudWatch Logs.
-                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
+                Log types vary by DB engine. For information about the log types for each DB engine, see `Amazon RDS Database Log Files <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html>`__ in the *Amazon RDS User Guide.*  
                 - *(string) --* 
               - **ProcessorFeatures** *(list) --* 
                 The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
@@ -20009,13 +20265,13 @@ class Client(BaseClient):
                   *  DescribeDBInstances   
                   *  DescribeDBSnapshots   
                   *  DescribeValidDBInstanceModifications   
-                  For more information, see `Configuring the Processor of the DB Instance Class <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
+                  For more information, see `Configuring the Processor of the DB Instance Class <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor>`__ in the *Amazon RDS User Guide.*  
                   - **Name** *(string) --* 
                     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore`` .
                   - **Value** *(string) --* 
                     The value of a processor feature name.
               - **DeletionProtection** *(boolean) --* 
-                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
+                Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see `Deleting a DB Instance <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html>`__ . 
               - **AssociatedRoles** *(list) --* 
                 The AWS Identity and Access Management (IAM) roles associated with the DB instance. 
                 - *(dict) --* 

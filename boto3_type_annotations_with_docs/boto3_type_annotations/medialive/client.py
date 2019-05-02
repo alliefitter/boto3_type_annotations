@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -27,6 +27,13 @@ class Client(BaseClient):
                               },
                               'InputSwitchSettings': {
                                   'InputAttachmentNameReference': 'string'
+                              },
+                              'PauseStateSettings': {
+                                  'Pipelines': [
+                                      {
+                                          'PipelineId': 'PIPELINE_0'|'PIPELINE_1'
+                                      },
+                                  ]
                               },
                               'Scte35ReturnToNetworkSettings': {
                                   'SpliceEventId': 123
@@ -115,6 +122,13 @@ class Client(BaseClient):
                                 'InputSwitchSettings': {
                                     'InputAttachmentNameReference': 'string'
                                 },
+                                'PauseStateSettings': {
+                                    'Pipelines': [
+                                        {
+                                            'PipelineId': 'PIPELINE_0'|'PIPELINE_1'
+                                        },
+                                    ]
+                                },
                                 'Scte35ReturnToNetworkSettings': {
                                     'SpliceEventId': 123
                                 },
@@ -192,6 +206,13 @@ class Client(BaseClient):
                                 'InputSwitchSettings': {
                                     'InputAttachmentNameReference': 'string'
                                 },
+                                'PauseStateSettings': {
+                                    'Pipelines': [
+                                        {
+                                            'PipelineId': 'PIPELINE_0'|'PIPELINE_1'
+                                        },
+                                    ]
+                                },
                                 'Scte35ReturnToNetworkSettings': {
                                     'SpliceEventId': 123
                                 },
@@ -267,16 +288,20 @@ class Client(BaseClient):
                 - *(dict) --* Contains information on a single schedule action.
                   - **ActionName** *(string) --* The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
                   - **ScheduleActionSettings** *(dict) --* Settings for this schedule action.
-                    - **HlsTimedMetadataSettings** *(dict) --* Settings to emit HLS metadata
+                    - **HlsTimedMetadataSettings** *(dict) --* Action to insert HLS metadata
                       - **Id3** *(string) --* Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
-                    - **InputSwitchSettings** *(dict) --* Settings to switch an input
+                    - **InputSwitchSettings** *(dict) --* Action to switch the input
                       - **InputAttachmentNameReference** *(string) --* The name of the input attachment that should be switched to by this action.
-                    - **Scte35ReturnToNetworkSettings** *(dict) --* Settings for SCTE-35 return_to_network message
+                    - **PauseStateSettings** *(dict) --* Action to pause or unpause one or both channel pipelines
+                      - **Pipelines** *(list) --* Placeholder documentation for __listOfPipelinePauseStateSettings
+                        - *(dict) --* Settings for pausing a pipeline.
+                          - **PipelineId** *(string) --* Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
+                    - **Scte35ReturnToNetworkSettings** *(dict) --* Action to insert SCTE-35 return_to_network message
                       - **SpliceEventId** *(integer) --* The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                    - **Scte35SpliceInsertSettings** *(dict) --* Settings for SCTE-35 splice_insert message
+                    - **Scte35SpliceInsertSettings** *(dict) --* Action to insert SCTE-35 splice_insert message
                       - **Duration** *(integer) --* Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
                       - **SpliceEventId** *(integer) --* The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                    - **Scte35TimeSignalSettings** *(dict) --* Settings for SCTE-35 time_signal message
+                    - **Scte35TimeSignalSettings** *(dict) --* Action to insert SCTE-35 time_signal message
                       - **Scte35Descriptors** *(list) --* The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
                         - *(dict) --* Holds one set of SCTE-35 Descriptor Settings.
                           - **Scte35DescriptorSettings** *(dict) --* SCTE-35 Descriptor Settings.
@@ -296,7 +321,7 @@ class Client(BaseClient):
                               - **SegmentsExpected** *(integer) --* Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
                               - **SubSegmentNum** *(integer) --* Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
                               - **SubSegmentsExpected** *(integer) --* Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
-                    - **StaticImageActivateSettings** *(dict) --* Settings to activate a static image overlay
+                    - **StaticImageActivateSettings** *(dict) --* Action to activate a static image overlay
                       - **Duration** *(integer) --* The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
                       - **FadeIn** *(integer) --* The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
                       - **FadeOut** *(integer) --* Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
@@ -310,7 +335,7 @@ class Client(BaseClient):
                       - **Layer** *(integer) --* The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
                       - **Opacity** *(integer) --* Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
                       - **Width** *(integer) --* The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
-                    - **StaticImageDeactivateSettings** *(dict) --* Settings to deactivate a static image overlay
+                    - **StaticImageDeactivateSettings** *(dict) --* Action to deactivate a static image overlay
                       - **FadeOut** *(integer) --* The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
                       - **Layer** *(integer) --* The image overlay layer to deactivate, 0 to 7. Default is 0.
                   - **ScheduleActionStartSettings** *(dict) --* The time for the action to start in the channel.
@@ -324,16 +349,20 @@ class Client(BaseClient):
                 - *(dict) --* Contains information on a single schedule action.
                   - **ActionName** *(string) --* The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
                   - **ScheduleActionSettings** *(dict) --* Settings for this schedule action.
-                    - **HlsTimedMetadataSettings** *(dict) --* Settings to emit HLS metadata
+                    - **HlsTimedMetadataSettings** *(dict) --* Action to insert HLS metadata
                       - **Id3** *(string) --* Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
-                    - **InputSwitchSettings** *(dict) --* Settings to switch an input
+                    - **InputSwitchSettings** *(dict) --* Action to switch the input
                       - **InputAttachmentNameReference** *(string) --* The name of the input attachment that should be switched to by this action.
-                    - **Scte35ReturnToNetworkSettings** *(dict) --* Settings for SCTE-35 return_to_network message
+                    - **PauseStateSettings** *(dict) --* Action to pause or unpause one or both channel pipelines
+                      - **Pipelines** *(list) --* Placeholder documentation for __listOfPipelinePauseStateSettings
+                        - *(dict) --* Settings for pausing a pipeline.
+                          - **PipelineId** *(string) --* Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
+                    - **Scte35ReturnToNetworkSettings** *(dict) --* Action to insert SCTE-35 return_to_network message
                       - **SpliceEventId** *(integer) --* The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                    - **Scte35SpliceInsertSettings** *(dict) --* Settings for SCTE-35 splice_insert message
+                    - **Scte35SpliceInsertSettings** *(dict) --* Action to insert SCTE-35 splice_insert message
                       - **Duration** *(integer) --* Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
                       - **SpliceEventId** *(integer) --* The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                    - **Scte35TimeSignalSettings** *(dict) --* Settings for SCTE-35 time_signal message
+                    - **Scte35TimeSignalSettings** *(dict) --* Action to insert SCTE-35 time_signal message
                       - **Scte35Descriptors** *(list) --* The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
                         - *(dict) --* Holds one set of SCTE-35 Descriptor Settings.
                           - **Scte35DescriptorSettings** *(dict) --* SCTE-35 Descriptor Settings.
@@ -353,7 +382,7 @@ class Client(BaseClient):
                               - **SegmentsExpected** *(integer) --* Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
                               - **SubSegmentNum** *(integer) --* Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
                               - **SubSegmentsExpected** *(integer) --* Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
-                    - **StaticImageActivateSettings** *(dict) --* Settings to activate a static image overlay
+                    - **StaticImageActivateSettings** *(dict) --* Action to activate a static image overlay
                       - **Duration** *(integer) --* The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
                       - **FadeIn** *(integer) --* The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
                       - **FadeOut** *(integer) --* Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
@@ -367,7 +396,7 @@ class Client(BaseClient):
                       - **Layer** *(integer) --* The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
                       - **Opacity** *(integer) --* Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
                       - **Width** *(integer) --* The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
-                    - **StaticImageDeactivateSettings** *(dict) --* Settings to deactivate a static image overlay
+                    - **StaticImageDeactivateSettings** *(dict) --* Action to deactivate a static image overlay
                       - **FadeOut** *(integer) --* The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
                       - **Layer** *(integer) --* The image overlay layer to deactivate, 0 to 7. Default is 0.
                   - **ScheduleActionStartSettings** *(dict) --* The time for the action to start in the channel.
@@ -384,16 +413,20 @@ class Client(BaseClient):
             - *(dict) --* Contains information on a single schedule action.
               - **ActionName** *(string) --* **[REQUIRED]** The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
               - **ScheduleActionSettings** *(dict) --* **[REQUIRED]** Settings for this schedule action.
-                - **HlsTimedMetadataSettings** *(dict) --* Settings to emit HLS metadata
+                - **HlsTimedMetadataSettings** *(dict) --* Action to insert HLS metadata
                   - **Id3** *(string) --* **[REQUIRED]** Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
-                - **InputSwitchSettings** *(dict) --* Settings to switch an input
+                - **InputSwitchSettings** *(dict) --* Action to switch the input
                   - **InputAttachmentNameReference** *(string) --* **[REQUIRED]** The name of the input attachment that should be switched to by this action.
-                - **Scte35ReturnToNetworkSettings** *(dict) --* Settings for SCTE-35 return_to_network message
+                - **PauseStateSettings** *(dict) --* Action to pause or unpause one or both channel pipelines
+                  - **Pipelines** *(list) --* Placeholder documentation for __listOfPipelinePauseStateSettings
+                    - *(dict) --* Settings for pausing a pipeline.
+                      - **PipelineId** *(string) --* **[REQUIRED]** Pipeline ID to pause (\"PIPELINE_0\" or \"PIPELINE_1\").
+                - **Scte35ReturnToNetworkSettings** *(dict) --* Action to insert SCTE-35 return_to_network message
                   - **SpliceEventId** *(integer) --* **[REQUIRED]** The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                - **Scte35SpliceInsertSettings** *(dict) --* Settings for SCTE-35 splice_insert message
+                - **Scte35SpliceInsertSettings** *(dict) --* Action to insert SCTE-35 splice_insert message
                   - **Duration** *(integer) --* Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
                   - **SpliceEventId** *(integer) --* **[REQUIRED]** The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                - **Scte35TimeSignalSettings** *(dict) --* Settings for SCTE-35 time_signal message
+                - **Scte35TimeSignalSettings** *(dict) --* Action to insert SCTE-35 time_signal message
                   - **Scte35Descriptors** *(list) --* **[REQUIRED]** The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
                     - *(dict) --* Holds one set of SCTE-35 Descriptor Settings.
                       - **Scte35DescriptorSettings** *(dict) --* **[REQUIRED]** SCTE-35 Descriptor Settings.
@@ -413,7 +446,7 @@ class Client(BaseClient):
                           - **SegmentsExpected** *(integer) --* Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
                           - **SubSegmentNum** *(integer) --* Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
                           - **SubSegmentsExpected** *(integer) --* Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
-                - **StaticImageActivateSettings** *(dict) --* Settings to activate a static image overlay
+                - **StaticImageActivateSettings** *(dict) --* Action to activate a static image overlay
                   - **Duration** *(integer) --* The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
                   - **FadeIn** *(integer) --* The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
                   - **FadeOut** *(integer) --* Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
@@ -427,7 +460,7 @@ class Client(BaseClient):
                   - **Layer** *(integer) --* The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
                   - **Opacity** *(integer) --* Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
                   - **Width** *(integer) --* The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
-                - **StaticImageDeactivateSettings** *(dict) --* Settings to deactivate a static image overlay
+                - **StaticImageDeactivateSettings** *(dict) --* Action to deactivate a static image overlay
                   - **FadeOut** *(integer) --* The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
                   - **Layer** *(integer) --* The image overlay layer to deactivate, 0 to 7. Default is 0.
               - **ScheduleActionStartSettings** *(dict) --* **[REQUIRED]** The time for the action to start in the channel.
@@ -460,7 +493,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_channel(self, Destinations: List = None, EncoderSettings: Dict = None, InputAttachments: List = None, InputSpecification: Dict = None, LogLevel: str = None, Name: str = None, RequestId: str = None, Reserved: str = None, RoleArn: str = None, Tags: Dict = None) -> Dict:
+    def create_channel(self, ChannelClass: str = None, Destinations: List = None, EncoderSettings: Dict = None, InputAttachments: List = None, InputSpecification: Dict = None, LogLevel: str = None, Name: str = None, RequestId: str = None, Reserved: str = None, RoleArn: str = None, Tags: Dict = None) -> Dict:
         """
         Creates a new channel
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/CreateChannel>`_
@@ -468,9 +501,15 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.create_channel(
+              ChannelClass='STANDARD'|'SINGLE_PIPELINE',
               Destinations=[
                   {
                       'Id': 'string',
+                      'MediaPackageSettings': [
+                          {
+                              'ChannelId': 'string'
+                          },
+                      ],
                       'Settings': [
                           {
                               'PasswordParam': 'string',
@@ -690,6 +729,7 @@ class Client(BaseClient):
                           'InputLossImageType': 'COLOR'|'SLATE',
                           'RepeatFrameMsec': 123
                       },
+                      'OutputLockingMode': 'EPOCH_LOCKING'|'PIPELINE_LOCKING',
                       'OutputTimingSource': 'INPUT_CLOCK'|'SYSTEM_CLOCK',
                       'SupportLowFramerateInputs': 'DISABLED'|'ENABLED'
                   },
@@ -795,6 +835,11 @@ class Client(BaseClient):
                                   'TimedMetadataId3Period': 123,
                                   'TimestampDeltaMilliseconds': 123,
                                   'TsFileMode': 'SEGMENTED_FILES'|'SINGLE_FILE'
+                              },
+                              'MediaPackageGroupSettings': {
+                                  'Destination': {
+                                      'DestinationRefId': 'string'
+                                  }
                               },
                               'MsSmoothGroupSettings': {
                                   'AcquisitionPointId': 'string',
@@ -947,6 +992,8 @@ class Client(BaseClient):
                                           'NameModifier': 'string',
                                           'SegmentModifier': 'string'
                                       },
+                                      'MediaPackageOutputSettings': {}
+                                      ,
                                       'MsSmoothOutputSettings': {
                                           'NameModifier': 'string'
                                       },
@@ -1192,9 +1239,15 @@ class Client(BaseClient):
             {
                 'Channel': {
                     'Arn': 'string',
+                    'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                     'Destinations': [
                         {
                             'Id': 'string',
+                            'MediaPackageSettings': [
+                                {
+                                    'ChannelId': 'string'
+                                },
+                            ],
                             'Settings': [
                                 {
                                     'PasswordParam': 'string',
@@ -1411,6 +1464,7 @@ class Client(BaseClient):
                                 'InputLossImageType': 'COLOR'|'SLATE',
                                 'RepeatFrameMsec': 123
                             },
+                            'OutputLockingMode': 'EPOCH_LOCKING'|'PIPELINE_LOCKING',
                             'OutputTimingSource': 'INPUT_CLOCK'|'SYSTEM_CLOCK',
                             'SupportLowFramerateInputs': 'DISABLED'|'ENABLED'
                         },
@@ -1516,6 +1570,11 @@ class Client(BaseClient):
                                         'TimedMetadataId3Period': 123,
                                         'TimestampDeltaMilliseconds': 123,
                                         'TsFileMode': 'SEGMENTED_FILES'|'SINGLE_FILE'
+                                    },
+                                    'MediaPackageGroupSettings': {
+                                        'Destination': {
+                                            'DestinationRefId': 'string'
+                                        }
                                     },
                                     'MsSmoothGroupSettings': {
                                         'AcquisitionPointId': 'string',
@@ -1668,6 +1727,7 @@ class Client(BaseClient):
                                                 'NameModifier': 'string',
                                                 'SegmentModifier': 'string'
                                             },
+                                            'MediaPackageOutputSettings': {},
                                             'MsSmoothOutputSettings': {
                                                 'NameModifier': 'string'
                                             },
@@ -1913,10 +1973,14 @@ class Client(BaseClient):
           - *(dict) --* Creation of channel is started.
             - **Channel** *(dict) --* Placeholder documentation for Channel
               - **Arn** *(string) --* The unique arn of the channel.
+              - **ChannelClass** *(string) --* The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
               - **Destinations** *(list) --* A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager. 
                 - *(dict) --* Placeholder documentation for OutputDestination
                   - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-                  - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+                  - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+                    - *(dict) --* Media Package Output Destination Settings
+                      - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+                  - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
                     - *(dict) --* Placeholder documentation for OutputDestinationSettings
                       - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                       - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -1925,9 +1989,9 @@ class Client(BaseClient):
               - **EgressEndpoints** *(list) --* The endpoints where outgoing connections initiate from
                 - *(dict) --* Placeholder documentation for ChannelEgressEndpoint
                   - **SourceIp** *(string) --* Public IP of where a channel's output comes from
-              - **EncoderSettings** *(dict) --* Placeholder documentation for EncoderSettings
+              - **EncoderSettings** *(dict) --* Encoder Settings
                 - **AudioDescriptions** *(list) --* Placeholder documentation for __listOfAudioDescription
-                  - *(dict) --* Placeholder documentation for AudioDescription
+                  - *(dict) --* Audio Description
                     - **AudioNormalizationSettings** *(dict) --* Advanced audio normalization settings.
                       - **Algorithm** *(string) --* Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
                       - **AlgorithmControl** *(string) --* When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -1936,7 +2000,7 @@ class Client(BaseClient):
                     - **AudioType** *(string) --* Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
                     - **AudioTypeControl** *(string) --* Determines how audio type is determined. followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output. useConfigured: The value in Audio Type is included in the output. Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
                     - **CodecSettings** *(dict) --* Audio codec settings.
-                      - **AacSettings** *(dict) --* Placeholder documentation for AacSettings
+                      - **AacSettings** *(dict) --* Aac Settings
                         - **Bitrate** *(float) --* Average bitrate in bits/second. Valid values depend on rate control mode and profile.
                         - **CodingMode** *(string) --* Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                         - **InputType** *(string) --* Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair. The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd. Leave set to "normal" when input does not contain pre-mixed audio + AD.
@@ -1946,7 +2010,7 @@ class Client(BaseClient):
                         - **SampleRate** *(float) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                         - **Spec** *(string) --* Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
                         - **VbrQuality** *(string) --* VBR Quality Level - Only used if rateControlMode is VBR.
-                      - **Ac3Settings** *(dict) --* Placeholder documentation for Ac3Settings
+                      - **Ac3Settings** *(dict) --* Ac3 Settings
                         - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                         - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                         - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
@@ -1954,7 +2018,7 @@ class Client(BaseClient):
                         - **DrcProfile** *(string) --* If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
                         - **LfeFilter** *(string) --* When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
                         - **MetadataControl** *(string) --* When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-                      - **Eac3Settings** *(dict) --* Placeholder documentation for Eac3Settings
+                      - **Eac3Settings** *(dict) --* Eac3 Settings
                         - **AttenuationControl** *(string) --* When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
                         - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                         - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
@@ -1975,19 +2039,19 @@ class Client(BaseClient):
                         - **StereoDownmix** *(string) --* Stereo downmix preference. Only used for 3/2 coding mode.
                         - **SurroundExMode** *(string) --* When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
                         - **SurroundMode** *(string) --* When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-                      - **Mp2Settings** *(dict) --* Placeholder documentation for Mp2Settings
+                      - **Mp2Settings** *(dict) --* Mp2 Settings
                         - **Bitrate** *(float) --* Average bitrate in bits/second.
                         - **CodingMode** *(string) --* The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
                         - **SampleRate** *(float) --* Sample rate in Hz.
-                      - **PassThroughSettings** *(dict) --* Placeholder documentation for PassThroughSettings
+                      - **PassThroughSettings** *(dict) --* Pass Through Settings
                     - **LanguageCode** *(string) --* Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
                     - **LanguageCodeControl** *(string) --* Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
                     - **Name** *(string) --* The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription. Description names should be unique within this Live Event.
                     - **RemixSettings** *(dict) --* Settings that control how input audio channels are remixed into the output audio channels.
                       - **ChannelMappings** *(list) --* Mapping of input channels to output channels, with appropriate gain adjustments.
-                        - *(dict) --* Placeholder documentation for AudioChannelMapping
+                        - *(dict) --* Audio Channel Mapping
                           - **InputChannelLevels** *(list) --* Indices and gain values for each input channel that should be remixed into this output channel.
-                            - *(dict) --* Placeholder documentation for InputChannelLevel
+                            - *(dict) --* Input Channel Level
                               - **Gain** *(integer) --* Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
                               - **InputChannel** *(integer) --* The index of the input channel used as a source.
                           - **OutputChannel** *(integer) --* The index of the output channel being produced.
@@ -2002,11 +2066,11 @@ class Client(BaseClient):
                   - **State** *(string) --* When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
                 - **AvailConfiguration** *(dict) --* Event-wide configuration settings for ad avail insertion.
                   - **AvailSettings** *(dict) --* Ad avail settings.
-                    - **Scte35SpliceInsert** *(dict) --* Placeholder documentation for Scte35SpliceInsert
+                    - **Scte35SpliceInsert** *(dict) --* Scte35 Splice Insert
                       - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                       - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                       - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-                    - **Scte35TimeSignalApos** *(dict) --* Placeholder documentation for Scte35TimeSignalApos
+                    - **Scte35TimeSignalApos** *(dict) --* Scte35 Time Signal Apos
                       - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                       - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                       - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -2026,8 +2090,8 @@ class Client(BaseClient):
                   - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                     - **CaptionSelectorName** *(string) --* Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
                     - **DestinationSettings** *(dict) --* Additional settings for captions destination that depend on the destination type.
-                      - **AribDestinationSettings** *(dict) --* Placeholder documentation for AribDestinationSettings
-                      - **BurnInDestinationSettings** *(dict) --* Placeholder documentation for BurnInDestinationSettings
+                      - **AribDestinationSettings** *(dict) --* Arib Destination Settings
+                      - **BurnInDestinationSettings** *(dict) --* Burn In Destination Settings
                         - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
                         - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                         - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -2048,7 +2112,7 @@ class Client(BaseClient):
                         - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                         - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
                         - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
-                      - **DvbSubDestinationSettings** *(dict) --* Placeholder documentation for DvbSubDestinationSettings
+                      - **DvbSubDestinationSettings** *(dict) --* Dvb Sub Destination Settings
                         - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                         - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                         - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -2069,16 +2133,16 @@ class Client(BaseClient):
                         - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                         - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                         - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-                      - **EmbeddedDestinationSettings** *(dict) --* Placeholder documentation for EmbeddedDestinationSettings
-                      - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Placeholder documentation for EmbeddedPlusScte20DestinationSettings
-                      - **RtmpCaptionInfoDestinationSettings** *(dict) --* Placeholder documentation for RtmpCaptionInfoDestinationSettings
-                      - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Placeholder documentation for Scte20PlusEmbeddedDestinationSettings
-                      - **Scte27DestinationSettings** *(dict) --* Placeholder documentation for Scte27DestinationSettings
-                      - **SmpteTtDestinationSettings** *(dict) --* Placeholder documentation for SmpteTtDestinationSettings
-                      - **TeletextDestinationSettings** *(dict) --* Placeholder documentation for TeletextDestinationSettings
-                      - **TtmlDestinationSettings** *(dict) --* Placeholder documentation for TtmlDestinationSettings
+                      - **EmbeddedDestinationSettings** *(dict) --* Embedded Destination Settings
+                      - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Embedded Plus Scte20 Destination Settings
+                      - **RtmpCaptionInfoDestinationSettings** *(dict) --* Rtmp Caption Info Destination Settings
+                      - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Scte20 Plus Embedded Destination Settings
+                      - **Scte27DestinationSettings** *(dict) --* Scte27 Destination Settings
+                      - **SmpteTtDestinationSettings** *(dict) --* Smpte Tt Destination Settings
+                      - **TeletextDestinationSettings** *(dict) --* Teletext Destination Settings
+                      - **TtmlDestinationSettings** *(dict) --* Ttml Destination Settings
                         - **StyleControl** *(string) --* When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-                      - **WebvttDestinationSettings** *(dict) --* Placeholder documentation for WebvttDestinationSettings
+                      - **WebvttDestinationSettings** *(dict) --* Webvtt Destination Settings
                     - **LanguageCode** *(string) --* ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
                     - **LanguageDescription** *(string) --* Human readable information to indicate captions available for players (eg. English, or Spanish).
                     - **Name** *(string) --* Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
@@ -2094,22 +2158,23 @@ class Client(BaseClient):
                       - **Username** *(string) --* Documentation update needed
                     - **InputLossImageType** *(string) --* Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
                     - **RepeatFrameMsec** *(integer) --* Documentation update needed
+                  - **OutputLockingMode** *(string) --* Indicates how MediaLive pipelines are synchronized. PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
                   - **OutputTimingSource** *(string) --* Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
                   - **SupportLowFramerateInputs** *(string) --* Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
                 - **OutputGroups** *(list) --* Placeholder documentation for __listOfOutputGroup
                   - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                     - **Name** *(string) --* Custom output group name optionally defined by the user. Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
                     - **OutputGroupSettings** *(dict) --* Settings associated with the output group.
-                      - **ArchiveGroupSettings** *(dict) --* Placeholder documentation for ArchiveGroupSettings
+                      - **ArchiveGroupSettings** *(dict) --* Archive Group Settings
                         - **Destination** *(dict) --* A directory and base filename where archive files should be written.
                           - **DestinationRefId** *(string) --* Placeholder documentation for __string
                         - **RolloverInterval** *(integer) --* Number of seconds to write to archive file before closing and starting a new one.
                       - **FrameCaptureGroupSettings** *(dict) --* Frame Capture Group Settings
                         - **Destination** *(dict) --* The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, "curling_") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg). For example, curlingLow.00001.jpg
                           - **DestinationRefId** *(string) --* Placeholder documentation for __string
-                      - **HlsGroupSettings** *(dict) --* Placeholder documentation for HlsGroupSettings
+                      - **HlsGroupSettings** *(dict) --* Hls Group Settings
                         - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-                          - *(string) --* Placeholder documentation for HlsAdMarkers
+                          - *(string) --* Hls Ad Markers
                         - **BaseUrlContent** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                         - **BaseUrlManifest** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                         - **CaptionLanguageMappings** *(list) --* Mapping of up to 4 caption channels to caption languages. Is only meaningful if captionLanguageSetting is set to "insert".
@@ -2126,7 +2191,7 @@ class Client(BaseClient):
                         - **DirectoryStructure** *(string) --* Place segments in subdirectories.
                         - **EncryptionType** *(string) --* Encrypts the segments with the given encryption scheme. Exclude this parameter if no encryption is desired.
                         - **HlsCdnSettings** *(dict) --* Parameters that control interactions with the CDN.
-                          - **HlsAkamaiSettings** *(dict) --* Placeholder documentation for HlsAkamaiSettings
+                          - **HlsAkamaiSettings** *(dict) --* Hls Akamai Settings
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                             - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                             - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
@@ -2134,33 +2199,33 @@ class Client(BaseClient):
                             - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
                             - **Salt** *(string) --* Salt for authenticated Akamai.
                             - **Token** *(string) --* Token parameter for authenticated akamai. If not specified, _gda_ is used.
-                          - **HlsBasicPutSettings** *(dict) --* Placeholder documentation for HlsBasicPutSettings
+                          - **HlsBasicPutSettings** *(dict) --* Hls Basic Put Settings
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                             - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                             - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                             - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                          - **HlsMediaStoreSettings** *(dict) --* Placeholder documentation for HlsMediaStoreSettings
+                          - **HlsMediaStoreSettings** *(dict) --* Hls Media Store Settings
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                             - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                             - **MediaStoreStorageClass** *(string) --* When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
                             - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                             - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                          - **HlsWebdavSettings** *(dict) --* Placeholder documentation for HlsWebdavSettings
+                          - **HlsWebdavSettings** *(dict) --* Hls Webdav Settings
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                             - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                             - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to WebDAV.
                             - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                             - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **IFrameOnlyPlaylists** *(string) --* If enabled, writes out I-Frame only playlists in addition to media playlists.
-                        - **IndexNSegments** *(integer) --* If mode is "live", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is "vod", this parameter has no effect.
+                        - **IFrameOnlyPlaylists** *(string) --* DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field). STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
+                        - **IndexNSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
                         - **InputLossAction** *(string) --* Parameter that control output group behavior on input loss.
                         - **IvInManifest** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
                         - **IvSource** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
-                        - **KeepSegments** *(integer) --* If mode is "live", the number of TS segments to retain in the destination directory. If mode is "vod", this parameter has no effect.
+                        - **KeepSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
                         - **KeyFormat** *(string) --* The value specifies how the key is represented in the resource identified by the URI. If parameter is absent, an implicit value of "identity" is used. A reverse DNS string can also be given.
                         - **KeyFormatVersions** *(string) --* Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                         - **KeyProviderSettings** *(dict) --* The key provider settings.
-                          - **StaticKeySettings** *(dict) --* Placeholder documentation for StaticKeySettings
+                          - **StaticKeySettings** *(dict) --* Static Key Settings
                             - **KeyProviderServer** *(dict) --* The URL of the license server used for protecting content.
                               - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                               - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
@@ -2170,10 +2235,10 @@ class Client(BaseClient):
                         - **ManifestDurationFormat** *(string) --* Indicates whether the output manifest should use floating point or integer values for segment duration.
                         - **MinSegmentLength** *(integer) --* When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
                         - **Mode** *(string) --* If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event. VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
-                        - **OutputSelection** *(string) --* Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file.
+                        - **OutputSelection** *(string) --* MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group. SEGMENTSONLY: Does not generate any manifests for this output group.
                         - **ProgramDateTime** *(string) --* Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
                         - **ProgramDateTimePeriod** *(integer) --* Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-                        - **RedundantManifest** *(string) --* When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
+                        - **RedundantManifest** *(string) --* ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines. DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only. For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
                         - **SegmentLength** *(integer) --* Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
                         - **SegmentationMode** *(string) --* useInputSegmentation has been deprecated. The configured segment size is always used.
                         - **SegmentsPerSubdirectory** *(integer) --* Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -2181,8 +2246,11 @@ class Client(BaseClient):
                         - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                         - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
                         - **TimestampDeltaMilliseconds** *(integer) --* Provides an extra millisecond delta offset to fine tune the timestamps.
-                        - **TsFileMode** *(string) --* When set to "singleFile", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching.
-                      - **MsSmoothGroupSettings** *(dict) --* Placeholder documentation for MsSmoothGroupSettings
+                        - **TsFileMode** *(string) --* SEGMENTEDFILES: Emit the program as segments - multiple .ts media files. SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+                      - **MediaPackageGroupSettings** *(dict) --* Media Package Group Settings
+                        - **Destination** *(dict) --* MediaPackage channel destination.
+                          - **DestinationRefId** *(string) --* Placeholder documentation for __string
+                      - **MsSmoothGroupSettings** *(dict) --* Ms Smooth Group Settings
                         - **AcquisitionPointId** *(string) --* The value of the "Acquisition Point Identity" element used in each message placed in the sparse track. Only enabled if sparseTrackType is not "none".
                         - **AudioOnlyTimecodeControl** *(string) --* If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
                         - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA). This will cause https outputs to self-signed certificates to fail.
@@ -2203,14 +2271,14 @@ class Client(BaseClient):
                         - **StreamManifestBehavior** *(string) --* When set to send, send stream manifest so publishing point doesn't start until all streams start.
                         - **TimestampOffset** *(string) --* Timestamp offset for the event. Only used if timestampOffsetMode is set to useConfiguredOffset.
                         - **TimestampOffsetMode** *(string) --* Type of timestamp date offset to use. - useEventStartDate: Use the date the event was started as the offset - useConfiguredOffset: Use an explicitly configured date as the offset
-                      - **RtmpGroupSettings** *(dict) --* Placeholder documentation for RtmpGroupSettings
+                      - **RtmpGroupSettings** *(dict) --* Rtmp Group Settings
                         - **AuthenticationScheme** *(string) --* Authentication scheme to use when connecting with CDN
                         - **CacheFullBehavior** *(string) --* Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
                         - **CacheLength** *(integer) --* Cache length, in seconds, is used to calculate buffer size.
                         - **CaptionData** *(string) --* Controls the types of data that passes to onCaptionInfo outputs. If set to 'all' then 608 and 708 carried DTVCC data will be passed. If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
                         - **InputLossAction** *(string) --* Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
                         - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                      - **UdpGroupSettings** *(dict) --* Placeholder documentation for UdpGroupSettings
+                      - **UdpGroupSettings** *(dict) --* Udp Group Settings
                         - **InputLossAction** *(string) --* Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted. When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement). Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
                         - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                         - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
@@ -2222,9 +2290,9 @@ class Client(BaseClient):
                           - *(string) --* Placeholder documentation for __string
                         - **OutputName** *(string) --* The name used to identify an output.
                         - **OutputSettings** *(dict) --* Output type-specific settings.
-                          - **ArchiveOutputSettings** *(dict) --* Placeholder documentation for ArchiveOutputSettings
+                          - **ArchiveOutputSettings** *(dict) --* Archive Output Settings
                             - **ContainerSettings** *(dict) --* Settings specific to the container type of the file.
-                              - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                              - **M2tsSettings** *(dict) --* M2ts Settings
                                 - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                                 - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                                 - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -2283,16 +2351,16 @@ class Client(BaseClient):
                             - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
                           - **FrameCaptureOutputSettings** *(dict) --* Frame Capture Output Settings
                             - **NameModifier** *(string) --* Required if the output group contains more than one output. This modifier forms part of the output file name.
-                          - **HlsOutputSettings** *(dict) --* Placeholder documentation for HlsOutputSettings
+                          - **HlsOutputSettings** *(dict) --* Hls Output Settings
                             - **HlsSettings** *(dict) --* Settings regarding the underlying stream. These settings are different for audio-only outputs.
-                              - **AudioOnlyHlsSettings** *(dict) --* Placeholder documentation for AudioOnlyHlsSettings
+                              - **AudioOnlyHlsSettings** *(dict) --* Audio Only Hls Settings
                                 - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                                 - **AudioOnlyImage** *(dict) --* For use with an audio only Stream. Must be a .jpg or .png file. If given, this image will be used as the cover-art for the audio only output. Ideally, it should be formatted for an iPhone screen for two reasons. The iPhone does not resize the image, it crops a centered image on the top/bottom and left/right. Additionally, this image file gets saved bit-for-bit into every 10-second segment file, so will increase bandwidth by {image file size} * {segment count} * {user count.}.
                                   - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                                   - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
                                   - **Username** *(string) --* Documentation update needed
                                 - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-                              - **StandardHlsSettings** *(dict) --* Placeholder documentation for StandardHlsSettings
+                              - **StandardHlsSettings** *(dict) --* Standard Hls Settings
                                 - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
                                 - **M3u8Settings** *(dict) --* Settings information for the .m3u8 container
                                   - **AudioFramesPerPes** *(integer) --* The number of audio frames to insert for each PES packet.
@@ -2313,18 +2381,19 @@ class Client(BaseClient):
                                   - **VideoPid** *(string) --* Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
                             - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
                             - **SegmentModifier** *(string) --* String concatenated to end of segment filenames.
-                          - **MsSmoothOutputSettings** *(dict) --* Placeholder documentation for MsSmoothOutputSettings
+                          - **MediaPackageOutputSettings** *(dict) --* Media Package Output Settings
+                          - **MsSmoothOutputSettings** *(dict) --* Ms Smooth Output Settings
                             - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-                          - **RtmpOutputSettings** *(dict) --* Placeholder documentation for RtmpOutputSettings
+                          - **RtmpOutputSettings** *(dict) --* Rtmp Output Settings
                             - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA). This will cause rtmps outputs with self-signed certificates to fail.
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
                             - **Destination** *(dict) --* The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
                               - **DestinationRefId** *(string) --* Placeholder documentation for __string
                             - **NumRetries** *(integer) --* Number of retry attempts.
-                          - **UdpOutputSettings** *(dict) --* Placeholder documentation for UdpOutputSettings
+                          - **UdpOutputSettings** *(dict) --* Udp Output Settings
                             - **BufferMsec** *(integer) --* UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-                            - **ContainerSettings** *(dict) --* Placeholder documentation for UdpContainerSettings
-                              - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                            - **ContainerSettings** *(dict) --* Udp Container Settings
+                              - **M2tsSettings** *(dict) --* M2ts Settings
                                 - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                                 - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                                 - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -2394,7 +2463,7 @@ class Client(BaseClient):
                     - **CodecSettings** *(dict) --* Video codec settings.
                       - **FrameCaptureSettings** *(dict) --* Frame Capture Settings
                         - **CaptureInterval** *(integer) --* The frequency, in seconds, for capturing frames for inclusion in the output. For example, "10" means capture a frame every 10 seconds.
-                      - **H264Settings** *(dict) --* Placeholder documentation for H264Settings
+                      - **H264Settings** *(dict) --* H264 Settings
                         - **AdaptiveQuantization** *(string) --* Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
                         - **AfdSignaling** *(string) --* Indicates that AFD values will be written into the output stream. If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
                         - **Bitrate** *(integer) --* Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -2445,33 +2514,33 @@ class Client(BaseClient):
                   - **InputId** *(string) --* The ID of the input
                   - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
                     - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                      - *(dict) --* Placeholder documentation for AudioSelector
+                      - *(dict) --* Audio Selector
                         - **Name** *(string) --* The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                         - **SelectorSettings** *(dict) --* The audio selector settings.
-                          - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                          - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                             - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                             - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
-                          - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                          - **AudioPidSelection** *(dict) --* Audio Pid Selection
                             - **Pid** *(integer) --* Selects a specific PID from within a source.
                     - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                       - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                         - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                         - **Name** *(string) --* Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                         - **SelectorSettings** *(dict) --* Caption selector settings.
-                          - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                          - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                          - **AribSourceSettings** *(dict) --* Arib Source Settings
+                          - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                             - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                          - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                          - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                             - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                             - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                             - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                             - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                          - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                          - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                             - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                             - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                          - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                          - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                             - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                          - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                          - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                             - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
                     - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                     - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -2489,9 +2558,9 @@ class Client(BaseClient):
                       - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                       - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                       - **SelectorSettings** *(dict) --* The video selector settings.
-                        - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                        - **VideoSelectorPid** *(dict) --* Video Selector Pid
                           - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                        - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                        - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                           - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
               - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
                 - **Codec** *(string) --* Input codec
@@ -2505,20 +2574,25 @@ class Client(BaseClient):
               - **Tags** *(dict) --* A collection of key-value pairs.
                 - *(string) --* Placeholder documentation for __string
                   - *(string) --* Placeholder documentation for __string
+        :type ChannelClass: string
+        :param ChannelClass: The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
         :type Destinations: list
         :param Destinations: Placeholder documentation for __listOfOutputDestination
           - *(dict) --* Placeholder documentation for OutputDestination
             - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-            - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+            - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+              - *(dict) --* Media Package Output Destination Settings
+                - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+            - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
               - *(dict) --* Placeholder documentation for OutputDestinationSettings
                 - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                 - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
                 - **Url** *(string) --* A URL specifying a destination
                 - **Username** *(string) --* username for destination
         :type EncoderSettings: dict
-        :param EncoderSettings: Placeholder documentation for EncoderSettings
+        :param EncoderSettings: Encoder Settings
           - **AudioDescriptions** *(list) --* **[REQUIRED]** Placeholder documentation for __listOfAudioDescription
-            - *(dict) --* Placeholder documentation for AudioDescription
+            - *(dict) --* Audio Description
               - **AudioNormalizationSettings** *(dict) --* Advanced audio normalization settings.
                 - **Algorithm** *(string) --* Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
                 - **AlgorithmControl** *(string) --* When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -2527,7 +2601,7 @@ class Client(BaseClient):
               - **AudioType** *(string) --* Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
               - **AudioTypeControl** *(string) --* Determines how audio type is determined. followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output. useConfigured: The value in Audio Type is included in the output. Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
               - **CodecSettings** *(dict) --* Audio codec settings.
-                - **AacSettings** *(dict) --* Placeholder documentation for AacSettings
+                - **AacSettings** *(dict) --* Aac Settings
                   - **Bitrate** *(float) --* Average bitrate in bits/second. Valid values depend on rate control mode and profile.
                   - **CodingMode** *(string) --* Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                   - **InputType** *(string) --* Set to \"broadcasterMixedAd\" when input contains pre-mixed main audio + AD (narration) as a stereo pair. The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains \"broadcaster mixed AD\". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd. Leave set to \"normal\" when input does not contain pre-mixed audio + AD.
@@ -2537,7 +2611,7 @@ class Client(BaseClient):
                   - **SampleRate** *(float) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                   - **Spec** *(string) --* Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
                   - **VbrQuality** *(string) --* VBR Quality Level - Only used if rateControlMode is VBR.
-                - **Ac3Settings** *(dict) --* Placeholder documentation for Ac3Settings
+                - **Ac3Settings** *(dict) --* Ac3 Settings
                   - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                   - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                   - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
@@ -2545,7 +2619,7 @@ class Client(BaseClient):
                   - **DrcProfile** *(string) --* If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
                   - **LfeFilter** *(string) --* When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
                   - **MetadataControl** *(string) --* When set to \"followInput\", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-                - **Eac3Settings** *(dict) --* Placeholder documentation for Eac3Settings
+                - **Eac3Settings** *(dict) --* Eac3 Settings
                   - **AttenuationControl** *(string) --* When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
                   - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                   - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
@@ -2566,19 +2640,19 @@ class Client(BaseClient):
                   - **StereoDownmix** *(string) --* Stereo downmix preference. Only used for 3/2 coding mode.
                   - **SurroundExMode** *(string) --* When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
                   - **SurroundMode** *(string) --* When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-                - **Mp2Settings** *(dict) --* Placeholder documentation for Mp2Settings
+                - **Mp2Settings** *(dict) --* Mp2 Settings
                   - **Bitrate** *(float) --* Average bitrate in bits/second.
                   - **CodingMode** *(string) --* The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
                   - **SampleRate** *(float) --* Sample rate in Hz.
-                - **PassThroughSettings** *(dict) --* Placeholder documentation for PassThroughSettings
+                - **PassThroughSettings** *(dict) --* Pass Through Settings
               - **LanguageCode** *(string) --* Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
               - **LanguageCodeControl** *(string) --* Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
               - **Name** *(string) --* **[REQUIRED]** The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription. Description names should be unique within this Live Event.
               - **RemixSettings** *(dict) --* Settings that control how input audio channels are remixed into the output audio channels.
                 - **ChannelMappings** *(list) --* **[REQUIRED]** Mapping of input channels to output channels, with appropriate gain adjustments.
-                  - *(dict) --* Placeholder documentation for AudioChannelMapping
+                  - *(dict) --* Audio Channel Mapping
                     - **InputChannelLevels** *(list) --* **[REQUIRED]** Indices and gain values for each input channel that should be remixed into this output channel.
-                      - *(dict) --* Placeholder documentation for InputChannelLevel
+                      - *(dict) --* Input Channel Level
                         - **Gain** *(integer) --* **[REQUIRED]** Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
                         - **InputChannel** *(integer) --* **[REQUIRED]** The index of the input channel used as a source.
                     - **OutputChannel** *(integer) --* **[REQUIRED]** The index of the output channel being produced.
@@ -2593,11 +2667,11 @@ class Client(BaseClient):
             - **State** *(string) --* When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
           - **AvailConfiguration** *(dict) --* Event-wide configuration settings for ad avail insertion.
             - **AvailSettings** *(dict) --* Ad avail settings.
-              - **Scte35SpliceInsert** *(dict) --* Placeholder documentation for Scte35SpliceInsert
+              - **Scte35SpliceInsert** *(dict) --* Scte35 Splice Insert
                 - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                 - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                 - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-              - **Scte35TimeSignalApos** *(dict) --* Placeholder documentation for Scte35TimeSignalApos
+              - **Scte35TimeSignalApos** *(dict) --* Scte35 Time Signal Apos
                 - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                 - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                 - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -2617,8 +2691,8 @@ class Client(BaseClient):
             - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
               - **CaptionSelectorName** *(string) --* **[REQUIRED]** Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
               - **DestinationSettings** *(dict) --* Additional settings for captions destination that depend on the destination type.
-                - **AribDestinationSettings** *(dict) --* Placeholder documentation for AribDestinationSettings
-                - **BurnInDestinationSettings** *(dict) --* Placeholder documentation for BurnInDestinationSettings
+                - **AribDestinationSettings** *(dict) --* Arib Destination Settings
+                - **BurnInDestinationSettings** *(dict) --* Burn In Destination Settings
                   - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting \"smart\" justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
                   - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                   - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -2639,7 +2713,7 @@ class Client(BaseClient):
                   - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                   - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
                   - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
-                - **DvbSubDestinationSettings** *(dict) --* Placeholder documentation for DvbSubDestinationSettings
+                - **DvbSubDestinationSettings** *(dict) --* Dvb Sub Destination Settings
                   - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting \"smart\" justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                   - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                   - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -2660,16 +2734,16 @@ class Client(BaseClient):
                   - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                   - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                   - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-                - **EmbeddedDestinationSettings** *(dict) --* Placeholder documentation for EmbeddedDestinationSettings
-                - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Placeholder documentation for EmbeddedPlusScte20DestinationSettings
-                - **RtmpCaptionInfoDestinationSettings** *(dict) --* Placeholder documentation for RtmpCaptionInfoDestinationSettings
-                - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Placeholder documentation for Scte20PlusEmbeddedDestinationSettings
-                - **Scte27DestinationSettings** *(dict) --* Placeholder documentation for Scte27DestinationSettings
-                - **SmpteTtDestinationSettings** *(dict) --* Placeholder documentation for SmpteTtDestinationSettings
-                - **TeletextDestinationSettings** *(dict) --* Placeholder documentation for TeletextDestinationSettings
-                - **TtmlDestinationSettings** *(dict) --* Placeholder documentation for TtmlDestinationSettings
+                - **EmbeddedDestinationSettings** *(dict) --* Embedded Destination Settings
+                - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Embedded Plus Scte20 Destination Settings
+                - **RtmpCaptionInfoDestinationSettings** *(dict) --* Rtmp Caption Info Destination Settings
+                - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Scte20 Plus Embedded Destination Settings
+                - **Scte27DestinationSettings** *(dict) --* Scte27 Destination Settings
+                - **SmpteTtDestinationSettings** *(dict) --* Smpte Tt Destination Settings
+                - **TeletextDestinationSettings** *(dict) --* Teletext Destination Settings
+                - **TtmlDestinationSettings** *(dict) --* Ttml Destination Settings
                   - **StyleControl** *(string) --* When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-                - **WebvttDestinationSettings** *(dict) --* Placeholder documentation for WebvttDestinationSettings
+                - **WebvttDestinationSettings** *(dict) --* Webvtt Destination Settings
               - **LanguageCode** *(string) --* ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
               - **LanguageDescription** *(string) --* Human readable information to indicate captions available for players (eg. English, or Spanish).
               - **Name** *(string) --* **[REQUIRED]** Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
@@ -2685,22 +2759,23 @@ class Client(BaseClient):
                 - **Username** *(string) --* Documentation update needed
               - **InputLossImageType** *(string) --* Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
               - **RepeatFrameMsec** *(integer) --* Documentation update needed
+            - **OutputLockingMode** *(string) --* Indicates how MediaLive pipelines are synchronized. PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
             - **OutputTimingSource** *(string) --* Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
             - **SupportLowFramerateInputs** *(string) --* Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
           - **OutputGroups** *(list) --* **[REQUIRED]** Placeholder documentation for __listOfOutputGroup
             - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
               - **Name** *(string) --* Custom output group name optionally defined by the user. Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
               - **OutputGroupSettings** *(dict) --* **[REQUIRED]** Settings associated with the output group.
-                - **ArchiveGroupSettings** *(dict) --* Placeholder documentation for ArchiveGroupSettings
+                - **ArchiveGroupSettings** *(dict) --* Archive Group Settings
                   - **Destination** *(dict) --* **[REQUIRED]** A directory and base filename where archive files should be written.
                     - **DestinationRefId** *(string) --* Placeholder documentation for __string
                   - **RolloverInterval** *(integer) --* Number of seconds to write to archive file before closing and starting a new one.
                 - **FrameCaptureGroupSettings** *(dict) --* Frame Capture Group Settings
                   - **Destination** *(dict) --* **[REQUIRED]** The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, \"curling_\") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg). For example, curlingLow.00001.jpg
                     - **DestinationRefId** *(string) --* Placeholder documentation for __string
-                - **HlsGroupSettings** *(dict) --* Placeholder documentation for HlsGroupSettings
+                - **HlsGroupSettings** *(dict) --* Hls Group Settings
                   - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-                    - *(string) --* Placeholder documentation for HlsAdMarkers
+                    - *(string) --* Hls Ad Markers
                   - **BaseUrlContent** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                   - **BaseUrlManifest** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                   - **CaptionLanguageMappings** *(list) --* Mapping of up to 4 caption channels to caption languages. Is only meaningful if captionLanguageSetting is set to \"insert\".
@@ -2717,7 +2792,7 @@ class Client(BaseClient):
                   - **DirectoryStructure** *(string) --* Place segments in subdirectories.
                   - **EncryptionType** *(string) --* Encrypts the segments with the given encryption scheme. Exclude this parameter if no encryption is desired.
                   - **HlsCdnSettings** *(dict) --* Parameters that control interactions with the CDN.
-                    - **HlsAkamaiSettings** *(dict) --* Placeholder documentation for HlsAkamaiSettings
+                    - **HlsAkamaiSettings** *(dict) --* Hls Akamai Settings
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                       - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                       - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
@@ -2725,33 +2800,33 @@ class Client(BaseClient):
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
                       - **Salt** *(string) --* Salt for authenticated Akamai.
                       - **Token** *(string) --* Token parameter for authenticated akamai. If not specified, _gda_ is used.
-                    - **HlsBasicPutSettings** *(dict) --* Placeholder documentation for HlsBasicPutSettings
+                    - **HlsBasicPutSettings** *(dict) --* Hls Basic Put Settings
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                       - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                       - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                    - **HlsMediaStoreSettings** *(dict) --* Placeholder documentation for HlsMediaStoreSettings
+                    - **HlsMediaStoreSettings** *(dict) --* Hls Media Store Settings
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                       - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                       - **MediaStoreStorageClass** *(string) --* When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
                       - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                    - **HlsWebdavSettings** *(dict) --* Placeholder documentation for HlsWebdavSettings
+                    - **HlsWebdavSettings** *(dict) --* Hls Webdav Settings
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                       - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                       - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to WebDAV.
                       - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                  - **IFrameOnlyPlaylists** *(string) --* If enabled, writes out I-Frame only playlists in addition to media playlists.
-                  - **IndexNSegments** *(integer) --* If mode is \"live\", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is \"vod\", this parameter has no effect.
+                  - **IFrameOnlyPlaylists** *(string) --* DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field). STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888\"
+                  - **IndexNSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
                   - **InputLossAction** *(string) --* Parameter that control output group behavior on input loss.
                   - **IvInManifest** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to \"include\", IV is listed in the manifest, otherwise the IV is not in the manifest.
                   - **IvSource** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is \"followsSegmentNumber\", it will cause the IV to change every segment (to match the segment number). If this is set to \"explicit\", you must enter a constantIv value.
-                  - **KeepSegments** *(integer) --* If mode is \"live\", the number of TS segments to retain in the destination directory. If mode is \"vod\", this parameter has no effect.
+                  - **KeepSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
                   - **KeyFormat** *(string) --* The value specifies how the key is represented in the resource identified by the URI. If parameter is absent, an implicit value of \"identity\" is used. A reverse DNS string can also be given.
                   - **KeyFormatVersions** *(string) --* Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                   - **KeyProviderSettings** *(dict) --* The key provider settings.
-                    - **StaticKeySettings** *(dict) --* Placeholder documentation for StaticKeySettings
+                    - **StaticKeySettings** *(dict) --* Static Key Settings
                       - **KeyProviderServer** *(dict) --* The URL of the license server used for protecting content.
                         - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                         - **Uri** *(string) --* **[REQUIRED]** Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\".
@@ -2761,10 +2836,10 @@ class Client(BaseClient):
                   - **ManifestDurationFormat** *(string) --* Indicates whether the output manifest should use floating point or integer values for segment duration.
                   - **MinSegmentLength** *(integer) --* When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
                   - **Mode** *(string) --* If \"vod\", all segments are indexed and kept permanently in the destination and manifest. If \"live\", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event. VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a \"VOD\" type manifest on completion of the stream.
-                  - **OutputSelection** *(string) --* Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file.
+                  - **OutputSelection** *(string) --* MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group. SEGMENTSONLY: Does not generate any manifests for this output group.
                   - **ProgramDateTime** *(string) --* Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
                   - **ProgramDateTimePeriod** *(integer) --* Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-                  - **RedundantManifest** *(string) --* When set to \"enabled\", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
+                  - **RedundantManifest** *(string) --* ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines. DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only. For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
                   - **SegmentLength** *(integer) --* Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
                   - **SegmentationMode** *(string) --* useInputSegmentation has been deprecated. The configured segment size is always used.
                   - **SegmentsPerSubdirectory** *(integer) --* Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -2772,8 +2847,11 @@ class Client(BaseClient):
                   - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                   - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
                   - **TimestampDeltaMilliseconds** *(integer) --* Provides an extra millisecond delta offset to fine tune the timestamps.
-                  - **TsFileMode** *(string) --* When set to \"singleFile\", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching.
-                - **MsSmoothGroupSettings** *(dict) --* Placeholder documentation for MsSmoothGroupSettings
+                  - **TsFileMode** *(string) --* SEGMENTEDFILES: Emit the program as segments - multiple .ts media files. SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+                - **MediaPackageGroupSettings** *(dict) --* Media Package Group Settings
+                  - **Destination** *(dict) --* **[REQUIRED]** MediaPackage channel destination.
+                    - **DestinationRefId** *(string) --* Placeholder documentation for __string
+                - **MsSmoothGroupSettings** *(dict) --* Ms Smooth Group Settings
                   - **AcquisitionPointId** *(string) --* The value of the \"Acquisition Point Identity\" element used in each message placed in the sparse track. Only enabled if sparseTrackType is not \"none\".
                   - **AudioOnlyTimecodeControl** *(string) --* If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
                   - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA). This will cause https outputs to self-signed certificates to fail.
@@ -2794,14 +2872,14 @@ class Client(BaseClient):
                   - **StreamManifestBehavior** *(string) --* When set to send, send stream manifest so publishing point doesn\'t start until all streams start.
                   - **TimestampOffset** *(string) --* Timestamp offset for the event. Only used if timestampOffsetMode is set to useConfiguredOffset.
                   - **TimestampOffsetMode** *(string) --* Type of timestamp date offset to use. - useEventStartDate: Use the date the event was started as the offset - useConfiguredOffset: Use an explicitly configured date as the offset
-                - **RtmpGroupSettings** *(dict) --* Placeholder documentation for RtmpGroupSettings
+                - **RtmpGroupSettings** *(dict) --* Rtmp Group Settings
                   - **AuthenticationScheme** *(string) --* Authentication scheme to use when connecting with CDN
                   - **CacheFullBehavior** *(string) --* Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the \'Media Cache\' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
                   - **CacheLength** *(integer) --* Cache length, in seconds, is used to calculate buffer size.
                   - **CaptionData** *(string) --* Controls the types of data that passes to onCaptionInfo outputs. If set to \'all\' then 608 and 708 carried DTVCC data will be passed. If set to \'field1AndField2608\' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to \'field1608\' then only the data carried in 608 from field 1 video will be passed.
                   - **InputLossAction** *(string) --* Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
                   - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                - **UdpGroupSettings** *(dict) --* Placeholder documentation for UdpGroupSettings
+                - **UdpGroupSettings** *(dict) --* Udp Group Settings
                   - **InputLossAction** *(string) --* Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted. When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement). Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
                   - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                   - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
@@ -2813,9 +2891,9 @@ class Client(BaseClient):
                     - *(string) --* Placeholder documentation for __string
                   - **OutputName** *(string) --* The name used to identify an output.
                   - **OutputSettings** *(dict) --* **[REQUIRED]** Output type-specific settings.
-                    - **ArchiveOutputSettings** *(dict) --* Placeholder documentation for ArchiveOutputSettings
+                    - **ArchiveOutputSettings** *(dict) --* Archive Output Settings
                       - **ContainerSettings** *(dict) --* **[REQUIRED]** Settings specific to the container type of the file.
-                        - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                        - **M2tsSettings** *(dict) --* M2ts Settings
                           - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                           - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                           - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -2874,16 +2952,16 @@ class Client(BaseClient):
                       - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
                     - **FrameCaptureOutputSettings** *(dict) --* Frame Capture Output Settings
                       - **NameModifier** *(string) --* Required if the output group contains more than one output. This modifier forms part of the output file name.
-                    - **HlsOutputSettings** *(dict) --* Placeholder documentation for HlsOutputSettings
+                    - **HlsOutputSettings** *(dict) --* Hls Output Settings
                       - **HlsSettings** *(dict) --* **[REQUIRED]** Settings regarding the underlying stream. These settings are different for audio-only outputs.
-                        - **AudioOnlyHlsSettings** *(dict) --* Placeholder documentation for AudioOnlyHlsSettings
+                        - **AudioOnlyHlsSettings** *(dict) --* Audio Only Hls Settings
                           - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                           - **AudioOnlyImage** *(dict) --* For use with an audio only Stream. Must be a .jpg or .png file. If given, this image will be used as the cover-art for the audio only output. Ideally, it should be formatted for an iPhone screen for two reasons. The iPhone does not resize the image, it crops a centered image on the top/bottom and left/right. Additionally, this image file gets saved bit-for-bit into every 10-second segment file, so will increase bandwidth by {image file size} * {segment count} * {user count.}.
                             - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                             - **Uri** *(string) --* **[REQUIRED]** Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\".
                             - **Username** *(string) --* Documentation update needed
                           - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-                        - **StandardHlsSettings** *(dict) --* Placeholder documentation for StandardHlsSettings
+                        - **StandardHlsSettings** *(dict) --* Standard Hls Settings
                           - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by \',\'.
                           - **M3u8Settings** *(dict) --* **[REQUIRED]** Settings information for the .m3u8 container
                             - **AudioFramesPerPes** *(integer) --* The number of audio frames to insert for each PES packet.
@@ -2904,18 +2982,19 @@ class Client(BaseClient):
                             - **VideoPid** *(string) --* Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
                       - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Accepts \\"Format Identifiers\\":#formatIdentifierParameters.
                       - **SegmentModifier** *(string) --* String concatenated to end of segment filenames.
-                    - **MsSmoothOutputSettings** *(dict) --* Placeholder documentation for MsSmoothOutputSettings
+                    - **MediaPackageOutputSettings** *(dict) --* Media Package Output Settings
+                    - **MsSmoothOutputSettings** *(dict) --* Ms Smooth Output Settings
                       - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-                    - **RtmpOutputSettings** *(dict) --* Placeholder documentation for RtmpOutputSettings
+                    - **RtmpOutputSettings** *(dict) --* Rtmp Output Settings
                       - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA). This will cause rtmps outputs with self-signed certificates to fail.
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
                       - **Destination** *(dict) --* **[REQUIRED]** The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
                       - **NumRetries** *(integer) --* Number of retry attempts.
-                    - **UdpOutputSettings** *(dict) --* Placeholder documentation for UdpOutputSettings
+                    - **UdpOutputSettings** *(dict) --* Udp Output Settings
                       - **BufferMsec** *(integer) --* UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-                      - **ContainerSettings** *(dict) --* **[REQUIRED]** Placeholder documentation for UdpContainerSettings
-                        - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                      - **ContainerSettings** *(dict) --* **[REQUIRED]** Udp Container Settings
+                        - **M2tsSettings** *(dict) --* M2ts Settings
                           - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                           - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                           - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -2985,7 +3064,7 @@ class Client(BaseClient):
               - **CodecSettings** *(dict) --* Video codec settings.
                 - **FrameCaptureSettings** *(dict) --* Frame Capture Settings
                   - **CaptureInterval** *(integer) --* **[REQUIRED]** The frequency, in seconds, for capturing frames for inclusion in the output. For example, \"10\" means capture a frame every 10 seconds.
-                - **H264Settings** *(dict) --* Placeholder documentation for H264Settings
+                - **H264Settings** *(dict) --* H264 Settings
                   - **AdaptiveQuantization** *(string) --* Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
                   - **AfdSignaling** *(string) --* Indicates that AFD values will be written into the output stream. If afdSignaling is \"auto\", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to \"fixed\", the AFD value will be the value configured in the fixedAfd parameter.
                   - **Bitrate** *(integer) --* Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -3036,33 +3115,33 @@ class Client(BaseClient):
             - **InputId** *(string) --* The ID of the input
             - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
               - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                - *(dict) --* Placeholder documentation for AudioSelector
+                - *(dict) --* Audio Selector
                   - **Name** *(string) --* **[REQUIRED]** The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                   - **SelectorSettings** *(dict) --* The audio selector settings.
-                    - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                    - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                       - **LanguageCode** *(string) --* **[REQUIRED]** Selects a specific three-letter language code from within an audio source.
                       - **LanguageSelectionPolicy** *(string) --* When set to \"strict\", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If \"loose\", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can\'t find one with the same language.
-                    - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                    - **AudioPidSelection** *(dict) --* Audio Pid Selection
                       - **Pid** *(integer) --* **[REQUIRED]** Selects a specific PID from within a source.
               - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                   - **Name** *(string) --* **[REQUIRED]** Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                   - **SelectorSettings** *(dict) --* Caption selector settings.
-                    - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                    - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                    - **AribSourceSettings** *(dict) --* Arib Source Settings
+                    - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                       - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                    - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                    - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                       - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                       - **Scte20Detection** *(string) --* Set to \"auto\" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                       - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                       - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                    - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                    - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                       - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                       - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                    - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                    - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                       - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is \"informational\". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                    - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                    - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                       - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no \"0x\" prefix.
               - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
               - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -3080,9 +3159,9 @@ class Client(BaseClient):
                 - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                 - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                 - **SelectorSettings** *(dict) --* The video selector settings.
-                  - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                  - **VideoSelectorPid** *(dict) --* Video Selector Pid
                     - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                  - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                  - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                     - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn\'t exist, the first program within the transport stream will be selected by default.
         :type InputSpecification: dict
         :param InputSpecification: Specification of input for this channel (max. bitrate, resolution, codec, etc.)
@@ -3173,6 +3252,7 @@ class Client(BaseClient):
                         },
                     ],
                     'Id': 'string',
+                    'InputClass': 'STANDARD'|'SINGLE_PIPELINE',
                     'MediaConnectFlows': [
                         {
                             'FlowArn': 'string'
@@ -3213,6 +3293,7 @@ class Client(BaseClient):
                     - **AvailabilityZone** *(string) --* The availability zone of the Input destination. 
                     - **NetworkInterfaceId** *(string) --* The network interface ID of the Input destination in the VPC. 
               - **Id** *(string) --* The generated ID of the input (unique for user account, immutable).
+              - **InputClass** *(string) --* STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input. 
               - **MediaConnectFlows** *(list) --* A list of MediaConnect Flows for this input.
                 - *(dict) --* The settings for a MediaConnect Flow.
                   - **FlowArn** *(string) --* The unique ARN of the MediaConnect Flow being used as a source.
@@ -3374,9 +3455,15 @@ class Client(BaseClient):
         ::
             {
                 'Arn': 'string',
+                'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                 'Destinations': [
                     {
                         'Id': 'string',
+                        'MediaPackageSettings': [
+                            {
+                                'ChannelId': 'string'
+                            },
+                        ],
                         'Settings': [
                             {
                                 'PasswordParam': 'string',
@@ -3593,6 +3680,7 @@ class Client(BaseClient):
                             'InputLossImageType': 'COLOR'|'SLATE',
                             'RepeatFrameMsec': 123
                         },
+                        'OutputLockingMode': 'EPOCH_LOCKING'|'PIPELINE_LOCKING',
                         'OutputTimingSource': 'INPUT_CLOCK'|'SYSTEM_CLOCK',
                         'SupportLowFramerateInputs': 'DISABLED'|'ENABLED'
                     },
@@ -3698,6 +3786,11 @@ class Client(BaseClient):
                                     'TimedMetadataId3Period': 123,
                                     'TimestampDeltaMilliseconds': 123,
                                     'TsFileMode': 'SEGMENTED_FILES'|'SINGLE_FILE'
+                                },
+                                'MediaPackageGroupSettings': {
+                                    'Destination': {
+                                        'DestinationRefId': 'string'
+                                    }
                                 },
                                 'MsSmoothGroupSettings': {
                                     'AcquisitionPointId': 'string',
@@ -3850,6 +3943,7 @@ class Client(BaseClient):
                                             'NameModifier': 'string',
                                             'SegmentModifier': 'string'
                                         },
+                                        'MediaPackageOutputSettings': {},
                                         'MsSmoothOutputSettings': {
                                             'NameModifier': 'string'
                                         },
@@ -4093,10 +4187,14 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* Deletion was successfully initiated.
             - **Arn** *(string) --* The unique arn of the channel.
+            - **ChannelClass** *(string) --* The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
             - **Destinations** *(list) --* A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager. 
               - *(dict) --* Placeholder documentation for OutputDestination
                 - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-                - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+                - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+                  - *(dict) --* Media Package Output Destination Settings
+                    - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+                - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
                   - *(dict) --* Placeholder documentation for OutputDestinationSettings
                     - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                     - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -4105,9 +4203,9 @@ class Client(BaseClient):
             - **EgressEndpoints** *(list) --* The endpoints where outgoing connections initiate from
               - *(dict) --* Placeholder documentation for ChannelEgressEndpoint
                 - **SourceIp** *(string) --* Public IP of where a channel's output comes from
-            - **EncoderSettings** *(dict) --* Placeholder documentation for EncoderSettings
+            - **EncoderSettings** *(dict) --* Encoder Settings
               - **AudioDescriptions** *(list) --* Placeholder documentation for __listOfAudioDescription
-                - *(dict) --* Placeholder documentation for AudioDescription
+                - *(dict) --* Audio Description
                   - **AudioNormalizationSettings** *(dict) --* Advanced audio normalization settings.
                     - **Algorithm** *(string) --* Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
                     - **AlgorithmControl** *(string) --* When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -4116,7 +4214,7 @@ class Client(BaseClient):
                   - **AudioType** *(string) --* Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
                   - **AudioTypeControl** *(string) --* Determines how audio type is determined. followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output. useConfigured: The value in Audio Type is included in the output. Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
                   - **CodecSettings** *(dict) --* Audio codec settings.
-                    - **AacSettings** *(dict) --* Placeholder documentation for AacSettings
+                    - **AacSettings** *(dict) --* Aac Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid values depend on rate control mode and profile.
                       - **CodingMode** *(string) --* Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                       - **InputType** *(string) --* Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair. The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd. Leave set to "normal" when input does not contain pre-mixed audio + AD.
@@ -4126,7 +4224,7 @@ class Client(BaseClient):
                       - **SampleRate** *(float) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                       - **Spec** *(string) --* Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
                       - **VbrQuality** *(string) --* VBR Quality Level - Only used if rateControlMode is VBR.
-                    - **Ac3Settings** *(dict) --* Placeholder documentation for Ac3Settings
+                    - **Ac3Settings** *(dict) --* Ac3 Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                       - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                       - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
@@ -4134,7 +4232,7 @@ class Client(BaseClient):
                       - **DrcProfile** *(string) --* If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
                       - **LfeFilter** *(string) --* When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
                       - **MetadataControl** *(string) --* When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-                    - **Eac3Settings** *(dict) --* Placeholder documentation for Eac3Settings
+                    - **Eac3Settings** *(dict) --* Eac3 Settings
                       - **AttenuationControl** *(string) --* When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                       - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
@@ -4155,19 +4253,19 @@ class Client(BaseClient):
                       - **StereoDownmix** *(string) --* Stereo downmix preference. Only used for 3/2 coding mode.
                       - **SurroundExMode** *(string) --* When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
                       - **SurroundMode** *(string) --* When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-                    - **Mp2Settings** *(dict) --* Placeholder documentation for Mp2Settings
+                    - **Mp2Settings** *(dict) --* Mp2 Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second.
                       - **CodingMode** *(string) --* The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
                       - **SampleRate** *(float) --* Sample rate in Hz.
-                    - **PassThroughSettings** *(dict) --* Placeholder documentation for PassThroughSettings
+                    - **PassThroughSettings** *(dict) --* Pass Through Settings
                   - **LanguageCode** *(string) --* Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
                   - **LanguageCodeControl** *(string) --* Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
                   - **Name** *(string) --* The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription. Description names should be unique within this Live Event.
                   - **RemixSettings** *(dict) --* Settings that control how input audio channels are remixed into the output audio channels.
                     - **ChannelMappings** *(list) --* Mapping of input channels to output channels, with appropriate gain adjustments.
-                      - *(dict) --* Placeholder documentation for AudioChannelMapping
+                      - *(dict) --* Audio Channel Mapping
                         - **InputChannelLevels** *(list) --* Indices and gain values for each input channel that should be remixed into this output channel.
-                          - *(dict) --* Placeholder documentation for InputChannelLevel
+                          - *(dict) --* Input Channel Level
                             - **Gain** *(integer) --* Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
                             - **InputChannel** *(integer) --* The index of the input channel used as a source.
                         - **OutputChannel** *(integer) --* The index of the output channel being produced.
@@ -4182,11 +4280,11 @@ class Client(BaseClient):
                 - **State** *(string) --* When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
               - **AvailConfiguration** *(dict) --* Event-wide configuration settings for ad avail insertion.
                 - **AvailSettings** *(dict) --* Ad avail settings.
-                  - **Scte35SpliceInsert** *(dict) --* Placeholder documentation for Scte35SpliceInsert
+                  - **Scte35SpliceInsert** *(dict) --* Scte35 Splice Insert
                     - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                     - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                     - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-                  - **Scte35TimeSignalApos** *(dict) --* Placeholder documentation for Scte35TimeSignalApos
+                  - **Scte35TimeSignalApos** *(dict) --* Scte35 Time Signal Apos
                     - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                     - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                     - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -4206,8 +4304,8 @@ class Client(BaseClient):
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **CaptionSelectorName** *(string) --* Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
                   - **DestinationSettings** *(dict) --* Additional settings for captions destination that depend on the destination type.
-                    - **AribDestinationSettings** *(dict) --* Placeholder documentation for AribDestinationSettings
-                    - **BurnInDestinationSettings** *(dict) --* Placeholder documentation for BurnInDestinationSettings
+                    - **AribDestinationSettings** *(dict) --* Arib Destination Settings
+                    - **BurnInDestinationSettings** *(dict) --* Burn In Destination Settings
                       - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -4228,7 +4326,7 @@ class Client(BaseClient):
                       - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                       - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
                       - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
-                    - **DvbSubDestinationSettings** *(dict) --* Placeholder documentation for DvbSubDestinationSettings
+                    - **DvbSubDestinationSettings** *(dict) --* Dvb Sub Destination Settings
                       - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -4249,16 +4347,16 @@ class Client(BaseClient):
                       - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                       - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                       - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-                    - **EmbeddedDestinationSettings** *(dict) --* Placeholder documentation for EmbeddedDestinationSettings
-                    - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Placeholder documentation for EmbeddedPlusScte20DestinationSettings
-                    - **RtmpCaptionInfoDestinationSettings** *(dict) --* Placeholder documentation for RtmpCaptionInfoDestinationSettings
-                    - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Placeholder documentation for Scte20PlusEmbeddedDestinationSettings
-                    - **Scte27DestinationSettings** *(dict) --* Placeholder documentation for Scte27DestinationSettings
-                    - **SmpteTtDestinationSettings** *(dict) --* Placeholder documentation for SmpteTtDestinationSettings
-                    - **TeletextDestinationSettings** *(dict) --* Placeholder documentation for TeletextDestinationSettings
-                    - **TtmlDestinationSettings** *(dict) --* Placeholder documentation for TtmlDestinationSettings
+                    - **EmbeddedDestinationSettings** *(dict) --* Embedded Destination Settings
+                    - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Embedded Plus Scte20 Destination Settings
+                    - **RtmpCaptionInfoDestinationSettings** *(dict) --* Rtmp Caption Info Destination Settings
+                    - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Scte20 Plus Embedded Destination Settings
+                    - **Scte27DestinationSettings** *(dict) --* Scte27 Destination Settings
+                    - **SmpteTtDestinationSettings** *(dict) --* Smpte Tt Destination Settings
+                    - **TeletextDestinationSettings** *(dict) --* Teletext Destination Settings
+                    - **TtmlDestinationSettings** *(dict) --* Ttml Destination Settings
                       - **StyleControl** *(string) --* When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-                    - **WebvttDestinationSettings** *(dict) --* Placeholder documentation for WebvttDestinationSettings
+                    - **WebvttDestinationSettings** *(dict) --* Webvtt Destination Settings
                   - **LanguageCode** *(string) --* ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
                   - **LanguageDescription** *(string) --* Human readable information to indicate captions available for players (eg. English, or Spanish).
                   - **Name** *(string) --* Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
@@ -4274,22 +4372,23 @@ class Client(BaseClient):
                     - **Username** *(string) --* Documentation update needed
                   - **InputLossImageType** *(string) --* Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
                   - **RepeatFrameMsec** *(integer) --* Documentation update needed
+                - **OutputLockingMode** *(string) --* Indicates how MediaLive pipelines are synchronized. PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
                 - **OutputTimingSource** *(string) --* Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
                 - **SupportLowFramerateInputs** *(string) --* Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
               - **OutputGroups** *(list) --* Placeholder documentation for __listOfOutputGroup
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **Name** *(string) --* Custom output group name optionally defined by the user. Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
                   - **OutputGroupSettings** *(dict) --* Settings associated with the output group.
-                    - **ArchiveGroupSettings** *(dict) --* Placeholder documentation for ArchiveGroupSettings
+                    - **ArchiveGroupSettings** *(dict) --* Archive Group Settings
                       - **Destination** *(dict) --* A directory and base filename where archive files should be written.
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
                       - **RolloverInterval** *(integer) --* Number of seconds to write to archive file before closing and starting a new one.
                     - **FrameCaptureGroupSettings** *(dict) --* Frame Capture Group Settings
                       - **Destination** *(dict) --* The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, "curling_") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg). For example, curlingLow.00001.jpg
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
-                    - **HlsGroupSettings** *(dict) --* Placeholder documentation for HlsGroupSettings
+                    - **HlsGroupSettings** *(dict) --* Hls Group Settings
                       - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-                        - *(string) --* Placeholder documentation for HlsAdMarkers
+                        - *(string) --* Hls Ad Markers
                       - **BaseUrlContent** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                       - **BaseUrlManifest** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                       - **CaptionLanguageMappings** *(list) --* Mapping of up to 4 caption channels to caption languages. Is only meaningful if captionLanguageSetting is set to "insert".
@@ -4306,7 +4405,7 @@ class Client(BaseClient):
                       - **DirectoryStructure** *(string) --* Place segments in subdirectories.
                       - **EncryptionType** *(string) --* Encrypts the segments with the given encryption scheme. Exclude this parameter if no encryption is desired.
                       - **HlsCdnSettings** *(dict) --* Parameters that control interactions with the CDN.
-                        - **HlsAkamaiSettings** *(dict) --* Placeholder documentation for HlsAkamaiSettings
+                        - **HlsAkamaiSettings** *(dict) --* Hls Akamai Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
@@ -4314,33 +4413,33 @@ class Client(BaseClient):
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
                           - **Salt** *(string) --* Salt for authenticated Akamai.
                           - **Token** *(string) --* Token parameter for authenticated akamai. If not specified, _gda_ is used.
-                        - **HlsBasicPutSettings** *(dict) --* Placeholder documentation for HlsBasicPutSettings
+                        - **HlsBasicPutSettings** *(dict) --* Hls Basic Put Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **HlsMediaStoreSettings** *(dict) --* Placeholder documentation for HlsMediaStoreSettings
+                        - **HlsMediaStoreSettings** *(dict) --* Hls Media Store Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **MediaStoreStorageClass** *(string) --* When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **HlsWebdavSettings** *(dict) --* Placeholder documentation for HlsWebdavSettings
+                        - **HlsWebdavSettings** *(dict) --* Hls Webdav Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to WebDAV.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                      - **IFrameOnlyPlaylists** *(string) --* If enabled, writes out I-Frame only playlists in addition to media playlists.
-                      - **IndexNSegments** *(integer) --* If mode is "live", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is "vod", this parameter has no effect.
+                      - **IFrameOnlyPlaylists** *(string) --* DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field). STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
+                      - **IndexNSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
                       - **InputLossAction** *(string) --* Parameter that control output group behavior on input loss.
                       - **IvInManifest** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
                       - **IvSource** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
-                      - **KeepSegments** *(integer) --* If mode is "live", the number of TS segments to retain in the destination directory. If mode is "vod", this parameter has no effect.
+                      - **KeepSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
                       - **KeyFormat** *(string) --* The value specifies how the key is represented in the resource identified by the URI. If parameter is absent, an implicit value of "identity" is used. A reverse DNS string can also be given.
                       - **KeyFormatVersions** *(string) --* Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                       - **KeyProviderSettings** *(dict) --* The key provider settings.
-                        - **StaticKeySettings** *(dict) --* Placeholder documentation for StaticKeySettings
+                        - **StaticKeySettings** *(dict) --* Static Key Settings
                           - **KeyProviderServer** *(dict) --* The URL of the license server used for protecting content.
                             - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                             - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
@@ -4350,10 +4449,10 @@ class Client(BaseClient):
                       - **ManifestDurationFormat** *(string) --* Indicates whether the output manifest should use floating point or integer values for segment duration.
                       - **MinSegmentLength** *(integer) --* When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
                       - **Mode** *(string) --* If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event. VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
-                      - **OutputSelection** *(string) --* Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file.
+                      - **OutputSelection** *(string) --* MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group. SEGMENTSONLY: Does not generate any manifests for this output group.
                       - **ProgramDateTime** *(string) --* Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
                       - **ProgramDateTimePeriod** *(integer) --* Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-                      - **RedundantManifest** *(string) --* When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
+                      - **RedundantManifest** *(string) --* ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines. DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only. For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
                       - **SegmentLength** *(integer) --* Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
                       - **SegmentationMode** *(string) --* useInputSegmentation has been deprecated. The configured segment size is always used.
                       - **SegmentsPerSubdirectory** *(integer) --* Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -4361,8 +4460,11 @@ class Client(BaseClient):
                       - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                       - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
                       - **TimestampDeltaMilliseconds** *(integer) --* Provides an extra millisecond delta offset to fine tune the timestamps.
-                      - **TsFileMode** *(string) --* When set to "singleFile", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching.
-                    - **MsSmoothGroupSettings** *(dict) --* Placeholder documentation for MsSmoothGroupSettings
+                      - **TsFileMode** *(string) --* SEGMENTEDFILES: Emit the program as segments - multiple .ts media files. SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+                    - **MediaPackageGroupSettings** *(dict) --* Media Package Group Settings
+                      - **Destination** *(dict) --* MediaPackage channel destination.
+                        - **DestinationRefId** *(string) --* Placeholder documentation for __string
+                    - **MsSmoothGroupSettings** *(dict) --* Ms Smooth Group Settings
                       - **AcquisitionPointId** *(string) --* The value of the "Acquisition Point Identity" element used in each message placed in the sparse track. Only enabled if sparseTrackType is not "none".
                       - **AudioOnlyTimecodeControl** *(string) --* If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
                       - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA). This will cause https outputs to self-signed certificates to fail.
@@ -4383,14 +4485,14 @@ class Client(BaseClient):
                       - **StreamManifestBehavior** *(string) --* When set to send, send stream manifest so publishing point doesn't start until all streams start.
                       - **TimestampOffset** *(string) --* Timestamp offset for the event. Only used if timestampOffsetMode is set to useConfiguredOffset.
                       - **TimestampOffsetMode** *(string) --* Type of timestamp date offset to use. - useEventStartDate: Use the date the event was started as the offset - useConfiguredOffset: Use an explicitly configured date as the offset
-                    - **RtmpGroupSettings** *(dict) --* Placeholder documentation for RtmpGroupSettings
+                    - **RtmpGroupSettings** *(dict) --* Rtmp Group Settings
                       - **AuthenticationScheme** *(string) --* Authentication scheme to use when connecting with CDN
                       - **CacheFullBehavior** *(string) --* Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
                       - **CacheLength** *(integer) --* Cache length, in seconds, is used to calculate buffer size.
                       - **CaptionData** *(string) --* Controls the types of data that passes to onCaptionInfo outputs. If set to 'all' then 608 and 708 carried DTVCC data will be passed. If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
                       - **InputLossAction** *(string) --* Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                    - **UdpGroupSettings** *(dict) --* Placeholder documentation for UdpGroupSettings
+                    - **UdpGroupSettings** *(dict) --* Udp Group Settings
                       - **InputLossAction** *(string) --* Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted. When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement). Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
                       - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                       - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
@@ -4402,9 +4504,9 @@ class Client(BaseClient):
                         - *(string) --* Placeholder documentation for __string
                       - **OutputName** *(string) --* The name used to identify an output.
                       - **OutputSettings** *(dict) --* Output type-specific settings.
-                        - **ArchiveOutputSettings** *(dict) --* Placeholder documentation for ArchiveOutputSettings
+                        - **ArchiveOutputSettings** *(dict) --* Archive Output Settings
                           - **ContainerSettings** *(dict) --* Settings specific to the container type of the file.
-                            - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                            - **M2tsSettings** *(dict) --* M2ts Settings
                               - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                               - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                               - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -4463,16 +4565,16 @@ class Client(BaseClient):
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
                         - **FrameCaptureOutputSettings** *(dict) --* Frame Capture Output Settings
                           - **NameModifier** *(string) --* Required if the output group contains more than one output. This modifier forms part of the output file name.
-                        - **HlsOutputSettings** *(dict) --* Placeholder documentation for HlsOutputSettings
+                        - **HlsOutputSettings** *(dict) --* Hls Output Settings
                           - **HlsSettings** *(dict) --* Settings regarding the underlying stream. These settings are different for audio-only outputs.
-                            - **AudioOnlyHlsSettings** *(dict) --* Placeholder documentation for AudioOnlyHlsSettings
+                            - **AudioOnlyHlsSettings** *(dict) --* Audio Only Hls Settings
                               - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                               - **AudioOnlyImage** *(dict) --* For use with an audio only Stream. Must be a .jpg or .png file. If given, this image will be used as the cover-art for the audio only output. Ideally, it should be formatted for an iPhone screen for two reasons. The iPhone does not resize the image, it crops a centered image on the top/bottom and left/right. Additionally, this image file gets saved bit-for-bit into every 10-second segment file, so will increase bandwidth by {image file size} * {segment count} * {user count.}.
                                 - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                                 - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
                                 - **Username** *(string) --* Documentation update needed
                               - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-                            - **StandardHlsSettings** *(dict) --* Placeholder documentation for StandardHlsSettings
+                            - **StandardHlsSettings** *(dict) --* Standard Hls Settings
                               - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
                               - **M3u8Settings** *(dict) --* Settings information for the .m3u8 container
                                 - **AudioFramesPerPes** *(integer) --* The number of audio frames to insert for each PES packet.
@@ -4493,18 +4595,19 @@ class Client(BaseClient):
                                 - **VideoPid** *(string) --* Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
                           - **SegmentModifier** *(string) --* String concatenated to end of segment filenames.
-                        - **MsSmoothOutputSettings** *(dict) --* Placeholder documentation for MsSmoothOutputSettings
+                        - **MediaPackageOutputSettings** *(dict) --* Media Package Output Settings
+                        - **MsSmoothOutputSettings** *(dict) --* Ms Smooth Output Settings
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-                        - **RtmpOutputSettings** *(dict) --* Placeholder documentation for RtmpOutputSettings
+                        - **RtmpOutputSettings** *(dict) --* Rtmp Output Settings
                           - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA). This will cause rtmps outputs with self-signed certificates to fail.
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
                           - **Destination** *(dict) --* The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
                             - **DestinationRefId** *(string) --* Placeholder documentation for __string
                           - **NumRetries** *(integer) --* Number of retry attempts.
-                        - **UdpOutputSettings** *(dict) --* Placeholder documentation for UdpOutputSettings
+                        - **UdpOutputSettings** *(dict) --* Udp Output Settings
                           - **BufferMsec** *(integer) --* UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-                          - **ContainerSettings** *(dict) --* Placeholder documentation for UdpContainerSettings
-                            - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                          - **ContainerSettings** *(dict) --* Udp Container Settings
+                            - **M2tsSettings** *(dict) --* M2ts Settings
                               - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                               - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                               - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -4574,7 +4677,7 @@ class Client(BaseClient):
                   - **CodecSettings** *(dict) --* Video codec settings.
                     - **FrameCaptureSettings** *(dict) --* Frame Capture Settings
                       - **CaptureInterval** *(integer) --* The frequency, in seconds, for capturing frames for inclusion in the output. For example, "10" means capture a frame every 10 seconds.
-                    - **H264Settings** *(dict) --* Placeholder documentation for H264Settings
+                    - **H264Settings** *(dict) --* H264 Settings
                       - **AdaptiveQuantization** *(string) --* Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
                       - **AfdSignaling** *(string) --* Indicates that AFD values will be written into the output stream. If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
                       - **Bitrate** *(integer) --* Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -4625,33 +4728,33 @@ class Client(BaseClient):
                 - **InputId** *(string) --* The ID of the input
                 - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
                   - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                    - *(dict) --* Placeholder documentation for AudioSelector
+                    - *(dict) --* Audio Selector
                       - **Name** *(string) --* The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                       - **SelectorSettings** *(dict) --* The audio selector settings.
-                        - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                        - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                           - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                           - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
-                        - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                        - **AudioPidSelection** *(dict) --* Audio Pid Selection
                           - **Pid** *(integer) --* Selects a specific PID from within a source.
                   - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                     - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                       - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                       - **Name** *(string) --* Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                       - **SelectorSettings** *(dict) --* Caption selector settings.
-                        - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                        - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                        - **AribSourceSettings** *(dict) --* Arib Source Settings
+                        - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                           - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                        - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                        - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                           - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                           - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                           - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                           - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                        - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                        - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                           - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                           - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                        - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                        - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                           - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                        - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                        - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                           - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
                   - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                   - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -4669,9 +4772,9 @@ class Client(BaseClient):
                     - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                     - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                     - **SelectorSettings** *(dict) --* The video selector settings.
-                      - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                      - **VideoSelectorPid** *(dict) --* Video Selector Pid
                         - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                      - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                      - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                         - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
             - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
               - **Codec** *(string) --* Input codec
@@ -4768,6 +4871,7 @@ class Client(BaseClient):
                 'Region': 'string',
                 'ReservationId': 'string',
                 'ResourceSpecification': {
+                    'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                     'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
                     'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
                     'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
@@ -4778,6 +4882,9 @@ class Client(BaseClient):
                 },
                 'Start': 'string',
                 'State': 'ACTIVE'|'EXPIRED'|'CANCELED'|'DELETED',
+                'Tags': {
+                    'string': 'string'
+                },
                 'UsagePrice': 123.0
             }
         
@@ -4797,6 +4904,7 @@ class Client(BaseClient):
             - **Region** *(string) --* AWS region, e.g. 'us-west-2'
             - **ReservationId** *(string) --* Unique reservation ID, e.g. '1234567'
             - **ResourceSpecification** *(dict) --* Resource configuration details
+              - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
               - **Codec** *(string) --* Codec, e.g. 'AVC'
               - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
               - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
@@ -4806,6 +4914,9 @@ class Client(BaseClient):
               - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
             - **Start** *(string) --* Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
             - **State** *(string) --* Current state of reservation, e.g. 'ACTIVE'
+            - **Tags** *(dict) --* A collection of key-value pairs
+              - *(string) --* Placeholder documentation for __string
+                - *(string) --* Placeholder documentation for __string
             - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
         :type ReservationId: string
         :param ReservationId: **[REQUIRED]** Unique reservation ID, e.g. \'1234567\'
@@ -4851,9 +4962,15 @@ class Client(BaseClient):
         ::
             {
                 'Arn': 'string',
+                'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                 'Destinations': [
                     {
                         'Id': 'string',
+                        'MediaPackageSettings': [
+                            {
+                                'ChannelId': 'string'
+                            },
+                        ],
                         'Settings': [
                             {
                                 'PasswordParam': 'string',
@@ -5070,6 +5187,7 @@ class Client(BaseClient):
                             'InputLossImageType': 'COLOR'|'SLATE',
                             'RepeatFrameMsec': 123
                         },
+                        'OutputLockingMode': 'EPOCH_LOCKING'|'PIPELINE_LOCKING',
                         'OutputTimingSource': 'INPUT_CLOCK'|'SYSTEM_CLOCK',
                         'SupportLowFramerateInputs': 'DISABLED'|'ENABLED'
                     },
@@ -5175,6 +5293,11 @@ class Client(BaseClient):
                                     'TimedMetadataId3Period': 123,
                                     'TimestampDeltaMilliseconds': 123,
                                     'TsFileMode': 'SEGMENTED_FILES'|'SINGLE_FILE'
+                                },
+                                'MediaPackageGroupSettings': {
+                                    'Destination': {
+                                        'DestinationRefId': 'string'
+                                    }
                                 },
                                 'MsSmoothGroupSettings': {
                                     'AcquisitionPointId': 'string',
@@ -5327,6 +5450,7 @@ class Client(BaseClient):
                                             'NameModifier': 'string',
                                             'SegmentModifier': 'string'
                                         },
+                                        'MediaPackageOutputSettings': {},
                                         'MsSmoothOutputSettings': {
                                             'NameModifier': 'string'
                                         },
@@ -5570,10 +5694,14 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* Channel details
             - **Arn** *(string) --* The unique arn of the channel.
+            - **ChannelClass** *(string) --* The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
             - **Destinations** *(list) --* A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager. 
               - *(dict) --* Placeholder documentation for OutputDestination
                 - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-                - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+                - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+                  - *(dict) --* Media Package Output Destination Settings
+                    - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+                - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
                   - *(dict) --* Placeholder documentation for OutputDestinationSettings
                     - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                     - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -5582,9 +5710,9 @@ class Client(BaseClient):
             - **EgressEndpoints** *(list) --* The endpoints where outgoing connections initiate from
               - *(dict) --* Placeholder documentation for ChannelEgressEndpoint
                 - **SourceIp** *(string) --* Public IP of where a channel's output comes from
-            - **EncoderSettings** *(dict) --* Placeholder documentation for EncoderSettings
+            - **EncoderSettings** *(dict) --* Encoder Settings
               - **AudioDescriptions** *(list) --* Placeholder documentation for __listOfAudioDescription
-                - *(dict) --* Placeholder documentation for AudioDescription
+                - *(dict) --* Audio Description
                   - **AudioNormalizationSettings** *(dict) --* Advanced audio normalization settings.
                     - **Algorithm** *(string) --* Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
                     - **AlgorithmControl** *(string) --* When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -5593,7 +5721,7 @@ class Client(BaseClient):
                   - **AudioType** *(string) --* Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
                   - **AudioTypeControl** *(string) --* Determines how audio type is determined. followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output. useConfigured: The value in Audio Type is included in the output. Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
                   - **CodecSettings** *(dict) --* Audio codec settings.
-                    - **AacSettings** *(dict) --* Placeholder documentation for AacSettings
+                    - **AacSettings** *(dict) --* Aac Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid values depend on rate control mode and profile.
                       - **CodingMode** *(string) --* Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                       - **InputType** *(string) --* Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair. The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd. Leave set to "normal" when input does not contain pre-mixed audio + AD.
@@ -5603,7 +5731,7 @@ class Client(BaseClient):
                       - **SampleRate** *(float) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                       - **Spec** *(string) --* Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
                       - **VbrQuality** *(string) --* VBR Quality Level - Only used if rateControlMode is VBR.
-                    - **Ac3Settings** *(dict) --* Placeholder documentation for Ac3Settings
+                    - **Ac3Settings** *(dict) --* Ac3 Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                       - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                       - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
@@ -5611,7 +5739,7 @@ class Client(BaseClient):
                       - **DrcProfile** *(string) --* If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
                       - **LfeFilter** *(string) --* When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
                       - **MetadataControl** *(string) --* When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-                    - **Eac3Settings** *(dict) --* Placeholder documentation for Eac3Settings
+                    - **Eac3Settings** *(dict) --* Eac3 Settings
                       - **AttenuationControl** *(string) --* When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                       - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
@@ -5632,19 +5760,19 @@ class Client(BaseClient):
                       - **StereoDownmix** *(string) --* Stereo downmix preference. Only used for 3/2 coding mode.
                       - **SurroundExMode** *(string) --* When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
                       - **SurroundMode** *(string) --* When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-                    - **Mp2Settings** *(dict) --* Placeholder documentation for Mp2Settings
+                    - **Mp2Settings** *(dict) --* Mp2 Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second.
                       - **CodingMode** *(string) --* The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
                       - **SampleRate** *(float) --* Sample rate in Hz.
-                    - **PassThroughSettings** *(dict) --* Placeholder documentation for PassThroughSettings
+                    - **PassThroughSettings** *(dict) --* Pass Through Settings
                   - **LanguageCode** *(string) --* Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
                   - **LanguageCodeControl** *(string) --* Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
                   - **Name** *(string) --* The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription. Description names should be unique within this Live Event.
                   - **RemixSettings** *(dict) --* Settings that control how input audio channels are remixed into the output audio channels.
                     - **ChannelMappings** *(list) --* Mapping of input channels to output channels, with appropriate gain adjustments.
-                      - *(dict) --* Placeholder documentation for AudioChannelMapping
+                      - *(dict) --* Audio Channel Mapping
                         - **InputChannelLevels** *(list) --* Indices and gain values for each input channel that should be remixed into this output channel.
-                          - *(dict) --* Placeholder documentation for InputChannelLevel
+                          - *(dict) --* Input Channel Level
                             - **Gain** *(integer) --* Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
                             - **InputChannel** *(integer) --* The index of the input channel used as a source.
                         - **OutputChannel** *(integer) --* The index of the output channel being produced.
@@ -5659,11 +5787,11 @@ class Client(BaseClient):
                 - **State** *(string) --* When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
               - **AvailConfiguration** *(dict) --* Event-wide configuration settings for ad avail insertion.
                 - **AvailSettings** *(dict) --* Ad avail settings.
-                  - **Scte35SpliceInsert** *(dict) --* Placeholder documentation for Scte35SpliceInsert
+                  - **Scte35SpliceInsert** *(dict) --* Scte35 Splice Insert
                     - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                     - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                     - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-                  - **Scte35TimeSignalApos** *(dict) --* Placeholder documentation for Scte35TimeSignalApos
+                  - **Scte35TimeSignalApos** *(dict) --* Scte35 Time Signal Apos
                     - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                     - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                     - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -5683,8 +5811,8 @@ class Client(BaseClient):
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **CaptionSelectorName** *(string) --* Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
                   - **DestinationSettings** *(dict) --* Additional settings for captions destination that depend on the destination type.
-                    - **AribDestinationSettings** *(dict) --* Placeholder documentation for AribDestinationSettings
-                    - **BurnInDestinationSettings** *(dict) --* Placeholder documentation for BurnInDestinationSettings
+                    - **AribDestinationSettings** *(dict) --* Arib Destination Settings
+                    - **BurnInDestinationSettings** *(dict) --* Burn In Destination Settings
                       - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -5705,7 +5833,7 @@ class Client(BaseClient):
                       - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                       - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
                       - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
-                    - **DvbSubDestinationSettings** *(dict) --* Placeholder documentation for DvbSubDestinationSettings
+                    - **DvbSubDestinationSettings** *(dict) --* Dvb Sub Destination Settings
                       - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -5726,16 +5854,16 @@ class Client(BaseClient):
                       - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                       - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                       - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-                    - **EmbeddedDestinationSettings** *(dict) --* Placeholder documentation for EmbeddedDestinationSettings
-                    - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Placeholder documentation for EmbeddedPlusScte20DestinationSettings
-                    - **RtmpCaptionInfoDestinationSettings** *(dict) --* Placeholder documentation for RtmpCaptionInfoDestinationSettings
-                    - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Placeholder documentation for Scte20PlusEmbeddedDestinationSettings
-                    - **Scte27DestinationSettings** *(dict) --* Placeholder documentation for Scte27DestinationSettings
-                    - **SmpteTtDestinationSettings** *(dict) --* Placeholder documentation for SmpteTtDestinationSettings
-                    - **TeletextDestinationSettings** *(dict) --* Placeholder documentation for TeletextDestinationSettings
-                    - **TtmlDestinationSettings** *(dict) --* Placeholder documentation for TtmlDestinationSettings
+                    - **EmbeddedDestinationSettings** *(dict) --* Embedded Destination Settings
+                    - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Embedded Plus Scte20 Destination Settings
+                    - **RtmpCaptionInfoDestinationSettings** *(dict) --* Rtmp Caption Info Destination Settings
+                    - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Scte20 Plus Embedded Destination Settings
+                    - **Scte27DestinationSettings** *(dict) --* Scte27 Destination Settings
+                    - **SmpteTtDestinationSettings** *(dict) --* Smpte Tt Destination Settings
+                    - **TeletextDestinationSettings** *(dict) --* Teletext Destination Settings
+                    - **TtmlDestinationSettings** *(dict) --* Ttml Destination Settings
                       - **StyleControl** *(string) --* When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-                    - **WebvttDestinationSettings** *(dict) --* Placeholder documentation for WebvttDestinationSettings
+                    - **WebvttDestinationSettings** *(dict) --* Webvtt Destination Settings
                   - **LanguageCode** *(string) --* ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
                   - **LanguageDescription** *(string) --* Human readable information to indicate captions available for players (eg. English, or Spanish).
                   - **Name** *(string) --* Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
@@ -5751,22 +5879,23 @@ class Client(BaseClient):
                     - **Username** *(string) --* Documentation update needed
                   - **InputLossImageType** *(string) --* Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
                   - **RepeatFrameMsec** *(integer) --* Documentation update needed
+                - **OutputLockingMode** *(string) --* Indicates how MediaLive pipelines are synchronized. PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
                 - **OutputTimingSource** *(string) --* Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
                 - **SupportLowFramerateInputs** *(string) --* Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
               - **OutputGroups** *(list) --* Placeholder documentation for __listOfOutputGroup
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **Name** *(string) --* Custom output group name optionally defined by the user. Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
                   - **OutputGroupSettings** *(dict) --* Settings associated with the output group.
-                    - **ArchiveGroupSettings** *(dict) --* Placeholder documentation for ArchiveGroupSettings
+                    - **ArchiveGroupSettings** *(dict) --* Archive Group Settings
                       - **Destination** *(dict) --* A directory and base filename where archive files should be written.
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
                       - **RolloverInterval** *(integer) --* Number of seconds to write to archive file before closing and starting a new one.
                     - **FrameCaptureGroupSettings** *(dict) --* Frame Capture Group Settings
                       - **Destination** *(dict) --* The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, "curling_") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg). For example, curlingLow.00001.jpg
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
-                    - **HlsGroupSettings** *(dict) --* Placeholder documentation for HlsGroupSettings
+                    - **HlsGroupSettings** *(dict) --* Hls Group Settings
                       - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-                        - *(string) --* Placeholder documentation for HlsAdMarkers
+                        - *(string) --* Hls Ad Markers
                       - **BaseUrlContent** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                       - **BaseUrlManifest** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                       - **CaptionLanguageMappings** *(list) --* Mapping of up to 4 caption channels to caption languages. Is only meaningful if captionLanguageSetting is set to "insert".
@@ -5783,7 +5912,7 @@ class Client(BaseClient):
                       - **DirectoryStructure** *(string) --* Place segments in subdirectories.
                       - **EncryptionType** *(string) --* Encrypts the segments with the given encryption scheme. Exclude this parameter if no encryption is desired.
                       - **HlsCdnSettings** *(dict) --* Parameters that control interactions with the CDN.
-                        - **HlsAkamaiSettings** *(dict) --* Placeholder documentation for HlsAkamaiSettings
+                        - **HlsAkamaiSettings** *(dict) --* Hls Akamai Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
@@ -5791,33 +5920,33 @@ class Client(BaseClient):
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
                           - **Salt** *(string) --* Salt for authenticated Akamai.
                           - **Token** *(string) --* Token parameter for authenticated akamai. If not specified, _gda_ is used.
-                        - **HlsBasicPutSettings** *(dict) --* Placeholder documentation for HlsBasicPutSettings
+                        - **HlsBasicPutSettings** *(dict) --* Hls Basic Put Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **HlsMediaStoreSettings** *(dict) --* Placeholder documentation for HlsMediaStoreSettings
+                        - **HlsMediaStoreSettings** *(dict) --* Hls Media Store Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **MediaStoreStorageClass** *(string) --* When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **HlsWebdavSettings** *(dict) --* Placeholder documentation for HlsWebdavSettings
+                        - **HlsWebdavSettings** *(dict) --* Hls Webdav Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to WebDAV.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                      - **IFrameOnlyPlaylists** *(string) --* If enabled, writes out I-Frame only playlists in addition to media playlists.
-                      - **IndexNSegments** *(integer) --* If mode is "live", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is "vod", this parameter has no effect.
+                      - **IFrameOnlyPlaylists** *(string) --* DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field). STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
+                      - **IndexNSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
                       - **InputLossAction** *(string) --* Parameter that control output group behavior on input loss.
                       - **IvInManifest** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
                       - **IvSource** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
-                      - **KeepSegments** *(integer) --* If mode is "live", the number of TS segments to retain in the destination directory. If mode is "vod", this parameter has no effect.
+                      - **KeepSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
                       - **KeyFormat** *(string) --* The value specifies how the key is represented in the resource identified by the URI. If parameter is absent, an implicit value of "identity" is used. A reverse DNS string can also be given.
                       - **KeyFormatVersions** *(string) --* Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                       - **KeyProviderSettings** *(dict) --* The key provider settings.
-                        - **StaticKeySettings** *(dict) --* Placeholder documentation for StaticKeySettings
+                        - **StaticKeySettings** *(dict) --* Static Key Settings
                           - **KeyProviderServer** *(dict) --* The URL of the license server used for protecting content.
                             - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                             - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
@@ -5827,10 +5956,10 @@ class Client(BaseClient):
                       - **ManifestDurationFormat** *(string) --* Indicates whether the output manifest should use floating point or integer values for segment duration.
                       - **MinSegmentLength** *(integer) --* When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
                       - **Mode** *(string) --* If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event. VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
-                      - **OutputSelection** *(string) --* Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file.
+                      - **OutputSelection** *(string) --* MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group. SEGMENTSONLY: Does not generate any manifests for this output group.
                       - **ProgramDateTime** *(string) --* Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
                       - **ProgramDateTimePeriod** *(integer) --* Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-                      - **RedundantManifest** *(string) --* When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
+                      - **RedundantManifest** *(string) --* ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines. DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only. For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
                       - **SegmentLength** *(integer) --* Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
                       - **SegmentationMode** *(string) --* useInputSegmentation has been deprecated. The configured segment size is always used.
                       - **SegmentsPerSubdirectory** *(integer) --* Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -5838,8 +5967,11 @@ class Client(BaseClient):
                       - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                       - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
                       - **TimestampDeltaMilliseconds** *(integer) --* Provides an extra millisecond delta offset to fine tune the timestamps.
-                      - **TsFileMode** *(string) --* When set to "singleFile", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching.
-                    - **MsSmoothGroupSettings** *(dict) --* Placeholder documentation for MsSmoothGroupSettings
+                      - **TsFileMode** *(string) --* SEGMENTEDFILES: Emit the program as segments - multiple .ts media files. SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+                    - **MediaPackageGroupSettings** *(dict) --* Media Package Group Settings
+                      - **Destination** *(dict) --* MediaPackage channel destination.
+                        - **DestinationRefId** *(string) --* Placeholder documentation for __string
+                    - **MsSmoothGroupSettings** *(dict) --* Ms Smooth Group Settings
                       - **AcquisitionPointId** *(string) --* The value of the "Acquisition Point Identity" element used in each message placed in the sparse track. Only enabled if sparseTrackType is not "none".
                       - **AudioOnlyTimecodeControl** *(string) --* If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
                       - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA). This will cause https outputs to self-signed certificates to fail.
@@ -5860,14 +5992,14 @@ class Client(BaseClient):
                       - **StreamManifestBehavior** *(string) --* When set to send, send stream manifest so publishing point doesn't start until all streams start.
                       - **TimestampOffset** *(string) --* Timestamp offset for the event. Only used if timestampOffsetMode is set to useConfiguredOffset.
                       - **TimestampOffsetMode** *(string) --* Type of timestamp date offset to use. - useEventStartDate: Use the date the event was started as the offset - useConfiguredOffset: Use an explicitly configured date as the offset
-                    - **RtmpGroupSettings** *(dict) --* Placeholder documentation for RtmpGroupSettings
+                    - **RtmpGroupSettings** *(dict) --* Rtmp Group Settings
                       - **AuthenticationScheme** *(string) --* Authentication scheme to use when connecting with CDN
                       - **CacheFullBehavior** *(string) --* Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
                       - **CacheLength** *(integer) --* Cache length, in seconds, is used to calculate buffer size.
                       - **CaptionData** *(string) --* Controls the types of data that passes to onCaptionInfo outputs. If set to 'all' then 608 and 708 carried DTVCC data will be passed. If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
                       - **InputLossAction** *(string) --* Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                    - **UdpGroupSettings** *(dict) --* Placeholder documentation for UdpGroupSettings
+                    - **UdpGroupSettings** *(dict) --* Udp Group Settings
                       - **InputLossAction** *(string) --* Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted. When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement). Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
                       - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                       - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
@@ -5879,9 +6011,9 @@ class Client(BaseClient):
                         - *(string) --* Placeholder documentation for __string
                       - **OutputName** *(string) --* The name used to identify an output.
                       - **OutputSettings** *(dict) --* Output type-specific settings.
-                        - **ArchiveOutputSettings** *(dict) --* Placeholder documentation for ArchiveOutputSettings
+                        - **ArchiveOutputSettings** *(dict) --* Archive Output Settings
                           - **ContainerSettings** *(dict) --* Settings specific to the container type of the file.
-                            - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                            - **M2tsSettings** *(dict) --* M2ts Settings
                               - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                               - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                               - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -5940,16 +6072,16 @@ class Client(BaseClient):
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
                         - **FrameCaptureOutputSettings** *(dict) --* Frame Capture Output Settings
                           - **NameModifier** *(string) --* Required if the output group contains more than one output. This modifier forms part of the output file name.
-                        - **HlsOutputSettings** *(dict) --* Placeholder documentation for HlsOutputSettings
+                        - **HlsOutputSettings** *(dict) --* Hls Output Settings
                           - **HlsSettings** *(dict) --* Settings regarding the underlying stream. These settings are different for audio-only outputs.
-                            - **AudioOnlyHlsSettings** *(dict) --* Placeholder documentation for AudioOnlyHlsSettings
+                            - **AudioOnlyHlsSettings** *(dict) --* Audio Only Hls Settings
                               - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                               - **AudioOnlyImage** *(dict) --* For use with an audio only Stream. Must be a .jpg or .png file. If given, this image will be used as the cover-art for the audio only output. Ideally, it should be formatted for an iPhone screen for two reasons. The iPhone does not resize the image, it crops a centered image on the top/bottom and left/right. Additionally, this image file gets saved bit-for-bit into every 10-second segment file, so will increase bandwidth by {image file size} * {segment count} * {user count.}.
                                 - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                                 - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
                                 - **Username** *(string) --* Documentation update needed
                               - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-                            - **StandardHlsSettings** *(dict) --* Placeholder documentation for StandardHlsSettings
+                            - **StandardHlsSettings** *(dict) --* Standard Hls Settings
                               - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
                               - **M3u8Settings** *(dict) --* Settings information for the .m3u8 container
                                 - **AudioFramesPerPes** *(integer) --* The number of audio frames to insert for each PES packet.
@@ -5970,18 +6102,19 @@ class Client(BaseClient):
                                 - **VideoPid** *(string) --* Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
                           - **SegmentModifier** *(string) --* String concatenated to end of segment filenames.
-                        - **MsSmoothOutputSettings** *(dict) --* Placeholder documentation for MsSmoothOutputSettings
+                        - **MediaPackageOutputSettings** *(dict) --* Media Package Output Settings
+                        - **MsSmoothOutputSettings** *(dict) --* Ms Smooth Output Settings
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-                        - **RtmpOutputSettings** *(dict) --* Placeholder documentation for RtmpOutputSettings
+                        - **RtmpOutputSettings** *(dict) --* Rtmp Output Settings
                           - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA). This will cause rtmps outputs with self-signed certificates to fail.
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
                           - **Destination** *(dict) --* The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
                             - **DestinationRefId** *(string) --* Placeholder documentation for __string
                           - **NumRetries** *(integer) --* Number of retry attempts.
-                        - **UdpOutputSettings** *(dict) --* Placeholder documentation for UdpOutputSettings
+                        - **UdpOutputSettings** *(dict) --* Udp Output Settings
                           - **BufferMsec** *(integer) --* UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-                          - **ContainerSettings** *(dict) --* Placeholder documentation for UdpContainerSettings
-                            - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                          - **ContainerSettings** *(dict) --* Udp Container Settings
+                            - **M2tsSettings** *(dict) --* M2ts Settings
                               - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                               - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                               - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -6051,7 +6184,7 @@ class Client(BaseClient):
                   - **CodecSettings** *(dict) --* Video codec settings.
                     - **FrameCaptureSettings** *(dict) --* Frame Capture Settings
                       - **CaptureInterval** *(integer) --* The frequency, in seconds, for capturing frames for inclusion in the output. For example, "10" means capture a frame every 10 seconds.
-                    - **H264Settings** *(dict) --* Placeholder documentation for H264Settings
+                    - **H264Settings** *(dict) --* H264 Settings
                       - **AdaptiveQuantization** *(string) --* Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
                       - **AfdSignaling** *(string) --* Indicates that AFD values will be written into the output stream. If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
                       - **Bitrate** *(integer) --* Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -6102,33 +6235,33 @@ class Client(BaseClient):
                 - **InputId** *(string) --* The ID of the input
                 - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
                   - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                    - *(dict) --* Placeholder documentation for AudioSelector
+                    - *(dict) --* Audio Selector
                       - **Name** *(string) --* The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                       - **SelectorSettings** *(dict) --* The audio selector settings.
-                        - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                        - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                           - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                           - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
-                        - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                        - **AudioPidSelection** *(dict) --* Audio Pid Selection
                           - **Pid** *(integer) --* Selects a specific PID from within a source.
                   - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                     - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                       - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                       - **Name** *(string) --* Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                       - **SelectorSettings** *(dict) --* Caption selector settings.
-                        - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                        - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                        - **AribSourceSettings** *(dict) --* Arib Source Settings
+                        - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                           - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                        - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                        - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                           - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                           - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                           - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                           - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                        - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                        - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                           - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                           - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                        - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                        - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                           - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                        - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                        - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                           - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
                   - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                   - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -6146,9 +6279,9 @@ class Client(BaseClient):
                     - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                     - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                     - **SelectorSettings** *(dict) --* The video selector settings.
-                      - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                      - **VideoSelectorPid** *(dict) --* Video Selector Pid
                         - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                      - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                      - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                         - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
             - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
               - **Codec** *(string) --* Input codec
@@ -6199,6 +6332,7 @@ class Client(BaseClient):
                     },
                 ],
                 'Id': 'string',
+                'InputClass': 'STANDARD'|'SINGLE_PIPELINE',
                 'MediaConnectFlows': [
                     {
                         'FlowArn': 'string'
@@ -6237,6 +6371,7 @@ class Client(BaseClient):
                   - **AvailabilityZone** *(string) --* The availability zone of the Input destination. 
                   - **NetworkInterfaceId** *(string) --* The network interface ID of the Input destination in the VPC. 
             - **Id** *(string) --* The generated ID of the input (unique for user account, immutable).
+            - **InputClass** *(string) --* STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input. 
             - **MediaConnectFlows** *(list) --* A list of MediaConnect Flows for this input.
               - *(dict) --* The settings for a MediaConnect Flow.
                 - **FlowArn** *(string) --* The unique ARN of the MediaConnect Flow being used as a source.
@@ -6335,6 +6470,7 @@ class Client(BaseClient):
                 'OfferingType': 'NO_UPFRONT',
                 'Region': 'string',
                 'ResourceSpecification': {
+                    'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                     'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
                     'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
                     'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
@@ -6358,6 +6494,7 @@ class Client(BaseClient):
             - **OfferingType** *(string) --* Offering type, e.g. 'NO_UPFRONT'
             - **Region** *(string) --* AWS region, e.g. 'us-west-2'
             - **ResourceSpecification** *(dict) --* Resource configuration details
+              - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
               - **Codec** *(string) --* Codec, e.g. 'AVC'
               - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
               - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
@@ -6401,6 +6538,7 @@ class Client(BaseClient):
                 'Region': 'string',
                 'ReservationId': 'string',
                 'ResourceSpecification': {
+                    'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                     'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
                     'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
                     'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
@@ -6411,6 +6549,9 @@ class Client(BaseClient):
                 },
                 'Start': 'string',
                 'State': 'ACTIVE'|'EXPIRED'|'CANCELED'|'DELETED',
+                'Tags': {
+                    'string': 'string'
+                },
                 'UsagePrice': 123.0
             }
         
@@ -6430,6 +6571,7 @@ class Client(BaseClient):
             - **Region** *(string) --* AWS region, e.g. 'us-west-2'
             - **ReservationId** *(string) --* Unique reservation ID, e.g. '1234567'
             - **ResourceSpecification** *(dict) --* Resource configuration details
+              - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
               - **Codec** *(string) --* Codec, e.g. 'AVC'
               - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
               - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
@@ -6439,6 +6581,9 @@ class Client(BaseClient):
               - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
             - **Start** *(string) --* Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
             - **State** *(string) --* Current state of reservation, e.g. 'ACTIVE'
+            - **Tags** *(dict) --* A collection of key-value pairs
+              - *(string) --* Placeholder documentation for __string
+                - *(string) --* Placeholder documentation for __string
             - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
         :type ReservationId: string
         :param ReservationId: **[REQUIRED]** Unique reservation ID, e.g. \'1234567\'
@@ -6473,6 +6618,13 @@ class Client(BaseClient):
                             },
                             'InputSwitchSettings': {
                                 'InputAttachmentNameReference': 'string'
+                            },
+                            'PauseStateSettings': {
+                                'Pipelines': [
+                                    {
+                                        'PipelineId': 'PIPELINE_0'|'PIPELINE_1'
+                                    },
+                                ]
                             },
                             'Scte35ReturnToNetworkSettings': {
                                 'SpliceEventId': 123
@@ -6548,16 +6700,20 @@ class Client(BaseClient):
               - *(dict) --* Contains information on a single schedule action.
                 - **ActionName** *(string) --* The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
                 - **ScheduleActionSettings** *(dict) --* Settings for this schedule action.
-                  - **HlsTimedMetadataSettings** *(dict) --* Settings to emit HLS metadata
+                  - **HlsTimedMetadataSettings** *(dict) --* Action to insert HLS metadata
                     - **Id3** *(string) --* Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
-                  - **InputSwitchSettings** *(dict) --* Settings to switch an input
+                  - **InputSwitchSettings** *(dict) --* Action to switch the input
                     - **InputAttachmentNameReference** *(string) --* The name of the input attachment that should be switched to by this action.
-                  - **Scte35ReturnToNetworkSettings** *(dict) --* Settings for SCTE-35 return_to_network message
+                  - **PauseStateSettings** *(dict) --* Action to pause or unpause one or both channel pipelines
+                    - **Pipelines** *(list) --* Placeholder documentation for __listOfPipelinePauseStateSettings
+                      - *(dict) --* Settings for pausing a pipeline.
+                        - **PipelineId** *(string) --* Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
+                  - **Scte35ReturnToNetworkSettings** *(dict) --* Action to insert SCTE-35 return_to_network message
                     - **SpliceEventId** *(integer) --* The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                  - **Scte35SpliceInsertSettings** *(dict) --* Settings for SCTE-35 splice_insert message
+                  - **Scte35SpliceInsertSettings** *(dict) --* Action to insert SCTE-35 splice_insert message
                     - **Duration** *(integer) --* Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
                     - **SpliceEventId** *(integer) --* The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-                  - **Scte35TimeSignalSettings** *(dict) --* Settings for SCTE-35 time_signal message
+                  - **Scte35TimeSignalSettings** *(dict) --* Action to insert SCTE-35 time_signal message
                     - **Scte35Descriptors** *(list) --* The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
                       - *(dict) --* Holds one set of SCTE-35 Descriptor Settings.
                         - **Scte35DescriptorSettings** *(dict) --* SCTE-35 Descriptor Settings.
@@ -6577,7 +6733,7 @@ class Client(BaseClient):
                             - **SegmentsExpected** *(integer) --* Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
                             - **SubSegmentNum** *(integer) --* Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
                             - **SubSegmentsExpected** *(integer) --* Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
-                  - **StaticImageActivateSettings** *(dict) --* Settings to activate a static image overlay
+                  - **StaticImageActivateSettings** *(dict) --* Action to activate a static image overlay
                     - **Duration** *(integer) --* The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
                     - **FadeIn** *(integer) --* The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
                     - **FadeOut** *(integer) --* Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
@@ -6591,7 +6747,7 @@ class Client(BaseClient):
                     - **Layer** *(integer) --* The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
                     - **Opacity** *(integer) --* Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
                     - **Width** *(integer) --* The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
-                  - **StaticImageDeactivateSettings** *(dict) --* Settings to deactivate a static image overlay
+                  - **StaticImageDeactivateSettings** *(dict) --* Action to deactivate a static image overlay
                     - **FadeOut** *(integer) --* The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
                     - **Layer** *(integer) --* The image overlay layer to deactivate, 0 to 7. Default is 0.
                 - **ScheduleActionStartSettings** *(dict) --* The time for the action to start in the channel.
@@ -6676,9 +6832,15 @@ class Client(BaseClient):
                 'Channels': [
                     {
                         'Arn': 'string',
+                        'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                         'Destinations': [
                             {
                                 'Id': 'string',
+                                'MediaPackageSettings': [
+                                    {
+                                        'ChannelId': 'string'
+                                    },
+                                ],
                                 'Settings': [
                                     {
                                         'PasswordParam': 'string',
@@ -6780,7 +6942,10 @@ class Client(BaseClient):
                         'Name': 'string',
                         'PipelinesRunningCount': 123,
                         'RoleArn': 'string',
-                        'State': 'CREATING'|'CREATE_FAILED'|'IDLE'|'STARTING'|'RUNNING'|'RECOVERING'|'STOPPING'|'DELETING'|'DELETED'
+                        'State': 'CREATING'|'CREATE_FAILED'|'IDLE'|'STARTING'|'RUNNING'|'RECOVERING'|'STOPPING'|'DELETING'|'DELETED',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -6791,10 +6956,14 @@ class Client(BaseClient):
             - **Channels** *(list) --* Placeholder documentation for __listOfChannelSummary
               - *(dict) --* Placeholder documentation for ChannelSummary
                 - **Arn** *(string) --* The unique arn of the channel.
+                - **ChannelClass** *(string) --* The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
                 - **Destinations** *(list) --* A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager. 
                   - *(dict) --* Placeholder documentation for OutputDestination
                     - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-                    - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+                    - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+                      - *(dict) --* Media Package Output Destination Settings
+                        - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+                    - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
                       - *(dict) --* Placeholder documentation for OutputDestinationSettings
                         - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                         - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -6810,33 +6979,33 @@ class Client(BaseClient):
                     - **InputId** *(string) --* The ID of the input
                     - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
                       - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                        - *(dict) --* Placeholder documentation for AudioSelector
+                        - *(dict) --* Audio Selector
                           - **Name** *(string) --* The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                           - **SelectorSettings** *(dict) --* The audio selector settings.
-                            - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                            - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                               - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                               - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
-                            - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                            - **AudioPidSelection** *(dict) --* Audio Pid Selection
                               - **Pid** *(integer) --* Selects a specific PID from within a source.
                       - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                         - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                           - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                           - **Name** *(string) --* Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                           - **SelectorSettings** *(dict) --* Caption selector settings.
-                            - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                            - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                            - **AribSourceSettings** *(dict) --* Arib Source Settings
+                            - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                               - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                            - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                            - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                               - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                               - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                               - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                               - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                            - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                            - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                               - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                               - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                            - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                            - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                               - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                            - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                            - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                               - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
                       - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                       - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -6854,9 +7023,9 @@ class Client(BaseClient):
                         - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                         - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                         - **SelectorSettings** *(dict) --* The video selector settings.
-                          - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                          - **VideoSelectorPid** *(dict) --* Video Selector Pid
                             - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                          - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                          - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                             - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
                 - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
                   - **Codec** *(string) --* Input codec
@@ -6867,6 +7036,9 @@ class Client(BaseClient):
                 - **PipelinesRunningCount** *(integer) --* The number of currently healthy pipelines.
                 - **RoleArn** *(string) --* The Amazon Resource Name (ARN) of the role assumed when running the Channel.
                 - **State** *(string) --* Placeholder documentation for ChannelState
+                - **Tags** *(dict) --* A collection of key-value pairs.
+                  - *(string) --* Placeholder documentation for __string
+                    - *(string) --* Placeholder documentation for __string
             - **NextToken** *(string) --* Placeholder documentation for __string
         :type MaxResults: integer
         :param MaxResults: Placeholder documentation for MaxResults
@@ -6971,6 +7143,7 @@ class Client(BaseClient):
                             },
                         ],
                         'Id': 'string',
+                        'InputClass': 'STANDARD'|'SINGLE_PIPELINE',
                         'MediaConnectFlows': [
                             {
                                 'FlowArn': 'string'
@@ -7014,6 +7187,7 @@ class Client(BaseClient):
                       - **AvailabilityZone** *(string) --* The availability zone of the Input destination. 
                       - **NetworkInterfaceId** *(string) --* The network interface ID of the Input destination in the VPC. 
                 - **Id** *(string) --* The generated ID of the input (unique for user account, immutable).
+                - **InputClass** *(string) --* STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input. 
                 - **MediaConnectFlows** *(list) --* A list of MediaConnect Flows for this input.
                   - *(dict) --* The settings for a MediaConnect Flow.
                     - **FlowArn** *(string) --* The unique ARN of the MediaConnect Flow being used as a source.
@@ -7041,7 +7215,7 @@ class Client(BaseClient):
         """
         pass
 
-    def list_offerings(self, ChannelConfiguration: str = None, Codec: str = None, MaxResults: int = None, MaximumBitrate: str = None, MaximumFramerate: str = None, NextToken: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None) -> Dict:
+    def list_offerings(self, ChannelClass: str = None, ChannelConfiguration: str = None, Codec: str = None, MaxResults: int = None, MaximumBitrate: str = None, MaximumFramerate: str = None, NextToken: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None) -> Dict:
         """
         List offerings available for purchase.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ListOfferings>`_
@@ -7049,6 +7223,7 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.list_offerings(
+              ChannelClass='string',
               ChannelConfiguration='string',
               Codec='string',
               MaxResults=123,
@@ -7077,6 +7252,7 @@ class Client(BaseClient):
                         'OfferingType': 'NO_UPFRONT',
                         'Region': 'string',
                         'ResourceSpecification': {
+                            'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                             'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
                             'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
                             'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
@@ -7105,6 +7281,7 @@ class Client(BaseClient):
                 - **OfferingType** *(string) --* Offering type, e.g. 'NO_UPFRONT'
                 - **Region** *(string) --* AWS region, e.g. 'us-west-2'
                 - **ResourceSpecification** *(dict) --* Resource configuration details
+                  - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
                   - **Codec** *(string) --* Codec, e.g. 'AVC'
                   - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
                   - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
@@ -7113,6 +7290,8 @@ class Client(BaseClient):
                   - **SpecialFeature** *(string) --* Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
                   - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
                 - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
+        :type ChannelClass: string
+        :param ChannelClass: Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
         :type ChannelConfiguration: string
         :param ChannelConfiguration: Filter to offerings that match the configuration of an existing channel, e.g. \'2345678\' (a channel ID)
         :type Codec: string
@@ -7138,7 +7317,7 @@ class Client(BaseClient):
         """
         pass
 
-    def list_reservations(self, Codec: str = None, MaxResults: int = None, MaximumBitrate: str = None, MaximumFramerate: str = None, NextToken: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None) -> Dict:
+    def list_reservations(self, ChannelClass: str = None, Codec: str = None, MaxResults: int = None, MaximumBitrate: str = None, MaximumFramerate: str = None, NextToken: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None) -> Dict:
         """
         List purchased reservations.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ListReservations>`_
@@ -7146,6 +7325,7 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.list_reservations(
+              ChannelClass='string',
               Codec='string',
               MaxResults=123,
               MaximumBitrate='string',
@@ -7177,6 +7357,7 @@ class Client(BaseClient):
                         'Region': 'string',
                         'ReservationId': 'string',
                         'ResourceSpecification': {
+                            'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                             'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
                             'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
                             'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
@@ -7187,6 +7368,9 @@ class Client(BaseClient):
                         },
                         'Start': 'string',
                         'State': 'ACTIVE'|'EXPIRED'|'CANCELED'|'DELETED',
+                        'Tags': {
+                            'string': 'string'
+                        },
                         'UsagePrice': 123.0
                     },
                 ]
@@ -7211,6 +7395,7 @@ class Client(BaseClient):
                 - **Region** *(string) --* AWS region, e.g. 'us-west-2'
                 - **ReservationId** *(string) --* Unique reservation ID, e.g. '1234567'
                 - **ResourceSpecification** *(dict) --* Resource configuration details
+                  - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
                   - **Codec** *(string) --* Codec, e.g. 'AVC'
                   - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
                   - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
@@ -7220,7 +7405,12 @@ class Client(BaseClient):
                   - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
                 - **Start** *(string) --* Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
                 - **State** *(string) --* Current state of reservation, e.g. 'ACTIVE'
+                - **Tags** *(dict) --* A collection of key-value pairs
+                  - *(string) --* Placeholder documentation for __string
+                    - *(string) --* Placeholder documentation for __string
                 - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
+        :type ChannelClass: string
+        :param ChannelClass: Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
         :type Codec: string
         :param Codec: Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', or \'AUDIO\'
         :type MaxResults: integer
@@ -7275,7 +7465,7 @@ class Client(BaseClient):
         """
         pass
 
-    def purchase_offering(self, Count: int, OfferingId: str, Name: str = None, RequestId: str = None, Start: str = None) -> Dict:
+    def purchase_offering(self, Count: int, OfferingId: str, Name: str = None, RequestId: str = None, Start: str = None, Tags: Dict = None) -> Dict:
         """
         Purchase an offering and create a reservation.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/PurchaseOffering>`_
@@ -7287,7 +7477,10 @@ class Client(BaseClient):
               Name='string',
               OfferingId='string',
               RequestId='string',
-              Start='string'
+              Start='string',
+              Tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -7308,6 +7501,7 @@ class Client(BaseClient):
                     'Region': 'string',
                     'ReservationId': 'string',
                     'ResourceSpecification': {
+                        'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                         'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
                         'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
                         'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
@@ -7318,6 +7512,9 @@ class Client(BaseClient):
                     },
                     'Start': 'string',
                     'State': 'ACTIVE'|'EXPIRED'|'CANCELED'|'DELETED',
+                    'Tags': {
+                        'string': 'string'
+                    },
                     'UsagePrice': 123.0
                 }
             }
@@ -7339,6 +7536,7 @@ class Client(BaseClient):
               - **Region** *(string) --* AWS region, e.g. 'us-west-2'
               - **ReservationId** *(string) --* Unique reservation ID, e.g. '1234567'
               - **ResourceSpecification** *(dict) --* Resource configuration details
+                - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
                 - **Codec** *(string) --* Codec, e.g. 'AVC'
                 - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
                 - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
@@ -7348,6 +7546,9 @@ class Client(BaseClient):
                 - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
               - **Start** *(string) --* Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
               - **State** *(string) --* Current state of reservation, e.g. 'ACTIVE'
+              - **Tags** *(dict) --* A collection of key-value pairs
+                - *(string) --* Placeholder documentation for __string
+                  - *(string) --* Placeholder documentation for __string
               - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
         :type Count: integer
         :param Count: **[REQUIRED]** Number of resources
@@ -7359,6 +7560,10 @@ class Client(BaseClient):
         :param RequestId: Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.This field is autopopulated if not provided.
         :type Start: string
         :param Start: Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
+        :type Tags: dict
+        :param Tags: A collection of key-value pairs
+          - *(string) --* Placeholder documentation for __string
+            - *(string) --* Placeholder documentation for __string
         :rtype: dict
         :returns:
         """
@@ -7379,9 +7584,15 @@ class Client(BaseClient):
         ::
             {
                 'Arn': 'string',
+                'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                 'Destinations': [
                     {
                         'Id': 'string',
+                        'MediaPackageSettings': [
+                            {
+                                'ChannelId': 'string'
+                            },
+                        ],
                         'Settings': [
                             {
                                 'PasswordParam': 'string',
@@ -7598,6 +7809,7 @@ class Client(BaseClient):
                             'InputLossImageType': 'COLOR'|'SLATE',
                             'RepeatFrameMsec': 123
                         },
+                        'OutputLockingMode': 'EPOCH_LOCKING'|'PIPELINE_LOCKING',
                         'OutputTimingSource': 'INPUT_CLOCK'|'SYSTEM_CLOCK',
                         'SupportLowFramerateInputs': 'DISABLED'|'ENABLED'
                     },
@@ -7703,6 +7915,11 @@ class Client(BaseClient):
                                     'TimedMetadataId3Period': 123,
                                     'TimestampDeltaMilliseconds': 123,
                                     'TsFileMode': 'SEGMENTED_FILES'|'SINGLE_FILE'
+                                },
+                                'MediaPackageGroupSettings': {
+                                    'Destination': {
+                                        'DestinationRefId': 'string'
+                                    }
                                 },
                                 'MsSmoothGroupSettings': {
                                     'AcquisitionPointId': 'string',
@@ -7855,6 +8072,7 @@ class Client(BaseClient):
                                             'NameModifier': 'string',
                                             'SegmentModifier': 'string'
                                         },
+                                        'MediaPackageOutputSettings': {},
                                         'MsSmoothOutputSettings': {
                                             'NameModifier': 'string'
                                         },
@@ -8098,10 +8316,14 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* Successfully initiated start of the channel.
             - **Arn** *(string) --* The unique arn of the channel.
+            - **ChannelClass** *(string) --* The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
             - **Destinations** *(list) --* A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager. 
               - *(dict) --* Placeholder documentation for OutputDestination
                 - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-                - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+                - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+                  - *(dict) --* Media Package Output Destination Settings
+                    - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+                - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
                   - *(dict) --* Placeholder documentation for OutputDestinationSettings
                     - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                     - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -8110,9 +8332,9 @@ class Client(BaseClient):
             - **EgressEndpoints** *(list) --* The endpoints where outgoing connections initiate from
               - *(dict) --* Placeholder documentation for ChannelEgressEndpoint
                 - **SourceIp** *(string) --* Public IP of where a channel's output comes from
-            - **EncoderSettings** *(dict) --* Placeholder documentation for EncoderSettings
+            - **EncoderSettings** *(dict) --* Encoder Settings
               - **AudioDescriptions** *(list) --* Placeholder documentation for __listOfAudioDescription
-                - *(dict) --* Placeholder documentation for AudioDescription
+                - *(dict) --* Audio Description
                   - **AudioNormalizationSettings** *(dict) --* Advanced audio normalization settings.
                     - **Algorithm** *(string) --* Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
                     - **AlgorithmControl** *(string) --* When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -8121,7 +8343,7 @@ class Client(BaseClient):
                   - **AudioType** *(string) --* Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
                   - **AudioTypeControl** *(string) --* Determines how audio type is determined. followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output. useConfigured: The value in Audio Type is included in the output. Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
                   - **CodecSettings** *(dict) --* Audio codec settings.
-                    - **AacSettings** *(dict) --* Placeholder documentation for AacSettings
+                    - **AacSettings** *(dict) --* Aac Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid values depend on rate control mode and profile.
                       - **CodingMode** *(string) --* Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                       - **InputType** *(string) --* Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair. The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd. Leave set to "normal" when input does not contain pre-mixed audio + AD.
@@ -8131,7 +8353,7 @@ class Client(BaseClient):
                       - **SampleRate** *(float) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                       - **Spec** *(string) --* Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
                       - **VbrQuality** *(string) --* VBR Quality Level - Only used if rateControlMode is VBR.
-                    - **Ac3Settings** *(dict) --* Placeholder documentation for Ac3Settings
+                    - **Ac3Settings** *(dict) --* Ac3 Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                       - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                       - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
@@ -8139,7 +8361,7 @@ class Client(BaseClient):
                       - **DrcProfile** *(string) --* If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
                       - **LfeFilter** *(string) --* When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
                       - **MetadataControl** *(string) --* When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-                    - **Eac3Settings** *(dict) --* Placeholder documentation for Eac3Settings
+                    - **Eac3Settings** *(dict) --* Eac3 Settings
                       - **AttenuationControl** *(string) --* When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                       - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
@@ -8160,19 +8382,19 @@ class Client(BaseClient):
                       - **StereoDownmix** *(string) --* Stereo downmix preference. Only used for 3/2 coding mode.
                       - **SurroundExMode** *(string) --* When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
                       - **SurroundMode** *(string) --* When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-                    - **Mp2Settings** *(dict) --* Placeholder documentation for Mp2Settings
+                    - **Mp2Settings** *(dict) --* Mp2 Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second.
                       - **CodingMode** *(string) --* The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
                       - **SampleRate** *(float) --* Sample rate in Hz.
-                    - **PassThroughSettings** *(dict) --* Placeholder documentation for PassThroughSettings
+                    - **PassThroughSettings** *(dict) --* Pass Through Settings
                   - **LanguageCode** *(string) --* Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
                   - **LanguageCodeControl** *(string) --* Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
                   - **Name** *(string) --* The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription. Description names should be unique within this Live Event.
                   - **RemixSettings** *(dict) --* Settings that control how input audio channels are remixed into the output audio channels.
                     - **ChannelMappings** *(list) --* Mapping of input channels to output channels, with appropriate gain adjustments.
-                      - *(dict) --* Placeholder documentation for AudioChannelMapping
+                      - *(dict) --* Audio Channel Mapping
                         - **InputChannelLevels** *(list) --* Indices and gain values for each input channel that should be remixed into this output channel.
-                          - *(dict) --* Placeholder documentation for InputChannelLevel
+                          - *(dict) --* Input Channel Level
                             - **Gain** *(integer) --* Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
                             - **InputChannel** *(integer) --* The index of the input channel used as a source.
                         - **OutputChannel** *(integer) --* The index of the output channel being produced.
@@ -8187,11 +8409,11 @@ class Client(BaseClient):
                 - **State** *(string) --* When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
               - **AvailConfiguration** *(dict) --* Event-wide configuration settings for ad avail insertion.
                 - **AvailSettings** *(dict) --* Ad avail settings.
-                  - **Scte35SpliceInsert** *(dict) --* Placeholder documentation for Scte35SpliceInsert
+                  - **Scte35SpliceInsert** *(dict) --* Scte35 Splice Insert
                     - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                     - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                     - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-                  - **Scte35TimeSignalApos** *(dict) --* Placeholder documentation for Scte35TimeSignalApos
+                  - **Scte35TimeSignalApos** *(dict) --* Scte35 Time Signal Apos
                     - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                     - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                     - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -8211,8 +8433,8 @@ class Client(BaseClient):
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **CaptionSelectorName** *(string) --* Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
                   - **DestinationSettings** *(dict) --* Additional settings for captions destination that depend on the destination type.
-                    - **AribDestinationSettings** *(dict) --* Placeholder documentation for AribDestinationSettings
-                    - **BurnInDestinationSettings** *(dict) --* Placeholder documentation for BurnInDestinationSettings
+                    - **AribDestinationSettings** *(dict) --* Arib Destination Settings
+                    - **BurnInDestinationSettings** *(dict) --* Burn In Destination Settings
                       - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -8233,7 +8455,7 @@ class Client(BaseClient):
                       - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                       - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
                       - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
-                    - **DvbSubDestinationSettings** *(dict) --* Placeholder documentation for DvbSubDestinationSettings
+                    - **DvbSubDestinationSettings** *(dict) --* Dvb Sub Destination Settings
                       - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -8254,16 +8476,16 @@ class Client(BaseClient):
                       - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                       - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                       - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-                    - **EmbeddedDestinationSettings** *(dict) --* Placeholder documentation for EmbeddedDestinationSettings
-                    - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Placeholder documentation for EmbeddedPlusScte20DestinationSettings
-                    - **RtmpCaptionInfoDestinationSettings** *(dict) --* Placeholder documentation for RtmpCaptionInfoDestinationSettings
-                    - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Placeholder documentation for Scte20PlusEmbeddedDestinationSettings
-                    - **Scte27DestinationSettings** *(dict) --* Placeholder documentation for Scte27DestinationSettings
-                    - **SmpteTtDestinationSettings** *(dict) --* Placeholder documentation for SmpteTtDestinationSettings
-                    - **TeletextDestinationSettings** *(dict) --* Placeholder documentation for TeletextDestinationSettings
-                    - **TtmlDestinationSettings** *(dict) --* Placeholder documentation for TtmlDestinationSettings
+                    - **EmbeddedDestinationSettings** *(dict) --* Embedded Destination Settings
+                    - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Embedded Plus Scte20 Destination Settings
+                    - **RtmpCaptionInfoDestinationSettings** *(dict) --* Rtmp Caption Info Destination Settings
+                    - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Scte20 Plus Embedded Destination Settings
+                    - **Scte27DestinationSettings** *(dict) --* Scte27 Destination Settings
+                    - **SmpteTtDestinationSettings** *(dict) --* Smpte Tt Destination Settings
+                    - **TeletextDestinationSettings** *(dict) --* Teletext Destination Settings
+                    - **TtmlDestinationSettings** *(dict) --* Ttml Destination Settings
                       - **StyleControl** *(string) --* When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-                    - **WebvttDestinationSettings** *(dict) --* Placeholder documentation for WebvttDestinationSettings
+                    - **WebvttDestinationSettings** *(dict) --* Webvtt Destination Settings
                   - **LanguageCode** *(string) --* ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
                   - **LanguageDescription** *(string) --* Human readable information to indicate captions available for players (eg. English, or Spanish).
                   - **Name** *(string) --* Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
@@ -8279,22 +8501,23 @@ class Client(BaseClient):
                     - **Username** *(string) --* Documentation update needed
                   - **InputLossImageType** *(string) --* Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
                   - **RepeatFrameMsec** *(integer) --* Documentation update needed
+                - **OutputLockingMode** *(string) --* Indicates how MediaLive pipelines are synchronized. PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
                 - **OutputTimingSource** *(string) --* Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
                 - **SupportLowFramerateInputs** *(string) --* Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
               - **OutputGroups** *(list) --* Placeholder documentation for __listOfOutputGroup
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **Name** *(string) --* Custom output group name optionally defined by the user. Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
                   - **OutputGroupSettings** *(dict) --* Settings associated with the output group.
-                    - **ArchiveGroupSettings** *(dict) --* Placeholder documentation for ArchiveGroupSettings
+                    - **ArchiveGroupSettings** *(dict) --* Archive Group Settings
                       - **Destination** *(dict) --* A directory and base filename where archive files should be written.
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
                       - **RolloverInterval** *(integer) --* Number of seconds to write to archive file before closing and starting a new one.
                     - **FrameCaptureGroupSettings** *(dict) --* Frame Capture Group Settings
                       - **Destination** *(dict) --* The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, "curling_") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg). For example, curlingLow.00001.jpg
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
-                    - **HlsGroupSettings** *(dict) --* Placeholder documentation for HlsGroupSettings
+                    - **HlsGroupSettings** *(dict) --* Hls Group Settings
                       - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-                        - *(string) --* Placeholder documentation for HlsAdMarkers
+                        - *(string) --* Hls Ad Markers
                       - **BaseUrlContent** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                       - **BaseUrlManifest** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                       - **CaptionLanguageMappings** *(list) --* Mapping of up to 4 caption channels to caption languages. Is only meaningful if captionLanguageSetting is set to "insert".
@@ -8311,7 +8534,7 @@ class Client(BaseClient):
                       - **DirectoryStructure** *(string) --* Place segments in subdirectories.
                       - **EncryptionType** *(string) --* Encrypts the segments with the given encryption scheme. Exclude this parameter if no encryption is desired.
                       - **HlsCdnSettings** *(dict) --* Parameters that control interactions with the CDN.
-                        - **HlsAkamaiSettings** *(dict) --* Placeholder documentation for HlsAkamaiSettings
+                        - **HlsAkamaiSettings** *(dict) --* Hls Akamai Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
@@ -8319,33 +8542,33 @@ class Client(BaseClient):
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
                           - **Salt** *(string) --* Salt for authenticated Akamai.
                           - **Token** *(string) --* Token parameter for authenticated akamai. If not specified, _gda_ is used.
-                        - **HlsBasicPutSettings** *(dict) --* Placeholder documentation for HlsBasicPutSettings
+                        - **HlsBasicPutSettings** *(dict) --* Hls Basic Put Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **HlsMediaStoreSettings** *(dict) --* Placeholder documentation for HlsMediaStoreSettings
+                        - **HlsMediaStoreSettings** *(dict) --* Hls Media Store Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **MediaStoreStorageClass** *(string) --* When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **HlsWebdavSettings** *(dict) --* Placeholder documentation for HlsWebdavSettings
+                        - **HlsWebdavSettings** *(dict) --* Hls Webdav Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to WebDAV.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                      - **IFrameOnlyPlaylists** *(string) --* If enabled, writes out I-Frame only playlists in addition to media playlists.
-                      - **IndexNSegments** *(integer) --* If mode is "live", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is "vod", this parameter has no effect.
+                      - **IFrameOnlyPlaylists** *(string) --* DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field). STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
+                      - **IndexNSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
                       - **InputLossAction** *(string) --* Parameter that control output group behavior on input loss.
                       - **IvInManifest** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
                       - **IvSource** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
-                      - **KeepSegments** *(integer) --* If mode is "live", the number of TS segments to retain in the destination directory. If mode is "vod", this parameter has no effect.
+                      - **KeepSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
                       - **KeyFormat** *(string) --* The value specifies how the key is represented in the resource identified by the URI. If parameter is absent, an implicit value of "identity" is used. A reverse DNS string can also be given.
                       - **KeyFormatVersions** *(string) --* Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                       - **KeyProviderSettings** *(dict) --* The key provider settings.
-                        - **StaticKeySettings** *(dict) --* Placeholder documentation for StaticKeySettings
+                        - **StaticKeySettings** *(dict) --* Static Key Settings
                           - **KeyProviderServer** *(dict) --* The URL of the license server used for protecting content.
                             - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                             - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
@@ -8355,10 +8578,10 @@ class Client(BaseClient):
                       - **ManifestDurationFormat** *(string) --* Indicates whether the output manifest should use floating point or integer values for segment duration.
                       - **MinSegmentLength** *(integer) --* When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
                       - **Mode** *(string) --* If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event. VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
-                      - **OutputSelection** *(string) --* Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file.
+                      - **OutputSelection** *(string) --* MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group. SEGMENTSONLY: Does not generate any manifests for this output group.
                       - **ProgramDateTime** *(string) --* Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
                       - **ProgramDateTimePeriod** *(integer) --* Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-                      - **RedundantManifest** *(string) --* When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
+                      - **RedundantManifest** *(string) --* ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines. DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only. For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
                       - **SegmentLength** *(integer) --* Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
                       - **SegmentationMode** *(string) --* useInputSegmentation has been deprecated. The configured segment size is always used.
                       - **SegmentsPerSubdirectory** *(integer) --* Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -8366,8 +8589,11 @@ class Client(BaseClient):
                       - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                       - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
                       - **TimestampDeltaMilliseconds** *(integer) --* Provides an extra millisecond delta offset to fine tune the timestamps.
-                      - **TsFileMode** *(string) --* When set to "singleFile", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching.
-                    - **MsSmoothGroupSettings** *(dict) --* Placeholder documentation for MsSmoothGroupSettings
+                      - **TsFileMode** *(string) --* SEGMENTEDFILES: Emit the program as segments - multiple .ts media files. SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+                    - **MediaPackageGroupSettings** *(dict) --* Media Package Group Settings
+                      - **Destination** *(dict) --* MediaPackage channel destination.
+                        - **DestinationRefId** *(string) --* Placeholder documentation for __string
+                    - **MsSmoothGroupSettings** *(dict) --* Ms Smooth Group Settings
                       - **AcquisitionPointId** *(string) --* The value of the "Acquisition Point Identity" element used in each message placed in the sparse track. Only enabled if sparseTrackType is not "none".
                       - **AudioOnlyTimecodeControl** *(string) --* If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
                       - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA). This will cause https outputs to self-signed certificates to fail.
@@ -8388,14 +8614,14 @@ class Client(BaseClient):
                       - **StreamManifestBehavior** *(string) --* When set to send, send stream manifest so publishing point doesn't start until all streams start.
                       - **TimestampOffset** *(string) --* Timestamp offset for the event. Only used if timestampOffsetMode is set to useConfiguredOffset.
                       - **TimestampOffsetMode** *(string) --* Type of timestamp date offset to use. - useEventStartDate: Use the date the event was started as the offset - useConfiguredOffset: Use an explicitly configured date as the offset
-                    - **RtmpGroupSettings** *(dict) --* Placeholder documentation for RtmpGroupSettings
+                    - **RtmpGroupSettings** *(dict) --* Rtmp Group Settings
                       - **AuthenticationScheme** *(string) --* Authentication scheme to use when connecting with CDN
                       - **CacheFullBehavior** *(string) --* Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
                       - **CacheLength** *(integer) --* Cache length, in seconds, is used to calculate buffer size.
                       - **CaptionData** *(string) --* Controls the types of data that passes to onCaptionInfo outputs. If set to 'all' then 608 and 708 carried DTVCC data will be passed. If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
                       - **InputLossAction** *(string) --* Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                    - **UdpGroupSettings** *(dict) --* Placeholder documentation for UdpGroupSettings
+                    - **UdpGroupSettings** *(dict) --* Udp Group Settings
                       - **InputLossAction** *(string) --* Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted. When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement). Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
                       - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                       - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
@@ -8407,9 +8633,9 @@ class Client(BaseClient):
                         - *(string) --* Placeholder documentation for __string
                       - **OutputName** *(string) --* The name used to identify an output.
                       - **OutputSettings** *(dict) --* Output type-specific settings.
-                        - **ArchiveOutputSettings** *(dict) --* Placeholder documentation for ArchiveOutputSettings
+                        - **ArchiveOutputSettings** *(dict) --* Archive Output Settings
                           - **ContainerSettings** *(dict) --* Settings specific to the container type of the file.
-                            - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                            - **M2tsSettings** *(dict) --* M2ts Settings
                               - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                               - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                               - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -8468,16 +8694,16 @@ class Client(BaseClient):
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
                         - **FrameCaptureOutputSettings** *(dict) --* Frame Capture Output Settings
                           - **NameModifier** *(string) --* Required if the output group contains more than one output. This modifier forms part of the output file name.
-                        - **HlsOutputSettings** *(dict) --* Placeholder documentation for HlsOutputSettings
+                        - **HlsOutputSettings** *(dict) --* Hls Output Settings
                           - **HlsSettings** *(dict) --* Settings regarding the underlying stream. These settings are different for audio-only outputs.
-                            - **AudioOnlyHlsSettings** *(dict) --* Placeholder documentation for AudioOnlyHlsSettings
+                            - **AudioOnlyHlsSettings** *(dict) --* Audio Only Hls Settings
                               - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                               - **AudioOnlyImage** *(dict) --* For use with an audio only Stream. Must be a .jpg or .png file. If given, this image will be used as the cover-art for the audio only output. Ideally, it should be formatted for an iPhone screen for two reasons. The iPhone does not resize the image, it crops a centered image on the top/bottom and left/right. Additionally, this image file gets saved bit-for-bit into every 10-second segment file, so will increase bandwidth by {image file size} * {segment count} * {user count.}.
                                 - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                                 - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
                                 - **Username** *(string) --* Documentation update needed
                               - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-                            - **StandardHlsSettings** *(dict) --* Placeholder documentation for StandardHlsSettings
+                            - **StandardHlsSettings** *(dict) --* Standard Hls Settings
                               - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
                               - **M3u8Settings** *(dict) --* Settings information for the .m3u8 container
                                 - **AudioFramesPerPes** *(integer) --* The number of audio frames to insert for each PES packet.
@@ -8498,18 +8724,19 @@ class Client(BaseClient):
                                 - **VideoPid** *(string) --* Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
                           - **SegmentModifier** *(string) --* String concatenated to end of segment filenames.
-                        - **MsSmoothOutputSettings** *(dict) --* Placeholder documentation for MsSmoothOutputSettings
+                        - **MediaPackageOutputSettings** *(dict) --* Media Package Output Settings
+                        - **MsSmoothOutputSettings** *(dict) --* Ms Smooth Output Settings
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-                        - **RtmpOutputSettings** *(dict) --* Placeholder documentation for RtmpOutputSettings
+                        - **RtmpOutputSettings** *(dict) --* Rtmp Output Settings
                           - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA). This will cause rtmps outputs with self-signed certificates to fail.
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
                           - **Destination** *(dict) --* The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
                             - **DestinationRefId** *(string) --* Placeholder documentation for __string
                           - **NumRetries** *(integer) --* Number of retry attempts.
-                        - **UdpOutputSettings** *(dict) --* Placeholder documentation for UdpOutputSettings
+                        - **UdpOutputSettings** *(dict) --* Udp Output Settings
                           - **BufferMsec** *(integer) --* UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-                          - **ContainerSettings** *(dict) --* Placeholder documentation for UdpContainerSettings
-                            - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                          - **ContainerSettings** *(dict) --* Udp Container Settings
+                            - **M2tsSettings** *(dict) --* M2ts Settings
                               - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                               - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                               - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -8579,7 +8806,7 @@ class Client(BaseClient):
                   - **CodecSettings** *(dict) --* Video codec settings.
                     - **FrameCaptureSettings** *(dict) --* Frame Capture Settings
                       - **CaptureInterval** *(integer) --* The frequency, in seconds, for capturing frames for inclusion in the output. For example, "10" means capture a frame every 10 seconds.
-                    - **H264Settings** *(dict) --* Placeholder documentation for H264Settings
+                    - **H264Settings** *(dict) --* H264 Settings
                       - **AdaptiveQuantization** *(string) --* Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
                       - **AfdSignaling** *(string) --* Indicates that AFD values will be written into the output stream. If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
                       - **Bitrate** *(integer) --* Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -8630,33 +8857,33 @@ class Client(BaseClient):
                 - **InputId** *(string) --* The ID of the input
                 - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
                   - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                    - *(dict) --* Placeholder documentation for AudioSelector
+                    - *(dict) --* Audio Selector
                       - **Name** *(string) --* The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                       - **SelectorSettings** *(dict) --* The audio selector settings.
-                        - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                        - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                           - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                           - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
-                        - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                        - **AudioPidSelection** *(dict) --* Audio Pid Selection
                           - **Pid** *(integer) --* Selects a specific PID from within a source.
                   - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                     - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                       - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                       - **Name** *(string) --* Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                       - **SelectorSettings** *(dict) --* Caption selector settings.
-                        - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                        - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                        - **AribSourceSettings** *(dict) --* Arib Source Settings
+                        - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                           - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                        - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                        - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                           - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                           - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                           - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                           - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                        - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                        - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                           - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                           - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                        - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                        - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                           - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                        - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                        - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                           - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
                   - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                   - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -8674,9 +8901,9 @@ class Client(BaseClient):
                     - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                     - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                     - **SelectorSettings** *(dict) --* The video selector settings.
-                      - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                      - **VideoSelectorPid** *(dict) --* Video Selector Pid
                         - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                      - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                      - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                         - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
             - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
               - **Codec** *(string) --* Input codec
@@ -8712,9 +8939,15 @@ class Client(BaseClient):
         ::
             {
                 'Arn': 'string',
+                'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                 'Destinations': [
                     {
                         'Id': 'string',
+                        'MediaPackageSettings': [
+                            {
+                                'ChannelId': 'string'
+                            },
+                        ],
                         'Settings': [
                             {
                                 'PasswordParam': 'string',
@@ -8931,6 +9164,7 @@ class Client(BaseClient):
                             'InputLossImageType': 'COLOR'|'SLATE',
                             'RepeatFrameMsec': 123
                         },
+                        'OutputLockingMode': 'EPOCH_LOCKING'|'PIPELINE_LOCKING',
                         'OutputTimingSource': 'INPUT_CLOCK'|'SYSTEM_CLOCK',
                         'SupportLowFramerateInputs': 'DISABLED'|'ENABLED'
                     },
@@ -9036,6 +9270,11 @@ class Client(BaseClient):
                                     'TimedMetadataId3Period': 123,
                                     'TimestampDeltaMilliseconds': 123,
                                     'TsFileMode': 'SEGMENTED_FILES'|'SINGLE_FILE'
+                                },
+                                'MediaPackageGroupSettings': {
+                                    'Destination': {
+                                        'DestinationRefId': 'string'
+                                    }
                                 },
                                 'MsSmoothGroupSettings': {
                                     'AcquisitionPointId': 'string',
@@ -9188,6 +9427,7 @@ class Client(BaseClient):
                                             'NameModifier': 'string',
                                             'SegmentModifier': 'string'
                                         },
+                                        'MediaPackageOutputSettings': {},
                                         'MsSmoothOutputSettings': {
                                             'NameModifier': 'string'
                                         },
@@ -9431,10 +9671,14 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* Successfully initiated stop of the channel.
             - **Arn** *(string) --* The unique arn of the channel.
+            - **ChannelClass** *(string) --* The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
             - **Destinations** *(list) --* A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager. 
               - *(dict) --* Placeholder documentation for OutputDestination
                 - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-                - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+                - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+                  - *(dict) --* Media Package Output Destination Settings
+                    - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+                - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
                   - *(dict) --* Placeholder documentation for OutputDestinationSettings
                     - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                     - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -9443,9 +9687,9 @@ class Client(BaseClient):
             - **EgressEndpoints** *(list) --* The endpoints where outgoing connections initiate from
               - *(dict) --* Placeholder documentation for ChannelEgressEndpoint
                 - **SourceIp** *(string) --* Public IP of where a channel's output comes from
-            - **EncoderSettings** *(dict) --* Placeholder documentation for EncoderSettings
+            - **EncoderSettings** *(dict) --* Encoder Settings
               - **AudioDescriptions** *(list) --* Placeholder documentation for __listOfAudioDescription
-                - *(dict) --* Placeholder documentation for AudioDescription
+                - *(dict) --* Audio Description
                   - **AudioNormalizationSettings** *(dict) --* Advanced audio normalization settings.
                     - **Algorithm** *(string) --* Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
                     - **AlgorithmControl** *(string) --* When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -9454,7 +9698,7 @@ class Client(BaseClient):
                   - **AudioType** *(string) --* Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
                   - **AudioTypeControl** *(string) --* Determines how audio type is determined. followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output. useConfigured: The value in Audio Type is included in the output. Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
                   - **CodecSettings** *(dict) --* Audio codec settings.
-                    - **AacSettings** *(dict) --* Placeholder documentation for AacSettings
+                    - **AacSettings** *(dict) --* Aac Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid values depend on rate control mode and profile.
                       - **CodingMode** *(string) --* Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                       - **InputType** *(string) --* Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair. The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd. Leave set to "normal" when input does not contain pre-mixed audio + AD.
@@ -9464,7 +9708,7 @@ class Client(BaseClient):
                       - **SampleRate** *(float) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                       - **Spec** *(string) --* Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
                       - **VbrQuality** *(string) --* VBR Quality Level - Only used if rateControlMode is VBR.
-                    - **Ac3Settings** *(dict) --* Placeholder documentation for Ac3Settings
+                    - **Ac3Settings** *(dict) --* Ac3 Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                       - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                       - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
@@ -9472,7 +9716,7 @@ class Client(BaseClient):
                       - **DrcProfile** *(string) --* If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
                       - **LfeFilter** *(string) --* When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
                       - **MetadataControl** *(string) --* When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-                    - **Eac3Settings** *(dict) --* Placeholder documentation for Eac3Settings
+                    - **Eac3Settings** *(dict) --* Eac3 Settings
                       - **AttenuationControl** *(string) --* When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
                       - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                       - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
@@ -9493,19 +9737,19 @@ class Client(BaseClient):
                       - **StereoDownmix** *(string) --* Stereo downmix preference. Only used for 3/2 coding mode.
                       - **SurroundExMode** *(string) --* When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
                       - **SurroundMode** *(string) --* When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-                    - **Mp2Settings** *(dict) --* Placeholder documentation for Mp2Settings
+                    - **Mp2Settings** *(dict) --* Mp2 Settings
                       - **Bitrate** *(float) --* Average bitrate in bits/second.
                       - **CodingMode** *(string) --* The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
                       - **SampleRate** *(float) --* Sample rate in Hz.
-                    - **PassThroughSettings** *(dict) --* Placeholder documentation for PassThroughSettings
+                    - **PassThroughSettings** *(dict) --* Pass Through Settings
                   - **LanguageCode** *(string) --* Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
                   - **LanguageCodeControl** *(string) --* Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
                   - **Name** *(string) --* The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription. Description names should be unique within this Live Event.
                   - **RemixSettings** *(dict) --* Settings that control how input audio channels are remixed into the output audio channels.
                     - **ChannelMappings** *(list) --* Mapping of input channels to output channels, with appropriate gain adjustments.
-                      - *(dict) --* Placeholder documentation for AudioChannelMapping
+                      - *(dict) --* Audio Channel Mapping
                         - **InputChannelLevels** *(list) --* Indices and gain values for each input channel that should be remixed into this output channel.
-                          - *(dict) --* Placeholder documentation for InputChannelLevel
+                          - *(dict) --* Input Channel Level
                             - **Gain** *(integer) --* Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
                             - **InputChannel** *(integer) --* The index of the input channel used as a source.
                         - **OutputChannel** *(integer) --* The index of the output channel being produced.
@@ -9520,11 +9764,11 @@ class Client(BaseClient):
                 - **State** *(string) --* When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
               - **AvailConfiguration** *(dict) --* Event-wide configuration settings for ad avail insertion.
                 - **AvailSettings** *(dict) --* Ad avail settings.
-                  - **Scte35SpliceInsert** *(dict) --* Placeholder documentation for Scte35SpliceInsert
+                  - **Scte35SpliceInsert** *(dict) --* Scte35 Splice Insert
                     - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                     - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                     - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-                  - **Scte35TimeSignalApos** *(dict) --* Placeholder documentation for Scte35TimeSignalApos
+                  - **Scte35TimeSignalApos** *(dict) --* Scte35 Time Signal Apos
                     - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                     - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                     - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -9544,8 +9788,8 @@ class Client(BaseClient):
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **CaptionSelectorName** *(string) --* Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
                   - **DestinationSettings** *(dict) --* Additional settings for captions destination that depend on the destination type.
-                    - **AribDestinationSettings** *(dict) --* Placeholder documentation for AribDestinationSettings
-                    - **BurnInDestinationSettings** *(dict) --* Placeholder documentation for BurnInDestinationSettings
+                    - **AribDestinationSettings** *(dict) --* Arib Destination Settings
+                    - **BurnInDestinationSettings** *(dict) --* Burn In Destination Settings
                       - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -9566,7 +9810,7 @@ class Client(BaseClient):
                       - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                       - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
                       - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
-                    - **DvbSubDestinationSettings** *(dict) --* Placeholder documentation for DvbSubDestinationSettings
+                    - **DvbSubDestinationSettings** *(dict) --* Dvb Sub Destination Settings
                       - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                       - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -9587,16 +9831,16 @@ class Client(BaseClient):
                       - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                       - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                       - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-                    - **EmbeddedDestinationSettings** *(dict) --* Placeholder documentation for EmbeddedDestinationSettings
-                    - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Placeholder documentation for EmbeddedPlusScte20DestinationSettings
-                    - **RtmpCaptionInfoDestinationSettings** *(dict) --* Placeholder documentation for RtmpCaptionInfoDestinationSettings
-                    - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Placeholder documentation for Scte20PlusEmbeddedDestinationSettings
-                    - **Scte27DestinationSettings** *(dict) --* Placeholder documentation for Scte27DestinationSettings
-                    - **SmpteTtDestinationSettings** *(dict) --* Placeholder documentation for SmpteTtDestinationSettings
-                    - **TeletextDestinationSettings** *(dict) --* Placeholder documentation for TeletextDestinationSettings
-                    - **TtmlDestinationSettings** *(dict) --* Placeholder documentation for TtmlDestinationSettings
+                    - **EmbeddedDestinationSettings** *(dict) --* Embedded Destination Settings
+                    - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Embedded Plus Scte20 Destination Settings
+                    - **RtmpCaptionInfoDestinationSettings** *(dict) --* Rtmp Caption Info Destination Settings
+                    - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Scte20 Plus Embedded Destination Settings
+                    - **Scte27DestinationSettings** *(dict) --* Scte27 Destination Settings
+                    - **SmpteTtDestinationSettings** *(dict) --* Smpte Tt Destination Settings
+                    - **TeletextDestinationSettings** *(dict) --* Teletext Destination Settings
+                    - **TtmlDestinationSettings** *(dict) --* Ttml Destination Settings
                       - **StyleControl** *(string) --* When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-                    - **WebvttDestinationSettings** *(dict) --* Placeholder documentation for WebvttDestinationSettings
+                    - **WebvttDestinationSettings** *(dict) --* Webvtt Destination Settings
                   - **LanguageCode** *(string) --* ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
                   - **LanguageDescription** *(string) --* Human readable information to indicate captions available for players (eg. English, or Spanish).
                   - **Name** *(string) --* Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
@@ -9612,22 +9856,23 @@ class Client(BaseClient):
                     - **Username** *(string) --* Documentation update needed
                   - **InputLossImageType** *(string) --* Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
                   - **RepeatFrameMsec** *(integer) --* Documentation update needed
+                - **OutputLockingMode** *(string) --* Indicates how MediaLive pipelines are synchronized. PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
                 - **OutputTimingSource** *(string) --* Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
                 - **SupportLowFramerateInputs** *(string) --* Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
               - **OutputGroups** *(list) --* Placeholder documentation for __listOfOutputGroup
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **Name** *(string) --* Custom output group name optionally defined by the user. Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
                   - **OutputGroupSettings** *(dict) --* Settings associated with the output group.
-                    - **ArchiveGroupSettings** *(dict) --* Placeholder documentation for ArchiveGroupSettings
+                    - **ArchiveGroupSettings** *(dict) --* Archive Group Settings
                       - **Destination** *(dict) --* A directory and base filename where archive files should be written.
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
                       - **RolloverInterval** *(integer) --* Number of seconds to write to archive file before closing and starting a new one.
                     - **FrameCaptureGroupSettings** *(dict) --* Frame Capture Group Settings
                       - **Destination** *(dict) --* The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, "curling_") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg). For example, curlingLow.00001.jpg
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
-                    - **HlsGroupSettings** *(dict) --* Placeholder documentation for HlsGroupSettings
+                    - **HlsGroupSettings** *(dict) --* Hls Group Settings
                       - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-                        - *(string) --* Placeholder documentation for HlsAdMarkers
+                        - *(string) --* Hls Ad Markers
                       - **BaseUrlContent** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                       - **BaseUrlManifest** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                       - **CaptionLanguageMappings** *(list) --* Mapping of up to 4 caption channels to caption languages. Is only meaningful if captionLanguageSetting is set to "insert".
@@ -9644,7 +9889,7 @@ class Client(BaseClient):
                       - **DirectoryStructure** *(string) --* Place segments in subdirectories.
                       - **EncryptionType** *(string) --* Encrypts the segments with the given encryption scheme. Exclude this parameter if no encryption is desired.
                       - **HlsCdnSettings** *(dict) --* Parameters that control interactions with the CDN.
-                        - **HlsAkamaiSettings** *(dict) --* Placeholder documentation for HlsAkamaiSettings
+                        - **HlsAkamaiSettings** *(dict) --* Hls Akamai Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
@@ -9652,33 +9897,33 @@ class Client(BaseClient):
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
                           - **Salt** *(string) --* Salt for authenticated Akamai.
                           - **Token** *(string) --* Token parameter for authenticated akamai. If not specified, _gda_ is used.
-                        - **HlsBasicPutSettings** *(dict) --* Placeholder documentation for HlsBasicPutSettings
+                        - **HlsBasicPutSettings** *(dict) --* Hls Basic Put Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **HlsMediaStoreSettings** *(dict) --* Placeholder documentation for HlsMediaStoreSettings
+                        - **HlsMediaStoreSettings** *(dict) --* Hls Media Store Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **MediaStoreStorageClass** *(string) --* When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **HlsWebdavSettings** *(dict) --* Placeholder documentation for HlsWebdavSettings
+                        - **HlsWebdavSettings** *(dict) --* Hls Webdav Settings
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                           - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                           - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to WebDAV.
                           - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                           - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                      - **IFrameOnlyPlaylists** *(string) --* If enabled, writes out I-Frame only playlists in addition to media playlists.
-                      - **IndexNSegments** *(integer) --* If mode is "live", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is "vod", this parameter has no effect.
+                      - **IFrameOnlyPlaylists** *(string) --* DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field). STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
+                      - **IndexNSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
                       - **InputLossAction** *(string) --* Parameter that control output group behavior on input loss.
                       - **IvInManifest** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
                       - **IvSource** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
-                      - **KeepSegments** *(integer) --* If mode is "live", the number of TS segments to retain in the destination directory. If mode is "vod", this parameter has no effect.
+                      - **KeepSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
                       - **KeyFormat** *(string) --* The value specifies how the key is represented in the resource identified by the URI. If parameter is absent, an implicit value of "identity" is used. A reverse DNS string can also be given.
                       - **KeyFormatVersions** *(string) --* Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                       - **KeyProviderSettings** *(dict) --* The key provider settings.
-                        - **StaticKeySettings** *(dict) --* Placeholder documentation for StaticKeySettings
+                        - **StaticKeySettings** *(dict) --* Static Key Settings
                           - **KeyProviderServer** *(dict) --* The URL of the license server used for protecting content.
                             - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                             - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
@@ -9688,10 +9933,10 @@ class Client(BaseClient):
                       - **ManifestDurationFormat** *(string) --* Indicates whether the output manifest should use floating point or integer values for segment duration.
                       - **MinSegmentLength** *(integer) --* When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
                       - **Mode** *(string) --* If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event. VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
-                      - **OutputSelection** *(string) --* Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file.
+                      - **OutputSelection** *(string) --* MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group. SEGMENTSONLY: Does not generate any manifests for this output group.
                       - **ProgramDateTime** *(string) --* Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
                       - **ProgramDateTimePeriod** *(integer) --* Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-                      - **RedundantManifest** *(string) --* When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
+                      - **RedundantManifest** *(string) --* ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines. DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only. For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
                       - **SegmentLength** *(integer) --* Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
                       - **SegmentationMode** *(string) --* useInputSegmentation has been deprecated. The configured segment size is always used.
                       - **SegmentsPerSubdirectory** *(integer) --* Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -9699,8 +9944,11 @@ class Client(BaseClient):
                       - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                       - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
                       - **TimestampDeltaMilliseconds** *(integer) --* Provides an extra millisecond delta offset to fine tune the timestamps.
-                      - **TsFileMode** *(string) --* When set to "singleFile", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching.
-                    - **MsSmoothGroupSettings** *(dict) --* Placeholder documentation for MsSmoothGroupSettings
+                      - **TsFileMode** *(string) --* SEGMENTEDFILES: Emit the program as segments - multiple .ts media files. SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+                    - **MediaPackageGroupSettings** *(dict) --* Media Package Group Settings
+                      - **Destination** *(dict) --* MediaPackage channel destination.
+                        - **DestinationRefId** *(string) --* Placeholder documentation for __string
+                    - **MsSmoothGroupSettings** *(dict) --* Ms Smooth Group Settings
                       - **AcquisitionPointId** *(string) --* The value of the "Acquisition Point Identity" element used in each message placed in the sparse track. Only enabled if sparseTrackType is not "none".
                       - **AudioOnlyTimecodeControl** *(string) --* If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
                       - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA). This will cause https outputs to self-signed certificates to fail.
@@ -9721,14 +9969,14 @@ class Client(BaseClient):
                       - **StreamManifestBehavior** *(string) --* When set to send, send stream manifest so publishing point doesn't start until all streams start.
                       - **TimestampOffset** *(string) --* Timestamp offset for the event. Only used if timestampOffsetMode is set to useConfiguredOffset.
                       - **TimestampOffsetMode** *(string) --* Type of timestamp date offset to use. - useEventStartDate: Use the date the event was started as the offset - useConfiguredOffset: Use an explicitly configured date as the offset
-                    - **RtmpGroupSettings** *(dict) --* Placeholder documentation for RtmpGroupSettings
+                    - **RtmpGroupSettings** *(dict) --* Rtmp Group Settings
                       - **AuthenticationScheme** *(string) --* Authentication scheme to use when connecting with CDN
                       - **CacheFullBehavior** *(string) --* Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
                       - **CacheLength** *(integer) --* Cache length, in seconds, is used to calculate buffer size.
                       - **CaptionData** *(string) --* Controls the types of data that passes to onCaptionInfo outputs. If set to 'all' then 608 and 708 carried DTVCC data will be passed. If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
                       - **InputLossAction** *(string) --* Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                    - **UdpGroupSettings** *(dict) --* Placeholder documentation for UdpGroupSettings
+                    - **UdpGroupSettings** *(dict) --* Udp Group Settings
                       - **InputLossAction** *(string) --* Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted. When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement). Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
                       - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                       - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
@@ -9740,9 +9988,9 @@ class Client(BaseClient):
                         - *(string) --* Placeholder documentation for __string
                       - **OutputName** *(string) --* The name used to identify an output.
                       - **OutputSettings** *(dict) --* Output type-specific settings.
-                        - **ArchiveOutputSettings** *(dict) --* Placeholder documentation for ArchiveOutputSettings
+                        - **ArchiveOutputSettings** *(dict) --* Archive Output Settings
                           - **ContainerSettings** *(dict) --* Settings specific to the container type of the file.
-                            - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                            - **M2tsSettings** *(dict) --* M2ts Settings
                               - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                               - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                               - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -9801,16 +10049,16 @@ class Client(BaseClient):
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
                         - **FrameCaptureOutputSettings** *(dict) --* Frame Capture Output Settings
                           - **NameModifier** *(string) --* Required if the output group contains more than one output. This modifier forms part of the output file name.
-                        - **HlsOutputSettings** *(dict) --* Placeholder documentation for HlsOutputSettings
+                        - **HlsOutputSettings** *(dict) --* Hls Output Settings
                           - **HlsSettings** *(dict) --* Settings regarding the underlying stream. These settings are different for audio-only outputs.
-                            - **AudioOnlyHlsSettings** *(dict) --* Placeholder documentation for AudioOnlyHlsSettings
+                            - **AudioOnlyHlsSettings** *(dict) --* Audio Only Hls Settings
                               - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                               - **AudioOnlyImage** *(dict) --* For use with an audio only Stream. Must be a .jpg or .png file. If given, this image will be used as the cover-art for the audio only output. Ideally, it should be formatted for an iPhone screen for two reasons. The iPhone does not resize the image, it crops a centered image on the top/bottom and left/right. Additionally, this image file gets saved bit-for-bit into every 10-second segment file, so will increase bandwidth by {image file size} * {segment count} * {user count.}.
                                 - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                                 - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
                                 - **Username** *(string) --* Documentation update needed
                               - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-                            - **StandardHlsSettings** *(dict) --* Placeholder documentation for StandardHlsSettings
+                            - **StandardHlsSettings** *(dict) --* Standard Hls Settings
                               - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
                               - **M3u8Settings** *(dict) --* Settings information for the .m3u8 container
                                 - **AudioFramesPerPes** *(integer) --* The number of audio frames to insert for each PES packet.
@@ -9831,18 +10079,19 @@ class Client(BaseClient):
                                 - **VideoPid** *(string) --* Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
                           - **SegmentModifier** *(string) --* String concatenated to end of segment filenames.
-                        - **MsSmoothOutputSettings** *(dict) --* Placeholder documentation for MsSmoothOutputSettings
+                        - **MediaPackageOutputSettings** *(dict) --* Media Package Output Settings
+                        - **MsSmoothOutputSettings** *(dict) --* Ms Smooth Output Settings
                           - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-                        - **RtmpOutputSettings** *(dict) --* Placeholder documentation for RtmpOutputSettings
+                        - **RtmpOutputSettings** *(dict) --* Rtmp Output Settings
                           - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA). This will cause rtmps outputs with self-signed certificates to fail.
                           - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
                           - **Destination** *(dict) --* The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
                             - **DestinationRefId** *(string) --* Placeholder documentation for __string
                           - **NumRetries** *(integer) --* Number of retry attempts.
-                        - **UdpOutputSettings** *(dict) --* Placeholder documentation for UdpOutputSettings
+                        - **UdpOutputSettings** *(dict) --* Udp Output Settings
                           - **BufferMsec** *(integer) --* UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-                          - **ContainerSettings** *(dict) --* Placeholder documentation for UdpContainerSettings
-                            - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                          - **ContainerSettings** *(dict) --* Udp Container Settings
+                            - **M2tsSettings** *(dict) --* M2ts Settings
                               - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                               - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                               - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -9912,7 +10161,7 @@ class Client(BaseClient):
                   - **CodecSettings** *(dict) --* Video codec settings.
                     - **FrameCaptureSettings** *(dict) --* Frame Capture Settings
                       - **CaptureInterval** *(integer) --* The frequency, in seconds, for capturing frames for inclusion in the output. For example, "10" means capture a frame every 10 seconds.
-                    - **H264Settings** *(dict) --* Placeholder documentation for H264Settings
+                    - **H264Settings** *(dict) --* H264 Settings
                       - **AdaptiveQuantization** *(string) --* Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
                       - **AfdSignaling** *(string) --* Indicates that AFD values will be written into the output stream. If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
                       - **Bitrate** *(integer) --* Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -9963,33 +10212,33 @@ class Client(BaseClient):
                 - **InputId** *(string) --* The ID of the input
                 - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
                   - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                    - *(dict) --* Placeholder documentation for AudioSelector
+                    - *(dict) --* Audio Selector
                       - **Name** *(string) --* The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                       - **SelectorSettings** *(dict) --* The audio selector settings.
-                        - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                        - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                           - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                           - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
-                        - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                        - **AudioPidSelection** *(dict) --* Audio Pid Selection
                           - **Pid** *(integer) --* Selects a specific PID from within a source.
                   - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                     - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                       - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                       - **Name** *(string) --* Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                       - **SelectorSettings** *(dict) --* Caption selector settings.
-                        - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                        - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                        - **AribSourceSettings** *(dict) --* Arib Source Settings
+                        - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                           - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                        - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                        - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                           - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                           - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                           - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                           - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                        - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                        - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                           - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                           - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                        - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                        - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                           - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                        - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                        - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                           - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
                   - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                   - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -10007,9 +10256,9 @@ class Client(BaseClient):
                     - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                     - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                     - **SelectorSettings** *(dict) --* The video selector settings.
-                      - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                      - **VideoSelectorPid** *(dict) --* Video Selector Pid
                         - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                      - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                      - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                         - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
             - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
               - **Codec** *(string) --* Input codec
@@ -10042,6 +10291,11 @@ class Client(BaseClient):
               Destinations=[
                   {
                       'Id': 'string',
+                      'MediaPackageSettings': [
+                          {
+                              'ChannelId': 'string'
+                          },
+                      ],
                       'Settings': [
                           {
                               'PasswordParam': 'string',
@@ -10261,6 +10515,7 @@ class Client(BaseClient):
                           'InputLossImageType': 'COLOR'|'SLATE',
                           'RepeatFrameMsec': 123
                       },
+                      'OutputLockingMode': 'EPOCH_LOCKING'|'PIPELINE_LOCKING',
                       'OutputTimingSource': 'INPUT_CLOCK'|'SYSTEM_CLOCK',
                       'SupportLowFramerateInputs': 'DISABLED'|'ENABLED'
                   },
@@ -10366,6 +10621,11 @@ class Client(BaseClient):
                                   'TimedMetadataId3Period': 123,
                                   'TimestampDeltaMilliseconds': 123,
                                   'TsFileMode': 'SEGMENTED_FILES'|'SINGLE_FILE'
+                              },
+                              'MediaPackageGroupSettings': {
+                                  'Destination': {
+                                      'DestinationRefId': 'string'
+                                  }
                               },
                               'MsSmoothGroupSettings': {
                                   'AcquisitionPointId': 'string',
@@ -10518,6 +10778,8 @@ class Client(BaseClient):
                                           'NameModifier': 'string',
                                           'SegmentModifier': 'string'
                                       },
+                                      'MediaPackageOutputSettings': {}
+                                      ,
                                       'MsSmoothOutputSettings': {
                                           'NameModifier': 'string'
                                       },
@@ -10758,9 +11020,15 @@ class Client(BaseClient):
             {
                 'Channel': {
                     'Arn': 'string',
+                    'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
                     'Destinations': [
                         {
                             'Id': 'string',
+                            'MediaPackageSettings': [
+                                {
+                                    'ChannelId': 'string'
+                                },
+                            ],
                             'Settings': [
                                 {
                                     'PasswordParam': 'string',
@@ -10977,6 +11245,7 @@ class Client(BaseClient):
                                 'InputLossImageType': 'COLOR'|'SLATE',
                                 'RepeatFrameMsec': 123
                             },
+                            'OutputLockingMode': 'EPOCH_LOCKING'|'PIPELINE_LOCKING',
                             'OutputTimingSource': 'INPUT_CLOCK'|'SYSTEM_CLOCK',
                             'SupportLowFramerateInputs': 'DISABLED'|'ENABLED'
                         },
@@ -11082,6 +11351,11 @@ class Client(BaseClient):
                                         'TimedMetadataId3Period': 123,
                                         'TimestampDeltaMilliseconds': 123,
                                         'TsFileMode': 'SEGMENTED_FILES'|'SINGLE_FILE'
+                                    },
+                                    'MediaPackageGroupSettings': {
+                                        'Destination': {
+                                            'DestinationRefId': 'string'
+                                        }
                                     },
                                     'MsSmoothGroupSettings': {
                                         'AcquisitionPointId': 'string',
@@ -11234,6 +11508,7 @@ class Client(BaseClient):
                                                 'NameModifier': 'string',
                                                 'SegmentModifier': 'string'
                                             },
+                                            'MediaPackageOutputSettings': {},
                                             'MsSmoothOutputSettings': {
                                                 'NameModifier': 'string'
                                             },
@@ -11479,10 +11754,14 @@ class Client(BaseClient):
           - *(dict) --* Channel is successfully updated.
             - **Channel** *(dict) --* Placeholder documentation for Channel
               - **Arn** *(string) --* The unique arn of the channel.
+              - **ChannelClass** *(string) --* The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
               - **Destinations** *(list) --* A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager. 
                 - *(dict) --* Placeholder documentation for OutputDestination
                   - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-                  - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+                  - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+                    - *(dict) --* Media Package Output Destination Settings
+                      - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+                  - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
                     - *(dict) --* Placeholder documentation for OutputDestinationSettings
                       - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                       - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -11491,9 +11770,9 @@ class Client(BaseClient):
               - **EgressEndpoints** *(list) --* The endpoints where outgoing connections initiate from
                 - *(dict) --* Placeholder documentation for ChannelEgressEndpoint
                   - **SourceIp** *(string) --* Public IP of where a channel's output comes from
-              - **EncoderSettings** *(dict) --* Placeholder documentation for EncoderSettings
+              - **EncoderSettings** *(dict) --* Encoder Settings
                 - **AudioDescriptions** *(list) --* Placeholder documentation for __listOfAudioDescription
-                  - *(dict) --* Placeholder documentation for AudioDescription
+                  - *(dict) --* Audio Description
                     - **AudioNormalizationSettings** *(dict) --* Advanced audio normalization settings.
                       - **Algorithm** *(string) --* Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
                       - **AlgorithmControl** *(string) --* When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -11502,7 +11781,7 @@ class Client(BaseClient):
                     - **AudioType** *(string) --* Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
                     - **AudioTypeControl** *(string) --* Determines how audio type is determined. followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output. useConfigured: The value in Audio Type is included in the output. Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
                     - **CodecSettings** *(dict) --* Audio codec settings.
-                      - **AacSettings** *(dict) --* Placeholder documentation for AacSettings
+                      - **AacSettings** *(dict) --* Aac Settings
                         - **Bitrate** *(float) --* Average bitrate in bits/second. Valid values depend on rate control mode and profile.
                         - **CodingMode** *(string) --* Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                         - **InputType** *(string) --* Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair. The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd. Leave set to "normal" when input does not contain pre-mixed audio + AD.
@@ -11512,7 +11791,7 @@ class Client(BaseClient):
                         - **SampleRate** *(float) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                         - **Spec** *(string) --* Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
                         - **VbrQuality** *(string) --* VBR Quality Level - Only used if rateControlMode is VBR.
-                      - **Ac3Settings** *(dict) --* Placeholder documentation for Ac3Settings
+                      - **Ac3Settings** *(dict) --* Ac3 Settings
                         - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                         - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                         - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
@@ -11520,7 +11799,7 @@ class Client(BaseClient):
                         - **DrcProfile** *(string) --* If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
                         - **LfeFilter** *(string) --* When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
                         - **MetadataControl** *(string) --* When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-                      - **Eac3Settings** *(dict) --* Placeholder documentation for Eac3Settings
+                      - **Eac3Settings** *(dict) --* Eac3 Settings
                         - **AttenuationControl** *(string) --* When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
                         - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                         - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
@@ -11541,19 +11820,19 @@ class Client(BaseClient):
                         - **StereoDownmix** *(string) --* Stereo downmix preference. Only used for 3/2 coding mode.
                         - **SurroundExMode** *(string) --* When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
                         - **SurroundMode** *(string) --* When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-                      - **Mp2Settings** *(dict) --* Placeholder documentation for Mp2Settings
+                      - **Mp2Settings** *(dict) --* Mp2 Settings
                         - **Bitrate** *(float) --* Average bitrate in bits/second.
                         - **CodingMode** *(string) --* The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
                         - **SampleRate** *(float) --* Sample rate in Hz.
-                      - **PassThroughSettings** *(dict) --* Placeholder documentation for PassThroughSettings
+                      - **PassThroughSettings** *(dict) --* Pass Through Settings
                     - **LanguageCode** *(string) --* Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
                     - **LanguageCodeControl** *(string) --* Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
                     - **Name** *(string) --* The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription. Description names should be unique within this Live Event.
                     - **RemixSettings** *(dict) --* Settings that control how input audio channels are remixed into the output audio channels.
                       - **ChannelMappings** *(list) --* Mapping of input channels to output channels, with appropriate gain adjustments.
-                        - *(dict) --* Placeholder documentation for AudioChannelMapping
+                        - *(dict) --* Audio Channel Mapping
                           - **InputChannelLevels** *(list) --* Indices and gain values for each input channel that should be remixed into this output channel.
-                            - *(dict) --* Placeholder documentation for InputChannelLevel
+                            - *(dict) --* Input Channel Level
                               - **Gain** *(integer) --* Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
                               - **InputChannel** *(integer) --* The index of the input channel used as a source.
                           - **OutputChannel** *(integer) --* The index of the output channel being produced.
@@ -11568,11 +11847,11 @@ class Client(BaseClient):
                   - **State** *(string) --* When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
                 - **AvailConfiguration** *(dict) --* Event-wide configuration settings for ad avail insertion.
                   - **AvailSettings** *(dict) --* Ad avail settings.
-                    - **Scte35SpliceInsert** *(dict) --* Placeholder documentation for Scte35SpliceInsert
+                    - **Scte35SpliceInsert** *(dict) --* Scte35 Splice Insert
                       - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                       - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                       - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-                    - **Scte35TimeSignalApos** *(dict) --* Placeholder documentation for Scte35TimeSignalApos
+                    - **Scte35TimeSignalApos** *(dict) --* Scte35 Time Signal Apos
                       - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                       - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                       - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -11592,8 +11871,8 @@ class Client(BaseClient):
                   - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                     - **CaptionSelectorName** *(string) --* Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
                     - **DestinationSettings** *(dict) --* Additional settings for captions destination that depend on the destination type.
-                      - **AribDestinationSettings** *(dict) --* Placeholder documentation for AribDestinationSettings
-                      - **BurnInDestinationSettings** *(dict) --* Placeholder documentation for BurnInDestinationSettings
+                      - **AribDestinationSettings** *(dict) --* Arib Destination Settings
+                      - **BurnInDestinationSettings** *(dict) --* Burn In Destination Settings
                         - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
                         - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                         - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -11614,7 +11893,7 @@ class Client(BaseClient):
                         - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                         - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
                         - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
-                      - **DvbSubDestinationSettings** *(dict) --* Placeholder documentation for DvbSubDestinationSettings
+                      - **DvbSubDestinationSettings** *(dict) --* Dvb Sub Destination Settings
                         - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                         - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                         - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -11635,16 +11914,16 @@ class Client(BaseClient):
                         - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                         - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                         - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-                      - **EmbeddedDestinationSettings** *(dict) --* Placeholder documentation for EmbeddedDestinationSettings
-                      - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Placeholder documentation for EmbeddedPlusScte20DestinationSettings
-                      - **RtmpCaptionInfoDestinationSettings** *(dict) --* Placeholder documentation for RtmpCaptionInfoDestinationSettings
-                      - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Placeholder documentation for Scte20PlusEmbeddedDestinationSettings
-                      - **Scte27DestinationSettings** *(dict) --* Placeholder documentation for Scte27DestinationSettings
-                      - **SmpteTtDestinationSettings** *(dict) --* Placeholder documentation for SmpteTtDestinationSettings
-                      - **TeletextDestinationSettings** *(dict) --* Placeholder documentation for TeletextDestinationSettings
-                      - **TtmlDestinationSettings** *(dict) --* Placeholder documentation for TtmlDestinationSettings
+                      - **EmbeddedDestinationSettings** *(dict) --* Embedded Destination Settings
+                      - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Embedded Plus Scte20 Destination Settings
+                      - **RtmpCaptionInfoDestinationSettings** *(dict) --* Rtmp Caption Info Destination Settings
+                      - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Scte20 Plus Embedded Destination Settings
+                      - **Scte27DestinationSettings** *(dict) --* Scte27 Destination Settings
+                      - **SmpteTtDestinationSettings** *(dict) --* Smpte Tt Destination Settings
+                      - **TeletextDestinationSettings** *(dict) --* Teletext Destination Settings
+                      - **TtmlDestinationSettings** *(dict) --* Ttml Destination Settings
                         - **StyleControl** *(string) --* When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-                      - **WebvttDestinationSettings** *(dict) --* Placeholder documentation for WebvttDestinationSettings
+                      - **WebvttDestinationSettings** *(dict) --* Webvtt Destination Settings
                     - **LanguageCode** *(string) --* ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
                     - **LanguageDescription** *(string) --* Human readable information to indicate captions available for players (eg. English, or Spanish).
                     - **Name** *(string) --* Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
@@ -11660,22 +11939,23 @@ class Client(BaseClient):
                       - **Username** *(string) --* Documentation update needed
                     - **InputLossImageType** *(string) --* Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
                     - **RepeatFrameMsec** *(integer) --* Documentation update needed
+                  - **OutputLockingMode** *(string) --* Indicates how MediaLive pipelines are synchronized. PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
                   - **OutputTimingSource** *(string) --* Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
                   - **SupportLowFramerateInputs** *(string) --* Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
                 - **OutputGroups** *(list) --* Placeholder documentation for __listOfOutputGroup
                   - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                     - **Name** *(string) --* Custom output group name optionally defined by the user. Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
                     - **OutputGroupSettings** *(dict) --* Settings associated with the output group.
-                      - **ArchiveGroupSettings** *(dict) --* Placeholder documentation for ArchiveGroupSettings
+                      - **ArchiveGroupSettings** *(dict) --* Archive Group Settings
                         - **Destination** *(dict) --* A directory and base filename where archive files should be written.
                           - **DestinationRefId** *(string) --* Placeholder documentation for __string
                         - **RolloverInterval** *(integer) --* Number of seconds to write to archive file before closing and starting a new one.
                       - **FrameCaptureGroupSettings** *(dict) --* Frame Capture Group Settings
                         - **Destination** *(dict) --* The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, "curling_") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg). For example, curlingLow.00001.jpg
                           - **DestinationRefId** *(string) --* Placeholder documentation for __string
-                      - **HlsGroupSettings** *(dict) --* Placeholder documentation for HlsGroupSettings
+                      - **HlsGroupSettings** *(dict) --* Hls Group Settings
                         - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-                          - *(string) --* Placeholder documentation for HlsAdMarkers
+                          - *(string) --* Hls Ad Markers
                         - **BaseUrlContent** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                         - **BaseUrlManifest** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                         - **CaptionLanguageMappings** *(list) --* Mapping of up to 4 caption channels to caption languages. Is only meaningful if captionLanguageSetting is set to "insert".
@@ -11692,7 +11972,7 @@ class Client(BaseClient):
                         - **DirectoryStructure** *(string) --* Place segments in subdirectories.
                         - **EncryptionType** *(string) --* Encrypts the segments with the given encryption scheme. Exclude this parameter if no encryption is desired.
                         - **HlsCdnSettings** *(dict) --* Parameters that control interactions with the CDN.
-                          - **HlsAkamaiSettings** *(dict) --* Placeholder documentation for HlsAkamaiSettings
+                          - **HlsAkamaiSettings** *(dict) --* Hls Akamai Settings
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                             - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                             - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
@@ -11700,33 +11980,33 @@ class Client(BaseClient):
                             - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
                             - **Salt** *(string) --* Salt for authenticated Akamai.
                             - **Token** *(string) --* Token parameter for authenticated akamai. If not specified, _gda_ is used.
-                          - **HlsBasicPutSettings** *(dict) --* Placeholder documentation for HlsBasicPutSettings
+                          - **HlsBasicPutSettings** *(dict) --* Hls Basic Put Settings
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                             - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                             - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                             - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                          - **HlsMediaStoreSettings** *(dict) --* Placeholder documentation for HlsMediaStoreSettings
+                          - **HlsMediaStoreSettings** *(dict) --* Hls Media Store Settings
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                             - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                             - **MediaStoreStorageClass** *(string) --* When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
                             - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                             - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                          - **HlsWebdavSettings** *(dict) --* Placeholder documentation for HlsWebdavSettings
+                          - **HlsWebdavSettings** *(dict) --* Hls Webdav Settings
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                             - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                             - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to WebDAV.
                             - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                             - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                        - **IFrameOnlyPlaylists** *(string) --* If enabled, writes out I-Frame only playlists in addition to media playlists.
-                        - **IndexNSegments** *(integer) --* If mode is "live", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is "vod", this parameter has no effect.
+                        - **IFrameOnlyPlaylists** *(string) --* DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field). STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
+                        - **IndexNSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
                         - **InputLossAction** *(string) --* Parameter that control output group behavior on input loss.
                         - **IvInManifest** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
                         - **IvSource** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
-                        - **KeepSegments** *(integer) --* If mode is "live", the number of TS segments to retain in the destination directory. If mode is "vod", this parameter has no effect.
+                        - **KeepSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
                         - **KeyFormat** *(string) --* The value specifies how the key is represented in the resource identified by the URI. If parameter is absent, an implicit value of "identity" is used. A reverse DNS string can also be given.
                         - **KeyFormatVersions** *(string) --* Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                         - **KeyProviderSettings** *(dict) --* The key provider settings.
-                          - **StaticKeySettings** *(dict) --* Placeholder documentation for StaticKeySettings
+                          - **StaticKeySettings** *(dict) --* Static Key Settings
                             - **KeyProviderServer** *(dict) --* The URL of the license server used for protecting content.
                               - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                               - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
@@ -11736,10 +12016,10 @@ class Client(BaseClient):
                         - **ManifestDurationFormat** *(string) --* Indicates whether the output manifest should use floating point or integer values for segment duration.
                         - **MinSegmentLength** *(integer) --* When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
                         - **Mode** *(string) --* If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event. VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
-                        - **OutputSelection** *(string) --* Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file.
+                        - **OutputSelection** *(string) --* MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group. SEGMENTSONLY: Does not generate any manifests for this output group.
                         - **ProgramDateTime** *(string) --* Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
                         - **ProgramDateTimePeriod** *(integer) --* Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-                        - **RedundantManifest** *(string) --* When set to "enabled", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
+                        - **RedundantManifest** *(string) --* ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines. DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only. For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
                         - **SegmentLength** *(integer) --* Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
                         - **SegmentationMode** *(string) --* useInputSegmentation has been deprecated. The configured segment size is always used.
                         - **SegmentsPerSubdirectory** *(integer) --* Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -11747,8 +12027,11 @@ class Client(BaseClient):
                         - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                         - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
                         - **TimestampDeltaMilliseconds** *(integer) --* Provides an extra millisecond delta offset to fine tune the timestamps.
-                        - **TsFileMode** *(string) --* When set to "singleFile", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching.
-                      - **MsSmoothGroupSettings** *(dict) --* Placeholder documentation for MsSmoothGroupSettings
+                        - **TsFileMode** *(string) --* SEGMENTEDFILES: Emit the program as segments - multiple .ts media files. SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+                      - **MediaPackageGroupSettings** *(dict) --* Media Package Group Settings
+                        - **Destination** *(dict) --* MediaPackage channel destination.
+                          - **DestinationRefId** *(string) --* Placeholder documentation for __string
+                      - **MsSmoothGroupSettings** *(dict) --* Ms Smooth Group Settings
                         - **AcquisitionPointId** *(string) --* The value of the "Acquisition Point Identity" element used in each message placed in the sparse track. Only enabled if sparseTrackType is not "none".
                         - **AudioOnlyTimecodeControl** *(string) --* If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
                         - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA). This will cause https outputs to self-signed certificates to fail.
@@ -11769,14 +12052,14 @@ class Client(BaseClient):
                         - **StreamManifestBehavior** *(string) --* When set to send, send stream manifest so publishing point doesn't start until all streams start.
                         - **TimestampOffset** *(string) --* Timestamp offset for the event. Only used if timestampOffsetMode is set to useConfiguredOffset.
                         - **TimestampOffsetMode** *(string) --* Type of timestamp date offset to use. - useEventStartDate: Use the date the event was started as the offset - useConfiguredOffset: Use an explicitly configured date as the offset
-                      - **RtmpGroupSettings** *(dict) --* Placeholder documentation for RtmpGroupSettings
+                      - **RtmpGroupSettings** *(dict) --* Rtmp Group Settings
                         - **AuthenticationScheme** *(string) --* Authentication scheme to use when connecting with CDN
                         - **CacheFullBehavior** *(string) --* Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
                         - **CacheLength** *(integer) --* Cache length, in seconds, is used to calculate buffer size.
                         - **CaptionData** *(string) --* Controls the types of data that passes to onCaptionInfo outputs. If set to 'all' then 608 and 708 carried DTVCC data will be passed. If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
                         - **InputLossAction** *(string) --* Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
                         - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                      - **UdpGroupSettings** *(dict) --* Placeholder documentation for UdpGroupSettings
+                      - **UdpGroupSettings** *(dict) --* Udp Group Settings
                         - **InputLossAction** *(string) --* Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted. When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement). Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
                         - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                         - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
@@ -11788,9 +12071,9 @@ class Client(BaseClient):
                           - *(string) --* Placeholder documentation for __string
                         - **OutputName** *(string) --* The name used to identify an output.
                         - **OutputSettings** *(dict) --* Output type-specific settings.
-                          - **ArchiveOutputSettings** *(dict) --* Placeholder documentation for ArchiveOutputSettings
+                          - **ArchiveOutputSettings** *(dict) --* Archive Output Settings
                             - **ContainerSettings** *(dict) --* Settings specific to the container type of the file.
-                              - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                              - **M2tsSettings** *(dict) --* M2ts Settings
                                 - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                                 - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                                 - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -11849,16 +12132,16 @@ class Client(BaseClient):
                             - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
                           - **FrameCaptureOutputSettings** *(dict) --* Frame Capture Output Settings
                             - **NameModifier** *(string) --* Required if the output group contains more than one output. This modifier forms part of the output file name.
-                          - **HlsOutputSettings** *(dict) --* Placeholder documentation for HlsOutputSettings
+                          - **HlsOutputSettings** *(dict) --* Hls Output Settings
                             - **HlsSettings** *(dict) --* Settings regarding the underlying stream. These settings are different for audio-only outputs.
-                              - **AudioOnlyHlsSettings** *(dict) --* Placeholder documentation for AudioOnlyHlsSettings
+                              - **AudioOnlyHlsSettings** *(dict) --* Audio Only Hls Settings
                                 - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                                 - **AudioOnlyImage** *(dict) --* For use with an audio only Stream. Must be a .jpg or .png file. If given, this image will be used as the cover-art for the audio only output. Ideally, it should be formatted for an iPhone screen for two reasons. The iPhone does not resize the image, it crops a centered image on the top/bottom and left/right. Additionally, this image file gets saved bit-for-bit into every 10-second segment file, so will increase bandwidth by {image file size} * {segment count} * {user count.}.
                                   - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                                   - **Uri** *(string) --* Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
                                   - **Username** *(string) --* Documentation update needed
                                 - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-                              - **StandardHlsSettings** *(dict) --* Placeholder documentation for StandardHlsSettings
+                              - **StandardHlsSettings** *(dict) --* Standard Hls Settings
                                 - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
                                 - **M3u8Settings** *(dict) --* Settings information for the .m3u8 container
                                   - **AudioFramesPerPes** *(integer) --* The number of audio frames to insert for each PES packet.
@@ -11879,18 +12162,19 @@ class Client(BaseClient):
                                   - **VideoPid** *(string) --* Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
                             - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
                             - **SegmentModifier** *(string) --* String concatenated to end of segment filenames.
-                          - **MsSmoothOutputSettings** *(dict) --* Placeholder documentation for MsSmoothOutputSettings
+                          - **MediaPackageOutputSettings** *(dict) --* Media Package Output Settings
+                          - **MsSmoothOutputSettings** *(dict) --* Ms Smooth Output Settings
                             - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-                          - **RtmpOutputSettings** *(dict) --* Placeholder documentation for RtmpOutputSettings
+                          - **RtmpOutputSettings** *(dict) --* Rtmp Output Settings
                             - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA). This will cause rtmps outputs with self-signed certificates to fail.
                             - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
                             - **Destination** *(dict) --* The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
                               - **DestinationRefId** *(string) --* Placeholder documentation for __string
                             - **NumRetries** *(integer) --* Number of retry attempts.
-                          - **UdpOutputSettings** *(dict) --* Placeholder documentation for UdpOutputSettings
+                          - **UdpOutputSettings** *(dict) --* Udp Output Settings
                             - **BufferMsec** *(integer) --* UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-                            - **ContainerSettings** *(dict) --* Placeholder documentation for UdpContainerSettings
-                              - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                            - **ContainerSettings** *(dict) --* Udp Container Settings
+                              - **M2tsSettings** *(dict) --* M2ts Settings
                                 - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                                 - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                                 - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -11960,7 +12244,7 @@ class Client(BaseClient):
                     - **CodecSettings** *(dict) --* Video codec settings.
                       - **FrameCaptureSettings** *(dict) --* Frame Capture Settings
                         - **CaptureInterval** *(integer) --* The frequency, in seconds, for capturing frames for inclusion in the output. For example, "10" means capture a frame every 10 seconds.
-                      - **H264Settings** *(dict) --* Placeholder documentation for H264Settings
+                      - **H264Settings** *(dict) --* H264 Settings
                         - **AdaptiveQuantization** *(string) --* Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
                         - **AfdSignaling** *(string) --* Indicates that AFD values will be written into the output stream. If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
                         - **Bitrate** *(integer) --* Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -12011,33 +12295,33 @@ class Client(BaseClient):
                   - **InputId** *(string) --* The ID of the input
                   - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
                     - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                      - *(dict) --* Placeholder documentation for AudioSelector
+                      - *(dict) --* Audio Selector
                         - **Name** *(string) --* The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                         - **SelectorSettings** *(dict) --* The audio selector settings.
-                          - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                          - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                             - **LanguageCode** *(string) --* Selects a specific three-letter language code from within an audio source.
                             - **LanguageSelectionPolicy** *(string) --* When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
-                          - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                          - **AudioPidSelection** *(dict) --* Audio Pid Selection
                             - **Pid** *(integer) --* Selects a specific PID from within a source.
                     - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                       - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                         - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                         - **Name** *(string) --* Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                         - **SelectorSettings** *(dict) --* Caption selector settings.
-                          - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                          - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                          - **AribSourceSettings** *(dict) --* Arib Source Settings
+                          - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                             - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                          - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                          - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                             - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                             - **Scte20Detection** *(string) --* Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                             - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                             - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                          - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                          - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                             - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                             - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                          - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                          - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                             - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is "informational". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                          - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                          - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                             - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
                     - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
                     - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -12055,9 +12339,9 @@ class Client(BaseClient):
                       - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                       - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                       - **SelectorSettings** *(dict) --* The video selector settings.
-                        - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                        - **VideoSelectorPid** *(dict) --* Video Selector Pid
                           - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                        - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                        - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                           - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
               - **InputSpecification** *(dict) --* Placeholder documentation for InputSpecification
                 - **Codec** *(string) --* Input codec
@@ -12077,7 +12361,10 @@ class Client(BaseClient):
         :param Destinations: A list of output destinations for this channel.
           - *(dict) --* Placeholder documentation for OutputDestination
             - **Id** *(string) --* User-specified id. This is used in an output group or an output.
-            - **Settings** *(list) --* Destination settings for output; one for each redundant encoder.
+            - **MediaPackageSettings** *(list) --* Destination settings for a MediaPackage output; one destination for both encoders.
+              - *(dict) --* Media Package Output Destination Settings
+                - **ChannelId** *(string) --* ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+            - **Settings** *(list) --* Destination settings for a standard output; one destination for each redundant encoder.
               - *(dict) --* Placeholder documentation for OutputDestinationSettings
                 - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                 - **StreamName** *(string) --* Stream name for RTMP destinations (URLs of type rtmp://)
@@ -12086,7 +12373,7 @@ class Client(BaseClient):
         :type EncoderSettings: dict
         :param EncoderSettings: The encoder settings for this channel.
           - **AudioDescriptions** *(list) --* **[REQUIRED]** Placeholder documentation for __listOfAudioDescription
-            - *(dict) --* Placeholder documentation for AudioDescription
+            - *(dict) --* Audio Description
               - **AudioNormalizationSettings** *(dict) --* Advanced audio normalization settings.
                 - **Algorithm** *(string) --* Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
                 - **AlgorithmControl** *(string) --* When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
@@ -12095,7 +12382,7 @@ class Client(BaseClient):
               - **AudioType** *(string) --* Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
               - **AudioTypeControl** *(string) --* Determines how audio type is determined. followInput: If the input contains an ISO 639 audioType, then that value is passed through to the output. If the input contains no ISO 639 audioType, the value in Audio Type is included in the output. useConfigured: The value in Audio Type is included in the output. Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
               - **CodecSettings** *(dict) --* Audio codec settings.
-                - **AacSettings** *(dict) --* Placeholder documentation for AacSettings
+                - **AacSettings** *(dict) --* Aac Settings
                   - **Bitrate** *(float) --* Average bitrate in bits/second. Valid values depend on rate control mode and profile.
                   - **CodingMode** *(string) --* Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
                   - **InputType** *(string) --* Set to \"broadcasterMixedAd\" when input contains pre-mixed main audio + AD (narration) as a stereo pair. The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains \"broadcaster mixed AD\". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd. Leave set to \"normal\" when input does not contain pre-mixed audio + AD.
@@ -12105,7 +12392,7 @@ class Client(BaseClient):
                   - **SampleRate** *(float) --* Sample rate in Hz. Valid values depend on rate control mode and profile.
                   - **Spec** *(string) --* Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
                   - **VbrQuality** *(string) --* VBR Quality Level - Only used if rateControlMode is VBR.
-                - **Ac3Settings** *(dict) --* Placeholder documentation for Ac3Settings
+                - **Ac3Settings** *(dict) --* Ac3 Settings
                   - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                   - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
                   - **CodingMode** *(string) --* Dolby Digital coding mode. Determines number of channels.
@@ -12113,7 +12400,7 @@ class Client(BaseClient):
                   - **DrcProfile** *(string) --* If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
                   - **LfeFilter** *(string) --* When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
                   - **MetadataControl** *(string) --* When set to \"followInput\", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-                - **Eac3Settings** *(dict) --* Placeholder documentation for Eac3Settings
+                - **Eac3Settings** *(dict) --* Eac3 Settings
                   - **AttenuationControl** *(string) --* When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
                   - **Bitrate** *(float) --* Average bitrate in bits/second. Valid bitrates depend on the coding mode.
                   - **BitstreamMode** *(string) --* Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
@@ -12134,19 +12421,19 @@ class Client(BaseClient):
                   - **StereoDownmix** *(string) --* Stereo downmix preference. Only used for 3/2 coding mode.
                   - **SurroundExMode** *(string) --* When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
                   - **SurroundMode** *(string) --* When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-                - **Mp2Settings** *(dict) --* Placeholder documentation for Mp2Settings
+                - **Mp2Settings** *(dict) --* Mp2 Settings
                   - **Bitrate** *(float) --* Average bitrate in bits/second.
                   - **CodingMode** *(string) --* The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
                   - **SampleRate** *(float) --* Sample rate in Hz.
-                - **PassThroughSettings** *(dict) --* Placeholder documentation for PassThroughSettings
+                - **PassThroughSettings** *(dict) --* Pass Through Settings
               - **LanguageCode** *(string) --* Indicates the language of the audio output track. Only used if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.
               - **LanguageCodeControl** *(string) --* Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
               - **Name** *(string) --* **[REQUIRED]** The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription. Description names should be unique within this Live Event.
               - **RemixSettings** *(dict) --* Settings that control how input audio channels are remixed into the output audio channels.
                 - **ChannelMappings** *(list) --* **[REQUIRED]** Mapping of input channels to output channels, with appropriate gain adjustments.
-                  - *(dict) --* Placeholder documentation for AudioChannelMapping
+                  - *(dict) --* Audio Channel Mapping
                     - **InputChannelLevels** *(list) --* **[REQUIRED]** Indices and gain values for each input channel that should be remixed into this output channel.
-                      - *(dict) --* Placeholder documentation for InputChannelLevel
+                      - *(dict) --* Input Channel Level
                         - **Gain** *(integer) --* **[REQUIRED]** Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
                         - **InputChannel** *(integer) --* **[REQUIRED]** The index of the input channel used as a source.
                     - **OutputChannel** *(integer) --* **[REQUIRED]** The index of the output channel being produced.
@@ -12161,11 +12448,11 @@ class Client(BaseClient):
             - **State** *(string) --* When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
           - **AvailConfiguration** *(dict) --* Event-wide configuration settings for ad avail insertion.
             - **AvailSettings** *(dict) --* Ad avail settings.
-              - **Scte35SpliceInsert** *(dict) --* Placeholder documentation for Scte35SpliceInsert
+              - **Scte35SpliceInsert** *(dict) --* Scte35 Splice Insert
                 - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                 - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                 - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-              - **Scte35TimeSignalApos** *(dict) --* Placeholder documentation for Scte35TimeSignalApos
+              - **Scte35TimeSignalApos** *(dict) --* Scte35 Time Signal Apos
                 - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
                 - **NoRegionalBlackoutFlag** *(string) --* When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
                 - **WebDeliveryAllowedFlag** *(string) --* When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -12185,8 +12472,8 @@ class Client(BaseClient):
             - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
               - **CaptionSelectorName** *(string) --* **[REQUIRED]** Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
               - **DestinationSettings** *(dict) --* Additional settings for captions destination that depend on the destination type.
-                - **AribDestinationSettings** *(dict) --* Placeholder documentation for AribDestinationSettings
-                - **BurnInDestinationSettings** *(dict) --* Placeholder documentation for BurnInDestinationSettings
+                - **AribDestinationSettings** *(dict) --* Arib Destination Settings
+                - **BurnInDestinationSettings** *(dict) --* Burn In Destination Settings
                   - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting \"smart\" justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
                   - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                   - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -12207,7 +12494,7 @@ class Client(BaseClient):
                   - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                   - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
                   - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
-                - **DvbSubDestinationSettings** *(dict) --* Placeholder documentation for DvbSubDestinationSettings
+                - **DvbSubDestinationSettings** *(dict) --* Dvb Sub Destination Settings
                   - **Alignment** *(string) --* If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting \"smart\" justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                   - **BackgroundColor** *(string) --* Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
                   - **BackgroundOpacity** *(integer) --* Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -12228,16 +12515,16 @@ class Client(BaseClient):
                   - **TeletextGridControl** *(string) --* Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
                   - **XPosition** *(integer) --* Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
                   - **YPosition** *(integer) --* Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-                - **EmbeddedDestinationSettings** *(dict) --* Placeholder documentation for EmbeddedDestinationSettings
-                - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Placeholder documentation for EmbeddedPlusScte20DestinationSettings
-                - **RtmpCaptionInfoDestinationSettings** *(dict) --* Placeholder documentation for RtmpCaptionInfoDestinationSettings
-                - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Placeholder documentation for Scte20PlusEmbeddedDestinationSettings
-                - **Scte27DestinationSettings** *(dict) --* Placeholder documentation for Scte27DestinationSettings
-                - **SmpteTtDestinationSettings** *(dict) --* Placeholder documentation for SmpteTtDestinationSettings
-                - **TeletextDestinationSettings** *(dict) --* Placeholder documentation for TeletextDestinationSettings
-                - **TtmlDestinationSettings** *(dict) --* Placeholder documentation for TtmlDestinationSettings
+                - **EmbeddedDestinationSettings** *(dict) --* Embedded Destination Settings
+                - **EmbeddedPlusScte20DestinationSettings** *(dict) --* Embedded Plus Scte20 Destination Settings
+                - **RtmpCaptionInfoDestinationSettings** *(dict) --* Rtmp Caption Info Destination Settings
+                - **Scte20PlusEmbeddedDestinationSettings** *(dict) --* Scte20 Plus Embedded Destination Settings
+                - **Scte27DestinationSettings** *(dict) --* Scte27 Destination Settings
+                - **SmpteTtDestinationSettings** *(dict) --* Smpte Tt Destination Settings
+                - **TeletextDestinationSettings** *(dict) --* Teletext Destination Settings
+                - **TtmlDestinationSettings** *(dict) --* Ttml Destination Settings
                   - **StyleControl** *(string) --* When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-                - **WebvttDestinationSettings** *(dict) --* Placeholder documentation for WebvttDestinationSettings
+                - **WebvttDestinationSettings** *(dict) --* Webvtt Destination Settings
               - **LanguageCode** *(string) --* ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
               - **LanguageDescription** *(string) --* Human readable information to indicate captions available for players (eg. English, or Spanish).
               - **Name** *(string) --* **[REQUIRED]** Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
@@ -12253,22 +12540,23 @@ class Client(BaseClient):
                 - **Username** *(string) --* Documentation update needed
               - **InputLossImageType** *(string) --* Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
               - **RepeatFrameMsec** *(integer) --* Documentation update needed
+            - **OutputLockingMode** *(string) --* Indicates how MediaLive pipelines are synchronized. PIPELINELOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCHLOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
             - **OutputTimingSource** *(string) --* Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
             - **SupportLowFramerateInputs** *(string) --* Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
           - **OutputGroups** *(list) --* **[REQUIRED]** Placeholder documentation for __listOfOutputGroup
             - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
               - **Name** *(string) --* Custom output group name optionally defined by the user. Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
               - **OutputGroupSettings** *(dict) --* **[REQUIRED]** Settings associated with the output group.
-                - **ArchiveGroupSettings** *(dict) --* Placeholder documentation for ArchiveGroupSettings
+                - **ArchiveGroupSettings** *(dict) --* Archive Group Settings
                   - **Destination** *(dict) --* **[REQUIRED]** A directory and base filename where archive files should be written.
                     - **DestinationRefId** *(string) --* Placeholder documentation for __string
                   - **RolloverInterval** *(integer) --* Number of seconds to write to archive file before closing and starting a new one.
                 - **FrameCaptureGroupSettings** *(dict) --* Frame Capture Group Settings
                   - **Destination** *(dict) --* **[REQUIRED]** The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, \"curling_\") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg). For example, curlingLow.00001.jpg
                     - **DestinationRefId** *(string) --* Placeholder documentation for __string
-                - **HlsGroupSettings** *(dict) --* Placeholder documentation for HlsGroupSettings
+                - **HlsGroupSettings** *(dict) --* Hls Group Settings
                   - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-                    - *(string) --* Placeholder documentation for HlsAdMarkers
+                    - *(string) --* Hls Ad Markers
                   - **BaseUrlContent** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                   - **BaseUrlManifest** *(string) --* A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
                   - **CaptionLanguageMappings** *(list) --* Mapping of up to 4 caption channels to caption languages. Is only meaningful if captionLanguageSetting is set to \"insert\".
@@ -12285,7 +12573,7 @@ class Client(BaseClient):
                   - **DirectoryStructure** *(string) --* Place segments in subdirectories.
                   - **EncryptionType** *(string) --* Encrypts the segments with the given encryption scheme. Exclude this parameter if no encryption is desired.
                   - **HlsCdnSettings** *(dict) --* Parameters that control interactions with the CDN.
-                    - **HlsAkamaiSettings** *(dict) --* Placeholder documentation for HlsAkamaiSettings
+                    - **HlsAkamaiSettings** *(dict) --* Hls Akamai Settings
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                       - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                       - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
@@ -12293,33 +12581,33 @@ class Client(BaseClient):
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
                       - **Salt** *(string) --* Salt for authenticated Akamai.
                       - **Token** *(string) --* Token parameter for authenticated akamai. If not specified, _gda_ is used.
-                    - **HlsBasicPutSettings** *(dict) --* Placeholder documentation for HlsBasicPutSettings
+                    - **HlsBasicPutSettings** *(dict) --* Hls Basic Put Settings
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                       - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                       - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                    - **HlsMediaStoreSettings** *(dict) --* Placeholder documentation for HlsMediaStoreSettings
+                    - **HlsMediaStoreSettings** *(dict) --* Hls Media Store Settings
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                       - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                       - **MediaStoreStorageClass** *(string) --* When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
                       - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                    - **HlsWebdavSettings** *(dict) --* Placeholder documentation for HlsWebdavSettings
+                    - **HlsWebdavSettings** *(dict) --* Hls Webdav Settings
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying connection to the CDN if the connection is lost.
                       - **FilecacheDuration** *(integer) --* Size in seconds of file cache for streaming outputs.
                       - **HttpTransferMode** *(string) --* Specify whether or not to use chunked transfer encoding to WebDAV.
                       - **NumRetries** *(integer) --* Number of retry attempts that will be made before the Live Event is put into an error state.
                       - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                  - **IFrameOnlyPlaylists** *(string) --* If enabled, writes out I-Frame only playlists in addition to media playlists.
-                  - **IndexNSegments** *(integer) --* If mode is \"live\", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is \"vod\", this parameter has no effect.
+                  - **IFrameOnlyPlaylists** *(string) --* DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field). STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888\"
+                  - **IndexNSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field.
                   - **InputLossAction** *(string) --* Parameter that control output group behavior on input loss.
                   - **IvInManifest** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to \"include\", IV is listed in the manifest, otherwise the IV is not in the manifest.
                   - **IvSource** *(string) --* For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is \"followsSegmentNumber\", it will cause the IV to change every segment (to match the segment number). If this is set to \"explicit\", you must enter a constantIv value.
-                  - **KeepSegments** *(integer) --* If mode is \"live\", the number of TS segments to retain in the destination directory. If mode is \"vod\", this parameter has no effect.
+                  - **KeepSegments** *(integer) --* Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory.
                   - **KeyFormat** *(string) --* The value specifies how the key is represented in the resource identified by the URI. If parameter is absent, an implicit value of \"identity\" is used. A reverse DNS string can also be given.
                   - **KeyFormatVersions** *(string) --* Either a single positive integer version value or a slash delimited list of version values (1/2/3).
                   - **KeyProviderSettings** *(dict) --* The key provider settings.
-                    - **StaticKeySettings** *(dict) --* Placeholder documentation for StaticKeySettings
+                    - **StaticKeySettings** *(dict) --* Static Key Settings
                       - **KeyProviderServer** *(dict) --* The URL of the license server used for protecting content.
                         - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                         - **Uri** *(string) --* **[REQUIRED]** Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\".
@@ -12329,10 +12617,10 @@ class Client(BaseClient):
                   - **ManifestDurationFormat** *(string) --* Indicates whether the output manifest should use floating point or integer values for segment duration.
                   - **MinSegmentLength** *(integer) --* When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
                   - **Mode** *(string) --* If \"vod\", all segments are indexed and kept permanently in the destination and manifest. If \"live\", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event. VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a \"VOD\" type manifest on completion of the stream.
-                  - **OutputSelection** *(string) --* Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file.
+                  - **OutputSelection** *(string) --* MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group. SEGMENTSONLY: Does not generate any manifests for this output group.
                   - **ProgramDateTime** *(string) --* Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
                   - **ProgramDateTimePeriod** *(integer) --* Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-                  - **RedundantManifest** *(string) --* When set to \"enabled\", includes the media playlists from both pipelines in the master manifest (.m3u8) file.
+                  - **RedundantManifest** *(string) --* ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines. DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only. For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
                   - **SegmentLength** *(integer) --* Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
                   - **SegmentationMode** *(string) --* useInputSegmentation has been deprecated. The configured segment size is always used.
                   - **SegmentsPerSubdirectory** *(integer) --* Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -12340,8 +12628,11 @@ class Client(BaseClient):
                   - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                   - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
                   - **TimestampDeltaMilliseconds** *(integer) --* Provides an extra millisecond delta offset to fine tune the timestamps.
-                  - **TsFileMode** *(string) --* When set to \"singleFile\", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching.
-                - **MsSmoothGroupSettings** *(dict) --* Placeholder documentation for MsSmoothGroupSettings
+                  - **TsFileMode** *(string) --* SEGMENTEDFILES: Emit the program as segments - multiple .ts media files. SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+                - **MediaPackageGroupSettings** *(dict) --* Media Package Group Settings
+                  - **Destination** *(dict) --* **[REQUIRED]** MediaPackage channel destination.
+                    - **DestinationRefId** *(string) --* Placeholder documentation for __string
+                - **MsSmoothGroupSettings** *(dict) --* Ms Smooth Group Settings
                   - **AcquisitionPointId** *(string) --* The value of the \"Acquisition Point Identity\" element used in each message placed in the sparse track. Only enabled if sparseTrackType is not \"none\".
                   - **AudioOnlyTimecodeControl** *(string) --* If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
                   - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA). This will cause https outputs to self-signed certificates to fail.
@@ -12362,14 +12653,14 @@ class Client(BaseClient):
                   - **StreamManifestBehavior** *(string) --* When set to send, send stream manifest so publishing point doesn\'t start until all streams start.
                   - **TimestampOffset** *(string) --* Timestamp offset for the event. Only used if timestampOffsetMode is set to useConfiguredOffset.
                   - **TimestampOffsetMode** *(string) --* Type of timestamp date offset to use. - useEventStartDate: Use the date the event was started as the offset - useConfiguredOffset: Use an explicitly configured date as the offset
-                - **RtmpGroupSettings** *(dict) --* Placeholder documentation for RtmpGroupSettings
+                - **RtmpGroupSettings** *(dict) --* Rtmp Group Settings
                   - **AuthenticationScheme** *(string) --* Authentication scheme to use when connecting with CDN
                   - **CacheFullBehavior** *(string) --* Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the \'Media Cache\' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
                   - **CacheLength** *(integer) --* Cache length, in seconds, is used to calculate buffer size.
                   - **CaptionData** *(string) --* Controls the types of data that passes to onCaptionInfo outputs. If set to \'all\' then 608 and 708 carried DTVCC data will be passed. If set to \'field1AndField2608\' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to \'field1608\' then only the data carried in 608 from field 1 video will be passed.
                   - **InputLossAction** *(string) --* Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
                   - **RestartDelay** *(integer) --* If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-                - **UdpGroupSettings** *(dict) --* Placeholder documentation for UdpGroupSettings
+                - **UdpGroupSettings** *(dict) --* Udp Group Settings
                   - **InputLossAction** *(string) --* Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted. When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement). Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
                   - **TimedMetadataId3Frame** *(string) --* Indicates ID3 frame that has the timecode.
                   - **TimedMetadataId3Period** *(integer) --* Timed Metadata interval in seconds.
@@ -12381,9 +12672,9 @@ class Client(BaseClient):
                     - *(string) --* Placeholder documentation for __string
                   - **OutputName** *(string) --* The name used to identify an output.
                   - **OutputSettings** *(dict) --* **[REQUIRED]** Output type-specific settings.
-                    - **ArchiveOutputSettings** *(dict) --* Placeholder documentation for ArchiveOutputSettings
+                    - **ArchiveOutputSettings** *(dict) --* Archive Output Settings
                       - **ContainerSettings** *(dict) --* **[REQUIRED]** Settings specific to the container type of the file.
-                        - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                        - **M2tsSettings** *(dict) --* M2ts Settings
                           - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                           - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                           - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -12442,16 +12733,16 @@ class Client(BaseClient):
                       - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
                     - **FrameCaptureOutputSettings** *(dict) --* Frame Capture Output Settings
                       - **NameModifier** *(string) --* Required if the output group contains more than one output. This modifier forms part of the output file name.
-                    - **HlsOutputSettings** *(dict) --* Placeholder documentation for HlsOutputSettings
+                    - **HlsOutputSettings** *(dict) --* Hls Output Settings
                       - **HlsSettings** *(dict) --* **[REQUIRED]** Settings regarding the underlying stream. These settings are different for audio-only outputs.
-                        - **AudioOnlyHlsSettings** *(dict) --* Placeholder documentation for AudioOnlyHlsSettings
+                        - **AudioOnlyHlsSettings** *(dict) --* Audio Only Hls Settings
                           - **AudioGroupId** *(string) --* Specifies the group to which the audio Rendition belongs.
                           - **AudioOnlyImage** *(dict) --* For use with an audio only Stream. Must be a .jpg or .png file. If given, this image will be used as the cover-art for the audio only output. Ideally, it should be formatted for an iPhone screen for two reasons. The iPhone does not resize the image, it crops a centered image on the top/bottom and left/right. Additionally, this image file gets saved bit-for-bit into every 10-second segment file, so will increase bandwidth by {image file size} * {segment count} * {user count.}.
                             - **PasswordParam** *(string) --* key used to extract the password from EC2 Parameter store
                             - **Uri** *(string) --* **[REQUIRED]** Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: \"rtmp://fmsserver/live\".
                             - **Username** *(string) --* Documentation update needed
                           - **AudioTrackType** *(string) --* Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-                        - **StandardHlsSettings** *(dict) --* Placeholder documentation for StandardHlsSettings
+                        - **StandardHlsSettings** *(dict) --* Standard Hls Settings
                           - **AudioRenditionSets** *(string) --* List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by \',\'.
                           - **M3u8Settings** *(dict) --* **[REQUIRED]** Settings information for the .m3u8 container
                             - **AudioFramesPerPes** *(integer) --* The number of audio frames to insert for each PES packet.
@@ -12472,18 +12763,19 @@ class Client(BaseClient):
                             - **VideoPid** *(string) --* Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
                       - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Accepts \\"Format Identifiers\\":#formatIdentifierParameters.
                       - **SegmentModifier** *(string) --* String concatenated to end of segment filenames.
-                    - **MsSmoothOutputSettings** *(dict) --* Placeholder documentation for MsSmoothOutputSettings
+                    - **MediaPackageOutputSettings** *(dict) --* Media Package Output Settings
+                    - **MsSmoothOutputSettings** *(dict) --* Ms Smooth Output Settings
                       - **NameModifier** *(string) --* String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-                    - **RtmpOutputSettings** *(dict) --* Placeholder documentation for RtmpOutputSettings
+                    - **RtmpOutputSettings** *(dict) --* Rtmp Output Settings
                       - **CertificateMode** *(string) --* If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA). This will cause rtmps outputs with self-signed certificates to fail.
                       - **ConnectionRetryInterval** *(integer) --* Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
                       - **Destination** *(dict) --* **[REQUIRED]** The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
                         - **DestinationRefId** *(string) --* Placeholder documentation for __string
                       - **NumRetries** *(integer) --* Number of retry attempts.
-                    - **UdpOutputSettings** *(dict) --* Placeholder documentation for UdpOutputSettings
+                    - **UdpOutputSettings** *(dict) --* Udp Output Settings
                       - **BufferMsec** *(integer) --* UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-                      - **ContainerSettings** *(dict) --* **[REQUIRED]** Placeholder documentation for UdpContainerSettings
-                        - **M2tsSettings** *(dict) --* Placeholder documentation for M2tsSettings
+                      - **ContainerSettings** *(dict) --* **[REQUIRED]** Udp Container Settings
+                        - **M2tsSettings** *(dict) --* M2ts Settings
                           - **AbsentInputAudioBehavior** *(string) --* When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
                           - **Arib** *(string) --* When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
                           - **AribCaptionsPid** *(string) --* Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -12553,7 +12845,7 @@ class Client(BaseClient):
               - **CodecSettings** *(dict) --* Video codec settings.
                 - **FrameCaptureSettings** *(dict) --* Frame Capture Settings
                   - **CaptureInterval** *(integer) --* **[REQUIRED]** The frequency, in seconds, for capturing frames for inclusion in the output. For example, \"10\" means capture a frame every 10 seconds.
-                - **H264Settings** *(dict) --* Placeholder documentation for H264Settings
+                - **H264Settings** *(dict) --* H264 Settings
                   - **AdaptiveQuantization** *(string) --* Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
                   - **AfdSignaling** *(string) --* Indicates that AFD values will be written into the output stream. If afdSignaling is \"auto\", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to \"fixed\", the AFD value will be the value configured in the fixedAfd parameter.
                   - **Bitrate** *(integer) --* Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -12604,33 +12896,33 @@ class Client(BaseClient):
             - **InputId** *(string) --* The ID of the input
             - **InputSettings** *(dict) --* Settings of an input (caption selector, etc.)
               - **AudioSelectors** *(list) --* Used to select the audio stream to decode for inputs that have multiple available.
-                - *(dict) --* Placeholder documentation for AudioSelector
+                - *(dict) --* Audio Selector
                   - **Name** *(string) --* **[REQUIRED]** The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input.
                   - **SelectorSettings** *(dict) --* The audio selector settings.
-                    - **AudioLanguageSelection** *(dict) --* Placeholder documentation for AudioLanguageSelection
+                    - **AudioLanguageSelection** *(dict) --* Audio Language Selection
                       - **LanguageCode** *(string) --* **[REQUIRED]** Selects a specific three-letter language code from within an audio source.
                       - **LanguageSelectionPolicy** *(string) --* When set to \"strict\", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If \"loose\", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can\'t find one with the same language.
-                    - **AudioPidSelection** *(dict) --* Placeholder documentation for AudioPidSelection
+                    - **AudioPidSelection** *(dict) --* Audio Pid Selection
                       - **Pid** *(integer) --* **[REQUIRED]** Selects a specific PID from within a source.
               - **CaptionSelectors** *(list) --* Used to select the caption input to use for inputs that have multiple available.
                 - *(dict) --* Output groups for this Live Event. Output groups contain information about where streams should be distributed.
                   - **LanguageCode** *(string) --* When specified this field indicates the three letter language code of the caption track to extract from the source.
                   - **Name** *(string) --* **[REQUIRED]** Name identifier for a caption selector. This name is used to associate this caption selector with one or more caption descriptions. Names must be unique within an event.
                   - **SelectorSettings** *(dict) --* Caption selector settings.
-                    - **AribSourceSettings** *(dict) --* Placeholder documentation for AribSourceSettings
-                    - **DvbSubSourceSettings** *(dict) --* Placeholder documentation for DvbSubSourceSettings
+                    - **AribSourceSettings** *(dict) --* Arib Source Settings
+                    - **DvbSubSourceSettings** *(dict) --* Dvb Sub Source Settings
                       - **Pid** *(integer) --* When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-                    - **EmbeddedSourceSettings** *(dict) --* Placeholder documentation for EmbeddedSourceSettings
+                    - **EmbeddedSourceSettings** *(dict) --* Embedded Source Settings
                       - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                       - **Scte20Detection** *(string) --* Set to \"auto\" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
                       - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
                       - **Source608TrackNumber** *(integer) --* This field is unused and deprecated.
-                    - **Scte20SourceSettings** *(dict) --* Placeholder documentation for Scte20SourceSettings
+                    - **Scte20SourceSettings** *(dict) --* Scte20 Source Settings
                       - **Convert608To708** *(string) --* If upconvert, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
                       - **Source608ChannelNumber** *(integer) --* Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-                    - **Scte27SourceSettings** *(dict) --* Placeholder documentation for Scte27SourceSettings
+                    - **Scte27SourceSettings** *(dict) --* Scte27 Source Settings
                       - **Pid** *(integer) --* The pid field is used in conjunction with the caption selector languageCode field as follows: - Specify PID and Language: Extracts captions from that PID; the language is \"informational\". - Specify PID and omit Language: Extracts the specified PID. - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be. - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-                    - **TeletextSourceSettings** *(dict) --* Placeholder documentation for TeletextSourceSettings
+                    - **TeletextSourceSettings** *(dict) --* Teletext Source Settings
                       - **PageNumber** *(string) --* Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no \"0x\" prefix.
               - **DeblockFilter** *(string) --* Enable or disable the deblock filter when filtering.
               - **DenoiseFilter** *(string) --* Enable or disable the denoise filter when filtering.
@@ -12648,9 +12940,9 @@ class Client(BaseClient):
                 - **ColorSpace** *(string) --* Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion to determine if any conversion will be performed.
                 - **ColorSpaceUsage** *(string) --* Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
                 - **SelectorSettings** *(dict) --* The video selector settings.
-                  - **VideoSelectorPid** *(dict) --* Placeholder documentation for VideoSelectorPid
+                  - **VideoSelectorPid** *(dict) --* Video Selector Pid
                     - **Pid** *(integer) --* Selects a specific PID from within a video source.
-                  - **VideoSelectorProgramId** *(dict) --* Placeholder documentation for VideoSelectorProgramId
+                  - **VideoSelectorProgramId** *(dict) --* Video Selector Program Id
                     - **ProgramId** *(integer) --* Selects a specific program from within a multi-program transport stream. If the program doesn\'t exist, the first program within the transport stream will be selected by default.
         :type InputSpecification: dict
         :param InputSpecification: Specification of input for this channel (max. bitrate, resolution, codec, etc.)
@@ -12721,6 +13013,7 @@ class Client(BaseClient):
                         },
                     ],
                     'Id': 'string',
+                    'InputClass': 'STANDARD'|'SINGLE_PIPELINE',
                     'MediaConnectFlows': [
                         {
                             'FlowArn': 'string'
@@ -12761,6 +13054,7 @@ class Client(BaseClient):
                     - **AvailabilityZone** *(string) --* The availability zone of the Input destination. 
                     - **NetworkInterfaceId** *(string) --* The network interface ID of the Input destination in the VPC. 
               - **Id** *(string) --* The generated ID of the input (unique for user account, immutable).
+              - **InputClass** *(string) --* STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input. 
               - **MediaConnectFlows** *(list) --* A list of MediaConnect Flows for this input.
                 - *(dict) --* The settings for a MediaConnect Flow.
                   - **FlowArn** *(string) --* The unique ARN of the MediaConnect Flow being used as a source.
@@ -12870,6 +13164,94 @@ class Client(BaseClient):
         :param WhitelistRules: List of IPv4 CIDR addresses to whitelist
           - *(dict) --* An IPv4 CIDR to whitelist.
             - **Cidr** *(string) --* The IPv4 CIDR to whitelist.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def update_reservation(self, ReservationId: str, Name: str = None) -> Dict:
+        """
+        Update reservation.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateReservation>`_
+        
+        **Request Syntax**
+        ::
+          response = client.update_reservation(
+              Name='string',
+              ReservationId='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Reservation': {
+                    'Arn': 'string',
+                    'Count': 123,
+                    'CurrencyCode': 'string',
+                    'Duration': 123,
+                    'DurationUnits': 'MONTHS',
+                    'End': 'string',
+                    'FixedPrice': 123.0,
+                    'Name': 'string',
+                    'OfferingDescription': 'string',
+                    'OfferingId': 'string',
+                    'OfferingType': 'NO_UPFRONT',
+                    'Region': 'string',
+                    'ReservationId': 'string',
+                    'ResourceSpecification': {
+                        'ChannelClass': 'STANDARD'|'SINGLE_PIPELINE',
+                        'Codec': 'MPEG2'|'AVC'|'HEVC'|'AUDIO',
+                        'MaximumBitrate': 'MAX_10_MBPS'|'MAX_20_MBPS'|'MAX_50_MBPS',
+                        'MaximumFramerate': 'MAX_30_FPS'|'MAX_60_FPS',
+                        'Resolution': 'SD'|'HD'|'UHD',
+                        'ResourceType': 'INPUT'|'OUTPUT'|'CHANNEL',
+                        'SpecialFeature': 'ADVANCED_AUDIO'|'AUDIO_NORMALIZATION',
+                        'VideoQuality': 'STANDARD'|'ENHANCED'|'PREMIUM'
+                    },
+                    'Start': 'string',
+                    'State': 'ACTIVE'|'EXPIRED'|'CANCELED'|'DELETED',
+                    'Tags': {
+                        'string': 'string'
+                    },
+                    'UsagePrice': 123.0
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* Updated reservation
+            - **Reservation** *(dict) --* Reserved resources available to use
+              - **Arn** *(string) --* Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+              - **Count** *(integer) --* Number of reserved resources
+              - **CurrencyCode** *(string) --* Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+              - **Duration** *(integer) --* Lease duration, e.g. '12'
+              - **DurationUnits** *(string) --* Units for duration, e.g. 'MONTHS'
+              - **End** *(string) --* Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+              - **FixedPrice** *(float) --* One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+              - **Name** *(string) --* User specified reservation name
+              - **OfferingDescription** *(string) --* Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+              - **OfferingId** *(string) --* Unique offering ID, e.g. '87654321'
+              - **OfferingType** *(string) --* Offering type, e.g. 'NO_UPFRONT'
+              - **Region** *(string) --* AWS region, e.g. 'us-west-2'
+              - **ReservationId** *(string) --* Unique reservation ID, e.g. '1234567'
+              - **ResourceSpecification** *(dict) --* Resource configuration details
+                - **ChannelClass** *(string) --* Channel class, e.g. 'STANDARD'
+                - **Codec** *(string) --* Codec, e.g. 'AVC'
+                - **MaximumBitrate** *(string) --* Maximum bitrate, e.g. 'MAX_20_MBPS'
+                - **MaximumFramerate** *(string) --* Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
+                - **Resolution** *(string) --* Resolution, e.g. 'HD'
+                - **ResourceType** *(string) --* Resource type, 'INPUT', 'OUTPUT', or 'CHANNEL'
+                - **SpecialFeature** *(string) --* Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
+                - **VideoQuality** *(string) --* Video quality, e.g. 'STANDARD' (Outputs only)
+              - **Start** *(string) --* Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+              - **State** *(string) --* Current state of reservation, e.g. 'ACTIVE'
+              - **Tags** *(dict) --* A collection of key-value pairs
+                - *(string) --* Placeholder documentation for __string
+                  - *(string) --* Placeholder documentation for __string
+              - **UsagePrice** *(float) --* Recurring usage charge for each reserved resource, e.g. '157.0'
+        :type Name: string
+        :param Name: Name of the reservation
+        :type ReservationId: string
+        :param ReservationId: **[REQUIRED]** Unique reservation ID, e.g. \'1234567\'
         :rtype: dict
         :returns:
         """

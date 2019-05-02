@@ -1,16 +1,16 @@
-from typing import Union
-from botocore.paginate import Paginator
-from typing import List
-from botocore.waiter import Waiter
 from typing import Optional
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
     def associate_delegate_to_resource(self, OrganizationId: str, ResourceId: str, EntityId: str) -> Dict:
         """
-        Adds a member to the resource's set of delegates.
+        Adds a member (user or group) to the resource's set of delegates.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateDelegateToResource>`_
         
         **Request Syntax**
@@ -32,7 +32,7 @@ class Client(BaseClient):
           The organization under which the resource exists.
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
-          The resource for which members are associated.
+          The resource for which members (users or groups) are associated.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
           The member (user or group) to associate to the resource.
@@ -43,7 +43,7 @@ class Client(BaseClient):
 
     def associate_member_to_group(self, OrganizationId: str, GroupId: str, MemberId: str) -> Dict:
         """
-        Adds a member to the group's set.
+        Adds a member (user or group) to the group's set.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateMemberToGroup>`_
         
         **Request Syntax**
@@ -65,10 +65,10 @@ class Client(BaseClient):
           The organization under which the group exists.
         :type GroupId: string
         :param GroupId: **[REQUIRED]**
-          The group for which the member is associated.
+          The group to which the member (user or group) is associated.
         :type MemberId: string
         :param MemberId: **[REQUIRED]**
-          The member to associate to the group.
+          The member (user or group) to associate to the group.
         :rtype: dict
         :returns:
         """
@@ -91,7 +91,7 @@ class Client(BaseClient):
 
     def create_alias(self, OrganizationId: str, EntityId: str, Alias: str) -> Dict:
         """
-        Adds an alias to the set of a given member of Amazon WorkMail.
+        Adds an alias to the set of a given member (user or group) of Amazon WorkMail.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateAlias>`_
         
         **Request Syntax**
@@ -110,13 +110,13 @@ class Client(BaseClient):
           - *(dict) --* 
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The organization under which the member exists.
+          The organization under which the member (user or group) exists.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The alias is added to this Amazon WorkMail entity.
+          The member (user or group) to which this alias is added.
         :type Alias: string
         :param Alias: **[REQUIRED]**
-          The alias to add to the user.
+          The alias to add to the member set.
         :rtype: dict
         :returns:
         """
@@ -124,7 +124,7 @@ class Client(BaseClient):
 
     def create_group(self, OrganizationId: str, Name: str) -> Dict:
         """
-        Creates a group that can be used in Amazon WorkMail by calling the RegisterToWorkMail operation.
+        Creates a group that can be used in Amazon WorkMail by calling the  RegisterToWorkMail operation.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateGroup>`_
         
         **Request Syntax**
@@ -143,7 +143,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **GroupId** *(string) --* 
-              The ID of the group.
+              The identifier of the group.
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
           The organization under which the group is to be created.
@@ -157,7 +157,7 @@ class Client(BaseClient):
 
     def create_resource(self, OrganizationId: str, Name: str, Type: str) -> Dict:
         """
-        Creates a new Amazon WorkMail resource. The available types are equipment and room.
+        Creates a new Amazon WorkMail resource. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateResource>`_
         
         **Request Syntax**
@@ -177,16 +177,16 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **ResourceId** *(string) --* 
-              The identifier of the created resource.
+              The identifier of the new resource.
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
           The identifier associated with the organization for which the resource is created.
         :type Name: string
         :param Name: **[REQUIRED]**
-          The name of the created resource.
+          The name of the new resource.
         :type Type: string
         :param Type: **[REQUIRED]**
-          The type of the created resource.
+          The type of the new resource. The available types are ``equipment`` and ``room`` .
         :rtype: dict
         :returns:
         """
@@ -194,7 +194,7 @@ class Client(BaseClient):
 
     def create_user(self, OrganizationId: str, Name: str, DisplayName: str, Password: str) -> Dict:
         """
-        Creates a user who can be used in Amazon WorkMail by calling the RegisterToWorkMail operation.
+        Creates a user who can be used in Amazon WorkMail by calling the  RegisterToWorkMail operation.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateUser>`_
         
         **Request Syntax**
@@ -215,19 +215,19 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **UserId** *(string) --* 
-              The information regarding the newly created user.
+              The identifier for the new user.
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
           The identifier of the organization for which the user is created.
         :type Name: string
         :param Name: **[REQUIRED]**
-          The name for the user to be created.
+          The name for the new user. Simple AD or AD Connector user names have a maximum length of 20. All others have a maximum length of 64.
         :type DisplayName: string
         :param DisplayName: **[REQUIRED]**
-          The display name for the user to be created.
+          The display name for the new user.
         :type Password: string
         :param Password: **[REQUIRED]**
-          The password for the user to be created.
+          The password for the new user.
         :rtype: dict
         :returns:
         """
@@ -235,7 +235,7 @@ class Client(BaseClient):
 
     def delete_alias(self, OrganizationId: str, EntityId: str, Alias: str) -> Dict:
         """
-        Remove the alias from a set of aliases for a given user.
+        Remove one or more specified aliases from a set of aliases for a given user.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteAlias>`_
         
         **Request Syntax**
@@ -257,7 +257,7 @@ class Client(BaseClient):
           The identifier for the organization under which the user exists.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The identifier for the Amazon WorkMail entity to have the aliases removed.
+          The identifier for the member (user or group) from which to have the aliases removed.
         :type Alias: string
         :param Alias: **[REQUIRED]**
           The aliases to be removed from the user\'s set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).
@@ -297,7 +297,7 @@ class Client(BaseClient):
 
     def delete_mailbox_permissions(self, OrganizationId: str, EntityId: str, GranteeId: str) -> Dict:
         """
-        Deletes permissions granted to a user or group.
+        Deletes permissions granted to a member (user or group).
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteMailboxPermissions>`_
         
         **Request Syntax**
@@ -316,13 +316,13 @@ class Client(BaseClient):
           - *(dict) --* 
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The identifier of the organization under which the entity (user or group) exists.
+          The identifier of the organization under which the member (user or group) exists.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The identifier of the entity (user or group) for which to delete mailbox permissions.
+          The identifier of the member (user or group)that owns the mailbox.
         :type GranteeId: string
         :param GranteeId: **[REQUIRED]**
-          The identifier of the entity (user or group) for which to delete granted permissions.
+          The identifier of the member (user or group) for which to delete granted permissions.
         :rtype: dict
         :returns:
         """
@@ -348,7 +348,7 @@ class Client(BaseClient):
           - *(dict) --* 
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The identifier associated with the organization for which the resource is deleted.
+          The identifier associated with the organization from which the resource is deleted.
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
           The identifier of the resource to be deleted.
@@ -359,7 +359,8 @@ class Client(BaseClient):
 
     def delete_user(self, OrganizationId: str, UserId: str) -> Dict:
         """
-        Deletes a user from Amazon WorkMail and all subsequent systems. The action can't be undone. The mailbox is kept as-is for a minimum of 30 days, without any means to restore it. 
+        Deletes a user from Amazon WorkMail and all subsequent systems. Before you can delete a user, the user state must be ``DISABLED`` . Use the  DescribeUser action to confirm the user state.
+        Deleting a user is permanent and cannot be undone. WorkMail archives user mailboxes for 30 days before they are permanently removed.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteUser>`_
         
         **Request Syntax**
@@ -377,7 +378,7 @@ class Client(BaseClient):
           - *(dict) --* 
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The organization that contains the user.
+          The organization that contains the user to be deleted.
         :type UserId: string
         :param UserId: **[REQUIRED]**
           The identifier of the user to be deleted.
@@ -388,7 +389,7 @@ class Client(BaseClient):
 
     def deregister_from_work_mail(self, OrganizationId: str, EntityId: str) -> Dict:
         """
-        Mark a user, group, or resource as no longer used in Amazon WorkMail. This action disassociates the mailbox and schedules it for clean-up. Amazon WorkMail keeps mailboxes for 30 days before they are permanently removed. The functionality in the console is *Disable* .
+        Mark a user, group, or resource as no longer used in Amazon WorkMail. This action disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days before they are permanently removed. The functionality in the console is *Disable* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeregisterFromWorkMail>`_
         
         **Request Syntax**
@@ -409,7 +410,7 @@ class Client(BaseClient):
           The identifier for the organization under which the Amazon WorkMail entity exists.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The identifier for the entity to be updated.
+          The identifier for the member (user or group) to be updated.
         :rtype: dict
         :returns:
         """
@@ -447,11 +448,11 @@ class Client(BaseClient):
             - **Email** *(string) --* 
               The email of the described group.
             - **State** *(string) --* 
-              The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to Amazon WorkMail).
+              The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
             - **EnabledDate** *(datetime) --* 
-              The date and time when a user was registered to Amazon WorkMail, in UNIX epoch time format.
+              The date and time when a user was registered to WorkMail, in UNIX epoch time format.
             - **DisabledDate** *(datetime) --* 
-              The date and time when a user was deregistered from Amazon WorkMail, in UNIX epoch time format.
+              The date and time when a user was deregistered from WorkMail, in UNIX epoch time format.
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
           The identifier for the organization under which the group exists.
@@ -498,13 +499,13 @@ class Client(BaseClient):
             - **DirectoryId** *(string) --* 
               The identifier for the directory associated with an Amazon WorkMail organization.
             - **DirectoryType** *(string) --* 
-              The type of directory associated with the Amazon WorkMail organization.
+              The type of directory associated with the WorkMail organization.
             - **DefaultMailDomain** *(string) --* 
               The default mail domain associated with the organization.
             - **CompletedDate** *(datetime) --* 
-              The date at which the organization became usable in the Amazon WorkMail context, in UNIX epoch time format.
+              The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.
             - **ErrorMessage** *(string) --* 
-              The (optional) error message indicating if unexpected behavior was encountered with regards to the organization.
+              (Optional) The error message indicating if unexpected behavior was encountered with regards to the organization.
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
           The identifier for the organization to be described.
@@ -561,11 +562,11 @@ class Client(BaseClient):
               - **AutoDeclineConflictingRequests** *(boolean) --* 
                 The resource's ability to automatically decline any conflicting requests.
             - **State** *(string) --* 
-              The state of the resource: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to Amazon WorkMail).
+              The state of the resource: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
             - **EnabledDate** *(datetime) --* 
-              The date and time when a resource was registered to Amazon WorkMail, in UNIX epoch time format.
+              The date and time when a resource was enabled for WorkMail, in UNIX epoch time format.
             - **DisabledDate** *(datetime) --* 
-              The date and time when a resource was registered from Amazon WorkMail, in UNIX epoch time format.
+              The date and time when a resource was disabled from WorkMail, in UNIX epoch time format.
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
           The identifier associated with the organization for which the resource is described.
@@ -613,9 +614,9 @@ class Client(BaseClient):
             - **DisplayName** *(string) --* 
               The display name of the user.
             - **State** *(string) --* 
-              The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to Amazon WorkMail).
+              The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
             - **UserRole** *(string) --* 
-              In certain cases other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different Amazon WorkMail organizations rely on different directory types, administrators can distinguish between a user that is not registered to Amazon WorkMail (is disabled and has a user role) and the administrative users of the directory. The values are USER, RESOURCE, and SYSTEM_USER.
+              In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.
             - **EnabledDate** *(datetime) --* 
               The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.
             - **DisabledDate** *(datetime) --* 
@@ -793,7 +794,7 @@ class Client(BaseClient):
 
     def list_group_members(self, OrganizationId: str, GroupId: str, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
-        Returns an overview of the members of a group.
+        Returns an overview of the members of a group. Users and groups can be members of a group.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListGroupMembers>`_
         
         **Request Syntax**
@@ -826,7 +827,7 @@ class Client(BaseClient):
             - **Members** *(list) --* 
               The members associated to the group.
               - *(dict) --* 
-                The representation of a group member (user or group).
+                The representation of a user or group.
                 - **Id** *(string) --* 
                   The identifier of the member.
                 - **Name** *(string) --* 
@@ -846,7 +847,7 @@ class Client(BaseClient):
           The identifier for the organization under which the group exists.
         :type GroupId: string
         :param GroupId: **[REQUIRED]**
-          The identifier for the group to which the members are associated.
+          The identifier for the group to which the members (users or groups) are associated.
         :type NextToken: string
         :param NextToken:
           The token to use to retrieve the next page of results. The first call does not contain any tokens.
@@ -923,7 +924,7 @@ class Client(BaseClient):
 
     def list_mailbox_permissions(self, OrganizationId: str, EntityId: str, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
-        Lists the mailbox permissions associated with a mailbox.
+        Lists the mailbox permissions associated with a user, group, or resource mailbox.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListMailboxPermissions>`_
         
         **Request Syntax**
@@ -953,13 +954,13 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **Permissions** *(list) --* 
-              One page of the entity's mailbox permissions.
+              One page of the user, group, or resource mailbox permissions.
               - *(dict) --* 
-                Permission granted to an entity (user, group) to access a certain aspect of another entity's mailbox.
+                Permission granted to a user, group, or resource to access a certain aspect of another user, group, or resource mailbox.
                 - **GranteeId** *(string) --* 
-                  The identifier of the entity (user or group) to which the permissions are granted.
+                  The identifier of the user, group, or resource to which the permissions are granted.
                 - **GranteeType** *(string) --* 
-                  The type of entity (user, group) of the entity referred to in GranteeId.
+                  The type of user, group, or resource referred to in GranteeId.
                 - **PermissionValues** *(list) --* 
                   The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
                   - *(string) --* 
@@ -967,10 +968,10 @@ class Client(BaseClient):
               The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The identifier of the organization under which the entity (user or group) exists.
+          The identifier of the organization under which the user, group, or resource exists.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The identifier of the entity (user or group) for which to list mailbox permissions.
+          The identifier of the user, group, or resource for which to list mailbox permissions.
         :type NextToken: string
         :param NextToken:
           The token to use to retrieve the next page of results. The first call does not contain any tokens.
@@ -1013,7 +1014,7 @@ class Client(BaseClient):
             - **OrganizationSummaries** *(list) --* 
               The overview of owned organizations presented as a list of organization summaries.
               - *(dict) --* 
-                The brief overview associated with an organization.
+                The representation of an organization.
                 - **OrganizationId** *(string) --* 
                   The identifier associated with the organization.
                 - **Alias** *(string) --* 
@@ -1068,7 +1069,7 @@ class Client(BaseClient):
               - *(dict) --* 
                 The name of the attribute, which is one of the values defined in the UserAttribute enumeration.
                 - **Id** *(string) --* 
-                  The identifier for the user or group is associated as the resource's delegate.
+                  The identifier for the user or group associated as the resource's delegate.
                 - **Type** *(string) --* 
                   The type of the delegate: user or group.
             - **NextToken** *(string) --* 
@@ -1125,7 +1126,7 @@ class Client(BaseClient):
             - **Resources** *(list) --* 
               One page of the organization's resource representation.
               - *(dict) --* 
-                The overview for a resource containing relevant data regarding it.
+                The representation of a resource.
                 - **Id** *(string) --* 
                   The identifier of the resource.
                 - **Email** *(string) --* 
@@ -1216,7 +1217,7 @@ class Client(BaseClient):
           The identifier for the organization under which the users exist.
         :type NextToken: string
         :param NextToken:
-          TBD
+          The token to use to retrieve the next page of results. The first call does not contain any tokens.
         :type MaxResults: integer
         :param MaxResults:
           The maximum number of results to return in a single call.
@@ -1227,7 +1228,7 @@ class Client(BaseClient):
 
     def put_mailbox_permissions(self, OrganizationId: str, EntityId: str, GranteeId: str, PermissionValues: List) -> Dict:
         """
-        Sets permissions for a user or group. This replaces any pre-existing permissions set for the entity.
+        Sets permissions for a user, group, or resource. This replaces any pre-existing permissions.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/PutMailboxPermissions>`_
         
         **Request Syntax**
@@ -1249,13 +1250,13 @@ class Client(BaseClient):
           - *(dict) --* 
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The identifier of the organization under which the entity (user or group) exists.
+          The identifier of the organization under which the user, group, or resource exists.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The identifier of the entity (user or group) for which to update mailbox permissions.
+          The identifier of the user, group, or resource for which to update mailbox permissions.
         :type GranteeId: string
         :param GranteeId: **[REQUIRED]**
-          The identifier of the entity (user or group) to which to grant the permissions.
+          The identifier of the user, group, or resource to which to grant the permissions.
         :type PermissionValues: list
         :param PermissionValues: **[REQUIRED]**
           The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
@@ -1267,7 +1268,8 @@ class Client(BaseClient):
 
     def register_to_work_mail(self, OrganizationId: str, EntityId: str, Email: str) -> Dict:
         """
-        Registers an existing and disabled user, group, or resource/entity for Amazon WorkMail use by associating a mailbox and calendaring capabilities. It performs no change if the entity is enabled and fails if the entity is deleted. This operation results in the accumulation of costs. For more information, see `Pricing <http://aws.amazon.com/workmail/pricing>`__ . The equivalent console functionality for this operation is *Enable* . Users can either be created by calling the CreateUser API or they can be synchronized from your directory. For more information, see DeregisterFromWorkMail.
+        Registers an existing and disabled user, group, or resource for Amazon WorkMail use by associating a mailbox and calendaring capabilities. It performs no change if the user, group, or resource is enabled and fails if the user, group, or resource is deleted. This operation results in the accumulation of costs. For more information, see `Pricing <https://aws.amazon.com//workmail/pricing>`__ . The equivalent console functionality for this operation is *Enable* . 
+        Users can either be created by calling the  CreateUser API operation or they can be synchronized from your directory. For more information, see  DeregisterFromWorkMail .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/RegisterToWorkMail>`_
         
         **Request Syntax**
@@ -1286,13 +1288,13 @@ class Client(BaseClient):
           - *(dict) --* 
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The identifier for the organization under which the Amazon WorkMail entity exists.
+          The identifier for the organization under which the user, group, or resource exists.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The identifier for the entity to be updated.
+          The identifier for the user, group, or resource to be updated.
         :type Email: string
         :param Email: **[REQUIRED]**
-          The email for the entity to be updated.
+          The email for the user, group, or resource to be updated.
         :rtype: dict
         :returns:
         """
@@ -1333,7 +1335,7 @@ class Client(BaseClient):
 
     def update_primary_email_address(self, OrganizationId: str, EntityId: str, Email: str) -> Dict:
         """
-        Updates the primary email for an entity. The current email is moved into the list of aliases (or swapped between an existing alias and the current primary email) and the email provided in the input is promoted as the primary.
+        Updates the primary email for a user, group, or resource. The current email is moved into the list of aliases (or swapped between an existing alias and the current primary email), and the email provided in the input is promoted as the primary.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdatePrimaryEmailAddress>`_
         
         **Request Syntax**
@@ -1352,10 +1354,10 @@ class Client(BaseClient):
           - *(dict) --* 
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The organization that contains the entity to update.
+          The organization that contains the user, group, or resource to update.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The entity to update (user, group, or resource).
+          The user, group, or resource to update.
         :type Email: string
         :param Email: **[REQUIRED]**
           The value of the email to be updated as primary.
@@ -1366,7 +1368,7 @@ class Client(BaseClient):
 
     def update_resource(self, OrganizationId: str, ResourceId: str, Name: str = None, BookingOptions: Dict = None) -> Dict:
         """
-        Updates data for the resource. It must be preceded by a describe call in order to have the latest information. The dataset in the request should be the one expected when performing another describe call.
+        Updates data for the resource. To have the latest information, it must be preceded by a  DescribeResource call. The dataset in the request should be the one expected when performing another ``DescribeResource`` call.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdateResource>`_
         
         **Request Syntax**

@@ -1,8 +1,8 @@
 from typing import Optional
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
 
 
@@ -23,6 +23,9 @@ class Client(BaseClient):
         pass
 
     def delete_user(self, UserName: str, AwsAccountId: str, Namespace: str) -> Dict:
+        pass
+
+    def delete_user_by_principal_id(self, PrincipalId: str, AwsAccountId: str, Namespace: str) -> Dict:
         pass
 
     def describe_group(self, GroupName: str, AwsAccountId: str, Namespace: str) -> Dict:

@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -26,13 +26,13 @@ class Client(BaseClient):
     def create_domain_name(self, DomainName: str, DomainNameConfigurations: List = None) -> Dict:
         pass
 
-    def create_integration(self, ApiId: str, ConnectionId: str = None, ConnectionType: str = None, ContentHandlingStrategy: str = None, CredentialsArn: str = None, Description: str = None, IntegrationMethod: str = None, IntegrationType: str = None, IntegrationUri: str = None, PassthroughBehavior: str = None, RequestParameters: Dict = None, RequestTemplates: Dict = None, TemplateSelectionExpression: str = None, TimeoutInMillis: int = None) -> Dict:
+    def create_integration(self, ApiId: str, IntegrationType: str, ConnectionId: str = None, ConnectionType: str = None, ContentHandlingStrategy: str = None, CredentialsArn: str = None, Description: str = None, IntegrationMethod: str = None, IntegrationUri: str = None, PassthroughBehavior: str = None, RequestParameters: Dict = None, RequestTemplates: Dict = None, TemplateSelectionExpression: str = None, TimeoutInMillis: int = None) -> Dict:
         pass
 
     def create_integration_response(self, ApiId: str, IntegrationId: str, IntegrationResponseKey: str, ContentHandlingStrategy: str = None, ResponseParameters: Dict = None, ResponseTemplates: Dict = None, TemplateSelectionExpression: str = None) -> Dict:
         pass
 
-    def create_model(self, ApiId: str, Name: str, ContentType: str = None, Description: str = None, Schema: str = None) -> Dict:
+    def create_model(self, ApiId: str, Name: str, Schema: str, ContentType: str = None, Description: str = None) -> Dict:
         pass
 
     def create_route(self, ApiId: str, RouteKey: str, ApiKeyRequired: bool = None, AuthorizationScopes: List = None, AuthorizationType: str = None, AuthorizerId: str = None, ModelSelectionExpression: str = None, OperationName: str = None, RequestModels: Dict = None, RequestParameters: Dict = None, RouteResponseSelectionExpression: str = None, Target: str = None) -> Dict:
@@ -47,7 +47,7 @@ class Client(BaseClient):
     def delete_api(self, ApiId: str):
         pass
 
-    def delete_api_mapping(self, ApiId: str, ApiMappingId: str, DomainName: str):
+    def delete_api_mapping(self, ApiMappingId: str, DomainName: str):
         pass
 
     def delete_authorizer(self, ApiId: str, AuthorizerId: str):
@@ -83,7 +83,7 @@ class Client(BaseClient):
     def get_api(self, ApiId: str) -> Dict:
         pass
 
-    def get_api_mapping(self, ApiId: str, ApiMappingId: str, DomainName: str) -> Dict:
+    def get_api_mapping(self, ApiMappingId: str, DomainName: str) -> Dict:
         pass
 
     def get_api_mappings(self, DomainName: str, MaxResults: str = None, NextToken: str = None) -> Dict:

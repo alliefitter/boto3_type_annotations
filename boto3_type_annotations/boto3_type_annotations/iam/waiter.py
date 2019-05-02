@@ -7,6 +7,16 @@ class InstanceProfileExists(Waiter):
         pass
 
 
+class PolicyExists(Waiter):
+    def wait(self, PolicyArn: str, WaiterConfig: Dict = None):
+        pass
+
+
+class RoleExists(Waiter):
+    def wait(self, RoleName: str, WaiterConfig: Dict = None):
+        pass
+
+
 class UserExists(Waiter):
     def wait(self, UserName: str = None, WaiterConfig: Dict = None):
         pass

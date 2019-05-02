@@ -1,13 +1,16 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
+    def associate_domain(self, FleetArn: str, DomainName: str, AcmCertificateArn: str, DisplayName: str = None) -> Dict:
+        pass
+
     def associate_website_certificate_authority(self, FleetArn: str, Certificate: str, DisplayName: str = None) -> Dict:
         pass
 
@@ -32,6 +35,9 @@ class Client(BaseClient):
     def describe_device_policy_configuration(self, FleetArn: str) -> Dict:
         pass
 
+    def describe_domain(self, FleetArn: str, DomainName: str) -> Dict:
+        pass
+
     def describe_fleet_metadata(self, FleetArn: str) -> Dict:
         pass
 
@@ -39,6 +45,9 @@ class Client(BaseClient):
         pass
 
     def describe_website_certificate_authority(self, FleetArn: str, WebsiteCaId: str) -> Dict:
+        pass
+
+    def disassociate_domain(self, FleetArn: str, DomainName: str) -> Dict:
         pass
 
     def disassociate_website_certificate_authority(self, FleetArn: str, WebsiteCaId: str) -> Dict:
@@ -56,10 +65,19 @@ class Client(BaseClient):
     def list_devices(self, FleetArn: str, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
+    def list_domains(self, FleetArn: str, NextToken: str = None, MaxResults: int = None) -> Dict:
+        pass
+
     def list_fleets(self, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def list_website_certificate_authorities(self, FleetArn: str, MaxResults: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def restore_domain_access(self, FleetArn: str, DomainName: str) -> Dict:
+        pass
+
+    def revoke_domain_access(self, FleetArn: str, DomainName: str) -> Dict:
         pass
 
     def sign_out_user(self, FleetArn: str, Username: str) -> Dict:
@@ -72,6 +90,9 @@ class Client(BaseClient):
         pass
 
     def update_device_policy_configuration(self, FleetArn: str, DeviceCaCertificate: str = None) -> Dict:
+        pass
+
+    def update_domain_metadata(self, FleetArn: str, DomainName: str, DisplayName: str = None) -> Dict:
         pass
 
     def update_fleet_metadata(self, FleetArn: str, DisplayName: str = None, OptimizeForEndUserLocation: bool = None) -> Dict:

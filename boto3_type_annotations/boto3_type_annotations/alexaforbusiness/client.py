@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -23,7 +23,7 @@ class Client(BaseClient):
     def associate_skill_with_skill_group(self, SkillId: str, SkillGroupArn: str = None) -> Dict:
         pass
 
-    def associate_skill_with_users(self, SkillId: str, OrganizationArn: str = None) -> Dict:
+    def associate_skill_with_users(self, SkillId: str) -> Dict:
         pass
 
     def can_paginate(self, operation_name: str = None):
@@ -39,6 +39,9 @@ class Client(BaseClient):
         pass
 
     def create_contact(self, FirstName: str, DisplayName: str = None, LastName: str = None, PhoneNumber: str = None, ClientRequestToken: str = None) -> Dict:
+        pass
+
+    def create_gateway_group(self, Name: str, ClientRequestToken: str, Description: str = None) -> Dict:
         pass
 
     def create_profile(self, ProfileName: str, Timezone: str, Address: str, DistanceUnit: str, TemperatureUnit: str, WakeWord: str, ClientRequestToken: str = None, SetupModeDisabled: bool = None, MaxVolumeLimit: int = None, PSTNEnabled: bool = None) -> Dict:
@@ -68,6 +71,9 @@ class Client(BaseClient):
     def delete_device(self, DeviceArn: str) -> Dict:
         pass
 
+    def delete_gateway_group(self, GatewayGroupArn: str) -> Dict:
+        pass
+
     def delete_profile(self, ProfileArn: str = None) -> Dict:
         pass
 
@@ -95,7 +101,7 @@ class Client(BaseClient):
     def disassociate_skill_from_skill_group(self, SkillId: str, SkillGroupArn: str = None) -> Dict:
         pass
 
-    def disassociate_skill_from_users(self, SkillId: str, OrganizationArn: str = None) -> Dict:
+    def disassociate_skill_from_users(self, SkillId: str) -> Dict:
         pass
 
     def disassociate_skill_group_from_room(self, SkillGroupArn: str = None, RoomArn: str = None) -> Dict:
@@ -120,6 +126,15 @@ class Client(BaseClient):
         pass
 
     def get_device(self, DeviceArn: str = None) -> Dict:
+        pass
+
+    def get_gateway(self, GatewayArn: str) -> Dict:
+        pass
+
+    def get_gateway_group(self, GatewayGroupArn: str) -> Dict:
+        pass
+
+    def get_invitation_configuration(self) -> Dict:
         pass
 
     def get_paginator(self, operation_name: str = None) -> Paginator:
@@ -149,6 +164,12 @@ class Client(BaseClient):
     def list_device_events(self, DeviceArn: str, EventType: str = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
+    def list_gateway_groups(self, NextToken: str = None, MaxResults: int = None) -> Dict:
+        pass
+
+    def list_gateways(self, GatewayGroupArn: str = None, NextToken: str = None, MaxResults: int = None) -> Dict:
+        pass
+
     def list_skills(self, SkillGroupArn: str = None, EnablementType: str = None, SkillType: str = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
@@ -165,6 +186,9 @@ class Client(BaseClient):
         pass
 
     def put_conference_preference(self, ConferencePreference: Dict) -> Dict:
+        pass
+
+    def put_invitation_configuration(self, OrganizationName: str, ContactEmail: str = None, PrivateSkillIds: List = None) -> Dict:
         pass
 
     def put_room_skill_parameter(self, SkillId: str, RoomSkillParameter: Dict, RoomArn: str = None) -> Dict:
@@ -234,6 +258,12 @@ class Client(BaseClient):
         pass
 
     def update_device(self, DeviceArn: str = None, DeviceName: str = None) -> Dict:
+        pass
+
+    def update_gateway(self, GatewayArn: str, Name: str = None, Description: str = None, SoftwareVersion: str = None) -> Dict:
+        pass
+
+    def update_gateway_group(self, GatewayGroupArn: str, Name: str = None, Description: str = None) -> Dict:
         pass
 
     def update_profile(self, ProfileArn: str = None, ProfileName: str = None, IsDefault: bool = None, Timezone: str = None, Address: str = None, DistanceUnit: str = None, TemperatureUnit: str = None, WakeWord: str = None, SetupModeDisabled: bool = None, MaxVolumeLimit: int = None, PSTNEnabled: bool = None) -> Dict:

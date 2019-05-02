@@ -1,6 +1,6 @@
-from typing import List
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -229,7 +229,7 @@ class DescribeComplianceByConfigRule(Paginator):
         :type ComplianceTypes: list
         :param ComplianceTypes:
           Filters the results by compliance.
-          The allowed values are ``COMPLIANT`` , ``NON_COMPLIANT`` , and ``INSUFFICIENT_DATA`` .
+          The allowed values are ``COMPLIANT`` and ``NON_COMPLIANT`` .
           - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -319,7 +319,7 @@ class DescribeComplianceByResource(Paginator):
         :type ComplianceTypes: list
         :param ComplianceTypes:
           Filters the results by compliance.
-          The allowed values are ``COMPLIANT`` and ``NON_COMPLIANT`` .
+          The allowed values are ``COMPLIANT`` , ``NON_COMPLIANT`` , and ``INSUFFICIENT_DATA`` .
           - *(string) --*
         :type Limit: integer
         :param Limit:
@@ -491,7 +491,7 @@ class DescribeConfigRules(Paginator):
                 An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).
                 .. note::
                   You can use the AWS CLI and AWS SDKs if you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot. For more information, see  ConfigSnapshotDeliveryProperties .
-                For more information about developing and using AWS Config rules, see `Evaluating AWS Resource Configurations with AWS Config <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html>`__ in the *AWS Config Developer Guide* .
+                For more information about developing and using AWS Config rules, see `Evaluating AWS Resource Configurations with AWS Config <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html>`__ in the *AWS Config Developer Guide* .
                 - **ConfigRuleName** *(string) --* 
                   The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
                 - **ConfigRuleArn** *(string) --* 
@@ -516,7 +516,7 @@ class DescribeConfigRules(Paginator):
                   - **Owner** *(string) --* 
                     Indicates whether AWS or the customer owns and manages the AWS Config rule.
                   - **SourceIdentifier** *(string) --* 
-                    For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
+                    For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
                     For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
                   - **SourceDetails** *(list) --* 
                     Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
@@ -797,6 +797,113 @@ class DescribePendingAggregationRequests(Paginator):
                   The 12-digit account ID of the account requesting to aggregate data.
                 - **RequesterAwsRegion** *(string) --* 
                   The region requesting to aggregate data. 
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+
+class DescribeRemediationExecutionStatus(Paginator):
+    def paginate(self, ConfigRuleName: str, ResourceKeys: List = None, PaginationConfig: Dict = None) -> Dict:
+        """
+        Creates an iterator that will paginate through responses from :py:meth:`ConfigService.Client.describe_remediation_execution_status`.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeRemediationExecutionStatus>`_
+        
+        **Request Syntax**
+        ::
+          response_iterator = paginator.paginate(
+              ConfigRuleName='string',
+              ResourceKeys=[
+                  {
+                      'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+                      'resourceId': 'string'
+                  },
+              ],
+              PaginationConfig={
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'RemediationExecutionStatuses': [
+                    {
+                        'ResourceKey': {
+                            'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+                            'resourceId': 'string'
+                        },
+                        'State': 'QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
+                        'StepDetails': [
+                            {
+                                'Name': 'string',
+                                'State': 'SUCCEEDED'|'PENDING'|'FAILED',
+                                'ErrorMessage': 'string',
+                                'StartTime': datetime(2015, 1, 1),
+                                'StopTime': datetime(2015, 1, 1)
+                            },
+                        ],
+                        'InvocationTime': datetime(2015, 1, 1),
+                        'LastUpdatedTime': datetime(2015, 1, 1)
+                    },
+                ],
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **RemediationExecutionStatuses** *(list) --* 
+              Returns a list of remediation execution statuses objects.
+              - *(dict) --* 
+                Provides details of the current status of the invoked remediation action for that resource.
+                - **ResourceKey** *(dict) --* 
+                  The details that identify a resource within AWS Config, including the resource type and resource ID.
+                  - **resourceType** *(string) --* 
+                    The resource type.
+                  - **resourceId** *(string) --* 
+                    The ID of the resource (for example., sg-xxxxxx). 
+                - **State** *(string) --* 
+                  ENUM of the values.
+                - **StepDetails** *(list) --* 
+                  Details of every step.
+                  - *(dict) --* 
+                    Name of the step from the SSM document.
+                    - **Name** *(string) --* 
+                      The details of the step.
+                    - **State** *(string) --* 
+                      The valid status of the step.
+                    - **ErrorMessage** *(string) --* 
+                      An error message if the step was interrupted during execution.
+                    - **StartTime** *(datetime) --* 
+                      The time when the step started.
+                    - **StopTime** *(datetime) --* 
+                      The time when the step stopped.
+                - **InvocationTime** *(datetime) --* 
+                  Start time when the remediation was executed.
+                - **LastUpdatedTime** *(datetime) --* 
+                  The time when the remediation execution was last updated.
+        :type ConfigRuleName: string
+        :param ConfigRuleName: **[REQUIRED]**
+          A list of AWS Config rule names.
+        :type ResourceKeys: list
+        :param ResourceKeys:
+          A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+          - *(dict) --*
+            The details that identify a resource within AWS Config, including the resource type and resource ID.
+            - **resourceType** *(string) --* **[REQUIRED]**
+              The resource type.
+            - **resourceId** *(string) --* **[REQUIRED]**
+              The ID of the resource (for example., sg-xxxxxx).
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -1261,7 +1368,7 @@ class GetResourceConfigHistory(Paginator):
                   Unique MD5 hash that represents the configuration item's state.
                   You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
                 - **arn** *(string) --* 
-                  The Amazon Resource Name (ARN) of the resource.
+                  accoun
                 - **resourceType** *(string) --* 
                   The type of AWS resource.
                 - **resourceId** *(string) --* 
@@ -1280,7 +1387,7 @@ class GetResourceConfigHistory(Paginator):
                     - *(string) --* 
                 - **relatedEvents** *(list) --* 
                   A list of CloudTrail event IDs.
-                  A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see `What Is AWS CloudTrail <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html>`__ .
+                  A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see `What Is AWS CloudTrail <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html>`__ .
                   An empty field indicates that the current configuration was not initiated by any event.
                   - *(string) --* 
                 - **relationships** *(list) --* 

@@ -108,7 +108,7 @@ class ListApplicationVersions(Paginator):
                   The semantic version of the application:
                    `https\://semver.org/ <https://semver.org/>`__  
                 - **SourceCodeUrl** *(string) --* 
-                  A link to a public repository for the source code of your application.
+                  A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
         :type ApplicationId: string
         :param ApplicationId: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the application.

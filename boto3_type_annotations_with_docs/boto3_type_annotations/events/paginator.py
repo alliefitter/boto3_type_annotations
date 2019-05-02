@@ -95,7 +95,7 @@ class ListRules(Paginator):
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN) of the rule.
                 - **EventPattern** *(string) --* 
-                  The event pattern of the rule. For more information, see `Events and Event Patterns <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
+                  The event pattern of the rule. For more information, see `Events and Event Patterns <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
                 - **State** *(string) --* 
                   The state of the rule.
                 - **Description** *(string) --* 
@@ -211,7 +211,7 @@ class ListTargetsByRule(Paginator):
               The targets assigned to the rule.
               - *(dict) --* 
                 Targets are the resources to be invoked when a rule is triggered. For a complete list of services and resources that can be set as a target, see  PutTargets .
-                If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
+                If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
                 - **Id** *(string) --* 
                   The ID of the target.
                 - **Arn** *(string) --* 
@@ -250,7 +250,7 @@ class ListTargetsByRule(Paginator):
                 - **KinesisParameters** *(dict) --* 
                   The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the ``eventId`` as the partition key.
                   - **PartitionKeyPath** *(string) --* 
-                    The JSON path to be extracted from the event and used as the partition key. For more information, see `Amazon Kinesis Streams Key Concepts <http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key>`__ in the *Amazon Kinesis Streams Developer Guide* .
+                    The JSON path to be extracted from the event and used as the partition key. For more information, see `Amazon Kinesis Streams Key Concepts <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key>`__ in the *Amazon Kinesis Streams Developer Guide* .
                 - **RunCommandParameters** *(dict) --* 
                   Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
                   - **RunCommandTargets** *(list) --* 
@@ -263,13 +263,13 @@ class ListTargetsByRule(Paginator):
                         If ``Key`` is ``tag:``  *tag-key* , ``Values`` is a list of tag values. If ``Key`` is ``InstanceIds`` , ``Values`` is a list of Amazon EC2 instance IDs.
                         - *(string) --* 
                 - **EcsParameters** *(dict) --* 
-                  Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see `Task Definitions <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html>`__ in the *Amazon EC2 Container Service Developer Guide* .
+                  Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see `Task Definitions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html>`__ in the *Amazon EC2 Container Service Developer Guide* .
                   - **TaskDefinitionArn** *(string) --* 
                     The ARN of the task definition to use if the event target is an Amazon ECS task. 
                   - **TaskCount** *(integer) --* 
                     The number of tasks to create based on ``TaskDefinition`` . The default is 1.
                   - **LaunchType** *(string) --* 
-                    Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The ``FARGATE`` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see `AWS Fargate on Amazon ECS <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The ``FARGATE`` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see `AWS Fargate on Amazon ECS <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                   - **NetworkConfiguration** *(dict) --* 
                     Use this structure if the ECS task uses the ``awsvpc`` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if ``LaunchType`` is ``FARGATE`` because the ``awsvpc`` mode is required for Fargate tasks.
                     If you specify ``NetworkConfiguration`` when the target ECS task does not use the ``awsvpc`` network mode, the task fails.
@@ -285,11 +285,11 @@ class ListTargetsByRule(Paginator):
                         Specifies whether the task's elastic network interface receives a public IP address. You can specify ``ENABLED`` only when ``LaunchType`` in ``EcsParameters`` is set to ``FARGATE`` .
                   - **PlatformVersion** *(string) --* 
                     Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as ``1.1.0`` .
-                    This structure is used only if ``LaunchType`` is ``FARGATE`` . For more information about valid platform versions, see `AWS Fargate Platform Versions <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    This structure is used only if ``LaunchType`` is ``FARGATE`` . For more information about valid platform versions, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                   - **Group** *(string) --* 
                     Specifies an ECS task group for the task. The maximum length is 255 characters.
                 - **BatchParameters** *(dict) --* 
-                  If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see `Jobs <http://docs.aws.amazon.com/batch/latest/userguide/jobs.html>`__ in the *AWS Batch User Guide* .
+                  If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see `Jobs <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html>`__ in the *AWS Batch User Guide* .
                   - **JobDefinition** *(string) --* 
                     The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
                   - **JobName** *(string) --* 

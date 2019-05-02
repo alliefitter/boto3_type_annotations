@@ -1,17 +1,17 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_identity_pool(self, IdentityPoolName: str, AllowUnauthenticatedIdentities: bool, SupportedLoginProviders: Dict = None, DeveloperProviderName: str = None, OpenIdConnectProviderARNs: List = None, CognitoIdentityProviders: List = None, SamlProviderARNs: List = None) -> Dict:
+    def create_identity_pool(self, IdentityPoolName: str, AllowUnauthenticatedIdentities: bool, SupportedLoginProviders: Dict = None, DeveloperProviderName: str = None, OpenIdConnectProviderARNs: List = None, CognitoIdentityProviders: List = None, SamlProviderARNs: List = None, IdentityPoolTags: Dict = None) -> Dict:
         pass
 
     def delete_identities(self, IdentityIdsToDelete: List) -> Dict:
@@ -56,6 +56,9 @@ class Client(BaseClient):
     def list_identity_pools(self, MaxResults: int, NextToken: str = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        pass
+
     def lookup_developer_identity(self, IdentityPoolId: str, IdentityId: str = None, DeveloperUserIdentifier: str = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
@@ -65,11 +68,17 @@ class Client(BaseClient):
     def set_identity_pool_roles(self, IdentityPoolId: str, Roles: Dict, RoleMappings: Dict = None):
         pass
 
+    def tag_resource(self, ResourceArn: str, Tags: Dict = None) -> Dict:
+        pass
+
     def unlink_developer_identity(self, IdentityId: str, IdentityPoolId: str, DeveloperProviderName: str, DeveloperUserIdentifier: str):
         pass
 
     def unlink_identity(self, IdentityId: str, Logins: Dict, LoginsToRemove: List):
         pass
 
-    def update_identity_pool(self, IdentityPoolId: str, IdentityPoolName: str, AllowUnauthenticatedIdentities: bool, SupportedLoginProviders: Dict = None, DeveloperProviderName: str = None, OpenIdConnectProviderARNs: List = None, CognitoIdentityProviders: List = None, SamlProviderARNs: List = None) -> Dict:
+    def untag_resource(self, ResourceArn: str, TagKeys: List = None) -> Dict:
+        pass
+
+    def update_identity_pool(self, IdentityPoolId: str, IdentityPoolName: str, AllowUnauthenticatedIdentities: bool, SupportedLoginProviders: Dict = None, DeveloperProviderName: str = None, OpenIdConnectProviderARNs: List = None, CognitoIdentityProviders: List = None, SamlProviderARNs: List = None, IdentityPoolTags: Dict = None) -> Dict:
         pass

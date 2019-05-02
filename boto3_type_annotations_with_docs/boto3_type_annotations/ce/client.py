@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -41,7 +41,7 @@ class Client(BaseClient):
         """
         pass
 
-    def get_cost_and_usage(self, TimePeriod: Dict = None, Granularity: str = None, Filter: Dict = None, Metrics: List = None, GroupBy: List = None, NextPageToken: str = None) -> Dict:
+    def get_cost_and_usage(self, TimePeriod: Dict, Granularity: str = None, Filter: Dict = None, Metrics: List = None, GroupBy: List = None, NextPageToken: str = None) -> Dict:
         """
         Retrieves cost and usage metrics for your account. You can specify which cost and usage-related metric, such as ``BlendedCosts`` or ``UsageQuantity`` , that you want the request to return. You can also filter and group your data by various dimensions, such as ``SERVICE`` or ``AZ`` , in a specific time range. For a complete list of valid dimensions, see the `GetDimensionValues <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html>`__ operation. Master accounts in an organization in AWS Organizations have access to all member accounts.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/GetCostAndUsage>`_
@@ -177,7 +177,7 @@ class Client(BaseClient):
                 - **Estimated** *(boolean) --* 
                   Whether the result is estimated.
         :type TimePeriod: dict
-        :param TimePeriod:
+        :param TimePeriod: **[REQUIRED]**
           Sets the start and end dates for retrieving AWS costs. The start date is inclusive, but the end date is exclusive. For example, if ``start`` is ``2017-01-01`` and ``end`` is ``2017-05-01`` , then the cost and usage data is retrieved from ``2017-01-01`` up to and including ``2017-04-30`` but not including ``2017-05-01`` .
           - **Start** *(string) --* **[REQUIRED]**
             The beginning of the time period that you want the usage and costs for. The start date is inclusive. For example, if ``start`` is ``2017-01-01`` , AWS retrieves cost and usage data starting at ``2017-01-01`` up to the end date.

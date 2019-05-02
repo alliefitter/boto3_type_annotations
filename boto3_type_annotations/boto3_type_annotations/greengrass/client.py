@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -17,13 +17,13 @@ class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_connector_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_connector_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         pass
 
     def create_connector_definition_version(self, ConnectorDefinitionId: str, AmznClientToken: str = None, Connectors: List = None) -> Dict:
         pass
 
-    def create_core_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_core_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         pass
 
     def create_core_definition_version(self, CoreDefinitionId: str, AmznClientToken: str = None, Cores: List = None) -> Dict:
@@ -32,19 +32,19 @@ class Client(BaseClient):
     def create_deployment(self, GroupId: str, AmznClientToken: str = None, DeploymentId: str = None, DeploymentType: str = None, GroupVersionId: str = None) -> Dict:
         pass
 
-    def create_device_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_device_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         pass
 
     def create_device_definition_version(self, DeviceDefinitionId: str, AmznClientToken: str = None, Devices: List = None) -> Dict:
         pass
 
-    def create_function_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_function_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         pass
 
     def create_function_definition_version(self, FunctionDefinitionId: str, AmznClientToken: str = None, DefaultConfig: Dict = None, Functions: List = None) -> Dict:
         pass
 
-    def create_group(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_group(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         pass
 
     def create_group_certificate_authority(self, GroupId: str, AmznClientToken: str = None) -> Dict:
@@ -53,13 +53,13 @@ class Client(BaseClient):
     def create_group_version(self, GroupId: str, AmznClientToken: str = None, ConnectorDefinitionVersionArn: str = None, CoreDefinitionVersionArn: str = None, DeviceDefinitionVersionArn: str = None, FunctionDefinitionVersionArn: str = None, LoggerDefinitionVersionArn: str = None, ResourceDefinitionVersionArn: str = None, SubscriptionDefinitionVersionArn: str = None) -> Dict:
         pass
 
-    def create_logger_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_logger_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         pass
 
     def create_logger_definition_version(self, LoggerDefinitionId: str, AmznClientToken: str = None, Loggers: List = None) -> Dict:
         pass
 
-    def create_resource_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_resource_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         pass
 
     def create_resource_definition_version(self, ResourceDefinitionId: str, AmznClientToken: str = None, Resources: List = None) -> Dict:
@@ -68,7 +68,7 @@ class Client(BaseClient):
     def create_software_update_job(self, AmznClientToken: str = None, S3UrlSignerRole: str = None, SoftwareToUpdate: str = None, UpdateAgentLogLevel: str = None, UpdateTargets: List = None, UpdateTargetsArchitecture: str = None, UpdateTargetsOperatingSystem: str = None) -> Dict:
         pass
 
-    def create_subscription_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_subscription_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         pass
 
     def create_subscription_definition_version(self, SubscriptionDefinitionId: str, AmznClientToken: str = None, Subscriptions: List = None) -> Dict:
@@ -242,13 +242,22 @@ class Client(BaseClient):
     def list_subscription_definitions(self, MaxResults: str = None, NextToken: str = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        pass
+
     def reset_deployments(self, GroupId: str, AmznClientToken: str = None, Force: bool = None) -> Dict:
         pass
 
-    def start_bulk_deployment(self, AmznClientToken: str = None, ExecutionRoleArn: str = None, InputFileUri: str = None) -> Dict:
+    def start_bulk_deployment(self, AmznClientToken: str = None, ExecutionRoleArn: str = None, InputFileUri: str = None, tags: Dict = None) -> Dict:
         pass
 
     def stop_bulk_deployment(self, BulkDeploymentId: str) -> Dict:
+        pass
+
+    def tag_resource(self, ResourceArn: str, tags: Dict):
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
         pass
 
     def update_connectivity_info(self, ThingName: str, ConnectivityInfo: List = None) -> Dict:

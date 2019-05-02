@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -17,10 +17,10 @@ class Client(BaseClient):
     def cancel_job(self, Id: str) -> Dict:
         pass
 
-    def create_job(self, Role: str, Settings: Dict, AccelerationSettings: Dict = None, BillingTagsSource: str = None, ClientRequestToken: str = None, JobTemplate: str = None, Queue: str = None, StatusUpdateIntervalInSecs: int = None, UserMetadata: Dict = None) -> Dict:
+    def create_job(self, Role: str, Settings: Dict, AccelerationSettings: Dict = None, BillingTagsSource: str = None, ClientRequestToken: str = None, JobTemplate: str = None, Queue: str = None, StatusUpdateInterval: str = None, UserMetadata: Dict = None) -> Dict:
         pass
 
-    def create_job_template(self, Name: str, Settings: Dict, AccelerationSettings: Dict = None, Category: str = None, Description: str = None, Queue: str = None, StatusUpdateIntervalInSecs: int = None, Tags: Dict = None) -> Dict:
+    def create_job_template(self, Name: str, Settings: Dict, AccelerationSettings: Dict = None, Category: str = None, Description: str = None, Queue: str = None, StatusUpdateInterval: str = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_preset(self, Name: str, Settings: Dict, Category: str = None, Description: str = None, Tags: Dict = None) -> Dict:
@@ -86,7 +86,7 @@ class Client(BaseClient):
     def untag_resource(self, Arn: str, TagKeys: List = None) -> Dict:
         pass
 
-    def update_job_template(self, Name: str, AccelerationSettings: Dict = None, Category: str = None, Description: str = None, Queue: str = None, Settings: Dict = None, StatusUpdateIntervalInSecs: int = None) -> Dict:
+    def update_job_template(self, Name: str, AccelerationSettings: Dict = None, Category: str = None, Description: str = None, Queue: str = None, Settings: Dict = None, StatusUpdateInterval: str = None) -> Dict:
         pass
 
     def update_preset(self, Name: str, Category: str = None, Description: str = None, Settings: Dict = None) -> Dict:

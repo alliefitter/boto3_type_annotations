@@ -1,13 +1,13 @@
-from boto3.resources.collection import ResourceCollection
-from typing import Optional
-from typing import List
 from boto3.s3.transfer import TransferConfig
-from typing import Union
-from botocore.client import BaseClient
+from boto3.resources.collection import ResourceCollection
 from typing import IO
+from typing import Union
+from typing import List
+from typing import Optional
+from botocore.client import BaseClient
 from typing import Callable
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
 from boto3.resources import base
 
 

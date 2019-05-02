@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from datetime import datetime
-from typing import Dict
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -129,7 +129,7 @@ class Client(BaseClient):
 
     def compose_environments(self, ApplicationName: str = None, GroupName: str = None, VersionLabels: List = None) -> Dict:
         """
-        Create or update a group of environments that each run a separate component of a single application. Takes a list of version labels that specify application source bundles for each of the environments to create or update. The name of each environment and other required information must be included in the source bundles in an environment manifest named ``env.yaml`` . See `Compose Environments <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html>`__ for details.
+        Create or update a group of environments that each run a separate component of a single application. Takes a list of version labels that specify application source bundles for each of the environments to create or update. The name of each environment and other required information must be included in the source bundles in an environment manifest named ``env.yaml`` . See `Compose Environments <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html>`__ for details.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticbeanstalk-2010-12-01/ComposeEnvironments>`_
         
         **Request Syntax**
@@ -242,7 +242,7 @@ class Client(BaseClient):
                   * ``Grey`` : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an ``UpdateEnvironment`` or ``RestartEnvironment`` request. 
                   Default: ``Grey``  
                 - **HealthStatus** *(string) --* 
-                  Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
+                  Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
                 - **Resources** *(dict) --* 
                   The description of the AWS resources used by this environment.
                   - **LoadBalancer** *(dict) --* 
@@ -278,7 +278,7 @@ class Client(BaseClient):
                 - **EnvironmentLinks** *(list) --* 
                   A list of links to other environments in the same group.
                   - *(dict) --* 
-                    A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                    A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
                     - **LinkName** *(string) --* 
                       The name of the link.
                     - **EnvironmentName** *(string) --* 
@@ -292,7 +292,7 @@ class Client(BaseClient):
           The name of the application to which the specified source bundles belong.
         :type GroupName: string
         :param GroupName:
-          The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment\'s manifest ends with a + (plus) character. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+          The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment\'s manifest ends with a + (plus) character. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         :type VersionLabels: list
         :param VersionLabels:
           A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
@@ -302,7 +302,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_application(self, ApplicationName: str, Description: str = None, ResourceLifecycleConfig: Dict = None) -> Dict:
+    def create_application(self, ApplicationName: str, Description: str = None, ResourceLifecycleConfig: Dict = None, Tags: List = None) -> Dict:
         """
         Creates an application that has one configuration template named ``default`` and no application versions. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticbeanstalk-2010-12-01/CreateApplication>`_
@@ -326,7 +326,13 @@ class Client(BaseClient):
                           'DeleteSourceFromS3': True|False
                       }
                   }
-              }
+              },
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -437,12 +443,22 @@ class Client(BaseClient):
                 Specify the number of days to retain an application versions.
               - **DeleteSourceFromS3** *(boolean) --*
                 Set to ``true`` to delete a version\'s source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+        :type Tags: list
+        :param Tags:
+          Specifies the tags applied to the application.
+          Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don\'t inherit the tags.
+          - *(dict) --*
+            Describes a tag applied to a resource in an environment.
+            - **Key** *(string) --*
+              The key of the tag.
+            - **Value** *(string) --*
+              The value of the tag.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_application_version(self, ApplicationName: str, VersionLabel: str, Description: str = None, SourceBuildInformation: Dict = None, SourceBundle: Dict = None, BuildConfiguration: Dict = None, AutoCreateApplication: bool = None, Process: bool = None) -> Dict:
+    def create_application_version(self, ApplicationName: str, VersionLabel: str, Description: str = None, SourceBuildInformation: Dict = None, SourceBundle: Dict = None, BuildConfiguration: Dict = None, AutoCreateApplication: bool = None, Process: bool = None, Tags: List = None) -> Dict:
         """
         Creates an application version for the specified application. You can create an application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the output of an AWS CodeBuild build as follows:
         Specify a commit in an AWS CodeCommit repository with ``SourceBuildInformation`` .
@@ -476,7 +492,13 @@ class Client(BaseClient):
                   'TimeoutInMinutes': 123
               },
               AutoCreateApplication=True|False,
-              Process=True|False
+              Process=True|False,
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -609,12 +631,22 @@ class Client(BaseClient):
           You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional.
           .. note::
             The ``Process`` option validates Elastic Beanstalk configuration files. It doesn\'t validate your application\'s configuration files, like proxy server or Docker configuration.
+        :type Tags: list
+        :param Tags:
+          Specifies the tags applied to the application version.
+          Elastic Beanstalk applies these tags only to the application version. Environments that use the application version don\'t inherit the tags.
+          - *(dict) --*
+            Describes a tag applied to a resource in an environment.
+            - **Key** *(string) --*
+              The key of the tag.
+            - **Value** *(string) --*
+              The value of the tag.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_configuration_template(self, ApplicationName: str, TemplateName: str, SolutionStackName: str = None, PlatformArn: str = None, SourceConfiguration: Dict = None, EnvironmentId: str = None, Description: str = None, OptionSettings: List = None) -> Dict:
+    def create_configuration_template(self, ApplicationName: str, TemplateName: str, SolutionStackName: str = None, PlatformArn: str = None, SourceConfiguration: Dict = None, EnvironmentId: str = None, Description: str = None, OptionSettings: List = None, Tags: List = None) -> Dict:
         """
         Creates a configuration template. Templates are associated with a specific application and are used to deploy different versions of the application with the same configuration settings.
         Templates aren't associated with any environment. The ``EnvironmentName`` response element is always ``null`` .
@@ -642,6 +674,12 @@ class Client(BaseClient):
                       'ResourceName': 'string',
                       'Namespace': 'string',
                       'OptionName': 'string',
+                      'Value': 'string'
+                  },
+              ],
+              Tags=[
+                  {
+                      'Key': 'string',
                       'Value': 'string'
                   },
               ]
@@ -697,7 +735,7 @@ class Client(BaseClient):
             - **OptionSettings** *(list) --* 
               A list of the configuration options and their values in this configuration set.
               - *(dict) --* 
-                A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* . 
+                A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* . 
                 - **ResourceName** *(string) --* 
                   A unique resource name for a time-based scaling configuration option.
                 - **Namespace** *(string) --* 
@@ -743,7 +781,7 @@ class Client(BaseClient):
         :param OptionSettings:
           If specified, AWS Elastic Beanstalk sets the specified configuration option to the requested value. The new value overrides the value obtained from the solution stack or the source configuration template.
           - *(dict) --*
-            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
+            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
             - **ResourceName** *(string) --*
               A unique resource name for a time-based scaling configuration option.
             - **Namespace** *(string) --*
@@ -752,6 +790,15 @@ class Client(BaseClient):
               The name of the configuration option.
             - **Value** *(string) --*
               The current value for the configuration option.
+        :type Tags: list
+        :param Tags:
+          Specifies the tags applied to the configuration template.
+          - *(dict) --*
+            Describes a tag applied to a resource in an environment.
+            - **Key** *(string) --*
+              The key of the tag.
+            - **Value** *(string) --*
+              The value of the tag.
         :rtype: dict
         :returns:
         """
@@ -893,7 +940,7 @@ class Client(BaseClient):
               * ``Grey`` : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an ``UpdateEnvironment`` or ``RestartEnvironment`` request. 
               Default: ``Grey``  
             - **HealthStatus** *(string) --* 
-              Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
+              Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
             - **Resources** *(dict) --* 
               The description of the AWS resources used by this environment.
               - **LoadBalancer** *(dict) --* 
@@ -929,7 +976,7 @@ class Client(BaseClient):
             - **EnvironmentLinks** *(list) --* 
               A list of links to other environments in the same group.
               - *(dict) --* 
-                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
                 - **LinkName** *(string) --* 
                   The name of the link.
                 - **EnvironmentName** *(string) --* 
@@ -947,7 +994,7 @@ class Client(BaseClient):
           Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
         :type GroupName: string
         :param GroupName:
-          The name of the group to which the target environment belongs. Specify a group name only if the environment\'s name is specified in an environment manifest and not with the environment name parameter. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+          The name of the group to which the target environment belongs. Specify a group name only if the environment\'s name is specified in an environment manifest and not with the environment name parameter. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         :type Description: string
         :param Description:
           Describes this environment.
@@ -973,7 +1020,7 @@ class Client(BaseClient):
               This member is deprecated. Any specific version that you set may become out of date. We recommend leaving it unspecified.
         :type Tags: list
         :param Tags:
-          This specifies the tags applied to resources in the environment.
+          Specifies the tags applied to resources in the environment.
           - *(dict) --*
             Describes a tag applied to a resource in an environment.
             - **Key** *(string) --*
@@ -991,7 +1038,7 @@ class Client(BaseClient):
         :type SolutionStackName: string
         :param SolutionStackName:
           This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack.
-          For a list of current solution stacks, see `Elastic Beanstalk Supported Platforms <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html>`__ .
+          For a list of current solution stacks, see `Elastic Beanstalk Supported Platforms <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html>`__ .
         :type PlatformArn: string
         :param PlatformArn:
           The ARN of the platform.
@@ -999,7 +1046,7 @@ class Client(BaseClient):
         :param OptionSettings:
           If specified, AWS Elastic Beanstalk sets the specified configuration options to the requested value in the configuration set for the new environment. These override the values obtained from the solution stack or the configuration template.
           - *(dict) --*
-            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
+            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
             - **ResourceName** *(string) --*
               A unique resource name for a time-based scaling configuration option.
             - **Namespace** *(string) --*
@@ -1024,7 +1071,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_platform_version(self, PlatformName: str, PlatformVersion: str, PlatformDefinitionBundle: Dict, EnvironmentName: str = None, OptionSettings: List = None) -> Dict:
+    def create_platform_version(self, PlatformName: str, PlatformVersion: str, PlatformDefinitionBundle: Dict, EnvironmentName: str = None, OptionSettings: List = None, Tags: List = None) -> Dict:
         """
         Create a new version of your custom platform.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticbeanstalk-2010-12-01/CreatePlatformVersion>`_
@@ -1044,6 +1091,12 @@ class Client(BaseClient):
                       'ResourceName': 'string',
                       'Namespace': 'string',
                       'OptionName': 'string',
+                      'Value': 'string'
+                  },
+              ],
+              Tags=[
+                  {
+                      'Key': 'string',
                       'Value': 'string'
                   },
               ]
@@ -1117,7 +1170,7 @@ class Client(BaseClient):
         :param OptionSettings:
           The configuration option settings to apply to the builder environment.
           - *(dict) --*
-            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
+            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
             - **ResourceName** *(string) --*
               A unique resource name for a time-based scaling configuration option.
             - **Namespace** *(string) --*
@@ -1126,6 +1179,16 @@ class Client(BaseClient):
               The name of the configuration option.
             - **Value** *(string) --*
               The current value for the configuration option.
+        :type Tags: list
+        :param Tags:
+          Specifies the tags applied to the new platform version.
+          Elastic Beanstalk applies these tags only to the platform version. Environments that you create using the platform version don\'t inherit the tags.
+          - *(dict) --*
+            Describes a tag applied to a resource in an environment.
+            - **Key** *(string) --*
+              The key of the tag.
+            - **Value** *(string) --*
+              The value of the tag.
         :rtype: dict
         :returns:
         """
@@ -1791,7 +1854,7 @@ class Client(BaseClient):
                 - **OptionSettings** *(list) --* 
                   A list of the configuration options and their values in this configuration set.
                   - *(dict) --* 
-                    A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* . 
+                    A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* . 
                     - **ResourceName** *(string) --* 
                       A unique resource name for a time-based scaling configuration option.
                     - **Namespace** *(string) --* 
@@ -1880,11 +1943,11 @@ class Client(BaseClient):
             - **EnvironmentName** *(string) --* 
               The environment's name.
             - **HealthStatus** *(string) --* 
-              The `health status <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ of the environment. For example, ``Ok`` .
+              The `health status <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ of the environment. For example, ``Ok`` .
             - **Status** *(string) --* 
               The environment's operational status. ``Ready`` , ``Launching`` , ``Updating`` , ``Terminating`` , or ``Terminated`` .
             - **Color** *(string) --* 
-              The `health color <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ of the environment.
+              The `health color <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ of the environment.
             - **Causes** *(list) --* 
               Descriptions of the data that contributed to the environment's current health status.
               - *(string) --* 
@@ -2333,7 +2396,7 @@ class Client(BaseClient):
                   * ``Grey`` : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an ``UpdateEnvironment`` or ``RestartEnvironment`` request. 
                   Default: ``Grey``  
                 - **HealthStatus** *(string) --* 
-                  Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
+                  Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
                 - **Resources** *(dict) --* 
                   The description of the AWS resources used by this environment.
                   - **LoadBalancer** *(dict) --* 
@@ -2369,7 +2432,7 @@ class Client(BaseClient):
                 - **EnvironmentLinks** *(list) --* 
                   A list of links to other environments in the same group.
                   - *(dict) --* 
-                    A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                    A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
                     - **LinkName** *(string) --* 
                       The name of the link.
                     - **EnvironmentName** *(string) --* 
@@ -2526,7 +2589,7 @@ class Client(BaseClient):
 
     def describe_instances_health(self, EnvironmentName: str = None, EnvironmentId: str = None, AttributeNames: List = None, NextToken: str = None) -> Dict:
         """
-        Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk. This operation requires `enhanced health reporting <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html>`__ .
+        Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk. This operation requires `enhanced health reporting <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticbeanstalk-2010-12-01/DescribeInstancesHealth>`_
         
         **Request Syntax**
@@ -2612,9 +2675,9 @@ class Client(BaseClient):
                 - **InstanceId** *(string) --* 
                   The ID of the Amazon EC2 instance.
                 - **HealthStatus** *(string) --* 
-                  Returns the health status of the specified instance. For more information, see `Health Colors and Statuses <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
+                  Returns the health status of the specified instance. For more information, see `Health Colors and Statuses <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
                 - **Color** *(string) --* 
-                  Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see `Health Colors and Statuses <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
+                  Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see `Health Colors and Statuses <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
                 - **Causes** *(list) --* 
                   Represents the causes, which provide more information about the current health status.
                   - *(string) --* 
@@ -2681,7 +2744,7 @@ class Client(BaseClient):
                       Available on Windows environments only.
                       Percentage of time that the CPU has spent in the ``Privileged`` state over the last 10 seconds.
                   - **LoadAverage** *(list) --* 
-                    Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see `Operating System Metrics <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os>`__ .
+                    Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see `Operating System Metrics <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os>`__ .
                     - *(float) --* 
                 - **Deployment** *(dict) --* 
                   Information about the most recent deployment to an instance.
@@ -3037,7 +3100,7 @@ class Client(BaseClient):
     def list_tags_for_resource(self, ResourceArn: str) -> Dict:
         """
         Returns the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.
-        Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see `Tagging Resources in Your Elastic Beanstalk Environment <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html>`__ .
+        Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see `Tagging Resources in Your Elastic Beanstalk Environment <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticbeanstalk-2010-12-01/ListTagsForResource>`_
         
         **Request Syntax**
@@ -3359,7 +3422,7 @@ class Client(BaseClient):
               * ``Grey`` : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an ``UpdateEnvironment`` or ``RestartEnvironment`` request. 
               Default: ``Grey``  
             - **HealthStatus** *(string) --* 
-              Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
+              Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
             - **Resources** *(dict) --* 
               The description of the AWS resources used by this environment.
               - **LoadBalancer** *(dict) --* 
@@ -3395,7 +3458,7 @@ class Client(BaseClient):
             - **EnvironmentLinks** *(list) --* 
               A list of links to other environments in the same group.
               - *(dict) --* 
-                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
                 - **LinkName** *(string) --* 
                   The name of the link.
                 - **EnvironmentName** *(string) --* 
@@ -3415,7 +3478,7 @@ class Client(BaseClient):
           Indicates whether the associated AWS resources should shut down when the environment is terminated:
           * ``true`` : The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.
           * ``false`` : AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate.
-          For more information, see the `AWS Elastic Beanstalk User Guide. <http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/>`__
+          For more information, see the `AWS Elastic Beanstalk User Guide. <https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/>`__
           Default: ``true``
           Valid Values: ``true`` | ``false``
         :type ForceTerminate: boolean
@@ -3818,7 +3881,7 @@ class Client(BaseClient):
             - **OptionSettings** *(list) --* 
               A list of the configuration options and their values in this configuration set.
               - *(dict) --* 
-                A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* . 
+                A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* . 
                 - **ResourceName** *(string) --* 
                   A unique resource name for a time-based scaling configuration option.
                 - **Namespace** *(string) --* 
@@ -3842,7 +3905,7 @@ class Client(BaseClient):
         :param OptionSettings:
           A list of configuration option settings to update with the new specified option value.
           - *(dict) --*
-            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
+            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
             - **ResourceName** *(string) --*
               A unique resource name for a time-based scaling configuration option.
             - **Namespace** *(string) --*
@@ -4000,7 +4063,7 @@ class Client(BaseClient):
               * ``Grey`` : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an ``UpdateEnvironment`` or ``RestartEnvironment`` request. 
               Default: ``Grey``  
             - **HealthStatus** *(string) --* 
-              Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
+              Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
             - **Resources** *(dict) --* 
               The description of the AWS resources used by this environment.
               - **LoadBalancer** *(dict) --* 
@@ -4036,7 +4099,7 @@ class Client(BaseClient):
             - **EnvironmentLinks** *(list) --* 
               A list of links to other environments in the same group.
               - *(dict) --* 
-                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
                 - **LinkName** *(string) --* 
                   The name of the link.
                 - **EnvironmentName** *(string) --* 
@@ -4057,7 +4120,7 @@ class Client(BaseClient):
           Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns ``MissingRequiredParameter`` error.
         :type GroupName: string
         :param GroupName:
-          The name of the group to which the target environment belongs. Specify a group name only if the environment\'s name is specified in an environment manifest and not with the environment name or environment ID parameters. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+          The name of the group to which the target environment belongs. Specify a group name only if the environment\'s name is specified in an environment manifest and not with the environment name or environment ID parameters. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
         :type Description: string
         :param Description:
           If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
@@ -4095,7 +4158,7 @@ class Client(BaseClient):
         :param OptionSettings:
           If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
           - *(dict) --*
-            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
+            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
             - **ResourceName** *(string) --*
               A unique resource name for a time-based scaling configuration option.
             - **Namespace** *(string) --*
@@ -4123,13 +4186,13 @@ class Client(BaseClient):
     def update_tags_for_resource(self, ResourceArn: str, TagsToAdd: List = None, TagsToRemove: List = None):
         """
         Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: ``TagsToAdd`` for tags to add or update, and ``TagsToRemove`` .
-        Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see `Tagging Resources in Your Elastic Beanstalk Environment <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html>`__ .
+        Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see `Tagging Resources in Your Elastic Beanstalk Environment <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html>`__ .
         If you create a custom IAM user policy to control permission to this operation, specify one of the following two virtual actions (or both) instead of the API operation name:
           elasticbeanstalk:AddTags  
         Controls permission to call ``UpdateTagsForResource`` and pass a list of tags to add in the ``TagsToAdd`` parameter.
           elasticbeanstalk:RemoveTags  
         Controls permission to call ``UpdateTagsForResource`` and pass a list of tag keys to remove in the ``TagsToRemove`` parameter.
-        For details about creating a custom user policy, see `Creating a Custom User Policy <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies>`__ .
+        For details about creating a custom user policy, see `Creating a Custom User Policy <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticbeanstalk-2010-12-01/UpdateTagsForResource>`_
         
         **Request Syntax**
@@ -4236,7 +4299,7 @@ class Client(BaseClient):
         :param OptionSettings: **[REQUIRED]**
           A list of the options and desired values to evaluate.
           - *(dict) --*
-            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
+            A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to `Option Values <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html>`__ in the *AWS Elastic Beanstalk Developer Guide* .
             - **ResourceName** *(string) --*
               A unique resource name for a time-based scaling configuration option.
             - **Namespace** *(string) --*

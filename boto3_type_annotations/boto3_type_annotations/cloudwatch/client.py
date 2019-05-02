@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
-from datetime import datetime
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -60,14 +60,23 @@ class Client(BaseClient):
     def list_metrics(self, Namespace: str = None, MetricName: str = None, Dimensions: List = None, NextToken: str = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceARN: str) -> Dict:
+        pass
+
     def put_dashboard(self, DashboardName: str, DashboardBody: str) -> Dict:
         pass
 
-    def put_metric_alarm(self, AlarmName: str, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, MetricName: str = None, Namespace: str = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Period: int = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None, Metrics: List = None):
+    def put_metric_alarm(self, AlarmName: str, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, MetricName: str = None, Namespace: str = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Period: int = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None, Metrics: List = None, Tags: List = None):
         pass
 
     def put_metric_data(self, Namespace: str, MetricData: List):
         pass
 
     def set_alarm_state(self, AlarmName: str, StateValue: str, StateReason: str, StateReasonData: str = None):
+        pass
+
+    def tag_resource(self, ResourceARN: str, Tags: List) -> Dict:
+        pass
+
+    def untag_resource(self, ResourceARN: str, TagKeys: List) -> Dict:
         pass

@@ -1,12 +1,12 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from typing import IO
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import IO
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -1299,6 +1299,69 @@ class Client(BaseClient):
         """
         pass
 
+    def get_layer_version_by_arn(self, Arn: str) -> Dict:
+        """
+        Returns information about a version of an `AWS Lambda layer <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__ , with a link to download the layer archive that's valid for 10 minutes.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetLayerVersionByArn>`_
+        
+        **Request Syntax**
+        ::
+          response = client.get_layer_version_by_arn(
+              Arn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Content': {
+                    'Location': 'string',
+                    'CodeSha256': 'string',
+                    'CodeSize': 123
+                },
+                'LayerArn': 'string',
+                'LayerVersionArn': 'string',
+                'Description': 'string',
+                'CreatedDate': 'string',
+                'Version': 123,
+                'CompatibleRuntimes': [
+                    'nodejs'|'nodejs4.3'|'nodejs6.10'|'nodejs8.10'|'java8'|'python2.7'|'python3.6'|'python3.7'|'dotnetcore1.0'|'dotnetcore2.0'|'dotnetcore2.1'|'nodejs4.3-edge'|'go1.x'|'ruby2.5'|'provided',
+                ],
+                'LicenseInfo': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Content** *(dict) --* 
+              Details about the layer version.
+              - **Location** *(string) --* 
+                A link to the layer archive in Amazon S3 that is valid for 10 minutes.
+              - **CodeSha256** *(string) --* 
+                The SHA-256 hash of the layer archive.
+              - **CodeSize** *(integer) --* 
+                The size of the layer archive in bytes.
+            - **LayerArn** *(string) --* 
+              The ARN of the layer.
+            - **LayerVersionArn** *(string) --* 
+              The ARN of the layer version.
+            - **Description** *(string) --* 
+              The description of the version.
+            - **CreatedDate** *(string) --* 
+              The date that the layer version was created, in `ISO-8601 format <https://www.w3.org/TR/NOTE-datetime>`__ (YYYY-MM-DDThh:mm:ss.sTZD).
+            - **Version** *(integer) --* 
+              The version number.
+            - **CompatibleRuntimes** *(list) --* 
+              The layer's compatible runtimes.
+              - *(string) --* 
+            - **LicenseInfo** *(string) --* 
+              The layer's software license.
+        :type Arn: string
+        :param Arn: **[REQUIRED]**
+          The ARN of the layer version.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def get_layer_version_policy(self, LayerName: str, VersionNumber: int) -> Dict:
         """
         Returns the permission policy for a version of an `AWS Lambda layer <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__ . For more information, see  AddLayerVersionPermission .
@@ -1409,6 +1472,7 @@ class Client(BaseClient):
         """
         Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or asynchronously. To invoke a function asynchronously, set ``InvocationType`` to ``Event`` .
         For synchronous invocation, details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the `execution log <https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html>`__ and `trace <https://docs.aws.amazon.com/lambda/latest/dg/dlq.html>`__ . To record function errors for asynchronous invocations, configure your function with a `dead letter queue <https://docs.aws.amazon.com/lambda/latest/dg/dlq.html>`__ .
+        When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see `Retry Behavior <https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html>`__ .
         The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, `limit errors <https://docs.aws.amazon.com/lambda/latest/dg/limits.html>`__ , or issues with your function's code and configuration. For example, Lambda returns ``TooManyRequestsException`` if executing the function would cause you to exceed a concurrency limit at either the account level (``ConcurrentInvocationLimitExceeded`` ) or function level (``ReservedFunctionConcurrentInvocationLimitExceeded`` ).
         For functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.
         This operation requires permission for the ``lambda:InvokeFunction`` action.
@@ -2936,7 +3000,7 @@ class Client(BaseClient):
 
     def update_function_configuration(self, FunctionName: str, Role: str = None, Handler: str = None, Description: str = None, Timeout: int = None, MemorySize: int = None, VpcConfig: Dict = None, Environment: Dict = None, Runtime: str = None, DeadLetterConfig: Dict = None, KMSKeyArn: str = None, TracingConfig: Dict = None, RevisionId: str = None, Layers: List = None) -> Dict:
         """
-        Modify the version-specifc settings of a Lambda function.
+        Modify the version-specific settings of a Lambda function.
         These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.
         To configure function concurrency, use  PutFunctionConcurrency . To grant invoke permissions to an account or AWS service, use  AddPermission .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateFunctionConfiguration>`_

@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -689,7 +689,41 @@ class Client(BaseClient):
                       'Field': 'string',
                       'Values': [
                           'string',
-                      ]
+                      ],
+                      'HostHeaderConfig': {
+                          'Values': [
+                              'string',
+                          ]
+                      },
+                      'PathPatternConfig': {
+                          'Values': [
+                              'string',
+                          ]
+                      },
+                      'HttpHeaderConfig': {
+                          'HttpHeaderName': 'string',
+                          'Values': [
+                              'string',
+                          ]
+                      },
+                      'QueryStringConfig': {
+                          'Values': [
+                              {
+                                  'Key': 'string',
+                                  'Value': 'string'
+                              },
+                          ]
+                      },
+                      'HttpRequestMethodConfig': {
+                          'Values': [
+                              'string',
+                          ]
+                      },
+                      'SourceIpConfig': {
+                          'Values': [
+                              'string',
+                          ]
+                      }
                   },
               ],
               Priority=123,
@@ -755,7 +789,41 @@ class Client(BaseClient):
                                 'Field': 'string',
                                 'Values': [
                                     'string',
-                                ]
+                                ],
+                                'HostHeaderConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'PathPatternConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'HttpHeaderConfig': {
+                                    'HttpHeaderName': 'string',
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'QueryStringConfig': {
+                                    'Values': [
+                                        {
+                                            'Key': 'string',
+                                            'Value': 'string'
+                                        },
+                                    ]
+                                },
+                                'HttpRequestMethodConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'SourceIpConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                }
                             },
                         ],
                         'Actions': [
@@ -841,6 +909,27 @@ class Client(BaseClient):
                       * * (matches 0 or more characters) 
                       * ? (matches exactly 1 character) 
                       - *(string) --* 
+                    - **HostHeaderConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **PathPatternConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **HttpHeaderConfig** *(dict) --* 
+                      - **HttpHeaderName** *(string) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **QueryStringConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(dict) --* 
+                          - **Key** *(string) --* 
+                          - **Value** *(string) --* 
+                    - **HttpRequestMethodConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **SourceIpConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
                 - **Actions** *(list) --* 
                   The actions.
                   - *(dict) --* 
@@ -967,6 +1056,27 @@ class Client(BaseClient):
               * * (matches 0 or more characters)
               * ? (matches exactly 1 character)
               - *(string) --*
+            - **HostHeaderConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(string) --*
+            - **PathPatternConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(string) --*
+            - **HttpHeaderConfig** *(dict) --*
+              - **HttpHeaderName** *(string) --*
+              - **Values** *(list) --*
+                - *(string) --*
+            - **QueryStringConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(dict) --*
+                  - **Key** *(string) --*
+                  - **Value** *(string) --*
+            - **HttpRequestMethodConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(string) --*
+            - **SourceIpConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(string) --*
         :type Priority: integer
         :param Priority: **[REQUIRED]**
           The rule priority. A listener can\'t have multiple rules with the same priority.
@@ -1912,7 +2022,41 @@ class Client(BaseClient):
                                 'Field': 'string',
                                 'Values': [
                                     'string',
-                                ]
+                                ],
+                                'HostHeaderConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'PathPatternConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'HttpHeaderConfig': {
+                                    'HttpHeaderName': 'string',
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'QueryStringConfig': {
+                                    'Values': [
+                                        {
+                                            'Key': 'string',
+                                            'Value': 'string'
+                                        },
+                                    ]
+                                },
+                                'HttpRequestMethodConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'SourceIpConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                }
                             },
                         ],
                         'Actions': [
@@ -1999,6 +2143,27 @@ class Client(BaseClient):
                       * * (matches 0 or more characters) 
                       * ? (matches exactly 1 character) 
                       - *(string) --* 
+                    - **HostHeaderConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **PathPatternConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **HttpHeaderConfig** *(dict) --* 
+                      - **HttpHeaderName** *(string) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **QueryStringConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(dict) --* 
+                          - **Key** *(string) --* 
+                          - **Value** *(string) --* 
+                    - **HttpRequestMethodConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **SourceIpConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
                 - **Actions** *(list) --* 
                   The actions.
                   - *(dict) --* 
@@ -3023,7 +3188,41 @@ class Client(BaseClient):
                       'Field': 'string',
                       'Values': [
                           'string',
-                      ]
+                      ],
+                      'HostHeaderConfig': {
+                          'Values': [
+                              'string',
+                          ]
+                      },
+                      'PathPatternConfig': {
+                          'Values': [
+                              'string',
+                          ]
+                      },
+                      'HttpHeaderConfig': {
+                          'HttpHeaderName': 'string',
+                          'Values': [
+                              'string',
+                          ]
+                      },
+                      'QueryStringConfig': {
+                          'Values': [
+                              {
+                                  'Key': 'string',
+                                  'Value': 'string'
+                              },
+                          ]
+                      },
+                      'HttpRequestMethodConfig': {
+                          'Values': [
+                              'string',
+                          ]
+                      },
+                      'SourceIpConfig': {
+                          'Values': [
+                              'string',
+                          ]
+                      }
                   },
               ],
               Actions=[
@@ -3088,7 +3287,41 @@ class Client(BaseClient):
                                 'Field': 'string',
                                 'Values': [
                                     'string',
-                                ]
+                                ],
+                                'HostHeaderConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'PathPatternConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'HttpHeaderConfig': {
+                                    'HttpHeaderName': 'string',
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'QueryStringConfig': {
+                                    'Values': [
+                                        {
+                                            'Key': 'string',
+                                            'Value': 'string'
+                                        },
+                                    ]
+                                },
+                                'HttpRequestMethodConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'SourceIpConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                }
                             },
                         ],
                         'Actions': [
@@ -3174,6 +3407,27 @@ class Client(BaseClient):
                       * * (matches 0 or more characters) 
                       * ? (matches exactly 1 character) 
                       - *(string) --* 
+                    - **HostHeaderConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **PathPatternConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **HttpHeaderConfig** *(dict) --* 
+                      - **HttpHeaderName** *(string) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **QueryStringConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(dict) --* 
+                          - **Key** *(string) --* 
+                          - **Value** *(string) --* 
+                    - **HttpRequestMethodConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **SourceIpConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
                 - **Actions** *(list) --* 
                   The actions.
                   - *(dict) --* 
@@ -3300,6 +3554,27 @@ class Client(BaseClient):
               * * (matches 0 or more characters)
               * ? (matches exactly 1 character)
               - *(string) --*
+            - **HostHeaderConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(string) --*
+            - **PathPatternConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(string) --*
+            - **HttpHeaderConfig** *(dict) --*
+              - **HttpHeaderName** *(string) --*
+              - **Values** *(list) --*
+                - *(string) --*
+            - **QueryStringConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(dict) --*
+                  - **Key** *(string) --*
+                  - **Value** *(string) --*
+            - **HttpRequestMethodConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(string) --*
+            - **SourceIpConfig** *(dict) --*
+              - **Values** *(list) --*
+                - *(string) --*
         :type Actions: list
         :param Actions:
           The actions.
@@ -3808,7 +4083,41 @@ class Client(BaseClient):
                                 'Field': 'string',
                                 'Values': [
                                     'string',
-                                ]
+                                ],
+                                'HostHeaderConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'PathPatternConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'HttpHeaderConfig': {
+                                    'HttpHeaderName': 'string',
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'QueryStringConfig': {
+                                    'Values': [
+                                        {
+                                            'Key': 'string',
+                                            'Value': 'string'
+                                        },
+                                    ]
+                                },
+                                'HttpRequestMethodConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'SourceIpConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                }
                             },
                         ],
                         'Actions': [
@@ -3894,6 +4203,27 @@ class Client(BaseClient):
                       * * (matches 0 or more characters) 
                       * ? (matches exactly 1 character) 
                       - *(string) --* 
+                    - **HostHeaderConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **PathPatternConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **HttpHeaderConfig** *(dict) --* 
+                      - **HttpHeaderName** *(string) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **QueryStringConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(dict) --* 
+                          - **Key** *(string) --* 
+                          - **Value** *(string) --* 
+                    - **HttpRequestMethodConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **SourceIpConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
                 - **Actions** *(list) --* 
                   The actions.
                   - *(dict) --* 

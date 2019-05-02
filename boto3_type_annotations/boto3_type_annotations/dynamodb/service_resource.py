@@ -1,9 +1,9 @@
 from typing import Optional
-from typing import List
 from typing import Dict
-from datetime import datetime
 from typing import Union
+from datetime import datetime
 from boto3.resources.collection import ResourceCollection
+from typing import List
 from boto3.resources import base
 
 
@@ -19,7 +19,7 @@ class ServiceResource(base.ServiceResource):
     def batch_write_item(self, RequestItems: Dict, ReturnConsumedCapacity: str = None, ReturnItemCollectionMetrics: str = None) -> Dict:
         pass
 
-    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> 'Table':
+    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, StreamSpecification: Dict = None, SSESpecification: Dict = None, Tags: List = None) -> 'Table':
         pass
 
     def get_available_subresources(self) -> List[str]:

@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -35,7 +35,8 @@ class DescribeTapeArchives(Paginator):
                         'RetrievedTo': 'string',
                         'TapeStatus': 'string',
                         'TapeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        'KMSKey': 'string',
+                        'PoolId': 'string'
                     },
                 ],
                 'NextToken': 'string'
@@ -70,6 +71,9 @@ class DescribeTapeArchives(Paginator):
                     This value is not available for tapes created prior to May 13, 2015.
                 - **KMSKey** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+                - **PoolId** *(string) --* 
+                  The ID of the pool that was used to archive the tape. The tapes in this pool are archived in the S3 storage class that is associated with the pool.
+                  Valid values: "GLACIER", "DEEP_ARCHIVE"
             - **NextToken** *(string) --* 
               A token to resume pagination.
         :type TapeARNs: list
@@ -140,6 +144,7 @@ class DescribeTapeRecoveryPoints(Paginator):
                 - **TapeSizeInBytes** *(integer) --* 
                   The size, in bytes, of the virtual tapes to recover.
                 - **TapeStatus** *(string) --* 
+                  The status of the virtual tapes.
             - **NextToken** *(string) --* 
               A token to resume pagination.
         :type GatewayARN: string
@@ -193,7 +198,8 @@ class DescribeTapes(Paginator):
                         'VTLDevice': 'string',
                         'Progress': 123.0,
                         'TapeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        'KMSKey': 'string',
+                        'PoolId': 'string'
                     },
                 ],
                 'NextToken': 'string'
@@ -227,6 +233,9 @@ class DescribeTapes(Paginator):
                     This value is not available for tapes created prior to May 13, 2015.
                 - **KMSKey** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+                - **PoolId** *(string) --* 
+                  The ID of the pool that contains tapes that will be archived. The tapes in this pool are archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (Glacier or Deep Archive) that corresponds to the pool.
+                  Valid values: "GLACIER", "DEEP_ARCHIVE"
             - **NextToken** *(string) --* 
               A token to resume pagination.
         :type GatewayARN: string
@@ -304,8 +313,11 @@ class DescribeVTLDevices(Paginator):
                 - **VTLDeviceARN** *(string) --* 
                   Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
                 - **VTLDeviceType** *(string) --* 
+                  Specifies the type of device that the VTL device emulates.
                 - **VTLDeviceVendor** *(string) --* 
+                  Specifies the vendor of the device that the VTL device object emulates.
                 - **VTLDeviceProductIdentifier** *(string) --* 
+                  Specifies the model number of device that the VTL device emulates.
                 - **DeviceiSCSIAttributes** *(dict) --* 
                   A list of iSCSI information about a VTL device.
                   - **TargetARN** *(string) --* 
@@ -327,6 +339,78 @@ class DescribeVTLDevices(Paginator):
           .. note::
             All of the specified VTL devices must be from the same gateway. If no VTL devices are specified, the result will contain all devices on the specified gateway.
           - *(string) --*
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+
+class ListFileShares(Paginator):
+    def paginate(self, GatewayARN: str = None, PaginationConfig: Dict = None) -> Dict:
+        """
+        Creates an iterator that will paginate through responses from :py:meth:`StorageGateway.Client.list_file_shares`.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/ListFileShares>`_
+        
+        **Request Syntax**
+        ::
+          response_iterator = paginator.paginate(
+              GatewayARN='string',
+              PaginationConfig={
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Marker': 'string',
+                'FileShareInfoList': [
+                    {
+                        'FileShareType': 'NFS'|'SMB',
+                        'FileShareARN': 'string',
+                        'FileShareId': 'string',
+                        'FileShareStatus': 'string',
+                        'GatewayARN': 'string'
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            ListFileShareOutput
+            - **Marker** *(string) --* 
+              If the request includes ``Marker`` , the response returns that value in this field. 
+            - **FileShareInfoList** *(list) --* 
+              An array of information about the file gateway's file shares. 
+              - *(dict) --* 
+                Describes a file share.
+                - **FileShareType** *(string) --* 
+                  The type of the file share.
+                - **FileShareARN** *(string) --* 
+                  The Amazon Resource Name (ARN) of the file share. 
+                - **FileShareId** *(string) --* 
+                  The ID of the file share. 
+                - **FileShareStatus** *(string) --* 
+                  The status of the file share. Possible values are ``CREATING`` , ``UPDATING`` , ``AVAILABLE`` and ``DELETING`` . 
+                - **GatewayARN** *(string) --* 
+                  The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
+            - **NextToken** *(string) --* 
+              A token to resume pagination.
+        :type GatewayARN: string
+        :param GatewayARN:
+          The Amazon resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -367,7 +451,9 @@ class ListGateways(Paginator):
                         'GatewayARN': 'string',
                         'GatewayType': 'string',
                         'GatewayOperationalState': 'string',
-                        'GatewayName': 'string'
+                        'GatewayName': 'string',
+                        'Ec2InstanceId': 'string',
+                        'Ec2InstanceRegion': 'string'
                     },
                 ],
                 'NextToken': 'string'
@@ -376,6 +462,7 @@ class ListGateways(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **Gateways** *(list) --* 
+              An array of  GatewayInfo objects.
               - *(dict) --* 
                 Describes a gateway object.
                 - **GatewayId** *(string) --* 
@@ -389,8 +476,75 @@ class ListGateways(Paginator):
                   Valid Values: DISABLED or ACTIVE
                 - **GatewayName** *(string) --* 
                   The name of the gateway.
+                - **Ec2InstanceId** *(string) --* 
+                  The ID of the Amazon EC2 instance that was used to launch the gateway.
+                - **Ec2InstanceRegion** *(string) --* 
+                  The AWS Region where the Amazon EC2 instance is located.
             - **NextToken** *(string) --* 
               A token to resume pagination.
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+
+class ListTagsForResource(Paginator):
+    def paginate(self, ResourceARN: str, PaginationConfig: Dict = None) -> Dict:
+        """
+        Creates an iterator that will paginate through responses from :py:meth:`StorageGateway.Client.list_tags_for_resource`.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response_iterator = paginator.paginate(
+              ResourceARN='string',
+              PaginationConfig={
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'ResourceARN': 'string',
+                'Tags': [
+                    {
+                        'Key': 'string',
+                        'Value': 'string'
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            ListTagsForResourceOutput
+            - **ResourceARN** *(string) --* 
+              he Amazon Resource Name (ARN) of the resource for which you want to list tags.
+            - **Tags** *(list) --* 
+              An array that contains the tags for the specified resource.
+              - *(dict) --* 
+                A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+                - **Key** *(string) --* 
+                  Tag key (String). The key can't start with aws:. 
+                - **Value** *(string) --* 
+                  Value of the tag key.
+            - **NextToken** *(string) --* 
+              A token to resume pagination.
+        :type ResourceARN: string
+        :param ResourceARN: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the resource for which you want to list tags.
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -434,7 +588,8 @@ class ListTapes(Paginator):
                         'TapeBarcode': 'string',
                         'TapeSizeInBytes': 123,
                         'TapeStatus': 'string',
-                        'GatewayARN': 'string'
+                        'GatewayARN': 'string',
+                        'PoolId': 'string'
                     },
                 ],
                 'NextToken': 'string'
@@ -459,6 +614,9 @@ class ListTapes(Paginator):
                   The status of the tape.
                 - **GatewayARN** *(string) --* 
                   The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
+                - **PoolId** *(string) --* 
+                  The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (Glacier or Deep Archive) that corresponds to the pool.
+                  Valid values: "GLACIER", "DEEP_ARCHIVE"
             - **NextToken** *(string) --* 
               A token to resume pagination.
         :type TapeARNs: list
@@ -517,9 +675,13 @@ class ListVolumes(Paginator):
         
         **Response Structure**
           - *(dict) --* 
+            A JSON object containing the following fields:
+            *  ListVolumesOutput$Marker   
+            *  ListVolumesOutput$VolumeInfos   
             - **GatewayARN** *(string) --* 
               The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
             - **VolumeInfos** *(list) --* 
+              An array of  VolumeInfo objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then ``VolumeInfos`` is an empty array "[]".
               - *(dict) --* 
                 Describes a storage volume object.
                 - **VolumeARN** *(string) --* 
@@ -535,10 +697,12 @@ class ListVolumes(Paginator):
                   The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
                   Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
                 - **VolumeType** *(string) --* 
+                  One of the VolumeType enumeration values describing the type of the volume.
                 - **VolumeSizeInBytes** *(integer) --* 
                   The size of the volume in bytes.
                   Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
                 - **VolumeAttachmentStatus** *(string) --* 
+                  One of the VolumeStatus values that indicates the state of the storage volume. 
             - **NextToken** *(string) --* 
               A token to resume pagination.
         :type GatewayARN: string

@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
-from datetime import datetime
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -21,7 +21,7 @@ class Client(BaseClient):
     def create_channel(self, channelName: str, retentionPeriod: Dict = None, tags: List = None) -> Dict:
         pass
 
-    def create_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None, tags: List = None) -> Dict:
+    def create_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None, versioningConfiguration: Dict = None, tags: List = None) -> Dict:
         pass
 
     def create_dataset_content(self, datasetName: str) -> Dict:
@@ -114,7 +114,7 @@ class Client(BaseClient):
     def update_channel(self, channelName: str, retentionPeriod: Dict = None):
         pass
 
-    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None):
+    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None, versioningConfiguration: Dict = None):
         pass
 
     def update_datastore(self, datastoreName: str, retentionPeriod: Dict = None):

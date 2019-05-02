@@ -1,17 +1,17 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
     def add_tags_to_certificate(self, CertificateArn: str, Tags: List):
         """
         Adds one or more tags to an ACM certificate. Tags are labels that you can use to identify and organize your AWS resources. Each tag consists of a ``key`` and an optional ``value`` . You specify the certificate on input by its Amazon Resource Name (ARN). You specify the tag by using a key-value pair. 
-        You can apply a tag to just one certificate if you want to identify a specific characteristic of that certificate, or you can apply the same tag to multiple certificates if you want to filter for a common relationship among those certificates. Similarly, you can apply the same tag to multiple resources if you want to specify a relationship among those resources. For example, you can add the same tag to an ACM certificate and an Elastic Load Balancing load balancer to indicate that they are both used by the same website. For more information, see `Tagging ACM certificates <http://docs.aws.amazon.com/acm/latest/userguide/tags.html>`__ . 
+        You can apply a tag to just one certificate if you want to identify a specific characteristic of that certificate, or you can apply the same tag to multiple certificates if you want to filter for a common relationship among those certificates. Similarly, you can apply the same tag to multiple resources if you want to specify a relationship among those resources. For example, you can add the same tag to an ACM certificate and an Elastic Load Balancing load balancer to indicate that they are both used by the same website. For more information, see `Tagging ACM certificates <https://docs.aws.amazon.com/acm/latest/userguide/tags.html>`__ . 
         To remove one or more tags, use the  RemoveTagsFromCertificate action. To view all of the tags that have been applied to the certificate, use the  ListTagsForCertificate action. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/AddTagsToCertificate>`_
         
@@ -30,7 +30,7 @@ class Client(BaseClient):
         :param CertificateArn: **[REQUIRED]**
           String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form:
            ``arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012``
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
         :type Tags: list
         :param Tags: **[REQUIRED]**
           The key-value pair that defines the tag. The tag value is optional.
@@ -75,7 +75,7 @@ class Client(BaseClient):
         :param CertificateArn: **[REQUIRED]**
           String that contains the ARN of the ACM certificate to be deleted. This must be of the form:
            ``arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012``
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
         :returns: None
         """
         pass
@@ -132,7 +132,7 @@ class Client(BaseClient):
                     'InUseBy': [
                         'string',
                     ],
-                    'FailureReason': 'NO_AVAILABLE_CONTACTS'|'ADDITIONAL_VERIFICATION_REQUIRED'|'DOMAIN_NOT_ALLOWED'|'INVALID_PUBLIC_DOMAIN'|'CAA_ERROR'|'PCA_LIMIT_EXCEEDED'|'PCA_INVALID_ARN'|'PCA_INVALID_STATE'|'PCA_REQUEST_FAILED'|'PCA_RESOURCE_NOT_FOUND'|'PCA_INVALID_ARGS'|'OTHER',
+                    'FailureReason': 'NO_AVAILABLE_CONTACTS'|'ADDITIONAL_VERIFICATION_REQUIRED'|'DOMAIN_NOT_ALLOWED'|'INVALID_PUBLIC_DOMAIN'|'DOMAIN_VALIDATION_DENIED'|'CAA_ERROR'|'PCA_LIMIT_EXCEEDED'|'PCA_INVALID_ARN'|'PCA_INVALID_STATE'|'PCA_REQUEST_FAILED'|'PCA_RESOURCE_NOT_FOUND'|'PCA_INVALID_ARGS'|'PCA_INVALID_DURATION'|'PCA_ACCESS_DENIED'|'OTHER',
                     'Type': 'IMPORTED'|'AMAZON_ISSUED'|'PRIVATE',
                     'RenewalSummary': {
                         'RenewalStatus': 'PENDING_AUTO_RENEWAL'|'PENDING_VALIDATION'|'SUCCESS'|'FAILED',
@@ -151,7 +151,9 @@ class Client(BaseClient):
                                 },
                                 'ValidationMethod': 'EMAIL'|'DNS'
                             },
-                        ]
+                        ],
+                        'RenewalStatusReason': 'NO_AVAILABLE_CONTACTS'|'ADDITIONAL_VERIFICATION_REQUIRED'|'DOMAIN_NOT_ALLOWED'|'INVALID_PUBLIC_DOMAIN'|'DOMAIN_VALIDATION_DENIED'|'CAA_ERROR'|'PCA_LIMIT_EXCEEDED'|'PCA_INVALID_ARN'|'PCA_INVALID_STATE'|'PCA_REQUEST_FAILED'|'PCA_RESOURCE_NOT_FOUND'|'PCA_INVALID_ARGS'|'PCA_INVALID_DURATION'|'PCA_ACCESS_DENIED'|'OTHER',
+                        'UpdatedAt': datetime(2015, 1, 1)
                     },
                     'KeyUsages': [
                         {
@@ -177,7 +179,7 @@ class Client(BaseClient):
             - **Certificate** *(dict) --* 
               Metadata about an ACM certificate.
               - **CertificateArn** *(string) --* 
-                The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+                The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
               - **DomainName** *(string) --* 
                 The fully qualified domain name for the certificate, such as www.example.com or example.com.
               - **SubjectAlternativeNames** *(list) --* 
@@ -200,7 +202,7 @@ class Client(BaseClient):
                     * SUCCESS 
                     * FAILED 
                   - **ResourceRecord** *(dict) --* 
-                    Contains the CNAME record that you add to your DNS database for domain validation. For more information, see `Use DNS to Validate Domain Ownership <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html>`__ .
+                    Contains the CNAME record that you add to your DNS database for domain validation. For more information, see `Use DNS to Validate Domain Ownership <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html>`__ .
                     - **Name** *(string) --* 
                       The name of the DNS record to create in your domain. This is supplied by ACM.
                     - **Type** *(string) --* 
@@ -239,15 +241,15 @@ class Client(BaseClient):
                 A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources. 
                 - *(string) --* 
               - **FailureReason** *(string) --* 
-                The reason the certificate request failed. This value exists only when the certificate status is ``FAILED`` . For more information, see `Certificate Request Failed <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed>`__ in the *AWS Certificate Manager User Guide* . 
+                The reason the certificate request failed. This value exists only when the certificate status is ``FAILED`` . For more information, see `Certificate Request Failed <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed>`__ in the *AWS Certificate Manager User Guide* . 
               - **Type** *(string) --* 
-                The source of the certificate. For certificates provided by ACM, this value is ``AMAZON_ISSUED`` . For certificates that you imported with  ImportCertificate , this value is ``IMPORTED`` . ACM does not provide `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see `Importing Certificates <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html>`__ in the *AWS Certificate Manager User Guide* . 
+                The source of the certificate. For certificates provided by ACM, this value is ``AMAZON_ISSUED`` . For certificates that you imported with  ImportCertificate , this value is ``IMPORTED`` . ACM does not provide `managed renewal <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see `Importing Certificates <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html>`__ in the *AWS Certificate Manager User Guide* . 
               - **RenewalSummary** *(dict) --* 
-                Contains information about the status of ACM's `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ for the certificate. This field exists only when the certificate type is ``AMAZON_ISSUED`` .
+                Contains information about the status of ACM's `managed renewal <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ for the certificate. This field exists only when the certificate type is ``AMAZON_ISSUED`` .
                 - **RenewalStatus** *(string) --* 
-                  The status of ACM's `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ of the certificate.
+                  The status of ACM's `managed renewal <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ of the certificate.
                 - **DomainValidationOptions** *(list) --* 
-                  Contains information about the validation of each domain name in the certificate, as it pertains to ACM's `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ . This is different from the initial validation that occurs as a result of the  RequestCertificate request. This field exists only when the certificate type is ``AMAZON_ISSUED`` .
+                  Contains information about the validation of each domain name in the certificate, as it pertains to ACM's `managed renewal <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ . This is different from the initial validation that occurs as a result of the  RequestCertificate request. This field exists only when the certificate type is ``AMAZON_ISSUED`` .
                   - *(dict) --* 
                     Contains information about the validation of each domain name in the certificate.
                     - **DomainName** *(string) --* 
@@ -263,7 +265,7 @@ class Client(BaseClient):
                       * SUCCESS 
                       * FAILED 
                     - **ResourceRecord** *(dict) --* 
-                      Contains the CNAME record that you add to your DNS database for domain validation. For more information, see `Use DNS to Validate Domain Ownership <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html>`__ .
+                      Contains the CNAME record that you add to your DNS database for domain validation. For more information, see `Use DNS to Validate Domain Ownership <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html>`__ .
                       - **Name** *(string) --* 
                         The name of the DNS record to create in your domain. This is supplied by ACM.
                       - **Type** *(string) --* 
@@ -272,6 +274,10 @@ class Client(BaseClient):
                         The value of the CNAME record to add to your DNS database. This is supplied by ACM.
                     - **ValidationMethod** *(string) --* 
                       Specifies the domain validation method.
+                - **RenewalStatusReason** *(string) --* 
+                  The reason that a renewal request was unsuccessful.
+                - **UpdatedAt** *(datetime) --* 
+                  The time at which the renewal summary was last updated.
               - **KeyUsages** *(list) --* 
                 A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
                 - *(dict) --* 
@@ -299,7 +305,7 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format: 
                  ``arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012``  
               - **RenewalEligibility** *(string) --* 
-                Specifies whether the certificate is eligible for renewal.
+                Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the  RenewCertificate command.
               - **Options** *(dict) --* 
                 Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure. 
                 - **CertificateTransparencyLoggingPreference** *(string) --* 
@@ -308,7 +314,7 @@ class Client(BaseClient):
         :param CertificateArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form:
            ``arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012``
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -342,7 +348,7 @@ class Client(BaseClient):
             - **CertificateChain** *(string) --* 
               The base64 PEM-encoded certificate chain. This does not include the certificate that you are exporting.
             - **PrivateKey** *(string) --* 
-              The PEM-encoded private key associated with the public key in the certificate.
+              The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded. 
         :type CertificateArn: string
         :param CertificateArn: **[REQUIRED]**
           An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:
@@ -402,7 +408,7 @@ class Client(BaseClient):
         :param CertificateArn: **[REQUIRED]**
           String that contains a certificate ARN in the following format:
            ``arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012``
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -439,9 +445,9 @@ class Client(BaseClient):
 
     def import_certificate(self, Certificate: bytes, PrivateKey: bytes, CertificateArn: str = None, CertificateChain: bytes = None) -> Dict:
         """
-        Imports a certificate into AWS Certificate Manager (ACM) to use with services that are integrated with ACM. Note that `integrated services <http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html>`__ allow only certificate types and keys they support to be associated with their resources. Further, their support differs depending on whether the certificate is imported into IAM or into ACM. For more information, see the documentation for each service. For more information about importing certificates into ACM, see `Importing Certificates <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html>`__ in the *AWS Certificate Manager User Guide* . 
+        Imports a certificate into AWS Certificate Manager (ACM) to use with services that are integrated with ACM. Note that `integrated services <https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html>`__ allow only certificate types and keys they support to be associated with their resources. Further, their support differs depending on whether the certificate is imported into IAM or into ACM. For more information, see the documentation for each service. For more information about importing certificates into ACM, see `Importing Certificates <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html>`__ in the *AWS Certificate Manager User Guide* . 
         .. note::
-          ACM does not provide `managed renewal <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ for certificates that you import.
+          ACM does not provide `managed renewal <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html>`__ for certificates that you import.
         Note the following guidelines when importing third party certificates:
         * You must enter the private key that matches the certificate you are importing. 
         * The private key must be unencrypted. You cannot import a private key that is protected by a password or a passphrase. 
@@ -454,7 +460,7 @@ class Client(BaseClient):
         * To import a new certificate, omit the ``CertificateArn`` argument. Include this argument only when you want to replace a previously imported certificate. 
         * When you import a certificate by using the CLI, you must specify the certificate, the certificate chain, and the private key by their file names preceded by ``file://`` . For example, you can specify a certificate saved in the ``C:\temp`` folder as ``file://C:\temp\certificate_to_import.pem`` . If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs.  
         * When you import a certificate by using an SDK, you must specify the certificate, the certificate chain, and the private key files in the manner required by the programming language you're using.  
-        This operation returns the `Amazon Resource Name (ARN) <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ of the imported certificate.
+        This operation returns the `Amazon Resource Name (ARN) <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ of the imported certificate.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ImportCertificate>`_
         
         **Request Syntax**
@@ -475,10 +481,10 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **CertificateArn** *(string) --* 
-              The `Amazon Resource Name (ARN) <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ of the imported certificate.
+              The `Amazon Resource Name (ARN) <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ of the imported certificate.
         :type CertificateArn: string
         :param CertificateArn:
-          The `Amazon Resource Name (ARN) <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ of an imported certificate to replace. To import a new certificate, omit this field.
+          The `Amazon Resource Name (ARN) <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ of an imported certificate to replace. To import a new certificate, omit this field.
         :type Certificate: bytes
         :param Certificate: **[REQUIRED]**
           The certificate to import.
@@ -542,7 +548,7 @@ class Client(BaseClient):
                 - **CertificateArn** *(string) --* 
                   Amazon Resource Name (ARN) of the certificate. This is of the form:
                    ``arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012``  
-                  For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ . 
+                  For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ . 
                 - **DomainName** *(string) --* 
                   Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
         :type CertificateStatuses: list
@@ -608,7 +614,7 @@ class Client(BaseClient):
         :param CertificateArn: **[REQUIRED]**
           String that contains the ARN of the ACM certificate for which you want to list the tags. This must have the following form:
            ``arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012``
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -635,7 +641,7 @@ class Client(BaseClient):
         :param CertificateArn: **[REQUIRED]**
           String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form:
            ``arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012``
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
         :type Tags: list
         :param Tags: **[REQUIRED]**
           The key-value pair that defines the tag to remove.
@@ -649,10 +655,29 @@ class Client(BaseClient):
         """
         pass
 
+    def renew_certificate(self, CertificateArn: str):
+        """
+        Renews an eligable ACM certificate. At this time, only exported private certificates can be renewed with this operation. In order to renew your ACM PCA certificates with ACM, you must first `grant the ACM service principal permission to do so <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html>`__ . For more information, see `Testing Managed Renewal <https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html>`__ in the ACM User Guide.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RenewCertificate>`_
+        
+        **Request Syntax**
+        ::
+          response = client.renew_certificate(
+              CertificateArn='string'
+          )
+        :type CertificateArn: string
+        :param CertificateArn: **[REQUIRED]**
+          String that contains the ARN of the ACM certificate to be renewed. This must be of the form:
+           ``arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012``
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+        :returns: None
+        """
+        pass
+
     def request_certificate(self, DomainName: str, ValidationMethod: str = None, SubjectAlternativeNames: List = None, IdempotencyToken: str = None, DomainValidationOptions: List = None, Options: Dict = None, CertificateAuthorityArn: str = None) -> Dict:
         """
         Requests an ACM certificate for use with other AWS services. To request an ACM certificate, you must specify a fully qualified domain name (FQDN) in the ``DomainName`` parameter. You can also specify additional FQDNs in the ``SubjectAlternativeNames`` parameter. 
-        If you are requesting a private certificate, domain validation is not required. If you are requesting a public certificate, each domain name that you specify must be validated to verify that you own or control the domain. You can use `DNS validation <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html>`__ or `email validation <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html>`__ . We recommend that you use DNS validation. ACM issues public certificates after receiving approval from the domain owner. 
+        If you are requesting a private certificate, domain validation is not required. If you are requesting a public certificate, each domain name that you specify must be validated to verify that you own or control the domain. You can use `DNS validation <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html>`__ or `email validation <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html>`__ . We recommend that you use DNS validation. ACM issues public certificates after receiving approval from the domain owner. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RequestCertificate>`_
         
         **Request Syntax**
@@ -693,10 +718,10 @@ class Client(BaseClient):
           The first domain name you enter cannot exceed 63 octets, including periods. Each subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length.
         :type ValidationMethod: string
         :param ValidationMethod:
-          The method you want to use if you are requesting a public certificate to validate that you own or control domain. You can `validate with DNS <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html>`__ or `validate with email <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html>`__ . We recommend that you use DNS validation.
+          The method you want to use if you are requesting a public certificate to validate that you own or control domain. You can `validate with DNS <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html>`__ or `validate with email <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html>`__ . We recommend that you use DNS validation.
         :type SubjectAlternativeNames: list
         :param SubjectAlternativeNames:
-          Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate. For example, add the name www.example.net to a certificate for which the ``DomainName`` field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM certificate is 100. However, the initial limit is 10 domain names. If you need more than 10 names, you must request a limit increase. For more information, see `Limits <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html>`__ .
+          Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate. For example, add the name www.example.net to a certificate for which the ``DomainName`` field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM certificate is 100. However, the initial limit is 10 domain names. If you need more than 10 names, you must request a limit increase. For more information, see `Limits <https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html>`__ .
           The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples:
           * ``(63 octets).(63 octets).(63 octets).(61 octets)`` is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.
           * ``(64 octets).(63 octets).(63 octets).(61 octets)`` is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.
@@ -721,12 +746,12 @@ class Client(BaseClient):
               * webmaster@example.com
         :type Options: dict
         :param Options:
-          Currently, you can use this parameter to specify whether to add the certificate to a certificate transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser. For more information, see `Opting Out of Certificate Transparency Logging <http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency>`__ .
+          Currently, you can use this parameter to specify whether to add the certificate to a certificate transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser. For more information, see `Opting Out of Certificate Transparency Logging <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency>`__ .
           - **CertificateTransparencyLoggingPreference** *(string) --*
             You can opt out of certificate transparency logging by specifying the ``DISABLED`` option. Opt in by specifying ``ENABLED`` .
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn:
-          The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate. If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the `AWS Certificate Manager Private Certificate Authority (PCA) <http://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html>`__ user guide. The ARN must have the following form:
+          The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate. If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the `AWS Certificate Manager Private Certificate Authority (PCA) <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html>`__ user guide. The ARN must have the following form:
            ``arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012``
         :rtype: dict
         :returns:
@@ -735,7 +760,7 @@ class Client(BaseClient):
 
     def resend_validation_email(self, CertificateArn: str, Domain: str, ValidationDomain: str):
         """
-        Resends the email that requests domain ownership validation. The domain owner or an authorized representative must approve the ACM certificate before it can be issued. The certificate can be approved by clicking a link in the mail to navigate to the Amazon certificate approval website and then clicking **I Approve** . However, the validation email can be blocked by spam filters. Therefore, if you do not receive the original mail, you can request that the mail be resent within 72 hours of requesting the ACM certificate. If more than 72 hours have elapsed since your original request or since your last attempt to resend validation mail, you must request a new certificate. For more information about setting up your contact email addresses, see `Configure Email for your Domain <http://docs.aws.amazon.com/acm/latest/userguide/setup-email.html>`__ . 
+        Resends the email that requests domain ownership validation. The domain owner or an authorized representative must approve the ACM certificate before it can be issued. The certificate can be approved by clicking a link in the mail to navigate to the Amazon certificate approval website and then clicking **I Approve** . However, the validation email can be blocked by spam filters. Therefore, if you do not receive the original mail, you can request that the mail be resent within 72 hours of requesting the ACM certificate. If more than 72 hours have elapsed since your original request or since your last attempt to resend validation mail, you must request a new certificate. For more information about setting up your contact email addresses, see `Configure Email for your Domain <https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ResendValidationEmail>`_
         
         **Request Syntax**
@@ -766,7 +791,7 @@ class Client(BaseClient):
 
     def update_certificate_options(self, CertificateArn: str, Options: Dict):
         """
-        Updates a certificate. Currently, you can use this function to specify whether to opt in to or out of recording your certificate in a certificate transparency log. For more information, see `Opting Out of Certificate Transparency Logging <http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency>`__ . 
+        Updates a certificate. Currently, you can use this function to specify whether to opt in to or out of recording your certificate in a certificate transparency log. For more information, see `Opting Out of Certificate Transparency Logging <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/UpdateCertificateOptions>`_
         
         **Request Syntax**

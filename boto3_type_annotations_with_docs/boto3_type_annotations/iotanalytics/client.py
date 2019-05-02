@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -187,7 +187,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None, tags: List = None) -> Dict:
+    def create_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None, versioningConfiguration: Dict = None, tags: List = None) -> Dict:
         """
         Creates a data set. A data set stores data retrieved from a data store by applying a "queryAction" (a SQL query) or a "containerAction" (executing a containerized application). This operation creates the skeleton of a data set. The data set can be populated manually by calling "CreateDatasetContent" or automatically according to a "trigger" you specify.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/CreateDataset>`_
@@ -258,6 +258,10 @@ class Client(BaseClient):
                   'unlimited': True|False,
                   'numberOfDays': 123
               },
+              versioningConfiguration={
+                  'unlimited': True|False,
+                  'maxVersions': 123
+              },
               tags=[
                   {
                       'key': 'string',
@@ -284,7 +288,7 @@ class Client(BaseClient):
             - **datasetArn** *(string) --* 
               The ARN of the data set.
             - **retentionPeriod** *(dict) --* 
-              How long, in days, message data is kept for the data set.
+              How long, in days, data set contents are kept for the data set.
               - **unlimited** *(boolean) --* 
                 If true, message data is kept indefinitely.
               - **numberOfDays** *(integer) --* 
@@ -351,7 +355,7 @@ class Client(BaseClient):
             - **schedule** *(dict) --*
               The \"Schedule\" when the trigger is initiated.
               - **expression** *(string) --*
-                The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch documentation.
+                The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch Events User Guide.
             - **dataset** *(dict) --*
               The data set whose content creation triggers the creation of this data set\'s contents.
               - **name** *(string) --* **[REQUIRED]**
@@ -373,11 +377,18 @@ class Client(BaseClient):
                   The ARN of the role which grants AWS IoT Analytics permission to deliver data set contents to an AWS IoT Events input.
         :type retentionPeriod: dict
         :param retentionPeriod:
-          [Optional] How long, in days, message data is kept for the data set. If not given or set to null, the latest version of the dataset content plus the latest succeeded version (if they are different) are retained for at most 90 days.
+          [Optional] How long, in days, versions of data set contents are kept for the data set. If not specified or set to null, versions of data set contents are retained for at most 90 days. The number of versions of data set contents retained is determined by the ``versioningConfiguration`` parameter. (For more information, see https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)
           - **unlimited** *(boolean) --*
             If true, message data is kept indefinitely.
           - **numberOfDays** *(integer) --*
             The number of days that message data is kept. The \"unlimited\" parameter must be false.
+        :type versioningConfiguration: dict
+        :param versioningConfiguration:
+          [Optional] How many versions of data set contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the \"retentionPeriod\" parameter. (For more information, see https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)
+          - **unlimited** *(boolean) --*
+            If true, unlimited versions of data set contents will be kept.
+          - **maxVersions** *(integer) --*
+            How many versions of data set contents will be kept. The \"unlimited\" parameter must be false.
         :type tags: list
         :param tags:
           Metadata which can be used to manage the data set.
@@ -491,7 +502,7 @@ class Client(BaseClient):
 
     def create_pipeline(self, pipelineName: str, pipelineActivities: List, tags: List = None) -> Dict:
         """
-        Creates a pipeline. A pipeline consumes messages from one or more channels and allows you to process the messages before storing them in a data store.
+        Creates a pipeline. A pipeline consumes messages from one or more channels and allows you to process the messages before storing them in a data store. You must specify both a ``channel`` and a ``datastore`` activity and, optionally, as many as 23 additional activities in the ``pipelineActivities`` array.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/CreatePipeline>`_
         
         **Request Syntax**
@@ -589,8 +600,9 @@ class Client(BaseClient):
           The name of the pipeline.
         :type pipelineActivities: list
         :param pipelineActivities: **[REQUIRED]**
-          A list of pipeline activities.
-          The list can be 1-25 **PipelineActivity** objects. Activities perform transformations on your messages, such as removing, renaming, or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+          A list of \"PipelineActivity\" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+          The list can be 2-25 **PipelineActivity** objects and must contain both a ``channel`` and a ``datastore`` activity. Each entry in the list must contain only one activity, for example:
+           ``pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]``
           - *(dict) --*
             An activity that performs a transformation on a message.
             - **channel** *(dict) --*
@@ -948,6 +960,10 @@ class Client(BaseClient):
                     'retentionPeriod': {
                         'unlimited': True|False,
                         'numberOfDays': 123
+                    },
+                    'versioningConfiguration': {
+                        'unlimited': True|False,
+                        'maxVersions': 123
                     }
                 }
             }
@@ -1017,7 +1033,7 @@ class Client(BaseClient):
                   - **schedule** *(dict) --* 
                     The "Schedule" when the trigger is initiated.
                     - **expression** *(string) --* 
-                      The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch documentation.
+                      The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch Events User Guide.
                   - **dataset** *(dict) --* 
                     The data set whose content creation triggers the creation of this data set's contents.
                     - **name** *(string) --* 
@@ -1048,6 +1064,12 @@ class Client(BaseClient):
                   If true, message data is kept indefinitely.
                 - **numberOfDays** *(integer) --* 
                   The number of days that message data is kept. The "unlimited" parameter must be false.
+              - **versioningConfiguration** *(dict) --* 
+                [Optional] How many versions of data set contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the "retentionPeriod" parameter. (For more information, see https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)
+                - **unlimited** *(boolean) --* 
+                  If true, unlimited versions of data set contents will be kept.
+                - **maxVersions** *(integer) --* 
+                  How many versions of data set contents will be kept. The "unlimited" parameter must be false.
         :type datasetName: string
         :param datasetName: **[REQUIRED]**
           The name of the data set whose information is retrieved.
@@ -1687,7 +1709,7 @@ class Client(BaseClient):
                     - **schedule** *(dict) --* 
                       The "Schedule" when the trigger is initiated.
                       - **expression** *(string) --* 
-                        The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch documentation.
+                        The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch Events User Guide.
                     - **dataset** *(dict) --* 
                       The data set whose content creation triggers the creation of this data set's contents.
                       - **name** *(string) --* 
@@ -2285,7 +2307,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None):
+    def update_dataset(self, datasetName: str, actions: List, triggers: List = None, contentDeliveryRules: List = None, retentionPeriod: Dict = None, versioningConfiguration: Dict = None):
         """
         Updates the settings of a data set.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/UpdateDataset>`_
@@ -2355,6 +2377,10 @@ class Client(BaseClient):
               retentionPeriod={
                   'unlimited': True|False,
                   'numberOfDays': 123
+              },
+              versioningConfiguration={
+                  'unlimited': True|False,
+                  'maxVersions': 123
               }
           )
         :type datasetName: string
@@ -2419,7 +2445,7 @@ class Client(BaseClient):
             - **schedule** *(dict) --*
               The \"Schedule\" when the trigger is initiated.
               - **expression** *(string) --*
-                The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch documentation.
+                The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch Events User Guide.
             - **dataset** *(dict) --*
               The data set whose content creation triggers the creation of this data set\'s contents.
               - **name** *(string) --* **[REQUIRED]**
@@ -2441,11 +2467,18 @@ class Client(BaseClient):
                   The ARN of the role which grants AWS IoT Analytics permission to deliver data set contents to an AWS IoT Events input.
         :type retentionPeriod: dict
         :param retentionPeriod:
-          How long, in days, message data is kept for the data set.
+          How long, in days, data set contents are kept for the data set.
           - **unlimited** *(boolean) --*
             If true, message data is kept indefinitely.
           - **numberOfDays** *(integer) --*
             The number of days that message data is kept. The \"unlimited\" parameter must be false.
+        :type versioningConfiguration: dict
+        :param versioningConfiguration:
+          [Optional] How many versions of data set contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the \"retentionPeriod\" parameter. (For more information, see https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)
+          - **unlimited** *(boolean) --*
+            If true, unlimited versions of data set contents will be kept.
+          - **maxVersions** *(integer) --*
+            How many versions of data set contents will be kept. The \"unlimited\" parameter must be false.
         :returns: None
         """
         pass
@@ -2480,7 +2513,7 @@ class Client(BaseClient):
 
     def update_pipeline(self, pipelineName: str, pipelineActivities: List):
         """
-        Updates the settings of a pipeline.
+        Updates the settings of a pipeline. You must specify both a ``channel`` and a ``datastore`` activity and, optionally, as many as 23 additional activities in the ``pipelineActivities`` array.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/UpdatePipeline>`_
         
         **Request Syntax**
@@ -2558,8 +2591,9 @@ class Client(BaseClient):
           The name of the pipeline to update.
         :type pipelineActivities: list
         :param pipelineActivities: **[REQUIRED]**
-          A list of \"PipelineActivity\" objects.
-          The list can be 1-25 **PipelineActivity** objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+          A list of \"PipelineActivity\" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+          The list can be 2-25 **PipelineActivity** objects and must contain both a ``channel`` and a ``datastore`` activity. Each entry in the list must contain only one activity, for example:
+           ``pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]``
           - *(dict) --*
             An activity that performs a transformation on a message.
             - **channel** *(dict) --*

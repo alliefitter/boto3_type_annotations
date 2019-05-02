@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -525,7 +525,7 @@ class DescribeWorkspaces(Paginator):
                 - **WorkspaceProperties** *(dict) --* 
                   The properties of the WorkSpace.
                   - **RunningMode** *(string) --* 
-                    The running mode. For more information, see `Manage the WorkSpace Running Mode <http://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
+                    The running mode. For more information, see `Manage the WorkSpace Running Mode <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
                   - **RunningModeAutoStopTimeoutInMinutes** *(integer) --* 
                     The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals.
                   - **RootVolumeSizeGib** *(integer) --* 

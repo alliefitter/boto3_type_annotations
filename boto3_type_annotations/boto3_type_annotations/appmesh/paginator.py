@@ -12,11 +12,21 @@ class ListRoutes(Paginator):
         pass
 
 
+class ListTagsForResource(Paginator):
+    def paginate(self, resourceArn: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListVirtualNodes(Paginator):
     def paginate(self, meshName: str, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
 class ListVirtualRouters(Paginator):
+    def paginate(self, meshName: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListVirtualServices(Paginator):
     def paginate(self, meshName: str, PaginationConfig: Dict = None) -> Dict:
         pass

@@ -41,9 +41,11 @@ class ListDocumentClassificationJobs(Paginator):
                             'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
                         },
                         'OutputDataConfig': {
-                            'S3Uri': 'string'
+                            'S3Uri': 'string',
+                            'KmsKeyId': 'string'
                         },
-                        'DataAccessRoleArn': 'string'
+                        'DataAccessRoleArn': 'string',
+                        'VolumeKmsKeyId': 'string'
                     },
                 ],
             }
@@ -82,8 +84,18 @@ class ListDocumentClassificationJobs(Paginator):
                   - **S3Uri** *(string) --* 
                     When you use the ``OutputDataConfig`` object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.
                     When the topic detection job is finished, the service creates an output file in a directory specific to the job. The ``S3Uri`` field contains the location of the output file, called ``output.tar.gz`` . It is a compressed archive that contains the ouput of the operation.
+                  - **KmsKeyId** *(string) --* 
+                    ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+                    * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * KMS Key Alias: ``"alias/ExampleAlias"``   
+                    * ARN of a KMS Key Alias: ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
                 - **DataAccessRoleArn** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+                - **VolumeKmsKeyId** *(string) --* 
+                  ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+                  * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
         :type Filter: dict
         :param Filter:
           Filters the jobs that are returned. You can filter jobs on their names, status, or the date and time that they were submitted. You can only set one filter at a time.
@@ -147,6 +159,10 @@ class ListDocumentClassifiers(Paginator):
                         'InputDataConfig': {
                             'S3Uri': 'string'
                         },
+                        'OutputDataConfig': {
+                            'S3Uri': 'string',
+                            'KmsKeyId': 'string'
+                        },
                         'ClassifierMetadata': {
                             'NumberOfLabels': 123,
                             'NumberOfTrainedDocuments': 123,
@@ -158,7 +174,8 @@ class ListDocumentClassifiers(Paginator):
                                 'F1Score': 123.0
                             }
                         },
-                        'DataAccessRoleArn': 'string'
+                        'DataAccessRoleArn': 'string',
+                        'VolumeKmsKeyId': 'string'
                     },
                 ],
             }
@@ -190,6 +207,17 @@ class ListDocumentClassifiers(Paginator):
                   - **S3Uri** *(string) --* 
                     The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.
                     For example, if you use the URI ``S3://bucketName/prefix`` , if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.
+                - **OutputDataConfig** *(dict) --* 
+                  Provides output results configuration parameters for custom classifier jobs.
+                  - **S3Uri** *(string) --* 
+                    When you use the ``OutputDataConfig`` object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.
+                    When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The ``S3Uri`` field contains the location of the output file, called ``output.tar.gz`` . It is a compressed archive that contains the confusion matrix.
+                  - **KmsKeyId** *(string) --* 
+                    ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+                    * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * KMS Key Alias: ``"alias/ExampleAlias"``   
+                    * ARN of a KMS Key Alias: ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
                 - **ClassifierMetadata** *(dict) --* 
                   Information about the document classifier, including the number of documents used for training the classifier, the number of documents used for test the classifier, and an accuracy rating.
                   - **NumberOfLabels** *(integer) --* 
@@ -210,6 +238,10 @@ class ListDocumentClassifiers(Paginator):
                       A measure of how accurate the classifier results are for the test data. It is derived from the ``Precision`` and ``Recall`` values. The ``F1Score`` is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. 
                 - **DataAccessRoleArn** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+                - **VolumeKmsKeyId** *(string) --* 
+                  ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+                  * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
         :type Filter: dict
         :param Filter:
           Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
@@ -272,9 +304,11 @@ class ListDominantLanguageDetectionJobs(Paginator):
                             'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
                         },
                         'OutputDataConfig': {
-                            'S3Uri': 'string'
+                            'S3Uri': 'string',
+                            'KmsKeyId': 'string'
                         },
-                        'DataAccessRoleArn': 'string'
+                        'DataAccessRoleArn': 'string',
+                        'VolumeKmsKeyId': 'string'
                     },
                 ],
             }
@@ -311,8 +345,18 @@ class ListDominantLanguageDetectionJobs(Paginator):
                   - **S3Uri** *(string) --* 
                     When you use the ``OutputDataConfig`` object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.
                     When the topic detection job is finished, the service creates an output file in a directory specific to the job. The ``S3Uri`` field contains the location of the output file, called ``output.tar.gz`` . It is a compressed archive that contains the ouput of the operation.
+                  - **KmsKeyId** *(string) --* 
+                    ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+                    * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * KMS Key Alias: ``"alias/ExampleAlias"``   
+                    * ARN of a KMS Key Alias: ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
                 - **DataAccessRoleArn** *(string) --* 
                   The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+                - **VolumeKmsKeyId** *(string) --* 
+                  ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+                  * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
         :type Filter: dict
         :param Filter:
           Filters that jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
@@ -378,10 +422,12 @@ class ListEntitiesDetectionJobs(Paginator):
                             'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
                         },
                         'OutputDataConfig': {
-                            'S3Uri': 'string'
+                            'S3Uri': 'string',
+                            'KmsKeyId': 'string'
                         },
                         'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                        'DataAccessRoleArn': 'string'
+                        'DataAccessRoleArn': 'string',
+                        'VolumeKmsKeyId': 'string'
                     },
                 ],
             }
@@ -420,10 +466,20 @@ class ListEntitiesDetectionJobs(Paginator):
                   - **S3Uri** *(string) --* 
                     When you use the ``OutputDataConfig`` object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.
                     When the topic detection job is finished, the service creates an output file in a directory specific to the job. The ``S3Uri`` field contains the location of the output file, called ``output.tar.gz`` . It is a compressed archive that contains the ouput of the operation.
+                  - **KmsKeyId** *(string) --* 
+                    ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+                    * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * KMS Key Alias: ``"alias/ExampleAlias"``   
+                    * ARN of a KMS Key Alias: ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
                 - **LanguageCode** *(string) --* 
                   The language code of the input documents.
                 - **DataAccessRoleArn** *(string) --* 
                   The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+                - **VolumeKmsKeyId** *(string) --* 
+                  ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+                  * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
         :type Filter: dict
         :param Filter:
           Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
@@ -514,7 +570,8 @@ class ListEntityRecognizers(Paginator):
                                 },
                             ]
                         },
-                        'DataAccessRoleArn': 'string'
+                        'DataAccessRoleArn': 'string',
+                        'VolumeKmsKeyId': 'string'
                     },
                 ],
             }
@@ -583,6 +640,10 @@ class ListEntityRecognizers(Paginator):
                         Type of entity from the list of entity types in the metadata of an entity recognizer. 
                 - **DataAccessRoleArn** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+                - **VolumeKmsKeyId** *(string) --* 
+                  ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+                  * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
         :type Filter: dict
         :param Filter:
           Filters the list of entities returned. You can filter on ``Status`` , ``SubmitTimeBefore`` , or ``SubmitTimeAfter`` . You can only set one filter at a time.
@@ -645,10 +706,12 @@ class ListKeyPhrasesDetectionJobs(Paginator):
                             'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
                         },
                         'OutputDataConfig': {
-                            'S3Uri': 'string'
+                            'S3Uri': 'string',
+                            'KmsKeyId': 'string'
                         },
                         'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                        'DataAccessRoleArn': 'string'
+                        'DataAccessRoleArn': 'string',
+                        'VolumeKmsKeyId': 'string'
                     },
                 ],
             }
@@ -685,10 +748,20 @@ class ListKeyPhrasesDetectionJobs(Paginator):
                   - **S3Uri** *(string) --* 
                     When you use the ``OutputDataConfig`` object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.
                     When the topic detection job is finished, the service creates an output file in a directory specific to the job. The ``S3Uri`` field contains the location of the output file, called ``output.tar.gz`` . It is a compressed archive that contains the ouput of the operation.
+                  - **KmsKeyId** *(string) --* 
+                    ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+                    * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * KMS Key Alias: ``"alias/ExampleAlias"``   
+                    * ARN of a KMS Key Alias: ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
                 - **LanguageCode** *(string) --* 
                   The language code of the input documents.
                 - **DataAccessRoleArn** *(string) --* 
                   The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+                - **VolumeKmsKeyId** *(string) --* 
+                  ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+                  * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
         :type Filter: dict
         :param Filter:
           Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
@@ -753,10 +826,12 @@ class ListSentimentDetectionJobs(Paginator):
                             'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
                         },
                         'OutputDataConfig': {
-                            'S3Uri': 'string'
+                            'S3Uri': 'string',
+                            'KmsKeyId': 'string'
                         },
                         'LanguageCode': 'en'|'es'|'fr'|'de'|'it'|'pt',
-                        'DataAccessRoleArn': 'string'
+                        'DataAccessRoleArn': 'string',
+                        'VolumeKmsKeyId': 'string'
                     },
                 ],
             }
@@ -793,10 +868,20 @@ class ListSentimentDetectionJobs(Paginator):
                   - **S3Uri** *(string) --* 
                     When you use the ``OutputDataConfig`` object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.
                     When the topic detection job is finished, the service creates an output file in a directory specific to the job. The ``S3Uri`` field contains the location of the output file, called ``output.tar.gz`` . It is a compressed archive that contains the ouput of the operation.
+                  - **KmsKeyId** *(string) --* 
+                    ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+                    * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * KMS Key Alias: ``"alias/ExampleAlias"``   
+                    * ARN of a KMS Key Alias: ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
                 - **LanguageCode** *(string) --* 
                   The language code of the input documents.
                 - **DataAccessRoleArn** *(string) --* 
                   The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+                - **VolumeKmsKeyId** *(string) --* 
+                  ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+                  * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
         :type Filter: dict
         :param Filter:
           Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
@@ -861,9 +946,12 @@ class ListTopicsDetectionJobs(Paginator):
                             'InputFormat': 'ONE_DOC_PER_FILE'|'ONE_DOC_PER_LINE'
                         },
                         'OutputDataConfig': {
-                            'S3Uri': 'string'
+                            'S3Uri': 'string',
+                            'KmsKeyId': 'string'
                         },
-                        'NumberOfTopics': 123
+                        'NumberOfTopics': 123,
+                        'DataAccessRoleArn': 'string',
+                        'VolumeKmsKeyId': 'string'
                     },
                 ],
             }
@@ -900,8 +988,20 @@ class ListTopicsDetectionJobs(Paginator):
                   - **S3Uri** *(string) --* 
                     When you use the ``OutputDataConfig`` object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.
                     When the topic detection job is finished, the service creates an output file in a directory specific to the job. The ``S3Uri`` field contains the location of the output file, called ``output.tar.gz`` . It is a compressed archive that contains the ouput of the operation.
+                  - **KmsKeyId** *(string) --* 
+                    ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:
+                    * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                    * KMS Key Alias: ``"alias/ExampleAlias"``   
+                    * ARN of a KMS Key Alias: ``"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"``   
                 - **NumberOfTopics** *(integer) --* 
                   The number of topics to detect supplied when you created the topic detection job. The default is 10. 
+                - **DataAccessRoleArn** *(string) --* 
+                  The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your job data. 
+                - **VolumeKmsKeyId** *(string) --* 
+                  ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+                  * KMS Key ID: ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
+                  * Amazon Resource Name (ARN) of a KMS Key: ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
         :type Filter: dict
         :param Filter:
           Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.

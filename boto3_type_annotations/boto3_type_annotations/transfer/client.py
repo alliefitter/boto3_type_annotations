@@ -1,17 +1,17 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_server(self, IdentityProviderDetails: Dict = None, IdentityProviderType: str = None, LoggingRole: str = None, Tags: List = None) -> Dict:
+    def create_server(self, EndpointDetails: Dict = None, EndpointType: str = None, HostKey: str = None, IdentityProviderDetails: Dict = None, IdentityProviderType: str = None, LoggingRole: str = None, Tags: List = None) -> Dict:
         pass
 
     def create_user(self, Role: str, ServerId: str, UserName: str, HomeDirectory: str = None, Policy: str = None, SshPublicKeyBody: str = None, Tags: List = None) -> Dict:
@@ -68,7 +68,7 @@ class Client(BaseClient):
     def untag_resource(self, Arn: str, TagKeys: List):
         pass
 
-    def update_server(self, ServerId: str, IdentityProviderDetails: Dict = None, LoggingRole: str = None) -> Dict:
+    def update_server(self, ServerId: str, EndpointDetails: Dict = None, EndpointType: str = None, HostKey: str = None, IdentityProviderDetails: Dict = None, LoggingRole: str = None) -> Dict:
         pass
 
     def update_user(self, ServerId: str, UserName: str, HomeDirectory: str = None, Policy: str = None, Role: str = None) -> Dict:

@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -360,6 +360,9 @@ class Client(BaseClient):
         pass
 
     def set_default_policy_version(self, PolicyArn: str, VersionId: str):
+        pass
+
+    def set_security_token_service_preferences(self, GlobalEndpointTokenVersion: str):
         pass
 
     def simulate_custom_policy(self, PolicyInputList: List, ActionNames: List, ResourceArns: List = None, ResourcePolicy: str = None, ResourceOwner: str = None, CallerArn: str = None, ContextEntries: List = None, ResourceHandlingOption: str = None, MaxItems: int = None, Marker: str = None) -> Dict:

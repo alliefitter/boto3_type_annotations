@@ -1,6 +1,6 @@
+from typing import Dict
 from typing import List
 from datetime import datetime
-from typing import Dict
 from botocore.paginate import Paginator
 
 
@@ -162,24 +162,24 @@ class DescribeAutoScalingGroups(Paginator):
                         Describes an override for a launch template. 
                         - **InstanceType** *(string) --* 
                           The instance type. 
-                          For information about available instance types, see `Available Instance Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes>`__ in the *Amazon Elastic Compute Cloud User Guide.*  
+                          For information about available instance types, see `Available Instance Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes>`__ in the *Amazon Elastic Compute Cloud User Guide.*  
                   - **InstancesDistribution** *(dict) --* 
                     The instances distribution to use. 
                     If you leave this parameter unspecified when creating the group, the default values are used.
                     - **OnDemandAllocationStrategy** *(string) --* 
                       Indicates how to allocate instance types to fulfill On-Demand capacity. 
-                      The only valid value is ``prioritized`` , which is also the default value. This strategy uses the order of instance types in the **Overrides** array of  LaunchTemplate to define the launch priority of each instance type. The first instance type in the array is prioritized higher than the last. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then the Auto Scaling groups launches the remaining capacity using the second priority instance type, and so on. 
+                      The only valid value is ``prioritized`` , which is also the default value. This strategy uses the order of instance type overrides for the  LaunchTemplate to define the launch priority of each instance type. The first instance type in the array is prioritized higher than the last. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then the Auto Scaling groups launches the remaining capacity using the second priority instance type, and so on. 
                     - **OnDemandBaseCapacity** *(integer) --* 
                       The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances. This base portion is provisioned first as your group scales.
-                      The default value is 0. If you leave this parameter set to 0, On-Demand Instances are launched as a percentage of the Auto Scaling group's desired capacity, per the **OnDemandPercentageAboveBaseCapacity** setting.
+                      The default value is ``0`` . If you leave this parameter set to ``0`` , On-Demand Instances are launched as a percentage of the Auto Scaling group's desired capacity, per the ``OnDemandPercentageAboveBaseCapacity`` setting.
                     - **OnDemandPercentageAboveBaseCapacity** *(integer) --* 
-                      Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond **OnDemandBaseCapacity** . 
-                      The range is 0–100. The default value is 100. If you leave this parameter set to 100, the percentages are 100% for On-Demand Instances and 0% for Spot Instances. 
+                      Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond ``OnDemandBaseCapacity`` .
+                      The range is 0–100. The default value is ``100`` . If you leave this parameter set to ``100`` , the percentages are 100% for On-Demand Instances and 0% for Spot Instances. 
                     - **SpotAllocationStrategy** *(string) --* 
                       Indicates how to allocate Spot capacity across Spot pools.
                       The only valid value is ``lowest-price`` , which is also the default value. The Auto Scaling group selects the cheapest Spot pools and evenly allocates your Spot capacity across the number of Spot pools that you specify. 
                     - **SpotInstancePools** *(integer) --* 
-                      The number of Spot pools to use to allocate your Spot capacity. The Spot pools are determined from the different instance types in the **Overrides** array of  LaunchTemplate . 
+                      The number of Spot pools to use to allocate your Spot capacity. The Spot pools are determined from the different instance types in the Overrides array of  LaunchTemplate . 
                       The range is 1–20 and the default is 2. 
                     - **SpotMaxPrice** *(string) --* 
                       The maximum price per unit hour that you are willing to pay for a Spot Instance. If you leave the value of this parameter blank (which is the default), the maximum Spot price is set at the On-Demand price.
@@ -202,7 +202,7 @@ class DescribeAutoScalingGroups(Paginator):
                   The Amazon Resource Names (ARN) of the target groups for your load balancer.
                   - *(string) --* 
                 - **HealthCheckType** *(string) --* 
-                  The service to use for the health checks. The valid values are ``EC2`` and ``ELB`` .
+                  The service to use for the health checks. The valid values are ``EC2`` and ``ELB`` . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
                 - **HealthCheckGracePeriod** *(integer) --* 
                   The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
                 - **Instances** *(list) --* 
@@ -229,7 +229,6 @@ class DescribeAutoScalingGroups(Paginator):
                         The version number, ``$Latest`` , or ``$Default`` . If the value is ``$Latest`` , Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is ``$Default`` , Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is ``$Default`` .
                     - **ProtectedFromScaleIn** *(boolean) --* 
                       Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
-                      For more information, see `Instance Protection <http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection>`__ in the *Amazon EC2 Auto Scaling User Guide* .
                 - **CreatedTime** *(datetime) --* 
                   The date and time the group was created.
                 - **SuspendedProcesses** *(list) --* 
@@ -241,10 +240,9 @@ class DescribeAutoScalingGroups(Paginator):
                     - **SuspensionReason** *(string) --* 
                       The reason that the process was suspended.
                 - **PlacementGroup** *(string) --* 
-                  The name of the placement group into which to launch your instances, if any. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+                  The name of the placement group into which to launch your instances, if any.
                 - **VPCZoneIdentifier** *(string) --* 
                   One or more subnet IDs, if applicable, separated by commas.
-                  If you specify ``VPCZoneIdentifier`` and ``AvailabilityZones`` , ensure that the Availability Zones of the subnets match the values for ``AvailabilityZones`` .
                 - **EnabledMetrics** *(list) --* 
                   The metrics enabled for the group.
                   - *(dict) --* 
@@ -281,8 +279,7 @@ class DescribeAutoScalingGroups(Paginator):
                   The termination policies for the group.
                   - *(string) --* 
                 - **NewInstancesProtectedFromScaleIn** *(boolean) --* 
-                  Indicates whether newly launched instances are protected from termination by Auto Scaling when scaling in.
-                  For more information, see `Instance Protection <http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection>`__ in the *Amazon EC2 Auto Scaling User Guide* .
+                  Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
                 - **ServiceLinkedRoleARN** *(string) --* 
                   The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
         :type AutoScalingGroupNames: list
@@ -358,7 +355,7 @@ class DescribeAutoScalingInstances(Paginator):
                 - **AvailabilityZone** *(string) --* 
                   The Availability Zone for the instance.
                 - **LifecycleState** *(string) --* 
-                  The lifecycle state for the instance. For more information, see `Auto Scaling Lifecycle <http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html>`__ in the *Amazon EC2 Auto Scaling User Guide* .
+                  The lifecycle state for the instance.
                 - **HealthStatus** *(string) --* 
                   The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
                 - **LaunchConfigurationName** *(string) --* 
@@ -373,7 +370,6 @@ class DescribeAutoScalingInstances(Paginator):
                     The version number, ``$Latest`` , or ``$Default`` . If the value is ``$Latest`` , Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is ``$Default`` , Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is ``$Default`` .
                 - **ProtectedFromScaleIn** *(boolean) --* 
                   Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
-                  For more information, see `Instance Protection <http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection>`__ in the *Amazon EC2 Auto Scaling User Guide* .
         :type InstanceIds: list
         :param InstanceIds:
           The IDs of the instances. You can specify up to ``MaxRecords`` IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
@@ -478,9 +474,10 @@ class DescribeLaunchConfigurations(Paginator):
                   The security groups to associate with the instances.
                   - *(string) --* 
                 - **ClassicLinkVPCId** *(string) --* 
-                  The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. This parameter can only be used if you are launching EC2-Classic instances. For more information, see `ClassicLink <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html>`__ in the *Amazon EC2 User Guide for Linux Instances* and `Linking EC2-Classic Instances to a VPC <http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink>`__ in the *Amazon EC2 Auto Scaling User Guide* .
+                  The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. This parameter can only be used if you are launching EC2-Classic instances. For more information, see `ClassicLink <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html>`__ in the *Amazon EC2 User Guide for Linux Instances* and `Linking EC2-Classic Instances to a VPC <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink>`__ in the *Amazon EC2 Auto Scaling User Guide* .
                 - **ClassicLinkVPCSecurityGroups** *(list) --* 
-                  The IDs of one or more security groups for the VPC specified in ``ClassicLinkVPCId`` . This parameter is required if you specify a ClassicLink-enabled VPC, and cannot be used otherwise. For more information, see `ClassicLink <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html>`__ in the *Amazon EC2 User Guide for Linux Instances* and `Linking EC2-Classic Instances to a VPC <http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink>`__ in the *Amazon EC2 Auto Scaling User Guide* .
+                  The IDs of one or more security groups for the VPC specified in ``ClassicLinkVPCId`` . For more information, see `ClassicLink <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html>`__ in the *Amazon EC2 User Guide for Linux Instances* and `Linking EC2-Classic Instances to a VPC <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink>`__ in the *Amazon EC2 Auto Scaling User Guide* .
+                  Conditional: This parameter is required if you specify a ClassicLink-enabled VPC, and cannot be used otherwise.
                   - *(string) --* 
                 - **UserData** *(string) --* 
                   The user data available to the instances.
@@ -497,24 +494,27 @@ class DescribeLaunchConfigurations(Paginator):
                     - **VirtualName** *(string) --* 
                       The name of the virtual device (for example, ``ephemeral0`` ).
                     - **DeviceName** *(string) --* 
-                      The device name exposed to the EC2 instance (for example, ``/dev/sdh`` or ``xvdh`` ).
+                      The device name exposed to the EC2 instance (for example, ``/dev/sdh`` or ``xvdh`` ). For more information, see `Device Naming on Linux Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
                     - **Ebs** *(dict) --* 
                       The information about the Amazon EBS volume.
                       - **SnapshotId** *(string) --* 
-                        The ID of the snapshot.
+                        The ID of the snapshot. This parameter is optional if you specify a volume size. 
                       - **VolumeSize** *(integer) --* 
-                        The volume size, in GiB. For ``standard`` volumes, specify a value from 1 to 1,024. For ``io1`` volumes, specify a value from 4 to 16,384. For ``gp2`` volumes, specify a value from 1 to 16,384. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
+                        The volume size, in GiB. 
+                        Constraints: 1-1,024 for ``standard`` , 4-16,384 for ``io1`` , 1-16,384 for ``gp2`` , and 500-16,384 for ``st1`` and ``sc1`` . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                         Default: If you create a volume from a snapshot and you don't specify a volume size, the default is the snapshot size.
+                        .. note::
+                          At least one of VolumeSize or SnapshotId is required.
                       - **VolumeType** *(string) --* 
-                        The volume type. For more information, see `Amazon EBS Volume Types <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
-                        Valid values: ``standard`` | ``io1`` | ``gp2``  
+                        The volume type, which can be ``standard`` for Magnetic, ``io1`` for Provisioned IOPS SSD, ``gp2`` for General Purpose SSD, ``st1`` for Throughput Optimized HDD, or ``sc1`` for Cold HDD. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+                        Valid values: ``standard`` | ``io1`` | ``gp2`` | ``st1`` | ``sc1``  
                       - **DeleteOnTermination** *(boolean) --* 
-                        Indicates whether the volume is deleted on instance termination. The default is ``true`` .
+                        Indicates whether the volume is deleted on instance termination. The default value is ``true`` .
                       - **Iops** *(integer) --* 
-                        The number of I/O operations per second (IOPS) to provision for the volume.
-                        Constraint: Required when the volume type is ``io1`` .
+                        The number of I/O operations per second (IOPS) to provision for the volume. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+                        Conditional: This parameter is required when the volume type is ``io1`` . (Not used with ``standard`` , ``gp2`` , ``st1`` , or ``sc1`` volumes.) 
                       - **Encrypted** *(boolean) --* 
-                        Indicates whether the volume should be encrypted. Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or an unencrypted volume from an encrypted snapshot. For more information, see `Amazon EBS Encryption <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+                        Specifies whether the volume should be encrypted. Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or an unencrypted volume from an encrypted snapshot. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see `Amazon EBS Encryption <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
                     - **NoDevice** *(boolean) --* 
                       Suppresses a device mapping.
                       If this parameter is true for the root device, the instance might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches a replacement instance.
@@ -834,9 +834,9 @@ class DescribePolicies(Paginator):
                 - **PolicyARN** *(string) --* 
                   The Amazon Resource Name (ARN) of the policy.
                 - **PolicyType** *(string) --* 
-                  The policy type. Valid values are ``SimpleScaling`` and ``StepScaling`` .
+                  The policy type. The valid values are ``SimpleScaling`` and ``StepScaling`` .
                 - **AdjustmentType** *(string) --* 
-                  The adjustment type, which specifies how ``ScalingAdjustment`` is interpreted. Valid values are ``ChangeInCapacity`` , ``ExactCapacity`` , and ``PercentChangeInCapacity`` .
+                  The adjustment type, which specifies how ``ScalingAdjustment`` is interpreted. The valid values are ``ChangeInCapacity`` , ``ExactCapacity`` , and ``PercentChangeInCapacity`` .
                 - **MinAdjustmentStep** *(integer) --* 
                   Available for backward compatibility. Use ``MinAdjustmentMagnitude`` instead.
                 - **MinAdjustmentMagnitude** *(integer) --* 
@@ -848,7 +848,7 @@ class DescribePolicies(Paginator):
                 - **StepAdjustments** *(list) --* 
                   A set of adjustments that enable you to scale based on the size of the alarm breach.
                   - *(dict) --* 
-                    Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
+                    Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm. Used in combination with  PutScalingPolicy .
                     For the following examples, suppose that you have an alarm with a breach threshold of 50:
                     * To trigger the adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10. 
                     * To trigger the adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0. 
@@ -865,7 +865,7 @@ class DescribePolicies(Paginator):
                     - **ScalingAdjustment** *(integer) --* 
                       The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.
                 - **MetricAggregationType** *(string) --* 
-                  The aggregation type for the CloudWatch metrics. Valid values are ``Minimum`` , ``Maximum`` , and ``Average`` .
+                  The aggregation type for the CloudWatch metrics. The valid values are ``Minimum`` , ``Maximum`` , and ``Average`` .
                 - **EstimatedInstanceWarmup** *(integer) --* 
                   The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
                 - **Alarms** *(list) --* 
@@ -877,7 +877,7 @@ class DescribePolicies(Paginator):
                     - **AlarmARN** *(string) --* 
                       The Amazon Resource Name (ARN) of the alarm.
                 - **TargetTrackingConfiguration** *(dict) --* 
-                  A target tracking policy.
+                  A target tracking scaling policy.
                   - **PredefinedMetricSpecification** *(dict) --* 
                     A predefined metric. You can specify either a predefined metric or a customized metric.
                     - **PredefinedMetricType** *(string) --* 
@@ -890,13 +890,14 @@ class DescribePolicies(Paginator):
                       * ``ALBRequestCountPerTarget`` - Number of requests completed per target in an Application Load Balancer or a Network Load Balancer target group. 
                       For predefined metric types ``ASGAverageCPUUtilization`` , ``ASGAverageNetworkIn`` , and ``ASGAverageNetworkOut`` , the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type ``ALBRequestCountPerTarget`` , the parameter must be specified in the format: ``app/*load-balancer-name* /*load-balancer-id* /targetgroup/*target-group-name* /*target-group-id* `` , where ``app/*load-balancer-name* /*load-balancer-id* `` is the final portion of the load balancer ARN, and ``targetgroup/*target-group-name* /*target-group-id* `` is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
                   - **CustomizedMetricSpecification** *(dict) --* 
-                    A customized metric.
+                    A customized metric. You can specify either a predefined metric or a customized metric.
                     - **MetricName** *(string) --* 
                       The name of the metric.
                     - **Namespace** *(string) --* 
                       The namespace of the metric.
                     - **Dimensions** *(list) --* 
                       The dimensions of the metric.
+                      Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
                       - *(dict) --* 
                         Describes the dimension of a metric.
                         - **Name** *(string) --* 
@@ -910,7 +911,7 @@ class DescribePolicies(Paginator):
                   - **TargetValue** *(float) --* 
                     The target value for the metric.
                   - **DisableScaleIn** *(boolean) --* 
-                    Indicates whether scaling in by the target tracking policy is disabled. If scaling in is disabled, the target tracking policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.
+                    Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is disabled.
         :type AutoScalingGroupName: string
         :param AutoScalingGroupName:
           The name of the Auto Scaling group.
@@ -920,7 +921,7 @@ class DescribePolicies(Paginator):
           - *(string) --*
         :type PolicyTypes: list
         :param PolicyTypes:
-          One or more policy types. Valid values are ``SimpleScaling`` and ``StepScaling`` .
+          One or more policy types. The valid values are ``SimpleScaling`` , ``StepScaling`` , and ``TargetTrackingScaling`` .
           - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -1080,10 +1081,10 @@ class DescribeScheduledActions(Paginator):
                 - **Time** *(datetime) --* 
                   This parameter is deprecated.
                 - **StartTime** *(datetime) --* 
-                  The date and time that the action is scheduled to begin. This date and time can be up to one month in the future.
+                  The date and time that the action is scheduled to begin. 
                   When ``StartTime`` and ``EndTime`` are specified with ``Recurrence`` , they form the boundaries of when the recurring action starts and stops.
                 - **EndTime** *(datetime) --* 
-                  The date and time that the action is scheduled to end. This date and time can be up to one month in the future.
+                  The date and time that the action is scheduled to end. 
                 - **Recurrence** *(string) --* 
                   The recurring schedule for the action.
                 - **MinSize** *(integer) --* 

@@ -1,30 +1,30 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from datetime import datetime
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_configuration_set(self, ConfigurationSetName: str = None, TrackingOptions: Dict = None, DeliveryOptions: Dict = None, ReputationOptions: Dict = None, SendingOptions: Dict = None) -> Dict:
+    def create_configuration_set(self, ConfigurationSetName: str = None, TrackingOptions: Dict = None, DeliveryOptions: Dict = None, ReputationOptions: Dict = None, SendingOptions: Dict = None, Tags: List = None) -> Dict:
         pass
 
     def create_configuration_set_event_destination(self, ConfigurationSetName: str, EventDestinationName: str, EventDestination: Dict) -> Dict:
         pass
 
-    def create_dedicated_ip_pool(self, PoolName: str) -> Dict:
+    def create_dedicated_ip_pool(self, PoolName: str, Tags: List = None) -> Dict:
         pass
 
-    def create_deliverability_test_report(self, FromEmailAddress: str, Content: Dict, ReportName: str = None) -> Dict:
+    def create_deliverability_test_report(self, FromEmailAddress: str, Content: Dict, ReportName: str = None, Tags: List = None) -> Dict:
         pass
 
-    def create_email_identity(self, EmailIdentity: str) -> Dict:
+    def create_email_identity(self, EmailIdentity: str, Tags: List = None) -> Dict:
         pass
 
     def delete_configuration_set(self, ConfigurationSetName: str) -> Dict:
@@ -90,6 +90,9 @@ class Client(BaseClient):
     def list_email_identities(self, NextToken: str = None, PageSize: int = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        pass
+
     def put_account_dedicated_ip_warmup_attributes(self, AutoWarmupEnabled: bool = None) -> Dict:
         pass
 
@@ -127,6 +130,12 @@ class Client(BaseClient):
         pass
 
     def send_email(self, Destination: Dict, Content: Dict, FromEmailAddress: str = None, ReplyToAddresses: List = None, FeedbackForwardingEmailAddress: str = None, EmailTags: List = None, ConfigurationSetName: str = None) -> Dict:
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: List) -> Dict:
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List) -> Dict:
         pass
 
     def update_configuration_set_event_destination(self, ConfigurationSetName: str, EventDestinationName: str, EventDestination: Dict) -> Dict:

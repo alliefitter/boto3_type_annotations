@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -80,7 +80,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_connector_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_connector_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         """
         Creates a connector definition. You may provide the initial version of the connector definition now or use ''CreateConnectorDefinitionVersion'' at a later time.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/CreateConnectorDefinition>`_
@@ -100,7 +100,10 @@ class Client(BaseClient):
                       },
                   ]
               },
-              Name='string'
+              Name='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -137,6 +140,10 @@ class Client(BaseClient):
                   - *(string) --*
         :type Name: string
         :param Name: The name of the connector definition.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -195,7 +202,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_core_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_core_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         """
         Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each contain exactly one Greengrass core.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/CreateCoreDefinition>`_
@@ -214,7 +221,10 @@ class Client(BaseClient):
                       },
                   ]
               },
-              Name='string'
+              Name='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -250,6 +260,10 @@ class Client(BaseClient):
               - **ThingArn** *(string) --* The ARN of the thing which is the core.
         :type Name: string
         :param Name: The name of the core definition.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -337,7 +351,7 @@ class Client(BaseClient):
         :type DeploymentId: string
         :param DeploymentId: The ID of the deployment if you wish to redeploy a previous deployment.
         :type DeploymentType: string
-        :param DeploymentType: The type of deployment. When used in \'\'CreateDeployment\'\', only \'\'NewDeployment\'\' and \'\'Redeployment\'\' are valid.
+        :param DeploymentType: The type of deployment. When used for \'\'CreateDeployment\'\', only \'\'NewDeployment\'\' and \'\'Redeployment\'\' are valid.
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the Greengrass group.
         :type GroupVersionId: string
@@ -347,7 +361,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_device_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_device_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         """
         Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/CreateDeviceDefinition>`_
@@ -366,7 +380,10 @@ class Client(BaseClient):
                       },
                   ]
               },
-              Name='string'
+              Name='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -402,6 +419,10 @@ class Client(BaseClient):
               - **ThingArn** *(string) --* The thing ARN of the device.
         :type Name: string
         :param Name: The name of the device definition.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -458,7 +479,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_function_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_function_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         """
         Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/CreateFunctionDefinition>`_
@@ -470,7 +491,11 @@ class Client(BaseClient):
               InitialVersion={
                   'DefaultConfig': {
                       'Execution': {
-                          'IsolationMode': 'GreengrassContainer'|'NoContainer'
+                          'IsolationMode': 'GreengrassContainer'|'NoContainer',
+                          'RunAs': {
+                              'Gid': 123,
+                              'Uid': 123
+                          }
                       }
                   },
                   'Functions': [
@@ -507,7 +532,10 @@ class Client(BaseClient):
                       },
                   ]
               },
-              Name='string'
+              Name='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -535,9 +563,12 @@ class Client(BaseClient):
         :param AmznClientToken: A client token used to correlate requests and responses.
         :type InitialVersion: dict
         :param InitialVersion: Information about the initial version of the function definition.
-          - **DefaultConfig** *(dict) --* Default configuration that will apply to all Lambda functions in this function definition version
-            - **Execution** *(dict) --* Configuration that defines the default containerization used for when running Lambda functions in the group. Individual Lambda functions can be override this setting.
+          - **DefaultConfig** *(dict) --* The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+            - **Execution** *(dict) --* Configuration information that specifies how a Lambda function runs.
               - **IsolationMode** *(string) --* Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
+              - **RunAs** *(dict) --* Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set \'\'IsolationMode\'\' to \'\'NoContainer\'\' and update config.json in \'\'greengrass-root/config\'\' to set \'\'allowFunctionsToRunAsRoot\'\' to \'\'yes\'\'.
+                - **Gid** *(integer) --* The group ID whose permissions are used to run a Lambda function.
+                - **Uid** *(integer) --* The user ID whose permissions are used to run a Lambda function.
           - **Functions** *(list) --* A list of Lambda functions in this function definition version.
             - *(dict) --* Information about a Lambda function.
               - **FunctionArn** *(string) --* The ARN of the Lambda function.
@@ -547,9 +578,9 @@ class Client(BaseClient):
                   - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host\'s /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
                   - **Execution** *(dict) --* Configuration related to executing the Lambda function
                     - **IsolationMode** *(string) --* Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
-                    - **RunAs** *(dict) --* Specifies the user and/or group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values (ggc_user/ggc_group). We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set IsolationMode to NoContainer and you must update config.json in greengrass-root/config to set allowFunctionsToRunAsRoot to yes.
-                      - **Gid** *(integer) --* The Group ID whose permissions are used to run a Lambda function.
-                      - **Uid** *(integer) --* The User ID whose permissions are used to run a Lambda function.
+                    - **RunAs** *(dict) --* Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set \'\'IsolationMode\'\' to \'\'NoContainer\'\' and update config.json in \'\'greengrass-root/config\'\' to set \'\'allowFunctionsToRunAsRoot\'\' to \'\'yes\'\'.
+                      - **Gid** *(integer) --* The group ID whose permissions are used to run a Lambda function.
+                      - **Uid** *(integer) --* The user ID whose permissions are used to run a Lambda function.
                   - **ResourceAccessPolicies** *(list) --* A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
                     - *(dict) --* A policy used by the function to access a resource.
                       - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of \'\'rw\'\' (read/write) or \'\'ro\'\' (read-only).
@@ -565,6 +596,10 @@ class Client(BaseClient):
               - **Id** *(string) --* A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
         :type Name: string
         :param Name: The name of the function definition.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -581,7 +616,11 @@ class Client(BaseClient):
               AmznClientToken='string',
               DefaultConfig={
                   'Execution': {
-                      'IsolationMode': 'GreengrassContainer'|'NoContainer'
+                      'IsolationMode': 'GreengrassContainer'|'NoContainer',
+                      'RunAs': {
+                          'Gid': 123,
+                          'Uid': 123
+                      }
                   }
               },
               FunctionDefinitionId='string',
@@ -638,9 +677,12 @@ class Client(BaseClient):
         :type AmznClientToken: string
         :param AmznClientToken: A client token used to correlate requests and responses.
         :type DefaultConfig: dict
-        :param DefaultConfig: Default configuration that will apply to all Lambda functions in this function definition version
-          - **Execution** *(dict) --* Configuration that defines the default containerization used for when running Lambda functions in the group. Individual Lambda functions can be override this setting.
+        :param DefaultConfig: The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+          - **Execution** *(dict) --* Configuration information that specifies how a Lambda function runs.
             - **IsolationMode** *(string) --* Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
+            - **RunAs** *(dict) --* Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set \'\'IsolationMode\'\' to \'\'NoContainer\'\' and update config.json in \'\'greengrass-root/config\'\' to set \'\'allowFunctionsToRunAsRoot\'\' to \'\'yes\'\'.
+              - **Gid** *(integer) --* The group ID whose permissions are used to run a Lambda function.
+              - **Uid** *(integer) --* The user ID whose permissions are used to run a Lambda function.
         :type FunctionDefinitionId: string
         :param FunctionDefinitionId: **[REQUIRED]** The ID of the Lambda function definition.
         :type Functions: list
@@ -653,9 +695,9 @@ class Client(BaseClient):
                 - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host\'s /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
                 - **Execution** *(dict) --* Configuration related to executing the Lambda function
                   - **IsolationMode** *(string) --* Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
-                  - **RunAs** *(dict) --* Specifies the user and/or group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values (ggc_user/ggc_group). We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set IsolationMode to NoContainer and you must update config.json in greengrass-root/config to set allowFunctionsToRunAsRoot to yes.
-                    - **Gid** *(integer) --* The Group ID whose permissions are used to run a Lambda function.
-                    - **Uid** *(integer) --* The User ID whose permissions are used to run a Lambda function.
+                  - **RunAs** *(dict) --* Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set \'\'IsolationMode\'\' to \'\'NoContainer\'\' and update config.json in \'\'greengrass-root/config\'\' to set \'\'allowFunctionsToRunAsRoot\'\' to \'\'yes\'\'.
+                    - **Gid** *(integer) --* The group ID whose permissions are used to run a Lambda function.
+                    - **Uid** *(integer) --* The user ID whose permissions are used to run a Lambda function.
                 - **ResourceAccessPolicies** *(list) --* A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
                   - *(dict) --* A policy used by the function to access a resource.
                     - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of \'\'rw\'\' (read/write) or \'\'ro\'\' (read-only).
@@ -674,7 +716,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_group(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_group(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         """
         Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion'' at a later time. Tip: You can use the ''gg_group_setup'' package (https://github.com/awslabs/aws-greengrass-group-setup) as a library or command-line application to create and deploy Greengrass groups.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/CreateGroup>`_
@@ -692,7 +734,10 @@ class Client(BaseClient):
                   'ResourceDefinitionVersionArn': 'string',
                   'SubscriptionDefinitionVersionArn': 'string'
               },
-              Name='string'
+              Name='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -729,6 +774,10 @@ class Client(BaseClient):
           - **SubscriptionDefinitionVersionArn** *(string) --* The ARN of the subscription definition version for this group.
         :type Name: string
         :param Name: The name of the group.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -821,7 +870,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_logger_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_logger_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         """
         Creates a logger definition. You may provide the initial version of the logger definition now or use ''CreateLoggerDefinitionVersion'' at a later time.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/CreateLoggerDefinition>`_
@@ -841,7 +890,10 @@ class Client(BaseClient):
                       },
                   ]
               },
-              Name='string'
+              Name='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -878,6 +930,10 @@ class Client(BaseClient):
               - **Type** *(string) --* The type of log output which will be used.
         :type Name: string
         :param Name: The name of the logger definition.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -936,7 +992,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_resource_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_resource_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         """
         Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/CreateResourceDefinition>`_
@@ -984,7 +1040,10 @@ class Client(BaseClient):
                       },
                   ]
               },
-              Name='string'
+              Name='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -1040,6 +1099,10 @@ class Client(BaseClient):
                     - *(string) --*
         :type Name: string
         :param Name: The name of the resource definition.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -1195,7 +1258,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_subscription_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None) -> Dict:
+    def create_subscription_definition(self, AmznClientToken: str = None, InitialVersion: Dict = None, Name: str = None, tags: Dict = None) -> Dict:
         """
         Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/CreateSubscriptionDefinition>`_
@@ -1214,7 +1277,10 @@ class Client(BaseClient):
                       },
                   ]
               },
-              Name='string'
+              Name='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -1246,10 +1312,14 @@ class Client(BaseClient):
             - *(dict) --* Information about a subscription.
               - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
               - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or \'GGShadowService\'.
-              - **Subject** *(string) --* The subject of the message.
+              - **Subject** *(string) --* The MQTT topic used to route the message.
               - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or \'GGShadowService\'.
         :type Name: string
         :param Name: The name of the subscription definition.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -1299,7 +1369,7 @@ class Client(BaseClient):
           - *(dict) --* Information about a subscription.
             - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
             - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or \'GGShadowService\'.
-            - **Subject** *(string) --* The subject of the message.
+            - **Subject** *(string) --* The MQTT topic used to route the message.
             - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or \'GGShadowService\'.
         :rtype: dict
         :returns:
@@ -1622,7 +1692,10 @@ class Client(BaseClient):
                         'DetailedErrorMessage': 'string'
                     },
                 ],
-                'ErrorMessage': 'string'
+                'ErrorMessage': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1638,6 +1711,9 @@ class Client(BaseClient):
                 - **DetailedErrorCode** *(string) --* A detailed error code.
                 - **DetailedErrorMessage** *(string) --* A detailed error message.
             - **ErrorMessage** *(string) --* Error message
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type BulkDeploymentId: string
         :param BulkDeploymentId: **[REQUIRED]** The ID of the bulk deployment.
         :rtype: dict
@@ -1706,7 +1782,10 @@ class Client(BaseClient):
                 'LastUpdatedTimestamp': 'string',
                 'LatestVersion': 'string',
                 'LatestVersionArn': 'string',
-                'Name': 'string'
+                'Name': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1718,6 +1797,9 @@ class Client(BaseClient):
             - **LatestVersion** *(string) --* The latest version of the definition.
             - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
             - **Name** *(string) --* The name of the definition.
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type ConnectorDefinitionId: string
         :param ConnectorDefinitionId: **[REQUIRED]** The ID of the connector definition.
         :rtype: dict
@@ -1805,7 +1887,10 @@ class Client(BaseClient):
                 'LastUpdatedTimestamp': 'string',
                 'LatestVersion': 'string',
                 'LatestVersionArn': 'string',
-                'Name': 'string'
+                'Name': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1817,6 +1902,9 @@ class Client(BaseClient):
             - **LatestVersion** *(string) --* The latest version of the definition.
             - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
             - **Name** *(string) --* The name of the definition.
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type CoreDefinitionId: string
         :param CoreDefinitionId: **[REQUIRED]** The ID of the core definition.
         :rtype: dict
@@ -1908,7 +1996,7 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* Success. The response body contains the status of the deployment for the group.
-            - **DeploymentStatus** *(string) --* The status of the deployment: ''Pending'', ''InProgress'', ''Success'', or ''Failure''.
+            - **DeploymentStatus** *(string) --* The status of the deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
             - **DeploymentType** *(string) --* The type of the deployment.
             - **ErrorDetails** *(list) --* Error details
               - *(dict) --* Details about the error.
@@ -1945,7 +2033,10 @@ class Client(BaseClient):
                 'LastUpdatedTimestamp': 'string',
                 'LatestVersion': 'string',
                 'LatestVersionArn': 'string',
-                'Name': 'string'
+                'Name': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1957,6 +2048,9 @@ class Client(BaseClient):
             - **LatestVersion** *(string) --* The latest version of the definition.
             - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
             - **Name** *(string) --* The name of the definition.
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type DeviceDefinitionId: string
         :param DeviceDefinitionId: **[REQUIRED]** The ID of the device definition.
         :rtype: dict
@@ -2042,7 +2136,10 @@ class Client(BaseClient):
                 'LastUpdatedTimestamp': 'string',
                 'LatestVersion': 'string',
                 'LatestVersionArn': 'string',
-                'Name': 'string'
+                'Name': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -2054,6 +2151,9 @@ class Client(BaseClient):
             - **LatestVersion** *(string) --* The latest version of the definition.
             - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
             - **Name** *(string) --* The name of the definition.
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type FunctionDefinitionId: string
         :param FunctionDefinitionId: **[REQUIRED]** The ID of the Lambda function definition.
         :rtype: dict
@@ -2082,7 +2182,11 @@ class Client(BaseClient):
                 'Definition': {
                     'DefaultConfig': {
                         'Execution': {
-                            'IsolationMode': 'GreengrassContainer'|'NoContainer'
+                            'IsolationMode': 'GreengrassContainer'|'NoContainer',
+                            'RunAs': {
+                                'Gid': 123,
+                                'Uid': 123
+                            }
                         }
                     },
                     'Functions': [
@@ -2129,9 +2233,12 @@ class Client(BaseClient):
             - **Arn** *(string) --* The ARN of the function definition version.
             - **CreationTimestamp** *(string) --* The time, in milliseconds since the epoch, when the function definition version was created.
             - **Definition** *(dict) --* Information on the definition.
-              - **DefaultConfig** *(dict) --* Default configuration that will apply to all Lambda functions in this function definition version
-                - **Execution** *(dict) --* Configuration that defines the default containerization used for when running Lambda functions in the group. Individual Lambda functions can be override this setting.
+              - **DefaultConfig** *(dict) --* The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+                - **Execution** *(dict) --* Configuration information that specifies how a Lambda function runs. 
                   - **IsolationMode** *(string) --* Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
+                  - **RunAs** *(dict) --* Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
+                    - **Gid** *(integer) --* The group ID whose permissions are used to run a Lambda function.
+                    - **Uid** *(integer) --* The user ID whose permissions are used to run a Lambda function.
               - **Functions** *(list) --* A list of Lambda functions in this function definition version.
                 - *(dict) --* Information about a Lambda function.
                   - **FunctionArn** *(string) --* The ARN of the Lambda function.
@@ -2141,9 +2248,9 @@ class Client(BaseClient):
                       - **AccessSysfs** *(boolean) --* If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
                       - **Execution** *(dict) --* Configuration related to executing the Lambda function
                         - **IsolationMode** *(string) --* Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
-                        - **RunAs** *(dict) --* Specifies the user and/or group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values (ggc_user/ggc_group). We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set IsolationMode to NoContainer and you must update config.json in greengrass-root/config to set allowFunctionsToRunAsRoot to yes.
-                          - **Gid** *(integer) --* The Group ID whose permissions are used to run a Lambda function.
-                          - **Uid** *(integer) --* The User ID whose permissions are used to run a Lambda function.
+                        - **RunAs** *(dict) --* Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
+                          - **Gid** *(integer) --* The group ID whose permissions are used to run a Lambda function.
+                          - **Uid** *(integer) --* The user ID whose permissions are used to run a Lambda function.
                       - **ResourceAccessPolicies** *(list) --* A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
                         - *(dict) --* A policy used by the function to access a resource.
                           - **Permission** *(string) --* The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
@@ -2191,7 +2298,10 @@ class Client(BaseClient):
                 'LastUpdatedTimestamp': 'string',
                 'LatestVersion': 'string',
                 'LatestVersionArn': 'string',
-                'Name': 'string'
+                'Name': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -2203,6 +2313,9 @@ class Client(BaseClient):
             - **LatestVersion** *(string) --* The latest version of the definition.
             - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
             - **Name** *(string) --* The name of the definition.
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type GroupId: string
         :param GroupId: **[REQUIRED]** The ID of the Greengrass group.
         :rtype: dict
@@ -2348,7 +2461,10 @@ class Client(BaseClient):
                 'LastUpdatedTimestamp': 'string',
                 'LatestVersion': 'string',
                 'LatestVersionArn': 'string',
-                'Name': 'string'
+                'Name': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -2360,6 +2476,9 @@ class Client(BaseClient):
             - **LatestVersion** *(string) --* The latest version of the definition.
             - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
             - **Name** *(string) --* The name of the definition.
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type LoggerDefinitionId: string
         :param LoggerDefinitionId: **[REQUIRED]** The ID of the logger definition.
         :rtype: dict
@@ -2463,7 +2582,10 @@ class Client(BaseClient):
                 'LastUpdatedTimestamp': 'string',
                 'LatestVersion': 'string',
                 'LatestVersionArn': 'string',
-                'Name': 'string'
+                'Name': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -2475,6 +2597,9 @@ class Client(BaseClient):
             - **LatestVersion** *(string) --* The latest version of the definition.
             - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
             - **Name** *(string) --* The name of the definition.
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type ResourceDefinitionId: string
         :param ResourceDefinitionId: **[REQUIRED]** The ID of the resource definition.
         :rtype: dict
@@ -2629,7 +2754,10 @@ class Client(BaseClient):
                 'LastUpdatedTimestamp': 'string',
                 'LatestVersion': 'string',
                 'LatestVersionArn': 'string',
-                'Name': 'string'
+                'Name': 'string',
+                'tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -2641,6 +2769,9 @@ class Client(BaseClient):
             - **LatestVersion** *(string) --* The latest version of the definition.
             - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
             - **Name** *(string) --* The name of the definition.
+            - **tags** *(dict) --* The tags for the definition.
+              - *(string) --* 
+                - *(string) --* 
         :type SubscriptionDefinitionId: string
         :param SubscriptionDefinitionId: **[REQUIRED]** The ID of the subscription definition.
         :rtype: dict
@@ -2690,7 +2821,7 @@ class Client(BaseClient):
                 - *(dict) --* Information about a subscription.
                   - **Id** *(string) --* A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
                   - **Source** *(string) --* The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
-                  - **Subject** *(string) --* The subject of the message.
+                  - **Subject** *(string) --* The MQTT topic used to route the message.
                   - **Target** *(string) --* Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
             - **Id** *(string) --* The ID of the subscription definition version.
             - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
@@ -2760,7 +2891,7 @@ class Client(BaseClient):
                 - **CreatedAt** *(string) --* The time, in ISO format, when the deployment was created.
                 - **DeploymentArn** *(string) --* The ARN of the group deployment.
                 - **DeploymentId** *(string) --* The ID of the group deployment.
-                - **DeploymentStatus** *(string) --* The current status of the group deployment: ''Pending'', ''InProgress'', ''Success'', or ''Failure''.
+                - **DeploymentStatus** *(string) --* The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
                 - **DeploymentType** *(string) --* The type of the deployment.
                 - **ErrorDetails** *(list) --* Details about the error.
                   - *(dict) --* Details about the error.
@@ -2892,7 +3023,10 @@ class Client(BaseClient):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -2909,6 +3043,9 @@ class Client(BaseClient):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
@@ -2989,7 +3126,10 @@ class Client(BaseClient):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -3006,6 +3146,9 @@ class Client(BaseClient):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
@@ -3135,7 +3278,10 @@ class Client(BaseClient):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -3152,6 +3298,9 @@ class Client(BaseClient):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
@@ -3232,7 +3381,10 @@ class Client(BaseClient):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -3249,6 +3401,9 @@ class Client(BaseClient):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
@@ -3461,7 +3616,10 @@ class Client(BaseClient):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -3478,6 +3636,9 @@ class Client(BaseClient):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
@@ -3558,7 +3719,10 @@ class Client(BaseClient):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -3575,6 +3739,9 @@ class Client(BaseClient):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
@@ -3655,7 +3822,10 @@ class Client(BaseClient):
                         'LastUpdatedTimestamp': 'string',
                         'LatestVersion': 'string',
                         'LatestVersionArn': 'string',
-                        'Name': 'string'
+                        'Name': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -3672,11 +3842,45 @@ class Client(BaseClient):
                 - **LatestVersion** *(string) --* The latest version of the definition.
                 - **LatestVersionArn** *(string) --* The ARN of the latest version of the definition.
                 - **Name** *(string) --* The name of the definition.
+                - **Tags** *(dict) --* The tags for the definition.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* The token for the next set of results, or ''null'' if there are no additional results.
         :type MaxResults: string
         :param MaxResults: The maximum number of results to be returned per request.
         :type NextToken: string
         :param NextToken: The token for the next set of results, or \'\'null\'\' if there are no additional results.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        """
+        Retrieves the tags for a resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'tags': {
+                    'string': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **tags** *(dict) --* A map of the key-value pairs for the resource tag.
+              - *(string) --* 
+                - *(string) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource.
         :rtype: dict
         :returns:
         """
@@ -3717,7 +3921,7 @@ class Client(BaseClient):
         """
         pass
 
-    def start_bulk_deployment(self, AmznClientToken: str = None, ExecutionRoleArn: str = None, InputFileUri: str = None) -> Dict:
+    def start_bulk_deployment(self, AmznClientToken: str = None, ExecutionRoleArn: str = None, InputFileUri: str = None, tags: Dict = None) -> Dict:
         """
         Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/StartBulkDeployment>`_
@@ -3727,7 +3931,10 @@ class Client(BaseClient):
           response = client.start_bulk_deployment(
               AmznClientToken='string',
               ExecutionRoleArn='string',
-              InputFileUri='string'
+              InputFileUri='string',
+              tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -3747,6 +3954,10 @@ class Client(BaseClient):
         :param ExecutionRoleArn: The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the \'\'greengrass:CreateDeployment\'\' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
         :type InputFileUri: string
         :param InputFileUri: The URI of the input file contained in the S3 bucket. The execution role must have \'\'getObject\'\' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only \'\'NewDeployment\'\' deployment types.
+        :type tags: dict
+        :param tags: Tag(s) to add to the new resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -3773,6 +3984,51 @@ class Client(BaseClient):
         :param BulkDeploymentId: **[REQUIRED]** The ID of the bulk deployment.
         :rtype: dict
         :returns:
+        """
+        pass
+
+    def tag_resource(self, ResourceArn: str, tags: Dict):
+        """
+        Add tags to a resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              tags={
+                  'string': 'string'
+              }
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource.
+        :type tags: dict
+        :param tags: **[REQUIRED]** A map of the key-value pairs for the resource tag.
+          - *(string) --*
+            - *(string) --*
+        :returns: None
+        """
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
+        """
+        Remove tags with specified keys from a resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource.
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]** A list of the keys to remove from the resource tags.
+          - *(string) --*
+        :returns: None
         """
         pass
 

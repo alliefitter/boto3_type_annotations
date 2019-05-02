@@ -1,6 +1,6 @@
+from typing import Dict
 from typing import List
 from datetime import datetime
-from typing import Dict
 from botocore.paginate import Paginator
 
 
@@ -75,7 +75,7 @@ class ListBuilds(Paginator):
 
 
 class ListFleets(Paginator):
-    def paginate(self, BuildId: str = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, BuildId: str = None, ScriptId: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

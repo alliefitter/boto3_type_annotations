@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -297,6 +297,7 @@ class ListCreateAccountStatus(Paginator):
                         'RequestedTimestamp': datetime(2015, 1, 1),
                         'CompletedTimestamp': datetime(2015, 1, 1),
                         'AccountId': 'string',
+                        'GovCloudAccountId': 'string',
                         'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
                     },
                 ],
@@ -307,7 +308,7 @@ class ListCreateAccountStatus(Paginator):
             - **CreateAccountStatuses** *(list) --* 
               A list of objects with details about the requests. Certain elements, such as the accountId number, are present in the output only after the account has been successfully created.
               - *(dict) --* 
-                Contains the status about a  CreateAccount request to create an AWS account in an organization.
+                Contains the status about a  CreateAccount or  CreateGovCloudAccount request to create an AWS account or an AWS GovCloud (US) account in an organization.
                 - **Id** *(string) --* 
                   The unique identifier (ID) that references this request. You get this value from the response of the initial  CreateAccount request to create the account.
                   The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
@@ -322,6 +323,7 @@ class ListCreateAccountStatus(Paginator):
                 - **AccountId** *(string) --* 
                   If the account was created successfully, the unique identifier (ID) of the new account.
                   The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an account ID string requires exactly 12 digits.
+                - **GovCloudAccountId** *(string) --* 
                 - **FailureReason** *(string) --* 
                   If the request failed, a description of the reason for the failure.
                   * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization. 

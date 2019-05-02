@@ -3,7 +3,7 @@ from botocore.paginate import Paginator
 
 
 class DescribeDirectConnectGatewayAssociations(Paginator):
-    def paginate(self, directConnectGatewayId: str = None, virtualGatewayId: str = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, associationId: str = None, associatedGatewayId: str = None, directConnectGatewayId: str = None, virtualGatewayId: str = None, PaginationConfig: Dict = None) -> Dict:
         """
         Creates an iterator that will paginate through responses from :py:meth:`DirectConnect.Client.describe_direct_connect_gateway_associations`.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeDirectConnectGatewayAssociations>`_
@@ -11,6 +11,8 @@ class DescribeDirectConnectGatewayAssociations(Paginator):
         **Request Syntax**
         ::
           response_iterator = paginator.paginate(
+              associationId='string',
+              associatedGatewayId='string',
               directConnectGatewayId='string',
               virtualGatewayId='string',
               PaginationConfig={
@@ -26,11 +28,24 @@ class DescribeDirectConnectGatewayAssociations(Paginator):
                 'directConnectGatewayAssociations': [
                     {
                         'directConnectGatewayId': 'string',
+                        'directConnectGatewayOwnerAccount': 'string',
+                        'associationState': 'associating'|'associated'|'disassociating'|'disassociated'|'updating',
+                        'stateChangeError': 'string',
+                        'associatedGateway': {
+                            'id': 'string',
+                            'type': 'virtualPrivateGateway'|'transitGateway',
+                            'ownerAccount': 'string',
+                            'region': 'string'
+                        },
+                        'associationId': 'string',
+                        'allowedPrefixesToDirectConnectGateway': [
+                            {
+                                'cidr': 'string'
+                            },
+                        ],
                         'virtualGatewayId': 'string',
                         'virtualGatewayRegion': 'string',
-                        'virtualGatewayOwnerAccount': 'string',
-                        'associationState': 'associating'|'associated'|'disassociating'|'disassociated',
-                        'stateChangeError': 'string'
+                        'virtualGatewayOwnerAccount': 'string'
                     },
                 ],
                 'NextToken': 'string'
@@ -39,27 +54,53 @@ class DescribeDirectConnectGatewayAssociations(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **directConnectGatewayAssociations** *(list) --* 
-              The associations.
+              Information about the associations.
               - *(dict) --* 
-                Information about an association between a Direct Connect gateway and a virtual private gateway.
+                Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.
                 - **directConnectGatewayId** *(string) --* 
                   The ID of the Direct Connect gateway.
+                - **directConnectGatewayOwnerAccount** *(string) --* 
+                  The ID of the AWS account that owns the associated gateway.
+                - **associationState** *(string) --* 
+                  The state of the association. The following are the possible values:
+                  * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
+                  * ``associated`` : The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic. 
+                  * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
+                  * ``disassociated`` : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped. 
+                - **stateChangeError** *(string) --* 
+                  The error message if the state of an object failed to advance.
+                - **associatedGateway** *(dict) --* 
+                  Information about the associated gateway.
+                  - **id** *(string) --* 
+                    The ID of the associated gateway.
+                  - **type** *(string) --* 
+                    The type of associated gateway.
+                  - **ownerAccount** *(string) --* 
+                    The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                  - **region** *(string) --* 
+                    The Region where the associated gateway is located.
+                - **associationId** *(string) --* 
+                  The ID of the Direct Connect gateway association.
+                - **allowedPrefixesToDirectConnectGateway** *(list) --* 
+                  The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                  - *(dict) --* 
+                    Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                    - **cidr** *(string) --* 
+                      The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
                 - **virtualGatewayId** *(string) --* 
                   The ID of the virtual private gateway. Applies only to private virtual interfaces.
                 - **virtualGatewayRegion** *(string) --* 
                   The AWS Region where the virtual private gateway is located.
                 - **virtualGatewayOwnerAccount** *(string) --* 
                   The ID of the AWS account that owns the virtual private gateway.
-                - **associationState** *(string) --* 
-                  The state of the association. The following are the possible values:
-                  * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
-                  * ``associated`` : The Direct Connect gateway and virtual private gateway are successfully associated and ready to pass traffic. 
-                  * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
-                  * ``disassociated`` : The virtual private gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway is stopped. 
-                - **stateChangeError** *(string) --* 
-                  The error message if the state of an object failed to advance.
             - **NextToken** *(string) --* 
               A token to resume pagination.
+        :type associationId: string
+        :param associationId:
+          The ID of the Direct Connect gateway association.
+        :type associatedGatewayId: string
+        :param associatedGatewayId:
+          The ID of the associated gateway.
         :type directConnectGatewayId: string
         :param directConnectGatewayId:
           The ID of the Direct Connect gateway.
@@ -109,6 +150,7 @@ class DescribeDirectConnectGatewayAttachments(Paginator):
                         'virtualInterfaceRegion': 'string',
                         'virtualInterfaceOwnerAccount': 'string',
                         'attachmentState': 'attaching'|'attached'|'detaching'|'detached',
+                        'attachmentType': 'TransitVirtualInterface'|'PrivateVirtualInterface',
                         'stateChangeError': 'string'
                     },
                 ],
@@ -135,6 +177,8 @@ class DescribeDirectConnectGatewayAttachments(Paginator):
                   * ``attached`` : The Direct Connect gateway and virtual interface are attached and ready to pass traffic. 
                   * ``detaching`` : The initial state after calling  DeleteVirtualInterface . 
                   * ``detached`` : The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped. 
+                - **attachmentType** *(string) --* 
+                  The type of attachment.
                 - **stateChangeError** *(string) --* 
                   The error message if the state of an object failed to advance.
             - **NextToken** *(string) --* 
@@ -198,7 +242,7 @@ class DescribeDirectConnectGateways(Paginator):
             - **directConnectGateways** *(list) --* 
               The Direct Connect gateways.
               - *(dict) --* 
-                Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateways.
+                Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.
                 - **directConnectGatewayId** *(string) --* 
                   The ID of the Direct Connect gateway.
                 - **directConnectGatewayName** *(string) --* 

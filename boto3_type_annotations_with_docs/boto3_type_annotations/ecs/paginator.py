@@ -44,7 +44,7 @@ class ListAccountSettings(Paginator):
                 - **name** *(string) --* 
                   The account resource name.
                 - **value** *(string) --* 
-                  The current account setting for the resource name. If ``enabled`` , then the resource will receive the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , then the resource will receive the old Amazon Resource Name (ARN) and resource identifier (ID) format.
+                  The current account setting for the resource name. If ``enabled`` , the resource receives the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , the resource receives the old Amazon Resource Name (ARN) and resource identifier (ID) format.
                 - **principalArn** *(string) --* 
                   The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
             - **NextToken** *(string) --* 

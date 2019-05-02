@@ -1,21 +1,24 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from datetime import datetime
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
     def add_tags_to_resource(self, ResourceArn: str, Tags: List) -> Dict:
         pass
 
+    def apply_pending_maintenance_action(self, ReplicationInstanceArn: str, ApplyAction: str, OptInType: str) -> Dict:
+        pass
+
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_endpoint(self, EndpointIdentifier: str, EndpointType: str, EngineName: str, Username: str = None, Password: str = None, ServerName: str = None, Port: int = None, DatabaseName: str = None, ExtraConnectionAttributes: str = None, KmsKeyId: str = None, Tags: List = None, CertificateArn: str = None, SslMode: str = None, ServiceAccessRoleArn: str = None, ExternalTableDefinition: str = None, DynamoDbSettings: Dict = None, S3Settings: Dict = None, DmsTransferSettings: Dict = None, MongoDbSettings: Dict = None, KinesisSettings: Dict = None, ElasticsearchSettings: Dict = None) -> Dict:
+    def create_endpoint(self, EndpointIdentifier: str, EndpointType: str, EngineName: str, Username: str = None, Password: str = None, ServerName: str = None, Port: int = None, DatabaseName: str = None, ExtraConnectionAttributes: str = None, KmsKeyId: str = None, Tags: List = None, CertificateArn: str = None, SslMode: str = None, ServiceAccessRoleArn: str = None, ExternalTableDefinition: str = None, DynamoDbSettings: Dict = None, S3Settings: Dict = None, DmsTransferSettings: Dict = None, MongoDbSettings: Dict = None, KinesisSettings: Dict = None, ElasticsearchSettings: Dict = None, RedshiftSettings: Dict = None) -> Dict:
         pass
 
     def create_event_subscription(self, SubscriptionName: str, SnsTopicArn: str, SourceType: str = None, EventCategories: List = None, SourceIds: List = None, Enabled: bool = None, Tags: List = None) -> Dict:
@@ -75,6 +78,9 @@ class Client(BaseClient):
     def describe_orderable_replication_instances(self, MaxRecords: int = None, Marker: str = None) -> Dict:
         pass
 
+    def describe_pending_maintenance_actions(self, ReplicationInstanceArn: str = None, Filters: List = None, Marker: str = None, MaxRecords: int = None) -> Dict:
+        pass
+
     def describe_refresh_schemas_status(self, EndpointArn: str) -> Dict:
         pass
 
@@ -90,7 +96,7 @@ class Client(BaseClient):
     def describe_replication_task_assessment_results(self, ReplicationTaskArn: str = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         pass
 
-    def describe_replication_tasks(self, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
+    def describe_replication_tasks(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None) -> Dict:
         pass
 
     def describe_schemas(self, EndpointArn: str, MaxRecords: int = None, Marker: str = None) -> Dict:
@@ -114,7 +120,7 @@ class Client(BaseClient):
     def list_tags_for_resource(self, ResourceArn: str) -> Dict:
         pass
 
-    def modify_endpoint(self, EndpointArn: str, EndpointIdentifier: str = None, EndpointType: str = None, EngineName: str = None, Username: str = None, Password: str = None, ServerName: str = None, Port: int = None, DatabaseName: str = None, ExtraConnectionAttributes: str = None, CertificateArn: str = None, SslMode: str = None, ServiceAccessRoleArn: str = None, ExternalTableDefinition: str = None, DynamoDbSettings: Dict = None, S3Settings: Dict = None, DmsTransferSettings: Dict = None, MongoDbSettings: Dict = None, KinesisSettings: Dict = None, ElasticsearchSettings: Dict = None) -> Dict:
+    def modify_endpoint(self, EndpointArn: str, EndpointIdentifier: str = None, EndpointType: str = None, EngineName: str = None, Username: str = None, Password: str = None, ServerName: str = None, Port: int = None, DatabaseName: str = None, ExtraConnectionAttributes: str = None, CertificateArn: str = None, SslMode: str = None, ServiceAccessRoleArn: str = None, ExternalTableDefinition: str = None, DynamoDbSettings: Dict = None, S3Settings: Dict = None, DmsTransferSettings: Dict = None, MongoDbSettings: Dict = None, KinesisSettings: Dict = None, ElasticsearchSettings: Dict = None, RedshiftSettings: Dict = None) -> Dict:
         pass
 
     def modify_event_subscription(self, SubscriptionName: str, SnsTopicArn: str = None, SourceType: str = None, EventCategories: List = None, Enabled: bool = None) -> Dict:

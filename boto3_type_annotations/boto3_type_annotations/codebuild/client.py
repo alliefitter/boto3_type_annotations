@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -65,7 +65,7 @@ class Client(BaseClient):
     def list_source_credentials(self) -> Dict:
         pass
 
-    def start_build(self, projectName: str, secondarySourcesOverride: List = None, secondarySourcesVersionOverride: List = None, sourceVersion: str = None, artifactsOverride: Dict = None, secondaryArtifactsOverride: List = None, environmentVariablesOverride: List = None, sourceTypeOverride: str = None, sourceLocationOverride: str = None, sourceAuthOverride: Dict = None, gitCloneDepthOverride: int = None, buildspecOverride: str = None, insecureSslOverride: bool = None, reportBuildStatusOverride: bool = None, environmentTypeOverride: str = None, imageOverride: str = None, computeTypeOverride: str = None, certificateOverride: str = None, cacheOverride: Dict = None, serviceRoleOverride: str = None, privilegedModeOverride: bool = None, timeoutInMinutesOverride: int = None, queuedTimeoutInMinutesOverride: int = None, idempotencyToken: str = None, logsConfigOverride: Dict = None, registryCredentialOverride: Dict = None, imagePullCredentialsTypeOverride: str = None) -> Dict:
+    def start_build(self, projectName: str, secondarySourcesOverride: List = None, secondarySourcesVersionOverride: List = None, sourceVersion: str = None, artifactsOverride: Dict = None, secondaryArtifactsOverride: List = None, environmentVariablesOverride: List = None, sourceTypeOverride: str = None, sourceLocationOverride: str = None, sourceAuthOverride: Dict = None, gitCloneDepthOverride: int = None, gitSubmodulesConfigOverride: Dict = None, buildspecOverride: str = None, insecureSslOverride: bool = None, reportBuildStatusOverride: bool = None, environmentTypeOverride: str = None, imageOverride: str = None, computeTypeOverride: str = None, certificateOverride: str = None, cacheOverride: Dict = None, serviceRoleOverride: str = None, privilegedModeOverride: bool = None, timeoutInMinutesOverride: int = None, queuedTimeoutInMinutesOverride: int = None, idempotencyToken: str = None, logsConfigOverride: Dict = None, registryCredentialOverride: Dict = None, imagePullCredentialsTypeOverride: str = None) -> Dict:
         pass
 
     def stop_build(self, id: str) -> Dict:

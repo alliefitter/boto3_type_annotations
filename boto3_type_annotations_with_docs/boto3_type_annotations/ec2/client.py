@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from datetime import datetime
-from typing import Dict
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -493,7 +493,7 @@ class Client(BaseClient):
               Quantity=123,
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -520,17 +520,17 @@ class Client(BaseClient):
               - *(string) --* 
         :type AutoPlacement: string
         :param AutoPlacement:
-          This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID.
-          Default: Enabled
+          Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. For more information, see `Understanding Instance Placement and Host Affinity <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+          Default: ``on``
         :type AvailabilityZone: string
         :param AvailabilityZone: **[REQUIRED]**
-          The Availability Zone for the Dedicated Hosts.
+          The Availability Zone in which to allocate the Dedicated Host.
         :type ClientToken: string
         :param ClientToken:
           Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see `How to Ensure Idempotency <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         :type InstanceType: string
         :param InstanceType: **[REQUIRED]**
-          Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that is the only instance type that you can launch onto that host.
+          Specifies the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that is the only instance type that you can launch onto that host.
         :type Quantity: integer
         :param Quantity: **[REQUIRED]**
           The number of Dedicated Hosts to allocate to your account with these parameters.
@@ -725,7 +725,7 @@ class Client(BaseClient):
           The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
         :type PublicIp: string
         :param PublicIp:
-          The Elastic IP address. This is required for EC2-Classic.
+          The Elastic IP address to associate with the instance. This is required for EC2-Classic.
         :type AllowReassociation: boolean
         :param AllowReassociation:
           [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
@@ -735,6 +735,7 @@ class Client(BaseClient):
         :type NetworkInterfaceId: string
         :param NetworkInterfaceId:
           [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+          For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both.
         :type PrivateIpAddress: string
         :param PrivateIpAddress:
           [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
@@ -1384,9 +1385,11 @@ class Client(BaseClient):
 
     def authorize_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         """
-        [EC2-VPC only] Adds one or more egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to one or more destination IPv4 or IPv6 CIDR address ranges, or to one or more destination security groups for the same VPC. This action doesn't apply to security groups for use in EC2-Classic. For more information, see `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* . For more information about security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html>`__ .
-        Each rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes. You can optionally specify a description for the rule.
+        [VPC only] Adds the specified egress rules to a security group for use with a VPC.
+        An outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.
+        You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.
         Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.
+        For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupEgress>`_
         
         **Request Syntax**
@@ -1445,16 +1448,16 @@ class Client(BaseClient):
           The ID of the security group.
         :type IpPermissions: list
         :param IpPermissions:
-          One or more sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
+          The sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
           - *(dict) --*
             Describes a set of permissions for a security group rule.
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -1463,7 +1466,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -1472,7 +1475,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -1481,9 +1484,9 @@ class Client(BaseClient):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -1528,11 +1531,11 @@ class Client(BaseClient):
 
     def authorize_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         """
-        Adds one or more ingress rules to a security group.
+        Adds the specified ingress rules to a security group.
+        An inbound rule permits instances to receive traffic from the specified destination IPv4 or IPv6 CIDR address ranges, or from the specified destination security groups.
+        You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify the destination port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
         Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
-        [EC2-Classic] This action gives one or more IPv4 CIDR address ranges permission to access a security group in your account, or gives one or more security groups (called the *source groups* ) permission to access a security group for your account. A source group can be for your own AWS account, or another. You can have up to 100 rules per group.
-        [EC2-VPC] This action gives one or more IPv4 or IPv6 CIDR address ranges permission to access a security group in your VPC, or gives one or more other security groups (called the *source groups* ) permission to access a security group for your VPC. The security groups must all be for the same VPC or a peer VPC in a VPC peering connection. For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html>`__ .
-        You can optionally specify a description for the security group rule.
+        For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupIngress>`_
         
         **Request Syntax**
@@ -1586,10 +1589,12 @@ class Client(BaseClient):
           )
         :type CidrIp: string
         :param CidrIp:
-          The CIDR IPv4 address range. You can\'t specify this parameter when specifying a source security group.
+          The IPv4 address range, in CIDR format. You can\'t specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
+          Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
         :type FromPort: integer
         :param FromPort:
-          The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. For the ICMP/ICMPv6 type number, use ``-1`` to specify all types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+          The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use ``-1`` to specify all types. If you specify all ICMP types, you must specify all codes.
+          Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
         :type GroupId: string
         :param GroupId:
           The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
@@ -1598,16 +1603,16 @@ class Client(BaseClient):
           [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
         :type IpPermissions: list
         :param IpPermissions:
-          One or more sets of IP permissions. Can be used to specify multiple rules in a single command.
+          The sets of IP permissions.
           - *(dict) --*
             Describes a set of permissions for a security group rule.
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -1616,7 +1621,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -1625,7 +1630,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -1634,9 +1639,9 @@ class Client(BaseClient):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -1659,7 +1664,9 @@ class Client(BaseClient):
                   The ID of the VPC peering connection, if applicable.
         :type IpProtocol: string
         :param IpProtocol:
-          The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). (VPC only) Use ``-1`` to specify all protocols. If you specify ``-1`` , or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6), traffic on all ports is allowed, regardless of any ports you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For protocol ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed.
+          The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). To specify ``icmpv6`` , use a set of IP permissions.
+          [VPC only] Use ``-1`` to specify all protocols. If you specify ``-1`` or a protocol other than ``tcp`` , ``udp`` , or ``icmp`` , traffic on all ports is allowed, regardless of any ports you specify.
+          Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
         :type SourceSecurityGroupName: string
         :param SourceSecurityGroupName:
           [EC2-Classic, default VPC] The name of the source security group. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
@@ -1668,7 +1675,8 @@ class Client(BaseClient):
           [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
         :type ToPort: integer
         :param ToPort:
-          The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code number. For the ICMP/ICMPv6 code number, use ``-1`` to specify all codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+          The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use ``-1`` to specify all codes. If you specify all ICMP types, you must specify all codes.
+          Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -2383,7 +2391,7 @@ class Client(BaseClient):
           An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a ``KmsKeyId`` is specified, the ``Encrypted`` flag must also be set.
           The CMK identifier may be provided in any of the following formats:
           * Key ID
-          * Key alias, in the form ``alias/*ExampleAlias* ``
+          * Key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           * ARN using key ID. The ID ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``key`` namespace, and then the CMK ID. For example, arn:aws:kms:*us-east-1* :*012345678910* :key/*abcd1234-a123-456a-a12b-a123b4cd56ef* .
           * ARN using key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           AWS parses ``KmsKeyId`` asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure.
@@ -2407,7 +2415,7 @@ class Client(BaseClient):
 
     def copy_snapshot(self, SourceRegion: str, SourceSnapshotId: str, Description: str = None, DestinationRegion: str = None, Encrypted: bool = None, KmsKeyId: str = None, PresignedUrl: str = None, DryRun: bool = None) -> Dict:
         """
-        Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.
+        Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy the snapshot within the same Region or from one Region to another. You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.
         Copies of encrypted EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted, unless the ``Encrypted`` flag is specified during the snapshot copy operation. By default, encrypted snapshot copies use the default AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can specify a non-default CMK with the ``KmsKeyId`` parameter.
         To copy an encrypted snapshot that has been shared from another account, you must have permissions for the CMK used to encrypt the snapshot.
         Snapshots created by copying another snapshot have an arbitrary volume ID that should not be used for any purpose.
@@ -2441,8 +2449,8 @@ class Client(BaseClient):
           A description for the EBS snapshot.
         :type DestinationRegion: string
         :param DestinationRegion:
-          The destination region to use in the ``PresignedUrl`` parameter of a snapshot copy operation. This parameter is only valid for specifying the destination region in a ``PresignedUrl`` parameter, where it is required.
-          The snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, ``ec2.us-east-1.amazonaws.com`` ). With the AWS CLI, this is specified using the ``--region`` parameter or the default region in your AWS configuration file.
+          The destination Region to use in the ``PresignedUrl`` parameter of a snapshot copy operation. This parameter is only valid for specifying the destination Region in a ``PresignedUrl`` parameter, where it is required.
+          The snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, ``ec2.us-east-1.amazonaws.com`` ). With the AWS CLI, this is specified using the ``--region`` parameter or the default Region in your AWS configuration file.
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type Encrypted: boolean
         :param Encrypted:
@@ -2452,7 +2460,7 @@ class Client(BaseClient):
           An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a ``KmsKeyId`` is specified, the ``Encrypted`` flag must also be set.
           The CMK identifier may be provided in any of the following formats:
           * Key ID
-          * Key alias
+          * Key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           * ARN using key ID. The ID ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``key`` namespace, and then the CMK ID. For example, arn:aws:kms:*us-east-1* :*012345678910* :key/*abcd1234-a123-456a-a12b-a123b4cd56ef* .
           * ARN using key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           AWS parses ``KmsKeyId`` asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. The action will eventually fail.
@@ -2463,7 +2471,7 @@ class Client(BaseClient):
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type SourceRegion: string
         :param SourceRegion: **[REQUIRED]**
-          The ID of the region that contains the snapshot to be copied.
+          The ID of the Region that contains the snapshot to be copied.
         :type SourceSnapshotId: string
         :param SourceSnapshotId: **[REQUIRED]**
           The ID of the EBS snapshot to copy.
@@ -2499,7 +2507,7 @@ class Client(BaseClient):
               InstanceMatchCriteria='open'|'targeted',
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -2694,7 +2702,7 @@ class Client(BaseClient):
               ClientToken='string',
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -2737,12 +2745,12 @@ class Client(BaseClient):
           The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :type ServerCertificateArn: string
         :param ServerCertificateArn: **[REQUIRED]**
-          The ARN of the server certificate. For more information, see the `AWS Certificate Manager User Guide <acm/latest/userguide/acm-overview.html>`__ .
+          The ARN of the server certificate. For more information, see the `AWS Certificate Manager User Guide <https://docs.aws.amazon.com/acm/latest/userguide/>`__ .
         :type AuthenticationOptions: list
         :param AuthenticationOptions: **[REQUIRED]**
           Information about the authentication method to be used to authenticate clients.
           - *(dict) --*
-            Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see `Authentication <vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication>`__ in the *AWS Client VPN Admin Guide* .
+            Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see `Authentication <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication>`__ in the *AWS Client VPN Administrator Guide* .
             - **Type** *(string) --*
               The type of client authentication to be used. Specify ``certificate-authentication`` to use certificate-based authentication, or ``directory-service-authentication`` to use Active Directory authentication.
             - **ActiveDirectory** *(dict) --*
@@ -2752,7 +2760,7 @@ class Client(BaseClient):
             - **MutualAuthentication** *(dict) --*
               Information about the authentication certificates to be used, if applicable. You must provide this information if **Type** is ``certificate-authentication`` .
               - **ClientRootCertificateChainArn** *(string) --*
-                 **The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).**
+                The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
         :type ConnectionLogOptions: dict
         :param ConnectionLogOptions: **[REQUIRED]**
           Information about the client connection logging options.
@@ -3360,7 +3368,7 @@ class Client(BaseClient):
                       },
                       'Overrides': [
                           {
-                              'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                              'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                               'MaxPrice': 'string',
                               'SubnetId': 'string',
                               'AvailabilityZone': 'string',
@@ -3392,7 +3400,7 @@ class Client(BaseClient):
               ReplaceUnhealthyInstances=True|False,
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -3416,7 +3424,7 @@ class Client(BaseClient):
                                 'Version': 'string'
                             },
                             'Overrides': {
-                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                 'MaxPrice': 'string',
                                 'SubnetId': 'string',
                                 'AvailabilityZone': 'string',
@@ -3441,7 +3449,7 @@ class Client(BaseClient):
                                 'Version': 'string'
                             },
                             'Overrides': {
-                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                 'MaxPrice': 'string',
                                 'SubnetId': 'string',
                                 'AvailabilityZone': 'string',
@@ -3456,7 +3464,7 @@ class Client(BaseClient):
                         'InstanceIds': [
                             'string',
                         ],
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                         'Platform': 'Windows'
                     },
                 ]
@@ -3613,6 +3621,7 @@ class Client(BaseClient):
                   The location where the instance launched, if applicable.
                   - **AvailabilityZone** *(string) --*
                     The Availability Zone of the instance.
+                    If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the region.
                   - **Affinity** *(string) --*
                     The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the  ImportInstance command.
                   - **GroupName** *(string) --*
@@ -3647,7 +3656,7 @@ class Client(BaseClient):
           The start date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). The default is to start fulfilling the request immediately.
         :type ValidUntil: datetime
         :param ValidUntil:
-          The end date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
+          The end date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         :type ReplaceUnhealthyInstances: boolean
         :param ReplaceUnhealthyInstances:
           Indicates whether EC2 Fleet should replace unhealthy instances.
@@ -3742,28 +3751,31 @@ class Client(BaseClient):
           Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see `How to Ensure Idempotency <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html>`__ .
         :type DeliverLogsPermissionArn: string
         :param DeliverLogsPermissionArn:
-          The ARN for the IAM role that\'s used to post flow logs to a log group.
+          The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
+          If you specify ``LogDestinationType`` as ``s3`` , do not specify ``DeliverLogsPermissionArn`` or ``LogGroupName`` .
         :type LogGroupName: string
         :param LogGroupName:
-          The name of the log group.
+          The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.
+          If you specify ``LogDestinationType`` as ``s3`` , do not specify ``DeliverLogsPermissionArn`` or ``LogGroupName`` .
         :type ResourceIds: list
         :param ResourceIds: **[REQUIRED]**
-          One or more subnet, network interface, or VPC IDs.
+          The ID of the subnet, network interface, or VPC for which you want to create a flow log.
           Constraints: Maximum of 1000 resources
           - *(string) --*
         :type ResourceType: string
         :param ResourceType: **[REQUIRED]**
-          The type of resource on which to create the flow log.
+          The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ``ResourceId`` property, specify ``VPC`` for this property.
         :type TrafficType: string
         :param TrafficType: **[REQUIRED]**
-          The type of traffic to log.
+          The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         :type LogDestinationType: string
         :param LogDestinationType:
           Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify ``cloud-watch-logs`` . To publish flow log data to Amazon S3, specify ``s3`` .
+          If you specify ``LogDestinationType`` as ``s3`` , do not specify ``DeliverLogsPermissionArn`` or ``LogGroupName`` .
           Default: ``cloud-watch-logs``
         :type LogDestination: string
         :param LogDestination:
-          Specifies the destination to which the flow log data is to be published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
+          Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for ``LogDestinationType`` .
           If LogDestinationType is not specified or ``cloud-watch-logs`` , specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group.
           If LogDestinationType is ``s3`` , specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: ``bucket_ARN/subfolder_name/`` . For example, to specify a subfolder named ``my-logs`` in a bucket named ``my-bucket`` , use the following ARN: ``arn:aws:s3:::my-bucket/my-logs/`` . You cannot use ``AWSLogs`` as a subfolder name. This is a reserved term.
         :rtype: dict
@@ -3775,7 +3787,7 @@ class Client(BaseClient):
         """
         Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).
         The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.
-        An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on one or more FPGA-accelerated instances. For more information, see the `AWS FPGA Hardware Development Kit <https://github.com/aws/aws-fpga/>`__ .
+        An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the `AWS FPGA Hardware Development Kit <https://github.com/aws/aws-fpga/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateFpgaImage>`_
         
         **Request Syntax**
@@ -3880,12 +3892,11 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of CreateImage.
             - **ImageId** *(string) --* 
               The ID of the new AMI.
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings:
-          Information about one or more block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the  CopyImage action.
+          Tthe block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the  CopyImage action.
           - *(dict) --*
             Describes a block device mapping.
             - **DeviceName** *(string) --*
@@ -3899,17 +3910,17 @@ class Client(BaseClient):
               - **DeleteOnTermination** *(boolean) --*
                 Indicates whether the EBS volume is deleted on instance termination.
               - **Iops** *(integer) --*
-                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                 Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
               - **SnapshotId** *(string) --*
                 The ID of the snapshot.
               - **VolumeSize** *(integer) --*
                 The size of the volume, in GiB.
-                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                 Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
               - **VolumeType** *(string) --*
-                The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                 Default: ``standard``
               - **Encrypted** *(boolean) --*
                 Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -4190,6 +4201,7 @@ class Client(BaseClient):
                           'Groups': [
                               'string',
                           ],
+                          'InterfaceType': 'string',
                           'Ipv6AddressCount': 123,
                           'Ipv6Addresses': [
                               {
@@ -4209,7 +4221,7 @@ class Client(BaseClient):
                       },
                   ],
                   'ImageId': 'string',
-                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                   'KeyName': 'string',
                   'Monitoring': {
                       'Enabled': True|False
@@ -4228,7 +4240,7 @@ class Client(BaseClient):
                   'UserData': 'string',
                   'TagSpecifications': [
                       {
-                          'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                          'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                           'Tags': [
                               {
                                   'Key': 'string',
@@ -4276,14 +4288,14 @@ class Client(BaseClient):
                           'CapacityReservationId': 'string'
                       }
                   },
-                  'HibernationOptions': {
-                      'Configured': True|False
-                  },
                   'LicenseSpecifications': [
                       {
                           'LicenseConfigurationArn': 'string'
                       },
-                  ]
+                  ],
+                  'HibernationOptions': {
+                      'Configured': True|False
+                  }
               }
           )
         
@@ -4377,7 +4389,7 @@ class Client(BaseClient):
                 - **DeleteOnTermination** *(boolean) --*
                   Indicates whether the EBS volume is deleted on instance termination.
                 - **Iops** *(integer) --*
-                  The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide.
+                  The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
                   Condition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.
                 - **KmsKeyId** *(string) --*
                   The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
@@ -4405,6 +4417,8 @@ class Client(BaseClient):
               - **Groups** *(list) --*
                 The IDs of one or more security groups.
                 - *(string) --*
+              - **InterfaceType** *(string) --*
+                The type of networking interface.
               - **Ipv6AddressCount** *(integer) --*
                 The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can\'t use this option if specifying specific IPv6 addresses.
               - **Ipv6Addresses** *(list) --*
@@ -4430,11 +4444,11 @@ class Client(BaseClient):
               - **SubnetId** *(string) --*
                 The ID of the subnet for the network interface.
           - **ImageId** *(string) --*
-            The ID of the AMI, which you can get by using  DescribeImages .
+            The ID of the AMI, which you can get by using `DescribeImages <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html>`__ .
           - **InstanceType** *(string) --*
             The instance type. For more information, see `Instance Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           - **KeyName** *(string) --*
-            The name of the key pair. You can create a key pair using  CreateKeyPair or  ImportKeyPair .
+            The name of the key pair. You can create a key pair using `CreateKeyPair <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html>`__ or `ImportKeyPair <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html>`__ .
             .. warning::
               If you do not specify a key pair, you can\'t connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
           - **Monitoring** *(dict) --*
@@ -4460,7 +4474,7 @@ class Client(BaseClient):
             .. warning::
               We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `User Provided Kernels <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           - **DisableApiTermination** *(boolean) --*
-            If set to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute .
+            If set to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to ``false`` after launch, use `ModifyInstanceAttribute <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html>`__ .
           - **InstanceInitiatedShutdownBehavior** *(string) --*
             Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
             Default: ``stop``
@@ -4536,17 +4550,17 @@ class Client(BaseClient):
               Information about the target Capacity Reservation.
               - **CapacityReservationId** *(string) --*
                 The ID of the Capacity Reservation.
-          - **HibernationOptions** *(dict) --*
-            Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the `hibernation prerequisites <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites>`__ . Hibernation is currently supported only for Amazon Linux. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-            - **Configured** *(boolean) --*
-              If you set this parameter to ``true`` , the instance is enabled for hibernation.
-              Default: ``false``
           - **LicenseSpecifications** *(list) --*
             The license configurations.
             - *(dict) --*
               Describes a license configuration.
               - **LicenseConfigurationArn** *(string) --*
                 The Amazon Resource Name (ARN) of the license configuration.
+          - **HibernationOptions** *(dict) --*
+            Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the `hibernation prerequisites <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites>`__ . Hibernation is currently supported only for Amazon Linux. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+            - **Configured** *(boolean) --*
+              If you set this parameter to ``true`` , the instance is enabled for hibernation.
+              Default: ``false``
         :rtype: dict
         :returns:
         """
@@ -4599,6 +4613,7 @@ class Client(BaseClient):
                           'Groups': [
                               'string',
                           ],
+                          'InterfaceType': 'string',
                           'Ipv6AddressCount': 123,
                           'Ipv6Addresses': [
                               {
@@ -4618,7 +4633,7 @@ class Client(BaseClient):
                       },
                   ],
                   'ImageId': 'string',
-                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                   'KeyName': 'string',
                   'Monitoring': {
                       'Enabled': True|False
@@ -4637,7 +4652,7 @@ class Client(BaseClient):
                   'UserData': 'string',
                   'TagSpecifications': [
                       {
-                          'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                          'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                           'Tags': [
                               {
                                   'Key': 'string',
@@ -4685,14 +4700,14 @@ class Client(BaseClient):
                           'CapacityReservationId': 'string'
                       }
                   },
-                  'HibernationOptions': {
-                      'Configured': True|False
-                  },
                   'LicenseSpecifications': [
                       {
                           'LicenseConfigurationArn': 'string'
                       },
-                  ]
+                  ],
+                  'HibernationOptions': {
+                      'Configured': True|False
+                  }
               }
           )
         
@@ -4739,6 +4754,7 @@ class Client(BaseClient):
                                 'Groups': [
                                     'string',
                                 ],
+                                'InterfaceType': 'string',
                                 'Ipv6AddressCount': 123,
                                 'Ipv6Addresses': [
                                     {
@@ -4758,7 +4774,7 @@ class Client(BaseClient):
                             },
                         ],
                         'ImageId': 'string',
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                         'KeyName': 'string',
                         'Monitoring': {
                             'Enabled': True|False
@@ -4777,7 +4793,7 @@ class Client(BaseClient):
                         'UserData': 'string',
                         'TagSpecifications': [
                             {
-                                'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                                'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                                 'Tags': [
                                     {
                                         'Key': 'string',
@@ -4825,14 +4841,14 @@ class Client(BaseClient):
                                 'CapacityReservationId': 'string'
                             }
                         },
-                        'HibernationOptions': {
-                            'Configured': True|False
-                        },
                         'LicenseSpecifications': [
                             {
                                 'LicenseConfigurationArn': 'string'
                             },
-                        ]
+                        ],
+                        'HibernationOptions': {
+                            'Configured': True|False
+                        }
                     }
                 }
             }
@@ -4908,6 +4924,8 @@ class Client(BaseClient):
                     - **Groups** *(list) --* 
                       The IDs of one or more security groups.
                       - *(string) --* 
+                    - **InterfaceType** *(string) --* 
+                      The type of network interface.
                     - **Ipv6AddressCount** *(integer) --* 
                       The number of IPv6 addresses for the network interface.
                     - **Ipv6Addresses** *(list) --* 
@@ -5034,16 +5052,16 @@ class Client(BaseClient):
                     Information about the target Capacity Reservation.
                     - **CapacityReservationId** *(string) --* 
                       The ID of the Capacity Reservation.
-                - **HibernationOptions** *(dict) --* 
-                  Indicates whether an instance is configured for hibernation. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                  - **Configured** *(boolean) --* 
-                    If this parameter is set to ``true`` , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
                 - **LicenseSpecifications** *(list) --* 
                   The license configurations.
                   - *(dict) --* 
                     Describes a license configuration.
                     - **LicenseConfigurationArn** *(string) --* 
                       The Amazon Resource Name (ARN) of the license configuration.
+                - **HibernationOptions** *(dict) --* 
+                  Indicates whether an instance is configured for hibernation. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  - **Configured** *(boolean) --* 
+                    If this parameter is set to ``true`` , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -5095,7 +5113,7 @@ class Client(BaseClient):
                 - **DeleteOnTermination** *(boolean) --*
                   Indicates whether the EBS volume is deleted on instance termination.
                 - **Iops** *(integer) --*
-                  The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide.
+                  The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
                   Condition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.
                 - **KmsKeyId** *(string) --*
                   The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
@@ -5123,6 +5141,8 @@ class Client(BaseClient):
               - **Groups** *(list) --*
                 The IDs of one or more security groups.
                 - *(string) --*
+              - **InterfaceType** *(string) --*
+                The type of networking interface.
               - **Ipv6AddressCount** *(integer) --*
                 The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can\'t use this option if specifying specific IPv6 addresses.
               - **Ipv6Addresses** *(list) --*
@@ -5148,11 +5168,11 @@ class Client(BaseClient):
               - **SubnetId** *(string) --*
                 The ID of the subnet for the network interface.
           - **ImageId** *(string) --*
-            The ID of the AMI, which you can get by using  DescribeImages .
+            The ID of the AMI, which you can get by using `DescribeImages <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html>`__ .
           - **InstanceType** *(string) --*
             The instance type. For more information, see `Instance Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           - **KeyName** *(string) --*
-            The name of the key pair. You can create a key pair using  CreateKeyPair or  ImportKeyPair .
+            The name of the key pair. You can create a key pair using `CreateKeyPair <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html>`__ or `ImportKeyPair <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html>`__ .
             .. warning::
               If you do not specify a key pair, you can\'t connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
           - **Monitoring** *(dict) --*
@@ -5178,7 +5198,7 @@ class Client(BaseClient):
             .. warning::
               We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `User Provided Kernels <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           - **DisableApiTermination** *(boolean) --*
-            If set to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to ``false`` after launch, use  ModifyInstanceAttribute .
+            If set to ``true`` , you can\'t terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to ``false`` after launch, use `ModifyInstanceAttribute <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html>`__ .
           - **InstanceInitiatedShutdownBehavior** *(string) --*
             Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
             Default: ``stop``
@@ -5254,17 +5274,17 @@ class Client(BaseClient):
               Information about the target Capacity Reservation.
               - **CapacityReservationId** *(string) --*
                 The ID of the Capacity Reservation.
-          - **HibernationOptions** *(dict) --*
-            Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the `hibernation prerequisites <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites>`__ . Hibernation is currently supported only for Amazon Linux. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-            - **Configured** *(boolean) --*
-              If you set this parameter to ``true`` , the instance is enabled for hibernation.
-              Default: ``false``
           - **LicenseSpecifications** *(list) --*
             The license configurations.
             - *(dict) --*
               Describes a license configuration.
               - **LicenseConfigurationArn** *(string) --*
                 The Amazon Resource Name (ARN) of the license configuration.
+          - **HibernationOptions** *(dict) --*
+            Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the `hibernation prerequisites <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites>`__ . Hibernation is currently supported only for Amazon Linux. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+            - **Configured** *(boolean) --*
+              If you set this parameter to ``true`` , the instance is enabled for hibernation.
+              Default: ``false``
         :rtype: dict
         :returns:
         """
@@ -5599,7 +5619,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> Dict:
+    def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None, InterfaceType: str = None) -> Dict:
         """
         Creates a network interface in the specified subnet.
         For more information about network interfaces, see `Elastic Network Interfaces <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -5627,6 +5647,7 @@ class Client(BaseClient):
                   },
               ],
               SecondaryPrivateIpAddressCount=123,
+              InterfaceType='efa',
               SubnetId='string'
           )
         
@@ -5658,7 +5679,7 @@ class Client(BaseClient):
                             'GroupId': 'string'
                         },
                     ],
-                    'InterfaceType': 'interface'|'natGateway',
+                    'InterfaceType': 'interface'|'natGateway'|'efa',
                     'Ipv6Addresses': [
                         {
                             'Ipv6Address': 'string'
@@ -5744,7 +5765,7 @@ class Client(BaseClient):
                   - **GroupId** *(string) --* 
                     The ID of the security group.
               - **InterfaceType** *(string) --* 
-                The type of interface.
+                The type of network interface.
               - **Ipv6Addresses** *(list) --* 
                 The IPv6 addresses associated with the network interface.
                 - *(dict) --* 
@@ -5841,6 +5862,10 @@ class Client(BaseClient):
         :param SecondaryPrivateIpAddressCount:
           The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You can\'t specify this option and specify more than one private IP address using ``privateIpAddresses`` .
           The number of IP addresses you can assign to a network interface varies by instance type. For more information, see `IP Addresses Per ENI Per Instance Type <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI>`__ in the *Amazon Virtual Private Cloud User Guide* .
+        :type InterfaceType: string
+        :param InterfaceType:
+          Indicates whether the network interface is an Elastic Fabric Adapter (EFA). Only specify this parameter to create an EFA. For more information, see `Elastic Fabric Adapter <AWSEC2/latest/UserGuide/efa.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          If you are not creating an EFA ENI, omit this parameter.
         :type SubnetId: string
         :param SubnetId: **[REQUIRED]**
           The ID of the subnet to associate with the network interface.
@@ -5958,7 +5983,7 @@ class Client(BaseClient):
         """
         Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your Standard Reserved Instances, you can use the  DescribeReservedInstances operation.
         .. note::
-          Only Standard Reserved Instances with a capacity reservation can be sold in the Reserved Instance Marketplace. Convertible Reserved Instances and Standard Reserved Instances with a regional benefit cannot be sold.
+          Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace. Convertible Reserved Instances cannot be sold.
         The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.
         To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price to receive for them. Your Standard Reserved Instance listings then become available for purchase. To view the details of your Standard Reserved Instance listing, you can use the  DescribeReservedInstancesListings operation.
         For more information, see `Reserved Instance Marketplace <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -6311,13 +6336,11 @@ class Client(BaseClient):
     def create_security_group(self, Description: str, GroupName: str, VpcId: str = None, DryRun: bool = None) -> Dict:
         """
         Creates a security group.
-        A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see `Amazon EC2 Security Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ in the *Amazon Elastic Compute Cloud User Guide* and `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
-        .. warning::
-          EC2-Classic: You can have up to 500 security groups.
-          EC2-VPC: You can create up to 500 security groups per VPC.
+        A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see `Amazon EC2 Security Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ in the *Amazon Elastic Compute Cloud User Guide* and `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
         You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
         You can add or remove rules from your security groups using  AuthorizeSecurityGroupIngress ,  AuthorizeSecurityGroupEgress ,  RevokeSecurityGroupIngress , and  RevokeSecurityGroupEgress .
+        For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSecurityGroup>`_
         
         **Request Syntax**
@@ -6380,7 +6403,7 @@ class Client(BaseClient):
               VolumeId='string',
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -6444,7 +6467,7 @@ class Client(BaseClient):
             - **VolumeSize** *(integer) --* 
               The size of the volume, in GiB.
             - **OwnerAlias** *(string) --* 
-              Value from an Amazon-maintained list (``amazon`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console. 
+              Value from an Amazon-maintained list (``amazon`` | ``self`` | ``all`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console. 
             - **Tags** *(list) --* 
               Any tags assigned to the snapshot.
               - *(dict) --* 
@@ -6683,7 +6706,7 @@ class Client(BaseClient):
 
     def create_tags(self, Resources: List, Tags: List, DryRun: bool = None):
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -6706,12 +6729,12 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Resources: list
         :param Resources: **[REQUIRED]**
-          The IDs of one or more resources, separated by spaces.
+          The IDs of the resources, separated by spaces.
           Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
           - *(string) --*
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -6747,7 +6770,7 @@ class Client(BaseClient):
               },
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -6938,7 +6961,7 @@ class Client(BaseClient):
           The ID of the attachment.
         :type Blackhole: boolean
         :param Blackhole:
-          Indicates whether traffic matching this route is to be dropped.
+          Indicates whether to drop traffic if the target isn\'t available.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -6958,7 +6981,7 @@ class Client(BaseClient):
               TransitGatewayId='string',
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -7064,7 +7087,7 @@ class Client(BaseClient):
               },
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -7201,7 +7224,7 @@ class Client(BaseClient):
               DryRun=True|False,
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -7279,8 +7302,8 @@ class Client(BaseClient):
             - **VolumeId** *(string) --* 
               The ID of the volume.
             - **Iops** *(integer) --* 
-              The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-              Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+              The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+              Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
               Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
             - **Tags** *(list) --* 
               Any tags assigned to the volume.
@@ -7302,14 +7325,14 @@ class Client(BaseClient):
           Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see `Amazon EBS Encryption <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         :type Iops: integer
         :param Iops:
-          The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
         :type KmsKeyId: string
         :param KmsKeyId:
           An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a ``KmsKeyId`` is specified, the ``Encrypted`` flag must also be set.
           The CMK identifier may be provided in any of the following formats:
           * Key ID
-          * Key alias
+          * Key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           * ARN using key ID. The ID ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``key`` namespace, and then the CMK ID. For example, arn:aws:kms:*us-east-1* :*012345678910* :key/*abcd1234-a123-456a-a12b-a123b4cd56ef* .
           * ARN using key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           AWS parses ``KmsKeyId`` asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. The action will eventually fail.
@@ -7328,7 +7351,7 @@ class Client(BaseClient):
         :type VolumeType: string
         :param VolumeType:
           The volume type. This can be ``gp2`` for General Purpose SSD, ``io1`` for Provisioned IOPS SSD, ``st1`` for Throughput Optimized HDD, ``sc1`` for Cold HDD, or ``standard`` for Magnetic volumes.
-          Defaults: If no volume type is specified, the default is ``standard`` in us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other regions, EBS defaults to ``gp2`` .
+          Defaults: If no volume type is specified, the default is ``standard`` in us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions, EBS defaults to ``gp2`` .
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -7538,6 +7561,7 @@ class Client(BaseClient):
                         },
                     ],
                     'PrivateDnsEnabled': True|False,
+                    'RequesterManaged': True|False,
                     'NetworkInterfaceIds': [
                         'string',
                     ],
@@ -7585,6 +7609,8 @@ class Client(BaseClient):
                     The name of the security group.
               - **PrivateDnsEnabled** *(boolean) --* 
                 (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.
+              - **RequesterManaged** *(boolean) --* 
+                Indicates whether the VPC endpoint is being managed by its service.
               - **NetworkInterfaceIds** *(list) --* 
                 (Interface endpoint) One or more network interfaces for the endpoint.
                 - *(string) --* 
@@ -7615,7 +7641,7 @@ class Client(BaseClient):
           The service name. To get a list of available services, use the  DescribeVpcEndpointServices request, or get the name from the service provider.
         :type PolicyDocument: string
         :param PolicyDocument:
-          (Gateway endpoint) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
+          A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
         :type RouteTableIds: list
         :param RouteTableIds:
           (Gateway endpoint) One or more route table IDs.
@@ -7755,6 +7781,7 @@ class Client(BaseClient):
                         'string',
                     ],
                     'AcceptanceRequired': True|False,
+                    'ManagesVpcEndpoints': True|False,
                     'NetworkLoadBalancerArns': [
                         'string',
                     ],
@@ -7787,6 +7814,8 @@ class Client(BaseClient):
                 - *(string) --* 
               - **AcceptanceRequired** *(boolean) --* 
                 Indicates whether requests from other AWS accounts to create an endpoint to the service must first be accepted.
+              - **ManagesVpcEndpoints** *(boolean) --* 
+                Indicates whether the service manages it's VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
               - **NetworkLoadBalancerArns** *(list) --* 
                 The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.
                 - *(string) --* 
@@ -9136,12 +9165,12 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Resources: list
         :param Resources: **[REQUIRED]**
-          The IDs of one or more resources, separated by spaces.
+          The IDs of the resources, separated by spaces.
           Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
           - *(string) --*
         :type Tags: list
         :param Tags:
-          One or more tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
+          The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
           If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the ``aws:`` prefix).
           - *(dict) --*
             Describes a tag.
@@ -9878,20 +9907,20 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **AccountAttributes** *(list) --* 
-              Information about one or more account attributes.
+              Information about the account attributes.
               - *(dict) --* 
                 Describes an account attribute.
                 - **AttributeName** *(string) --* 
                   The name of the account attribute.
                 - **AttributeValues** *(list) --* 
-                  One or more values for the account attribute.
+                  The values for the account attribute.
                   - *(dict) --* 
                     Describes a value of an account attribute.
                     - **AttributeValue** *(string) --* 
                       The value of the attribute.
         :type AttributeNames: list
         :param AttributeNames:
-          One or more account attribute names.
+          The account attribute names.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -9903,7 +9932,7 @@ class Client(BaseClient):
 
     def describe_addresses(self, Filters: List = None, PublicIps: List = None, AllocationIds: List = None, DryRun: bool = None) -> Dict:
         """
-        Describes one or more of your Elastic IP addresses.
+        Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
         An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see `Elastic IP Addresses <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAddresses>`_
         
@@ -9954,7 +9983,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **Addresses** *(list) --* 
-              Information about one or more Elastic IP addresses.
+              Information about the Elastic IP addresses.
               - *(dict) --* 
                 Describes an Elastic IP address.
                 - **InstanceId** *(string) --* 
@@ -10013,7 +10042,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PublicIps: list
         :param PublicIps:
@@ -10022,8 +10051,7 @@ class Client(BaseClient):
           - *(string) --*
         :type AllocationIds: list
         :param AllocationIds:
-          [EC2-VPC] One or more allocation IDs.
-          Default: Describes all your Elastic IP addresses.
+          [EC2-VPC] Information about the allocation IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10083,7 +10111,7 @@ class Client(BaseClient):
 
     def describe_availability_zones(self, Filters: List = None, ZoneNames: List = None, ZoneIds: List = None, DryRun: bool = None) -> Dict:
         """
-        Describes one or more of the Availability Zones that are available to you. The results include zones only for the region you're currently using. If there is an event impacting an Availability Zone, you can use this request to view the state and any provided message for that Availability Zone.
+        Describes the Availability Zones that are available to you. The results include zones only for the region you're currently using. If there is an event impacting an Availability Zone, you can use this request to view the state and any provided message for that Availability Zone.
         For more information, see `Regions and Availability Zones <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAvailabilityZones>`_
         
@@ -10128,7 +10156,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **AvailabilityZones** *(list) --* 
-              Information about one or more Availability Zones.
+              Information about the Availability Zones.
               - *(dict) --* 
                 Describes an Availability Zone.
                 - **State** *(string) --* 
@@ -10147,7 +10175,7 @@ class Client(BaseClient):
                   The ID of the Availability Zone.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``message`` - Information about the Availability Zone.
           * ``region-name`` - The name of the region for the Availability Zone (for example, ``us-east-1`` ).
           * ``state`` - The state of the Availability Zone (``available`` | ``information`` | ``impaired`` | ``unavailable`` ).
@@ -10168,15 +10196,15 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ZoneNames: list
         :param ZoneNames:
-          The names of one or more Availability Zones.
+          The names of the Availability Zones.
           - *(string) --*
         :type ZoneIds: list
         :param ZoneIds:
-          The IDs of one or more Availability Zones.
+          The IDs of the Availability Zones.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10188,7 +10216,7 @@ class Client(BaseClient):
 
     def describe_bundle_tasks(self, BundleIds: List = None, Filters: List = None, DryRun: bool = None) -> Dict:
         """
-        Describes one or more of your bundling tasks.
+        Describes the specified bundle tasks or all of your bundle tasks.
         .. note::
           Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use ``RegisterImage`` with the Amazon S3 bucket name and image manifest name you provided to the bundle task.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeBundleTasks>`_
@@ -10240,9 +10268,8 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeBundleTasks.
             - **BundleTasks** *(list) --* 
-              Information about one or more bundle tasks.
+              Information about the bundle tasks.
               - *(dict) --* 
                 Describes a bundle task.
                 - **BundleId** *(string) --* 
@@ -10279,12 +10306,12 @@ class Client(BaseClient):
                   The time of the most recent update for the task.
         :type BundleIds: list
         :param BundleIds:
-          One or more bundle task IDs.
+          The bundle task IDs.
           Default: Describes all your bundle tasks.
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``bundle-id`` - The ID of the bundle task.
           * ``error-code`` - If the task failed, the error code returned.
           * ``error-message`` - If the task failed, the error message returned.
@@ -10310,7 +10337,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10517,7 +10544,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10628,7 +10655,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10639,11 +10666,11 @@ class Client(BaseClient):
           - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned ``NextToken`` value. This value can be between 5 and 1000. If ``MaxResults`` is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
           Constraint: If the value is greater than 1000, we return only 1000 items.
         :type NextToken: string
         :param NextToken:
-          The token to retrieve the next page of results.
+          The token for the next page of results.
         :rtype: dict
         :returns:
         """
@@ -10695,8 +10722,7 @@ class Client(BaseClient):
             - **AuthorizationRules** *(list) --* 
               Information about the authorization rules.
               - *(dict) --* 
-        
-        **Information about an authorization rule.**
+                Information about an authorization rule.
                 - **ClientVpnEndpointId** *(string) --* 
                   The ID of the Client VPN endpoint with which the authorization rule is associated.
                 - **Description** *(string) --* 
@@ -10742,7 +10768,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -10809,8 +10835,7 @@ class Client(BaseClient):
                 - **ClientVpnEndpointId** *(string) --* 
                   The ID of the Client VPN endpoint to which the client is connected.
                 - **Timestamp** *(string) --* 
-        
-        **The current date and time.**
+                  The current date and time.
                 - **ConnectionId** *(string) --* 
                   The ID of the client connection.
                 - **Username** *(string) --* 
@@ -10828,8 +10853,7 @@ class Client(BaseClient):
                 - **ClientIp** *(string) --* 
                   The IP address of the client.
                 - **CommonName** *(string) --* 
-        
-        **The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.**
+                  The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.
                 - **Status** *(dict) --* 
                   The current state of the client connection.
                   - **Code** *(string) --* 
@@ -10861,7 +10885,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type NextToken: string
         :param NextToken:
@@ -10992,24 +11016,21 @@ class Client(BaseClient):
                 - **VpnProtocol** *(string) --* 
                   The protocol used by the VPN session.
                 - **TransportProtocol** *(string) --* 
-        
-        **The transport protocol used by the Client VPN endpoint.**
+                  The transport protocol used by the Client VPN endpoint.
                 - **AssociatedTargetNetworks** *(list) --* 
                   Information about the associated target networks. A target network is a subnet in a VPC.
                   - *(dict) --* 
                     Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.
                     - **NetworkId** *(string) --* 
-        
-        **The ID of the subnet.**
+                      The ID of the subnet.
                     - **NetworkType** *(string) --* 
-        
-        **The target network type.**
+                      The target network type.
                 - **ServerCertificateArn** *(string) --* 
                   The ARN of the server certificate.
                 - **AuthenticationOptions** *(list) --* 
                   Information about the authentication method used by the Client VPN endpoint.
                   - *(dict) --* 
-                    Describes the authentication methods used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see `Authentication <vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication>`__ in the *AWS Client VPN Admin Guide* .
+                    Describes the authentication methods used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see `Authentication <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication>`__ in the *AWS Client VPN Administrator Guide* .
                     - **Type** *(string) --* 
                       The authentication type used.
                     - **ActiveDirectory** *(dict) --* 
@@ -11019,8 +11040,7 @@ class Client(BaseClient):
                     - **MutualAuthentication** *(dict) --* 
                       Information about the authentication certificates, if applicable.
                       - **ClientRootCertificateChain** *(string) --* 
-        
-        **The ARN of the client certificate.**
+                        The ARN of the client certificate. 
                 - **ConnectionLogOptions** *(dict) --* 
                   Information about the client connection logging options for the Client VPN endpoint.
                   - **Enabled** *(boolean) --* 
@@ -11069,7 +11089,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11126,8 +11146,7 @@ class Client(BaseClient):
             - **Routes** *(list) --* 
               Information about the Client VPN endpoint routes.
               - *(dict) --* 
-        
-        **Information about a Client VPN endpoint route.**
+                Information about a Client VPN endpoint route.
                 - **ClientVpnEndpointId** *(string) --* 
                   The ID of the Client VPN endpoint with which the route is associated.
                 - **DestinationCidr** *(string) --* 
@@ -11135,8 +11154,7 @@ class Client(BaseClient):
                 - **TargetSubnet** *(string) --* 
                   The ID of the subnet through which traffic is routed.
                 - **Type** *(string) --* 
-        
-        **The route type.**
+                  The route type.
                 - **Origin** *(string) --* 
                   Indicates how the route was associated with the Client VPN endpoint. ``associate`` indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. ``add-route`` indicates that the route was manually added using the **CreateClientVpnRoute** action.
                 - **Status** *(dict) --* 
@@ -11170,7 +11188,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -11288,7 +11306,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11300,7 +11318,7 @@ class Client(BaseClient):
 
     def describe_conversion_tasks(self, ConversionTaskIds: List = None, DryRun: bool = None) -> Dict:
         """
-        Describes one or more of your conversion tasks. For more information, see the `VM Import/Export User Guide <https://docs.aws.amazon.com/vm-import/latest/userguide/>`__ .
+        Describes the specified conversion tasks or all your conversion tasks. For more information, see the `VM Import/Export User Guide <https://docs.aws.amazon.com/vm-import/latest/userguide/>`__ .
         For information about the import manifest referenced by this API action, see `VM Import Manifest <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasks>`_
         
@@ -11391,7 +11409,7 @@ class Client(BaseClient):
                   - **Platform** *(string) --* 
                     The instance operating system.
                   - **Volumes** *(list) --* 
-                    One or more volumes.
+                    The volumes.
                     - *(dict) --* 
                       Describes an import volume task.
                       - **AvailabilityZone** *(string) --* 
@@ -11462,7 +11480,7 @@ class Client(BaseClient):
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
         :type ConversionTaskIds: list
         :param ConversionTaskIds:
-          One or more conversion task IDs.
+          The conversion task IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11572,7 +11590,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11693,7 +11711,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11753,7 +11771,7 @@ class Client(BaseClient):
                 - **EgressOnlyInternetGatewayId** *(string) --* 
                   The ID of the egress-only internet gateway.
             - **NextToken** *(string) --* 
-              The token to use to retrieve the next page of results.
+              The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -11763,10 +11781,10 @@ class Client(BaseClient):
           - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned ``NextToken`` value. This value can be between 5 and 1000. If ``MaxResults`` is given a value larger than 1000, only 1000 results are returned.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type NextToken: string
         :param NextToken:
-          The token to retrieve the next page of results.
+          The token for the next page of results.
         :rtype: dict
         :returns:
         """
@@ -11841,14 +11859,14 @@ class Client(BaseClient):
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type ElasticGpuIds: list
         :param ElasticGpuIds:
-          One or more Elastic Graphics accelerator IDs.
+          The Elastic Graphics accelerator IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone in which the Elastic Graphics accelerator resides.
           * ``elastic-gpu-health`` - The status of the Elastic Graphics accelerator (``OK`` | ``IMPAIRED`` ).
           * ``elastic-gpu-state`` - The state of the Elastic Graphics accelerator (``ATTACHED`` ).
@@ -11869,7 +11887,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -11884,7 +11902,7 @@ class Client(BaseClient):
 
     def describe_export_tasks(self, ExportTaskIds: List = None) -> Dict:
         """
-        Describes one or more of your export tasks.
+        Describes the specified export tasks or all your export tasks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeExportTasks>`_
         
         **Request Syntax**
@@ -11951,7 +11969,7 @@ class Client(BaseClient):
                   The status message related to the export task.
         :type ExportTaskIds: list
         :param ExportTaskIds:
-          One or more export task IDs.
+          The export task IDs.
           - *(string) --*
         :rtype: dict
         :returns:
@@ -12007,24 +12025,24 @@ class Client(BaseClient):
                   - **EventSubType** *(string) --* 
                     The event.
                     The following are the ``error`` events:
-                    * ``iamFleetRoleInvalid`` - The Spot Fleet did not have the required permissions either to launch or terminate an instance. 
-                    * ``launchSpecTemporarilyBlacklisted`` - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event. 
+                    * ``iamFleetRoleInvalid`` - The EC2 Fleet or Spot Fleet did not have the required permissions either to launch or terminate an instance. 
                     * ``spotFleetRequestConfigurationInvalid`` - The configuration is not valid. For more information, see the description of the event. 
                     * ``spotInstanceCountLimitExceeded`` - You've reached the limit on the number of Spot Instances that you can launch. 
                     The following are the ``fleetRequestChange`` events:
-                    * ``active`` - The Spot Fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot Instances. 
-                    * ``cancelled`` - The Spot Fleet is canceled and has no running Spot Instances. The Spot Fleet will be deleted two days after its instances were terminated. 
-                    * ``cancelled_running`` - The Spot Fleet is canceled and does not launch additional Spot Instances. Existing Spot Instances continue to run until they are interrupted or terminated. 
-                    * ``cancelled_terminating`` - The Spot Fleet is canceled and its Spot Instances are terminating. 
-                    * ``expired`` - The Spot Fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with ``TerminateInstancesWithExpiration`` set. 
-                    * ``modify_in_progress`` - A request to modify the Spot Fleet request was accepted and is in progress. 
-                    * ``modify_successful`` - The Spot Fleet request was modified. 
+                    * ``active`` - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is attempting to maintain the target number of running Spot Instances. 
+                    * ``cancelled`` - The EC2 Fleet or Spot Fleet request is canceled and has no running Spot Instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances were terminated. 
+                    * ``cancelled_running`` - The EC2 Fleet or Spot Fleet request is canceled and does not launch additional Spot Instances. Existing Spot Instances continue to run until they are interrupted or terminated. 
+                    * ``cancelled_terminating`` - The EC2 Fleet or Spot Fleet request is canceled and its Spot Instances are terminating. 
+                    * ``expired`` - The EC2 Fleet or Spot Fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with ``TerminateInstancesWithExpiration`` set. 
+                    * ``modify_in_progress`` - A request to modify the EC2 Fleet or Spot Fleet request was accepted and is in progress. 
+                    * ``modify_successful`` - The EC2 Fleet or Spot Fleet request was modified. 
                     * ``price_update`` - The price for a launch configuration was adjusted because it was too high. This change is permanent. 
-                    * ``submitted`` - The Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot Instances. 
+                    * ``submitted`` - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot Instances. 
                     The following are the ``instanceChange`` events:
                     * ``launched`` - A request was fulfilled and a new instance was launched. 
                     * ``terminated`` - An instance was terminated by the user. 
                     The following are the ``Information`` events:
+                    * ``launchSpecTemporarilyBlacklisted`` - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event. 
                     * ``launchSpecUnusable`` - The price in a launch specification is not valid because it is below the Spot price or the Spot price is above the On-Demand price. 
                     * ``fleetProgressHalted`` - The price in every launch specification is not valid. A launch specification might become valid if the Spot price changes. 
                   - **InstanceId** *(string) --* 
@@ -12134,7 +12152,7 @@ class Client(BaseClient):
           The ID of the EC2 Fleet.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-type`` - The instance type.
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
@@ -12151,7 +12169,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :rtype: dict
         :returns:
@@ -12160,7 +12178,7 @@ class Client(BaseClient):
 
     def describe_fleets(self, DryRun: bool = None, MaxResults: int = None, NextToken: str = None, FleetIds: List = None, Filters: List = None) -> Dict:
         """
-        Describes one or more of your EC2 Fleets.
+        Describes the specified EC2 Fleets or all your EC2 Fleets.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFleets>`_
         
         **Request Syntax**
@@ -12205,7 +12223,7 @@ class Client(BaseClient):
                                 },
                                 'Overrides': [
                                     {
-                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                         'MaxPrice': 'string',
                                         'SubnetId': 'string',
                                         'AvailabilityZone': 'string',
@@ -12258,7 +12276,7 @@ class Client(BaseClient):
                                         'Version': 'string'
                                     },
                                     'Overrides': {
-                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                         'MaxPrice': 'string',
                                         'SubnetId': 'string',
                                         'AvailabilityZone': 'string',
@@ -12283,7 +12301,7 @@ class Client(BaseClient):
                                         'Version': 'string'
                                     },
                                     'Overrides': {
-                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                         'MaxPrice': 'string',
                                         'SubnetId': 'string',
                                         'AvailabilityZone': 'string',
@@ -12298,7 +12316,7 @@ class Client(BaseClient):
                                 'InstanceIds': [
                                     'string',
                                 ],
-                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                 'Platform': 'Windows'
                             },
                         ]
@@ -12511,7 +12529,7 @@ class Client(BaseClient):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``activity-status`` - The progress of the EC2 Fleet ( ``error`` | ``pending-fulfillment`` | ``pending-termination`` | ``fulfilled`` ).
           * ``excess-capacity-termination-policy`` - Indicates whether to terminate running instances if the target capacity is decreased below the current EC2 Fleet size (``true`` | ``false`` ).
           * ``fleet-state`` - The state of the EC2 Fleet (``submitted`` | ``active`` | ``deleted`` | ``failed`` | ``deleted-running`` | ``deleted-terminating`` | ``modifying`` ).
@@ -12532,7 +12550,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :rtype: dict
         :returns:
@@ -12641,7 +12659,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type FlowLogIds: list
         :param FlowLogIds:
@@ -12649,10 +12667,10 @@ class Client(BaseClient):
           - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned ``NextToken`` value. This value can be between 5 and 1000. If ``MaxResults`` is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type NextToken: string
         :param NextToken:
-          The token to retrieve the next page of results.
+          The token for the next page of results.
         :rtype: dict
         :returns:
         """
@@ -12704,7 +12722,7 @@ class Client(BaseClient):
               - **Description** *(string) --* 
                 The description of the AFI.
               - **LoadPermissions** *(list) --* 
-                One or more load permissions.
+                The load permissions.
                 - *(dict) --* 
                   Describes a load permission.
                   - **UserId** *(string) --* 
@@ -12712,7 +12730,7 @@ class Client(BaseClient):
                   - **Group** *(string) --* 
                     The name of the group.
               - **ProductCodes** *(list) --* 
-                One or more product codes.
+                The product codes.
                 - *(dict) --* 
                   Describes a product code.
                   - **ProductCodeId** *(string) --* 
@@ -12735,7 +12753,7 @@ class Client(BaseClient):
 
     def describe_fpga_images(self, DryRun: bool = None, FpgaImageIds: List = None, Owners: List = None, Filters: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
-        Describes one or more available Amazon FPGA Images (AFIs). These include public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.
+        Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImages>`_
         
         **Request Syntax**
@@ -12796,7 +12814,8 @@ class Client(BaseClient):
                                 'Value': 'string'
                             },
                         ],
-                        'Public': True|False
+                        'Public': True|False,
+                        'DataRetentionSupport': True|False
                     },
                 ],
                 'NextToken': 'string'
@@ -12805,7 +12824,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **FpgaImages** *(list) --* 
-              Information about one or more FPGA images.
+              Information about the FPGA images.
               - *(dict) --* 
                 Describes an Amazon FPGA image (AFI).
                 - **FpgaImageId** *(string) --* 
@@ -12866,6 +12885,8 @@ class Client(BaseClient):
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
                 - **Public** *(boolean) --* 
                   Indicates whether the AFI is public.
+                - **DataRetentionSupport** *(boolean) --* 
+                  Indicates whether data retention support is enabled for the AFI.
             - **NextToken** *(string) --* 
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type DryRun: boolean
@@ -12873,7 +12894,7 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type FpgaImageIds: list
         :param FpgaImageIds:
-          One or more AFI IDs.
+          The AFI IDs.
           - *(string) --*
         :type Owners: list
         :param Owners:
@@ -12881,7 +12902,7 @@ class Client(BaseClient):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``create-time`` - The creation time of the AFI.
           * ``fpga-image-id`` - The FPGA image identifier (AFI ID).
           * ``fpga-image-global-id`` - The global FPGA image identifier (AGFI ID).
@@ -12908,7 +12929,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type NextToken: string
         :param NextToken:
@@ -12986,7 +13007,7 @@ class Client(BaseClient):
                   The upfront price of the offering. Does not apply to No Upfront offerings.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-family`` - The instance family of the offering (for example, ``m4`` ).
           * ``payment-option`` - The payment option (``NoUpfront`` | ``PartialUpfront`` | ``AllUpfront`` ).
           - *(dict) --*
@@ -13004,7 +13025,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxDuration: integer
         :param MaxDuration:
@@ -13068,7 +13089,13 @@ class Client(BaseClient):
                         'PaymentOption': 'AllUpfront'|'PartialUpfront'|'NoUpfront',
                         'Start': datetime(2015, 1, 1),
                         'State': 'payment-pending'|'payment-failed'|'active'|'retired',
-                        'UpfrontPrice': 'string'
+                        'UpfrontPrice': 'string',
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ]
                     },
                 ],
                 'NextToken': 'string'
@@ -13107,14 +13134,26 @@ class Client(BaseClient):
                   The state of the reservation.
                 - **UpfrontPrice** *(string) --* 
                   The upfront price of the reservation.
+                - **Tags** *(list) --* 
+                  Any tags assigned to the Dedicated Host Reservation.
+                  - *(dict) --* 
+                    Describes a tag.
+                    - **Key** *(string) --* 
+                      The key of the tag.
+                      Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:`` .
+                    - **Value** *(string) --* 
+                      The value of the tag.
+                      Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
             - **NextToken** *(string) --* 
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-family`` - The instance family (for example, ``m4`` ).
           * ``payment-option`` - The payment option (``NoUpfront`` | ``PartialUpfront`` | ``AllUpfront`` ).
           * ``state`` - The state of the reservation (``payment-pending`` | ``payment-failed`` | ``active`` | ``retired`` ).
+          * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
+          * ``tag-key`` - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
             *  DescribeAvailabilityZones
@@ -13130,11 +13169,11 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type HostReservationIdSet: list
         :param HostReservationIdSet:
-          One or more host reservation IDs.
+          The host reservation IDs.
           - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -13149,7 +13188,7 @@ class Client(BaseClient):
 
     def describe_hosts(self, Filters: List = None, HostIds: List = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
-        Describes one or more of your Dedicated Hosts.
+        Describes the specified Dedicated Hosts or all your Dedicated Hosts.
         The results describe only the Dedicated Hosts in the Region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state ``released`` .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHosts>`_
         
@@ -13285,7 +13324,7 @@ class Client(BaseClient):
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``auto-placement`` - Whether auto-placement is enabled or disabled (``on`` | ``off`` ).
           * ``availability-zone`` - The Availability Zone of the host.
           * ``client-token`` - The idempotency token that you provided when you allocated the host.
@@ -13308,7 +13347,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type HostIds: list
         :param HostIds:
@@ -13369,7 +13408,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **IamInstanceProfileAssociations** *(list) --* 
-              Information about one or more IAM instance profile associations.
+              Information about the IAM instance profile associations.
               - *(dict) --* 
                 Describes an association between an IAM instance profile and an instance.
                 - **AssociationId** *(string) --* 
@@ -13390,11 +13429,11 @@ class Client(BaseClient):
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type AssociationIds: list
         :param AssociationIds:
-          One or more IAM instance profile associations.
+          The IAM instance profile associations.
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-id`` - The ID of the instance.
           * ``state`` - The state of the association (``associating`` | ``associated`` | ``disassociating`` | ``disassociated`` ).
           - *(dict) --*
@@ -13412,7 +13451,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -13582,7 +13621,7 @@ class Client(BaseClient):
           - *(dict) --* 
             Describes an image attribute.
             - **BlockDeviceMappings** *(list) --* 
-              One or more block device mapping entries.
+              The block device mapping entries.
               - *(dict) --* 
                 Describes a block device mapping.
                 - **DeviceName** *(string) --* 
@@ -13596,20 +13635,20 @@ class Client(BaseClient):
                   - **DeleteOnTermination** *(boolean) --* 
                     Indicates whether the EBS volume is deleted on instance termination.
                   - **Iops** *(integer) --* 
-                    The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                    Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                    The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                    Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                     Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                   - **SnapshotId** *(string) --* 
                     The ID of the snapshot.
                   - **VolumeSize** *(integer) --* 
                     The size of the volume, in GiB.
-                    Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                     Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                    Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                   - **VolumeType** *(string) --* 
-                    The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                    The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                     Default: ``standard``  
                   - **Encrypted** *(boolean) --* 
-                    Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. 
+                    Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
                     If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
                   - **KmsKeyId** *(string) --* 
                     Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.
@@ -13619,7 +13658,7 @@ class Client(BaseClient):
             - **ImageId** *(string) --* 
               The ID of the AMI.
             - **LaunchPermissions** *(list) --* 
-              One or more launch permissions.
+              The launch permissions.
               - *(dict) --* 
                 Describes a launch permission.
                 - **Group** *(string) --* 
@@ -13627,7 +13666,7 @@ class Client(BaseClient):
                 - **UserId** *(string) --* 
                   The AWS account ID.
             - **ProductCodes** *(list) --* 
-              One or more product codes.
+              The product codes.
               - *(dict) --* 
                 Describes a product code.
                 - **ProductCodeId** *(string) --* 
@@ -13667,9 +13706,9 @@ class Client(BaseClient):
 
     def describe_images(self, ExecutableUsers: List = None, Filters: List = None, ImageIds: List = None, Owners: List = None, DryRun: bool = None) -> Dict:
         """
-        Describes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images available to you include public images, private images that you own, and private images owned by other AWS accounts but for which you have explicit launch permissions.
-        .. note::
-          Deregistered images are included in the returned results for an unspecified interval after deregistration.
+        Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.
+        The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.
+        Recently deregistered images might appear in the returned results for a short interval.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImages>`_
         
         **Request Syntax**
@@ -13758,9 +13797,8 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeImages.
             - **Images** *(list) --* 
-              Information about one or more images.
+              Information about the images.
               - *(dict) --* 
                 Describes an image.
                 - **Architecture** *(string) --* 
@@ -13808,20 +13846,20 @@ class Client(BaseClient):
                       - **DeleteOnTermination** *(boolean) --* 
                         Indicates whether the EBS volume is deleted on instance termination.
                       - **Iops** *(integer) --* 
-                        The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                        Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                        The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                        Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                         Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                       - **SnapshotId** *(string) --* 
                         The ID of the snapshot.
                       - **VolumeSize** *(integer) --* 
                         The size of the volume, in GiB.
-                        Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                         Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                        Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                       - **VolumeType** *(string) --* 
-                        The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                        The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                         Default: ``standard``  
                       - **Encrypted** *(boolean) --* 
-                        Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. 
+                        Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
                         If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
                       - **KmsKeyId** *(string) --* 
                         Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.
@@ -13880,7 +13918,7 @@ class Client(BaseClient):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``architecture`` - The image architecture (``i386`` | ``x86_64`` ).
           * ``block-device-mapping.delete-on-termination`` - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.
           * ``block-device-mapping.device-name`` - The device name specified in the block device mapping (for example, ``/dev/sdh`` or ``xvdh`` ).
@@ -13927,11 +13965,11 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ImageIds: list
         :param ImageIds:
-          One or more image IDs.
+          The image IDs.
           Default: Describes all images available to you.
           - *(string) --*
         :type Owners: list
@@ -14093,7 +14131,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ImportTaskIds: list
         :param ImportTaskIds:
@@ -14208,7 +14246,7 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
             *  DescribeAvailabilityZones
@@ -14224,7 +14262,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ImportTaskIds: list
         :param ImportTaskIds:
@@ -14414,7 +14452,7 @@ class Client(BaseClient):
 
     def describe_instance_credit_specifications(self, DryRun: bool = None, Filters: List = None, InstanceIds: List = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
-        Describes the credit option for CPU usage of one or more of your T2 or T3 instances. The credit options are ``standard`` and ``unlimited`` .
+        Describes the credit option for CPU usage of the specified T2 or T3 instances. The credit options are ``standard`` and ``unlimited`` .
         If you do not specify an instance ID, Amazon EC2 returns T2 and T3 instances with the ``unlimited`` credit option, as well as instances that were previously configured as T2 or T3 with the ``unlimited`` credit option. For example, if you resize a T2 instance, while it is configured as ``unlimited`` , to an M4 instance, Amazon EC2 returns the M4 instance.
         If you specify one or more instance IDs, Amazon EC2 returns the credit option (``standard`` or ``unlimited`` ) of those instances. If you specify an instance ID that is not valid, such as an instance that is not a T2 or T3 instance, an error is returned.
         Recently terminated instances might appear in the returned results. This interval is usually less than one hour.
@@ -14470,7 +14508,7 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-id`` - The ID of the instance.
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
@@ -14487,11 +14525,11 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           Constraints: Maximum 1000 explicitly specified instance IDs.
           - *(string) --*
@@ -14508,7 +14546,7 @@ class Client(BaseClient):
 
     def describe_instance_status(self, Filters: List = None, InstanceIds: List = None, MaxResults: int = None, NextToken: str = None, DryRun: bool = None, IncludeAllInstances: bool = None) -> Dict:
         """
-        Describes the status of one or more instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.
+        Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.
         Instance status includes the following components:
         * **Status checks** - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see `Status Checks for Your Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html>`__ and `Troubleshooting Instances with Failed Status Checks <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . 
         * **Scheduled events** - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see `Scheduled Events for Your Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . 
@@ -14543,10 +14581,12 @@ class Client(BaseClient):
                         'AvailabilityZone': 'string',
                         'Events': [
                             {
+                                'InstanceEventId': 'string',
                                 'Code': 'instance-reboot'|'system-reboot'|'system-maintenance'|'instance-retirement'|'instance-stop',
                                 'Description': 'string',
                                 'NotAfter': datetime(2015, 1, 1),
-                                'NotBefore': datetime(2015, 1, 1)
+                                'NotBefore': datetime(2015, 1, 1),
+                                'NotBeforeDeadline': datetime(2015, 1, 1)
                             },
                         ],
                         'InstanceId': 'string',
@@ -14582,7 +14622,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **InstanceStatuses** *(list) --* 
-              One or more instance status descriptions.
+              Information about the status of the instances.
               - *(dict) --* 
                 Describes the status of an instance.
                 - **AvailabilityZone** *(string) --* 
@@ -14591,6 +14631,8 @@ class Client(BaseClient):
                   Any scheduled events associated with the instance.
                   - *(dict) --* 
                     Describes a scheduled event for an instance.
+                    - **InstanceEventId** *(string) --* 
+                      The ID of the event.
                     - **Code** *(string) --* 
                       The event code.
                     - **Description** *(string) --* 
@@ -14600,18 +14642,24 @@ class Client(BaseClient):
                       The latest scheduled end time for the event.
                     - **NotBefore** *(datetime) --* 
                       The earliest scheduled start time for the event.
+                    - **NotBeforeDeadline** *(datetime) --* 
+                      The deadline for starting the event.
                 - **InstanceId** *(string) --* 
                   The ID of the instance.
                 - **InstanceState** *(dict) --* 
                   The intended state of the instance.  DescribeInstanceStatus requires that an instance be in the ``running`` state.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceStatus** *(dict) --* 
@@ -14646,12 +14694,14 @@ class Client(BaseClient):
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone of the instance.
           * ``event.code`` - The code for the scheduled event (``instance-reboot`` | ``system-reboot`` | ``system-maintenance`` | ``instance-retirement`` | ``instance-stop`` ).
           * ``event.description`` - A description of the event.
+          * ``event.instance-event-id`` - The ID of the event whose date and time you are modifying.
           * ``event.not-after`` - The latest end time for the scheduled event (for example, ``2014-09-15T17:15:20.000Z`` ).
           * ``event.not-before`` - The earliest start time for the scheduled event (for example, ``2014-09-15T17:15:20.000Z`` ).
+          * ``event.not-before-deadline`` - The deadline for starting the event (for example, ``2014-09-15T17:15:20.000Z`` ).
           * ``instance-state-code`` - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
           * ``instance-state-name`` - The state of the instance (``pending`` | ``running`` | ``shutting-down`` | ``terminated`` | ``stopping`` | ``stopped`` ).
           * ``instance-status.reachability`` - Filters on instance status where the name is ``reachability`` (``passed`` | ``failed`` | ``initializing`` | ``insufficient-data`` ).
@@ -14673,11 +14723,11 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           Constraints: Maximum 100 explicitly specified instance IDs.
           - *(string) --*
@@ -14701,7 +14751,7 @@ class Client(BaseClient):
 
     def describe_instances(self, Filters: List = None, InstanceIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
-        Describes one or more of your instances.
+        Describes the specified instances or all of your instances.
         If you specify one or more instance IDs, Amazon EC2 returns information for those instances. If you do not specify instance IDs, Amazon EC2 returns information for all relevant instances. If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the returned results.
         Recently terminated instances might appear in the returned results. This interval is usually less than one hour.
         If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.
@@ -14742,7 +14792,7 @@ class Client(BaseClient):
                                 'AmiLaunchIndex': 123,
                                 'ImageId': 'string',
                                 'InstanceId': 'string',
-                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                 'KernelId': 'string',
                                 'KeyName': 'string',
                                 'LaunchTime': datetime(2015, 1, 1),
@@ -14860,7 +14910,8 @@ class Client(BaseClient):
                                         'SourceDestCheck': True|False,
                                         'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
                                         'SubnetId': 'string',
-                                        'VpcId': 'string'
+                                        'VpcId': 'string',
+                                        'InterfaceType': 'string'
                                     },
                                 ],
                                 'RootDeviceName': 'string',
@@ -14917,11 +14968,11 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **Reservations** *(list) --* 
-              Zero or more reservations.
+              Information about the reservations.
               - *(dict) --* 
                 Describes a reservation.
                 - **Groups** *(list) --* 
-                  [EC2-Classic only] One or more security groups.
+                  [EC2-Classic only] The security groups.
                   - *(dict) --* 
                     Describes a security group.
                     - **GroupName** *(string) --* 
@@ -14929,7 +14980,7 @@ class Client(BaseClient):
                     - **GroupId** *(string) --* 
                       The ID of the security group.
                 - **Instances** *(list) --* 
-                  One or more instances.
+                  The instances.
                   - *(dict) --* 
                     Describes an instance.
                     - **AmiLaunchIndex** *(integer) --* 
@@ -14954,6 +15005,7 @@ class Client(BaseClient):
                       The location where the instance launched, if applicable.
                       - **AvailabilityZone** *(string) --* 
                         The Availability Zone of the instance.
+                        If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the region.
                       - **Affinity** *(string) --* 
                         The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the  ImportInstance command.
                       - **GroupName** *(string) --* 
@@ -14990,13 +15042,17 @@ class Client(BaseClient):
                     - **State** *(dict) --* 
                       The current state of the instance.
                       - **Code** *(integer) --* 
-                        The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                        The state of the instance as a 16-bit unsigned integer. 
+                        The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                        The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                        The valid values for instance-state-code will all be in the range of the low byte and they are:
                         * ``0`` : ``pending``   
                         * ``16`` : ``running``   
                         * ``32`` : ``shutting-down``   
                         * ``48`` : ``terminated``   
                         * ``64`` : ``stopping``   
                         * ``80`` : ``stopped``   
+                        You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                       - **Name** *(string) --* 
                         The current state of the instance.
                     - **StateTransitionReason** *(string) --* 
@@ -15064,7 +15120,7 @@ class Client(BaseClient):
                         - **ElasticInferenceAcceleratorAssociationTime** *(datetime) --* 
                           The time at which the elastic inference accelerator is associated with an instance. 
                     - **NetworkInterfaces** *(list) --* 
-                      [EC2-VPC] One or more network interfaces for the instance.
+                      [EC2-VPC] The network interfaces for the instance.
                       - *(dict) --* 
                         Describes a network interface.
                         - **Association** *(dict) --* 
@@ -15139,12 +15195,14 @@ class Client(BaseClient):
                           The ID of the subnet.
                         - **VpcId** *(string) --* 
                           The ID of the VPC.
+                        - **InterfaceType** *(string) --* 
+                          Describes the type of network interface.
                     - **RootDeviceName** *(string) --* 
                       The device name of the root device volume (for example, ``/dev/sda1`` ).
                     - **RootDeviceType** *(string) --* 
                       The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
                     - **SecurityGroups** *(list) --* 
-                      One or more security groups for the instance.
+                      The security groups for the instance.
                       - *(dict) --* 
                         Describes a security group.
                         - **GroupName** *(string) --* 
@@ -15225,7 +15283,7 @@ class Client(BaseClient):
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -15289,7 +15347,7 @@ class Client(BaseClient):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -15325,11 +15383,11 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           - *(string) --*
         :type DryRun: boolean
@@ -15346,7 +15404,7 @@ class Client(BaseClient):
         """
         pass
 
-    def describe_internet_gateways(self, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None) -> Dict:
+    def describe_internet_gateways(self, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
         Describes one or more of your internet gateways.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInternetGateways>`_
@@ -15365,7 +15423,9 @@ class Client(BaseClient):
               DryRun=True|False,
               InternetGatewayIds=[
                   'string',
-              ]
+              ],
+              NextToken='string',
+              MaxResults=123
           )
         
         **Response Syntax**
@@ -15388,7 +15448,8 @@ class Client(BaseClient):
                             },
                         ]
                     },
-                ]
+                ],
+                'NextToken': 'string'
             }
         
         **Response Structure**
@@ -15419,6 +15480,8 @@ class Client(BaseClient):
                     - **Value** *(string) --* 
                       The value of the tag.
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
+            - **NextToken** *(string) --* 
+              The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
           One or more filters.
@@ -15443,7 +15506,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -15453,6 +15516,12 @@ class Client(BaseClient):
           One or more internet gateway IDs.
           Default: Describes all your internet gateways.
           - *(string) --*
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: dict
         :returns:
         """
@@ -15460,7 +15529,7 @@ class Client(BaseClient):
 
     def describe_key_pairs(self, Filters: List = None, KeyNames: List = None, DryRun: bool = None) -> Dict:
         """
-        Describes one or more of your key pairs.
+        Describes the specified key pairs or all of your key pairs.
         For more information about key pairs, see `Key Pairs <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeKeyPairs>`_
         
@@ -15495,7 +15564,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **KeyPairs** *(list) --* 
-              Information about one or more key pairs.
+              Information about the key pairs.
               - *(dict) --* 
                 Describes a key pair.
                 - **KeyFingerprint** *(string) --* 
@@ -15504,7 +15573,7 @@ class Client(BaseClient):
                   The name of the key pair.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``fingerprint`` - The fingerprint of the key pair.
           * ``key-name`` - The name of the key pair.
           - *(dict) --*
@@ -15522,11 +15591,11 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type KeyNames: list
         :param KeyNames:
-          One or more key pair names.
+          The key pair names.
           Default: Describes all your key pairs.
           - *(string) --*
         :type DryRun: boolean
@@ -15609,6 +15678,7 @@ class Client(BaseClient):
                                     'Groups': [
                                         'string',
                                     ],
+                                    'InterfaceType': 'string',
                                     'Ipv6AddressCount': 123,
                                     'Ipv6Addresses': [
                                         {
@@ -15628,7 +15698,7 @@ class Client(BaseClient):
                                 },
                             ],
                             'ImageId': 'string',
-                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                             'KeyName': 'string',
                             'Monitoring': {
                                 'Enabled': True|False
@@ -15647,7 +15717,7 @@ class Client(BaseClient):
                             'UserData': 'string',
                             'TagSpecifications': [
                                 {
-                                    'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                                    'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                                     'Tags': [
                                         {
                                             'Key': 'string',
@@ -15695,14 +15765,14 @@ class Client(BaseClient):
                                     'CapacityReservationId': 'string'
                                 }
                             },
-                            'HibernationOptions': {
-                                'Configured': True|False
-                            },
                             'LicenseSpecifications': [
                                 {
                                     'LicenseConfigurationArn': 'string'
                                 },
-                            ]
+                            ],
+                            'HibernationOptions': {
+                                'Configured': True|False
+                            }
                         }
                     },
                 ],
@@ -15782,6 +15852,8 @@ class Client(BaseClient):
                       - **Groups** *(list) --* 
                         The IDs of one or more security groups.
                         - *(string) --* 
+                      - **InterfaceType** *(string) --* 
+                        The type of network interface.
                       - **Ipv6AddressCount** *(integer) --* 
                         The number of IPv6 addresses for the network interface.
                       - **Ipv6Addresses** *(list) --* 
@@ -15908,16 +15980,16 @@ class Client(BaseClient):
                       Information about the target Capacity Reservation.
                       - **CapacityReservationId** *(string) --* 
                         The ID of the Capacity Reservation.
-                  - **HibernationOptions** *(dict) --* 
-                    Indicates whether an instance is configured for hibernation. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                    - **Configured** *(boolean) --* 
-                      If this parameter is set to ``true`` , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
                   - **LicenseSpecifications** *(list) --* 
                     The license configurations.
                     - *(dict) --* 
                       Describes a license configuration.
                       - **LicenseConfigurationArn** *(string) --* 
                         The Amazon Resource Name (ARN) of the license configuration.
+                  - **HibernationOptions** *(dict) --* 
+                    Indicates whether an instance is configured for hibernation. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                    - **Configured** *(boolean) --* 
+                      If this parameter is set to ``true`` , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
             - **NextToken** *(string) --* 
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type DryRun: boolean
@@ -15971,7 +16043,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :rtype: dict
         :returns:
@@ -16090,7 +16162,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type NextToken: string
         :param NextToken:
@@ -16170,7 +16242,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -16346,25 +16418,24 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
-          Constraint: If the value specified is greater than 1000, we return only 1000 items.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type NatGatewayIds: list
         :param NatGatewayIds:
           One or more NAT gateway IDs.
           - *(string) --*
         :type NextToken: string
         :param NextToken:
-          The token to retrieve the next page of results.
+          The token for the next page of results.
         :rtype: dict
         :returns:
         """
         pass
 
-    def describe_network_acls(self, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None) -> Dict:
+    def describe_network_acls(self, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
         Describes one or more of your network ACLs.
         For more information, see `Network ACLs <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -16384,7 +16455,9 @@ class Client(BaseClient):
               DryRun=True|False,
               NetworkAclIds=[
                   'string',
-              ]
+              ],
+              NextToken='string',
+              MaxResults=123
           )
         
         **Response Syntax**
@@ -16428,7 +16501,8 @@ class Client(BaseClient):
                         'VpcId': 'string',
                         'OwnerId': 'string'
                     },
-                ]
+                ],
+                'NextToken': 'string'
             }
         
         **Response Structure**
@@ -16493,6 +16567,8 @@ class Client(BaseClient):
                   The ID of the VPC for the network ACL.
                 - **OwnerId** *(string) --* 
                   The ID of the AWS account that owns the network ACL.
+            - **NextToken** *(string) --* 
+              The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
           One or more filters.
@@ -16529,7 +16605,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -16539,6 +16615,12 @@ class Client(BaseClient):
           One or more network ACL IDs.
           Default: Describes all your network ACLs.
           - *(string) --*
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: dict
         :returns:
         """
@@ -16729,7 +16811,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type NextToken: string
         :param NextToken:
@@ -16795,7 +16877,7 @@ class Client(BaseClient):
                                 'GroupId': 'string'
                             },
                         ],
-                        'InterfaceType': 'interface'|'natGateway',
+                        'InterfaceType': 'interface'|'natGateway'|'efa',
                         'Ipv6Addresses': [
                             {
                                 'Ipv6Address': 'string'
@@ -16885,7 +16967,7 @@ class Client(BaseClient):
                     - **GroupId** *(string) --* 
                       The ID of the security group.
                 - **InterfaceType** *(string) --* 
-                  The type of interface.
+                  The type of network interface.
                 - **Ipv6Addresses** *(list) --* 
                   The IPv6 addresses associated with the network interface.
                   - *(dict) --* 
@@ -16980,7 +17062,7 @@ class Client(BaseClient):
           * ``private-dns-name`` - The private DNS name of the network interface (IPv4).
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).
           * ``requester-managed`` - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).
-          * ``source-desk-check`` - Indicates whether the network interface performs source/destination checking. A value of ``true`` means checking is enabled, and ``false`` means checking is disabled. The value must be ``false`` for the network interface to perform network address translation (NAT) in your VPC.
+          * ``source-dest-check`` - Indicates whether the network interface performs source/destination checking. A value of ``true`` means checking is enabled, and ``false`` means checking is disabled. The value must be ``false`` for the network interface to perform network address translation (NAT) in your VPC.
           * ``status`` - The status of the network interface. If the network interface is not attached to an instance, the status is ``available`` ; if a network interface is attached to an instance the status is ``in-use`` .
           * ``subnet-id`` - The ID of the subnet for the network interface.
           * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
@@ -17001,7 +17083,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -17024,7 +17106,7 @@ class Client(BaseClient):
 
     def describe_placement_groups(self, Filters: List = None, DryRun: bool = None, GroupNames: List = None) -> Dict:
         """
-        Describes one or more of your placement groups. For more information, see `Placement Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+        Describes the specified placement groups or all of your placement groups. For more information, see `Placement Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePlacementGroups>`_
         
         **Request Syntax**
@@ -17060,7 +17142,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **PlacementGroups** *(list) --* 
-              One or more placement groups.
+              Information about the placement groups.
               - *(dict) --* 
                 Describes a placement group.
                 - **GroupName** *(string) --* 
@@ -17073,7 +17155,7 @@ class Client(BaseClient):
                   The number of partitions. Valid only if **strategy** is set to ``partition`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``group-name`` - The name of the placement group.
           * ``state`` - The state of the placement group (``pending`` | ``available`` | ``deleting`` | ``deleted`` ).
           * ``strategy`` - The strategy of the placement group (``cluster`` | ``spread`` | ``partition`` ).
@@ -17092,14 +17174,14 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type GroupNames: list
         :param GroupNames:
-          One or more placement group names.
+          The names of the placement groups.
           Default: Describes all your placement groups, or only those otherwise specified.
           - *(string) --*
         :rtype: dict
@@ -17149,7 +17231,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **NextToken** *(string) --* 
-              The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+              The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
             - **PrefixLists** *(list) --* 
               All available prefix lists.
               - *(dict) --* 
@@ -17184,15 +17266,14 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
-          Constraint: If the value specified is greater than 1000, we return only 1000 items.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type NextToken: string
         :param NextToken:
-          The token for the next set of items to return. (You received this token from a prior call.)
+          The token for the next page of results.
         :type PrefixListIds: list
         :param PrefixListIds:
           One or more prefix list IDs.
@@ -17358,7 +17439,7 @@ class Client(BaseClient):
 
     def describe_regions(self, Filters: List = None, RegionNames: List = None, DryRun: bool = None) -> Dict:
         """
-        Describes one or more regions that are currently available to you.
+        Describes the regions that are currently available to you.
         For a list of the regions supported by Amazon EC2, see `Regions and Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRegions>`_
         
@@ -17393,7 +17474,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **Regions** *(list) --* 
-              Information about one or more regions.
+              Information about the regions.
               - *(dict) --* 
                 Describes a region.
                 - **Endpoint** *(string) --* 
@@ -17402,7 +17483,7 @@ class Client(BaseClient):
                   The name of the region.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``endpoint`` - The endpoint of the region (for example, ``ec2.us-east-1.amazonaws.com`` ).
           * ``region-name`` - The name of the region (for example, ``us-east-1`` ).
           - *(dict) --*
@@ -17420,11 +17501,11 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type RegionNames: list
         :param RegionNames:
-          The names of one or more regions.
+          The names of the regions.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -17469,7 +17550,7 @@ class Client(BaseClient):
                         'End': datetime(2015, 1, 1),
                         'FixedPrice': ...,
                         'InstanceCount': 123,
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                         'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
                         'ReservedInstancesId': 'string',
                         'Start': datetime(2015, 1, 1),
@@ -17584,7 +17665,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type OfferingClass: string
         :param OfferingClass:
@@ -17739,7 +17820,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ReservedInstancesId: string
         :param ReservedInstancesId:
@@ -17790,7 +17871,7 @@ class Client(BaseClient):
                                 'TargetConfiguration': {
                                     'AvailabilityZone': 'string',
                                     'InstanceCount': 123,
-                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                     'Platform': 'string',
                                     'Scope': 'Availability Zone'|'Region'
                                 }
@@ -17889,7 +17970,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ReservedInstancesModificationIds: list
         :param ReservedInstancesModificationIds:
@@ -17923,7 +18004,7 @@ class Client(BaseClient):
                   },
               ],
               IncludeMarketplace=True|False,
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
               MaxDuration=123,
               MaxInstanceCount=123,
               MinDuration=123,
@@ -17947,7 +18028,7 @@ class Client(BaseClient):
                         'AvailabilityZone': 'string',
                         'Duration': 123,
                         'FixedPrice': ...,
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                         'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
                         'ReservedInstancesOfferingId': 'string',
                         'UsagePrice': ...,
@@ -18055,7 +18136,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type IncludeMarketplace: boolean
         :param IncludeMarketplace:
@@ -18298,7 +18379,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -18310,10 +18391,10 @@ class Client(BaseClient):
           - *(string) --*
         :type NextToken: string
         :param NextToken:
-          The token to retrieve the next page of results.
+          The token for the next page of results.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned **NextToken** value. This value can be between 5 and 100.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: dict
         :returns:
         """
@@ -18439,7 +18520,7 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone (for example, ``us-west-2a`` ).
           * ``instance-type`` - The instance type (for example, ``c4.large`` ).
           * ``network-platform`` - The network platform (``EC2-Classic`` or ``EC2-VPC`` ).
@@ -18459,7 +18540,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type FirstSlotStartTimeRange: dict
         :param FirstSlotStartTimeRange: **[REQUIRED]**
@@ -18501,7 +18582,7 @@ class Client(BaseClient):
 
     def describe_scheduled_instances(self, DryRun: bool = None, Filters: List = None, MaxResults: int = None, NextToken: str = None, ScheduledInstanceIds: List = None, SlotStartTimeRange: Dict = None) -> Dict:
         """
-        Describes one or more of your Scheduled Instances.
+        Describes the specified Scheduled Instances or all your Scheduled Instances.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeScheduledInstances>`_
         
         **Request Syntax**
@@ -18615,7 +18696,7 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone (for example, ``us-west-2a`` ).
           * ``instance-type`` - The instance type (for example, ``c4.large`` ).
           * ``network-platform`` - The network platform (``EC2-Classic`` or ``EC2-VPC`` ).
@@ -18635,7 +18716,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -18645,7 +18726,7 @@ class Client(BaseClient):
           The token for the next set of results.
         :type ScheduledInstanceIds: list
         :param ScheduledInstanceIds:
-          One or more Scheduled Instance IDs.
+          The Scheduled Instance IDs.
           - *(string) --*
         :type SlotStartTimeRange: dict
         :param SlotStartTimeRange:
@@ -18661,7 +18742,7 @@ class Client(BaseClient):
 
     def describe_security_group_references(self, GroupId: List, DryRun: bool = None) -> Dict:
         """
-        [EC2-VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.
+        [VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroupReferences>`_
         
         **Request Syntax**
@@ -18702,7 +18783,7 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type GroupId: list
         :param GroupId: **[REQUIRED]**
-          One or more security group IDs in your account.
+          The IDs of the security groups in your account.
           - *(string) --*
         :rtype: dict
         :returns:
@@ -18711,7 +18792,7 @@ class Client(BaseClient):
 
     def describe_security_groups(self, Filters: List = None, GroupIds: List = None, GroupNames: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
-        Describes one or more of your security groups.
+        Describes the specified security groups or all of your security groups.
         A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see `Amazon EC2 Security Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ in the *Amazon Elastic Compute Cloud User Guide* and `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroups>`_
         
@@ -18833,7 +18914,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **SecurityGroups** *(list) --* 
-              Information about one or more security groups.
+              Information about the security groups.
               - *(dict) --* 
                 Describes a security group
                 - **Description** *(string) --* 
@@ -18841,16 +18922,16 @@ class Client(BaseClient):
                 - **GroupName** *(string) --* 
                   The name of the security group.
                 - **IpPermissions** *(list) --* 
-                  One or more inbound rules associated with the security group.
+                  The inbound rules associated with the security group.
                   - *(dict) --* 
                     Describes a set of permissions for a security group rule.
                     - **FromPort** *(integer) --* 
                       The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
                     - **IpProtocol** *(string) --* 
-                      The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
-                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+                      The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+                      [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
                     - **IpRanges** *(list) --* 
-                      One or more IPv4 ranges.
+                      The IPv4 ranges.
                       - *(dict) --* 
                         Describes an IPv4 range.
                         - **CidrIp** *(string) --* 
@@ -18859,7 +18940,7 @@ class Client(BaseClient):
                           A description for the security group rule that references this IPv4 address range.
                           Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
                     - **Ipv6Ranges** *(list) --* 
-                      [EC2-VPC only] One or more IPv6 ranges.
+                      [VPC only] The IPv6 ranges.
                       - *(dict) --* 
                         [EC2-VPC only] Describes an IPv6 range.
                         - **CidrIpv6** *(string) --* 
@@ -18868,7 +18949,7 @@ class Client(BaseClient):
                           A description for the security group rule that references this IPv6 address range.
                           Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
                     - **PrefixListIds** *(list) --* 
-                      [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+                      [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
                       - *(dict) --* 
                         Describes a prefix list ID.
                         - **Description** *(string) --* 
@@ -18877,9 +18958,9 @@ class Client(BaseClient):
                         - **PrefixListId** *(string) --* 
                           The ID of the prefix.
                     - **ToPort** *(integer) --* 
-                      The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+                      The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
                     - **UserIdGroupPairs** *(list) --* 
-                      One or more security group and AWS account ID pairs.
+                      The security group and AWS account ID pairs.
                       - *(dict) --* 
                         Describes a security group and AWS account ID pair.
                         - **Description** *(string) --* 
@@ -18905,16 +18986,16 @@ class Client(BaseClient):
                 - **GroupId** *(string) --* 
                   The ID of the security group.
                 - **IpPermissionsEgress** *(list) --* 
-                  [EC2-VPC] One or more outbound rules associated with the security group.
+                  [VPC only] The outbound rules associated with the security group.
                   - *(dict) --* 
                     Describes a set of permissions for a security group rule.
                     - **FromPort** *(integer) --* 
                       The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
                     - **IpProtocol** *(string) --* 
-                      The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
-                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+                      The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+                      [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
                     - **IpRanges** *(list) --* 
-                      One or more IPv4 ranges.
+                      The IPv4 ranges.
                       - *(dict) --* 
                         Describes an IPv4 range.
                         - **CidrIp** *(string) --* 
@@ -18923,7 +19004,7 @@ class Client(BaseClient):
                           A description for the security group rule that references this IPv4 address range.
                           Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
                     - **Ipv6Ranges** *(list) --* 
-                      [EC2-VPC only] One or more IPv6 ranges.
+                      [VPC only] The IPv6 ranges.
                       - *(dict) --* 
                         [EC2-VPC only] Describes an IPv6 range.
                         - **CidrIpv6** *(string) --* 
@@ -18932,7 +19013,7 @@ class Client(BaseClient):
                           A description for the security group rule that references this IPv6 address range.
                           Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
                     - **PrefixListIds** *(list) --* 
-                      [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+                      [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
                       - *(dict) --* 
                         Describes a prefix list ID.
                         - **Description** *(string) --* 
@@ -18941,9 +19022,9 @@ class Client(BaseClient):
                         - **PrefixListId** *(string) --* 
                           The ID of the prefix.
                     - **ToPort** *(integer) --* 
-                      The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+                      The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
                     - **UserIdGroupPairs** *(list) --* 
-                      One or more security group and AWS account ID pairs.
+                      The security group and AWS account ID pairs.
                       - *(dict) --* 
                         Describes a security group and AWS account ID pair.
                         - **Description** *(string) --* 
@@ -18975,12 +19056,12 @@ class Client(BaseClient):
                       The value of the tag.
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
                 - **VpcId** *(string) --* 
-                  [EC2-VPC] The ID of the VPC for the security group.
+                  [VPC only] The ID of the VPC for the security group.
             - **NextToken** *(string) --* 
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
-          One or more filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.
+          The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.
           * ``description`` - The description of the security group.
           * ``egress.ip-permission.cidr`` - An IPv4 CIDR block for an outbound security group rule.
           * ``egress.ip-permission.from-port`` - For an outbound rule, the start of port range for the TCP and UDP protocols, or an ICMP type number.
@@ -19021,16 +19102,16 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type GroupIds: list
         :param GroupIds:
-          One or more security group IDs. Required for security groups in a nondefault VPC.
+          The IDs of the security groups. Required for security groups in a nondefault VPC.
           Default: Describes all your security groups.
           - *(string) --*
         :type GroupNames: list
         :param GroupNames:
-          [EC2-Classic and default VPC only] One or more security group names. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the ``group-name`` filter to describe security groups by name.
+          [EC2-Classic and default VPC only] The names of the security groups. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the ``group-name`` filter to describe security groups by name.
           Default: Describes all your security groups.
           - *(string) --*
         :type DryRun: boolean
@@ -19083,15 +19164,15 @@ class Client(BaseClient):
           - *(dict) --* 
             Contains the output of DescribeSnapshotAttribute.
             - **CreateVolumePermissions** *(list) --* 
-              A list of permissions for creating volumes from the snapshot.
+              The users and groups that have the permissions for creating volumes from the snapshot.
               - *(dict) --* 
-                Describes the user or group to be added or removed from the permissions for a volume.
+                Describes the user or group to be added or removed from the list of create volume permissions for a volume.
                 - **Group** *(string) --* 
-                  The specific group that is to be added or removed from a volume's list of create volume permissions.
+                  The group to be added or removed. The possible value is ``all`` .
                 - **UserId** *(string) --* 
-                  The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+                  The AWS account ID to be added or removed.
             - **ProductCodes** *(list) --* 
-              A list of product codes.
+              The product codes.
               - *(dict) --* 
                 Describes a product code.
                 - **ProductCodeId** *(string) --* 
@@ -19116,7 +19197,8 @@ class Client(BaseClient):
 
     def describe_snapshots(self, Filters: List = None, MaxResults: int = None, NextToken: str = None, OwnerIds: List = None, RestorableByUserIds: List = None, SnapshotIds: List = None, DryRun: bool = None) -> Dict:
         """
-        Describes one or more of the EBS snapshots available to you. Available snapshots include public snapshots available for any AWS account to launch, private snapshots that you own, and private snapshots owned by another AWS account but for which you've been given explicit create volume permissions.
+        Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.
+        The snapshots available to you include public snapshots, private snapshots that you own, and private snapshots owned by other AWS accounts for which you have explicit create volume permissions.
         The create volume permissions fall into the following categories:
         * *public* : The owner of the snapshot granted create volume permissions for the snapshot to the ``all`` group. All AWS accounts have create volume permissions for these snapshots. 
         * *explicit* : The owner of the snapshot granted create volume permissions to a specific AWS account. 
@@ -19185,7 +19267,6 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeSnapshots.
             - **Snapshots** *(list) --* 
               Information about the snapshots.
               - *(dict) --* 
@@ -19215,7 +19296,7 @@ class Client(BaseClient):
                 - **VolumeSize** *(integer) --* 
                   The size of the volume, in GiB.
                 - **OwnerAlias** *(string) --* 
-                  Value from an Amazon-maintained list (``amazon`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console. 
+                  Value from an Amazon-maintained list (``amazon`` | ``self`` | ``all`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console. 
                 - **Tags** *(list) --* 
                   Any tags assigned to the snapshot.
                   - *(dict) --* 
@@ -19230,9 +19311,10 @@ class Client(BaseClient):
               The ``NextToken`` value to include in a future ``DescribeSnapshots`` request. When the results of a ``DescribeSnapshots`` request exceed ``MaxResults`` , this value can be used to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``description`` - A description of the snapshot.
-          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
+          * ``encrypted`` - Indicates whether the snapshot is encrypted (``true`` | ``false`` )
+          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``self`` | ``all`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
           * ``owner-id`` - The ID of the AWS account that owns the snapshot.
           * ``progress`` - The progress of the snapshot, as a percentage (for example, 80%).
           * ``snapshot-id`` - The snapshot ID.
@@ -19257,7 +19339,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -19267,16 +19349,16 @@ class Client(BaseClient):
           The ``NextToken`` value returned from a previous paginated ``DescribeSnapshots`` request where ``MaxResults`` was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the ``NextToken`` value. This value is ``null`` when there are no more results to return.
         :type OwnerIds: list
         :param OwnerIds:
-          Returns the snapshots owned by the specified owner. Multiple owners can be specified.
+          Describes the snapshots owned by these owners.
           - *(string) --*
         :type RestorableByUserIds: list
         :param RestorableByUserIds:
-          One or more AWS accounts IDs that can create volumes from the snapshot.
+          The IDs of the AWS accounts that can create volumes from the snapshot.
           - *(string) --*
         :type SnapshotIds: list
         :param SnapshotIds:
-          One or more snapshot IDs.
-          Default: Describes snapshots for which you have launch permissions.
+          The snapshot IDs.
+          Default: Describes the snapshots for which you have create volume permissions.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -19455,24 +19537,24 @@ class Client(BaseClient):
                   - **EventSubType** *(string) --* 
                     The event.
                     The following are the ``error`` events:
-                    * ``iamFleetRoleInvalid`` - The Spot Fleet did not have the required permissions either to launch or terminate an instance. 
-                    * ``launchSpecTemporarilyBlacklisted`` - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event. 
+                    * ``iamFleetRoleInvalid`` - The EC2 Fleet or Spot Fleet did not have the required permissions either to launch or terminate an instance. 
                     * ``spotFleetRequestConfigurationInvalid`` - The configuration is not valid. For more information, see the description of the event. 
                     * ``spotInstanceCountLimitExceeded`` - You've reached the limit on the number of Spot Instances that you can launch. 
                     The following are the ``fleetRequestChange`` events:
-                    * ``active`` - The Spot Fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot Instances. 
-                    * ``cancelled`` - The Spot Fleet is canceled and has no running Spot Instances. The Spot Fleet will be deleted two days after its instances were terminated. 
-                    * ``cancelled_running`` - The Spot Fleet is canceled and does not launch additional Spot Instances. Existing Spot Instances continue to run until they are interrupted or terminated. 
-                    * ``cancelled_terminating`` - The Spot Fleet is canceled and its Spot Instances are terminating. 
-                    * ``expired`` - The Spot Fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with ``TerminateInstancesWithExpiration`` set. 
-                    * ``modify_in_progress`` - A request to modify the Spot Fleet request was accepted and is in progress. 
-                    * ``modify_successful`` - The Spot Fleet request was modified. 
+                    * ``active`` - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is attempting to maintain the target number of running Spot Instances. 
+                    * ``cancelled`` - The EC2 Fleet or Spot Fleet request is canceled and has no running Spot Instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances were terminated. 
+                    * ``cancelled_running`` - The EC2 Fleet or Spot Fleet request is canceled and does not launch additional Spot Instances. Existing Spot Instances continue to run until they are interrupted or terminated. 
+                    * ``cancelled_terminating`` - The EC2 Fleet or Spot Fleet request is canceled and its Spot Instances are terminating. 
+                    * ``expired`` - The EC2 Fleet or Spot Fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with ``TerminateInstancesWithExpiration`` set. 
+                    * ``modify_in_progress`` - A request to modify the EC2 Fleet or Spot Fleet request was accepted and is in progress. 
+                    * ``modify_successful`` - The EC2 Fleet or Spot Fleet request was modified. 
                     * ``price_update`` - The price for a launch configuration was adjusted because it was too high. This change is permanent. 
-                    * ``submitted`` - The Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot Instances. 
+                    * ``submitted`` - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot Instances. 
                     The following are the ``instanceChange`` events:
                     * ``launched`` - A request was fulfilled and a new instance was launched. 
                     * ``terminated`` - An instance was terminated by the user. 
                     The following are the ``Information`` events:
+                    * ``launchSpecTemporarilyBlacklisted`` - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event. 
                     * ``launchSpecUnusable`` - The price in a launch specification is not valid because it is below the Spot price or the Spot price is above the On-Demand price. 
                     * ``fleetProgressHalted`` - The price in every launch specification is not valid. A launch specification might become valid if the Spot price changes. 
                   - **InstanceId** *(string) --* 
@@ -19581,7 +19663,7 @@ class Client(BaseClient):
                                         'Name': 'string'
                                     },
                                     'ImageId': 'string',
-                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                     'KernelId': 'string',
                                     'KeyName': 'string',
                                     'Monitoring': {
@@ -19611,7 +19693,8 @@ class Client(BaseClient):
                                                 },
                                             ],
                                             'SecondaryPrivateIpAddressCount': 123,
-                                            'SubnetId': 'string'
+                                            'SubnetId': 'string',
+                                            'InterfaceType': 'string'
                                         },
                                     ],
                                     'Placement': {
@@ -19626,7 +19709,7 @@ class Client(BaseClient):
                                     'WeightedCapacity': 123.0,
                                     'TagSpecifications': [
                                         {
-                                            'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                                            'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                                             'Tags': [
                                                 {
                                                     'Key': 'string',
@@ -19646,7 +19729,7 @@ class Client(BaseClient):
                                     },
                                     'Overrides': [
                                         {
-                                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                             'SpotPrice': 'string',
                                             'SubnetId': 'string',
                                             'AvailabilityZone': 'string',
@@ -19719,7 +19802,7 @@ class Client(BaseClient):
                   - **IamFleetRole** *(string) --* 
                     Grants the Spot Fleet permission to terminate Spot Instances on your behalf when you cancel its Spot Fleet request using  CancelSpotFleetRequests or when the Spot Fleet request expires, if you set ``terminateInstancesWithExpiration`` .
                   - **LaunchSpecifications** *(list) --* 
-                    The launch specifications for the Spot Fleet request.
+                    The launch specifications for the Spot Fleet request. If you specify ``LaunchSpecifications`` , you can't specify ``LaunchTemplateConfigs`` .
                     - *(dict) --* 
                       Describes the launch specification for one or more Spot Instances.
                       - **SecurityGroups** *(list) --* 
@@ -19747,20 +19830,20 @@ class Client(BaseClient):
                             - **DeleteOnTermination** *(boolean) --* 
                               Indicates whether the EBS volume is deleted on instance termination.
                             - **Iops** *(integer) --* 
-                              The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                              Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                              The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                              Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                               Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                             - **SnapshotId** *(string) --* 
                               The ID of the snapshot.
                             - **VolumeSize** *(integer) --* 
                               The size of the volume, in GiB.
-                              Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                               Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                              Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                             - **VolumeType** *(string) --* 
-                              The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                              The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                               Default: ``standard``  
                             - **Encrypted** *(boolean) --* 
-                              Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. 
+                              Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
                               If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
                             - **KmsKeyId** *(string) --* 
                               Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.
@@ -19828,6 +19911,8 @@ class Client(BaseClient):
                             The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
                           - **SubnetId** *(string) --* 
                             The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+                          - **InterfaceType** *(string) --* 
+                            The type of interface.
                       - **Placement** *(dict) --* 
                         The placement information.
                         - **AvailabilityZone** *(string) --* 
@@ -19865,7 +19950,7 @@ class Client(BaseClient):
                                 The value of the tag.
                                 Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
                   - **LaunchTemplateConfigs** *(list) --* 
-                    The launch template and overrides.
+                    The launch template and overrides. If you specify ``LaunchTemplateConfigs`` , you can't specify ``LaunchSpecifications`` .
                     - *(dict) --* 
                       Describes a launch template and overrides.
                       - **LaunchTemplateSpecification** *(dict) --* 
@@ -19905,7 +19990,7 @@ class Client(BaseClient):
                   - **ValidFrom** *(datetime) --* 
                     The start date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). The default is to start fulfilling the request immediately.
                   - **ValidUntil** *(datetime) --* 
-                    The end date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
+                    The end date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
                   - **ReplaceUnhealthyInstances** *(boolean) --* 
                     Indicates whether Spot Fleet should replace unhealthy instances.
                   - **InstanceInterruptionBehavior** *(string) --* 
@@ -20026,7 +20111,7 @@ class Client(BaseClient):
                                 'Name': 'string'
                             },
                             'ImageId': 'string',
-                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                             'KernelId': 'string',
                             'KeyName': 'string',
                             'NetworkInterfaces': [
@@ -20053,7 +20138,8 @@ class Client(BaseClient):
                                         },
                                     ],
                                     'SecondaryPrivateIpAddressCount': 123,
-                                    'SubnetId': 'string'
+                                    'SubnetId': 'string',
+                                    'InterfaceType': 'string'
                                 },
                             ],
                             'Placement': {
@@ -20146,20 +20232,20 @@ class Client(BaseClient):
                         - **DeleteOnTermination** *(boolean) --* 
                           Indicates whether the EBS volume is deleted on instance termination.
                         - **Iops** *(integer) --* 
-                          The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                          Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                          The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                          Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                           Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                         - **SnapshotId** *(string) --* 
                           The ID of the snapshot.
                         - **VolumeSize** *(integer) --* 
                           The size of the volume, in GiB.
-                          Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                           Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                          Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                         - **VolumeType** *(string) --* 
-                          The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                          The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                           Default: ``standard``  
                         - **Encrypted** *(boolean) --* 
-                          Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. 
+                          Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
                           If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
                         - **KmsKeyId** *(string) --* 
                           Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.
@@ -20222,6 +20308,8 @@ class Client(BaseClient):
                         The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
                       - **SubnetId** *(string) --* 
                         The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+                      - **InterfaceType** *(string) --* 
+                        The type of interface.
                   - **Placement** *(dict) --* 
                     The placement information for the instance.
                     - **AvailabilityZone** *(string) --* 
@@ -20334,7 +20422,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -20375,7 +20463,7 @@ class Client(BaseClient):
               DryRun=True|False,
               EndTime=datetime(2015, 1, 1),
               InstanceTypes=[
-                  't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                  't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
               ],
               MaxResults=123,
               NextToken='string',
@@ -20392,7 +20480,7 @@ class Client(BaseClient):
                 'SpotPriceHistory': [
                     {
                         'AvailabilityZone': 'string',
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                         'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
                         'SpotPrice': 'string',
                         'Timestamp': datetime(2015, 1, 1)
@@ -20442,7 +20530,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type AvailabilityZone: string
         :param AvailabilityZone:
@@ -20477,7 +20565,7 @@ class Client(BaseClient):
 
     def describe_stale_security_groups(self, VpcId: str, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
-        [EC2-VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.
+        [VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeStaleSecurityGroups>`_
         
         **Request Syntax**
@@ -20574,15 +20662,15 @@ class Client(BaseClient):
                     - **IpProtocol** *(string) --* 
                       The IP protocol name (for ``tcp`` , ``udp`` , and ``icmp`` ) or number (see `Protocol Numbers) <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ .
                     - **IpRanges** *(list) --* 
-                      One or more IP ranges. Not applicable for stale security group rules.
+                      The IP ranges. Not applicable for stale security group rules.
                       - *(string) --* 
                     - **PrefixListIds** *(list) --* 
-                      One or more prefix list IDs for an AWS service. Not applicable for stale security group rules.
+                      The prefix list IDs for an AWS service. Not applicable for stale security group rules.
                       - *(string) --* 
                     - **ToPort** *(integer) --* 
                       The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of ``-1`` indicates all ICMP types. 
                     - **UserIdGroupPairs** *(list) --* 
-                      One or more security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
+                      The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
                       - *(dict) --* 
                         Describes a security group and AWS account ID pair.
                         - **Description** *(string) --* 
@@ -20612,15 +20700,15 @@ class Client(BaseClient):
                     - **IpProtocol** *(string) --* 
                       The IP protocol name (for ``tcp`` , ``udp`` , and ``icmp`` ) or number (see `Protocol Numbers) <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ .
                     - **IpRanges** *(list) --* 
-                      One or more IP ranges. Not applicable for stale security group rules.
+                      The IP ranges. Not applicable for stale security group rules.
                       - *(string) --* 
                     - **PrefixListIds** *(list) --* 
-                      One or more prefix list IDs for an AWS service. Not applicable for stale security group rules.
+                      The prefix list IDs for an AWS service. Not applicable for stale security group rules.
                       - *(string) --* 
                     - **ToPort** *(integer) --* 
                       The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of ``-1`` indicates all ICMP types. 
                     - **UserIdGroupPairs** *(list) --* 
-                      One or more security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
+                      The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
                       - *(dict) --* 
                         Describes a security group and AWS account ID pair.
                         - **Description** *(string) --* 
@@ -20807,7 +20895,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type SubnetIds: list
         :param SubnetIds:
@@ -20824,7 +20912,7 @@ class Client(BaseClient):
 
     def describe_tags(self, DryRun: bool = None, Filters: List = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
-        Describes one or more of the tags for your EC2 resources.
+        Describes the specified tags for your EC2 resources.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTags>`_
         
@@ -20852,7 +20940,7 @@ class Client(BaseClient):
                     {
                         'Key': 'string',
                         'ResourceId': 'string',
-                        'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                        'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                         'Value': 'string'
                     },
                 ]
@@ -20879,10 +20967,10 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``key`` - The tag key.
           * ``resource-id`` - The ID of the resource.
-          * ``resource-type`` - The resource type (``customer-gateway`` | ``dedicated-host`` | ``dhcp-options`` | ``elastic-ip`` | ``fleet`` | ``fpga-image`` | ``image`` | ``instance`` | ``internet-gateway`` | ``launch-template`` | ``natgateway`` | ``network-acl`` | ``network-interface`` | ``reserved-instances`` | ``route-table`` | ``security-group`` | ``snapshot`` | ``spot-instances-request`` | ``subnet`` | ``volume`` | ``vpc`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` ).
+          * ``resource-type`` - The resource type (``customer-gateway`` | ``dedicated-host`` | ``dhcp-options`` | ``elastic-ip`` | ``fleet`` | ``fpga-image`` | ``image`` | ``instance`` | ``host-reservation`` | ``internet-gateway`` | ``launch-template`` | ``natgateway`` | ``network-acl`` | ``network-interface`` | ``reserved-instances`` | ``route-table`` | ``security-group`` | ``snapshot`` | ``spot-instances-request`` | ``subnet`` | ``volume`` | ``vpc`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` ).
           * ``tag`` :<key> - The key/value combination of the tag. For example, specify \"tag:Owner\" for the filter name and \"TeamA\" for the filter value to find resources with the tag \"Owner=TeamA\".
           * ``value`` - The tag value.
           - *(dict) --*
@@ -20900,7 +20988,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -21036,7 +21124,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -21155,7 +21243,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -21289,7 +21377,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -21442,7 +21530,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -21587,11 +21675,10 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeVolumeStatus.
             - **NextToken** *(string) --* 
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
             - **VolumeStatuses** *(list) --* 
-              A list of volumes.
+              Information about the status of the volumes.
               - *(dict) --* 
                 Describes the volume status.
                 - **Actions** *(list) --* 
@@ -21638,7 +21725,7 @@ class Client(BaseClient):
                     The status of the volume.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``action.code`` - The action code for the event (for example, ``enable-volume-io`` ).
           * ``action.description`` - A description of the action.
           * ``action.event-id`` - The event ID associated with the action.
@@ -21666,7 +21753,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -21676,7 +21763,7 @@ class Client(BaseClient):
           The ``NextToken`` value to include in a future ``DescribeVolumeStatus`` request. When the results of the request exceed ``MaxResults`` , this value can be used to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs.
+          The IDs of the volumes.
           Default: Describes all your volumes.
           - *(string) --*
         :type DryRun: boolean
@@ -21689,7 +21776,7 @@ class Client(BaseClient):
 
     def describe_volumes(self, Filters: List = None, VolumeIds: List = None, DryRun: bool = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
-        Describes the specified EBS volumes.
+        Describes the specified EBS volumes or all of your EBS volumes.
         If you are describing a long list of volumes, you can paginate the output to make the list more manageable. The ``MaxResults`` parameter sets the maximum number of results returned in a single page. If the list of results exceeds your ``MaxResults`` value, then that number of results is returned along with a ``NextToken`` value that can be passed to a subsequent ``DescribeVolumes`` request to retrieve the remaining results.
         For more information about EBS volumes, see `Amazon EBS Volumes <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumes>`_
@@ -21751,7 +21838,6 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeVolumes.
             - **Volumes** *(list) --* 
               Information about the volumes.
               - *(dict) --* 
@@ -21789,8 +21875,8 @@ class Client(BaseClient):
                 - **VolumeId** *(string) --* 
                   The ID of the volume.
                 - **Iops** *(integer) --* 
-                  The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                  Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                   Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                 - **Tags** *(list) --* 
                   Any tags assigned to the volume.
@@ -21808,7 +21894,7 @@ class Client(BaseClient):
               The ``NextToken`` value to include in a future ``DescribeVolumes`` request. When the results of a ``DescribeVolumes`` request exceed ``MaxResults`` , this value can be used to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``attachment.attach-time`` - The time stamp when the attachment initiated.
           * ``attachment.delete-on-termination`` - Whether the volume is deleted on instance termination.
           * ``attachment.device`` - The device name specified in the block device mapping (for example, ``/dev/sda1`` ).
@@ -21816,7 +21902,7 @@ class Client(BaseClient):
           * ``attachment.status`` - The attachment state (``attaching`` | ``attached`` | ``detaching`` ).
           * ``availability-zone`` - The Availability Zone in which the volume was created.
           * ``create-time`` - The time stamp when the volume was created.
-          * ``encrypted`` - The encryption status of the volume.
+          * ``encrypted`` - Indicates whether the volume is encrypted (``true`` | ``false`` )
           * ``size`` - The size of the volume, in GiB.
           * ``snapshot-id`` - The snapshot from which the volume was created.
           * ``status`` - The status of the volume (``creating`` | ``available`` | ``in-use`` | ``deleting`` | ``deleted`` | ``error`` ).
@@ -21839,11 +21925,11 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs.
+          The volume IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -21910,7 +21996,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **VolumesModifications** *(list) --* 
-              A list of returned  VolumeModification objects.
+              Information about the volume modifications.
               - *(dict) --* 
                 Describes the modification status of an EBS volume.
                 If the volume has never been modified, some element values will be null.
@@ -21945,11 +22031,11 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs for which in-progress modifications will be described.
+          The IDs of the volumes for which in-progress modifications will be described.
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters. Supported filters: ``volume-id`` , ``modification-state`` , ``target-size`` , ``target-iops`` , ``target-volume-type`` , ``original-size`` , ``original-iops`` , ``original-volume-type`` , ``start-time`` .
+          The filters. Supported filters: ``volume-id`` , ``modification-state`` , ``target-size`` , ``target-iops`` , ``target-volume-type`` , ``original-size`` , ``original-iops`` , ``original-volume-type`` , ``start-time`` .
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
             *  DescribeAvailabilityZones
@@ -21965,7 +22051,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type NextToken: string
         :param NextToken:
@@ -22109,7 +22195,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -22153,7 +22239,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **NextToken** *(string) --* 
-              The token to use when requesting the next set of items.
+              The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
             - **Vpcs** *(list) --* 
               Information about the ClassicLink DNS support status of the VPCs.
               - *(dict) --* 
@@ -22164,10 +22250,10 @@ class Client(BaseClient):
                   The ID of the VPC.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type NextToken: string
         :param NextToken:
-          The token for the next set of items to return. (You received this token from a prior call.)
+          The token for the next page of results.
         :type VpcIds: list
         :param VpcIds:
           One or more VPC IDs.
@@ -22271,7 +22357,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -22363,7 +22449,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -22417,6 +22503,7 @@ class Client(BaseClient):
                             'string',
                         ],
                         'AcceptanceRequired': True|False,
+                        'ManagesVpcEndpoints': True|False,
                         'NetworkLoadBalancerArns': [
                             'string',
                         ],
@@ -22452,6 +22539,8 @@ class Client(BaseClient):
                   - *(string) --* 
                 - **AcceptanceRequired** *(boolean) --* 
                   Indicates whether requests from other AWS accounts to create an endpoint to the service must first be accepted.
+                - **ManagesVpcEndpoints** *(boolean) --* 
+                  Indicates whether the service manages it's VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
                 - **NetworkLoadBalancerArns** *(list) --* 
                   The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.
                   - *(string) --* 
@@ -22490,7 +22579,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -22575,7 +22664,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -22635,7 +22724,8 @@ class Client(BaseClient):
                         ],
                         'PrivateDnsName': 'string',
                         'VpcEndpointPolicySupported': True|False,
-                        'AcceptanceRequired': True|False
+                        'AcceptanceRequired': True|False,
+                        'ManagesVpcEndpoints': True|False
                     },
                 ],
                 'NextToken': 'string'
@@ -22673,6 +22763,8 @@ class Client(BaseClient):
                   Indicates whether the service supports endpoint policies.
                 - **AcceptanceRequired** *(boolean) --* 
                   Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
+                - **ManagesVpcEndpoints** *(boolean) --* 
+                  Indicates whether the service manages it's VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
             - **NextToken** *(string) --* 
               The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
         :type DryRun: boolean
@@ -22701,7 +22793,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -22763,6 +22855,7 @@ class Client(BaseClient):
                             },
                         ],
                         'PrivateDnsEnabled': True|False,
+                        'RequesterManaged': True|False,
                         'NetworkInterfaceIds': [
                             'string',
                         ],
@@ -22813,6 +22906,8 @@ class Client(BaseClient):
                       The name of the security group.
                 - **PrivateDnsEnabled** *(boolean) --* 
                   (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.
+                - **RequesterManaged** *(boolean) --* 
+                  Indicates whether the VPC endpoint is being managed by its service.
                 - **NetworkInterfaceIds** *(list) --* 
                   (Interface endpoint) One or more network interfaces for the endpoint.
                   - *(string) --* 
@@ -22857,7 +22952,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -23077,7 +23172,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -23089,16 +23184,16 @@ class Client(BaseClient):
           - *(string) --*
         :type NextToken: string
         :param NextToken:
-          The token to request the next page of results. (You received this token from a prior call.)
+          The token for the next page of results.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: dict
         :returns:
         """
         pass
 
-    def describe_vpcs(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None) -> Dict:
+    def describe_vpcs(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
         Describes one or more of your VPCs.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -23117,7 +23212,9 @@ class Client(BaseClient):
               VpcIds=[
                   'string',
               ],
-              DryRun=True|False
+              DryRun=True|False,
+              NextToken='string',
+              MaxResults=123
           )
         
         **Response Syntax**
@@ -23159,7 +23256,8 @@ class Client(BaseClient):
                             },
                         ]
                     },
-                ]
+                ],
+                'NextToken': 'string'
             }
         
         **Response Structure**
@@ -23220,6 +23318,8 @@ class Client(BaseClient):
                     - **Value** *(string) --* 
                       The value of the tag.
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
+            - **NextToken** *(string) --* 
+              The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type Filters: list
         :param Filters:
           One or more filters.
@@ -23252,7 +23352,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VpcIds: list
         :param VpcIds:
@@ -23262,6 +23362,12 @@ class Client(BaseClient):
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: dict
         :returns:
         """
@@ -23422,7 +23528,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VpnConnectionIds: list
         :param VpnConnectionIds:
@@ -23548,7 +23654,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VpnGatewayIds: list
         :param VpnGatewayIds:
@@ -24266,10 +24372,10 @@ class Client(BaseClient):
           )
         :type GatewayId: string
         :param GatewayId: **[REQUIRED]**
-          The ID of the virtual private gateway.
+          The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with.
         :type RouteTableId: string
         :param RouteTableId: **[REQUIRED]**
-          The ID of the route table.
+          The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
         :returns: None
         """
         pass
@@ -24494,7 +24600,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type S3Bucket: string
         :param S3Bucket: **[REQUIRED]**
@@ -24738,6 +24844,7 @@ class Client(BaseClient):
                             'Groups': [
                                 'string',
                             ],
+                            'InterfaceType': 'string',
                             'Ipv6AddressCount': 123,
                             'Ipv6Addresses': [
                                 {
@@ -24757,7 +24864,7 @@ class Client(BaseClient):
                         },
                     ],
                     'ImageId': 'string',
-                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                     'KeyName': 'string',
                     'Monitoring': {
                         'Enabled': True|False
@@ -24776,7 +24883,7 @@ class Client(BaseClient):
                     'UserData': 'string',
                     'TagSpecifications': [
                         {
-                            'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                            'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                             'Tags': [
                                 {
                                     'Key': 'string',
@@ -24824,14 +24931,14 @@ class Client(BaseClient):
                             'CapacityReservationId': 'string'
                         }
                     },
-                    'HibernationOptions': {
-                        'Configured': True|False
-                    },
                     'LicenseSpecifications': [
                         {
                             'LicenseConfigurationArn': 'string'
                         },
-                    ]
+                    ],
+                    'HibernationOptions': {
+                        'Configured': True|False
+                    }
                 }
             }
         
@@ -24890,6 +24997,8 @@ class Client(BaseClient):
                   - **Groups** *(list) --* 
                     The IDs of one or more security groups.
                     - *(string) --* 
+                  - **InterfaceType** *(string) --* 
+                    The type of network interface.
                   - **Ipv6AddressCount** *(integer) --* 
                     The number of IPv6 addresses for the network interface.
                   - **Ipv6Addresses** *(list) --* 
@@ -25016,16 +25125,16 @@ class Client(BaseClient):
                   Information about the target Capacity Reservation.
                   - **CapacityReservationId** *(string) --* 
                     The ID of the Capacity Reservation.
-              - **HibernationOptions** *(dict) --* 
-                Indicates whether an instance is configured for hibernation. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                - **Configured** *(boolean) --* 
-                  If this parameter is set to ``true`` , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
               - **LicenseSpecifications** *(list) --* 
                 The license configurations.
                 - *(dict) --* 
                   Describes a license configuration.
                   - **LicenseConfigurationArn** *(string) --* 
                     The Amazon Resource Name (ARN) of the license configuration.
+              - **HibernationOptions** *(dict) --* 
+                Indicates whether an instance is configured for hibernation. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                - **Configured** *(boolean) --* 
+                  If this parameter is set to ``true`` , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -25311,7 +25420,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -25403,7 +25512,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -25495,7 +25604,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -25551,7 +25660,7 @@ class Client(BaseClient):
           The ID of the Client VPN endpoint to which the client certificate revocation list applies.
         :type CertificateRevocationList: string
         :param CertificateRevocationList: **[REQUIRED]**
-          The client certificate revocation list file. For more information, see `Generate a Client Certificate Revocation List <vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate>`__ in the *AWS Client VPN Admin Guide* .
+          The client certificate revocation list file. For more information, see `Generate a Client Certificate Revocation List <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate>`__ in the *AWS Client VPN Administrator Guide* .
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -25746,7 +25855,7 @@ class Client(BaseClient):
           An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a ``KmsKeyId`` is specified, the ``Encrypted`` flag must also be set.
           The CMK identifier may be provided in any of the following formats:
           * Key ID
-          * Key alias, in the form ``alias/*ExampleAlias* ``
+          * Key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           * ARN using key ID. The ID ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``key`` namespace, and then the CMK ID. For example, arn:aws:kms:*us-east-1* :*012345678910* :key/*abcd1234-a123-456a-a12b-a123b4cd56ef* .
           * ARN using key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           AWS parses ``KmsKeyId`` asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure.
@@ -25806,7 +25915,7 @@ class Client(BaseClient):
                       'string',
                   ],
                   'InstanceInitiatedShutdownBehavior': 'stop'|'terminate',
-                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                   'Monitoring': True|False,
                   'Placement': {
                       'AvailabilityZone': 'string',
@@ -25900,7 +26009,7 @@ class Client(BaseClient):
                 - **Platform** *(string) --* 
                   The instance operating system.
                 - **Volumes** *(list) --* 
-                  One or more volumes.
+                  The volumes.
                   - *(dict) --* 
                     Describes an import volume task.
                     - **AvailabilityZone** *(string) --* 
@@ -26003,10 +26112,10 @@ class Client(BaseClient):
           - **Architecture** *(string) --*
             The architecture of the instance.
           - **GroupIds** *(list) --*
-            One or more security group IDs.
+            The security group IDs.
             - *(string) --*
           - **GroupNames** *(list) --*
-            One or more security group names.
+            The security group names.
             - *(string) --*
           - **InstanceInitiatedShutdownBehavior** *(string) --*
             Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
@@ -26018,6 +26127,7 @@ class Client(BaseClient):
             The placement information for the instance.
             - **AvailabilityZone** *(string) --*
               The Availability Zone of the instance.
+              If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the region.
             - **Affinity** *(string) --*
               The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the  ImportInstance command.
             - **GroupName** *(string) --*
@@ -26220,7 +26330,7 @@ class Client(BaseClient):
           An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a ``KmsKeyId`` is specified, the ``Encrypted`` flag must also be set.
           The CMK identifier may be provided in any of the following formats:
           * Key ID
-          * Key alias, in the form ``alias/*ExampleAlias* ``
+          * Key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           * ARN using key ID. The ID ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``key`` namespace, and then the CMK ID. For example, arn:aws:kms:*us-east-1* :*012345678910* :key/*abcd1234-a123-456a-a12b-a123b4cd56ef* .
           * ARN using key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           AWS parses ``KmsKeyId`` asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure.
@@ -26329,7 +26439,7 @@ class Client(BaseClient):
                 - **Platform** *(string) --* 
                   The instance operating system.
                 - **Volumes** *(list) --* 
-                  One or more volumes.
+                  The volumes.
                   - *(dict) --* 
                     Describes an import volume task.
                     - **AvailabilityZone** *(string) --* 
@@ -26677,7 +26787,7 @@ class Client(BaseClient):
               - **Description** *(string) --* 
                 The description of the AFI.
               - **LoadPermissions** *(list) --* 
-                One or more load permissions.
+                The load permissions.
                 - *(dict) --* 
                   Describes a load permission.
                   - **UserId** *(string) --* 
@@ -26685,7 +26795,7 @@ class Client(BaseClient):
                   - **Group** *(string) --* 
                     The name of the group.
               - **ProductCodes** *(list) --* 
-                One or more product codes.
+                The product codes.
                 - *(dict) --* 
                   Describes a product code.
                   - **ProductCodeId** *(string) --* 
@@ -26706,15 +26816,15 @@ class Client(BaseClient):
           The operation type.
         :type UserIds: list
         :param UserIds:
-          One or more AWS account IDs. This parameter is valid only when modifying the ``loadPermission`` attribute.
+          The AWS account IDs. This parameter is valid only when modifying the ``loadPermission`` attribute.
           - *(string) --*
         :type UserGroups: list
         :param UserGroups:
-          One or more user groups. This parameter is valid only when modifying the ``loadPermission`` attribute.
+          The user groups. This parameter is valid only when modifying the ``loadPermission`` attribute.
           - *(string) --*
         :type ProductCodes: list
         :param ProductCodes:
-          One or more product codes. After you add a product code to an AFI, it can\'t be removed. This parameter is valid only when modifying the ``productCodes`` attribute.
+          The product codes. After you add a product code to an AFI, it can\'t be removed. This parameter is valid only when modifying the ``productCodes`` attribute.
           - *(string) --*
         :type LoadPermission: dict
         :param LoadPermission:
@@ -26938,15 +27048,15 @@ class Client(BaseClient):
           The operation type. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
         :type ProductCodes: list
         :param ProductCodes:
-          One or more DevPay product codes. After you add a product code to an AMI, it can\'t be removed.
+          The DevPay product codes. After you add a product code to an AMI, it can\'t be removed.
           - *(string) --*
         :type UserGroups: list
         :param UserGroups:
-          One or more user groups. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
+          The user groups. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
           - *(string) --*
         :type UserIds: list
         :param UserIds:
-          One or more AWS account IDs. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
+          The AWS account IDs. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
           - *(string) --*
         :type Value: string
         :param Value:
@@ -27235,6 +27345,67 @@ class Client(BaseClient):
         """
         pass
 
+    def modify_instance_event_start_time(self, InstanceId: str, InstanceEventId: str, NotBefore: datetime, DryRun: bool = None) -> Dict:
+        """
+        Modifies the start time for a scheduled Amazon EC2 instance event.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceEventStartTime>`_
+        
+        **Request Syntax**
+        ::
+          response = client.modify_instance_event_start_time(
+              DryRun=True|False,
+              InstanceId='string',
+              InstanceEventId='string',
+              NotBefore=datetime(2015, 1, 1)
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Event': {
+                    'InstanceEventId': 'string',
+                    'Code': 'instance-reboot'|'system-reboot'|'system-maintenance'|'instance-retirement'|'instance-stop',
+                    'Description': 'string',
+                    'NotAfter': datetime(2015, 1, 1),
+                    'NotBefore': datetime(2015, 1, 1),
+                    'NotBeforeDeadline': datetime(2015, 1, 1)
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Event** *(dict) --* 
+              Describes a scheduled event for an instance.
+              - **InstanceEventId** *(string) --* 
+                The ID of the event.
+              - **Code** *(string) --* 
+                The event code.
+              - **Description** *(string) --* 
+                A description of the event.
+                After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
+              - **NotAfter** *(datetime) --* 
+                The latest scheduled end time for the event.
+              - **NotBefore** *(datetime) --* 
+                The earliest scheduled start time for the event.
+              - **NotBeforeDeadline** *(datetime) --* 
+                The deadline for starting the event.
+        :type DryRun: boolean
+        :param DryRun:
+          Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type InstanceId: string
+        :param InstanceId: **[REQUIRED]**
+          The ID of the instance with the scheduled event.
+        :type InstanceEventId: string
+        :param InstanceEventId: **[REQUIRED]**
+          The ID of the event whose date and time you are modifying.
+        :type NotBefore: datetime
+        :param NotBefore: **[REQUIRED]**
+          The new date and time when the event will take place.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def modify_instance_placement(self, InstanceId: str, Affinity: str = None, GroupName: str = None, HostId: str = None, Tenancy: str = None, PartitionNumber: int = None) -> Dict:
         """
         Modifies the placement attributes for a specified instance. You can do the following:
@@ -27374,7 +27545,7 @@ class Client(BaseClient):
 
     def modify_network_interface_attribute(self, NetworkInterfaceId: str, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None):
         """
-        Modifies the specified network interface attribute. You can specify only one attribute at a time.
+        Modifies the specified network interface attribute. You can specify only one attribute at a time. You can use this action to attach and detach security groups from an existing EC2 instance.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyNetworkInterfaceAttribute>`_
         
         **Request Syntax**
@@ -27444,7 +27615,7 @@ class Client(BaseClient):
                   {
                       'AvailabilityZone': 'string',
                       'InstanceCount': 123,
-                      'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                      'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                       'Platform': 'string',
                       'Scope': 'Availability Zone'|'Region'
                   },
@@ -27533,21 +27704,21 @@ class Client(BaseClient):
         :param CreateVolumePermission:
           A JSON representation of the snapshot attribute modification.
           - **Add** *(list) --*
-            Adds a specific AWS account ID or group to a volume\'s list of create volume permissions.
+            Adds the specified AWS account ID or group to the list.
             - *(dict) --*
-              Describes the user or group to be added or removed from the permissions for a volume.
+              Describes the user or group to be added or removed from the list of create volume permissions for a volume.
               - **Group** *(string) --*
-                The specific group that is to be added or removed from a volume\'s list of create volume permissions.
+                The group to be added or removed. The possible value is ``all`` .
               - **UserId** *(string) --*
-                The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
+                The AWS account ID to be added or removed.
           - **Remove** *(list) --*
-            Removes a specific AWS account ID or group from a volume\'s list of create volume permissions.
+            Removes the specified AWS account ID or group from the list.
             - *(dict) --*
-              Describes the user or group to be added or removed from the permissions for a volume.
+              Describes the user or group to be added or removed from the list of create volume permissions for a volume.
               - **Group** *(string) --*
-                The specific group that is to be added or removed from a volume\'s list of create volume permissions.
+                The group to be added or removed. The possible value is ``all`` .
               - **UserId** *(string) --*
-                The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
+                The AWS account ID to be added or removed.
         :type GroupNames: list
         :param GroupNames:
           The group to modify for the snapshot.
@@ -27964,7 +28135,7 @@ class Client(BaseClient):
           (Gateway endpoint) Specify ``true`` to reset the policy document to the default policy. The default policy allows full access to the service.
         :type PolicyDocument: string
         :param PolicyDocument:
-          (Gateway endpoint) A policy document to attach to the endpoint. The policy must be in valid JSON format.
+          A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
         :type AddRouteTableIds: list
         :param AddRouteTableIds:
           (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
@@ -28267,6 +28438,130 @@ class Client(BaseClient):
         """
         pass
 
+    def modify_vpn_connection(self, VpnConnectionId: str, TransitGatewayId: str = None, VpnGatewayId: str = None, DryRun: bool = None) -> Dict:
+        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpnConnection>`_
+        
+        **Request Syntax**
+        ::
+          response = client.modify_vpn_connection(
+              VpnConnectionId='string',
+              TransitGatewayId='string',
+              VpnGatewayId='string',
+              DryRun=True|False
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'VpnConnection': {
+                    'CustomerGatewayConfiguration': 'string',
+                    'CustomerGatewayId': 'string',
+                    'Category': 'string',
+                    'State': 'pending'|'available'|'deleting'|'deleted',
+                    'Type': 'ipsec.1',
+                    'VpnConnectionId': 'string',
+                    'VpnGatewayId': 'string',
+                    'TransitGatewayId': 'string',
+                    'Options': {
+                        'StaticRoutesOnly': True|False
+                    },
+                    'Routes': [
+                        {
+                            'DestinationCidrBlock': 'string',
+                            'Source': 'Static',
+                            'State': 'pending'|'available'|'deleting'|'deleted'
+                        },
+                    ],
+                    'Tags': [
+                        {
+                            'Key': 'string',
+                            'Value': 'string'
+                        },
+                    ],
+                    'VgwTelemetry': [
+                        {
+                            'AcceptedRouteCount': 123,
+                            'LastStatusChange': datetime(2015, 1, 1),
+                            'OutsideIpAddress': 'string',
+                            'Status': 'UP'|'DOWN',
+                            'StatusMessage': 'string'
+                        },
+                    ]
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **VpnConnection** *(dict) --* 
+              Describes a VPN connection.
+              - **CustomerGatewayConfiguration** *(string) --* 
+                The configuration information for the VPN connection's customer gateway (in the native XML format). This element is always present in the  CreateVpnConnection response; however, it's present in the  DescribeVpnConnections response only if the VPN connection is in the ``pending`` or ``available`` state.
+              - **CustomerGatewayId** *(string) --* 
+                The ID of the customer gateway at your end of the VPN connection.
+              - **Category** *(string) --* 
+                The category of the VPN connection. A value of ``VPN`` indicates an AWS VPN connection. A value of ``VPN-Classic`` indicates an AWS Classic VPN connection.
+              - **State** *(string) --* 
+                The current state of the VPN connection.
+              - **Type** *(string) --* 
+                The type of VPN connection.
+              - **VpnConnectionId** *(string) --* 
+                The ID of the VPN connection.
+              - **VpnGatewayId** *(string) --* 
+                The ID of the virtual private gateway at the AWS side of the VPN connection.
+              - **TransitGatewayId** *(string) --* 
+                The ID of the transit gateway associated with the VPN connection.
+              - **Options** *(dict) --* 
+                The VPN connection options.
+                - **StaticRoutesOnly** *(boolean) --* 
+                  Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+              - **Routes** *(list) --* 
+                The static routes associated with the VPN connection.
+                - *(dict) --* 
+                  Describes a static route for a VPN connection.
+                  - **DestinationCidrBlock** *(string) --* 
+                    The CIDR block associated with the local subnet of the customer data center.
+                  - **Source** *(string) --* 
+                    Indicates how the routes were provided.
+                  - **State** *(string) --* 
+                    The current state of the static route.
+              - **Tags** *(list) --* 
+                Any tags assigned to the VPN connection.
+                - *(dict) --* 
+                  Describes a tag.
+                  - **Key** *(string) --* 
+                    The key of the tag.
+                    Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:`` .
+                  - **Value** *(string) --* 
+                    The value of the tag.
+                    Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
+              - **VgwTelemetry** *(list) --* 
+                Information about the VPN tunnel.
+                - *(dict) --* 
+                  Describes telemetry for a VPN tunnel.
+                  - **AcceptedRouteCount** *(integer) --* 
+                    The number of accepted routes.
+                  - **LastStatusChange** *(datetime) --* 
+                    The date and time of the last change in status.
+                  - **OutsideIpAddress** *(string) --* 
+                    The Internet-routable IP address of the virtual private gateway's outside interface.
+                  - **Status** *(string) --* 
+                    The status of the VPN tunnel.
+                  - **StatusMessage** *(string) --* 
+                    If an error occurs, a description of the error.
+        :type VpnConnectionId: string
+        :param VpnConnectionId: **[REQUIRED]**
+        :type TransitGatewayId: string
+        :param TransitGatewayId:
+        :type VpnGatewayId: string
+        :param VpnGatewayId:
+        :type DryRun: boolean
+        :param DryRun:
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def monitor_instances(self, InstanceIds: List, DryRun: bool = None) -> Dict:
         """
         Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see `Monitoring Your Instances and Volumes <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
@@ -28309,7 +28604,7 @@ class Client(BaseClient):
                     Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
         :type InstanceIds: list
         :param InstanceIds: **[REQUIRED]**
-          One or more instance IDs.
+          The IDs of the instances.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -28563,7 +28858,7 @@ class Client(BaseClient):
 
     def purchase_scheduled_instances(self, PurchaseRequests: List, ClientToken: str = None, DryRun: bool = None) -> Dict:
         """
-        Purchases one or more Scheduled Instances with the specified schedule.
+        Purchases the Scheduled Instances with the specified schedule.
         Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call  DescribeScheduledInstanceAvailability to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call  RunScheduledInstances during each scheduled time period.
         After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseScheduledInstances>`_
@@ -28670,7 +28965,7 @@ class Client(BaseClient):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type PurchaseRequests: list
         :param PurchaseRequests: **[REQUIRED]**
-          One or more purchase requests.
+          The purchase requests.
           - *(dict) --*
             Describes a request to purchase Scheduled Instances.
             - **InstanceCount** *(integer) --* **[REQUIRED]**
@@ -28684,7 +28979,7 @@ class Client(BaseClient):
 
     def reboot_instances(self, InstanceIds: List, DryRun: bool = None):
         """
-        Requests a reboot of one or more instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.
+        Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.
         If an instance does not cleanly shut down within four minutes, Amazon EC2 performs a hard reboot.
         For more information about troubleshooting, see `Getting Console Output and Rebooting Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RebootInstances>`_
@@ -28699,7 +28994,7 @@ class Client(BaseClient):
           )
         :type InstanceIds: list
         :param InstanceIds: **[REQUIRED]**
-          One or more instance IDs.
+          The instance IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -28775,7 +29070,7 @@ class Client(BaseClient):
           Default: For Amazon EBS-backed AMIs, ``i386`` . For instance store-backed AMIs, the architecture specified in the manifest file.
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings:
-          One or more block device mapping entries.
+          The block device mapping entries.
           - *(dict) --*
             Describes a block device mapping.
             - **DeviceName** *(string) --*
@@ -28789,17 +29084,17 @@ class Client(BaseClient):
               - **DeleteOnTermination** *(boolean) --*
                 Indicates whether the EBS volume is deleted on instance termination.
               - **Iops** *(integer) --*
-                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                 Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
               - **SnapshotId** *(string) --*
                 The ID of the snapshot.
               - **VolumeSize** *(integer) --*
                 The size of the volume, in GiB.
-                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                 Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
               - **VolumeType** *(string) --*
-                The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                 Default: ``standard``
               - **Encrypted** *(boolean) --*
                 Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -29483,11 +29778,11 @@ class Client(BaseClient):
           The time at which the reported instance health state ended.
         :type Instances: list
         :param Instances: **[REQUIRED]**
-          One or more instances.
+          The instances.
           - *(string) --*
         :type ReasonCodes: list
         :param ReasonCodes: **[REQUIRED]**
-          One or more reason codes that describe the health state of your instance.
+          The reason codes that describe the health state of your instance.
           * ``instance-stuck-in-state`` : My instance is stuck in a state.
           * ``unresponsive`` : My instance is unresponsive.
           * ``not-accepting-credentials`` : My instance is not accepting my credentials.
@@ -29562,7 +29857,7 @@ class Client(BaseClient):
                               'Name': 'string'
                           },
                           'ImageId': 'string',
-                          'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                          'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                           'KernelId': 'string',
                           'KeyName': 'string',
                           'Monitoring': {
@@ -29592,7 +29887,8 @@ class Client(BaseClient):
                                       },
                                   ],
                                   'SecondaryPrivateIpAddressCount': 123,
-                                  'SubnetId': 'string'
+                                  'SubnetId': 'string',
+                                  'InterfaceType': 'string'
                               },
                           ],
                           'Placement': {
@@ -29607,7 +29903,7 @@ class Client(BaseClient):
                           'WeightedCapacity': 123.0,
                           'TagSpecifications': [
                               {
-                                  'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                                  'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                                   'Tags': [
                                       {
                                           'Key': 'string',
@@ -29627,7 +29923,7 @@ class Client(BaseClient):
                           },
                           'Overrides': [
                               {
-                                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                   'SpotPrice': 'string',
                                   'SubnetId': 'string',
                                   'AvailabilityZone': 'string',
@@ -29698,7 +29994,7 @@ class Client(BaseClient):
           - **IamFleetRole** *(string) --* **[REQUIRED]**
             Grants the Spot Fleet permission to terminate Spot Instances on your behalf when you cancel its Spot Fleet request using  CancelSpotFleetRequests or when the Spot Fleet request expires, if you set ``terminateInstancesWithExpiration`` .
           - **LaunchSpecifications** *(list) --*
-            The launch specifications for the Spot Fleet request.
+            The launch specifications for the Spot Fleet request. If you specify ``LaunchSpecifications`` , you can\'t specify ``LaunchTemplateConfigs`` .
             - *(dict) --*
               Describes the launch specification for one or more Spot Instances.
               - **SecurityGroups** *(list) --*
@@ -29726,17 +30022,17 @@ class Client(BaseClient):
                     - **DeleteOnTermination** *(boolean) --*
                       Indicates whether the EBS volume is deleted on instance termination.
                     - **Iops** *(integer) --*
-                      The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                      Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                      The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                      Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                       Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                     - **SnapshotId** *(string) --*
                       The ID of the snapshot.
                     - **VolumeSize** *(integer) --*
                       The size of the volume, in GiB.
-                      Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                       Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                      Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                     - **VolumeType** *(string) --*
-                      The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                      The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                       Default: ``standard``
                     - **Encrypted** *(boolean) --*
                       Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -29807,6 +30103,8 @@ class Client(BaseClient):
                     The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
                   - **SubnetId** *(string) --*
                     The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+                  - **InterfaceType** *(string) --*
+                    The type of interface.
               - **Placement** *(dict) --*
                 The placement information.
                 - **AvailabilityZone** *(string) --*
@@ -29844,7 +30142,7 @@ class Client(BaseClient):
                         The value of the tag.
                         Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
           - **LaunchTemplateConfigs** *(list) --*
-            The launch template and overrides.
+            The launch template and overrides. If you specify ``LaunchTemplateConfigs`` , you can\'t specify ``LaunchSpecifications`` .
             - *(dict) --*
               Describes a launch template and overrides.
               - **LaunchTemplateSpecification** *(dict) --*
@@ -29884,7 +30182,7 @@ class Client(BaseClient):
           - **ValidFrom** *(datetime) --*
             The start date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). The default is to start fulfilling the request immediately.
           - **ValidUntil** *(datetime) --*
-            The end date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
+            The end date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
           - **ReplaceUnhealthyInstances** *(boolean) --*
             Indicates whether Spot Fleet should replace unhealthy instances.
           - **InstanceInterruptionBehavior** *(string) --*
@@ -29960,7 +30258,7 @@ class Client(BaseClient):
                       'Name': 'string'
                   },
                   'ImageId': 'string',
-                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                  'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                   'KernelId': 'string',
                   'KeyName': 'string',
                   'Monitoring': {
@@ -29990,7 +30288,8 @@ class Client(BaseClient):
                               },
                           ],
                           'SecondaryPrivateIpAddressCount': 123,
-                          'SubnetId': 'string'
+                          'SubnetId': 'string',
+                          'InterfaceType': 'string'
                       },
                   ],
                   'Placement': {
@@ -30055,7 +30354,7 @@ class Client(BaseClient):
                                 'Name': 'string'
                             },
                             'ImageId': 'string',
-                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                             'KernelId': 'string',
                             'KeyName': 'string',
                             'NetworkInterfaces': [
@@ -30082,7 +30381,8 @@ class Client(BaseClient):
                                         },
                                     ],
                                     'SecondaryPrivateIpAddressCount': 123,
-                                    'SubnetId': 'string'
+                                    'SubnetId': 'string',
+                                    'InterfaceType': 'string'
                                 },
                             ],
                             'Placement': {
@@ -30174,20 +30474,20 @@ class Client(BaseClient):
                         - **DeleteOnTermination** *(boolean) --* 
                           Indicates whether the EBS volume is deleted on instance termination.
                         - **Iops** *(integer) --* 
-                          The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                          Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                          The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                          Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                           Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                         - **SnapshotId** *(string) --* 
                           The ID of the snapshot.
                         - **VolumeSize** *(integer) --* 
                           The size of the volume, in GiB.
-                          Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                           Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                          Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                         - **VolumeType** *(string) --* 
-                          The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                          The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                           Default: ``standard``  
                         - **Encrypted** *(boolean) --* 
-                          Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. 
+                          Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
                           If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
                         - **KmsKeyId** *(string) --* 
                           Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.
@@ -30250,6 +30550,8 @@ class Client(BaseClient):
                         The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
                       - **SubnetId** *(string) --* 
                         The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+                      - **InterfaceType** *(string) --* 
+                        The type of interface.
                   - **Placement** *(dict) --* 
                     The placement information for the instance.
                     - **AvailabilityZone** *(string) --* 
@@ -30354,17 +30656,17 @@ class Client(BaseClient):
                 - **DeleteOnTermination** *(boolean) --*
                   Indicates whether the EBS volume is deleted on instance termination.
                 - **Iops** *(integer) --*
-                  The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                  Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                   Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                 - **SnapshotId** *(string) --*
                   The ID of the snapshot.
                 - **VolumeSize** *(integer) --*
                   The size of the volume, in GiB.
-                  Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                   Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                  Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                 - **VolumeType** *(string) --*
-                  The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                  The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                   Default: ``standard``
                 - **Encrypted** *(boolean) --*
                   Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -30435,6 +30737,8 @@ class Client(BaseClient):
                 The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
               - **SubnetId** *(string) --*
                 The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+              - **InterfaceType** *(string) --*
+                The type of interface.
           - **Placement** *(dict) --*
             The placement information for the instance.
             - **AvailabilityZone** *(string) --*
@@ -30449,7 +30753,7 @@ class Client(BaseClient):
           - **SubnetId** *(string) --*
             The ID of the subnet in which to launch the instance.
           - **UserData** *(string) --*
-            The Base64-encoded user data for the instance.
+            The Base64-encoded user data for the instance. User data is limited to 16 KB.
         :type SpotPrice: string
         :param SpotPrice:
           The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
@@ -30704,7 +31008,7 @@ class Client(BaseClient):
 
     def revoke_security_group_egress(self, GroupId: str, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         """
-        [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
+        [VPC only] Removes the specified egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
         Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
         Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupEgress>`_
@@ -30765,16 +31069,16 @@ class Client(BaseClient):
           The ID of the security group.
         :type IpPermissions: list
         :param IpPermissions:
-          One or more sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
+          The sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
           - *(dict) --*
             Describes a set of permissions for a security group rule.
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -30783,7 +31087,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -30792,7 +31096,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -30801,9 +31105,9 @@ class Client(BaseClient):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -30848,9 +31152,9 @@ class Client(BaseClient):
 
     def revoke_security_group_ingress(self, CidrIp: str = None, FromPort: int = None, GroupId: str = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         """
-        Removes one or more ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
+        Removes the specified ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
         .. note::
-          [EC2-Classic security groups only] If the values you specify do not match the existing rule's values, no error is returned. Use  DescribeSecurityGroups to verify that the rule has been removed.
+          [EC2-Classic only] If the values you specify do not match the existing rule's values, no error is returned. Use  DescribeSecurityGroups to verify that the rule has been removed.
         Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
         Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupIngress>`_
@@ -30918,16 +31222,16 @@ class Client(BaseClient):
           [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
         :type IpPermissions: list
         :param IpPermissions:
-          One or more sets of IP permissions. You can\'t specify a source security group and a CIDR IP address range in the same set of permissions.
+          The sets of IP permissions. You can\'t specify a source security group and a CIDR IP address range in the same set of permissions.
           - *(dict) --*
             Describes a set of permissions for a security group rule.
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -30936,7 +31240,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -30945,7 +31249,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -30954,9 +31258,9 @@ class Client(BaseClient):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -31034,7 +31338,7 @@ class Client(BaseClient):
                   },
               ],
               ImageId='string',
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
@@ -31100,7 +31404,8 @@ class Client(BaseClient):
                           },
                       ],
                       'SecondaryPrivateIpAddressCount': 123,
-                      'SubnetId': 'string'
+                      'SubnetId': 'string',
+                      'InterfaceType': 'string'
                   },
               ],
               PrivateIpAddress='string',
@@ -31116,7 +31421,7 @@ class Client(BaseClient):
               ],
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -31177,7 +31482,7 @@ class Client(BaseClient):
                         'AmiLaunchIndex': 123,
                         'ImageId': 'string',
                         'InstanceId': 'string',
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                         'KernelId': 'string',
                         'KeyName': 'string',
                         'LaunchTime': datetime(2015, 1, 1),
@@ -31295,7 +31600,8 @@ class Client(BaseClient):
                                 'SourceDestCheck': True|False,
                                 'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
                                 'SubnetId': 'string',
-                                'VpcId': 'string'
+                                'VpcId': 'string',
+                                'InterfaceType': 'string'
                             },
                         ],
                         'RootDeviceName': 'string',
@@ -31350,7 +31656,7 @@ class Client(BaseClient):
           - *(dict) --* 
             Describes a reservation.
             - **Groups** *(list) --* 
-              [EC2-Classic only] One or more security groups.
+              [EC2-Classic only] The security groups.
               - *(dict) --* 
                 Describes a security group.
                 - **GroupName** *(string) --* 
@@ -31358,7 +31664,7 @@ class Client(BaseClient):
                 - **GroupId** *(string) --* 
                   The ID of the security group.
             - **Instances** *(list) --* 
-              One or more instances.
+              The instances.
               - *(dict) --* 
                 Describes an instance.
                 - **AmiLaunchIndex** *(integer) --* 
@@ -31383,6 +31689,7 @@ class Client(BaseClient):
                   The location where the instance launched, if applicable.
                   - **AvailabilityZone** *(string) --* 
                     The Availability Zone of the instance.
+                    If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the region.
                   - **Affinity** *(string) --* 
                     The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the  ImportInstance command.
                   - **GroupName** *(string) --* 
@@ -31419,13 +31726,17 @@ class Client(BaseClient):
                 - **State** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **StateTransitionReason** *(string) --* 
@@ -31493,7 +31804,7 @@ class Client(BaseClient):
                     - **ElasticInferenceAcceleratorAssociationTime** *(datetime) --* 
                       The time at which the elastic inference accelerator is associated with an instance. 
                 - **NetworkInterfaces** *(list) --* 
-                  [EC2-VPC] One or more network interfaces for the instance.
+                  [EC2-VPC] The network interfaces for the instance.
                   - *(dict) --* 
                     Describes a network interface.
                     - **Association** *(dict) --* 
@@ -31568,12 +31879,14 @@ class Client(BaseClient):
                       The ID of the subnet.
                     - **VpcId** *(string) --* 
                       The ID of the VPC.
+                    - **InterfaceType** *(string) --* 
+                      Describes the type of network interface.
                 - **RootDeviceName** *(string) --* 
                   The device name of the root device volume (for example, ``/dev/sda1`` ).
                 - **RootDeviceType** *(string) --* 
                   The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
                 - **SecurityGroups** *(list) --* 
-                  One or more security groups for the instance.
+                  The security groups for the instance.
                   - *(dict) --* 
                     Describes a security group.
                     - **GroupName** *(string) --* 
@@ -31652,7 +31965,7 @@ class Client(BaseClient):
               The ID of the reservation.
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings:
-          One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+          The block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
           - *(dict) --*
             Describes a block device mapping.
             - **DeviceName** *(string) --*
@@ -31666,17 +31979,17 @@ class Client(BaseClient):
               - **DeleteOnTermination** *(boolean) --*
                 Indicates whether the EBS volume is deleted on instance termination.
               - **Iops** *(integer) --*
-                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                 Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
               - **SnapshotId** *(string) --*
                 The ID of the snapshot.
               - **VolumeSize** *(integer) --*
                 The size of the volume, in GiB.
-                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                 Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
               - **VolumeType** *(string) --*
-                The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                 Default: ``standard``
               - **Encrypted** *(boolean) --*
                 Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -31688,18 +32001,18 @@ class Client(BaseClient):
               Suppresses the specified device included in the block device mapping of the AMI.
         :type ImageId: string
         :param ImageId:
-          The ID of the AMI, which you can get by calling  DescribeImages . An AMI is required to launch an instance and must be specified here or in a launch template.
+          The ID of the AMI. An AMI is required to launch an instance and must be specified here or in a launch template.
         :type InstanceType: string
         :param InstanceType:
           The instance type. For more information, see `Instance Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           Default: ``m1.small``
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount:
-          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
+          [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
           You cannot specify this option and the network interfaces option in the same request.
         :type Ipv6Addresses: list
         :param Ipv6Addresses:
-          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
+          [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
           You cannot specify this option and the network interfaces option in the same request.
           - *(dict) --*
             Describes an IPv6 address.
@@ -31725,7 +32038,7 @@ class Client(BaseClient):
           Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
         :type Monitoring: dict
         :param Monitoring:
-          The monitoring for the instance.
+          Specifies whether detailed monitoring is enabled for the instance.
           - **Enabled** *(boolean) --* **[REQUIRED]**
             Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
         :type Placement: dict
@@ -31733,6 +32046,7 @@ class Client(BaseClient):
           The placement for the instance.
           - **AvailabilityZone** *(string) --*
             The Availability Zone of the instance.
+            If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the region.
           - **Affinity** *(string) --*
             The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the  ImportInstance command.
           - **GroupName** *(string) --*
@@ -31747,18 +32061,18 @@ class Client(BaseClient):
             Reserved for future use.
         :type RamdiskId: string
         :param RamdiskId:
-          The ID of the RAM disk.
+          The ID of the RAM disk to select. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, go to the AWS Resource Center and search for the kernel ID.
           .. warning::
             We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         :type SecurityGroupIds: list
         :param SecurityGroupIds:
-          One or more security group IDs. You can create a security group using  CreateSecurityGroup .
+          The IDs of the security groups. You can create a security group using  CreateSecurityGroup .
           Default: Amazon EC2 uses the default security group.
           You cannot specify this option and the network interfaces option in the same request.
           - *(string) --*
         :type SecurityGroups: list
         :param SecurityGroups:
-          [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+          [EC2-Classic, default VPC] The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
           You cannot specify this option and the network interfaces option in the same request.
           Default: Amazon EC2 uses the default security group.
           - *(string) --*
@@ -31768,7 +32082,7 @@ class Client(BaseClient):
           You cannot specify this option and the network interfaces option in the same request.
         :type UserData: string
         :param UserData:
-          The user data to make available to the instance. For more information, see `Running Commands on Your Linux Instance at Launch <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html>`__ (Linux) and `Adding User Data <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data>`__ (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
+          The user data to make available to the instance. For more information, see `Running Commands on Your Linux Instance at Launch <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html>`__ (Linux) and `Adding User Data <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data>`__ (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.
             **This value will be base64 encoded automatically. Do not base64 encode this value prior to performing the operation.**
         :type AdditionalInfo: string
         :param AdditionalInfo:
@@ -31801,8 +32115,7 @@ class Client(BaseClient):
           Default: ``stop``
         :type NetworkInterfaces: list
         :param NetworkInterfaces:
-          One or more network interfaces.
-          You cannot specify this option and the network interfaces option in the same request.
+          The network interfaces to associate with the instance.
           - *(dict) --*
             Describes a network interface.
             - **AssociatePublicIpAddress** *(boolean) --*
@@ -31840,6 +32153,8 @@ class Client(BaseClient):
               The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
             - **SubnetId** *(string) --*
               The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+            - **InterfaceType** *(string) --*
+              The type of interface.
         :type PrivateIpAddress: string
         :param PrivateIpAddress:
           [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
@@ -31847,18 +32162,18 @@ class Client(BaseClient):
           You cannot specify this option and the network interfaces option in the same request.
         :type ElasticGpuSpecification: list
         :param ElasticGpuSpecification:
-          An elastic GPU to associate with the instance.
+          An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that you can attach to your Windows instance to accelerate the graphics performance of your applications. For more information, see `Amazon EC2 Elastic GPUs <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           - *(dict) --*
             A specification for an Elastic Graphics accelerator.
             - **Type** *(string) --* **[REQUIRED]**
               The type of Elastic Graphics accelerator.
         :type ElasticInferenceAccelerators: list
         :param ElasticInferenceAccelerators:
-          An elastic inference accelerator.
+          An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
           - *(dict) --*
             Describes an elastic inference accelerator.
             - **Type** *(string) --* **[REQUIRED]**
-              The type of elastic inference accelerator. The possible values are eia1.small, eia1.medium, and eia1.large.
+              The type of elastic inference accelerator. The possible values are ``eia1.small`` , ``eia1.medium`` , and ``eia1.large`` .
         :type TagSpecifications: list
         :param TagSpecifications:
           The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see  CreateTags .
@@ -31906,7 +32221,7 @@ class Client(BaseClient):
               The behavior when a Spot Instance is interrupted. The default is ``terminate`` .
         :type CreditSpecification: dict
         :param CreditSpecification:
-          The credit option for CPU usage of the instance. Valid values are ``standard`` and ``unlimited`` . To change this attribute after launch, use  ModifyInstanceCreditSpecification . For more information, see `Burstable Performance Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          The credit option for CPU usage of the T2 or T3 instance. Valid values are ``standard`` and ``unlimited`` . To change this attribute after launch, use  ModifyInstanceCreditSpecification . For more information, see `Burstable Performance Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           Default: ``standard`` (T2 instances) or ``unlimited`` (T3 instances)
           - **CpuCredits** *(string) --* **[REQUIRED]**
             The credit option for CPU usage of a T2 or T3 instance. Valid values are ``standard`` and ``unlimited`` .
@@ -32057,7 +32372,7 @@ class Client(BaseClient):
         :param LaunchSpecification: **[REQUIRED]**
           The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
           - **BlockDeviceMappings** *(list) --*
-            One or more block device mapping entries.
+            The block device mapping entries.
             - *(dict) --*
               Describes a block device mapping for a Scheduled Instance.
               - **DeviceName** *(string) --*
@@ -32107,7 +32422,7 @@ class Client(BaseClient):
             - **Enabled** *(boolean) --*
               Indicates whether monitoring is enabled.
           - **NetworkInterfaces** *(list) --*
-            One or more network interfaces.
+            The network interfaces.
             - *(dict) --*
               Describes a network interface for a Scheduled Instance.
               - **AssociatePublicIpAddress** *(boolean) --*
@@ -32119,12 +32434,12 @@ class Client(BaseClient):
               - **DeviceIndex** *(integer) --*
                 The index of the device for the network interface attachment.
               - **Groups** *(list) --*
-                The IDs of one or more security groups.
+                The IDs of the security groups.
                 - *(string) --*
               - **Ipv6AddressCount** *(integer) --*
                 The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
               - **Ipv6Addresses** *(list) --*
-                One or more specific IPv6 addresses from the subnet range.
+                The specific IPv6 addresses from the subnet range.
                 - *(dict) --*
                   Describes an IPv6 address.
                   - **Ipv6Address** *(string) --*
@@ -32154,7 +32469,7 @@ class Client(BaseClient):
           - **RamdiskId** *(string) --*
             The ID of the RAM disk.
           - **SecurityGroupIds** *(list) --*
-            The IDs of one or more security groups.
+            The IDs of the security groups.
             - *(string) --*
           - **SubnetId** *(string) --*
             The ID of the subnet in which to launch the instances.
@@ -32263,7 +32578,7 @@ class Client(BaseClient):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -32316,19 +32631,23 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **StartingInstances** *(list) --* 
-              Information about one or more started instances.
+              Information about the started instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -32336,18 +32655,22 @@ class Client(BaseClient):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type InstanceIds: list
         :param InstanceIds: **[REQUIRED]**
-          One or more instance IDs.
+          The IDs of the instances.
           - *(string) --*
         :type AdditionalInfo: string
         :param AdditionalInfo:
@@ -32403,19 +32726,23 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **StoppingInstances** *(list) --* 
-              Information about one or more stopped instances.
+              Information about the stopped instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -32423,18 +32750,22 @@ class Client(BaseClient):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type InstanceIds: list
         :param InstanceIds: **[REQUIRED]**
-          One or more instance IDs.
+          The IDs of the instances.
           - *(string) --*
         :type Hibernate: boolean
         :param Hibernate:
@@ -32529,7 +32860,7 @@ class Client(BaseClient):
 
     def terminate_instances(self, InstanceIds: List, DryRun: bool = None) -> Dict:
         """
-        Shuts down one or more instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds. 
+        Shuts down the specified instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds. 
         If you specify multiple instances and the request fails (for example, because of a single incorrect instance ID), none of the instances are terminated.
         Terminated instances remain visible after termination (for approximately one hour).
         By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.
@@ -32567,19 +32898,23 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **TerminatingInstances** *(list) --* 
-              Information about one or more terminated instances.
+              Information about the terminated instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -32587,18 +32922,22 @@ class Client(BaseClient):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type InstanceIds: list
         :param InstanceIds: **[REQUIRED]**
-          One or more instance IDs.
+          The IDs of the instances.
           Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
           - *(string) --*
         :type DryRun: boolean
@@ -32716,7 +33055,7 @@ class Client(BaseClient):
                     Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
         :type InstanceIds: list
         :param InstanceIds: **[REQUIRED]**
-          One or more instance IDs.
+          The IDs of the instances.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -32728,7 +33067,7 @@ class Client(BaseClient):
 
     def update_security_group_rule_descriptions_egress(self, IpPermissions: List, DryRun: bool = None, GroupId: str = None, GroupName: str = None) -> Dict:
         """
-        [EC2-VPC only] Updates the description of an egress (outbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.
+        [VPC only] Updates the description of an egress (outbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.
         You specify the description as part of the IP permissions structure. You can remove a description for a security group rule by omitting the description parameter in the request.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsEgress>`_
         
@@ -32803,10 +33142,10 @@ class Client(BaseClient):
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -32815,7 +33154,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -32824,7 +33163,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -32833,9 +33172,9 @@ class Client(BaseClient):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -32938,10 +33277,10 @@ class Client(BaseClient):
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -32950,7 +33289,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -32959,7 +33298,7 @@ class Client(BaseClient):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -32968,9 +33307,9 @@ class Client(BaseClient):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*

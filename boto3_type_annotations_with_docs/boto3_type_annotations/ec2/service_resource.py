@@ -1,8 +1,8 @@
-from typing import List
-from typing import Dict
-from typing import Union
-from typing import Optional
 from boto3.resources.collection import ResourceCollection
+from typing import List
+from typing import Optional
+from typing import Union
+from typing import Dict
 from datetime import datetime
 from boto3.resources import base
 
@@ -340,7 +340,7 @@ class ServiceResource(base.ServiceResource):
                   },
               ],
               ImageId='string',
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
@@ -406,7 +406,8 @@ class ServiceResource(base.ServiceResource):
                           },
                       ],
                       'SecondaryPrivateIpAddressCount': 123,
-                      'SubnetId': 'string'
+                      'SubnetId': 'string',
+                      'InterfaceType': 'string'
                   },
               ],
               PrivateIpAddress='string',
@@ -422,7 +423,7 @@ class ServiceResource(base.ServiceResource):
               ],
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -470,7 +471,7 @@ class ServiceResource(base.ServiceResource):
           )
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings:
-          One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+          The block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
           - *(dict) --*
             Describes a block device mapping.
             - **DeviceName** *(string) --*
@@ -484,17 +485,17 @@ class ServiceResource(base.ServiceResource):
               - **DeleteOnTermination** *(boolean) --*
                 Indicates whether the EBS volume is deleted on instance termination.
               - **Iops** *(integer) --*
-                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                 Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
               - **SnapshotId** *(string) --*
                 The ID of the snapshot.
               - **VolumeSize** *(integer) --*
                 The size of the volume, in GiB.
-                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                 Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
               - **VolumeType** *(string) --*
-                The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                 Default: ``standard``
               - **Encrypted** *(boolean) --*
                 Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -506,18 +507,18 @@ class ServiceResource(base.ServiceResource):
               Suppresses the specified device included in the block device mapping of the AMI.
         :type ImageId: string
         :param ImageId:
-          The ID of the AMI, which you can get by calling  DescribeImages . An AMI is required to launch an instance and must be specified here or in a launch template.
+          The ID of the AMI. An AMI is required to launch an instance and must be specified here or in a launch template.
         :type InstanceType: string
         :param InstanceType:
           The instance type. For more information, see `Instance Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           Default: ``m1.small``
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount:
-          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
+          [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
           You cannot specify this option and the network interfaces option in the same request.
         :type Ipv6Addresses: list
         :param Ipv6Addresses:
-          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
+          [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
           You cannot specify this option and the network interfaces option in the same request.
           - *(dict) --*
             Describes an IPv6 address.
@@ -543,7 +544,7 @@ class ServiceResource(base.ServiceResource):
           Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
         :type Monitoring: dict
         :param Monitoring:
-          The monitoring for the instance.
+          Specifies whether detailed monitoring is enabled for the instance.
           - **Enabled** *(boolean) --* **[REQUIRED]**
             Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
         :type Placement: dict
@@ -551,6 +552,7 @@ class ServiceResource(base.ServiceResource):
           The placement for the instance.
           - **AvailabilityZone** *(string) --*
             The Availability Zone of the instance.
+            If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the region.
           - **Affinity** *(string) --*
             The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the  ImportInstance command.
           - **GroupName** *(string) --*
@@ -565,18 +567,18 @@ class ServiceResource(base.ServiceResource):
             Reserved for future use.
         :type RamdiskId: string
         :param RamdiskId:
-          The ID of the RAM disk.
+          The ID of the RAM disk to select. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, go to the AWS Resource Center and search for the kernel ID.
           .. warning::
             We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         :type SecurityGroupIds: list
         :param SecurityGroupIds:
-          One or more security group IDs. You can create a security group using  CreateSecurityGroup .
+          The IDs of the security groups. You can create a security group using  CreateSecurityGroup .
           Default: Amazon EC2 uses the default security group.
           You cannot specify this option and the network interfaces option in the same request.
           - *(string) --*
         :type SecurityGroups: list
         :param SecurityGroups:
-          [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+          [EC2-Classic, default VPC] The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
           You cannot specify this option and the network interfaces option in the same request.
           Default: Amazon EC2 uses the default security group.
           - *(string) --*
@@ -586,7 +588,7 @@ class ServiceResource(base.ServiceResource):
           You cannot specify this option and the network interfaces option in the same request.
         :type UserData: string
         :param UserData:
-          The user data to make available to the instance. For more information, see `Running Commands on Your Linux Instance at Launch <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html>`__ (Linux) and `Adding User Data <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data>`__ (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
+          The user data to make available to the instance. For more information, see `Running Commands on Your Linux Instance at Launch <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html>`__ (Linux) and `Adding User Data <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data>`__ (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.
             **This value will be base64 encoded automatically. Do not base64 encode this value prior to performing the operation.**
         :type AdditionalInfo: string
         :param AdditionalInfo:
@@ -619,8 +621,7 @@ class ServiceResource(base.ServiceResource):
           Default: ``stop``
         :type NetworkInterfaces: list
         :param NetworkInterfaces:
-          One or more network interfaces.
-          You cannot specify this option and the network interfaces option in the same request.
+          The network interfaces to associate with the instance.
           - *(dict) --*
             Describes a network interface.
             - **AssociatePublicIpAddress** *(boolean) --*
@@ -658,6 +659,8 @@ class ServiceResource(base.ServiceResource):
               The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
             - **SubnetId** *(string) --*
               The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+            - **InterfaceType** *(string) --*
+              The type of interface.
         :type PrivateIpAddress: string
         :param PrivateIpAddress:
           [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
@@ -665,18 +668,18 @@ class ServiceResource(base.ServiceResource):
           You cannot specify this option and the network interfaces option in the same request.
         :type ElasticGpuSpecification: list
         :param ElasticGpuSpecification:
-          An elastic GPU to associate with the instance.
+          An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that you can attach to your Windows instance to accelerate the graphics performance of your applications. For more information, see `Amazon EC2 Elastic GPUs <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           - *(dict) --*
             A specification for an Elastic Graphics accelerator.
             - **Type** *(string) --* **[REQUIRED]**
               The type of Elastic Graphics accelerator.
         :type ElasticInferenceAccelerators: list
         :param ElasticInferenceAccelerators:
-          An elastic inference accelerator.
+          An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
           - *(dict) --*
             Describes an elastic inference accelerator.
             - **Type** *(string) --* **[REQUIRED]**
-              The type of elastic inference accelerator. The possible values are eia1.small, eia1.medium, and eia1.large.
+              The type of elastic inference accelerator. The possible values are ``eia1.small`` , ``eia1.medium`` , and ``eia1.large`` .
         :type TagSpecifications: list
         :param TagSpecifications:
           The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see  CreateTags .
@@ -724,7 +727,7 @@ class ServiceResource(base.ServiceResource):
               The behavior when a Spot Instance is interrupted. The default is ``terminate`` .
         :type CreditSpecification: dict
         :param CreditSpecification:
-          The credit option for CPU usage of the instance. Valid values are ``standard`` and ``unlimited`` . To change this attribute after launch, use  ModifyInstanceCreditSpecification . For more information, see `Burstable Performance Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          The credit option for CPU usage of the T2 or T3 instance. Valid values are ``standard`` and ``unlimited`` . To change this attribute after launch, use  ModifyInstanceCreditSpecification . For more information, see `Burstable Performance Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           Default: ``standard`` (T2 instances) or ``unlimited`` (T3 instances)
           - **CpuCredits** *(string) --* **[REQUIRED]**
             The credit option for CPU usage of a T2 or T3 instance. Valid values are ``standard`` and ``unlimited`` .
@@ -832,7 +835,7 @@ class ServiceResource(base.ServiceResource):
         """
         pass
 
-    def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> 'NetworkInterface':
+    def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None, InterfaceType: str = None) -> 'NetworkInterface':
         """
         Creates a network interface in the specified subnet.
         For more information about network interfaces, see `Elastic Network Interfaces <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -860,6 +863,7 @@ class ServiceResource(base.ServiceResource):
                   },
               ],
               SecondaryPrivateIpAddressCount=123,
+              InterfaceType='efa',
               SubnetId='string'
           )
         :type Description: string
@@ -898,6 +902,10 @@ class ServiceResource(base.ServiceResource):
         :param SecondaryPrivateIpAddressCount:
           The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You can\'t specify this option and specify more than one private IP address using ``privateIpAddresses`` .
           The number of IP addresses you can assign to a network interface varies by instance type. For more information, see `IP Addresses Per ENI Per Instance Type <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI>`__ in the *Amazon Virtual Private Cloud User Guide* .
+        :type InterfaceType: string
+        :param InterfaceType:
+          Indicates whether the network interface is an Elastic Fabric Adapter (EFA). Only specify this parameter to create an EFA. For more information, see `Elastic Fabric Adapter <AWSEC2/latest/UserGuide/efa.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          If you are not creating an EFA ENI, omit this parameter.
         :type SubnetId: string
         :param SubnetId: **[REQUIRED]**
           The ID of the subnet to associate with the network interface.
@@ -965,13 +973,11 @@ class ServiceResource(base.ServiceResource):
     def create_security_group(self, Description: str, GroupName: str, VpcId: str = None, DryRun: bool = None) -> 'SecurityGroup':
         """
         Creates a security group.
-        A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see `Amazon EC2 Security Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ in the *Amazon Elastic Compute Cloud User Guide* and `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
-        .. warning::
-          EC2-Classic: You can have up to 500 security groups.
-          EC2-VPC: You can create up to 500 security groups per VPC.
+        A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see `Amazon EC2 Security Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ in the *Amazon Elastic Compute Cloud User Guide* and `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
         You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
         You can add or remove rules from your security groups using  AuthorizeSecurityGroupIngress ,  AuthorizeSecurityGroupEgress ,  RevokeSecurityGroupIngress , and  RevokeSecurityGroupEgress .
+        For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSecurityGroup>`_
         
         **Request Syntax**
@@ -1023,7 +1029,7 @@ class ServiceResource(base.ServiceResource):
               VolumeId='string',
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -1139,7 +1145,7 @@ class ServiceResource(base.ServiceResource):
               DryRun=True|False,
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -1157,14 +1163,14 @@ class ServiceResource(base.ServiceResource):
           Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see `Amazon EBS Encryption <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         :type Iops: integer
         :param Iops:
-          The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most regions. Maximum IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           This parameter is valid only for Provisioned IOPS SSD (io1) volumes.
         :type KmsKeyId: string
         :param KmsKeyId:
           An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a ``KmsKeyId`` is specified, the ``Encrypted`` flag must also be set.
           The CMK identifier may be provided in any of the following formats:
           * Key ID
-          * Key alias
+          * Key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           * ARN using key ID. The ID ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``key`` namespace, and then the CMK ID. For example, arn:aws:kms:*us-east-1* :*012345678910* :key/*abcd1234-a123-456a-a12b-a123b4cd56ef* .
           * ARN using key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           AWS parses ``KmsKeyId`` asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. The action will eventually fail.
@@ -1183,7 +1189,7 @@ class ServiceResource(base.ServiceResource):
         :type VolumeType: string
         :param VolumeType:
           The volume type. This can be ``gp2`` for General Purpose SSD, ``io1`` for Provisioned IOPS SSD, ``st1`` for Throughput Optimized HDD, ``sc1`` for Cold HDD, or ``standard`` for Magnetic volumes.
-          Defaults: If no volume type is specified, the default is ``standard`` in us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other regions, EBS defaults to ``gp2`` .
+          Defaults: If no volume type is specified, the default is ``standard`` in us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions, EBS defaults to ``gp2`` .
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -1398,7 +1404,7 @@ class ServiceResource(base.ServiceResource):
           Default: For Amazon EBS-backed AMIs, ``i386`` . For instance store-backed AMIs, the architecture specified in the manifest file.
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings:
-          One or more block device mapping entries.
+          The block device mapping entries.
           - *(dict) --*
             Describes a block device mapping.
             - **DeviceName** *(string) --*
@@ -1412,17 +1418,17 @@ class ServiceResource(base.ServiceResource):
               - **DeleteOnTermination** *(boolean) --*
                 Indicates whether the EBS volume is deleted on instance termination.
               - **Iops** *(integer) --*
-                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                 Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
               - **SnapshotId** *(string) --*
                 The ID of the snapshot.
               - **VolumeSize** *(integer) --*
                 The size of the volume, in GiB.
-                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                 Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
               - **VolumeType** *(string) --*
-                The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                 Default: ``standard``
               - **Encrypted** *(boolean) --*
                 Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -1532,6 +1538,7 @@ class ClassicAddress(base.ServiceResource):
         :type NetworkInterfaceId: string
         :param NetworkInterfaceId:
           [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+          For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both.
         :type PrivateIpAddress: string
         :param PrivateIpAddress:
           [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
@@ -1655,7 +1662,7 @@ class DhcpOptions(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -1675,7 +1682,7 @@ class DhcpOptions(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -1770,7 +1777,7 @@ class Image(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -1790,7 +1797,7 @@ class Image(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -1884,7 +1891,7 @@ class Image(base.ServiceResource):
           - *(dict) --* 
             Describes an image attribute.
             - **BlockDeviceMappings** *(list) --* 
-              One or more block device mapping entries.
+              The block device mapping entries.
               - *(dict) --* 
                 Describes a block device mapping.
                 - **DeviceName** *(string) --* 
@@ -1898,20 +1905,20 @@ class Image(base.ServiceResource):
                   - **DeleteOnTermination** *(boolean) --* 
                     Indicates whether the EBS volume is deleted on instance termination.
                   - **Iops** *(integer) --* 
-                    The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                    Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                    The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                    Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                     Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                   - **SnapshotId** *(string) --* 
                     The ID of the snapshot.
                   - **VolumeSize** *(integer) --* 
                     The size of the volume, in GiB.
-                    Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                     Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                    Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                   - **VolumeType** *(string) --* 
-                    The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                    The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                     Default: ``standard``  
                   - **Encrypted** *(boolean) --* 
-                    Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. 
+                    Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
                     If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
                   - **KmsKeyId** *(string) --* 
                     Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.
@@ -1921,7 +1928,7 @@ class Image(base.ServiceResource):
             - **ImageId** *(string) --* 
               The ID of the AMI.
             - **LaunchPermissions** *(list) --* 
-              One or more launch permissions.
+              The launch permissions.
               - *(dict) --* 
                 Describes a launch permission.
                 - **Group** *(string) --* 
@@ -1929,7 +1936,7 @@ class Image(base.ServiceResource):
                 - **UserId** *(string) --* 
                   The AWS account ID.
             - **ProductCodes** *(list) --* 
-              One or more product codes.
+              The product codes.
               - *(dict) --* 
                 Describes a product code.
                 - **ProductCodeId** *(string) --* 
@@ -2059,15 +2066,15 @@ class Image(base.ServiceResource):
           The operation type. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
         :type ProductCodes: list
         :param ProductCodes:
-          One or more DevPay product codes. After you add a product code to an AMI, it can\'t be removed.
+          The DevPay product codes. After you add a product code to an AMI, it can\'t be removed.
           - *(string) --*
         :type UserGroups: list
         :param UserGroups:
-          One or more user groups. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
+          The user groups. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
           - *(string) --*
         :type UserIds: list
         :param UserIds:
-          One or more AWS account IDs. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
+          The AWS account IDs. This parameter can be used only when the ``Attribute`` parameter is ``launchPermission`` .
           - *(string) --*
         :type Value: string
         :param Value:
@@ -2144,7 +2151,7 @@ class Image(base.ServiceResource):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``architecture`` - The image architecture (``i386`` | ``x86_64`` ).
           * ``block-device-mapping.delete-on-termination`` - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.
           * ``block-device-mapping.device-name`` - The device name specified in the block device mapping (for example, ``/dev/sdh`` or ``xvdh`` ).
@@ -2191,7 +2198,7 @@ class Image(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type Owners: list
         :param Owners:
@@ -2434,7 +2441,7 @@ class Instance(base.ServiceResource):
           )
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings:
-          Information about one or more block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the  CopyImage action.
+          Tthe block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the  CopyImage action.
           - *(dict) --*
             Describes a block device mapping.
             - **DeviceName** *(string) --*
@@ -2448,17 +2455,17 @@ class Instance(base.ServiceResource):
               - **DeleteOnTermination** *(boolean) --*
                 Indicates whether the EBS volume is deleted on instance termination.
               - **Iops** *(integer) --*
-                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                 Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
               - **SnapshotId** *(string) --*
                 The ID of the snapshot.
               - **VolumeSize** *(integer) --*
                 The size of the volume, in GiB.
-                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                 Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
               - **VolumeType** *(string) --*
-                The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                 Default: ``standard``
               - **Encrypted** *(boolean) --*
                 Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -2488,7 +2495,7 @@ class Instance(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -2508,7 +2515,7 @@ class Instance(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -2544,7 +2551,7 @@ class Instance(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags:
-          One or more tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
+          The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
           If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the ``aws:`` prefix).
           - *(dict) --*
             Describes a tag.
@@ -3070,7 +3077,7 @@ class Instance(base.ServiceResource):
 
     def reboot(self, DryRun: bool = None):
         """
-        Requests a reboot of one or more instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.
+        Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.
         If an instance does not cleanly shut down within four minutes, Amazon EC2 performs a hard reboot.
         For more information about troubleshooting, see `Getting Console Output and Rebooting Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RebootInstances>`_
@@ -3128,7 +3135,7 @@ class Instance(base.ServiceResource):
           The time at which the reported instance health state ended.
         :type ReasonCodes: list
         :param ReasonCodes: **[REQUIRED]**
-          One or more reason codes that describe the health state of your instance.
+          The reason codes that describe the health state of your instance.
           * ``instance-stuck-in-state`` : My instance is stuck in a state.
           * ``unresponsive`` : My instance is unresponsive.
           * ``not-accepting-credentials`` : My instance is not accepting my credentials.
@@ -3264,19 +3271,23 @@ class Instance(base.ServiceResource):
         **Response Structure**
           - *(dict) --* 
             - **StartingInstances** *(list) --* 
-              Information about one or more started instances.
+              Information about the started instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -3284,13 +3295,17 @@ class Instance(base.ServiceResource):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type AdditionalInfo: string
@@ -3344,19 +3359,23 @@ class Instance(base.ServiceResource):
         **Response Structure**
           - *(dict) --* 
             - **StoppingInstances** *(list) --* 
-              Information about one or more stopped instances.
+              Information about the stopped instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -3364,13 +3383,17 @@ class Instance(base.ServiceResource):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type Hibernate: boolean
@@ -3391,7 +3414,7 @@ class Instance(base.ServiceResource):
 
     def terminate(self, DryRun: bool = None) -> Dict:
         """
-        Shuts down one or more instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds. 
+        Shuts down the specified instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds. 
         If you specify multiple instances and the request fails (for example, because of a single incorrect instance ID), none of the instances are terminated.
         Terminated instances remain visible after termination (for approximately one hour).
         By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.
@@ -3426,19 +3449,23 @@ class Instance(base.ServiceResource):
         **Response Structure**
           - *(dict) --* 
             - **TerminatingInstances** *(list) --* 
-              Information about one or more terminated instances.
+              Information about the terminated instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -3446,13 +3473,17 @@ class Instance(base.ServiceResource):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type DryRun: boolean
@@ -3529,7 +3560,7 @@ class Instance(base.ServiceResource):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -3593,7 +3624,7 @@ class Instance(base.ServiceResource):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -3629,7 +3660,7 @@ class Instance(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -3666,7 +3697,7 @@ class Instance(base.ServiceResource):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -3730,7 +3761,7 @@ class Instance(base.ServiceResource):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -3766,7 +3797,7 @@ class Instance(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -3803,7 +3834,7 @@ class Instance(base.ServiceResource):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -3867,7 +3898,7 @@ class Instance(base.ServiceResource):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -3903,7 +3934,7 @@ class Instance(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -3940,7 +3971,7 @@ class Instance(base.ServiceResource):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -4004,7 +4035,7 @@ class Instance(base.ServiceResource):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -4040,7 +4071,7 @@ class Instance(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -4086,7 +4117,7 @@ class InternetGateway(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -4106,7 +4137,7 @@ class InternetGateway(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -4363,7 +4394,7 @@ class NetworkAcl(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -4383,7 +4414,7 @@ class NetworkAcl(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -4667,7 +4698,7 @@ class NetworkInterface(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -4687,7 +4718,7 @@ class NetworkInterface(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -4850,7 +4881,7 @@ class NetworkInterface(base.ServiceResource):
 
     def modify_attribute(self, Attachment: Dict = None, Description: Dict = None, DryRun: bool = None, Groups: List = None, SourceDestCheck: Dict = None):
         """
-        Modifies the specified network interface attribute. You can specify only one attribute at a time.
+        Modifies the specified network interface attribute. You can specify only one attribute at a time. You can use this action to attach and detach security groups from an existing EC2 instance.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyNetworkInterfaceAttribute>`_
         
         **Request Syntax**
@@ -5270,7 +5301,7 @@ class RouteTable(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -5290,7 +5321,7 @@ class RouteTable(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -5428,9 +5459,11 @@ class SecurityGroup(base.ServiceResource):
 
     def authorize_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         """
-        [EC2-VPC only] Adds one or more egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to one or more destination IPv4 or IPv6 CIDR address ranges, or to one or more destination security groups for the same VPC. This action doesn't apply to security groups for use in EC2-Classic. For more information, see `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* . For more information about security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html>`__ .
-        Each rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes. You can optionally specify a description for the rule.
+        [VPC only] Adds the specified egress rules to a security group for use with a VPC.
+        An outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.
+        You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.
         Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.
+        For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupEgress>`_
         
         **Request Syntax**
@@ -5485,16 +5518,16 @@ class SecurityGroup(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type IpPermissions: list
         :param IpPermissions:
-          One or more sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
+          The sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
           - *(dict) --*
             Describes a set of permissions for a security group rule.
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -5503,7 +5536,7 @@ class SecurityGroup(base.ServiceResource):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -5512,7 +5545,7 @@ class SecurityGroup(base.ServiceResource):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -5521,9 +5554,9 @@ class SecurityGroup(base.ServiceResource):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -5568,11 +5601,11 @@ class SecurityGroup(base.ServiceResource):
 
     def authorize_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         """
-        Adds one or more ingress rules to a security group.
+        Adds the specified ingress rules to a security group.
+        An inbound rule permits instances to receive traffic from the specified destination IPv4 or IPv6 CIDR address ranges, or from the specified destination security groups.
+        You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify the destination port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
         Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
-        [EC2-Classic] This action gives one or more IPv4 CIDR address ranges permission to access a security group in your account, or gives one or more security groups (called the *source groups* ) permission to access a security group for your account. A source group can be for your own AWS account, or another. You can have up to 100 rules per group.
-        [EC2-VPC] This action gives one or more IPv4 or IPv6 CIDR address ranges permission to access a security group in your VPC, or gives one or more other security groups (called the *source groups* ) permission to access a security group for your VPC. The security groups must all be for the same VPC or a peer VPC in a VPC peering connection. For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html>`__ .
-        You can optionally specify a description for the security group rule.
+        For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupIngress>`_
         
         **Request Syntax**
@@ -5625,25 +5658,27 @@ class SecurityGroup(base.ServiceResource):
           )
         :type CidrIp: string
         :param CidrIp:
-          The CIDR IPv4 address range. You can\'t specify this parameter when specifying a source security group.
+          The IPv4 address range, in CIDR format. You can\'t specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
+          Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
         :type FromPort: integer
         :param FromPort:
-          The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. For the ICMP/ICMPv6 type number, use ``-1`` to specify all types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+          The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use ``-1`` to specify all types. If you specify all ICMP types, you must specify all codes.
+          Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
         :type GroupName: string
         :param GroupName:
           [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
         :type IpPermissions: list
         :param IpPermissions:
-          One or more sets of IP permissions. Can be used to specify multiple rules in a single command.
+          The sets of IP permissions.
           - *(dict) --*
             Describes a set of permissions for a security group rule.
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -5652,7 +5687,7 @@ class SecurityGroup(base.ServiceResource):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -5661,7 +5696,7 @@ class SecurityGroup(base.ServiceResource):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -5670,9 +5705,9 @@ class SecurityGroup(base.ServiceResource):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -5695,7 +5730,9 @@ class SecurityGroup(base.ServiceResource):
                   The ID of the VPC peering connection, if applicable.
         :type IpProtocol: string
         :param IpProtocol:
-          The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). (VPC only) Use ``-1`` to specify all protocols. If you specify ``-1`` , or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6), traffic on all ports is allowed, regardless of any ports you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For protocol ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed.
+          The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). To specify ``icmpv6`` , use a set of IP permissions.
+          [VPC only] Use ``-1`` to specify all protocols. If you specify ``-1`` or a protocol other than ``tcp`` , ``udp`` , or ``icmp`` , traffic on all ports is allowed, regardless of any ports you specify.
+          Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
         :type SourceSecurityGroupName: string
         :param SourceSecurityGroupName:
           [EC2-Classic, default VPC] The name of the source security group. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
@@ -5704,7 +5741,8 @@ class SecurityGroup(base.ServiceResource):
           [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
         :type ToPort: integer
         :param ToPort:
-          The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code number. For the ICMP/ICMPv6 code number, use ``-1`` to specify all codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+          The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use ``-1`` to specify all codes. If you specify all ICMP types, you must specify all codes.
+          Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -5714,7 +5752,7 @@ class SecurityGroup(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -5734,7 +5772,7 @@ class SecurityGroup(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -5806,7 +5844,7 @@ class SecurityGroup(base.ServiceResource):
 
     def revoke_egress(self, DryRun: bool = None, IpPermissions: List = None, CidrIp: str = None, FromPort: int = None, IpProtocol: str = None, ToPort: int = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None):
         """
-        [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
+        [VPC only] Removes the specified egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
         Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
         Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupEgress>`_
@@ -5863,16 +5901,16 @@ class SecurityGroup(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type IpPermissions: list
         :param IpPermissions:
-          One or more sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
+          The sets of IP permissions. You can\'t specify a destination security group and a CIDR IP address range in the same set of permissions.
           - *(dict) --*
             Describes a set of permissions for a security group rule.
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -5881,7 +5919,7 @@ class SecurityGroup(base.ServiceResource):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -5890,7 +5928,7 @@ class SecurityGroup(base.ServiceResource):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -5899,9 +5937,9 @@ class SecurityGroup(base.ServiceResource):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -5946,9 +5984,9 @@ class SecurityGroup(base.ServiceResource):
 
     def revoke_ingress(self, CidrIp: str = None, FromPort: int = None, GroupName: str = None, IpPermissions: List = None, IpProtocol: str = None, SourceSecurityGroupName: str = None, SourceSecurityGroupOwnerId: str = None, ToPort: int = None, DryRun: bool = None):
         """
-        Removes one or more ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
+        Removes the specified ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
         .. note::
-          [EC2-Classic security groups only] If the values you specify do not match the existing rule's values, no error is returned. Use  DescribeSecurityGroups to verify that the rule has been removed.
+          [EC2-Classic only] If the values you specify do not match the existing rule's values, no error is returned. Use  DescribeSecurityGroups to verify that the rule has been removed.
         Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
         Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupIngress>`_
@@ -6012,16 +6050,16 @@ class SecurityGroup(base.ServiceResource):
           [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
         :type IpPermissions: list
         :param IpPermissions:
-          One or more sets of IP permissions. You can\'t specify a source security group and a CIDR IP address range in the same set of permissions.
+          The sets of IP permissions. You can\'t specify a source security group and a CIDR IP address range in the same set of permissions.
           - *(dict) --*
             Describes a set of permissions for a security group rule.
             - **FromPort** *(integer) --*
               The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **IpProtocol** *(string) --*
-              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
-              [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don\'t, traffic for all types and codes is allowed when authorizing rules.
+              The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+              [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
             - **IpRanges** *(list) --*
-              One or more IPv4 ranges.
+              The IPv4 ranges.
               - *(dict) --*
                 Describes an IPv4 range.
                 - **CidrIp** *(string) --*
@@ -6030,7 +6068,7 @@ class SecurityGroup(base.ServiceResource):
                   A description for the security group rule that references this IPv4 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **Ipv6Ranges** *(list) --*
-              [EC2-VPC only] One or more IPv6 ranges.
+              [VPC only] The IPv6 ranges.
               - *(dict) --*
                 [EC2-VPC only] Describes an IPv6 range.
                 - **CidrIpv6** *(string) --*
@@ -6039,7 +6077,7 @@ class SecurityGroup(base.ServiceResource):
                   A description for the security group rule that references this IPv6 address range.
                   Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
             - **PrefixListIds** *(list) --*
-              [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+              [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
               - *(dict) --*
                 Describes a prefix list ID.
                 - **Description** *(string) --*
@@ -6048,9 +6086,9 @@ class SecurityGroup(base.ServiceResource):
                 - **PrefixListId** *(string) --*
                   The ID of the prefix.
             - **ToPort** *(integer) --*
-              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+              The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
             - **UserIdGroupPairs** *(list) --*
-              One or more security group and AWS account ID pairs.
+              The security group and AWS account ID pairs.
               - *(dict) --*
                 Describes a security group and AWS account ID pair.
                 - **Description** *(string) --*
@@ -6110,7 +6148,7 @@ class Snapshot(base.ServiceResource):
 
     def copy(self, SourceRegion: str, Description: str = None, DestinationRegion: str = None, Encrypted: bool = None, KmsKeyId: str = None, PresignedUrl: str = None, DryRun: bool = None) -> Dict:
         """
-        Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.
+        Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy the snapshot within the same Region or from one Region to another. You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.
         Copies of encrypted EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted, unless the ``Encrypted`` flag is specified during the snapshot copy operation. By default, encrypted snapshot copies use the default AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can specify a non-default CMK with the ``KmsKeyId`` parameter.
         To copy an encrypted snapshot that has been shared from another account, you must have permissions for the CMK used to encrypt the snapshot.
         Snapshots created by copying another snapshot have an arbitrary volume ID that should not be used for any purpose.
@@ -6143,8 +6181,8 @@ class Snapshot(base.ServiceResource):
           A description for the EBS snapshot.
         :type DestinationRegion: string
         :param DestinationRegion:
-          The destination region to use in the ``PresignedUrl`` parameter of a snapshot copy operation. This parameter is only valid for specifying the destination region in a ``PresignedUrl`` parameter, where it is required.
-          The snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, ``ec2.us-east-1.amazonaws.com`` ). With the AWS CLI, this is specified using the ``--region`` parameter or the default region in your AWS configuration file.
+          The destination Region to use in the ``PresignedUrl`` parameter of a snapshot copy operation. This parameter is only valid for specifying the destination Region in a ``PresignedUrl`` parameter, where it is required.
+          The snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, ``ec2.us-east-1.amazonaws.com`` ). With the AWS CLI, this is specified using the ``--region`` parameter or the default Region in your AWS configuration file.
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type Encrypted: boolean
         :param Encrypted:
@@ -6154,7 +6192,7 @@ class Snapshot(base.ServiceResource):
           An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a ``KmsKeyId`` is specified, the ``Encrypted`` flag must also be set.
           The CMK identifier may be provided in any of the following formats:
           * Key ID
-          * Key alias
+          * Key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           * ARN using key ID. The ID ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``key`` namespace, and then the CMK ID. For example, arn:aws:kms:*us-east-1* :*012345678910* :key/*abcd1234-a123-456a-a12b-a123b4cd56ef* .
           * ARN using key alias. The alias ARN contains the ``arn:aws:kms`` namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the ``alias`` namespace, and then the CMK alias. For example, arn:aws:kms:*us-east-1* :*012345678910* :alias/*ExampleAlias* .
           AWS parses ``KmsKeyId`` asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. The action will eventually fail.
@@ -6165,7 +6203,7 @@ class Snapshot(base.ServiceResource):
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type SourceRegion: string
         :param SourceRegion: **[REQUIRED]**
-          The ID of the region that contains the snapshot to be copied.
+          The ID of the Region that contains the snapshot to be copied.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -6176,7 +6214,7 @@ class Snapshot(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -6196,7 +6234,7 @@ class Snapshot(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -6265,15 +6303,15 @@ class Snapshot(base.ServiceResource):
           - *(dict) --* 
             Contains the output of DescribeSnapshotAttribute.
             - **CreateVolumePermissions** *(list) --* 
-              A list of permissions for creating volumes from the snapshot.
+              The users and groups that have the permissions for creating volumes from the snapshot.
               - *(dict) --* 
-                Describes the user or group to be added or removed from the permissions for a volume.
+                Describes the user or group to be added or removed from the list of create volume permissions for a volume.
                 - **Group** *(string) --* 
-                  The specific group that is to be added or removed from a volume's list of create volume permissions.
+                  The group to be added or removed. The possible value is ``all`` .
                 - **UserId** *(string) --* 
-                  The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+                  The AWS account ID to be added or removed.
             - **ProductCodes** *(list) --* 
-              A list of product codes.
+              The product codes.
               - *(dict) --* 
                 Describes a product code.
                 - **ProductCodeId** *(string) --* 
@@ -6356,21 +6394,21 @@ class Snapshot(base.ServiceResource):
         :param CreateVolumePermission:
           A JSON representation of the snapshot attribute modification.
           - **Add** *(list) --*
-            Adds a specific AWS account ID or group to a volume\'s list of create volume permissions.
+            Adds the specified AWS account ID or group to the list.
             - *(dict) --*
-              Describes the user or group to be added or removed from the permissions for a volume.
+              Describes the user or group to be added or removed from the list of create volume permissions for a volume.
               - **Group** *(string) --*
-                The specific group that is to be added or removed from a volume\'s list of create volume permissions.
+                The group to be added or removed. The possible value is ``all`` .
               - **UserId** *(string) --*
-                The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
+                The AWS account ID to be added or removed.
           - **Remove** *(list) --*
-            Removes a specific AWS account ID or group from a volume\'s list of create volume permissions.
+            Removes the specified AWS account ID or group from the list.
             - *(dict) --*
-              Describes the user or group to be added or removed from the permissions for a volume.
+              Describes the user or group to be added or removed from the list of create volume permissions for a volume.
               - **Group** *(string) --*
-                The specific group that is to be added or removed from a volume\'s list of create volume permissions.
+                The group to be added or removed. The possible value is ``all`` .
               - **UserId** *(string) --*
-                The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
+                The AWS account ID to be added or removed.
         :type GroupNames: list
         :param GroupNames:
           The group to modify for the snapshot.
@@ -6451,9 +6489,10 @@ class Snapshot(base.ServiceResource):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``description`` - A description of the snapshot.
-          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
+          * ``encrypted`` - Indicates whether the snapshot is encrypted (``true`` | ``false`` )
+          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``self`` | ``all`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
           * ``owner-id`` - The ID of the AWS account that owns the snapshot.
           * ``progress`` - The progress of the snapshot, as a percentage (for example, 80%).
           * ``snapshot-id`` - The snapshot ID.
@@ -6478,7 +6517,7 @@ class Snapshot(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -6488,11 +6527,11 @@ class Snapshot(base.ServiceResource):
           The ``NextToken`` value returned from a previous paginated ``DescribeSnapshots`` request where ``MaxResults`` was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the ``NextToken`` value. This value is ``null`` when there are no more results to return.
         :type OwnerIds: list
         :param OwnerIds:
-          Returns the snapshots owned by the specified owner. Multiple owners can be specified.
+          Describes the snapshots owned by these owners.
           - *(string) --*
         :type RestorableByUserIds: list
         :param RestorableByUserIds:
-          One or more AWS accounts IDs that can create volumes from the snapshot.
+          The IDs of the AWS accounts that can create volumes from the snapshot.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -6559,7 +6598,7 @@ class Subnet(base.ServiceResource):
                   },
               ],
               ImageId='string',
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
               Ipv6AddressCount=123,
               Ipv6Addresses=[
                   {
@@ -6624,7 +6663,8 @@ class Subnet(base.ServiceResource):
                           },
                       ],
                       'SecondaryPrivateIpAddressCount': 123,
-                      'SubnetId': 'string'
+                      'SubnetId': 'string',
+                      'InterfaceType': 'string'
                   },
               ],
               PrivateIpAddress='string',
@@ -6640,7 +6680,7 @@ class Subnet(base.ServiceResource):
               ],
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -6688,7 +6728,7 @@ class Subnet(base.ServiceResource):
           )
         :type BlockDeviceMappings: list
         :param BlockDeviceMappings:
-          One or more block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+          The block device mapping entries. You can\'t specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
           - *(dict) --*
             Describes a block device mapping.
             - **DeviceName** *(string) --*
@@ -6702,17 +6742,17 @@ class Subnet(base.ServiceResource):
               - **DeleteOnTermination** *(boolean) --*
                 Indicates whether the EBS volume is deleted on instance termination.
               - **Iops** *(integer) --*
-                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                 Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
               - **SnapshotId** *(string) --*
                 The ID of the snapshot.
               - **VolumeSize** *(integer) --*
                 The size of the volume, in GiB.
-                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                 Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
+                Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
               - **VolumeType** *(string) --*
-                The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                 Default: ``standard``
               - **Encrypted** *(boolean) --*
                 Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
@@ -6724,18 +6764,18 @@ class Subnet(base.ServiceResource):
               Suppresses the specified device included in the block device mapping of the AMI.
         :type ImageId: string
         :param ImageId:
-          The ID of the AMI, which you can get by calling  DescribeImages . An AMI is required to launch an instance and must be specified here or in a launch template.
+          The ID of the AMI. An AMI is required to launch an instance and must be specified here or in a launch template.
         :type InstanceType: string
         :param InstanceType:
           The instance type. For more information, see `Instance Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           Default: ``m1.small``
         :type Ipv6AddressCount: integer
         :param Ipv6AddressCount:
-          [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
+          [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you\'ve specified a minimum number of instances to launch.
           You cannot specify this option and the network interfaces option in the same request.
         :type Ipv6Addresses: list
         :param Ipv6Addresses:
-          [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
+          [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you\'ve specified a minimum number of instances to launch.
           You cannot specify this option and the network interfaces option in the same request.
           - *(dict) --*
             Describes an IPv6 address.
@@ -6761,7 +6801,7 @@ class Subnet(base.ServiceResource):
           Constraints: Between 1 and the maximum number you\'re allowed for the specified instance type. For more information about the default limits, and how to request an increase, see `How many instances can I run in Amazon EC2 <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2>`__ in the Amazon EC2 General FAQ.
         :type Monitoring: dict
         :param Monitoring:
-          The monitoring for the instance.
+          Specifies whether detailed monitoring is enabled for the instance.
           - **Enabled** *(boolean) --* **[REQUIRED]**
             Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
         :type Placement: dict
@@ -6769,6 +6809,7 @@ class Subnet(base.ServiceResource):
           The placement for the instance.
           - **AvailabilityZone** *(string) --*
             The Availability Zone of the instance.
+            If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the region.
           - **Affinity** *(string) --*
             The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the  ImportInstance command.
           - **GroupName** *(string) --*
@@ -6783,24 +6824,24 @@ class Subnet(base.ServiceResource):
             Reserved for future use.
         :type RamdiskId: string
         :param RamdiskId:
-          The ID of the RAM disk.
+          The ID of the RAM disk to select. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, go to the AWS Resource Center and search for the kernel ID.
           .. warning::
             We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see `PV-GRUB <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         :type SecurityGroupIds: list
         :param SecurityGroupIds:
-          One or more security group IDs. You can create a security group using  CreateSecurityGroup .
+          The IDs of the security groups. You can create a security group using  CreateSecurityGroup .
           Default: Amazon EC2 uses the default security group.
           You cannot specify this option and the network interfaces option in the same request.
           - *(string) --*
         :type SecurityGroups: list
         :param SecurityGroups:
-          [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+          [EC2-Classic, default VPC] The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
           You cannot specify this option and the network interfaces option in the same request.
           Default: Amazon EC2 uses the default security group.
           - *(string) --*
         :type UserData: string
         :param UserData:
-          The user data to make available to the instance. For more information, see `Running Commands on Your Linux Instance at Launch <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html>`__ (Linux) and `Adding User Data <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data>`__ (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
+          The user data to make available to the instance. For more information, see `Running Commands on Your Linux Instance at Launch <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html>`__ (Linux) and `Adding User Data <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data>`__ (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.
             **This value will be base64 encoded automatically. Do not base64 encode this value prior to performing the operation.**
         :type AdditionalInfo: string
         :param AdditionalInfo:
@@ -6833,8 +6874,7 @@ class Subnet(base.ServiceResource):
           Default: ``stop``
         :type NetworkInterfaces: list
         :param NetworkInterfaces:
-          One or more network interfaces.
-          You cannot specify this option and the network interfaces option in the same request.
+          The network interfaces to associate with the instance.
           - *(dict) --*
             Describes a network interface.
             - **AssociatePublicIpAddress** *(boolean) --*
@@ -6872,6 +6912,8 @@ class Subnet(base.ServiceResource):
               The number of secondary private IPv4 addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you\'re launching more than one instance in a  RunInstances request.
             - **SubnetId** *(string) --*
               The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+            - **InterfaceType** *(string) --*
+              The type of interface.
         :type PrivateIpAddress: string
         :param PrivateIpAddress:
           [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
@@ -6879,18 +6921,18 @@ class Subnet(base.ServiceResource):
           You cannot specify this option and the network interfaces option in the same request.
         :type ElasticGpuSpecification: list
         :param ElasticGpuSpecification:
-          An elastic GPU to associate with the instance.
+          An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that you can attach to your Windows instance to accelerate the graphics performance of your applications. For more information, see `Amazon EC2 Elastic GPUs <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           - *(dict) --*
             A specification for an Elastic Graphics accelerator.
             - **Type** *(string) --* **[REQUIRED]**
               The type of Elastic Graphics accelerator.
         :type ElasticInferenceAccelerators: list
         :param ElasticInferenceAccelerators:
-          An elastic inference accelerator.
+          An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
           - *(dict) --*
             Describes an elastic inference accelerator.
             - **Type** *(string) --* **[REQUIRED]**
-              The type of elastic inference accelerator. The possible values are eia1.small, eia1.medium, and eia1.large.
+              The type of elastic inference accelerator. The possible values are ``eia1.small`` , ``eia1.medium`` , and ``eia1.large`` .
         :type TagSpecifications: list
         :param TagSpecifications:
           The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see  CreateTags .
@@ -6938,7 +6980,7 @@ class Subnet(base.ServiceResource):
               The behavior when a Spot Instance is interrupted. The default is ``terminate`` .
         :type CreditSpecification: dict
         :param CreditSpecification:
-          The credit option for CPU usage of the instance. Valid values are ``standard`` and ``unlimited`` . To change this attribute after launch, use  ModifyInstanceCreditSpecification . For more information, see `Burstable Performance Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          The credit option for CPU usage of the T2 or T3 instance. Valid values are ``standard`` and ``unlimited`` . To change this attribute after launch, use  ModifyInstanceCreditSpecification . For more information, see `Burstable Performance Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
           Default: ``standard`` (T2 instances) or ``unlimited`` (T3 instances)
           - **CpuCredits** *(string) --* **[REQUIRED]**
             The credit option for CPU usage of a T2 or T3 instance. Valid values are ``standard`` and ``unlimited`` .
@@ -6978,7 +7020,7 @@ class Subnet(base.ServiceResource):
         """
         pass
 
-    def create_network_interface(self, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> 'NetworkInterface':
+    def create_network_interface(self, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None, InterfaceType: str = None) -> 'NetworkInterface':
         """
         Creates a network interface in the specified subnet.
         For more information about network interfaces, see `Elastic Network Interfaces <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
@@ -7006,6 +7048,7 @@ class Subnet(base.ServiceResource):
                   },
               ],
               SecondaryPrivateIpAddressCount=123,
+              InterfaceType='efa',
           )
         :type Description: string
         :param Description:
@@ -7043,6 +7086,10 @@ class Subnet(base.ServiceResource):
         :param SecondaryPrivateIpAddressCount:
           The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You can\'t specify this option and specify more than one private IP address using ``privateIpAddresses`` .
           The number of IP addresses you can assign to a network interface varies by instance type. For more information, see `IP Addresses Per ENI Per Instance Type <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI>`__ in the *Amazon Virtual Private Cloud User Guide* .
+        :type InterfaceType: string
+        :param InterfaceType:
+          Indicates whether the network interface is an Elastic Fabric Adapter (EFA). Only specify this parameter to create an EFA. For more information, see `Elastic Fabric Adapter <AWSEC2/latest/UserGuide/efa.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+          If you are not creating an EFA ENI, omit this parameter.
         :rtype: :py:class:`ec2.NetworkInterface`
         :returns: NetworkInterface resource
         """
@@ -7050,7 +7097,7 @@ class Subnet(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -7070,7 +7117,7 @@ class Subnet(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -7289,7 +7336,7 @@ class Volume(base.ServiceResource):
               Description='string',
               TagSpecifications=[
                   {
-                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                      'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                       'Tags': [
                           {
                               'Key': 'string',
@@ -7330,7 +7377,7 @@ class Volume(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -7350,7 +7397,7 @@ class Volume(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -7505,11 +7552,10 @@ class Volume(base.ServiceResource):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeVolumeStatus.
             - **NextToken** *(string) --* 
               The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
             - **VolumeStatuses** *(list) --* 
-              A list of volumes.
+              Information about the status of the volumes.
               - *(dict) --* 
                 Describes the volume status.
                 - **Actions** *(list) --* 
@@ -7556,7 +7602,7 @@ class Volume(base.ServiceResource):
                     The status of the volume.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``action.code`` - The action code for the event (for example, ``enable-volume-io`` ).
           * ``action.description`` - A description of the action.
           * ``action.event-id`` - The event ID associated with the action.
@@ -7584,7 +7630,7 @@ class Volume(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -7887,13 +7933,11 @@ class Vpc(base.ServiceResource):
     def create_security_group(self, Description: str, GroupName: str, DryRun: bool = None) -> 'SecurityGroup':
         """
         Creates a security group.
-        A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see `Amazon EC2 Security Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ in the *Amazon Elastic Compute Cloud User Guide* and `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
-        .. warning::
-          EC2-Classic: You can have up to 500 security groups.
-          EC2-VPC: You can create up to 500 security groups per VPC.
+        A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see `Amazon EC2 Security Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__ in the *Amazon Elastic Compute Cloud User Guide* and `Security Groups for Your VPC <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html>`__ in the *Amazon Virtual Private Cloud User Guide* .
         When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.
         You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
         You can add or remove rules from your security groups using  AuthorizeSecurityGroupIngress ,  AuthorizeSecurityGroupEgress ,  RevokeSecurityGroupIngress , and  RevokeSecurityGroupEgress .
+        For more information about VPC security group limits, see `Amazon VPC Limits <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSecurityGroup>`_
         
         **Request Syntax**
@@ -7967,7 +8011,7 @@ class Vpc(base.ServiceResource):
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -7987,7 +8031,7 @@ class Vpc(base.ServiceResource):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -8278,7 +8322,7 @@ class Vpc(base.ServiceResource):
         """
         pass
 
-    def wait_until_available(self, Filters: List = None, DryRun: bool = None):
+    def wait_until_available(self, Filters: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None):
         """
         Waits until this Vpc is available. This method calls :py:meth:`EC2.Waiter.vpc_available.wait` which polls. :py:meth:`EC2.Client.describe_vpcs` every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -8294,7 +8338,9 @@ class Vpc(base.ServiceResource):
                       ]
                   },
               ],
-              DryRun=True|False
+              DryRun=True|False,
+              NextToken='string',
+              MaxResults=123
           )
         :type Filters: list
         :param Filters:
@@ -8328,16 +8374,22 @@ class Vpc(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :returns: None
         """
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None):
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None):
         """
         Waits until this Vpc is exists. This method calls :py:meth:`EC2.Waiter.vpc_exists.wait` which polls. :py:meth:`EC2.Client.describe_vpcs` every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -8353,7 +8405,9 @@ class Vpc(base.ServiceResource):
                       ]
                   },
               ],
-              DryRun=True|False
+              DryRun=True|False,
+              NextToken='string',
+              MaxResults=123
           )
         :type Filters: list
         :param Filters:
@@ -8387,11 +8441,17 @@ class Vpc(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :returns: None
         """
         pass
@@ -8713,17 +8773,17 @@ class VpcPeeringConnection(base.ServiceResource):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type NextToken: string
         :param NextToken:
-          The token to request the next page of results. (You received this token from a prior call.)
+          The token for the next page of results.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :returns: None
         """
         pass
@@ -8777,7 +8837,7 @@ class VpcAddress(base.ServiceResource):
           The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
         :type PublicIp: string
         :param PublicIp:
-          The Elastic IP address. This is required for EC2-Classic.
+          The Elastic IP address to associate with the instance. This is required for EC2-Classic.
         :type AllowReassociation: boolean
         :param AllowReassociation:
           [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
@@ -8787,6 +8847,7 @@ class VpcAddress(base.ServiceResource):
         :type NetworkInterfaceId: string
         :param NetworkInterfaceId:
           [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
+          For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both.
         :type PrivateIpAddress: string
         :param PrivateIpAddress:
           [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
@@ -8896,8 +8957,7 @@ class classic_addresses(ResourceCollection):
           - *(string) --*
         :type AllocationIds: list
         :param AllocationIds:
-          [EC2-VPC] One or more allocation IDs.
-          Default: Describes all your Elastic IP addresses.
+          [EC2-VPC] Information about the allocation IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -9045,7 +9105,7 @@ class dhcp_options_sets(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -9176,7 +9236,7 @@ class images(ResourceCollection):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``architecture`` - The image architecture (``i386`` | ``x86_64`` ).
           * ``block-device-mapping.delete-on-termination`` - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.
           * ``block-device-mapping.device-name`` - The device name specified in the block device mapping (for example, ``/dev/sdh`` or ``xvdh`` ).
@@ -9223,11 +9283,11 @@ class images(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ImageIds: list
         :param ImageIds:
-          One or more image IDs.
+          The image IDs.
           Default: Describes all images available to you.
           - *(string) --*
         :type Owners: list
@@ -9332,7 +9392,7 @@ class instances(ResourceCollection):
     @classmethod
     def create_tags(cls, Tags: List, DryRun: bool = None):
         """
-        Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
+        Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
         For more information about tags, see `Tagging Your Resources <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html>`__ in the *Amazon Elastic Compute Cloud User Guide* . For more information about creating IAM policies that control users' access to resources based on tags, see `Supported Resource-Level Permissions for Amazon EC2 API Actions <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags>`_
         
@@ -9352,7 +9412,7 @@ class instances(ResourceCollection):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          One or more tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+          The tags. The ``value`` parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --*
@@ -9392,7 +9452,7 @@ class instances(ResourceCollection):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -9456,7 +9516,7 @@ class instances(ResourceCollection):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -9492,11 +9552,11 @@ class instances(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           - *(string) --*
         :type DryRun: boolean
@@ -9633,7 +9693,7 @@ class instances(ResourceCollection):
     @classmethod
     def reboot(cls, DryRun: bool = None):
         """
-        Requests a reboot of one or more instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.
+        Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.
         If an instance does not cleanly shut down within four minutes, Amazon EC2 performs a hard reboot.
         For more information about troubleshooting, see `Getting Console Output and Rebooting Instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RebootInstances>`_
@@ -9689,19 +9749,23 @@ class instances(ResourceCollection):
         **Response Structure**
           - *(dict) --* 
             - **StartingInstances** *(list) --* 
-              Information about one or more started instances.
+              Information about the started instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -9709,13 +9773,17 @@ class instances(ResourceCollection):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type AdditionalInfo: string
@@ -9771,19 +9839,23 @@ class instances(ResourceCollection):
         **Response Structure**
           - *(dict) --* 
             - **StoppingInstances** *(list) --* 
-              Information about one or more stopped instances.
+              Information about the stopped instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -9791,13 +9863,17 @@ class instances(ResourceCollection):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type Hibernate: boolean
@@ -9820,7 +9896,7 @@ class instances(ResourceCollection):
     @classmethod
     def terminate(cls, DryRun: bool = None) -> Dict:
         """
-        Shuts down one or more instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds. 
+        Shuts down the specified instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds. 
         If you specify multiple instances and the request fails (for example, because of a single incorrect instance ID), none of the instances are terminated.
         Terminated instances remain visible after termination (for approximately one hour).
         By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.
@@ -9855,19 +9931,23 @@ class instances(ResourceCollection):
         **Response Structure**
           - *(dict) --* 
             - **TerminatingInstances** *(list) --* 
-              Information about one or more terminated instances.
+              Information about the terminated instances.
               - *(dict) --* 
                 Describes an instance state change.
                 - **CurrentState** *(dict) --* 
                   The current state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceId** *(string) --* 
@@ -9875,13 +9955,17 @@ class instances(ResourceCollection):
                 - **PreviousState** *(dict) --* 
                   The previous state of the instance.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
         :type DryRun: boolean
@@ -9957,7 +10041,7 @@ class internet_gateways(ResourceCollection):
 
     
     @classmethod
-    def filter(cls, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None) -> List['InternetGateway']:
+    def filter(cls, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None, NextToken: str = None, MaxResults: int = None) -> List['InternetGateway']:
         """
         Creates an iterable of all InternetGateway resources in the collection filtered by kwargs passed to method.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInternetGateways>`_
@@ -9976,7 +10060,9 @@ class internet_gateways(ResourceCollection):
               DryRun=True|False,
               InternetGatewayIds=[
                   'string',
-              ]
+              ],
+              NextToken='string',
+              MaxResults=123
           )
         :type Filters: list
         :param Filters:
@@ -10002,7 +10088,7 @@ class internet_gateways(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10012,6 +10098,12 @@ class internet_gateways(ResourceCollection):
           One or more internet gateway IDs.
           Default: Describes all your internet gateways.
           - *(string) --*
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: list(:py:class:`ec2.InternetGateway`)
         :returns: A list of InternetGateway resources
         """
@@ -10128,7 +10220,7 @@ class key_pairs(ResourceCollection):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``fingerprint`` - The fingerprint of the key pair.
           * ``key-name`` - The name of the key pair.
           - *(dict) --*
@@ -10146,11 +10238,11 @@ class key_pairs(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type KeyNames: list
         :param KeyNames:
-          One or more key pair names.
+          The key pair names.
           Default: Describes all your key pairs.
           - *(string) --*
         :type DryRun: boolean
@@ -10249,7 +10341,7 @@ class network_acls(ResourceCollection):
 
     
     @classmethod
-    def filter(cls, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None) -> List['NetworkAcl']:
+    def filter(cls, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None, NextToken: str = None, MaxResults: int = None) -> List['NetworkAcl']:
         """
         Creates an iterable of all NetworkAcl resources in the collection filtered by kwargs passed to method.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkAcls>`_
@@ -10268,7 +10360,9 @@ class network_acls(ResourceCollection):
               DryRun=True|False,
               NetworkAclIds=[
                   'string',
-              ]
+              ],
+              NextToken='string',
+              MaxResults=123
           )
         :type Filters: list
         :param Filters:
@@ -10306,7 +10400,7 @@ class network_acls(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10316,6 +10410,12 @@ class network_acls(ResourceCollection):
           One or more network ACL IDs.
           Default: Describes all your network ACLs.
           - *(string) --*
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: list(:py:class:`ec2.NetworkAcl`)
         :returns: A list of NetworkAcl resources
         """
@@ -10464,7 +10564,7 @@ class network_interfaces(ResourceCollection):
           * ``private-dns-name`` - The private DNS name of the network interface (IPv4).
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).
           * ``requester-managed`` - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).
-          * ``source-desk-check`` - Indicates whether the network interface performs source/destination checking. A value of ``true`` means checking is enabled, and ``false`` means checking is disabled. The value must be ``false`` for the network interface to perform network address translation (NAT) in your VPC.
+          * ``source-dest-check`` - Indicates whether the network interface performs source/destination checking. A value of ``true`` means checking is enabled, and ``false`` means checking is disabled. The value must be ``false`` for the network interface to perform network address translation (NAT) in your VPC.
           * ``status`` - The status of the network interface. If the network interface is not attached to an instance, the status is ``available`` ; if a network interface is attached to an instance the status is ``in-use`` .
           * ``subnet-id`` - The ID of the subnet for the network interface.
           * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
@@ -10485,7 +10585,7 @@ class network_interfaces(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10617,7 +10717,7 @@ class placement_groups(ResourceCollection):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``group-name`` - The name of the placement group.
           * ``state`` - The state of the placement group (``pending`` | ``available`` | ``deleting`` | ``deleted`` ).
           * ``strategy`` - The strategy of the placement group (``cluster`` | ``spread`` | ``partition`` ).
@@ -10636,14 +10736,14 @@ class placement_groups(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type GroupNames: list
         :param GroupNames:
-          One or more placement group names.
+          The names of the placement groups.
           Default: Describes all your placement groups, or only those otherwise specified.
           - *(string) --*
         :rtype: list(:py:class:`ec2.PlacementGroup`)
@@ -10801,7 +10901,7 @@ class route_tables(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -10813,10 +10913,10 @@ class route_tables(ResourceCollection):
           - *(string) --*
         :type NextToken: string
         :param NextToken:
-          The token to retrieve the next page of results.
+          The token for the next page of results.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned **NextToken** value. This value can be between 5 and 100.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: list(:py:class:`ec2.RouteTable`)
         :returns: A list of RouteTable resources
         """
@@ -10938,7 +11038,7 @@ class security_groups(ResourceCollection):
           )
         :type Filters: list
         :param Filters:
-          One or more filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.
+          The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.
           * ``description`` - The description of the security group.
           * ``egress.ip-permission.cidr`` - An IPv4 CIDR block for an outbound security group rule.
           * ``egress.ip-permission.from-port`` - For an outbound rule, the start of port range for the TCP and UDP protocols, or an ICMP type number.
@@ -10979,16 +11079,16 @@ class security_groups(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type GroupIds: list
         :param GroupIds:
-          One or more security group IDs. Required for security groups in a nondefault VPC.
+          The IDs of the security groups. Required for security groups in a nondefault VPC.
           Default: Describes all your security groups.
           - *(string) --*
         :type GroupNames: list
         :param GroupNames:
-          [EC2-Classic and default VPC only] One or more security group names. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the ``group-name`` filter to describe security groups by name.
+          [EC2-Classic and default VPC only] The names of the security groups. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the ``group-name`` filter to describe security groups by name.
           Default: Describes all your security groups.
           - *(string) --*
         :type DryRun: boolean
@@ -11124,9 +11224,10 @@ class snapshots(ResourceCollection):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``description`` - A description of the snapshot.
-          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
+          * ``encrypted`` - Indicates whether the snapshot is encrypted (``true`` | ``false`` )
+          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``self`` | ``all`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
           * ``owner-id`` - The ID of the AWS account that owns the snapshot.
           * ``progress`` - The progress of the snapshot, as a percentage (for example, 80%).
           * ``snapshot-id`` - The snapshot ID.
@@ -11151,7 +11252,7 @@ class snapshots(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -11161,16 +11262,16 @@ class snapshots(ResourceCollection):
           The ``NextToken`` value returned from a previous paginated ``DescribeSnapshots`` request where ``MaxResults`` was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the ``NextToken`` value. This value is ``null`` when there are no more results to return.
         :type OwnerIds: list
         :param OwnerIds:
-          Returns the snapshots owned by the specified owner. Multiple owners can be specified.
+          Describes the snapshots owned by these owners.
           - *(string) --*
         :type RestorableByUserIds: list
         :param RestorableByUserIds:
-          One or more AWS accounts IDs that can create volumes from the snapshot.
+          The IDs of the AWS accounts that can create volumes from the snapshot.
           - *(string) --*
         :type SnapshotIds: list
         :param SnapshotIds:
-          One or more snapshot IDs.
-          Default: Describes snapshots for which you have launch permissions.
+          The snapshot IDs.
+          Default: Describes the snapshots for which you have create volume permissions.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11322,7 +11423,7 @@ class subnets(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type SubnetIds: list
         :param SubnetIds:
@@ -11450,7 +11551,7 @@ class volumes(ResourceCollection):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``attachment.attach-time`` - The time stamp when the attachment initiated.
           * ``attachment.delete-on-termination`` - Whether the volume is deleted on instance termination.
           * ``attachment.device`` - The device name specified in the block device mapping (for example, ``/dev/sda1`` ).
@@ -11458,7 +11559,7 @@ class volumes(ResourceCollection):
           * ``attachment.status`` - The attachment state (``attaching`` | ``attached`` | ``detaching`` ).
           * ``availability-zone`` - The Availability Zone in which the volume was created.
           * ``create-time`` - The time stamp when the volume was created.
-          * ``encrypted`` - The encryption status of the volume.
+          * ``encrypted`` - Indicates whether the volume is encrypted (``true`` | ``false`` )
           * ``size`` - The size of the volume, in GiB.
           * ``snapshot-id`` - The snapshot from which the volume was created.
           * ``status`` - The status of the volume (``creating`` | ``available`` | ``in-use`` | ``deleting`` | ``deleted`` | ``error`` ).
@@ -11481,11 +11582,11 @@ class volumes(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs.
+          The volume IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11612,8 +11713,7 @@ class vpc_addresses(ResourceCollection):
           - *(string) --*
         :type AllocationIds: list
         :param AllocationIds:
-          [EC2-VPC] One or more allocation IDs.
-          Default: Describes all your Elastic IP addresses.
+          [EC2-VPC] Information about the allocation IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11764,7 +11864,7 @@ class vpc_peering_connections(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -11776,10 +11876,10 @@ class vpc_peering_connections(ResourceCollection):
           - *(string) --*
         :type NextToken: string
         :param NextToken:
-          The token to request the next page of results. (You received this token from a prior call.)
+          The token for the next page of results.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: list(:py:class:`ec2.VpcPeeringConnection`)
         :returns: A list of VpcPeeringConnection resources
         """
@@ -11873,7 +11973,7 @@ class vpcs(ResourceCollection):
 
     
     @classmethod
-    def filter(cls, Filters: List = None, VpcIds: List = None, DryRun: bool = None) -> List['Vpc']:
+    def filter(cls, Filters: List = None, VpcIds: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None) -> List['Vpc']:
         """
         Creates an iterable of all Vpc resources in the collection filtered by kwargs passed to method.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -11892,7 +11992,9 @@ class vpcs(ResourceCollection):
               VpcIds=[
                   'string',
               ],
-              DryRun=True|False
+              DryRun=True|False,
+              NextToken='string',
+              MaxResults=123
           )
         :type Filters: list
         :param Filters:
@@ -11926,7 +12028,7 @@ class vpcs(ResourceCollection):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VpcIds: list
         :param VpcIds:
@@ -11936,6 +12038,12 @@ class vpcs(ResourceCollection):
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :rtype: list(:py:class:`ec2.Vpc`)
         :returns: A list of Vpc resources
         """

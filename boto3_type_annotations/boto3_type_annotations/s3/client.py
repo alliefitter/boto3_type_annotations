@@ -1,14 +1,14 @@
-from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from typing import IO
 from typing import Callable
-from boto3.s3.transfer import TransferConfig
-from datetime import datetime
+from typing import List
+from typing import Optional
 from typing import Dict
-from botocore.paginate import Paginator
+from boto3.s3.transfer import TransferConfig
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import IO
 
 
 class Client(BaseClient):

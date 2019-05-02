@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
-from datetime import datetime
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -234,6 +234,9 @@ class Client(BaseClient):
     def get_patch_baseline_for_patch_group(self, PatchGroup: str, OperatingSystem: str = None) -> Dict:
         pass
 
+    def get_service_setting(self, SettingId: str) -> Dict:
+        pass
+
     def get_waiter(self, waiter_name: str = None) -> Waiter:
         pass
 
@@ -285,7 +288,7 @@ class Client(BaseClient):
     def put_inventory(self, InstanceId: str, Items: List) -> Dict:
         pass
 
-    def put_parameter(self, Name: str, Value: str, Type: str, Description: str = None, KeyId: str = None, Overwrite: bool = None, AllowedPattern: str = None, Tags: List = None) -> Dict:
+    def put_parameter(self, Name: str, Value: str, Type: str, Description: str = None, KeyId: str = None, Overwrite: bool = None, AllowedPattern: str = None, Tags: List = None, Tier: str = None, Policies: str = None) -> Dict:
         pass
 
     def register_default_patch_baseline(self, BaselineId: str) -> Dict:
@@ -301,6 +304,9 @@ class Client(BaseClient):
         pass
 
     def remove_tags_from_resource(self, ResourceType: str, ResourceId: str, TagKeys: List) -> Dict:
+        pass
+
+    def reset_service_setting(self, SettingId: str) -> Dict:
         pass
 
     def resume_session(self, SessionId: str) -> Dict:
@@ -352,4 +358,7 @@ class Client(BaseClient):
         pass
 
     def update_patch_baseline(self, BaselineId: str, Name: str = None, GlobalFilters: Dict = None, ApprovalRules: Dict = None, ApprovedPatches: List = None, ApprovedPatchesComplianceLevel: str = None, ApprovedPatchesEnableNonSecurity: bool = None, RejectedPatches: List = None, RejectedPatchesAction: str = None, Description: str = None, Sources: List = None, Replace: bool = None) -> Dict:
+        pass
+
+    def update_service_setting(self, SettingId: str, SettingValue: str) -> Dict:
         pass

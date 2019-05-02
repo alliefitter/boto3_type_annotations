@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
-from datetime import datetime
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -54,10 +54,13 @@ class Client(BaseClient):
     def get_service_graph(self, StartTime: datetime, EndTime: datetime, GroupName: str = None, GroupARN: str = None, NextToken: str = None) -> Dict:
         pass
 
+    def get_time_series_service_statistics(self, StartTime: datetime, EndTime: datetime, GroupName: str = None, GroupARN: str = None, EntitySelectorExpression: str = None, Period: int = None, NextToken: str = None) -> Dict:
+        pass
+
     def get_trace_graph(self, TraceIds: List, NextToken: str = None) -> Dict:
         pass
 
-    def get_trace_summaries(self, StartTime: datetime, EndTime: datetime, Sampling: bool = None, FilterExpression: str = None, NextToken: str = None) -> Dict:
+    def get_trace_summaries(self, StartTime: datetime, EndTime: datetime, TimeRangeType: str = None, Sampling: bool = None, SamplingStrategy: Dict = None, FilterExpression: str = None, NextToken: str = None) -> Dict:
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:

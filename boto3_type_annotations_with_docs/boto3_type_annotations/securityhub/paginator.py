@@ -47,6 +47,9 @@ class GetEnabledStandards(Paginator):
                   The ARN of a resource that represents your subscription to a supported standard.
                 - **StandardsArn** *(string) --* 
                   The ARN of a standard.
+                  .. warning::
+                    In this release, Security Hub only supports the CIS AWS Foundations standard. 
+                    Its ARN is arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0.
                 - **StandardsInput** *(dict) --* 
                   - *(string) --* 
                     - *(string) --* 
@@ -828,8 +831,12 @@ class GetFindings(Paginator):
                   The level of importance assigned to the resources associated with the finding. A score of 0 means the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources.
                 - **Title** *(string) --* 
                   A finding's title.
+                  .. note::
+                    In this release, Title is a required property.
                 - **Description** *(string) --* 
                   A finding's description.
+                  .. note::
+                    In this release, Description is a required property.
                 - **Remediation** *(dict) --* 
                   An data type that describes the remediation options for a finding.
                   - **Recommendation** *(dict) --* 

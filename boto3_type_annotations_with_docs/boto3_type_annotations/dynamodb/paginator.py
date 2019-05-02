@@ -1,6 +1,6 @@
-from typing import List
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -190,7 +190,7 @@ class ListTagsOfResource(Paginator):
               - *(dict) --* 
                 Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table. 
                 AWS-assigned tag names and values are automatically assigned the aws: prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix user: in the Cost Allocation Report. You cannot backdate the application of a tag. 
-                For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **Key** *(string) --* 
                   The key of the tag.Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value. 
                 - **Value** *(string) --* 
@@ -396,7 +396,7 @@ class Query(Paginator):
                   - *(dict) --* 
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **S** *(string) --* 
                       An attribute of type String. For example:
                        ``"S": "Hello"``  
@@ -427,14 +427,14 @@ class Query(Paginator):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **L** *(list) --* 
                       An attribute of type List. For example:
                        ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **NULL** *(boolean) --* 
                       An attribute of type Null. For example:
                        ``"NULL": true``  
@@ -446,10 +446,10 @@ class Query(Paginator):
               If you used a ``QueryFilter`` in the request, then ``Count`` is the number of items returned after the filter was applied, and ``ScannedCount`` is the number of matching items before the filter was applied.
               If you did not use a filter in the request, then ``Count`` and ``ScannedCount`` are the same.
             - **ScannedCount** *(integer) --* 
-              The number of items evaluated, before any ``QueryFilter`` is applied. A high ``ScannedCount`` value with few, or no, ``Count`` results indicates an inefficient ``Query`` operation. For more information, see `Count and ScannedCount <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count>`__ in the *Amazon DynamoDB Developer Guide* .
+              The number of items evaluated, before any ``QueryFilter`` is applied. A high ``ScannedCount`` value with few, or no, ``Count`` results indicates an inefficient ``Query`` operation. For more information, see `Count and ScannedCount <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count>`__ in the *Amazon DynamoDB Developer Guide* .
               If you did not use a filter in the request, then ``ScannedCount`` is the same as ``Count`` .
             - **ConsumedCapacity** *(dict) --* 
-              The capacity units consumed by the ``Query`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              The capacity units consumed by the ``Query`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **TableName** *(string) --* 
                 The name of the table that was affected by the operation.
               - **CapacityUnits** *(float) --* 
@@ -508,7 +508,7 @@ class Query(Paginator):
             If you use the ``ProjectionExpression`` parameter, then the value for ``Select`` can only be ``SPECIFIC_ATTRIBUTES`` . Any other value for ``Select`` will return an error.
         :type AttributesToGet: list
         :param AttributesToGet:
-          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
         :type ConsistentRead: boolean
         :param ConsistentRead:
@@ -516,7 +516,7 @@ class Query(Paginator):
           Strongly consistent reads are not supported on global secondary indexes. If you query a global secondary index with ``ConsistentRead`` set to ``true`` , you will receive a ``ValidationException`` .
         :type KeyConditions: dict
         :param KeyConditions:
-          This is a legacy parameter. Use ``KeyConditionExpression`` instead. For more information, see `KeyConditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``KeyConditionExpression`` instead. For more information, see `KeyConditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the selection criteria for a ``Query`` or ``Scan`` operation:
@@ -530,7 +530,7 @@ class Query(Paginator):
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -561,14 +561,14 @@ class Query(Paginator):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -597,10 +597,10 @@ class Query(Paginator):
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.
                 * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``
-                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type QueryFilter: dict
         :param QueryFilter:
-          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `QueryFilter <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `QueryFilter <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the selection criteria for a ``Query`` or ``Scan`` operation:
@@ -614,7 +614,7 @@ class Query(Paginator):
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -645,14 +645,14 @@ class Query(Paginator):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -681,10 +681,10 @@ class Query(Paginator):
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.
                 * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``
-                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ConditionalOperator: string
         :param ConditionalOperator:
-          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ConditionalOperator <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ConditionalOperator <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ScanIndexForward: boolean
         :param ScanIndexForward:
           Specifies the order for index traversal: If ``true`` (default), the traversal is performed in ascending order; if ``false`` , the traversal is performed in descending order.
@@ -700,14 +700,14 @@ class Query(Paginator):
         :param ProjectionExpression:
           A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
           If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
-          For more information, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type FilterExpression: string
         :param FilterExpression:
           A string that contains conditions that DynamoDB applies after the ``Query`` operation, but before the data is returned to you. Items that do not satisfy the ``FilterExpression`` criteria are not returned.
           A ``FilterExpression`` does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.
           .. note::
             A ``FilterExpression`` is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.
-          For more information, see `Filter Expressions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Filter Expressions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults>`__ in the *Amazon DynamoDB Developer Guide* .
         :type KeyConditionExpression: string
         :param KeyConditionExpression:
           The condition that specifies the key value(s) for items to be retrieved by the ``Query`` action.
@@ -730,8 +730,8 @@ class Query(Paginator):
           * ``Size = :myval``
           To work around this, define a placeholder (such a ``#S`` ) to represent the attribute name *Size* . ``KeyConditionExpression`` then is as follows:
           * ``#S = :myval``
-          For a list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* .
-          For more information on ``ExpressionAttributeNames`` and ``ExpressionAttributeValues`` , see `Using Placeholders for Attribute Names and Values <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For a list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on ``ExpressionAttributeNames`` and ``ExpressionAttributeValues`` , see `Using Placeholders for Attribute Names and Values <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExpressionAttributeNames: dict
         :param ExpressionAttributeNames:
           One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
@@ -740,13 +740,13 @@ class Query(Paginator):
           * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
           * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
           * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
           * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(string) --*
         :type ExpressionAttributeValues: dict
@@ -758,12 +758,12 @@ class Query(Paginator):
            ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``
           You could then use these values in an expression, such as this:
            ``ProductStatus IN (:avail, :back, :disc)``
-          For more information on expression attribute values, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute values, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -794,14 +794,14 @@ class Query(Paginator):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -977,7 +977,7 @@ class Scan(Paginator):
                   - *(dict) --* 
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **S** *(string) --* 
                       An attribute of type String. For example:
                        ``"S": "Hello"``  
@@ -1008,14 +1008,14 @@ class Scan(Paginator):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **L** *(list) --* 
                       An attribute of type List. For example:
                        ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **NULL** *(boolean) --* 
                       An attribute of type Null. For example:
                        ``"NULL": true``  
@@ -1027,10 +1027,10 @@ class Scan(Paginator):
               If you set ``ScanFilter`` in the request, then ``Count`` is the number of items returned after the filter was applied, and ``ScannedCount`` is the number of matching items before the filter was applied.
               If you did not use a filter in the request, then ``Count`` is the same as ``ScannedCount`` .
             - **ScannedCount** *(integer) --* 
-              The number of items evaluated, before any ``ScanFilter`` is applied. A high ``ScannedCount`` value with few, or no, ``Count`` results indicates an inefficient ``Scan`` operation. For more information, see `Count and ScannedCount <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count>`__ in the *Amazon DynamoDB Developer Guide* .
+              The number of items evaluated, before any ``ScanFilter`` is applied. A high ``ScannedCount`` value with few, or no, ``Count`` results indicates an inefficient ``Scan`` operation. For more information, see `Count and ScannedCount <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count>`__ in the *Amazon DynamoDB Developer Guide* .
               If you did not use a filter in the request, then ``ScannedCount`` is the same as ``Count`` .
             - **ConsumedCapacity** *(dict) --* 
-              The capacity units consumed by the ``Scan`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              The capacity units consumed by the ``Scan`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **TableName** *(string) --* 
                 The name of the table that was affected by the operation.
               - **CapacityUnits** *(float) --* 
@@ -1079,7 +1079,7 @@ class Scan(Paginator):
           The name of a secondary index to scan. This index can be any local secondary index or global secondary index. Note that if you use the ``IndexName`` parameter, you must also provide ``TableName`` .
         :type AttributesToGet: list
         :param AttributesToGet:
-          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
         :type Select: string
         :param Select:
@@ -1093,7 +1093,7 @@ class Scan(Paginator):
             If you use the ``ProjectionExpression`` parameter, then the value for ``Select`` can only be ``SPECIFIC_ATTRIBUTES`` . Any other value for ``Select`` will return an error.
         :type ScanFilter: dict
         :param ScanFilter:
-          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ScanFilter <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ScanFilter <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the selection criteria for a ``Query`` or ``Scan`` operation:
@@ -1107,7 +1107,7 @@ class Scan(Paginator):
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -1138,14 +1138,14 @@ class Scan(Paginator):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -1174,10 +1174,10 @@ class Scan(Paginator):
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.
                 * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``
-                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ConditionalOperator: string
         :param ConditionalOperator:
-          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ConditionalOperator <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ConditionalOperator <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ReturnConsumedCapacity: string
         :param ReturnConsumedCapacity:
           Determines the level of detail about provisioned throughput consumption that is returned in the response:
@@ -1200,13 +1200,13 @@ class Scan(Paginator):
         :param ProjectionExpression:
           A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
           If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
-          For more information, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type FilterExpression: string
         :param FilterExpression:
           A string that contains conditions that DynamoDB applies after the ``Scan`` operation, but before the data is returned to you. Items that do not satisfy the ``FilterExpression`` criteria are not returned.
           .. note::
             A ``FilterExpression`` is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.
-          For more information, see `Filter Expressions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Filter Expressions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExpressionAttributeNames: dict
         :param ExpressionAttributeNames:
           One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
@@ -1215,13 +1215,13 @@ class Scan(Paginator):
           * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
           * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
           * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
           * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(string) --*
         :type ExpressionAttributeValues: dict
@@ -1233,12 +1233,12 @@ class Scan(Paginator):
            ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``
           You could then use these values in an expression, such as this:
            ``ProductStatus IN (:avail, :back, :disc)``
-          For more information on expression attribute values, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute values, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -1269,14 +1269,14 @@ class Scan(Paginator):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``

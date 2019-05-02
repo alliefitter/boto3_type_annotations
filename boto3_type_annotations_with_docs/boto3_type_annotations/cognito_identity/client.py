@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -23,7 +23,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_identity_pool(self, IdentityPoolName: str, AllowUnauthenticatedIdentities: bool, SupportedLoginProviders: Dict = None, DeveloperProviderName: str = None, OpenIdConnectProviderARNs: List = None, CognitoIdentityProviders: List = None, SamlProviderARNs: List = None) -> Dict:
+    def create_identity_pool(self, IdentityPoolName: str, AllowUnauthenticatedIdentities: bool, SupportedLoginProviders: Dict = None, DeveloperProviderName: str = None, OpenIdConnectProviderARNs: List = None, CognitoIdentityProviders: List = None, SamlProviderARNs: List = None, IdentityPoolTags: Dict = None) -> Dict:
         """
         Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for ``SupportedLoginProviders`` are as follows:
         * Facebook: ``graph.facebook.com``   
@@ -55,7 +55,10 @@ class Client(BaseClient):
               ],
               SamlProviderARNs=[
                   'string',
-              ]
+              ],
+              IdentityPoolTags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -80,7 +83,10 @@ class Client(BaseClient):
                 ],
                 'SamlProviderARNs': [
                     'string',
-                ]
+                ],
+                'IdentityPoolTags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -102,18 +108,24 @@ class Client(BaseClient):
               A list of OpendID Connect provider ARNs.
               - *(string) --* 
             - **CognitoIdentityProviders** *(list) --* 
-              A list representing an Amazon Cognito Identity User Pool and its client ID.
+              A list representing an Amazon Cognito user pool and its client ID.
               - *(dict) --* 
-                A provider representing an Amazon Cognito Identity User Pool and its client ID.
+                A provider representing an Amazon Cognito user pool and its client ID.
                 - **ProviderName** *(string) --* 
-                  The provider name for an Amazon Cognito Identity User Pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
+                  The provider name for an Amazon Cognito user pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
                 - **ClientId** *(string) --* 
-                  The client ID for the Amazon Cognito Identity User Pool.
+                  The client ID for the Amazon Cognito user pool.
                 - **ServerSideTokenCheck** *(boolean) --* 
                   TRUE if server-side token validation is enabled for the identity provider’s token.
+                  Once you set ``ServerSideTokenCheck`` to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+                  If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
             - **SamlProviderARNs** *(list) --* 
               An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
               - *(string) --* 
+            - **IdentityPoolTags** *(dict) --* 
+              The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+              - *(string) --* 
+                - *(string) --* 
         :type IdentityPoolName: string
         :param IdentityPoolName: **[REQUIRED]**
           A string that you provide.
@@ -135,19 +147,26 @@ class Client(BaseClient):
           - *(string) --*
         :type CognitoIdentityProviders: list
         :param CognitoIdentityProviders:
-          An array of Amazon Cognito Identity user pools and their client IDs.
+          An array of Amazon Cognito user pools and their client IDs.
           - *(dict) --*
-            A provider representing an Amazon Cognito Identity User Pool and its client ID.
+            A provider representing an Amazon Cognito user pool and its client ID.
             - **ProviderName** *(string) --*
-              The provider name for an Amazon Cognito Identity User Pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
+              The provider name for an Amazon Cognito user pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
             - **ClientId** *(string) --*
-              The client ID for the Amazon Cognito Identity User Pool.
+              The client ID for the Amazon Cognito user pool.
             - **ServerSideTokenCheck** *(boolean) --*
               TRUE if server-side token validation is enabled for the identity provider’s token.
+              Once you set ``ServerSideTokenCheck`` to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+              If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
         :type SamlProviderARNs: list
         :param SamlProviderARNs:
           An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
           - *(string) --*
+        :type IdentityPoolTags: dict
+        :param IdentityPoolTags:
+          Tags to assign to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -200,7 +219,7 @@ class Client(BaseClient):
 
     def delete_identity_pool(self, IdentityPoolId: str):
         """
-        Deletes a user pool. Once a pool is deleted, users will not be able to authenticate with the pool.
+        Deletes an identity pool. Once a pool is deleted, users will not be able to authenticate with the pool.
         You must use AWS Developer credentials to call this API.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/DeleteIdentityPool>`_
         
@@ -245,7 +264,7 @@ class Client(BaseClient):
             - **IdentityId** *(string) --* 
               A unique identifier in the format REGION:GUID.
             - **Logins** *(list) --* 
-              A set of optional name-value pairs that map provider names to provider tokens.
+              The provider names.
               - *(string) --* 
             - **CreationDate** *(datetime) --* 
               Date on which the identity was created.
@@ -293,7 +312,10 @@ class Client(BaseClient):
                 ],
                 'SamlProviderARNs': [
                     'string',
-                ]
+                ],
+                'IdentityPoolTags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -315,18 +337,24 @@ class Client(BaseClient):
               A list of OpendID Connect provider ARNs.
               - *(string) --* 
             - **CognitoIdentityProviders** *(list) --* 
-              A list representing an Amazon Cognito Identity User Pool and its client ID.
+              A list representing an Amazon Cognito user pool and its client ID.
               - *(dict) --* 
-                A provider representing an Amazon Cognito Identity User Pool and its client ID.
+                A provider representing an Amazon Cognito user pool and its client ID.
                 - **ProviderName** *(string) --* 
-                  The provider name for an Amazon Cognito Identity User Pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
+                  The provider name for an Amazon Cognito user pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
                 - **ClientId** *(string) --* 
-                  The client ID for the Amazon Cognito Identity User Pool.
+                  The client ID for the Amazon Cognito user pool.
                 - **ServerSideTokenCheck** *(boolean) --* 
                   TRUE if server-side token validation is enabled for the identity provider’s token.
+                  Once you set ``ServerSideTokenCheck`` to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+                  If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
             - **SamlProviderARNs** *(list) --* 
               An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
               - *(string) --* 
+            - **IdentityPoolTags** *(dict) --* 
+              The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+              - *(string) --* 
+                - *(string) --* 
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]**
           An identity pool ID in the format REGION:GUID.
@@ -401,7 +429,9 @@ class Client(BaseClient):
           A unique identifier in the format REGION:GUID.
         :type Logins: dict
         :param Logins:
-          A set of optional name-value pairs that map provider names to provider tokens.
+          A set of optional name-value pairs that map provider names to provider tokens. The name-value pair will follow the syntax \"provider_name\": \"provider_user_identifier\".
+          Logins should not be specified when trying to get credentials for an unauthenticated identity.
+          The Logins parameter is required when using identities associated with external identity providers such as FaceBook. For examples of ``Logins`` maps, see the code examples in the `External Identity Providers <http://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html>`__ section of the Amazon Cognito Developer Guide.
           - *(string) --*
             - *(string) --*
         :type CustomRoleArn: string
@@ -449,7 +479,7 @@ class Client(BaseClient):
         :param Logins:
           A set of optional name-value pairs that map provider names to provider tokens. The available provider names for ``Logins`` are as follows:
           * Facebook: ``graph.facebook.com``
-          * Amazon Cognito Identity Provider: ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789``
+          * Amazon Cognito user pool: ``cognito-idp.<region>.amazonaws.com/<YOUR_USER_POOL_ID>`` , for example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
           * Google: ``accounts.google.com``
           * Amazon: ``www.amazon.com``
           * Twitter: ``api.twitter.com``
@@ -508,7 +538,7 @@ class Client(BaseClient):
               - *(string) --* 
                 - *(string) --* 
             - **RoleMappings** *(dict) --* 
-              How users for a specific identity provider are to mapped to roles. This is a String-to- RoleMapping object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+              How users for a specific identity provider are to mapped to roles. This is a String-to- RoleMapping object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
               - *(string) --* 
                 - *(dict) --* 
                   A role mapping.
@@ -544,7 +574,7 @@ class Client(BaseClient):
     def get_open_id_token(self, IdentityId: str, Logins: Dict = None) -> Dict:
         """
         Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by  GetId . You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.
-        The OpenId token is valid for 15 minutes.
+        The OpenId token is valid for 10 minutes.
         This is a public API. You do not need any credentials to call this API.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/GetOpenIdToken>`_
         
@@ -570,13 +600,13 @@ class Client(BaseClient):
             - **IdentityId** *(string) --* 
               A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
             - **Token** *(string) --* 
-              An OpenID token, valid for 15 minutes.
+              An OpenID token, valid for 10 minutes.
         :type IdentityId: string
         :param IdentityId: **[REQUIRED]**
           A unique identifier in the format REGION:GUID.
         :type Logins: dict
         :param Logins:
-          A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider\'s authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the ``id_token`` .
+          A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider\'s authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any other OpenId Connect provider, always include the ``id_token`` .
           - *(string) --*
             - *(string) --*
         :rtype: dict
@@ -666,7 +696,7 @@ class Client(BaseClient):
 
     def list_identities(self, IdentityPoolId: str, MaxResults: int, NextToken: str = None, HideDisabled: bool = None) -> Dict:
         """
-        Lists the identities in a pool.
+        Lists the identities in an identity pool.
         You must use AWS Developer credentials to call this API.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/ListIdentities>`_
         
@@ -708,7 +738,7 @@ class Client(BaseClient):
                 - **IdentityId** *(string) --* 
                   A unique identifier in the format REGION:GUID.
                 - **Logins** *(list) --* 
-                  A set of optional name-value pairs that map provider names to provider tokens.
+                  The provider names.
                   - *(string) --* 
                 - **CreationDate** *(datetime) --* 
                   Date on which the identity was created.
@@ -782,9 +812,45 @@ class Client(BaseClient):
         """
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        """
+        Lists the tags that are assigned to an Amazon Cognito identity pool.
+        A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+        You can use this action up to 10 times per second, per account.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': {
+                    'string': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Tags** *(dict) --* 
+              The tags that are assigned to the identity pool.
+              - *(string) --* 
+                - *(string) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def lookup_developer_identity(self, IdentityPoolId: str, IdentityId: str = None, DeveloperUserIdentifier: str = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         """
-        Retrieves the ``IdentityID`` associated with a ``DeveloperUserIdentifier`` or the list of ``DeveloperUserIdentifier`` s associated with an ``IdentityId`` for an existing identity. Either ``IdentityID`` or ``DeveloperUserIdentifier`` must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, ``DeveloperUserIdentifier`` will be matched against ``IdentityID`` . If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a ``ResourceConflictException`` is thrown.
+        Retrieves the ``IdentityID`` associated with a ``DeveloperUserIdentifier`` or the list of ``DeveloperUserIdentifier`` values associated with an ``IdentityId`` for an existing identity. Either ``IdentityID`` or ``DeveloperUserIdentifier`` must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, ``DeveloperUserIdentifier`` will be matched against ``IdentityID`` . If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a ``ResourceConflictException`` is thrown.
+         ``LookupDeveloperIdentity`` is intended for low-throughput control plane operations: for example, to enable customer service to locate an identity ID by username. If you are using it for higher-volume operations such as user authentication, your requests are likely to be throttled.  GetOpenIdTokenForDeveloperIdentity is a better option for higher-volume operations for user authentication.
         You must use AWS Developer credentials to call this API.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/LookupDeveloperIdentity>`_
         
@@ -841,6 +907,7 @@ class Client(BaseClient):
     def merge_developer_identities(self, SourceUserIdentifier: str, DestinationUserIdentifier: str, DeveloperProviderName: str, IdentityPoolId: str) -> Dict:
         """
         Merges two users having different ``IdentityId`` s, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (``SourceUserIdentifier`` ) with the ``IdentityId`` of the ``DestinationUserIdentifier`` . Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.
+        The number of linked logins is limited to 20. So, the number of linked logins for the source user, ``SourceUserIdentifier`` , and the destination user, ``DestinationUserIdentifier`` , together should not be larger than 20. Otherwise, an exception will be thrown.
         You must use AWS Developer credentials to call this API.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/MergeDeveloperIdentities>`_
         
@@ -951,6 +1018,42 @@ class Client(BaseClient):
         """
         pass
 
+    def tag_resource(self, ResourceArn: str, Tags: Dict = None) -> Dict:
+        """
+        Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.
+        Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an ``Environment`` tag key to both identity pools. The value of this key might be ``Test`` for one identity pool and ``Production`` for the other.
+        Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.
+        You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              Tags={
+                  'string': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the identity pool to assign the tags to.
+        :type Tags: dict
+        :param Tags:
+          The tags to assign to the identity pool.
+          - *(string) --*
+            - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def unlink_developer_identity(self, IdentityId: str, IdentityPoolId: str, DeveloperProviderName: str, DeveloperUserIdentifier: str):
         """
         Unlinks a ``DeveloperUserIdentifier`` from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.
@@ -1014,9 +1117,41 @@ class Client(BaseClient):
         """
         pass
 
-    def update_identity_pool(self, IdentityPoolId: str, IdentityPoolName: str, AllowUnauthenticatedIdentities: bool, SupportedLoginProviders: Dict = None, DeveloperProviderName: str = None, OpenIdConnectProviderARNs: List = None, CognitoIdentityProviders: List = None, SamlProviderARNs: List = None) -> Dict:
+    def untag_resource(self, ResourceArn: str, TagKeys: List = None) -> Dict:
         """
-        Updates a user pool.
+        Removes the specified tags from an Amazon Cognito identity pool. You can use this action up to 5 times per second, per account
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.
+        :type TagKeys: list
+        :param TagKeys:
+          The keys of the tags to remove from the user pool.
+          - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def update_identity_pool(self, IdentityPoolId: str, IdentityPoolName: str, AllowUnauthenticatedIdentities: bool, SupportedLoginProviders: Dict = None, DeveloperProviderName: str = None, OpenIdConnectProviderARNs: List = None, CognitoIdentityProviders: List = None, SamlProviderARNs: List = None, IdentityPoolTags: Dict = None) -> Dict:
+        """
+        Updates an identity pool.
         You must use AWS Developer credentials to call this API.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-identity-2014-06-30/UpdateIdentityPool>`_
         
@@ -1042,7 +1177,10 @@ class Client(BaseClient):
               ],
               SamlProviderARNs=[
                   'string',
-              ]
+              ],
+              IdentityPoolTags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -1067,7 +1205,10 @@ class Client(BaseClient):
                 ],
                 'SamlProviderARNs': [
                     'string',
-                ]
+                ],
+                'IdentityPoolTags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1089,18 +1230,24 @@ class Client(BaseClient):
               A list of OpendID Connect provider ARNs.
               - *(string) --* 
             - **CognitoIdentityProviders** *(list) --* 
-              A list representing an Amazon Cognito Identity User Pool and its client ID.
+              A list representing an Amazon Cognito user pool and its client ID.
               - *(dict) --* 
-                A provider representing an Amazon Cognito Identity User Pool and its client ID.
+                A provider representing an Amazon Cognito user pool and its client ID.
                 - **ProviderName** *(string) --* 
-                  The provider name for an Amazon Cognito Identity User Pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
+                  The provider name for an Amazon Cognito user pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
                 - **ClientId** *(string) --* 
-                  The client ID for the Amazon Cognito Identity User Pool.
+                  The client ID for the Amazon Cognito user pool.
                 - **ServerSideTokenCheck** *(boolean) --* 
                   TRUE if server-side token validation is enabled for the identity provider’s token.
+                  Once you set ``ServerSideTokenCheck`` to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+                  If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
             - **SamlProviderARNs** *(list) --* 
               An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
               - *(string) --* 
+            - **IdentityPoolTags** *(dict) --* 
+              The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+              - *(string) --* 
+                - *(string) --* 
         :type IdentityPoolId: string
         :param IdentityPoolId: **[REQUIRED]**
           An identity pool ID in the format REGION:GUID.
@@ -1124,19 +1271,26 @@ class Client(BaseClient):
           - *(string) --*
         :type CognitoIdentityProviders: list
         :param CognitoIdentityProviders:
-          A list representing an Amazon Cognito Identity User Pool and its client ID.
+          A list representing an Amazon Cognito user pool and its client ID.
           - *(dict) --*
-            A provider representing an Amazon Cognito Identity User Pool and its client ID.
+            A provider representing an Amazon Cognito user pool and its client ID.
             - **ProviderName** *(string) --*
-              The provider name for an Amazon Cognito Identity User Pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
+              The provider name for an Amazon Cognito user pool. For example, ``cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789`` .
             - **ClientId** *(string) --*
-              The client ID for the Amazon Cognito Identity User Pool.
+              The client ID for the Amazon Cognito user pool.
             - **ServerSideTokenCheck** *(boolean) --*
               TRUE if server-side token validation is enabled for the identity provider’s token.
+              Once you set ``ServerSideTokenCheck`` to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+              If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
         :type SamlProviderARNs: list
         :param SamlProviderARNs:
           An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
           - *(string) --*
+        :type IdentityPoolTags: dict
+        :param IdentityPoolTags:
+          The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """

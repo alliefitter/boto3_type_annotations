@@ -1,9 +1,9 @@
 from boto3.resources.collection import ResourceCollection
-from typing import Optional
-from typing import List
 from typing import Union
-from datetime import datetime
+from typing import List
+from typing import Optional
 from typing import Dict
+from datetime import datetime
 from boto3.resources import base
 
 
@@ -104,7 +104,7 @@ class ServiceResource(base.ServiceResource):
     def create_network_acl(self, VpcId: str, DryRun: bool = None) -> 'NetworkAcl':
         pass
 
-    def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> 'NetworkInterface':
+    def create_network_interface(self, SubnetId: str, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None, InterfaceType: str = None) -> 'NetworkInterface':
         pass
 
     def create_placement_group(self, DryRun: bool = None, GroupName: str = None, Strategy: str = None, PartitionCount: int = None) -> 'PlacementGroup':
@@ -779,7 +779,7 @@ class Subnet(base.ServiceResource):
     def create_instances(self, MaxCount: int, MinCount: int, BlockDeviceMappings: List = None, ImageId: str = None, InstanceType: str = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, KernelId: str = None, KeyName: str = None, Monitoring: Dict = None, Placement: Dict = None, RamdiskId: str = None, SecurityGroupIds: List = None, SecurityGroups: List = None, UserData: str = None, AdditionalInfo: str = None, ClientToken: str = None, DisableApiTermination: bool = None, DryRun: bool = None, EbsOptimized: bool = None, IamInstanceProfile: Dict = None, InstanceInitiatedShutdownBehavior: str = None, NetworkInterfaces: List = None, PrivateIpAddress: str = None, ElasticGpuSpecification: List = None, ElasticInferenceAccelerators: List = None, TagSpecifications: List = None, LaunchTemplate: Dict = None, InstanceMarketOptions: Dict = None, CreditSpecification: Dict = None, CpuOptions: Dict = None, CapacityReservationSpecification: Dict = None, HibernationOptions: Dict = None, LicenseSpecifications: List = None) -> List['Instance']:
         pass
 
-    def create_network_interface(self, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None) -> 'NetworkInterface':
+    def create_network_interface(self, Description: str = None, DryRun: bool = None, Groups: List = None, Ipv6AddressCount: int = None, Ipv6Addresses: List = None, PrivateIpAddress: str = None, PrivateIpAddresses: List = None, SecondaryPrivateIpAddressCount: int = None, InterfaceType: str = None) -> 'NetworkInterface':
         pass
 
     def create_tags(self, Tags: List, DryRun: bool = None) -> List['Tag']:
@@ -949,10 +949,10 @@ class Vpc(base.ServiceResource):
     def request_vpc_peering_connection(self, DryRun: bool = None, PeerOwnerId: str = None, PeerVpcId: str = None, PeerRegion: str = None) -> 'VpcPeeringConnection':
         pass
 
-    def wait_until_available(self, Filters: List = None, DryRun: bool = None):
+    def wait_until_available(self, Filters: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None):
         pass
 
-    def wait_until_exists(self, Filters: List = None, DryRun: bool = None):
+    def wait_until_exists(self, Filters: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None):
         pass
 
 
@@ -1186,7 +1186,7 @@ class internet_gateways(ResourceCollection):
 
     
     @classmethod
-    def filter(cls, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None) -> List['InternetGateway']:
+    def filter(cls, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None, NextToken: str = None, MaxResults: int = None) -> List['InternetGateway']:
         pass
 
     
@@ -1250,7 +1250,7 @@ class network_acls(ResourceCollection):
 
     
     @classmethod
-    def filter(cls, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None) -> List['NetworkAcl']:
+    def filter(cls, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None, NextToken: str = None, MaxResults: int = None) -> List['NetworkAcl']:
         pass
 
     
@@ -1570,7 +1570,7 @@ class vpcs(ResourceCollection):
 
     
     @classmethod
-    def filter(cls, Filters: List = None, VpcIds: List = None, DryRun: bool = None) -> List['Vpc']:
+    def filter(cls, Filters: List = None, VpcIds: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None) -> List['Vpc']:
         pass
 
     

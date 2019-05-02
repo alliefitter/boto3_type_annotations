@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.waiter import Waiter
 
 
@@ -129,12 +129,12 @@ class VolumeInUse(Waiter):
 
 
 class VpcAvailable(Waiter):
-    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None):
         pass
 
 
 class VpcExists(Waiter):
-    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None):
         pass
 
 

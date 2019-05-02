@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -17,7 +17,13 @@ class Client(BaseClient):
     def create_certificate_authority_audit_report(self, CertificateAuthorityArn: str, S3BucketName: str, AuditReportResponseFormat: str) -> Dict:
         pass
 
+    def create_permission(self, CertificateAuthorityArn: str, Principal: str, Actions: List, SourceAccount: str = None):
+        pass
+
     def delete_certificate_authority(self, CertificateAuthorityArn: str, PermanentDeletionTimeInDays: int = None):
+        pass
+
+    def delete_permission(self, CertificateAuthorityArn: str, Principal: str, SourceAccount: str = None):
         pass
 
     def describe_certificate_authority(self, CertificateAuthorityArn: str) -> Dict:
@@ -51,6 +57,9 @@ class Client(BaseClient):
         pass
 
     def list_certificate_authorities(self, NextToken: str = None, MaxResults: int = None) -> Dict:
+        pass
+
+    def list_permissions(self, CertificateAuthorityArn: str, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def list_tags(self, CertificateAuthorityArn: str, NextToken: str = None, MaxResults: int = None) -> Dict:

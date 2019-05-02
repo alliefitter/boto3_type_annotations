@@ -1,8 +1,8 @@
-from typing import Optional
 from typing import List
-from typing import Union
+from typing import Optional
 from boto3.resources.collection import ResourceCollection
 from typing import Dict
+from typing import Union
 from boto3.resources import base
 
 
@@ -26,7 +26,7 @@ class ServiceResource(base.ServiceResource):
     def create_platform_application(self, Name: str, Platform: str, Attributes: Dict) -> 'PlatformApplication':
         pass
 
-    def create_topic(self, Name: str, Attributes: Dict = None) -> 'Topic':
+    def create_topic(self, Name: str, Attributes: Dict = None, Tags: List = None) -> 'Topic':
         pass
 
     def get_available_subresources(self) -> List[str]:

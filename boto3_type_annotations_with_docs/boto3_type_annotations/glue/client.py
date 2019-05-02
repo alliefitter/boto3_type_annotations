@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -455,7 +455,7 @@ class Client(BaseClient):
 
     def batch_get_crawlers(self, CrawlerNames: List) -> Dict:
         """
-        Returns a list of resource metadata for a given list of crawler names. After calling the ``ListCrawlers`` operation, you can call this operation to access the data to which you have been granted permissions to based on tags.
+        Returns a list of resource metadata for a given list of crawler names. After calling the ``ListCrawlers`` operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchGetCrawlers>`_
         
         **Request Syntax**
@@ -621,7 +621,7 @@ class Client(BaseClient):
                 - **CrawlerSecurityConfiguration** *(string) --* 
                   The name of the SecurityConfiguration structure to be used by this Crawler.
             - **CrawlersNotFound** *(list) --* 
-              A list of crawlers not found.
+              A list of names of crawlers not found.
               - *(string) --* 
         :type CrawlerNames: list
         :param CrawlerNames: **[REQUIRED]**
@@ -674,7 +674,10 @@ class Client(BaseClient):
                         'PublicKeys': [
                             'string',
                         ],
-                        'SecurityConfiguration': 'string'
+                        'SecurityConfiguration': 'string',
+                        'Arguments': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'DevEndpointsNotFound': [
@@ -736,6 +739,11 @@ class Client(BaseClient):
                   - *(string) --* 
                 - **SecurityConfiguration** *(string) --* 
                   The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+                - **Arguments** *(dict) --* 
+                  A map of arguments used to configure the DevEndpoint.
+                  Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+                  - *(string) --* 
+                    - *(string) --* 
             - **DevEndpointsNotFound** *(list) --* 
               A list of DevEndpoints not found.
               - *(string) --* 
@@ -791,10 +799,12 @@ class Client(BaseClient):
                         'AllocatedCapacity': 123,
                         'Timeout': 123,
                         'MaxCapacity': 123.0,
+                        'WorkerType': 'Standard'|'G.1X'|'G.2X',
+                        'NumberOfWorkers': 123,
+                        'SecurityConfiguration': 'string',
                         'NotificationProperty': {
                             'NotifyDelayAfter': 123
-                        },
-                        'SecurityConfiguration': 'string'
+                        }
                     },
                 ],
                 'JobsNotFound': [
@@ -851,15 +861,24 @@ class Client(BaseClient):
                   The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters ``TIMEOUT`` status. The default is 2,880 minutes (48 hours).
                 - **MaxCapacity** *(float) --* 
                   The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+                  Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
                   The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
                   * When you specify a python shell job (``JobCommand.Name`` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU. 
                   * When you specify an Apache Spark ETL job (``JobCommand.Name`` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation. 
+                - **WorkerType** *(string) --* 
+                  The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+                  * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker. 
+                  * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker. 
+                  * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. 
+                - **NumberOfWorkers** *(integer) --* 
+                  The number of workers of a defined ``workerType`` that are allocated when a job runs.
+                  The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` . 
+                - **SecurityConfiguration** *(string) --* 
+                  The name of the SecurityConfiguration structure to be used with this job.
                 - **NotificationProperty** *(dict) --* 
                   Specifies configuration properties of a job notification.
                   - **NotifyDelayAfter** *(integer) --* 
                     After a job run starts, the number of minutes to wait before sending a job run delay notification.
-                - **SecurityConfiguration** *(string) --* 
-                  The name of the SecurityConfiguration structure to be used with this job.
             - **JobsNotFound** *(list) --* 
               A list of names of jobs not found.
               - *(string) --* 
@@ -1282,9 +1301,9 @@ class Client(BaseClient):
         """
         pass
 
-    def create_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None) -> Dict:
+    def create_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None, CsvClassifier: Dict = None) -> Dict:
         """
-        Creates a classifier in the user's account. This may be a ``GrokClassifier`` , an ``XMLClassifier`` , or abbrev ``JsonClassifier`` , depending on which field of the request is present.
+        Creates a classifier in the user's account. This may be a ``GrokClassifier`` , an ``XMLClassifier`` , a ``JsonClassifier`` , or a ``CsvClassifier`` , depending on which field of the request is present.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateClassifier>`_
         
         **Request Syntax**
@@ -1304,6 +1323,17 @@ class Client(BaseClient):
               JsonClassifier={
                   'Name': 'string',
                   'JsonPath': 'string'
+              },
+              CsvClassifier={
+                  'Name': 'string',
+                  'Delimiter': 'string',
+                  'QuoteSymbol': 'string',
+                  'ContainsHeader': 'UNKNOWN'|'PRESENT'|'ABSENT',
+                  'Header': [
+                      'string',
+                  ],
+                  'DisableValueTrimming': True|False,
+                  'AllowSingleColumn': True|False
               }
           )
         
@@ -1340,6 +1370,24 @@ class Client(BaseClient):
             The name of the classifier.
           - **JsonPath** *(string) --* **[REQUIRED]**
             A ``JsonPath`` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in `Writing JsonPath Custom Classifiers <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json>`__ .
+        :type CsvClassifier: dict
+        :param CsvClassifier:
+          A ``CsvClassifier`` object specifying the classifier to create.
+          - **Name** *(string) --* **[REQUIRED]**
+            The name of the classifier.
+          - **Delimiter** *(string) --*
+            A custom symbol to denote what separates each column entry in the row.
+          - **QuoteSymbol** *(string) --*
+            A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
+          - **ContainsHeader** *(string) --*
+            Indicates whether the CSV file contains a header.
+          - **Header** *(list) --*
+            A list of strings representing column names.
+            - *(string) --*
+          - **DisableValueTrimming** *(boolean) --*
+            Specifies not to trim values before identifying the type of column values. The default value is true.
+          - **AllowSingleColumn** *(boolean) --*
+            Enables the processing of files that contain only one column.
         :rtype: dict
         :returns:
         """
@@ -1591,7 +1639,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_dev_endpoint(self, EndpointName: str, RoleArn: str, SecurityGroupIds: List = None, SubnetId: str = None, PublicKey: str = None, PublicKeys: List = None, NumberOfNodes: int = None, ExtraPythonLibsS3Path: str = None, ExtraJarsS3Path: str = None, SecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
+    def create_dev_endpoint(self, EndpointName: str, RoleArn: str, SecurityGroupIds: List = None, SubnetId: str = None, PublicKey: str = None, PublicKeys: List = None, NumberOfNodes: int = None, ExtraPythonLibsS3Path: str = None, ExtraJarsS3Path: str = None, SecurityConfiguration: str = None, Tags: Dict = None, Arguments: Dict = None) -> Dict:
         """
         Creates a new DevEndpoint.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateDevEndpoint>`_
@@ -1615,6 +1663,9 @@ class Client(BaseClient):
               SecurityConfiguration='string',
               Tags={
                   'string': 'string'
+              },
+              Arguments={
+                  'string': 'string'
               }
           )
         
@@ -1637,7 +1688,10 @@ class Client(BaseClient):
                 'ExtraJarsS3Path': 'string',
                 'FailureReason': 'string',
                 'SecurityConfiguration': 'string',
-                'CreatedTimestamp': datetime(2015, 1, 1)
+                'CreatedTimestamp': datetime(2015, 1, 1),
+                'Arguments': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1673,6 +1727,10 @@ class Client(BaseClient):
               The name of the SecurityConfiguration structure being used with this DevEndpoint.
             - **CreatedTimestamp** *(datetime) --* 
               The point in time at which this DevEndpoint was created.
+            - **Arguments** *(dict) --* 
+              The map of arguments used to configure this DevEndpoint.
+              - *(string) --* 
+                - *(string) --* 
         :type EndpointName: string
         :param EndpointName: **[REQUIRED]**
           The name to be assigned to the new DevEndpoint.
@@ -1713,12 +1771,17 @@ class Client(BaseClient):
           The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in AWS Glue, see `AWS Tags in AWS Glue <http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html>`__ in the developer guide.
           - *(string) --*
             - *(string) --*
+        :type Arguments: dict
+        :param Arguments:
+          A map of arguments used to configure the DevEndpoint.
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_job(self, Name: str, Role: str, Command: Dict, Description: str = None, LogUri: str = None, ExecutionProperty: Dict = None, DefaultArguments: Dict = None, Connections: Dict = None, MaxRetries: int = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, NotificationProperty: Dict = None, SecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
+    def create_job(self, Name: str, Role: str, Command: Dict, Description: str = None, LogUri: str = None, ExecutionProperty: Dict = None, DefaultArguments: Dict = None, Connections: Dict = None, MaxRetries: int = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, NotificationProperty: Dict = None, WorkerType: str = None, NumberOfWorkers: int = None, SecurityConfiguration: str = None, Tags: Dict = None) -> Dict:
         """
         Creates a new job definition.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateJob>`_
@@ -1752,6 +1815,8 @@ class Client(BaseClient):
               NotificationProperty={
                   'NotifyDelayAfter': 123
               },
+              WorkerType='Standard'|'G.1X'|'G.2X',
+              NumberOfWorkers=123,
               SecurityConfiguration='string',
               Tags={
                   'string': 'string'
@@ -1819,6 +1884,7 @@ class Client(BaseClient):
         :type MaxCapacity: float
         :param MaxCapacity:
           The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+          Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
           The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
           * When you specify a python shell job (``JobCommand.Name`` =\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
           * When you specify an Apache Spark ETL job (``JobCommand.Name`` =\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
@@ -1827,6 +1893,16 @@ class Client(BaseClient):
           Specifies configuration properties of a job notification.
           - **NotifyDelayAfter** *(integer) --*
             After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        :type WorkerType: string
+        :param WorkerType:
+          The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+          * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+          * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
+          * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
+        :type NumberOfWorkers: integer
+        :param NumberOfWorkers:
+          The number of workers of a defined ``workerType`` that are allocated when a job runs.
+          The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` .
         :type SecurityConfiguration: string
         :param SecurityConfiguration:
           The name of the SecurityConfiguration structure to be used with this job.
@@ -3012,6 +3088,20 @@ class Client(BaseClient):
                         'LastUpdated': datetime(2015, 1, 1),
                         'Version': 123,
                         'JsonPath': 'string'
+                    },
+                    'CsvClassifier': {
+                        'Name': 'string',
+                        'CreationTime': datetime(2015, 1, 1),
+                        'LastUpdated': datetime(2015, 1, 1),
+                        'Version': 123,
+                        'Delimiter': 'string',
+                        'QuoteSymbol': 'string',
+                        'ContainsHeader': 'UNKNOWN'|'PRESENT'|'ABSENT',
+                        'Header': [
+                            'string',
+                        ],
+                        'DisableValueTrimming': True|False,
+                        'AllowSingleColumn': True|False
                     }
                 }
             }
@@ -3062,6 +3152,29 @@ class Client(BaseClient):
                   The version of this classifier.
                 - **JsonPath** *(string) --* 
                   A ``JsonPath`` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in `Writing JsonPath Custom Classifiers <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json>`__ .
+              - **CsvClassifier** *(dict) --* 
+                A ``CSVClassifier`` object.
+                - **Name** *(string) --* 
+                  The name of the classifier.
+                - **CreationTime** *(datetime) --* 
+                  The time this classifier was registered.
+                - **LastUpdated** *(datetime) --* 
+                  The time this classifier was last updated.
+                - **Version** *(integer) --* 
+                  The version of this classifier.
+                - **Delimiter** *(string) --* 
+                  A custom symbol to denote what separates each column entry in the row.
+                - **QuoteSymbol** *(string) --* 
+                  A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
+                - **ContainsHeader** *(string) --* 
+                  Indicates whether the CSV file contains a header.
+                - **Header** *(list) --* 
+                  A list of strings representing column names.
+                  - *(string) --* 
+                - **DisableValueTrimming** *(boolean) --* 
+                  Specifies not to trim values before identifying the type of column values. The default value is true.
+                - **AllowSingleColumn** *(boolean) --* 
+                  Enables the processing of files that contain only one column.
         :type Name: string
         :param Name: **[REQUIRED]**
           Name of the classifier to retrieve.
@@ -3110,6 +3223,20 @@ class Client(BaseClient):
                             'LastUpdated': datetime(2015, 1, 1),
                             'Version': 123,
                             'JsonPath': 'string'
+                        },
+                        'CsvClassifier': {
+                            'Name': 'string',
+                            'CreationTime': datetime(2015, 1, 1),
+                            'LastUpdated': datetime(2015, 1, 1),
+                            'Version': 123,
+                            'Delimiter': 'string',
+                            'QuoteSymbol': 'string',
+                            'ContainsHeader': 'UNKNOWN'|'PRESENT'|'ABSENT',
+                            'Header': [
+                                'string',
+                            ],
+                            'DisableValueTrimming': True|False,
+                            'AllowSingleColumn': True|False
                         }
                     },
                 ],
@@ -3122,7 +3249,7 @@ class Client(BaseClient):
               The requested list of classifier objects.
               - *(dict) --* 
                 Classifiers are triggered during a crawl task. A classifier checks whether a given file is in a format it can handle, and if it is, the classifier creates a schema in the form of a ``StructType`` object that matches that data format.
-                You can use the standard classifiers that AWS Glue supplies, or you can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier can be a ``grok`` classifier, an ``XML`` classifier, or a ``JSON`` classifier, as specified in one of the fields in the ``Classifier`` object.
+                You can use the standard classifiers that AWS Glue supplies, or you can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier can be a ``grok`` classifier, an ``XML`` classifier, a ``JSON`` classifier, or a custom ``CSV`` classifier as specified in one of the fields in the ``Classifier`` object.
                 - **GrokClassifier** *(dict) --* 
                   A ``GrokClassifier`` object.
                   - **Name** *(string) --* 
@@ -3165,6 +3292,29 @@ class Client(BaseClient):
                     The version of this classifier.
                   - **JsonPath** *(string) --* 
                     A ``JsonPath`` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in `Writing JsonPath Custom Classifiers <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json>`__ .
+                - **CsvClassifier** *(dict) --* 
+                  A ``CSVClassifier`` object.
+                  - **Name** *(string) --* 
+                    The name of the classifier.
+                  - **CreationTime** *(datetime) --* 
+                    The time this classifier was registered.
+                  - **LastUpdated** *(datetime) --* 
+                    The time this classifier was last updated.
+                  - **Version** *(integer) --* 
+                    The version of this classifier.
+                  - **Delimiter** *(string) --* 
+                    A custom symbol to denote what separates each column entry in the row.
+                  - **QuoteSymbol** *(string) --* 
+                    A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
+                  - **ContainsHeader** *(string) --* 
+                    Indicates whether the CSV file contains a header.
+                  - **Header** *(list) --* 
+                    A list of strings representing column names.
+                    - *(string) --* 
+                  - **DisableValueTrimming** *(boolean) --* 
+                    Specifies not to trim values before identifying the type of column values. The default value is true.
+                  - **AllowSingleColumn** *(boolean) --* 
+                    Enables the processing of files that contain only one column.
             - **NextToken** *(string) --* 
               A continuation token.
         :type MaxResults: integer
@@ -4101,7 +4251,10 @@ class Client(BaseClient):
                     'PublicKeys': [
                         'string',
                     ],
-                    'SecurityConfiguration': 'string'
+                    'SecurityConfiguration': 'string',
+                    'Arguments': {
+                        'string': 'string'
+                    }
                 }
             }
         
@@ -4157,6 +4310,11 @@ class Client(BaseClient):
                 - *(string) --* 
               - **SecurityConfiguration** *(string) --* 
                 The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+              - **Arguments** *(dict) --* 
+                A map of arguments used to configure the DevEndpoint.
+                Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+                - *(string) --* 
+                  - *(string) --* 
         :type EndpointName: string
         :param EndpointName: **[REQUIRED]**
           Name of the DevEndpoint for which to retrieve information.
@@ -4208,7 +4366,10 @@ class Client(BaseClient):
                         'PublicKeys': [
                             'string',
                         ],
-                        'SecurityConfiguration': 'string'
+                        'SecurityConfiguration': 'string',
+                        'Arguments': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -4268,6 +4429,11 @@ class Client(BaseClient):
                   - *(string) --* 
                 - **SecurityConfiguration** *(string) --* 
                   The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+                - **Arguments** *(dict) --* 
+                  A map of arguments used to configure the DevEndpoint.
+                  Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* 
               A continuation token, if not all DevEndpoint definitions have yet been returned.
         :type MaxResults: integer
@@ -4321,10 +4487,12 @@ class Client(BaseClient):
                     'AllocatedCapacity': 123,
                     'Timeout': 123,
                     'MaxCapacity': 123.0,
+                    'WorkerType': 'Standard'|'G.1X'|'G.2X',
+                    'NumberOfWorkers': 123,
+                    'SecurityConfiguration': 'string',
                     'NotificationProperty': {
                         'NotifyDelayAfter': 123
-                    },
-                    'SecurityConfiguration': 'string'
+                    }
                 }
             }
         
@@ -4375,15 +4543,24 @@ class Client(BaseClient):
                 The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters ``TIMEOUT`` status. The default is 2,880 minutes (48 hours).
               - **MaxCapacity** *(float) --* 
                 The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+                Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
                 The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
                 * When you specify a python shell job (``JobCommand.Name`` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU. 
                 * When you specify an Apache Spark ETL job (``JobCommand.Name`` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation. 
+              - **WorkerType** *(string) --* 
+                The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+                * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker. 
+                * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker. 
+                * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. 
+              - **NumberOfWorkers** *(integer) --* 
+                The number of workers of a defined ``workerType`` that are allocated when a job runs.
+                The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` . 
+              - **SecurityConfiguration** *(string) --* 
+                The name of the SecurityConfiguration structure to be used with this job.
               - **NotificationProperty** *(dict) --* 
                 Specifies configuration properties of a job notification.
                 - **NotifyDelayAfter** *(integer) --* 
                   After a job run starts, the number of minutes to wait before sending a job run delay notification.
-              - **SecurityConfiguration** *(string) --* 
-                The name of the SecurityConfiguration structure to be used with this job.
         :type JobName: string
         :param JobName: **[REQUIRED]**
           The name of the job definition to retrieve.
@@ -4435,6 +4612,8 @@ class Client(BaseClient):
                     'NotificationProperty': {
                         'NotifyDelayAfter': 123
                     },
+                    'WorkerType': 'Standard'|'G.1X'|'G.2X',
+                    'NumberOfWorkers': 123,
                     'SecurityConfiguration': 'string',
                     'LogGroupName': 'string'
                 }
@@ -4488,6 +4667,7 @@ class Client(BaseClient):
                 The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters ``TIMEOUT`` status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
               - **MaxCapacity** *(float) --* 
                 The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+                Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
                 The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
                 * When you specify a python shell job (``JobCommand.Name`` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU. 
                 * When you specify an Apache Spark ETL job (``JobCommand.Name`` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation. 
@@ -4495,6 +4675,14 @@ class Client(BaseClient):
                 Specifies configuration properties of a job run notification.
                 - **NotifyDelayAfter** *(integer) --* 
                   After a job run starts, the number of minutes to wait before sending a job run delay notification.
+              - **WorkerType** *(string) --* 
+                The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+                * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker. 
+                * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker. 
+                * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. 
+              - **NumberOfWorkers** *(integer) --* 
+                The number of workers of a defined ``workerType`` that are allocated when a job runs.
+                The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` . 
               - **SecurityConfiguration** *(string) --* 
                 The name of the SecurityConfiguration structure to be used with this job run.
               - **LogGroupName** *(string) --* 
@@ -4557,6 +4745,8 @@ class Client(BaseClient):
                         'NotificationProperty': {
                             'NotifyDelayAfter': 123
                         },
+                        'WorkerType': 'Standard'|'G.1X'|'G.2X',
+                        'NumberOfWorkers': 123,
                         'SecurityConfiguration': 'string',
                         'LogGroupName': 'string'
                     },
@@ -4614,6 +4804,7 @@ class Client(BaseClient):
                   The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters ``TIMEOUT`` status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
                 - **MaxCapacity** *(float) --* 
                   The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+                  Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
                   The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
                   * When you specify a python shell job (``JobCommand.Name`` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU. 
                   * When you specify an Apache Spark ETL job (``JobCommand.Name`` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation. 
@@ -4621,6 +4812,14 @@ class Client(BaseClient):
                   Specifies configuration properties of a job run notification.
                   - **NotifyDelayAfter** *(integer) --* 
                     After a job run starts, the number of minutes to wait before sending a job run delay notification.
+                - **WorkerType** *(string) --* 
+                  The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+                  * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker. 
+                  * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker. 
+                  * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. 
+                - **NumberOfWorkers** *(integer) --* 
+                  The number of workers of a defined ``workerType`` that are allocated when a job runs.
+                  The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` . 
                 - **SecurityConfiguration** *(string) --* 
                   The name of the SecurityConfiguration structure to be used with this job run.
                 - **LogGroupName** *(string) --* 
@@ -4683,10 +4882,12 @@ class Client(BaseClient):
                         'AllocatedCapacity': 123,
                         'Timeout': 123,
                         'MaxCapacity': 123.0,
+                        'WorkerType': 'Standard'|'G.1X'|'G.2X',
+                        'NumberOfWorkers': 123,
+                        'SecurityConfiguration': 'string',
                         'NotificationProperty': {
                             'NotifyDelayAfter': 123
-                        },
-                        'SecurityConfiguration': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -4741,15 +4942,24 @@ class Client(BaseClient):
                   The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters ``TIMEOUT`` status. The default is 2,880 minutes (48 hours).
                 - **MaxCapacity** *(float) --* 
                   The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+                  Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
                   The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
                   * When you specify a python shell job (``JobCommand.Name`` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU. 
                   * When you specify an Apache Spark ETL job (``JobCommand.Name`` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation. 
+                - **WorkerType** *(string) --* 
+                  The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+                  * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker. 
+                  * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker. 
+                  * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. 
+                - **NumberOfWorkers** *(integer) --* 
+                  The number of workers of a defined ``workerType`` that are allocated when a job runs.
+                  The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` . 
+                - **SecurityConfiguration** *(string) --* 
+                  The name of the SecurityConfiguration structure to be used with this job.
                 - **NotificationProperty** *(dict) --* 
                   Specifies configuration properties of a job notification.
                   - **NotifyDelayAfter** *(integer) --* 
                     After a job run starts, the number of minutes to wait before sending a job run delay notification.
-                - **SecurityConfiguration** *(string) --* 
-                  The name of the SecurityConfiguration structure to be used with this job.
             - **NextToken** *(string) --* 
               A continuation token, if not all job definitions have yet been returned.
         :type NextToken: string
@@ -7370,7 +7580,7 @@ class Client(BaseClient):
         """
         pass
 
-    def start_job_run(self, JobName: str, JobRunId: str = None, Arguments: Dict = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, NotificationProperty: Dict = None, SecurityConfiguration: str = None) -> Dict:
+    def start_job_run(self, JobName: str, JobRunId: str = None, Arguments: Dict = None, AllocatedCapacity: int = None, Timeout: int = None, MaxCapacity: float = None, WorkerType: str = None, NumberOfWorkers: int = None, SecurityConfiguration: str = None, NotificationProperty: Dict = None) -> Dict:
         """
         Starts a job run using a job definition.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StartJobRun>`_
@@ -7386,10 +7596,12 @@ class Client(BaseClient):
               AllocatedCapacity=123,
               Timeout=123,
               MaxCapacity=123.0,
+              WorkerType='Standard'|'G.1X'|'G.2X',
+              NumberOfWorkers=123,
+              SecurityConfiguration='string',
               NotificationProperty={
                   'NotifyDelayAfter': 123
-              },
-              SecurityConfiguration='string'
+              }
           )
         
         **Response Syntax**
@@ -7426,17 +7638,28 @@ class Client(BaseClient):
         :type MaxCapacity: float
         :param MaxCapacity:
           The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+          Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
           The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
           * When you specify a python shell job (``JobCommand.Name`` =\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
           * When you specify an Apache Spark ETL job (``JobCommand.Name`` =\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+        :type WorkerType: string
+        :param WorkerType:
+          The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+          * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+          * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
+          * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
+        :type NumberOfWorkers: integer
+        :param NumberOfWorkers:
+          The number of workers of a defined ``workerType`` that are allocated when a job runs.
+          The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` .
+        :type SecurityConfiguration: string
+        :param SecurityConfiguration:
+          The name of the SecurityConfiguration structure to be used with this job run.
         :type NotificationProperty: dict
         :param NotificationProperty:
           Specifies configuration properties of a job run notification.
           - **NotifyDelayAfter** *(integer) --*
             After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        :type SecurityConfiguration: string
-        :param SecurityConfiguration:
-          The name of the SecurityConfiguration structure to be used with this job run.
         :rtype: dict
         :returns:
         """
@@ -7615,9 +7838,9 @@ class Client(BaseClient):
         """
         pass
 
-    def update_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None) -> Dict:
+    def update_classifier(self, GrokClassifier: Dict = None, XMLClassifier: Dict = None, JsonClassifier: Dict = None, CsvClassifier: Dict = None) -> Dict:
         """
-        Modifies an existing classifier (a ``GrokClassifier`` , ``XMLClassifier`` , or ``JsonClassifier`` , depending on which field is present).
+        Modifies an existing classifier (a ``GrokClassifier`` , an ``XMLClassifier`` , a ``JsonClassifier`` , or a ``CsvClassifier`` , depending on which field is present).
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateClassifier>`_
         
         **Request Syntax**
@@ -7637,6 +7860,17 @@ class Client(BaseClient):
               JsonClassifier={
                   'Name': 'string',
                   'JsonPath': 'string'
+              },
+              CsvClassifier={
+                  'Name': 'string',
+                  'Delimiter': 'string',
+                  'QuoteSymbol': 'string',
+                  'ContainsHeader': 'UNKNOWN'|'PRESENT'|'ABSENT',
+                  'Header': [
+                      'string',
+                  ],
+                  'DisableValueTrimming': True|False,
+                  'AllowSingleColumn': True|False
               }
           )
         
@@ -7673,6 +7907,24 @@ class Client(BaseClient):
             The name of the classifier.
           - **JsonPath** *(string) --*
             A ``JsonPath`` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in `Writing JsonPath Custom Classifiers <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json>`__ .
+        :type CsvClassifier: dict
+        :param CsvClassifier:
+          A ``CsvClassifier`` object with updated fields.
+          - **Name** *(string) --* **[REQUIRED]**
+            The name of the classifier.
+          - **Delimiter** *(string) --*
+            A custom symbol to denote what separates each column entry in the row.
+          - **QuoteSymbol** *(string) --*
+            A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
+          - **ContainsHeader** *(string) --*
+            Indicates whether the CSV file contains a header.
+          - **Header** *(list) --*
+            A list of strings representing column names.
+            - *(string) --*
+          - **DisableValueTrimming** *(boolean) --*
+            Specifies not to trim values before identifying the type of column values. The default value is true.
+          - **AllowSingleColumn** *(boolean) --*
+            Enables the processing of files that contain only one column.
         :rtype: dict
         :returns:
         """
@@ -7953,7 +8205,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_dev_endpoint(self, EndpointName: str, PublicKey: str = None, AddPublicKeys: List = None, DeletePublicKeys: List = None, CustomLibraries: Dict = None, UpdateEtlLibraries: bool = None) -> Dict:
+    def update_dev_endpoint(self, EndpointName: str, PublicKey: str = None, AddPublicKeys: List = None, DeletePublicKeys: List = None, CustomLibraries: Dict = None, UpdateEtlLibraries: bool = None, DeleteArguments: List = None, AddArguments: Dict = None) -> Dict:
         """
         Updates a specified DevEndpoint.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateDevEndpoint>`_
@@ -7973,7 +8225,13 @@ class Client(BaseClient):
                   'ExtraPythonLibsS3Path': 'string',
                   'ExtraJarsS3Path': 'string'
               },
-              UpdateEtlLibraries=True|False
+              UpdateEtlLibraries=True|False,
+              DeleteArguments=[
+                  'string',
+              ],
+              AddArguments={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -8008,6 +8266,15 @@ class Client(BaseClient):
         :type UpdateEtlLibraries: boolean
         :param UpdateEtlLibraries:
           True if the list of custom libraries to be loaded in the development endpoint needs to be updated, or False otherwise.
+        :type DeleteArguments: list
+        :param DeleteArguments:
+          The list of argument keys to be deleted from the map of arguments used to configure the DevEndpoint.
+          - *(string) --*
+        :type AddArguments: dict
+        :param AddArguments:
+          The map of arguments to add the map of arguments used to configure the DevEndpoint.
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -8045,10 +8312,12 @@ class Client(BaseClient):
                   'AllocatedCapacity': 123,
                   'Timeout': 123,
                   'MaxCapacity': 123.0,
+                  'WorkerType': 'Standard'|'G.1X'|'G.2X',
+                  'NumberOfWorkers': 123,
+                  'SecurityConfiguration': 'string',
                   'NotificationProperty': {
                       'NotifyDelayAfter': 123
-                  },
-                  'SecurityConfiguration': 'string'
+                  }
               }
           )
         
@@ -8105,15 +8374,24 @@ class Client(BaseClient):
             The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters ``TIMEOUT`` status. The default is 2,880 minutes (48 hours).
           - **MaxCapacity** *(float) --*
             The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+            Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
             The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
             * When you specify a python shell job (``JobCommand.Name`` =\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
             * When you specify an Apache Spark ETL job (``JobCommand.Name`` =\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+          - **WorkerType** *(string) --*
+            The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+            * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+            * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
+            * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
+          - **NumberOfWorkers** *(integer) --*
+            The number of workers of a defined ``workerType`` that are allocated when a job runs.
+            The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` .
+          - **SecurityConfiguration** *(string) --*
+            The name of the SecurityConfiguration structure to be used with this job.
           - **NotificationProperty** *(dict) --*
             Specifies configuration properties of a job notification.
             - **NotifyDelayAfter** *(integer) --*
               After a job run starts, the number of minutes to wait before sending a job run delay notification.
-          - **SecurityConfiguration** *(string) --*
-            The name of the SecurityConfiguration structure to be used with this job.
         :rtype: dict
         :returns:
         """

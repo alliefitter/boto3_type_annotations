@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -76,7 +76,7 @@ class Client(BaseClient):
             - **Name** *(string) --* 
               The name of the API.
             - **ProtocolType** *(string) --* 
-              The API protocol: HTTP or WEBSOCKET.
+              The API protocol: Currently only WEBSOCKET is supported.
             - **RouteSelectionExpression** *(string) --* 
               The route selection expression for the API.
             - **Version** *(string) --* 
@@ -98,7 +98,7 @@ class Client(BaseClient):
           The name of the API.
         :type ProtocolType: string
         :param ProtocolType: **[REQUIRED]**
-          The API protocol: HTTP or WEBSOCKET.
+          The API protocol: Currently only WEBSOCKET is supported.
         :type RouteSelectionExpression: string
         :param RouteSelectionExpression: **[REQUIRED]**
           The route selection expression for the API.
@@ -372,7 +372,7 @@ class Client(BaseClient):
                 - **EndpointType** *(string) --* 
                   The endpoint type.
                 - **HostedZoneId** *(string) --* 
-                  The Amazon Route 53 Hosted Zone ID of the endpoint. See `AWS Regions and Endpoints for API Gateway <docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region>`__ .
+                  The Amazon Route 53 Hosted Zone ID of the endpoint.
         :type DomainName: string
         :param DomainName: **[REQUIRED]**
           The domain name.
@@ -392,13 +392,13 @@ class Client(BaseClient):
             - **EndpointType** *(string) --*
               The endpoint type.
             - **HostedZoneId** *(string) --*
-              The Amazon Route 53 Hosted Zone ID of the endpoint. See `AWS Regions and Endpoints for API Gateway <docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region>`__ .
+              The Amazon Route 53 Hosted Zone ID of the endpoint.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_integration(self, ApiId: str, ConnectionId: str = None, ConnectionType: str = None, ContentHandlingStrategy: str = None, CredentialsArn: str = None, Description: str = None, IntegrationMethod: str = None, IntegrationType: str = None, IntegrationUri: str = None, PassthroughBehavior: str = None, RequestParameters: Dict = None, RequestTemplates: Dict = None, TemplateSelectionExpression: str = None, TimeoutInMillis: int = None) -> Dict:
+    def create_integration(self, ApiId: str, IntegrationType: str, ConnectionId: str = None, ConnectionType: str = None, ContentHandlingStrategy: str = None, CredentialsArn: str = None, Description: str = None, IntegrationMethod: str = None, IntegrationUri: str = None, PassthroughBehavior: str = None, RequestParameters: Dict = None, RequestTemplates: Dict = None, TemplateSelectionExpression: str = None, TimeoutInMillis: int = None) -> Dict:
         """
         Creates an Integration.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigatewayv2-2018-11-29/CreateIntegration>`_
@@ -454,9 +454,9 @@ class Client(BaseClient):
           - *(dict) --* 
             The request has succeeded and has resulted in the creation of a resource.
             - **ConnectionId** *(string) --* 
-              The identifier of the VpcLink used for the integration when the connectionType is VPC_LINK; otherwise undefined.
+              The connection ID.
             - **ConnectionType** *(string) --* 
-              The type of the network connection to the integration endpoint. The valid value is INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and a network load balancer in a VPC. The default value is INTERNET.
+              The type of the network connection to the integration endpoint. Currently the only valid value is INTERNET, for connections through the public routable internet.
             - **ContentHandlingStrategy** *(string) --* 
               Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
               CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
@@ -471,17 +471,16 @@ class Client(BaseClient):
             - **IntegrationMethod** *(string) --* 
               Specifies the integration's HTTP method type.
             - **IntegrationResponseSelectionExpression** *(string) --* 
+              The integration response selection expression for the integration. See `Integration Response Selection Expressions <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions>`__ .
             - **IntegrationType** *(string) --* 
               The integration type of an integration. One of the following:
               AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.
               AWS_PROXY: for integrating the route or method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as Lambda proxy integration.
-              HTTP: for integrating the route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC. This integration is also referred to as the HTTP custom integration.
-              HTTP_PROXY: for integrating route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
+              HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration.
+              HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
               MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend.
             - **IntegrationUri** *(string) --* 
-              Specifies the Uniform Resource Identifier (URI) of the integration endpoint.
-              For HTTP or HTTP_PROXY integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the `RFC-3986 specification <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier>`__ , for either standard integration, where connectionType is not VPC_LINK, or private integration, where connectionType is VPC_LINK. For a private HTTP integration, the URI is not used for routing.
-              For AWS or AWS_PROXY integrations, the URI is of the form arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the URI can be either arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key} or arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}
+              For a Lambda proxy integration, this is the URI of the Lambda function.
             - **PassthroughBehavior** *(string) --* 
               Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER.
               WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.
@@ -506,10 +505,10 @@ class Client(BaseClient):
           The API identifier.
         :type ConnectionId: string
         :param ConnectionId:
-          The identifier of the VpcLink used for the integration when the connectionType is VPC_LINK; otherwise undefined.
+          The connection ID.
         :type ConnectionType: string
         :param ConnectionType:
-          The type of the network connection to the integration endpoint. The valid value is INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and a network load balancer in a VPC. The default value is INTERNET.
+          The type of the network connection to the integration endpoint. Currently the only valid value is INTERNET, for connections through the public routable internet.
         :type ContentHandlingStrategy: string
         :param ContentHandlingStrategy:
           Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
@@ -526,18 +525,16 @@ class Client(BaseClient):
         :param IntegrationMethod:
           Specifies the integration\'s HTTP method type.
         :type IntegrationType: string
-        :param IntegrationType:
+        :param IntegrationType: **[REQUIRED]**
           The integration type of an integration. One of the following:
           AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.
           AWS_PROXY: for integrating the route or method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as Lambda proxy integration.
-          HTTP: for integrating the route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC. This integration is also referred to as the HTTP custom integration.
-          HTTP_PROXY: for integrating route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
+          HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as HTTP custom integration.
+          HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
           MOCK: for integrating the route or method request with API Gateway as a \"loopback\" endpoint without invoking any backend.
         :type IntegrationUri: string
         :param IntegrationUri:
-          Specifies the Uniform Resource Identifier (URI) of the integration endpoint.
-          For HTTP or HTTP_PROXY integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the `RFC-3986 specification <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier>`__ , for either standard integration, where connectionType is not VPC_LINK, or private integration, where connectionType is VPC_LINK. For a private HTTP integration, the URI is not used for routing.
-          For AWS or AWS_PROXY integrations, the URI is of the form arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the URI can be either arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key} or arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}
+          For a Lambda proxy integration, this is the URI of the Lambda function.
         :type PassthroughBehavior: string
         :param PassthroughBehavior:
           Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER.
@@ -662,7 +659,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_model(self, ApiId: str, Name: str, ContentType: str = None, Description: str = None, Schema: str = None) -> Dict:
+    def create_model(self, ApiId: str, Name: str, Schema: str, ContentType: str = None, Description: str = None) -> Dict:
         """
         Creates a Model for an API.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigatewayv2-2018-11-29/CreateModel>`_
@@ -713,7 +710,7 @@ class Client(BaseClient):
         :param Name: **[REQUIRED]**
           The name of the model. Must be alphanumeric.
         :type Schema: string
-        :param Schema:
+        :param Schema: **[REQUIRED]**
           The schema for the model. For application/json models, this should be JSON schema draft 4 model.
         :rtype: dict
         :returns:
@@ -781,13 +778,13 @@ class Client(BaseClient):
             - **ApiKeyRequired** *(boolean) --* 
               Specifies whether an API key is required for this route.
             - **AuthorizationScopes** *(list) --* 
-              The authorization scopes supported by this route. 
+              A list of authorization scopes configured on a route. The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
               - *(string) --* 
                 A string with a length between [1-64].
             - **AuthorizationType** *(string) --* 
-              The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions.
+              The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer
             - **AuthorizerId** *(string) --* 
-              The identifier of the Authorizer resource to be associated with this route.
+              The identifier of the Authorizer resource to be associated with this route, if the authorizationType is CUSTOM . The authorizer identifier is generated by API Gateway when you created the authorizer.
             - **ModelSelectionExpression** *(string) --* 
               The model selection expression for the route.
             - **OperationName** *(string) --* 
@@ -825,10 +822,10 @@ class Client(BaseClient):
             A string with a length between [1-64].
         :type AuthorizationType: string
         :param AuthorizationType:
-          The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions.
+          The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.
         :type AuthorizerId: string
         :param AuthorizerId:
-          The identifier of the Authorizer resource to be associated with this route.
+          The identifier of the Authorizer resource to be associated with this route, if the authorizationType is CUSTOM . The authorizer identifier is generated by API Gateway when you created the authorizer.
         :type ModelSelectionExpression: string
         :param ModelSelectionExpression:
           The model selection expression for the route.
@@ -1157,7 +1154,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_api_mapping(self, ApiId: str, ApiMappingId: str, DomainName: str):
+    def delete_api_mapping(self, ApiMappingId: str, DomainName: str):
         """
         Deletes an API mapping.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigatewayv2-2018-11-29/DeleteApiMapping>`_
@@ -1165,13 +1162,9 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.delete_api_mapping(
-              ApiId='string',
               ApiMappingId='string',
               DomainName='string'
           )
-        :type ApiId: string
-        :param ApiId: **[REQUIRED]**
-          The identifier of the API.
         :type ApiMappingId: string
         :param ApiMappingId: **[REQUIRED]**
           The API mapping identifier.
@@ -1440,7 +1433,7 @@ class Client(BaseClient):
             - **Name** *(string) --* 
               The name of the API.
             - **ProtocolType** *(string) --* 
-              The API protocol: HTTP or WEBSOCKET.
+              The API protocol: Currently only WEBSOCKET is supported.
             - **RouteSelectionExpression** *(string) --* 
               The route selection expression for the API.
             - **Version** *(string) --* 
@@ -1456,7 +1449,7 @@ class Client(BaseClient):
         """
         pass
 
-    def get_api_mapping(self, ApiId: str, ApiMappingId: str, DomainName: str) -> Dict:
+    def get_api_mapping(self, ApiMappingId: str, DomainName: str) -> Dict:
         """
         The API mapping.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigatewayv2-2018-11-29/GetApiMapping>`_
@@ -1464,7 +1457,6 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.get_api_mapping(
-              ApiId='string',
               ApiMappingId='string',
               DomainName='string'
           )
@@ -1489,9 +1481,6 @@ class Client(BaseClient):
               The API mapping key.
             - **Stage** *(string) --* 
               The API stage.
-        :type ApiId: string
-        :param ApiId: **[REQUIRED]**
-          The identifier of the API.
         :type ApiMappingId: string
         :param ApiMappingId: **[REQUIRED]**
           The API mapping identifier.
@@ -1519,23 +1508,34 @@ class Client(BaseClient):
         **Response Syntax**
         ::
             {
-                'ApiId': 'string',
-                'ApiMappingId': 'string',
-                'ApiMappingKey': 'string',
-                'Stage': 'string'
+                'Items': [
+                    {
+                        'ApiId': 'string',
+                        'ApiMappingId': 'string',
+                        'ApiMappingKey': 'string',
+                        'Stage': 'string'
+                    },
+                ],
+                'NextToken': 'string'
             }
         
         **Response Structure**
           - *(dict) --* 
             Success
-            - **ApiId** *(string) --* 
-              The API identifier.
-            - **ApiMappingId** *(string) --* 
-              The API mapping identifier.
-            - **ApiMappingKey** *(string) --* 
-              The API mapping key.
-            - **Stage** *(string) --* 
-              The API stage.
+            - **Items** *(list) --* 
+              The elements from this collection.
+              - *(dict) --* 
+                Represents an API mapping.
+                - **ApiId** *(string) --* 
+                  The API identifier.
+                - **ApiMappingId** *(string) --* 
+                  The API mapping identifier.
+                - **ApiMappingKey** *(string) --* 
+                  The API mapping key.
+                - **Stage** *(string) --* 
+                  The API stage.
+            - **NextToken** *(string) --* 
+              The next page of elements from this collection. Not valid for the last element of the collection.
         :type DomainName: string
         :param DomainName: **[REQUIRED]**
           The domain name.
@@ -1607,7 +1607,7 @@ class Client(BaseClient):
                 - **Name** *(string) --* 
                   The name of the API.
                 - **ProtocolType** *(string) --* 
-                  The API protocol: HTTP or WEBSOCKET.
+                  The API protocol: Currently only WEBSOCKET is supported.
                 - **RouteSelectionExpression** *(string) --* 
                   The route selection expression for the API.
                 - **Version** *(string) --* 
@@ -1932,7 +1932,7 @@ class Client(BaseClient):
                 - **EndpointType** *(string) --* 
                   The endpoint type.
                 - **HostedZoneId** *(string) --* 
-                  The Amazon Route 53 Hosted Zone ID of the endpoint. See `AWS Regions and Endpoints for API Gateway <docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region>`__ .
+                  The Amazon Route 53 Hosted Zone ID of the endpoint.
         :type DomainName: string
         :param DomainName: **[REQUIRED]**
           The domain name.
@@ -2001,7 +2001,7 @@ class Client(BaseClient):
                     - **EndpointType** *(string) --* 
                       The endpoint type.
                     - **HostedZoneId** *(string) --* 
-                      The Amazon Route 53 Hosted Zone ID of the endpoint. See `AWS Regions and Endpoints for API Gateway <docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region>`__ .
+                      The Amazon Route 53 Hosted Zone ID of the endpoint.
             - **NextToken** *(string) --* 
               The next page of elements from this collection. Not valid for the last element of the collection.
         :type MaxResults: string
@@ -2055,9 +2055,9 @@ class Client(BaseClient):
           - *(dict) --* 
             Success
             - **ConnectionId** *(string) --* 
-              The identifier of the VpcLink used for the integration when the connectionType is VPC_LINK; otherwise undefined.
+              The connection ID.
             - **ConnectionType** *(string) --* 
-              The type of the network connection to the integration endpoint. The valid value is INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and a network load balancer in a VPC. The default value is INTERNET.
+              The type of the network connection to the integration endpoint. Currently the only valid value is INTERNET, for connections through the public routable internet.
             - **ContentHandlingStrategy** *(string) --* 
               Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
               CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
@@ -2072,17 +2072,16 @@ class Client(BaseClient):
             - **IntegrationMethod** *(string) --* 
               Specifies the integration's HTTP method type.
             - **IntegrationResponseSelectionExpression** *(string) --* 
+              The integration response selection expression for the integration. See `Integration Response Selection Expressions <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions>`__ .
             - **IntegrationType** *(string) --* 
               The integration type of an integration. One of the following:
               AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.
               AWS_PROXY: for integrating the route or method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as Lambda proxy integration.
-              HTTP: for integrating the route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC. This integration is also referred to as the HTTP custom integration.
-              HTTP_PROXY: for integrating route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
+              HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration.
+              HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
               MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend.
             - **IntegrationUri** *(string) --* 
-              Specifies the Uniform Resource Identifier (URI) of the integration endpoint.
-              For HTTP or HTTP_PROXY integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the `RFC-3986 specification <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier>`__ , for either standard integration, where connectionType is not VPC_LINK, or private integration, where connectionType is VPC_LINK. For a private HTTP integration, the URI is not used for routing.
-              For AWS or AWS_PROXY integrations, the URI is of the form arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the URI can be either arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key} or arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}
+              For a Lambda proxy integration, this is the URI of the Lambda function.
             - **PassthroughBehavior** *(string) --* 
               Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER.
               WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.
@@ -2172,8 +2171,7 @@ class Client(BaseClient):
         :param IntegrationId: **[REQUIRED]**
           The integration ID.
         :type IntegrationResponseId: string
-        :param IntegrationResponseId: **[REQUIRED]**
-          The integration response ID.
+        :param IntegrationResponseId: **[REQUIRED]** The integration response ID.
         :rtype: dict
         :returns:
         """
@@ -2310,9 +2308,9 @@ class Client(BaseClient):
               - *(dict) --* 
                 Represents an integration.
                 - **ConnectionId** *(string) --* 
-                  The identifier of the VpcLink used for the integration when the connectionType is VPC_LINK; otherwise undefined.
+                  The connection ID.
                 - **ConnectionType** *(string) --* 
-                  The type of the network connection to the integration endpoint. The valid value is INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and a network load balancer in a VPC. The default value is INTERNET.
+                  The type of the network connection to the integration endpoint. Currently the only valid value is INTERNET, for connections through the public routable internet.
                 - **ContentHandlingStrategy** *(string) --* 
                   Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
                   CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
@@ -2327,17 +2325,16 @@ class Client(BaseClient):
                 - **IntegrationMethod** *(string) --* 
                   Specifies the integration's HTTP method type.
                 - **IntegrationResponseSelectionExpression** *(string) --* 
+                  The integration response selection expression for the integration. See `Integration Response Selection Expressions <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions>`__ .
                 - **IntegrationType** *(string) --* 
                   The integration type of an integration. One of the following:
                   AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.
                   AWS_PROXY: for integrating the route or method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as Lambda proxy integration.
-                  HTTP: for integrating the route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC. This integration is also referred to as the HTTP custom integration.
-                  HTTP_PROXY: for integrating route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
+                  HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration.
+                  HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
                   MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend.
                 - **IntegrationUri** *(string) --* 
-                  Specifies the Uniform Resource Identifier (URI) of the integration endpoint.
-                  For HTTP or HTTP_PROXY integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the `RFC-3986 specification <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier>`__ , for either standard integration, where connectionType is not VPC_LINK, or private integration, where connectionType is VPC_LINK. For a private HTTP integration, the URI is not used for routing.
-                  For AWS or AWS_PROXY integrations, the URI is of the form arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the URI can be either arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key} or arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}
+                  For a Lambda proxy integration, this is the URI of the Lambda function.
                 - **PassthroughBehavior** *(string) --* 
                   Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER.
                   WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.
@@ -2575,13 +2572,13 @@ class Client(BaseClient):
             - **ApiKeyRequired** *(boolean) --* 
               Specifies whether an API key is required for this route.
             - **AuthorizationScopes** *(list) --* 
-              The authorization scopes supported by this route. 
+              A list of authorization scopes configured on a route. The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
               - *(string) --* 
                 A string with a length between [1-64].
             - **AuthorizationType** *(string) --* 
-              The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions.
+              The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer
             - **AuthorizerId** *(string) --* 
-              The identifier of the Authorizer resource to be associated with this route.
+              The identifier of the Authorizer resource to be associated with this route, if the authorizationType is CUSTOM . The authorizer identifier is generated by API Gateway when you created the authorizer.
             - **ModelSelectionExpression** *(string) --* 
               The model selection expression for the route.
             - **OperationName** *(string) --* 
@@ -2813,13 +2810,13 @@ class Client(BaseClient):
                 - **ApiKeyRequired** *(boolean) --* 
                   Specifies whether an API key is required for this route.
                 - **AuthorizationScopes** *(list) --* 
-                  The authorization scopes supported by this route. 
+                  A list of authorization scopes configured on a route. The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
                   - *(string) --* 
                     A string with a length between [1-64].
                 - **AuthorizationType** *(string) --* 
-                  The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions.
+                  The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer
                 - **AuthorizerId** *(string) --* 
-                  The identifier of the Authorizer resource to be associated with this route.
+                  The identifier of the Authorizer resource to be associated with this route, if the authorizationType is CUSTOM . The authorizer identifier is generated by API Gateway when you created the authorizer.
                 - **ModelSelectionExpression** *(string) --* 
                   The model selection expression for the route.
                 - **OperationName** *(string) --* 
@@ -3159,7 +3156,7 @@ class Client(BaseClient):
             - **Name** *(string) --* 
               The name of the API.
             - **ProtocolType** *(string) --* 
-              The API protocol: HTTP or WEBSOCKET.
+              The API protocol: Currently only WEBSOCKET is supported.
             - **RouteSelectionExpression** *(string) --* 
               The route selection expression for the API.
             - **Version** *(string) --* 
@@ -3464,7 +3461,7 @@ class Client(BaseClient):
                 - **EndpointType** *(string) --* 
                   The endpoint type.
                 - **HostedZoneId** *(string) --* 
-                  The Amazon Route 53 Hosted Zone ID of the endpoint. See `AWS Regions and Endpoints for API Gateway <docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region>`__ .
+                  The Amazon Route 53 Hosted Zone ID of the endpoint.
         :type DomainName: string
         :param DomainName: **[REQUIRED]**
           The domain name.
@@ -3484,7 +3481,7 @@ class Client(BaseClient):
             - **EndpointType** *(string) --*
               The endpoint type.
             - **HostedZoneId** *(string) --*
-              The Amazon Route 53 Hosted Zone ID of the endpoint. See `AWS Regions and Endpoints for API Gateway <docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region>`__ .
+              The Amazon Route 53 Hosted Zone ID of the endpoint.
         :rtype: dict
         :returns:
         """
@@ -3547,9 +3544,9 @@ class Client(BaseClient):
           - *(dict) --* 
             Success
             - **ConnectionId** *(string) --* 
-              The identifier of the VpcLink used for the integration when the connectionType is VPC_LINK; otherwise undefined.
+              The connection ID.
             - **ConnectionType** *(string) --* 
-              The type of the network connection to the integration endpoint. The valid value is INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and a network load balancer in a VPC. The default value is INTERNET.
+              The type of the network connection to the integration endpoint. Currently the only valid value is INTERNET, for connections through the public routable internet.
             - **ContentHandlingStrategy** *(string) --* 
               Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
               CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
@@ -3564,17 +3561,16 @@ class Client(BaseClient):
             - **IntegrationMethod** *(string) --* 
               Specifies the integration's HTTP method type.
             - **IntegrationResponseSelectionExpression** *(string) --* 
+              The integration response selection expression for the integration. See `Integration Response Selection Expressions <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions>`__ .
             - **IntegrationType** *(string) --* 
               The integration type of an integration. One of the following:
               AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.
               AWS_PROXY: for integrating the route or method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as Lambda proxy integration.
-              HTTP: for integrating the route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC. This integration is also referred to as the HTTP custom integration.
-              HTTP_PROXY: for integrating route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
+              HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration.
+              HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
               MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend.
             - **IntegrationUri** *(string) --* 
-              Specifies the Uniform Resource Identifier (URI) of the integration endpoint.
-              For HTTP or HTTP_PROXY integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the `RFC-3986 specification <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier>`__ , for either standard integration, where connectionType is not VPC_LINK, or private integration, where connectionType is VPC_LINK. For a private HTTP integration, the URI is not used for routing.
-              For AWS or AWS_PROXY integrations, the URI is of the form arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the URI can be either arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key} or arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}
+              For a Lambda proxy integration, this is the URI of the Lambda function.
             - **PassthroughBehavior** *(string) --* 
               Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER.
               WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.
@@ -3599,10 +3595,10 @@ class Client(BaseClient):
           The API identifier.
         :type ConnectionId: string
         :param ConnectionId:
-          The identifier of the VpcLink used for the integration when the connectionType is VPC_LINK; otherwise undefined.
+          The connection ID.
         :type ConnectionType: string
         :param ConnectionType:
-          The type of the network connection to the integration endpoint. The valid value is INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and a network load balancer in a VPC. The default value is INTERNET.
+          The type of the network connection to the integration endpoint. Currently the only valid value is INTERNET, for connections through the public routable internet.
         :type ContentHandlingStrategy: string
         :param ContentHandlingStrategy:
           Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
@@ -3626,14 +3622,12 @@ class Client(BaseClient):
           The integration type of an integration. One of the following:
           AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.
           AWS_PROXY: for integrating the route or method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as Lambda proxy integration.
-          HTTP: for integrating the route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC. This integration is also referred to as the HTTP custom integration.
-          HTTP_PROXY: for integrating route or method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
+          HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration.
+          HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.
           MOCK: for integrating the route or method request with API Gateway as a \"loopback\" endpoint without invoking any backend.
         :type IntegrationUri: string
         :param IntegrationUri:
-          Specifies the Uniform Resource Identifier (URI) of the integration endpoint.
-          For HTTP or HTTP_PROXY integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the `RFC-3986 specification <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier>`__ , for either standard integration, where connectionType is not VPC_LINK, or private integration, where connectionType is VPC_LINK. For a private HTTP integration, the URI is not used for routing.
-          For AWS or AWS_PROXY integrations, the URI is of the form arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the URI can be either arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key} or arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}
+          For a Lambda proxy integration, this is the URI of the Lambda function.
         :type PassthroughBehavior: string
         :param PassthroughBehavior:
           Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER.
@@ -3737,8 +3731,7 @@ class Client(BaseClient):
         :param IntegrationId: **[REQUIRED]**
           The integration ID.
         :type IntegrationResponseId: string
-        :param IntegrationResponseId: **[REQUIRED]**
-          The integration response ID.
+        :param IntegrationResponseId: **[REQUIRED]** The integration response ID.
         :type IntegrationResponseKey: string
         :param IntegrationResponseKey:
           The integration response key.
@@ -3886,13 +3879,13 @@ class Client(BaseClient):
             - **ApiKeyRequired** *(boolean) --* 
               Specifies whether an API key is required for this route.
             - **AuthorizationScopes** *(list) --* 
-              The authorization scopes supported by this route. 
+              A list of authorization scopes configured on a route. The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
               - *(string) --* 
                 A string with a length between [1-64].
             - **AuthorizationType** *(string) --* 
-              The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions.
+              The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer
             - **AuthorizerId** *(string) --* 
-              The identifier of the Authorizer resource to be associated with this route.
+              The identifier of the Authorizer resource to be associated with this route, if the authorizationType is CUSTOM . The authorizer identifier is generated by API Gateway when you created the authorizer.
             - **ModelSelectionExpression** *(string) --* 
               The model selection expression for the route.
             - **OperationName** *(string) --* 
@@ -3930,10 +3923,10 @@ class Client(BaseClient):
             A string with a length between [1-64].
         :type AuthorizationType: string
         :param AuthorizationType:
-          The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions.
+          The authorization type for the route. Valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.
         :type AuthorizerId: string
         :param AuthorizerId:
-          The identifier of the Authorizer resource to be associated with this route.
+          The identifier of the Authorizer resource to be associated with this route, if the authorizationType is CUSTOM . The authorizer identifier is generated by API Gateway when you created the authorizer.
         :type ModelSelectionExpression: string
         :param ModelSelectionExpression:
           The model selection expression for the route.

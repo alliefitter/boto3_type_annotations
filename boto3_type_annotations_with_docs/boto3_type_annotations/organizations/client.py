@@ -1,10 +1,10 @@
-from typing import Union
-from botocore.paginate import Paginator
-from typing import List
-from botocore.waiter import Waiter
 from typing import Optional
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -296,6 +296,7 @@ class Client(BaseClient):
                     'RequestedTimestamp': datetime(2015, 1, 1),
                     'CompletedTimestamp': datetime(2015, 1, 1),
                     'AccountId': 'string',
+                    'GovCloudAccountId': 'string',
                     'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
                 }
             }
@@ -318,6 +319,7 @@ class Client(BaseClient):
               - **AccountId** *(string) --* 
                 If the account was created successfully, the unique identifier (ID) of the new account.
                 The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an account ID string requires exactly 12 digits.
+              - **GovCloudAccountId** *(string) --* 
               - **FailureReason** *(string) --* 
                 If the request failed, a description of the reason for the failure.
                 * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization. 
@@ -341,6 +343,104 @@ class Client(BaseClient):
         :type IamUserAccessToBilling: string
         :param IamUserAccessToBilling:
           If set to ``ALLOW`` , the new account enables IAM users to access account billing information *if* they have the required permissions. If set to ``DENY`` , only the root user of the new account can access account billing information. For more information, see `Activating Access to the Billing and Cost Management Console <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate>`__ in the *AWS Billing and Cost Management User Guide* .
+          If you don\'t specify this parameter, the value defaults to ``ALLOW`` , and IAM users and roles with the required permissions can access billing information for the new account.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def create_gov_cloud_account(self, Email: str, AccountName: str, RoleName: str = None, IamUserAccessToBilling: str = None) -> Dict:
+        """
+        This action is available if all of the following are true:
+        * You are authorized to create accounts in the AWS GovCloud (US) Region. For more information on the AWS GovCloud (US) Region, see the ` *AWS GovCloud User Guide* . <http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/welcome.html>`__   
+        * You already have an account in the AWS GovCloud (US) Region that is associated with your master account in the commercial Region.  
+        * You call this action from the master account of your organization in the commercial Region. 
+        * You have the ``organizations:CreateGovCloudAccount`` permission. AWS Organizations creates the required service-linked role named ``AWSServiceRoleForOrganizations`` . For more information, see `AWS Organizations and Service-Linked Roles <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs>`__ in the *AWS Organizations User Guide* . 
+        AWS automatically enables AWS CloudTrail for AWS GovCloud (US) accounts, but you should also do the following:
+        * Verify that AWS CloudTrail is enabled to store logs. 
+        * Create an S3 bucket for AWS CloudTrail log storage. For more information, see `Verifying AWS CloudTrail Is Enabled <http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/verifying-cloudtrail.html>`__ in the *AWS GovCloud User Guide* .  
+        You call this action from the master account of your organization in the commercial Region to create a standalone AWS account in the AWS GovCloud (US) Region. After the account is created, the master account of an organization in the AWS GovCloud (US) Region can invite it to that organization. For more information on inviting standalone accounts in the AWS GovCloud (US) to join an organization, see `AWS Organizations <http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html>`__ in the *AWS GovCloud User Guide.*  
+        Calling ``CreateGovCloudAccount`` is an asynchronous request that AWS performs in the background. Because ``CreateGovCloudAccount`` operates asynchronously, it can return a successful completion message even though account initialization might still be in progress. You might need to wait a few minutes before you can successfully access the account. To check the status of the request, do one of the following:
+        * Use the ``OperationId`` response element from this operation to provide as a parameter to the  DescribeCreateAccountStatus operation. 
+        * Check the AWS CloudTrail log for the ``CreateAccountResult`` event. For information on using AWS CloudTrail with Organizations, see `Monitoring the Activity in Your Organization <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html>`__ in the *AWS Organizations User Guide.*   
+        When you call the ``CreateGovCloudAccount`` action, you create two accounts: a standalone account in the AWS GovCloud (US) Region and an associated account in the commercial Region for billing and support purposes. The account in the commercial Region is automatically a member of the organization whose credentials made the request. Both accounts are associated with the same email address.
+        A role is created in the new account in the commercial Region that allows the master account in the organization in the commercial Region to assume it. An AWS GovCloud (US) account is then created and associated with the commercial account that you just created. A role is created in the new AWS GovCloud (US) account that can be assumed by the AWS GovCloud (US) account that is associated with the master account of the commercial organization. For more information and to view a diagram that explains how account access works, see `AWS Organizations <http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html>`__ in the *AWS GovCloud User Guide.*  
+        For more information about creating accounts, see `Creating an AWS Account in Your Organization <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html>`__ in the *AWS Organizations User Guide.*  
+        .. warning::
+          * When you create an account in an organization using the AWS Organizations console, API, or CLI commands, the information required for the account to operate as a standalone account, such as a payment method and signing the end user license agreement (EULA) is *not* automatically collected. If you must remove an account from your organization later, you can do so only after you provide the missing information. Follow the steps at `To leave an organization as a member account <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info>`__ in the *AWS Organizations User Guide.*   
+          * If you get an exception that indicates that you exceeded your account limits for the organization, contact `AWS Support <https://console.aws.amazon.com/support/home#/>`__ . 
+          * If you get an exception that indicates that the operation failed because your organization is still initializing, wait one hour and then try again. If the error persists, contact `AWS Support <https://console.aws.amazon.com/support/home#/>`__ . 
+          * Using ``CreateGovCloudAccount`` to create multiple temporary accounts isn't recommended. You can only close an account from the AWS Billing and Cost Management console, and you must be signed in as the root user. For information on the requirements and process for closing an account, see `Closing an AWS Account <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html>`__ in the *AWS Organizations User Guide* . 
+        .. note::
+          When you create a member account with this operation, you can choose whether to create the account with the **IAM User and Role Access to Billing Information** switch enabled. If you enable it, IAM users and roles that have appropriate permissions can view billing information for the account. If you disable it, only the account root user can access billing information. For information about how to disable this switch for an account, see `Granting Access to Your Billing Information and Tools <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html>`__ .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateGovCloudAccount>`_
+        
+        **Request Syntax**
+        ::
+          response = client.create_gov_cloud_account(
+              Email='string',
+              AccountName='string',
+              RoleName='string',
+              IamUserAccessToBilling='ALLOW'|'DENY'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'CreateAccountStatus': {
+                    'Id': 'string',
+                    'AccountName': 'string',
+                    'State': 'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
+                    'RequestedTimestamp': datetime(2015, 1, 1),
+                    'CompletedTimestamp': datetime(2015, 1, 1),
+                    'AccountId': 'string',
+                    'GovCloudAccountId': 'string',
+                    'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **CreateAccountStatus** *(dict) --* 
+              Contains the status about a  CreateAccount or  CreateGovCloudAccount request to create an AWS account or an AWS GovCloud (US) account in an organization.
+              - **Id** *(string) --* 
+                The unique identifier (ID) that references this request. You get this value from the response of the initial  CreateAccount request to create the account.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
+              - **AccountName** *(string) --* 
+                The account name given to the account when it was created.
+              - **State** *(string) --* 
+                The status of the request.
+              - **RequestedTimestamp** *(datetime) --* 
+                The date and time that the request was made for the account creation.
+              - **CompletedTimestamp** *(datetime) --* 
+                The date and time that the account was created and the request completed.
+              - **AccountId** *(string) --* 
+                If the account was created successfully, the unique identifier (ID) of the new account.
+                The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an account ID string requires exactly 12 digits.
+              - **GovCloudAccountId** *(string) --* 
+              - **FailureReason** *(string) --* 
+                If the request failed, a description of the reason for the failure.
+                * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization. 
+                * EMAIL_ALREADY_EXISTS: The account could not be created because another AWS account with that email address already exists. 
+                * INVALID_ADDRESS: The account could not be created because the address you provided is not valid. 
+                * INVALID_EMAIL: The account could not be created because the email address you provided is not valid. 
+                * INTERNAL_FAILURE: The account could not be created because of an internal failure. Try again later. If the problem persists, contact Customer Support. 
+        :type Email: string
+        :param Email: **[REQUIRED]**
+          The email address of the owner to assign to the new member account in the commercial Region. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can\'t access the root user of the account or remove an account that was created with an invalid email address. Like all request parameters for ``CreateGovCloudAccount`` , the request for the email address for the AWS GovCloud (US) account originates from the commercial Region, not from the AWS GovCloud (US) Region.
+        :type AccountName: string
+        :param AccountName: **[REQUIRED]**
+          The friendly name of the member account.
+        :type RoleName: string
+        :param RoleName:
+          (Optional)
+          The name of an IAM role that AWS Organizations automatically preconfigures in the new member accounts in both the AWS GovCloud (US) Region and in the commercial Region. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
+          If you don\'t specify this parameter, the role name defaults to ``OrganizationAccountAccessRole`` .
+          For more information about how to use this role to access the member account, see `Accessing and Administering the Member Accounts in Your Organization <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role>`__ in the *AWS Organizations User Guide* and steps 2 and 3 in `Tutorial\: Delegate Access Across AWS Accounts Using IAM Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html>`__ in the *IAM User Guide.*
+          The `regex pattern <http://wikipedia.org/wiki/regex>`__ that is used to validate this parameter is a string of characters that can consist of uppercase letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-
+        :type IamUserAccessToBilling: string
+        :param IamUserAccessToBilling:
+          If set to ``ALLOW`` , the new linked account in the commercial Region enables IAM users to access account billing information *if* they have the required permissions. If set to ``DENY`` , only the root user of the new account can access account billing information. For more information, see `Activating Access to the Billing and Cost Management Console <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate>`__ in the *AWS Billing and Cost Management User Guide.*
           If you don\'t specify this parameter, the value defaults to ``ALLOW`` , and IAM users and roles with the required permissions can access billing information for the new account.
         :rtype: dict
         :returns:
@@ -390,7 +490,7 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) of an organization.
                 For more information about ARNs in Organizations, see `ARN Formats Supported by Organizations <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns>`__ in the *AWS Organizations User Guide* .
               - **FeatureSet** *(string) --* 
-                Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see `Enabling All Features in Your Organization <https://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html>`__ in the *AWS Organizations User Guide* .
+                Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see `Enabling All Features in Your Organization <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html>`__ in the *AWS Organizations User Guide* .
               - **MasterAccountArn** *(string) --* 
                 The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
                 For more information about ARNs in Organizations, see `ARN Formats Supported by Organizations <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns>`__ in the *AWS Organizations User Guide* .
@@ -412,7 +512,7 @@ class Client(BaseClient):
         :type FeatureSet: string
         :param FeatureSet:
           Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
-          * *CONSOLIDATED_BILLING* : All member accounts have their bills consolidated to and paid by the master account. For more information, see `Consolidated billing <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only>`__ in the *AWS Organizations User Guide* .
+          * *CONSOLIDATED_BILLING* : All member accounts have their bills consolidated to and paid by the master account. For more information, see `Consolidated billing <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only>`__ in the *AWS Organizations User Guide* . The consolidated billing feature subset isn\'t available for organizations in the AWS GovCloud (US) Region.
           * *ALL* : In addition to all the features supported by the consolidated billing feature set, the master account can also apply any type of policy to any member account in the organization. For more information, see `All features <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all>`__ in the *AWS Organizations User Guide* .
         :rtype: dict
         :returns:
@@ -774,6 +874,7 @@ class Client(BaseClient):
                     'RequestedTimestamp': datetime(2015, 1, 1),
                     'CompletedTimestamp': datetime(2015, 1, 1),
                     'AccountId': 'string',
+                    'GovCloudAccountId': 'string',
                     'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
                 }
             }
@@ -796,6 +897,7 @@ class Client(BaseClient):
               - **AccountId** *(string) --* 
                 If the account was created successfully, the unique identifier (ID) of the new account.
                 The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an account ID string requires exactly 12 digits.
+              - **GovCloudAccountId** *(string) --* 
               - **FailureReason** *(string) --* 
                 If the request failed, a description of the reason for the failure.
                 * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization. 
@@ -954,7 +1056,7 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) of an organization.
                 For more information about ARNs in Organizations, see `ARN Formats Supported by Organizations <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns>`__ in the *AWS Organizations User Guide* .
               - **FeatureSet** *(string) --* 
-                Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see `Enabling All Features in Your Organization <https://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html>`__ in the *AWS Organizations User Guide* .
+                Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see `Enabling All Features in Your Organization <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html>`__ in the *AWS Organizations User Guide* .
               - **MasterAccountArn** *(string) --* 
                 The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
                 For more information about ARNs in Organizations, see `ARN Formats Supported by Organizations <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns>`__ in the *AWS Organizations User Guide* .
@@ -1849,6 +1951,7 @@ class Client(BaseClient):
                         'RequestedTimestamp': datetime(2015, 1, 1),
                         'CompletedTimestamp': datetime(2015, 1, 1),
                         'AccountId': 'string',
+                        'GovCloudAccountId': 'string',
                         'FailureReason': 'ACCOUNT_LIMIT_EXCEEDED'|'EMAIL_ALREADY_EXISTS'|'INVALID_ADDRESS'|'INVALID_EMAIL'|'CONCURRENT_ACCOUNT_MODIFICATION'|'INTERNAL_FAILURE'
                     },
                 ],
@@ -1860,7 +1963,7 @@ class Client(BaseClient):
             - **CreateAccountStatuses** *(list) --* 
               A list of objects with details about the requests. Certain elements, such as the accountId number, are present in the output only after the account has been successfully created.
               - *(dict) --* 
-                Contains the status about a  CreateAccount request to create an AWS account in an organization.
+                Contains the status about a  CreateAccount or  CreateGovCloudAccount request to create an AWS account or an AWS GovCloud (US) account in an organization.
                 - **Id** *(string) --* 
                   The unique identifier (ID) that references this request. You get this value from the response of the initial  CreateAccount request to create the account.
                   The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
@@ -1875,6 +1978,7 @@ class Client(BaseClient):
                 - **AccountId** *(string) --* 
                   If the account was created successfully, the unique identifier (ID) of the new account.
                   The `regex pattern <http://wikipedia.org/wiki/regex>`__ for an account ID string requires exactly 12 digits.
+                - **GovCloudAccountId** *(string) --* 
                 - **FailureReason** *(string) --* 
                   If the request failed, a description of the reason for the failure.
                   * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization. 
@@ -2500,7 +2604,7 @@ class Client(BaseClient):
 
     def list_targets_for_policy(self, PolicyId: str, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
-        Lists all the roots, organizaitonal units (OUs), and accounts to which the specified policy is attached.
+        Lists all the roots, organizational units (OUs), and accounts to which the specified policy is attached.
         .. note::
           Always check the ``NextToken`` response parameter for a ``null`` value when calling a ``List*`` operation. These operations can occasionally return an empty set of results even when there are more results available. The ``NextToken`` response parameter value is ``null``  *only* when there are no more results to display.
         This operation can be called only from the organization's master account.

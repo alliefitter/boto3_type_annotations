@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
-from datetime import datetime
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -15,7 +15,10 @@ class Client(BaseClient):
     def create_cluster(self, clusterName: str = None, tags: List = None) -> Dict:
         pass
 
-    def create_service(self, serviceName: str, taskDefinition: str, cluster: str = None, loadBalancers: List = None, serviceRegistries: List = None, desiredCount: int = None, clientToken: str = None, launchType: str = None, platformVersion: str = None, role: str = None, deploymentConfiguration: Dict = None, placementConstraints: List = None, placementStrategy: List = None, networkConfiguration: Dict = None, healthCheckGracePeriodSeconds: int = None, schedulingStrategy: str = None, deploymentController: Dict = None, tags: List = None, enableECSManagedTags: bool = None, propagateTags: str = None) -> Dict:
+    def create_service(self, serviceName: str, cluster: str = None, taskDefinition: str = None, loadBalancers: List = None, serviceRegistries: List = None, desiredCount: int = None, clientToken: str = None, launchType: str = None, platformVersion: str = None, role: str = None, deploymentConfiguration: Dict = None, placementConstraints: List = None, placementStrategy: List = None, networkConfiguration: Dict = None, healthCheckGracePeriodSeconds: int = None, schedulingStrategy: str = None, deploymentController: Dict = None, tags: List = None, enableECSManagedTags: bool = None, propagateTags: str = None) -> Dict:
+        pass
+
+    def create_task_set(self, service: str, cluster: str, taskDefinition: str, externalId: str = None, networkConfiguration: Dict = None, loadBalancers: List = None, serviceRegistries: List = None, launchType: str = None, platformVersion: str = None, scale: Dict = None, clientToken: str = None) -> Dict:
         pass
 
     def delete_account_setting(self, name: str, principalArn: str = None) -> Dict:
@@ -28,6 +31,9 @@ class Client(BaseClient):
         pass
 
     def delete_service(self, service: str, cluster: str = None, force: bool = None) -> Dict:
+        pass
+
+    def delete_task_set(self, cluster: str, service: str, taskSet: str, force: bool = None) -> Dict:
         pass
 
     def deregister_container_instance(self, containerInstance: str, cluster: str = None, force: bool = None) -> Dict:
@@ -46,6 +52,9 @@ class Client(BaseClient):
         pass
 
     def describe_task_definition(self, taskDefinition: str, include: List = None) -> Dict:
+        pass
+
+    def describe_task_sets(self, cluster: str, service: str, taskSets: List = None) -> Dict:
         pass
 
     def describe_tasks(self, tasks: List, cluster: str = None, include: List = None) -> Dict:
@@ -102,7 +111,7 @@ class Client(BaseClient):
     def register_container_instance(self, cluster: str = None, instanceIdentityDocument: str = None, instanceIdentityDocumentSignature: str = None, totalResources: List = None, versionInfo: Dict = None, containerInstanceArn: str = None, attributes: List = None, platformDevices: List = None, tags: List = None) -> Dict:
         pass
 
-    def register_task_definition(self, family: str, containerDefinitions: List, taskRoleArn: str = None, executionRoleArn: str = None, networkMode: str = None, volumes: List = None, placementConstraints: List = None, requiresCompatibilities: List = None, cpu: str = None, memory: str = None, tags: List = None, pidMode: str = None, ipcMode: str = None) -> Dict:
+    def register_task_definition(self, family: str, containerDefinitions: List, taskRoleArn: str = None, executionRoleArn: str = None, networkMode: str = None, volumes: List = None, placementConstraints: List = None, requiresCompatibilities: List = None, cpu: str = None, memory: str = None, tags: List = None, pidMode: str = None, ipcMode: str = None, proxyConfiguration: Dict = None) -> Dict:
         pass
 
     def run_task(self, taskDefinition: str, cluster: str = None, overrides: Dict = None, count: int = None, startedBy: str = None, group: str = None, placementConstraints: List = None, placementStrategy: List = None, launchType: str = None, platformVersion: str = None, networkConfiguration: Dict = None, tags: List = None, enableECSManagedTags: bool = None, propagateTags: str = None) -> Dict:
@@ -133,4 +142,10 @@ class Client(BaseClient):
         pass
 
     def update_service(self, service: str, cluster: str = None, desiredCount: int = None, taskDefinition: str = None, deploymentConfiguration: Dict = None, networkConfiguration: Dict = None, platformVersion: str = None, forceNewDeployment: bool = None, healthCheckGracePeriodSeconds: int = None) -> Dict:
+        pass
+
+    def update_service_primary_task_set(self, cluster: str, service: str, primaryTaskSet: str) -> Dict:
+        pass
+
+    def update_task_set(self, cluster: str, service: str, taskSet: str, scale: Dict) -> Dict:
         pass

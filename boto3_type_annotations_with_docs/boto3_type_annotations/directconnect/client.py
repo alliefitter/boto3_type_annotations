@@ -1,20 +1,125 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
+    def accept_direct_connect_gateway_association_proposal(self, directConnectGatewayId: str, proposalId: str, associatedGatewayOwnerAccount: str, overrideAllowedPrefixesToDirectConnectGateway: List = None) -> Dict:
+        """
+        Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AcceptDirectConnectGatewayAssociationProposal>`_
+        
+        **Request Syntax**
+        ::
+          response = client.accept_direct_connect_gateway_association_proposal(
+              directConnectGatewayId='string',
+              proposalId='string',
+              associatedGatewayOwnerAccount='string',
+              overrideAllowedPrefixesToDirectConnectGateway=[
+                  {
+                      'cidr': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'directConnectGatewayAssociation': {
+                    'directConnectGatewayId': 'string',
+                    'directConnectGatewayOwnerAccount': 'string',
+                    'associationState': 'associating'|'associated'|'disassociating'|'disassociated'|'updating',
+                    'stateChangeError': 'string',
+                    'associatedGateway': {
+                        'id': 'string',
+                        'type': 'virtualPrivateGateway'|'transitGateway',
+                        'ownerAccount': 'string',
+                        'region': 'string'
+                    },
+                    'associationId': 'string',
+                    'allowedPrefixesToDirectConnectGateway': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ],
+                    'virtualGatewayId': 'string',
+                    'virtualGatewayRegion': 'string',
+                    'virtualGatewayOwnerAccount': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **directConnectGatewayAssociation** *(dict) --* 
+              Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.
+              - **directConnectGatewayId** *(string) --* 
+                The ID of the Direct Connect gateway.
+              - **directConnectGatewayOwnerAccount** *(string) --* 
+                The ID of the AWS account that owns the associated gateway.
+              - **associationState** *(string) --* 
+                The state of the association. The following are the possible values:
+                * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
+                * ``associated`` : The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic. 
+                * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
+                * ``disassociated`` : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped. 
+              - **stateChangeError** *(string) --* 
+                The error message if the state of an object failed to advance.
+              - **associatedGateway** *(dict) --* 
+                Information about the associated gateway.
+                - **id** *(string) --* 
+                  The ID of the associated gateway.
+                - **type** *(string) --* 
+                  The type of associated gateway.
+                - **ownerAccount** *(string) --* 
+                  The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                - **region** *(string) --* 
+                  The Region where the associated gateway is located.
+              - **associationId** *(string) --* 
+                The ID of the Direct Connect gateway association.
+              - **allowedPrefixesToDirectConnectGateway** *(list) --* 
+                The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+              - **virtualGatewayId** *(string) --* 
+                The ID of the virtual private gateway. Applies only to private virtual interfaces.
+              - **virtualGatewayRegion** *(string) --* 
+                The AWS Region where the virtual private gateway is located.
+              - **virtualGatewayOwnerAccount** *(string) --* 
+                The ID of the AWS account that owns the virtual private gateway.
+        :type directConnectGatewayId: string
+        :param directConnectGatewayId: **[REQUIRED]**
+          The ID of the Direct Connect gateway.
+        :type proposalId: string
+        :param proposalId: **[REQUIRED]**
+          The ID of the request proposal.
+        :type associatedGatewayOwnerAccount: string
+        :param associatedGatewayOwnerAccount: **[REQUIRED]**
+          The ID of the AWS account that owns the virtual private gateway or transit gateway.
+        :type overrideAllowedPrefixesToDirectConnectGateway: list
+        :param overrideAllowedPrefixesToDirectConnectGateway:
+          Overrides the existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+          - *(dict) --*
+            Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+            - **cidr** *(string) --*
+              The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def allocate_connection_on_interconnect(self, bandwidth: str, connectionName: str, ownerAccount: str, interconnectId: str, vlan: int) -> Dict:
         """
         Deprecated. Use  AllocateHostedConnection instead.
         Creates a hosted connection on an interconnect.
         Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.
         .. note::
-          Intended for use by AWS Direct Connect partners only.
+          Intended for use by AWS Direct Connect Partners only.
         .. danger::
             This operation is deprecated and may not function as expected. This operation should not be used going forward and is only kept for the purpose of backwards compatiblity.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateConnectionOnInterconnect>`_
@@ -93,7 +198,7 @@ class Client(BaseClient):
               Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         :type bandwidth: string
         :param bandwidth: **[REQUIRED]**
-          The bandwidth of the connection, in Mbps. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.
+          The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.
         :type connectionName: string
         :param connectionName: **[REQUIRED]**
           The name of the provisioned connection.
@@ -102,7 +207,7 @@ class Client(BaseClient):
           The ID of the AWS account of the customer for whom the connection will be provisioned.
         :type interconnectId: string
         :param interconnectId: **[REQUIRED]**
-          The ID of the interconnect on which the connection will be provisioned. For example, dxcon-456abc78.
+          The ID of the interconnect on which the connection will be provisioned.
         :type vlan: integer
         :param vlan: **[REQUIRED]**
           The dedicated VLAN provisioned to the connection.
@@ -113,10 +218,10 @@ class Client(BaseClient):
 
     def allocate_hosted_connection(self, connectionId: str, ownerAccount: str, bandwidth: str, connectionName: str, vlan: int) -> Dict:
         """
-        Creates a hosted connection on the specified interconnect or a link aggregation group (LAG).
-        Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect or LAG.
+        Creates a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects.
+        Allocates a VLAN number and a specified amount of capacity (bandwidth) for use by a hosted connection on the specified interconnect or LAG of interconnects. AWS polices the hosted connection for the specified capacity and the AWS Direct Connect Partner must also police the hosted connection for the specified capacity.
         .. note::
-          Intended for use by AWS Direct Connect partners only.
+          Intended for use by AWS Direct Connect Partners only.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateHostedConnection>`_
         
         **Request Syntax**
@@ -199,7 +304,7 @@ class Client(BaseClient):
           The ID of the AWS account ID of the customer for the connection.
         :type bandwidth: string
         :param bandwidth: **[REQUIRED]**
-          The bandwidth of the hosted connection, in Mbps. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.
+          The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.
         :type connectionName: string
         :param connectionName: **[REQUIRED]**
           The name of the hosted connection.
@@ -595,6 +700,197 @@ class Client(BaseClient):
         """
         pass
 
+    def allocate_transit_virtual_interface(self, connectionId: str, ownerAccount: str, newTransitVirtualInterfaceAllocation: Dict) -> Dict:
+        """
+        Provisions a transit virtual interface to be owned by the specified AWS account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.
+        The owner of a connection provisions a transit virtual interface to be owned by the specified AWS account.
+        After you create a transit virtual interface, it must be confirmed by the owner using  ConfirmTransitVirtualInterface . Until this step has been completed, the transit virtual interface is in the ``requested`` state and is not available to handle traffic.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateTransitVirtualInterface>`_
+        
+        **Request Syntax**
+        ::
+          response = client.allocate_transit_virtual_interface(
+              connectionId='string',
+              ownerAccount='string',
+              newTransitVirtualInterfaceAllocation={
+                  'virtualInterfaceName': 'string',
+                  'vlan': 123,
+                  'asn': 123,
+                  'mtu': 123,
+                  'authKey': 'string',
+                  'amazonAddress': 'string',
+                  'customerAddress': 'string',
+                  'addressFamily': 'ipv4'|'ipv6'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'virtualInterface': {
+                    'ownerAccount': 'string',
+                    'virtualInterfaceId': 'string',
+                    'location': 'string',
+                    'connectionId': 'string',
+                    'virtualInterfaceType': 'string',
+                    'virtualInterfaceName': 'string',
+                    'vlan': 123,
+                    'asn': 123,
+                    'amazonSideAsn': 123,
+                    'authKey': 'string',
+                    'amazonAddress': 'string',
+                    'customerAddress': 'string',
+                    'addressFamily': 'ipv4'|'ipv6',
+                    'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected'|'unknown',
+                    'customerRouterConfig': 'string',
+                    'mtu': 123,
+                    'jumboFrameCapable': True|False,
+                    'virtualGatewayId': 'string',
+                    'directConnectGatewayId': 'string',
+                    'routeFilterPrefixes': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ],
+                    'bgpPeers': [
+                        {
+                            'bgpPeerId': 'string',
+                            'asn': 123,
+                            'authKey': 'string',
+                            'addressFamily': 'ipv4'|'ipv6',
+                            'amazonAddress': 'string',
+                            'customerAddress': 'string',
+                            'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
+                            'bgpStatus': 'up'|'down'|'unknown',
+                            'awsDeviceV2': 'string'
+                        },
+                    ],
+                    'region': 'string',
+                    'awsDeviceV2': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **virtualInterface** *(dict) --* 
+              Information about a virtual interface.
+              - **ownerAccount** *(string) --* 
+                The ID of the AWS account that owns the virtual interface.
+              - **virtualInterfaceId** *(string) --* 
+                The ID of the virtual interface.
+              - **location** *(string) --* 
+                The location of the connection.
+              - **connectionId** *(string) --* 
+                The ID of the connection.
+              - **virtualInterfaceType** *(string) --* 
+                The type of virtual interface. The possible values are ``private`` and ``public`` .
+              - **virtualInterfaceName** *(string) --* 
+                The name of the virtual interface assigned by the customer network.
+              - **vlan** *(integer) --* 
+                The ID of the VLAN.
+              - **asn** *(integer) --* 
+                The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+              - **amazonSideAsn** *(integer) --* 
+                The autonomous system number (ASN) for the Amazon side of the connection.
+              - **authKey** *(string) --* 
+                The authentication key for BGP configuration.
+              - **amazonAddress** *(string) --* 
+                The IP address assigned to the Amazon interface.
+              - **customerAddress** *(string) --* 
+                The IP address assigned to the customer interface.
+              - **addressFamily** *(string) --* 
+                The address family for the BGP peer.
+              - **virtualInterfaceState** *(string) --* 
+                The state of the virtual interface. The following are the possible values:
+                * ``confirming`` : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner. 
+                * ``verifying`` : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created. 
+                * ``pending`` : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic. 
+                * ``available`` : A virtual interface that is able to forward traffic. 
+                * ``down`` : A virtual interface that is BGP down. 
+                * ``deleting`` : A virtual interface is in this state immediately after calling  DeleteVirtualInterface until it can no longer forward traffic. 
+                * ``deleted`` : A virtual interface that cannot forward traffic. 
+                * ``rejected`` : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the ``Confirming`` state is deleted by the virtual interface owner, the virtual interface enters the ``Rejected`` state. 
+                * ``unknown`` : The state of the virtual interface is not available. 
+              - **customerRouterConfig** *(string) --* 
+                The customer router configuration.
+              - **mtu** *(integer) --* 
+                The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+              - **jumboFrameCapable** *(boolean) --* 
+                Indicates whether jumbo frames (9001 MTU) are supported.
+              - **virtualGatewayId** *(string) --* 
+                The ID of the virtual private gateway. Applies only to private virtual interfaces.
+              - **directConnectGatewayId** *(string) --* 
+                The ID of the Direct Connect gateway.
+              - **routeFilterPrefixes** *(list) --* 
+                The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+              - **bgpPeers** *(list) --* 
+                The BGP peers configured on this virtual interface.
+                - *(dict) --* 
+                  Information about a BGP peer.
+                  - **bgpPeerId** *(string) --* 
+                    The ID of the BGP peer.
+                  - **asn** *(integer) --* 
+                    The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+                  - **authKey** *(string) --* 
+                    The authentication key for BGP configuration.
+                  - **addressFamily** *(string) --* 
+                    The address family for the BGP peer.
+                  - **amazonAddress** *(string) --* 
+                    The IP address assigned to the Amazon interface.
+                  - **customerAddress** *(string) --* 
+                    The IP address assigned to the customer interface.
+                  - **bgpPeerState** *(string) --* 
+                    The state of the BGP peer. The following are the possible values:
+                    * ``verifying`` : The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces. 
+                    * ``pending`` : The BGP peer is created, and remains in this state until it is ready to be established. 
+                    * ``available`` : The BGP peer is ready to be established. 
+                    * ``deleting`` : The BGP peer is being deleted. 
+                    * ``deleted`` : The BGP peer is deleted and cannot be established. 
+                  - **bgpStatus** *(string) --* 
+                    The status of the BGP peer. The following are the possible values:
+                    * ``up`` : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session. 
+                    * ``down`` : The BGP peer is down. 
+                    * ``unknown`` : The BGP peer status is not available. 
+                  - **awsDeviceV2** *(string) --* 
+                    The Direct Connect endpoint on which the BGP peer terminates.
+              - **region** *(string) --* 
+                The AWS Region where the virtual interface is located.
+              - **awsDeviceV2** *(string) --* 
+                The Direct Connect endpoint on which the virtual interface terminates.
+        :type connectionId: string
+        :param connectionId: **[REQUIRED]**
+          The ID of the connection on which the transit virtual interface is provisioned.
+        :type ownerAccount: string
+        :param ownerAccount: **[REQUIRED]**
+          The ID of the AWS account that owns the transit virtual interface.
+        :type newTransitVirtualInterfaceAllocation: dict
+        :param newTransitVirtualInterfaceAllocation: **[REQUIRED]**
+          Information about the transit virtual interface.
+          - **virtualInterfaceName** *(string) --*
+            The name of the virtual interface assigned by the customer network.
+          - **vlan** *(integer) --*
+            The ID of the VLAN.
+          - **asn** *(integer) --*
+            The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+          - **mtu** *(integer) --*
+            The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+          - **authKey** *(string) --*
+            The authentication key for BGP configuration.
+          - **amazonAddress** *(string) --*
+            The IP address assigned to the Amazon interface.
+          - **customerAddress** *(string) --*
+            The IP address assigned to the customer interface.
+          - **addressFamily** *(string) --*
+            The address family for the BGP peer.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def associate_connection_with_lag(self, connectionId: str, lagId: str) -> Dict:
         """
         Associates an existing connection with a link aggregation group (LAG). The connection is interrupted and re-established as a member of the LAG (connectivity to AWS is interrupted). The connection must be hosted on the same AWS Direct Connect endpoint as the LAG, and its bandwidth must match the bandwidth for the LAG. You can re-associate a connection that's currently associated with a different LAG; however, if removing the connection would cause the original LAG to fall below its setting for minimum number of operational connections, the request fails.
@@ -673,10 +969,10 @@ class Client(BaseClient):
               Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         :type connectionId: string
         :param connectionId: **[REQUIRED]**
-          The ID of the connection. For example, dxcon-abc123.
+          The ID of the connection.
         :type lagId: string
         :param lagId: **[REQUIRED]**
-          The ID of the LAG with which to associate the connection. For example, dxlag-abc123.
+          The ID of the LAG with which to associate the connection.
         :rtype: dict
         :returns:
         """
@@ -686,7 +982,7 @@ class Client(BaseClient):
         """
         Associates a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted connection with a conflicting VLAN number or IP address, the operation fails. This action temporarily interrupts the hosted connection's connectivity to AWS as it is being migrated.
         .. note::
-          Intended for use by AWS Direct Connect partners only.
+          Intended for use by AWS Direct Connect Partners only.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AssociateHostedConnection>`_
         
         **Request Syntax**
@@ -1068,6 +1364,49 @@ class Client(BaseClient):
         """
         pass
 
+    def confirm_transit_virtual_interface(self, virtualInterfaceId: str, directConnectGatewayId: str) -> Dict:
+        """
+        Accepts ownership of a transit virtual interface created by another AWS account.
+        After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/ConfirmTransitVirtualInterface>`_
+        
+        **Request Syntax**
+        ::
+          response = client.confirm_transit_virtual_interface(
+              virtualInterfaceId='string',
+              directConnectGatewayId='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected'|'unknown'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **virtualInterfaceState** *(string) --* 
+              The state of the virtual interface. The following are the possible values:
+              * ``confirming`` : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner. 
+              * ``verifying`` : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created. 
+              * ``pending`` : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic. 
+              * ``available`` : A virtual interface that is able to forward traffic. 
+              * ``down`` : A virtual interface that is BGP down. 
+              * ``deleting`` : A virtual interface is in this state immediately after calling  DeleteVirtualInterface until it can no longer forward traffic. 
+              * ``deleted`` : A virtual interface that cannot forward traffic. 
+              * ``rejected`` : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the ``Confirming`` state is deleted by the virtual interface owner, the virtual interface enters the ``Rejected`` state. 
+              * ``unknown`` : The state of the virtual interface is not available. 
+        :type virtualInterfaceId: string
+        :param virtualInterfaceId: **[REQUIRED]**
+          The ID of the virtual interface.
+        :type directConnectGatewayId: string
+        :param directConnectGatewayId: **[REQUIRED]**
+          The ID of the Direct Connect gateway.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def create_bgp_peer(self, virtualInterfaceId: str = None, newBGPPeer: Dict = None) -> Dict:
         """
         Creates a BGP peer on the specified virtual interface.
@@ -1400,7 +1739,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_direct_connect_gateway_association(self, directConnectGatewayId: str, virtualGatewayId: str) -> Dict:
+    def create_direct_connect_gateway_association(self, directConnectGatewayId: str, gatewayId: str = None, addAllowedPrefixesToDirectConnectGateway: List = None, virtualGatewayId: str = None) -> Dict:
         """
         Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateDirectConnectGatewayAssociation>`_
@@ -1409,6 +1748,12 @@ class Client(BaseClient):
         ::
           response = client.create_direct_connect_gateway_association(
               directConnectGatewayId='string',
+              gatewayId='string',
+              addAllowedPrefixesToDirectConnectGateway=[
+                  {
+                      'cidr': 'string'
+                  },
+              ],
               virtualGatewayId='string'
           )
         
@@ -1417,11 +1762,24 @@ class Client(BaseClient):
             {
                 'directConnectGatewayAssociation': {
                     'directConnectGatewayId': 'string',
+                    'directConnectGatewayOwnerAccount': 'string',
+                    'associationState': 'associating'|'associated'|'disassociating'|'disassociated'|'updating',
+                    'stateChangeError': 'string',
+                    'associatedGateway': {
+                        'id': 'string',
+                        'type': 'virtualPrivateGateway'|'transitGateway',
+                        'ownerAccount': 'string',
+                        'region': 'string'
+                    },
+                    'associationId': 'string',
+                    'allowedPrefixesToDirectConnectGateway': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ],
                     'virtualGatewayId': 'string',
                     'virtualGatewayRegion': 'string',
-                    'virtualGatewayOwnerAccount': 'string',
-                    'associationState': 'associating'|'associated'|'disassociating'|'disassociated',
-                    'stateChangeError': 'string'
+                    'virtualGatewayOwnerAccount': 'string'
                 }
             }
         
@@ -1431,26 +1789,172 @@ class Client(BaseClient):
               The association to be created.
               - **directConnectGatewayId** *(string) --* 
                 The ID of the Direct Connect gateway.
+              - **directConnectGatewayOwnerAccount** *(string) --* 
+                The ID of the AWS account that owns the associated gateway.
+              - **associationState** *(string) --* 
+                The state of the association. The following are the possible values:
+                * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
+                * ``associated`` : The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic. 
+                * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
+                * ``disassociated`` : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped. 
+              - **stateChangeError** *(string) --* 
+                The error message if the state of an object failed to advance.
+              - **associatedGateway** *(dict) --* 
+                Information about the associated gateway.
+                - **id** *(string) --* 
+                  The ID of the associated gateway.
+                - **type** *(string) --* 
+                  The type of associated gateway.
+                - **ownerAccount** *(string) --* 
+                  The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                - **region** *(string) --* 
+                  The Region where the associated gateway is located.
+              - **associationId** *(string) --* 
+                The ID of the Direct Connect gateway association.
+              - **allowedPrefixesToDirectConnectGateway** *(list) --* 
+                The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
               - **virtualGatewayId** *(string) --* 
                 The ID of the virtual private gateway. Applies only to private virtual interfaces.
               - **virtualGatewayRegion** *(string) --* 
                 The AWS Region where the virtual private gateway is located.
               - **virtualGatewayOwnerAccount** *(string) --* 
                 The ID of the AWS account that owns the virtual private gateway.
-              - **associationState** *(string) --* 
-                The state of the association. The following are the possible values:
-                * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
-                * ``associated`` : The Direct Connect gateway and virtual private gateway are successfully associated and ready to pass traffic. 
-                * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
-                * ``disassociated`` : The virtual private gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway is stopped. 
-              - **stateChangeError** *(string) --* 
-                The error message if the state of an object failed to advance.
         :type directConnectGatewayId: string
         :param directConnectGatewayId: **[REQUIRED]**
           The ID of the Direct Connect gateway.
+        :type gatewayId: string
+        :param gatewayId:
+          The ID of the virtual private gateway or transit gateway.
+        :type addAllowedPrefixesToDirectConnectGateway: list
+        :param addAllowedPrefixesToDirectConnectGateway:
+          The Amazon VPC prefixes to advertise to the Direct Connect gateway
+          - *(dict) --*
+            Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+            - **cidr** *(string) --*
+              The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
         :type virtualGatewayId: string
-        :param virtualGatewayId: **[REQUIRED]**
+        :param virtualGatewayId:
           The ID of the virtual private gateway.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def create_direct_connect_gateway_association_proposal(self, directConnectGatewayId: str, directConnectGatewayOwnerAccount: str, gatewayId: str, addAllowedPrefixesToDirectConnectGateway: List = None, removeAllowedPrefixesToDirectConnectGateway: List = None) -> Dict:
+        """
+        Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.
+        You can only associate a Direct Connect gateway and virtual private gateway or transit gateway when the account that owns the Direct Connect gateway and the account that owns the virtual private gateway or transit gateway have the same AWS Payer ID.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateDirectConnectGatewayAssociationProposal>`_
+        
+        **Request Syntax**
+        ::
+          response = client.create_direct_connect_gateway_association_proposal(
+              directConnectGatewayId='string',
+              directConnectGatewayOwnerAccount='string',
+              gatewayId='string',
+              addAllowedPrefixesToDirectConnectGateway=[
+                  {
+                      'cidr': 'string'
+                  },
+              ],
+              removeAllowedPrefixesToDirectConnectGateway=[
+                  {
+                      'cidr': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'directConnectGatewayAssociationProposal': {
+                    'proposalId': 'string',
+                    'directConnectGatewayId': 'string',
+                    'directConnectGatewayOwnerAccount': 'string',
+                    'proposalState': 'requested'|'accepted'|'deleted',
+                    'associatedGateway': {
+                        'id': 'string',
+                        'type': 'virtualPrivateGateway'|'transitGateway',
+                        'ownerAccount': 'string',
+                        'region': 'string'
+                    },
+                    'existingAllowedPrefixesToDirectConnectGateway': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ],
+                    'requestedAllowedPrefixesToDirectConnectGateway': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ]
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **directConnectGatewayAssociationProposal** *(dict) --* 
+              Information about the Direct Connect gateway proposal.
+              - **proposalId** *(string) --* 
+                The ID of the association proposal.
+              - **directConnectGatewayId** *(string) --* 
+                The ID of the Direct Connect gateway.
+              - **directConnectGatewayOwnerAccount** *(string) --* 
+                The ID of the AWS account that owns the Direct Connect gateway.
+              - **proposalState** *(string) --* 
+                The state of the proposal. The following are possible values:
+                * ``accepted`` : The proposal has been accepted. The Direct Connect gateway association is available to use in this state. 
+                * ``deleted`` : The proposal has been deleted by the owner that made the proposal. The Direct Connect gateway association cannot be used in this state. 
+                * ``requested`` : The proposal has been requested. The Direct Connect gateway association cannot be used in this state. 
+              - **associatedGateway** *(dict) --* 
+                Information about the associated gateway.
+                - **id** *(string) --* 
+                  The ID of the associated gateway.
+                - **type** *(string) --* 
+                  The type of associated gateway.
+                - **ownerAccount** *(string) --* 
+                  The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                - **region** *(string) --* 
+                  The Region where the associated gateway is located.
+              - **existingAllowedPrefixesToDirectConnectGateway** *(list) --* 
+                The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+              - **requestedAllowedPrefixesToDirectConnectGateway** *(list) --* 
+                The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+        :type directConnectGatewayId: string
+        :param directConnectGatewayId: **[REQUIRED]**
+          The ID of the Direct Connect gateway.
+        :type directConnectGatewayOwnerAccount: string
+        :param directConnectGatewayOwnerAccount: **[REQUIRED]**
+          The ID of the AWS account that owns the Direct Connect gateway.
+        :type gatewayId: string
+        :param gatewayId: **[REQUIRED]**
+          The ID of the virtual private gateway or transit gateway.
+        :type addAllowedPrefixesToDirectConnectGateway: list
+        :param addAllowedPrefixesToDirectConnectGateway:
+          The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+          - *(dict) --*
+            Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+            - **cidr** *(string) --*
+              The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+        :type removeAllowedPrefixesToDirectConnectGateway: list
+        :param removeAllowedPrefixesToDirectConnectGateway:
+          The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.
+          - *(dict) --*
+            Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+            - **cidr** *(string) --*
+              The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
         :rtype: dict
         :returns:
         """
@@ -1458,12 +1962,12 @@ class Client(BaseClient):
 
     def create_interconnect(self, interconnectName: str, bandwidth: str, location: str, lagId: str = None) -> Dict:
         """
-        Creates an interconnect between an AWS Direct Connect partner's network and a specific AWS Direct Connect location.
-        An interconnect is a connection which is capable of hosting other connections. The partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the partner's network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.
+        Creates an interconnect between an AWS Direct Connect Partner's network and a specific AWS Direct Connect location.
+        An interconnect is a connection that is capable of hosting other connections. The AWS Direct Connect partner can use an interconnect to provide AWS Direct Connect hosted connections to customers through their own network services. Like a standard connection, an interconnect links the partner's network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.
         You can automatically add the new interconnect to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new interconnect is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no interconnect is created.
-        For each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling  AllocateConnectionOnInterconnect . The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the partner.
+        For each end customer, the AWS Direct Connect Partner provisions a connection on their interconnect by calling  AllocateHostedConnection . The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the AWS Direct Connect Partner.
         .. note::
-          Intended for use by AWS Direct Connect partners only.
+          Intended for use by AWS Direct Connect Partners only.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateInterconnect>`_
         
         **Request Syntax**
@@ -1549,7 +2053,7 @@ class Client(BaseClient):
         All connections in a LAG must use the same bandwidth and must terminate at the same AWS Direct Connect endpoint.
         You can have up to 10 connections per LAG. Regardless of this limit, if you request more connections for the LAG than AWS Direct Connect can allocate on a single endpoint, no LAG is created.
         You can specify an existing physical connection or interconnect to include in the LAG (which counts towards the total number of connections). Doing so interrupts the current physical connection or hosted connections, and re-establishes them as a member of the LAG. The LAG will be created on the same AWS Direct Connect endpoint to which the connection terminates. Any virtual interfaces associated with the connection are automatically disassociated and re-associated with the LAG. The connection ID does not change.
-        If the AWS account used to create a LAG is a registered AWS Direct Connect partner, the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual interfaces cannot be directly configured.
+        If the AWS account used to create a LAG is a registered AWS Direct Connect Partner, the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual interfaces cannot be directly configured.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateLag>`_
         
         **Request Syntax**
@@ -1604,7 +2108,7 @@ class Client(BaseClient):
           - *(dict) --* 
             Information about a link aggregation group (LAG).
             - **connectionsBandwidth** *(string) --* 
-              The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
+              The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps. 
             - **numberOfConnections** *(integer) --* 
               The number of physical connections bundled by the LAG, up to a maximum of 10.
             - **lagId** *(string) --* 
@@ -1629,9 +2133,9 @@ class Client(BaseClient):
             - **minimumLinks** *(integer) --* 
               The minimum number of physical connections that must be operational for the LAG itself to be operational.
             - **awsDevice** *(string) --* 
-              The Direct Connect endpoint that hosts the LAG.
+              The AWS Direct Connect endpoint that hosts the LAG.
             - **awsDeviceV2** *(string) --* 
-              The Direct Connect endpoint that hosts the LAG.
+              The AWS Direct Connect endpoint that hosts the LAG.
             - **connections** *(list) --* 
               The connections bundled by the LAG.
               - *(dict) --* 
@@ -1689,7 +2193,7 @@ class Client(BaseClient):
           The location for the LAG.
         :type connectionsBandwidth: string
         :param connectionsBandwidth: **[REQUIRED]**
-          The bandwidth of the individual physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
+          The bandwidth of the individual physical connections bundled by the LAG. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps.
         :type lagName: string
         :param lagName: **[REQUIRED]**
           The name of the LAG.
@@ -2080,6 +2584,194 @@ class Client(BaseClient):
         """
         pass
 
+    def create_transit_virtual_interface(self, connectionId: str, newTransitVirtualInterface: Dict) -> Dict:
+        """
+        Creates a transit virtual interface. A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateTransitVirtualInterface>`_
+        
+        **Request Syntax**
+        ::
+          response = client.create_transit_virtual_interface(
+              connectionId='string',
+              newTransitVirtualInterface={
+                  'virtualInterfaceName': 'string',
+                  'vlan': 123,
+                  'asn': 123,
+                  'mtu': 123,
+                  'authKey': 'string',
+                  'amazonAddress': 'string',
+                  'customerAddress': 'string',
+                  'addressFamily': 'ipv4'|'ipv6',
+                  'directConnectGatewayId': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'virtualInterface': {
+                    'ownerAccount': 'string',
+                    'virtualInterfaceId': 'string',
+                    'location': 'string',
+                    'connectionId': 'string',
+                    'virtualInterfaceType': 'string',
+                    'virtualInterfaceName': 'string',
+                    'vlan': 123,
+                    'asn': 123,
+                    'amazonSideAsn': 123,
+                    'authKey': 'string',
+                    'amazonAddress': 'string',
+                    'customerAddress': 'string',
+                    'addressFamily': 'ipv4'|'ipv6',
+                    'virtualInterfaceState': 'confirming'|'verifying'|'pending'|'available'|'down'|'deleting'|'deleted'|'rejected'|'unknown',
+                    'customerRouterConfig': 'string',
+                    'mtu': 123,
+                    'jumboFrameCapable': True|False,
+                    'virtualGatewayId': 'string',
+                    'directConnectGatewayId': 'string',
+                    'routeFilterPrefixes': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ],
+                    'bgpPeers': [
+                        {
+                            'bgpPeerId': 'string',
+                            'asn': 123,
+                            'authKey': 'string',
+                            'addressFamily': 'ipv4'|'ipv6',
+                            'amazonAddress': 'string',
+                            'customerAddress': 'string',
+                            'bgpPeerState': 'verifying'|'pending'|'available'|'deleting'|'deleted',
+                            'bgpStatus': 'up'|'down'|'unknown',
+                            'awsDeviceV2': 'string'
+                        },
+                    ],
+                    'region': 'string',
+                    'awsDeviceV2': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **virtualInterface** *(dict) --* 
+              Information about a virtual interface.
+              - **ownerAccount** *(string) --* 
+                The ID of the AWS account that owns the virtual interface.
+              - **virtualInterfaceId** *(string) --* 
+                The ID of the virtual interface.
+              - **location** *(string) --* 
+                The location of the connection.
+              - **connectionId** *(string) --* 
+                The ID of the connection.
+              - **virtualInterfaceType** *(string) --* 
+                The type of virtual interface. The possible values are ``private`` and ``public`` .
+              - **virtualInterfaceName** *(string) --* 
+                The name of the virtual interface assigned by the customer network.
+              - **vlan** *(integer) --* 
+                The ID of the VLAN.
+              - **asn** *(integer) --* 
+                The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+              - **amazonSideAsn** *(integer) --* 
+                The autonomous system number (ASN) for the Amazon side of the connection.
+              - **authKey** *(string) --* 
+                The authentication key for BGP configuration.
+              - **amazonAddress** *(string) --* 
+                The IP address assigned to the Amazon interface.
+              - **customerAddress** *(string) --* 
+                The IP address assigned to the customer interface.
+              - **addressFamily** *(string) --* 
+                The address family for the BGP peer.
+              - **virtualInterfaceState** *(string) --* 
+                The state of the virtual interface. The following are the possible values:
+                * ``confirming`` : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner. 
+                * ``verifying`` : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created. 
+                * ``pending`` : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic. 
+                * ``available`` : A virtual interface that is able to forward traffic. 
+                * ``down`` : A virtual interface that is BGP down. 
+                * ``deleting`` : A virtual interface is in this state immediately after calling  DeleteVirtualInterface until it can no longer forward traffic. 
+                * ``deleted`` : A virtual interface that cannot forward traffic. 
+                * ``rejected`` : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the ``Confirming`` state is deleted by the virtual interface owner, the virtual interface enters the ``Rejected`` state. 
+                * ``unknown`` : The state of the virtual interface is not available. 
+              - **customerRouterConfig** *(string) --* 
+                The customer router configuration.
+              - **mtu** *(integer) --* 
+                The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+              - **jumboFrameCapable** *(boolean) --* 
+                Indicates whether jumbo frames (9001 MTU) are supported.
+              - **virtualGatewayId** *(string) --* 
+                The ID of the virtual private gateway. Applies only to private virtual interfaces.
+              - **directConnectGatewayId** *(string) --* 
+                The ID of the Direct Connect gateway.
+              - **routeFilterPrefixes** *(list) --* 
+                The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+              - **bgpPeers** *(list) --* 
+                The BGP peers configured on this virtual interface.
+                - *(dict) --* 
+                  Information about a BGP peer.
+                  - **bgpPeerId** *(string) --* 
+                    The ID of the BGP peer.
+                  - **asn** *(integer) --* 
+                    The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+                  - **authKey** *(string) --* 
+                    The authentication key for BGP configuration.
+                  - **addressFamily** *(string) --* 
+                    The address family for the BGP peer.
+                  - **amazonAddress** *(string) --* 
+                    The IP address assigned to the Amazon interface.
+                  - **customerAddress** *(string) --* 
+                    The IP address assigned to the customer interface.
+                  - **bgpPeerState** *(string) --* 
+                    The state of the BGP peer. The following are the possible values:
+                    * ``verifying`` : The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces. 
+                    * ``pending`` : The BGP peer is created, and remains in this state until it is ready to be established. 
+                    * ``available`` : The BGP peer is ready to be established. 
+                    * ``deleting`` : The BGP peer is being deleted. 
+                    * ``deleted`` : The BGP peer is deleted and cannot be established. 
+                  - **bgpStatus** *(string) --* 
+                    The status of the BGP peer. The following are the possible values:
+                    * ``up`` : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session. 
+                    * ``down`` : The BGP peer is down. 
+                    * ``unknown`` : The BGP peer status is not available. 
+                  - **awsDeviceV2** *(string) --* 
+                    The Direct Connect endpoint on which the BGP peer terminates.
+              - **region** *(string) --* 
+                The AWS Region where the virtual interface is located.
+              - **awsDeviceV2** *(string) --* 
+                The Direct Connect endpoint on which the virtual interface terminates.
+        :type connectionId: string
+        :param connectionId: **[REQUIRED]**
+          The ID of the connection.
+        :type newTransitVirtualInterface: dict
+        :param newTransitVirtualInterface: **[REQUIRED]**
+          Information about the transit virtual interface.
+          - **virtualInterfaceName** *(string) --*
+            The name of the virtual interface assigned by the customer network.
+          - **vlan** *(integer) --*
+            The ID of the VLAN.
+          - **asn** *(integer) --*
+            The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+          - **mtu** *(integer) --*
+            The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+          - **authKey** *(string) --*
+            The authentication key for BGP configuration.
+          - **amazonAddress** *(string) --*
+            The IP address assigned to the Amazon interface.
+          - **customerAddress** *(string) --*
+            The IP address assigned to the customer interface.
+          - **addressFamily** *(string) --*
+            The address family for the BGP peer.
+          - **directConnectGatewayId** *(string) --*
+            The ID of the Direct Connect gateway.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def delete_bgp_peer(self, virtualInterfaceId: str = None, asn: int = None, customerAddress: str = None, bgpPeerId: str = None) -> Dict:
         """
         Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.
@@ -2383,7 +3075,7 @@ class Client(BaseClient):
         """
         pass
 
-    def delete_direct_connect_gateway_association(self, directConnectGatewayId: str, virtualGatewayId: str) -> Dict:
+    def delete_direct_connect_gateway_association(self, associationId: str = None, directConnectGatewayId: str = None, virtualGatewayId: str = None) -> Dict:
         """
         Deletes the association between the specified Direct Connect gateway and virtual private gateway.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteDirectConnectGatewayAssociation>`_
@@ -2391,6 +3083,7 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.delete_direct_connect_gateway_association(
+              associationId='string',
               directConnectGatewayId='string',
               virtualGatewayId='string'
           )
@@ -2400,40 +3093,159 @@ class Client(BaseClient):
             {
                 'directConnectGatewayAssociation': {
                     'directConnectGatewayId': 'string',
+                    'directConnectGatewayOwnerAccount': 'string',
+                    'associationState': 'associating'|'associated'|'disassociating'|'disassociated'|'updating',
+                    'stateChangeError': 'string',
+                    'associatedGateway': {
+                        'id': 'string',
+                        'type': 'virtualPrivateGateway'|'transitGateway',
+                        'ownerAccount': 'string',
+                        'region': 'string'
+                    },
+                    'associationId': 'string',
+                    'allowedPrefixesToDirectConnectGateway': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ],
                     'virtualGatewayId': 'string',
                     'virtualGatewayRegion': 'string',
-                    'virtualGatewayOwnerAccount': 'string',
-                    'associationState': 'associating'|'associated'|'disassociating'|'disassociated',
-                    'stateChangeError': 'string'
+                    'virtualGatewayOwnerAccount': 'string'
                 }
             }
         
         **Response Structure**
           - *(dict) --* 
             - **directConnectGatewayAssociation** *(dict) --* 
-              The association to be deleted.
+              Information about the deleted association.
               - **directConnectGatewayId** *(string) --* 
                 The ID of the Direct Connect gateway.
+              - **directConnectGatewayOwnerAccount** *(string) --* 
+                The ID of the AWS account that owns the associated gateway.
+              - **associationState** *(string) --* 
+                The state of the association. The following are the possible values:
+                * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
+                * ``associated`` : The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic. 
+                * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
+                * ``disassociated`` : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped. 
+              - **stateChangeError** *(string) --* 
+                The error message if the state of an object failed to advance.
+              - **associatedGateway** *(dict) --* 
+                Information about the associated gateway.
+                - **id** *(string) --* 
+                  The ID of the associated gateway.
+                - **type** *(string) --* 
+                  The type of associated gateway.
+                - **ownerAccount** *(string) --* 
+                  The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                - **region** *(string) --* 
+                  The Region where the associated gateway is located.
+              - **associationId** *(string) --* 
+                The ID of the Direct Connect gateway association.
+              - **allowedPrefixesToDirectConnectGateway** *(list) --* 
+                The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
               - **virtualGatewayId** *(string) --* 
                 The ID of the virtual private gateway. Applies only to private virtual interfaces.
               - **virtualGatewayRegion** *(string) --* 
                 The AWS Region where the virtual private gateway is located.
               - **virtualGatewayOwnerAccount** *(string) --* 
                 The ID of the AWS account that owns the virtual private gateway.
-              - **associationState** *(string) --* 
-                The state of the association. The following are the possible values:
-                * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
-                * ``associated`` : The Direct Connect gateway and virtual private gateway are successfully associated and ready to pass traffic. 
-                * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
-                * ``disassociated`` : The virtual private gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway is stopped. 
-              - **stateChangeError** *(string) --* 
-                The error message if the state of an object failed to advance.
+        :type associationId: string
+        :param associationId:
+          The ID of the Direct Connect gateway association.
         :type directConnectGatewayId: string
-        :param directConnectGatewayId: **[REQUIRED]**
+        :param directConnectGatewayId:
           The ID of the Direct Connect gateway.
         :type virtualGatewayId: string
-        :param virtualGatewayId: **[REQUIRED]**
+        :param virtualGatewayId:
           The ID of the virtual private gateway.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def delete_direct_connect_gateway_association_proposal(self, proposalId: str) -> Dict:
+        """
+        Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteDirectConnectGatewayAssociationProposal>`_
+        
+        **Request Syntax**
+        ::
+          response = client.delete_direct_connect_gateway_association_proposal(
+              proposalId='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'directConnectGatewayAssociationProposal': {
+                    'proposalId': 'string',
+                    'directConnectGatewayId': 'string',
+                    'directConnectGatewayOwnerAccount': 'string',
+                    'proposalState': 'requested'|'accepted'|'deleted',
+                    'associatedGateway': {
+                        'id': 'string',
+                        'type': 'virtualPrivateGateway'|'transitGateway',
+                        'ownerAccount': 'string',
+                        'region': 'string'
+                    },
+                    'existingAllowedPrefixesToDirectConnectGateway': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ],
+                    'requestedAllowedPrefixesToDirectConnectGateway': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ]
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **directConnectGatewayAssociationProposal** *(dict) --* 
+              The ID of the associated gateway.
+              - **proposalId** *(string) --* 
+                The ID of the association proposal.
+              - **directConnectGatewayId** *(string) --* 
+                The ID of the Direct Connect gateway.
+              - **directConnectGatewayOwnerAccount** *(string) --* 
+                The ID of the AWS account that owns the Direct Connect gateway.
+              - **proposalState** *(string) --* 
+                The state of the proposal. The following are possible values:
+                * ``accepted`` : The proposal has been accepted. The Direct Connect gateway association is available to use in this state. 
+                * ``deleted`` : The proposal has been deleted by the owner that made the proposal. The Direct Connect gateway association cannot be used in this state. 
+                * ``requested`` : The proposal has been requested. The Direct Connect gateway association cannot be used in this state. 
+              - **associatedGateway** *(dict) --* 
+                Information about the associated gateway.
+                - **id** *(string) --* 
+                  The ID of the associated gateway.
+                - **type** *(string) --* 
+                  The type of associated gateway.
+                - **ownerAccount** *(string) --* 
+                  The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                - **region** *(string) --* 
+                  The Region where the associated gateway is located.
+              - **existingAllowedPrefixesToDirectConnectGateway** *(list) --* 
+                The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+              - **requestedAllowedPrefixesToDirectConnectGateway** *(list) --* 
+                The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+        :type proposalId: string
+        :param proposalId: **[REQUIRED]**
+          The ID of the proposal.
         :rtype: dict
         :returns:
         """
@@ -2443,7 +3255,7 @@ class Client(BaseClient):
         """
         Deletes the specified interconnect.
         .. note::
-          Intended for use by AWS Direct Connect partners only.
+          Intended for use by AWS Direct Connect Partners only.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteInterconnect>`_
         
         **Request Syntax**
@@ -2530,7 +3342,7 @@ class Client(BaseClient):
           - *(dict) --* 
             Information about a link aggregation group (LAG).
             - **connectionsBandwidth** *(string) --* 
-              The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
+              The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps. 
             - **numberOfConnections** *(integer) --* 
               The number of physical connections bundled by the LAG, up to a maximum of 10.
             - **lagId** *(string) --* 
@@ -2555,9 +3367,9 @@ class Client(BaseClient):
             - **minimumLinks** *(integer) --* 
               The minimum number of physical connections that must be operational for the LAG itself to be operational.
             - **awsDevice** *(string) --* 
-              The Direct Connect endpoint that hosts the LAG.
+              The AWS Direct Connect endpoint that hosts the LAG.
             - **awsDeviceV2** *(string) --* 
-              The Direct Connect endpoint that hosts the LAG.
+              The AWS Direct Connect endpoint that hosts the LAG.
             - **connections** *(list) --* 
               The connections bundled by the LAG.
               - *(dict) --* 
@@ -2794,7 +3606,7 @@ class Client(BaseClient):
         Deprecated. Use  DescribeHostedConnections instead.
         Lists the connections that have been provisioned on the specified interconnect.
         .. note::
-          Intended for use by AWS Direct Connect partners only.
+          Intended for use by AWS Direct Connect Partners only.
         .. danger::
             This operation is deprecated and may not function as expected. This operation should not be used going forward and is only kept for the purpose of backwards compatiblity.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeConnectionsOnInterconnect>`_
@@ -2882,7 +3694,114 @@ class Client(BaseClient):
         """
         pass
 
-    def describe_direct_connect_gateway_associations(self, directConnectGatewayId: str = None, virtualGatewayId: str = None, maxResults: int = None, nextToken: str = None) -> Dict:
+    def describe_direct_connect_gateway_association_proposals(self, directConnectGatewayId: str = None, proposalId: str = None, associatedGatewayId: str = None, maxResults: int = None, nextToken: str = None) -> Dict:
+        """
+        Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. 
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeDirectConnectGatewayAssociationProposals>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_direct_connect_gateway_association_proposals(
+              directConnectGatewayId='string',
+              proposalId='string',
+              associatedGatewayId='string',
+              maxResults=123,
+              nextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'directConnectGatewayAssociationProposals': [
+                    {
+                        'proposalId': 'string',
+                        'directConnectGatewayId': 'string',
+                        'directConnectGatewayOwnerAccount': 'string',
+                        'proposalState': 'requested'|'accepted'|'deleted',
+                        'associatedGateway': {
+                            'id': 'string',
+                            'type': 'virtualPrivateGateway'|'transitGateway',
+                            'ownerAccount': 'string',
+                            'region': 'string'
+                        },
+                        'existingAllowedPrefixesToDirectConnectGateway': [
+                            {
+                                'cidr': 'string'
+                            },
+                        ],
+                        'requestedAllowedPrefixesToDirectConnectGateway': [
+                            {
+                                'cidr': 'string'
+                            },
+                        ]
+                    },
+                ],
+                'nextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **directConnectGatewayAssociationProposals** *(list) --* 
+              Describes the Direct Connect gateway association proposals.
+              - *(dict) --* 
+                Information about the proposal request to attach a virtual private gateway to a Direct Connect gateway. 
+                - **proposalId** *(string) --* 
+                  The ID of the association proposal.
+                - **directConnectGatewayId** *(string) --* 
+                  The ID of the Direct Connect gateway.
+                - **directConnectGatewayOwnerAccount** *(string) --* 
+                  The ID of the AWS account that owns the Direct Connect gateway.
+                - **proposalState** *(string) --* 
+                  The state of the proposal. The following are possible values:
+                  * ``accepted`` : The proposal has been accepted. The Direct Connect gateway association is available to use in this state. 
+                  * ``deleted`` : The proposal has been deleted by the owner that made the proposal. The Direct Connect gateway association cannot be used in this state. 
+                  * ``requested`` : The proposal has been requested. The Direct Connect gateway association cannot be used in this state. 
+                - **associatedGateway** *(dict) --* 
+                  Information about the associated gateway.
+                  - **id** *(string) --* 
+                    The ID of the associated gateway.
+                  - **type** *(string) --* 
+                    The type of associated gateway.
+                  - **ownerAccount** *(string) --* 
+                    The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                  - **region** *(string) --* 
+                    The Region where the associated gateway is located.
+                - **existingAllowedPrefixesToDirectConnectGateway** *(list) --* 
+                  The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+                  - *(dict) --* 
+                    Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                    - **cidr** *(string) --* 
+                      The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+                - **requestedAllowedPrefixesToDirectConnectGateway** *(list) --* 
+                  The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                  - *(dict) --* 
+                    Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                    - **cidr** *(string) --* 
+                      The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+            - **nextToken** *(string) --* 
+              The token to use to retrieve the next page of results. This value is ``null`` when there are no more results to return.
+        :type directConnectGatewayId: string
+        :param directConnectGatewayId:
+          The ID of the Direct Connect gateway.
+        :type proposalId: string
+        :param proposalId:
+          The ID of the proposal.
+        :type associatedGatewayId: string
+        :param associatedGatewayId:
+          The ID of the associated gateway.
+        :type maxResults: integer
+        :param maxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
+          If ``MaxResults`` is given a value larger than 100, only 100 results are returned.
+        :type nextToken: string
+        :param nextToken:
+          The token for the next page of results.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def describe_direct_connect_gateway_associations(self, associationId: str = None, associatedGatewayId: str = None, directConnectGatewayId: str = None, maxResults: int = None, nextToken: str = None, virtualGatewayId: str = None) -> Dict:
         """
         Lists the associations between your Direct Connect gateways and virtual private gateways. You must specify a Direct Connect gateway, a virtual private gateway, or both. If you specify a Direct Connect gateway, the response contains all virtual private gateways associated with the Direct Connect gateway. If you specify a virtual private gateway, the response contains all Direct Connect gateways associated with the virtual private gateway. If you specify both, the response contains the association between the Direct Connect gateway and the virtual private gateway.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeDirectConnectGatewayAssociations>`_
@@ -2890,10 +3809,12 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.describe_direct_connect_gateway_associations(
+              associationId='string',
+              associatedGatewayId='string',
               directConnectGatewayId='string',
-              virtualGatewayId='string',
               maxResults=123,
-              nextToken='string'
+              nextToken='string',
+              virtualGatewayId='string'
           )
         
         **Response Syntax**
@@ -2902,11 +3823,24 @@ class Client(BaseClient):
                 'directConnectGatewayAssociations': [
                     {
                         'directConnectGatewayId': 'string',
+                        'directConnectGatewayOwnerAccount': 'string',
+                        'associationState': 'associating'|'associated'|'disassociating'|'disassociated'|'updating',
+                        'stateChangeError': 'string',
+                        'associatedGateway': {
+                            'id': 'string',
+                            'type': 'virtualPrivateGateway'|'transitGateway',
+                            'ownerAccount': 'string',
+                            'region': 'string'
+                        },
+                        'associationId': 'string',
+                        'allowedPrefixesToDirectConnectGateway': [
+                            {
+                                'cidr': 'string'
+                            },
+                        ],
                         'virtualGatewayId': 'string',
                         'virtualGatewayRegion': 'string',
-                        'virtualGatewayOwnerAccount': 'string',
-                        'associationState': 'associating'|'associated'|'disassociating'|'disassociated',
-                        'stateChangeError': 'string'
+                        'virtualGatewayOwnerAccount': 'string'
                     },
                 ],
                 'nextToken': 'string'
@@ -2915,39 +3849,66 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **directConnectGatewayAssociations** *(list) --* 
-              The associations.
+              Information about the associations.
               - *(dict) --* 
-                Information about an association between a Direct Connect gateway and a virtual private gateway.
+                Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.
                 - **directConnectGatewayId** *(string) --* 
                   The ID of the Direct Connect gateway.
+                - **directConnectGatewayOwnerAccount** *(string) --* 
+                  The ID of the AWS account that owns the associated gateway.
+                - **associationState** *(string) --* 
+                  The state of the association. The following are the possible values:
+                  * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
+                  * ``associated`` : The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic. 
+                  * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
+                  * ``disassociated`` : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped. 
+                - **stateChangeError** *(string) --* 
+                  The error message if the state of an object failed to advance.
+                - **associatedGateway** *(dict) --* 
+                  Information about the associated gateway.
+                  - **id** *(string) --* 
+                    The ID of the associated gateway.
+                  - **type** *(string) --* 
+                    The type of associated gateway.
+                  - **ownerAccount** *(string) --* 
+                    The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                  - **region** *(string) --* 
+                    The Region where the associated gateway is located.
+                - **associationId** *(string) --* 
+                  The ID of the Direct Connect gateway association.
+                - **allowedPrefixesToDirectConnectGateway** *(list) --* 
+                  The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                  - *(dict) --* 
+                    Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                    - **cidr** *(string) --* 
+                      The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
                 - **virtualGatewayId** *(string) --* 
                   The ID of the virtual private gateway. Applies only to private virtual interfaces.
                 - **virtualGatewayRegion** *(string) --* 
                   The AWS Region where the virtual private gateway is located.
                 - **virtualGatewayOwnerAccount** *(string) --* 
                   The ID of the AWS account that owns the virtual private gateway.
-                - **associationState** *(string) --* 
-                  The state of the association. The following are the possible values:
-                  * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
-                  * ``associated`` : The Direct Connect gateway and virtual private gateway are successfully associated and ready to pass traffic. 
-                  * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
-                  * ``disassociated`` : The virtual private gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway is stopped. 
-                - **stateChangeError** *(string) --* 
-                  The error message if the state of an object failed to advance.
             - **nextToken** *(string) --* 
               The token to retrieve the next page.
+        :type associationId: string
+        :param associationId:
+          The ID of the Direct Connect gateway association.
+        :type associatedGatewayId: string
+        :param associatedGatewayId:
+          The ID of the associated gateway.
         :type directConnectGatewayId: string
         :param directConnectGatewayId:
           The ID of the Direct Connect gateway.
-        :type virtualGatewayId: string
-        :param virtualGatewayId:
-          The ID of the virtual private gateway.
         :type maxResults: integer
         :param maxResults:
-          The maximum number of associations to return per page.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
+          If ``MaxResults`` is given a value larger than 100, only 100 results are returned.
         :type nextToken: string
         :param nextToken:
           The token provided in the previous call to retrieve the next page.
+        :type virtualGatewayId: string
+        :param virtualGatewayId:
+          The ID of the virtual private gateway.
         :rtype: dict
         :returns:
         """
@@ -2977,6 +3938,7 @@ class Client(BaseClient):
                         'virtualInterfaceRegion': 'string',
                         'virtualInterfaceOwnerAccount': 'string',
                         'attachmentState': 'attaching'|'attached'|'detaching'|'detached',
+                        'attachmentType': 'TransitVirtualInterface'|'PrivateVirtualInterface',
                         'stateChangeError': 'string'
                     },
                 ],
@@ -3003,6 +3965,8 @@ class Client(BaseClient):
                   * ``attached`` : The Direct Connect gateway and virtual interface are attached and ready to pass traffic. 
                   * ``detaching`` : The initial state after calling  DeleteVirtualInterface . 
                   * ``detached`` : The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped. 
+                - **attachmentType** *(string) --* 
+                  The type of attachment.
                 - **stateChangeError** *(string) --* 
                   The error message if the state of an object failed to advance.
             - **nextToken** *(string) --* 
@@ -3015,7 +3979,8 @@ class Client(BaseClient):
           The ID of the virtual interface.
         :type maxResults: integer
         :param maxResults:
-          The maximum number of attachments to return per page.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
+          If ``MaxResults`` is given a value larger than 100, only 100 results are returned.
         :type nextToken: string
         :param nextToken:
           The token provided in the previous call to retrieve the next page.
@@ -3058,7 +4023,7 @@ class Client(BaseClient):
             - **directConnectGateways** *(list) --* 
               The Direct Connect gateways.
               - *(dict) --* 
-                Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateways.
+                Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.
                 - **directConnectGatewayId** *(string) --* 
                   The ID of the Direct Connect gateway.
                 - **directConnectGatewayName** *(string) --* 
@@ -3082,7 +4047,8 @@ class Client(BaseClient):
           The ID of the Direct Connect gateway.
         :type maxResults: integer
         :param maxResults:
-          The maximum number of Direct Connect gateways to return per page.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
+          If ``MaxResults`` is given a value larger than 100, only 100 results are returned.
         :type nextToken: string
         :param nextToken:
           The token provided in the previous call to retrieve the next page.
@@ -3095,7 +4061,7 @@ class Client(BaseClient):
         """
         Lists the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG).
         .. note::
-          Intended for use by AWS Direct Connect partners only.
+          Intended for use by AWS Direct Connect Partners only.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeHostedConnections>`_
         
         **Request Syntax**
@@ -3366,7 +4332,7 @@ class Client(BaseClient):
               - *(dict) --* 
                 Information about a link aggregation group (LAG).
                 - **connectionsBandwidth** *(string) --* 
-                  The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
+                  The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps. 
                 - **numberOfConnections** *(integer) --* 
                   The number of physical connections bundled by the LAG, up to a maximum of 10.
                 - **lagId** *(string) --* 
@@ -3391,9 +4357,9 @@ class Client(BaseClient):
                 - **minimumLinks** *(integer) --* 
                   The minimum number of physical connections that must be operational for the LAG itself to be operational.
                 - **awsDevice** *(string) --* 
-                  The Direct Connect endpoint that hosts the LAG.
+                  The AWS Direct Connect endpoint that hosts the LAG.
                 - **awsDeviceV2** *(string) --* 
-                  The Direct Connect endpoint that hosts the LAG.
+                  The AWS Direct Connect endpoint that hosts the LAG.
                 - **connections** *(list) --* 
                   The connections bundled by the LAG.
                   - *(dict) --* 
@@ -3509,7 +4475,10 @@ class Client(BaseClient):
                     {
                         'locationCode': 'string',
                         'locationName': 'string',
-                        'region': 'string'
+                        'region': 'string',
+                        'availablePortSpeeds': [
+                            'string',
+                        ]
                     },
                 ]
             }
@@ -3526,6 +4495,9 @@ class Client(BaseClient):
                   The name of the location. This includes the name of the colocation partner and the physical site of the building.
                 - **region** *(string) --* 
                   The AWS Region for the location.
+                - **availablePortSpeeds** *(list) --* 
+                  The available port speeds for the location.
+                  - *(string) --* 
         :rtype: dict
         :returns:
         """
@@ -3792,7 +4764,7 @@ class Client(BaseClient):
 
     def disassociate_connection_from_lag(self, connectionId: str, lagId: str) -> Dict:
         """
-        Disassociates a connection from a link aggregation group (LAG). The connection is interrupted and re-established as a standalone connection (the connection is not deleted; to delete the connection, use the  DeleteConnection request). If the LAG has associated virtual interfaces or hosted connections, they remain associated with the LAG. A disassociated connection owned by an AWS Direct Connect partner is automatically converted to an interconnect.
+        Disassociates a connection from a link aggregation group (LAG). The connection is interrupted and re-established as a standalone connection (the connection is not deleted; to delete the connection, use the  DeleteConnection request). If the LAG has associated virtual interfaces or hosted connections, they remain associated with the LAG. A disassociated connection owned by an AWS Direct Connect Partner is automatically converted to an interconnect.
         If disassociating the connection would cause the LAG to fall below its setting for minimum number of operational connections, the request fails, except when it's the last member of the LAG. If all connections are disassociated, the LAG continues to exist as an empty LAG with no physical connections. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DisassociateConnectionFromLag>`_
         
@@ -3867,10 +4839,10 @@ class Client(BaseClient):
               Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         :type connectionId: string
         :param connectionId: **[REQUIRED]**
-          The ID of the connection. For example, dxcon-abc123.
+          The ID of the connection.
         :type lagId: string
         :param lagId: **[REQUIRED]**
-          The ID of the LAG. For example, dxlag-abc123.
+          The ID of the LAG.
         :rtype: dict
         :returns:
         """
@@ -3996,6 +4968,116 @@ class Client(BaseClient):
         """
         pass
 
+    def update_direct_connect_gateway_association(self, associationId: str = None, addAllowedPrefixesToDirectConnectGateway: List = None, removeAllowedPrefixesToDirectConnectGateway: List = None) -> Dict:
+        """
+        Updates the specified attributes of the Direct Connect gateway association.
+        Add or remove prefixes from the association.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/UpdateDirectConnectGatewayAssociation>`_
+        
+        **Request Syntax**
+        ::
+          response = client.update_direct_connect_gateway_association(
+              associationId='string',
+              addAllowedPrefixesToDirectConnectGateway=[
+                  {
+                      'cidr': 'string'
+                  },
+              ],
+              removeAllowedPrefixesToDirectConnectGateway=[
+                  {
+                      'cidr': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'directConnectGatewayAssociation': {
+                    'directConnectGatewayId': 'string',
+                    'directConnectGatewayOwnerAccount': 'string',
+                    'associationState': 'associating'|'associated'|'disassociating'|'disassociated'|'updating',
+                    'stateChangeError': 'string',
+                    'associatedGateway': {
+                        'id': 'string',
+                        'type': 'virtualPrivateGateway'|'transitGateway',
+                        'ownerAccount': 'string',
+                        'region': 'string'
+                    },
+                    'associationId': 'string',
+                    'allowedPrefixesToDirectConnectGateway': [
+                        {
+                            'cidr': 'string'
+                        },
+                    ],
+                    'virtualGatewayId': 'string',
+                    'virtualGatewayRegion': 'string',
+                    'virtualGatewayOwnerAccount': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **directConnectGatewayAssociation** *(dict) --* 
+              Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.
+              - **directConnectGatewayId** *(string) --* 
+                The ID of the Direct Connect gateway.
+              - **directConnectGatewayOwnerAccount** *(string) --* 
+                The ID of the AWS account that owns the associated gateway.
+              - **associationState** *(string) --* 
+                The state of the association. The following are the possible values:
+                * ``associating`` : The initial state after calling  CreateDirectConnectGatewayAssociation . 
+                * ``associated`` : The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic. 
+                * ``disassociating`` : The initial state after calling  DeleteDirectConnectGatewayAssociation . 
+                * ``disassociated`` : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped. 
+              - **stateChangeError** *(string) --* 
+                The error message if the state of an object failed to advance.
+              - **associatedGateway** *(dict) --* 
+                Information about the associated gateway.
+                - **id** *(string) --* 
+                  The ID of the associated gateway.
+                - **type** *(string) --* 
+                  The type of associated gateway.
+                - **ownerAccount** *(string) --* 
+                  The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
+                - **region** *(string) --* 
+                  The Region where the associated gateway is located.
+              - **associationId** *(string) --* 
+                The ID of the Direct Connect gateway association.
+              - **allowedPrefixesToDirectConnectGateway** *(list) --* 
+                The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+                - *(dict) --* 
+                  Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+                  - **cidr** *(string) --* 
+                    The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+              - **virtualGatewayId** *(string) --* 
+                The ID of the virtual private gateway. Applies only to private virtual interfaces.
+              - **virtualGatewayRegion** *(string) --* 
+                The AWS Region where the virtual private gateway is located.
+              - **virtualGatewayOwnerAccount** *(string) --* 
+                The ID of the AWS account that owns the virtual private gateway.
+        :type associationId: string
+        :param associationId:
+          The ID of the Direct Connect gateway association.
+        :type addAllowedPrefixesToDirectConnectGateway: list
+        :param addAllowedPrefixesToDirectConnectGateway:
+          The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+          - *(dict) --*
+            Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+            - **cidr** *(string) --*
+              The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+        :type removeAllowedPrefixesToDirectConnectGateway: list
+        :param removeAllowedPrefixesToDirectConnectGateway:
+          The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.
+          - *(dict) --*
+            Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+            - **cidr** *(string) --*
+              The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def update_lag(self, lagId: str, lagName: str = None, minimumLinks: int = None) -> Dict:
         """
         Updates the attributes of the specified link aggregation group (LAG).
@@ -4055,7 +5137,7 @@ class Client(BaseClient):
           - *(dict) --* 
             Information about a link aggregation group (LAG).
             - **connectionsBandwidth** *(string) --* 
-              The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
+              The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps. 
             - **numberOfConnections** *(integer) --* 
               The number of physical connections bundled by the LAG, up to a maximum of 10.
             - **lagId** *(string) --* 
@@ -4080,9 +5162,9 @@ class Client(BaseClient):
             - **minimumLinks** *(integer) --* 
               The minimum number of physical connections that must be operational for the LAG itself to be operational.
             - **awsDevice** *(string) --* 
-              The Direct Connect endpoint that hosts the LAG.
+              The AWS Direct Connect endpoint that hosts the LAG.
             - **awsDeviceV2** *(string) --* 
-              The Direct Connect endpoint that hosts the LAG.
+              The AWS Direct Connect endpoint that hosts the LAG.
             - **connections** *(list) --* 
               The connections bundled by the LAG.
               - *(dict) --* 

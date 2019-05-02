@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -787,7 +787,7 @@ class Client(BaseClient):
 
     def list_tags_for_resource(self, ResourceArn: str) -> Dict:
         """
-        Lists all tags associated with the resource.
+        List all tags on an AWS Elemental MediaConnect resource
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediaconnect-2018-11-14/ListTagsForResource>`_
         
         **Request Syntax**
@@ -805,12 +805,12 @@ class Client(BaseClient):
             }
         
         **Response Structure**
-          - *(dict) --* AWS Elemental MediaConnect listed the tags associated with the resource.
+          - *(dict) --* The tags for the resource
             - **Tags** *(dict) --* A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
               - *(string) --* 
                 - *(string) --* 
         :type ResourceArn: string
-        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource that you want to view tags for.
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.
         :rtype: dict
         :returns:
         """
@@ -940,7 +940,7 @@ class Client(BaseClient):
 
     def tag_resource(self, ResourceArn: str, Tags: Dict):
         """
-        Associates the specified tags to a resource. If the request does not mention an existing tag associated with the resource, that tag is not changed.
+        Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are deleted as well.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediaconnect-2018-11-14/TagResource>`_
         
         **Request Syntax**
@@ -952,7 +952,7 @@ class Client(BaseClient):
               }
           )
         :type ResourceArn: string
-        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource that you want to add tags to.
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource to which to add tags.
         :type Tags: dict
         :param Tags: **[REQUIRED]** A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
           - *(string) --*
@@ -963,7 +963,7 @@ class Client(BaseClient):
 
     def untag_resource(self, ResourceArn: str, TagKeys: List):
         """
-        Deletes the specified tags from a resource.
+        Deletes specified tags from a resource.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediaconnect-2018-11-14/UntagResource>`_
         
         **Request Syntax**
@@ -975,7 +975,7 @@ class Client(BaseClient):
               ]
           )
         :type ResourceArn: string
-        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.
         :type TagKeys: list
         :param TagKeys: **[REQUIRED]** The keys of the tags to be removed.
           - *(string) --*

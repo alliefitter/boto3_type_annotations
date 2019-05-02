@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -14,7 +14,7 @@ class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_channel(self, Destinations: List = None, EncoderSettings: Dict = None, InputAttachments: List = None, InputSpecification: Dict = None, LogLevel: str = None, Name: str = None, RequestId: str = None, Reserved: str = None, RoleArn: str = None, Tags: Dict = None) -> Dict:
+    def create_channel(self, ChannelClass: str = None, Destinations: List = None, EncoderSettings: Dict = None, InputAttachments: List = None, InputSpecification: Dict = None, LogLevel: str = None, Name: str = None, RequestId: str = None, Reserved: str = None, RoleArn: str = None, Tags: Dict = None) -> Dict:
         pass
 
     def create_input(self, Destinations: List = None, InputSecurityGroups: List = None, MediaConnectFlows: List = None, Name: str = None, RequestId: str = None, RoleArn: str = None, Sources: List = None, Tags: Dict = None, Type: str = None, Vpc: Dict = None) -> Dict:
@@ -77,16 +77,16 @@ class Client(BaseClient):
     def list_inputs(self, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def list_offerings(self, ChannelConfiguration: str = None, Codec: str = None, MaxResults: int = None, MaximumBitrate: str = None, MaximumFramerate: str = None, NextToken: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None) -> Dict:
+    def list_offerings(self, ChannelClass: str = None, ChannelConfiguration: str = None, Codec: str = None, MaxResults: int = None, MaximumBitrate: str = None, MaximumFramerate: str = None, NextToken: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None) -> Dict:
         pass
 
-    def list_reservations(self, Codec: str = None, MaxResults: int = None, MaximumBitrate: str = None, MaximumFramerate: str = None, NextToken: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None) -> Dict:
+    def list_reservations(self, ChannelClass: str = None, Codec: str = None, MaxResults: int = None, MaximumBitrate: str = None, MaximumFramerate: str = None, NextToken: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None) -> Dict:
         pass
 
     def list_tags_for_resource(self, ResourceArn: str) -> Dict:
         pass
 
-    def purchase_offering(self, Count: int, OfferingId: str, Name: str = None, RequestId: str = None, Start: str = None) -> Dict:
+    def purchase_offering(self, Count: int, OfferingId: str, Name: str = None, RequestId: str = None, Start: str = None, Tags: Dict = None) -> Dict:
         pass
 
     def start_channel(self, ChannelId: str) -> Dict:
@@ -102,4 +102,7 @@ class Client(BaseClient):
         pass
 
     def update_input_security_group(self, InputSecurityGroupId: str, Tags: Dict = None, WhitelistRules: List = None) -> Dict:
+        pass
+
+    def update_reservation(self, ReservationId: str, Name: str = None) -> Dict:
         pass

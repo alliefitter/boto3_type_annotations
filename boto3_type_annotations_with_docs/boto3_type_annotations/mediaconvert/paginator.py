@@ -250,6 +250,14 @@ class ListJobTemplates(Paginator):
                                             'ClientCache': 'DISABLED'|'ENABLED',
                                             'CodecSpecification': 'RFC_6381'|'RFC_4281',
                                             'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            },
                                             'Encryption': {
                                                 'ConstantInitializationVector': 'string',
                                                 'EncryptionMethod': 'SAMPLE_AES',
@@ -276,6 +284,14 @@ class ListJobTemplates(Paginator):
                                         'DashIsoGroupSettings': {
                                             'BaseUrl': 'string',
                                             'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            },
                                             'Encryption': {
                                                 'SpekeKeyProvider': {
                                                     'CertificateArn': 'string',
@@ -294,7 +310,15 @@ class ListJobTemplates(Paginator):
                                             'WriteSegmentTimelineInRepresentation': 'ENABLED'|'DISABLED'
                                         },
                                         'FileGroupSettings': {
-                                            'Destination': 'string'
+                                            'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            }
                                         },
                                         'HlsGroupSettings': {
                                             'AdMarkers': [
@@ -313,6 +337,14 @@ class ListJobTemplates(Paginator):
                                             'ClientCache': 'DISABLED'|'ENABLED',
                                             'CodecSpecification': 'RFC_6381'|'RFC_4281',
                                             'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            },
                                             'DirectoryStructure': 'SINGLE_DIRECTORY'|'SUBDIRECTORY_PER_STREAM',
                                             'Encryption': {
                                                 'ConstantInitializationVector': 'string',
@@ -353,6 +385,14 @@ class ListJobTemplates(Paginator):
                                         'MsSmoothGroupSettings': {
                                             'AudioDeduplication': 'COMBINE_DUPLICATE_STREAMS'|'NONE',
                                             'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            },
                                             'Encryption': {
                                                 'SpekeKeyProvider': {
                                                     'CertificateArn': 'string',
@@ -880,7 +920,7 @@ class ListJobTemplates(Paginator):
                                 ]
                             }
                         },
-                        'StatusUpdateIntervalInSecs': 123,
+                        'StatusUpdateInterval': 'SECONDS_10'|'SECONDS_12'|'SECONDS_15'|'SECONDS_20'|'SECONDS_30'|'SECONDS_60'|'SECONDS_120'|'SECONDS_180'|'SECONDS_240'|'SECONDS_300'|'SECONDS_360'|'SECONDS_420'|'SECONDS_480'|'SECONDS_540'|'SECONDS_600',
                         'Type': 'SYSTEM'|'CUSTOM'
                     },
                 ],
@@ -890,7 +930,7 @@ class ListJobTemplates(Paginator):
           - *(dict) --* 
             - **JobTemplates** *(list) --* List of Job templates.
               - *(dict) --* A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
-                - **AccelerationSettings** *(dict) --* Acceleration settings for job execution.
+                - **AccelerationSettings** *(dict) --* Accelerated transcoding is currently in private preview. Contact AWS for more information.
                   - **Mode** *(string) --* Acceleration configuration for the job.
                 - **Arn** *(string) --* An identifier for this resource that is unique within all of AWS.
                 - **Category** *(string) --* An optional category you create to organize your job templates.
@@ -1029,6 +1069,11 @@ class ListJobTemplates(Paginator):
                           - **ClientCache** *(string) --* When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
                           - **CodecSpecification** *(string) --* Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                           - **Encryption** *(dict) --* DRM settings.
                             - **ConstantInitializationVector** *(string) --* This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
                             - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
@@ -1052,6 +1097,11 @@ class ListJobTemplates(Paginator):
                         - **DashIsoGroupSettings** *(dict) --* Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
                           - **BaseUrl** *(string) --* A partial URI prefix that will be put in the manifest (.mpd) file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                           - **Encryption** *(dict) --* DRM settings.
                             - **SpekeKeyProvider** *(dict) --* Settings for use with a SPEKE key provider
                               - **CertificateArn** *(string) --* Optional AWS Certificate Manager ARN for a certificate to send to the keyprovider. The certificate holds a key used by the keyprovider to encrypt the keys in its response.
@@ -1067,6 +1117,11 @@ class ListJobTemplates(Paginator):
                           - **WriteSegmentTimelineInRepresentation** *(string) --* When you enable Precise segment duration in manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element.
                         - **FileGroupSettings** *(dict) --* Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                         - **HlsGroupSettings** *(dict) --* Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
                           - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
                             - *(string) --* 
@@ -1081,6 +1136,11 @@ class ListJobTemplates(Paginator):
                           - **ClientCache** *(string) --* When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
                           - **CodecSpecification** *(string) --* Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                           - **DirectoryStructure** *(string) --* Indicates whether segments should be placed in subdirectories.
                           - **Encryption** *(dict) --* DRM settings.
                             - **ConstantInitializationVector** *(string) --* This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
@@ -1116,6 +1176,11 @@ class ListJobTemplates(Paginator):
                         - **MsSmoothGroupSettings** *(dict) --* Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to MS_SMOOTH_GROUP_SETTINGS.
                           - **AudioDeduplication** *(string) --* COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                           - **Encryption** *(dict) --* If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
                             - **SpekeKeyProvider** *(dict) --* Settings for use with a SPEKE key provider
                               - **CertificateArn** *(string) --* Optional AWS Certificate Manager ARN for a certificate to send to the keyprovider. The certificate holds a key used by the keyprovider to encrypt the keys in its response.
@@ -1353,7 +1418,7 @@ class ListJobTemplates(Paginator):
                           - **Preset** *(string) --* Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
                           - **VideoDescription** *(dict) --* (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
                             - **AfdSignaling** *(string) --* This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
-                            - **AntiAlias** *(string) --* You no longer need to specify the anti-alias filter. It's now automatically applied to all outputs. This property is deprecated.
+                            - **AntiAlias** *(string) --* The anti-alias filter is automatically applied to all outputs. The service no longer accepts the value DISABLED for AntiAlias. If you specify that in your job, the service will ignore the setting.
                             - **CodecSettings** *(dict) --* Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value you choose for Video codec (Codec). For each codec enum you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * FRAME_CAPTURE, FrameCaptureSettings
                               - **Codec** *(string) --* Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
                               - **FrameCaptureSettings** *(dict) --* Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
@@ -1568,7 +1633,7 @@ class ListJobTemplates(Paginator):
                       - *(dict) --* To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).
                         - **Id3** *(string) --* Use ID3 tag (Id3) to provide a tag value in base64-encode format.
                         - **Timecode** *(string) --* Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
-                - **StatusUpdateIntervalInSecs** *(integer) --* Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+                - **StatusUpdateInterval** *(string) --* Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
                 - **Type** *(string) --* A job template can be of two types: system or custom. System or built-in job templates can't be modified or deleted by the user.
         :type Category: string
         :param Category: Optionally, specify a job template category to limit responses to only job templates from that category.
@@ -1621,9 +1686,11 @@ class ListJobs(Paginator):
                         'Arn': 'string',
                         'BillingTagsSource': 'QUEUE'|'PRESET'|'JOB_TEMPLATE',
                         'CreatedAt': datetime(2015, 1, 1),
+                        'CurrentPhase': 'PROBING'|'TRANSCODING'|'UPLOADING',
                         'ErrorCode': 123,
                         'ErrorMessage': 'string',
                         'Id': 'string',
+                        'JobPercentComplete': 123,
                         'JobTemplate': 'string',
                         'OutputGroupDetails': [
                             {
@@ -1639,6 +1706,7 @@ class ListJobs(Paginator):
                             },
                         ],
                         'Queue': 'string',
+                        'RetryCount': 123,
                         'Role': 'string',
                         'Settings': {
                             'AdAvailOffset': 123,
@@ -1815,6 +1883,14 @@ class ListJobs(Paginator):
                                             'ClientCache': 'DISABLED'|'ENABLED',
                                             'CodecSpecification': 'RFC_6381'|'RFC_4281',
                                             'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            },
                                             'Encryption': {
                                                 'ConstantInitializationVector': 'string',
                                                 'EncryptionMethod': 'SAMPLE_AES',
@@ -1841,6 +1917,14 @@ class ListJobs(Paginator):
                                         'DashIsoGroupSettings': {
                                             'BaseUrl': 'string',
                                             'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            },
                                             'Encryption': {
                                                 'SpekeKeyProvider': {
                                                     'CertificateArn': 'string',
@@ -1859,7 +1943,15 @@ class ListJobs(Paginator):
                                             'WriteSegmentTimelineInRepresentation': 'ENABLED'|'DISABLED'
                                         },
                                         'FileGroupSettings': {
-                                            'Destination': 'string'
+                                            'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            }
                                         },
                                         'HlsGroupSettings': {
                                             'AdMarkers': [
@@ -1878,6 +1970,14 @@ class ListJobs(Paginator):
                                             'ClientCache': 'DISABLED'|'ENABLED',
                                             'CodecSpecification': 'RFC_6381'|'RFC_4281',
                                             'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            },
                                             'DirectoryStructure': 'SINGLE_DIRECTORY'|'SUBDIRECTORY_PER_STREAM',
                                             'Encryption': {
                                                 'ConstantInitializationVector': 'string',
@@ -1918,6 +2018,14 @@ class ListJobs(Paginator):
                                         'MsSmoothGroupSettings': {
                                             'AudioDeduplication': 'COMBINE_DUPLICATE_STREAMS'|'NONE',
                                             'Destination': 'string',
+                                            'DestinationSettings': {
+                                                'S3Settings': {
+                                                    'Encryption': {
+                                                        'EncryptionType': 'SERVER_SIDE_ENCRYPTION_S3'|'SERVER_SIDE_ENCRYPTION_KMS',
+                                                        'KmsKeyArn': 'string'
+                                                    }
+                                                }
+                                            },
                                             'Encryption': {
                                                 'SpekeKeyProvider': {
                                                     'CertificateArn': 'string',
@@ -2446,7 +2554,7 @@ class ListJobs(Paginator):
                             }
                         },
                         'Status': 'SUBMITTED'|'PROGRESSING'|'COMPLETE'|'CANCELED'|'ERROR',
-                        'StatusUpdateIntervalInSecs': 123,
+                        'StatusUpdateInterval': 'SECONDS_10'|'SECONDS_12'|'SECONDS_15'|'SECONDS_20'|'SECONDS_30'|'SECONDS_60'|'SECONDS_120'|'SECONDS_180'|'SECONDS_240'|'SECONDS_300'|'SECONDS_360'|'SECONDS_420'|'SECONDS_480'|'SECONDS_540'|'SECONDS_600',
                         'Timing': {
                             'FinishTime': datetime(2015, 1, 1),
                             'StartTime': datetime(2015, 1, 1),
@@ -2463,14 +2571,16 @@ class ListJobs(Paginator):
           - *(dict) --* 
             - **Jobs** *(list) --* List of jobs
               - *(dict) --* Each job converts an input file into an output file or files. For more information, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-                - **AccelerationSettings** *(dict) --* Acceleration settings for job execution.
+                - **AccelerationSettings** *(dict) --* Accelerated transcoding is currently in private preview. Contact AWS for more information.
                   - **Mode** *(string) --* Acceleration configuration for the job.
                 - **Arn** *(string) --* An identifier for this resource that is unique within all of AWS.
                 - **BillingTagsSource** *(string) --* Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
                 - **CreatedAt** *(datetime) --* The time, in Unix epoch format in seconds, when the job got created.
+                - **CurrentPhase** *(string) --* A job's phase can be PROBING, TRANSCODING OR UPLOADING
                 - **ErrorCode** *(integer) --* Error code for the job
                 - **ErrorMessage** *(string) --* Error message of Job
                 - **Id** *(string) --* A portion of the job's ARN, unique within your AWS Elemental MediaConvert resources
+                - **JobPercentComplete** *(integer) --* An estimate of how far your job has progressed. This estimate is shown as a percentage of the total time from when your job leaves its queue to when your output files appear in your output Amazon S3 bucket. AWS Elemental MediaConvert provides jobPercentComplete in CloudWatch STATUS_UPDATE events and in the response to GetJob and ListJobs requests. The jobPercentComplete estimate is reliable for the following input containers: Quicktime, Transport Stream, MP4, and MXF. For some jobs, including audio-only jobs and jobs that use input clipping, the service can't provide information about job progress. In those cases, jobPercentComplete returns a null value.
                 - **JobTemplate** *(string) --* The job template that the job is created from, if it is created from a job template.
                 - **OutputGroupDetails** *(list) --* List of output group details
                   - *(dict) --* Contains details about the output groups specified in the job settings.
@@ -2481,6 +2591,7 @@ class ListJobs(Paginator):
                           - **HeightInPx** *(integer) --* Height in pixels for the output
                           - **WidthInPx** *(integer) --* Width in pixels for the output
                 - **Queue** *(string) --* Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+                - **RetryCount** *(integer) --* The number of times that the service automatically attempted to process your job after encountering an error.
                 - **Role** *(string) --* The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
                 - **Settings** *(dict) --* JobSettings contains all the transcode settings for a job.
                   - **AdAvailOffset** *(integer) --* When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
@@ -2545,11 +2656,11 @@ class ListJobs(Paginator):
                               - **TrackSourceSettings** *(dict) --* Settings specific to caption sources that are specfied by track number. Sources include IMSC in IMF.
                                 - **TrackNumber** *(integer) --* Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
                       - **DeblockFilter** *(string) --* Enable Deblock (InputDeblockFilter) to produce smoother motion in the output. Default is disabled. Only manaully controllable for MPEG2 and uncompressed video inputs.
-                      - **DecryptionSettings** *(dict) --* Settings for decrypting any input files that are encrypted.
-                        - **DecryptionMode** *(string) --* This specifies how the encrypted file needs to be decrypted.
-                        - **EncryptedDecryptionKey** *(string) --* Decryption key either 128 or 192 or 256 bits encrypted with KMS
-                        - **InitializationVector** *(string) --* Initialization Vector 96 bits (CTR/GCM mode only) or 128 bits.
-                        - **KmsKeyRegion** *(string) --* The AWS region in which decryption key was encrypted with KMS
+                      - **DecryptionSettings** *(dict) --* Settings for decrypting any input files that you encrypt before you upload them to Amazon S3. MediaConvert can decrypt files only when you use AWS Key Management Service (KMS) to encrypt the data key that you use to encrypt your content.
+                        - **DecryptionMode** *(string) --* Specify the encryption mode that you used to encrypt your input files.
+                        - **EncryptedDecryptionKey** *(string) --* Warning! Don't provide your encryption key in plaintext. Your job settings could be intercepted, making your encrypted content vulnerable. Specify the encrypted version of the data key that you used to encrypt your content. The data key must be encrypted by AWS Key Management Service (KMS). The key can be 128, 192, or 256 bits.
+                        - **InitializationVector** *(string) --* Specify the initialization vector that you used when you encrypted your content before uploading it to Amazon S3. You can use a 16-byte initialization vector with any encryption mode. Or, you can use a 12-byte initialization vector with GCM or CTR. MediaConvert accepts only initialization vectors that are base64-encoded.
+                        - **KmsKeyRegion** *(string) --* Specify the AWS Region for AWS Key Management Service (KMS) that you used to encrypt your data key, if that Region is different from the one you are using for AWS Elemental MediaConvert.
                       - **DenoiseFilter** *(string) --* Enable Denoise (InputDenoiseFilter) to filter noise from the input. Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
                       - **FileInput** *(string) --* Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. If your input format is IMF, specify your input by providing the path to your CPL. For example, "s3://bucket/vf/cpl.xml". If the CPL is in an incomplete IMP, make sure to use *Supplemental IMPs* (SupplementalImps) to specify any supplemental IMPs that contain assets referenced by the CPL.
                       - **FilterEnable** *(string) --* Use Filter enable (InputFilterEnable) to specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The in put is filtered regardless of input type.
@@ -2620,6 +2731,11 @@ class ListJobs(Paginator):
                           - **ClientCache** *(string) --* When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
                           - **CodecSpecification** *(string) --* Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                           - **Encryption** *(dict) --* DRM settings.
                             - **ConstantInitializationVector** *(string) --* This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
                             - **EncryptionMethod** *(string) --* Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
@@ -2643,6 +2759,11 @@ class ListJobs(Paginator):
                         - **DashIsoGroupSettings** *(dict) --* Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
                           - **BaseUrl** *(string) --* A partial URI prefix that will be put in the manifest (.mpd) file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                           - **Encryption** *(dict) --* DRM settings.
                             - **SpekeKeyProvider** *(dict) --* Settings for use with a SPEKE key provider
                               - **CertificateArn** *(string) --* Optional AWS Certificate Manager ARN for a certificate to send to the keyprovider. The certificate holds a key used by the keyprovider to encrypt the keys in its response.
@@ -2658,6 +2779,11 @@ class ListJobs(Paginator):
                           - **WriteSegmentTimelineInRepresentation** *(string) --* When you enable Precise segment duration in manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element.
                         - **FileGroupSettings** *(dict) --* Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                         - **HlsGroupSettings** *(dict) --* Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
                           - **AdMarkers** *(list) --* Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
                             - *(string) --* 
@@ -2672,6 +2798,11 @@ class ListJobs(Paginator):
                           - **ClientCache** *(string) --* When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
                           - **CodecSpecification** *(string) --* Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                           - **DirectoryStructure** *(string) --* Indicates whether segments should be placed in subdirectories.
                           - **Encryption** *(dict) --* DRM settings.
                             - **ConstantInitializationVector** *(string) --* This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
@@ -2707,6 +2838,11 @@ class ListJobs(Paginator):
                         - **MsSmoothGroupSettings** *(dict) --* Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to MS_SMOOTH_GROUP_SETTINGS.
                           - **AudioDeduplication** *(string) --* COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
                           - **Destination** *(string) --* Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+                          - **DestinationSettings** *(dict) --* Settings associated with the destination. Will vary based on the type of destination
+                            - **S3Settings** *(dict) --* Settings associated with S3 destination
+                              - **Encryption** *(dict) --* Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+                                - **EncryptionType** *(string) --* Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
+                                - **KmsKeyArn** *(string) --* Optionally, specify the customer master key (CMK) that you want to use to encrypt the data key that AWS uses to encrypt your output content. Enter the Amazon Resource Name (ARN) of the CMK. To use this setting, you must also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption to AWS KMS but don't specify a CMK here, AWS uses the AWS managed CMK associated with Amazon S3.
                           - **Encryption** *(dict) --* If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
                             - **SpekeKeyProvider** *(dict) --* Settings for use with a SPEKE key provider
                               - **CertificateArn** *(string) --* Optional AWS Certificate Manager ARN for a certificate to send to the keyprovider. The certificate holds a key used by the keyprovider to encrypt the keys in its response.
@@ -2944,7 +3080,7 @@ class ListJobs(Paginator):
                           - **Preset** *(string) --* Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
                           - **VideoDescription** *(dict) --* (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
                             - **AfdSignaling** *(string) --* This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
-                            - **AntiAlias** *(string) --* You no longer need to specify the anti-alias filter. It's now automatically applied to all outputs. This property is deprecated.
+                            - **AntiAlias** *(string) --* The anti-alias filter is automatically applied to all outputs. The service no longer accepts the value DISABLED for AntiAlias. If you specify that in your job, the service will ignore the setting.
                             - **CodecSettings** *(dict) --* Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value you choose for Video codec (Codec). For each codec enum you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * FRAME_CAPTURE, FrameCaptureSettings
                               - **Codec** *(string) --* Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
                               - **FrameCaptureSettings** *(dict) --* Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
@@ -3160,7 +3296,7 @@ class ListJobs(Paginator):
                         - **Id3** *(string) --* Use ID3 tag (Id3) to provide a tag value in base64-encode format.
                         - **Timecode** *(string) --* Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
                 - **Status** *(string) --* A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
-                - **StatusUpdateIntervalInSecs** *(integer) --* Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+                - **StatusUpdateInterval** *(string) --* Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
                 - **Timing** *(dict) --* Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
                   - **FinishTime** *(datetime) --* The time, in Unix epoch format, that the transcoding job finished
                   - **StartTime** *(datetime) --* The time, in Unix epoch format, that transcoding for the job began.
@@ -3929,7 +4065,7 @@ class ListPresets(Paginator):
                       - **Mp4MajorBrand** *(string) --* Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
                   - **VideoDescription** *(dict) --* (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
                     - **AfdSignaling** *(string) --* This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
-                    - **AntiAlias** *(string) --* You no longer need to specify the anti-alias filter. It's now automatically applied to all outputs. This property is deprecated.
+                    - **AntiAlias** *(string) --* The anti-alias filter is automatically applied to all outputs. The service no longer accepts the value DISABLED for AntiAlias. If you specify that in your job, the service will ignore the setting.
                     - **CodecSettings** *(dict) --* Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value you choose for Video codec (Codec). For each codec enum you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * FRAME_CAPTURE, FrameCaptureSettings
                       - **Codec** *(string) --* Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
                       - **FrameCaptureSettings** *(dict) --* Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.

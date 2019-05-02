@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
-from datetime import datetime
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -69,7 +69,7 @@ class Client(BaseClient):
     def create_keys_and_certificate(self, setAsActive: bool = None) -> Dict:
         pass
 
-    def create_ota_update(self, otaUpdateId: str, targets: List, files: List, roleArn: str, description: str = None, targetSelection: str = None, awsJobExecutionsRolloutConfig: Dict = None, additionalParameters: Dict = None) -> Dict:
+    def create_ota_update(self, otaUpdateId: str, targets: List, files: List, roleArn: str, description: str = None, targetSelection: str = None, awsJobExecutionsRolloutConfig: Dict = None, additionalParameters: Dict = None, tags: List = None) -> Dict:
         pass
 
     def create_policy(self, policyName: str, policyDocument: str) -> Dict:
@@ -87,7 +87,7 @@ class Client(BaseClient):
     def create_security_profile(self, securityProfileName: str, securityProfileDescription: str = None, behaviors: List = None, alertTargets: Dict = None, additionalMetricsToRetain: List = None, tags: List = None) -> Dict:
         pass
 
-    def create_stream(self, streamId: str, files: List, roleArn: str, description: str = None) -> Dict:
+    def create_stream(self, streamId: str, files: List, roleArn: str, description: str = None, tags: List = None) -> Dict:
         pass
 
     def create_thing(self, thingName: str, thingTypeName: str = None, attributePayload: Dict = None, billingGroupName: str = None) -> Dict:
@@ -274,6 +274,9 @@ class Client(BaseClient):
         pass
 
     def get_registration_code(self) -> Dict:
+        pass
+
+    def get_statistics(self, queryString: str, indexName: str = None, aggregationField: str = None, queryVersion: str = None) -> Dict:
         pass
 
     def get_topic_rule(self, ruleName: str) -> Dict:

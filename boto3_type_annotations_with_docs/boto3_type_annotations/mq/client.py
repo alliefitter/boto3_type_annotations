@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -205,7 +205,7 @@ class Client(BaseClient):
               }
           )
         :type ResourceArn: string
-        :param ResourceArn: **[REQUIRED]** the Amazon Resource Name (ARN)
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource tag.
         :type Tags: dict
         :param Tags: The key-value pair for the resource tag.
           - *(string) --*
@@ -282,7 +282,7 @@ class Client(BaseClient):
 
     def delete_tags(self, ResourceArn: str, TagKeys: List):
         """
-        Remove a tag from a resource.
+        Removes a tag from a resource.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/DeleteTags>`_
         
         **Request Syntax**
@@ -294,7 +294,7 @@ class Client(BaseClient):
               ]
           )
         :type ResourceArn: string
-        :param ResourceArn: **[REQUIRED]** the Amazon Resource Name (ARN)
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource tag.
         :type TagKeys: list
         :param TagKeys: **[REQUIRED]** An array of tag keys to delete
           - *(string) --*
@@ -468,6 +468,118 @@ class Client(BaseClient):
                 - **Username** *(string) --* Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
         :type BrokerId: string
         :param BrokerId: **[REQUIRED]** The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def describe_broker_engine_types(self, EngineType: str = None, MaxResults: int = None, NextToken: str = None) -> Dict:
+        """
+        Describe available engine types and versions.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/DescribeBrokerEngineTypes>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_broker_engine_types(
+              EngineType='string',
+              MaxResults=123,
+              NextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'BrokerEngineTypes': [
+                    {
+                        'EngineType': 'ACTIVEMQ',
+                        'EngineVersions': [
+                            {
+                                'Name': 'string'
+                            },
+                        ]
+                    },
+                ],
+                'MaxResults': 123,
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* HTTP Status Code 200: OK.
+            - **BrokerEngineTypes** *(list) --* List of available engine types and versions.
+              - *(dict) --* Types of broker engines.
+                - **EngineType** *(string) --* The type of broker engine.
+                - **EngineVersions** *(list) --* The list of engine versions.
+                  - *(dict) --* Id of the engine version.
+                    - **Name** *(string) --* Id for the version.
+            - **MaxResults** *(integer) --* Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+            - **NextToken** *(string) --* The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+        :type EngineType: string
+        :param EngineType: Filter response by engine type.
+        :type MaxResults: integer
+        :param MaxResults: The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+        :type NextToken: string
+        :param NextToken: The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def describe_broker_instance_options(self, EngineType: str = None, HostInstanceType: str = None, MaxResults: int = None, NextToken: str = None) -> Dict:
+        """
+        Describe available broker instance options.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mq-2017-11-27/DescribeBrokerInstanceOptions>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_broker_instance_options(
+              EngineType='string',
+              HostInstanceType='string',
+              MaxResults=123,
+              NextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'BrokerInstanceOptions': [
+                    {
+                        'AvailabilityZones': [
+                            {
+                                'Name': 'string'
+                            },
+                        ],
+                        'EngineType': 'ACTIVEMQ',
+                        'HostInstanceType': 'string',
+                        'SupportedEngineVersions': [
+                            'string',
+                        ]
+                    },
+                ],
+                'MaxResults': 123,
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* HTTP Status Code 200: OK.
+            - **BrokerInstanceOptions** *(list) --* List of available broker instance options.
+              - *(dict) --* Option for host instance type.
+                - **AvailabilityZones** *(list) --* The list of available az.
+                  - *(dict) --* Name of the availability zone.
+                    - **Name** *(string) --* Id for the availability zone.
+                - **EngineType** *(string) --* The type of broker engine.
+                - **HostInstanceType** *(string) --* The type of broker instance.
+                - **SupportedEngineVersions** *(list) --* The list of supported engine versions.
+                  - *(string) --* 
+            - **MaxResults** *(integer) --* Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+            - **NextToken** *(string) --* The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+        :type EngineType: string
+        :param EngineType: Filter response by engine type.
+        :type HostInstanceType: string
+        :param HostInstanceType: Filter response by host instance type.
+        :type MaxResults: integer
+        :param MaxResults: The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+        :type NextToken: string
+        :param NextToken: The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
         :rtype: dict
         :returns:
         """
@@ -852,7 +964,7 @@ class Client(BaseClient):
               - *(string) --* 
                 - *(string) --* 
         :type ResourceArn: string
-        :param ResourceArn: **[REQUIRED]** the Amazon Resource Name (ARN)
+        :param ResourceArn: **[REQUIRED]** The Amazon Resource Name (ARN) of the resource tag.
         :rtype: dict
         :returns:
         """

@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -27,7 +27,7 @@ class Client(BaseClient):
           The name of the log group.
         :type kmsKeyId: string
         :param kmsKeyId: **[REQUIRED]**
-          The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see `Amazon Resource Names - AWS Key Management Service (AWS KMS) <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms>`__ .
+          The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see `Amazon Resource Names - AWS Key Management Service (AWS KMS) <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms>`__ .
         :returns: None
         """
         pass
@@ -146,7 +146,7 @@ class Client(BaseClient):
           The name of the log group.
         :type kmsKeyId: string
         :param kmsKeyId:
-          The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see `Amazon Resource Names - AWS Key Management Service (AWS KMS) <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms>`__ .
+          The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see `Amazon Resource Names - AWS Key Management Service (AWS KMS) <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms>`__ .
         :type tags: dict
         :param tags:
           The key-value pairs to use for the tags.
@@ -998,7 +998,7 @@ class Client(BaseClient):
           The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
         :type filterPattern: string
         :param filterPattern:
-          The filter pattern to use. For more information, see `Filter and Pattern Syntax <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html>`__ .
+          The filter pattern to use. For more information, see `Filter and Pattern Syntax <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html>`__ .
           If not provided, all the events are matched.
         :type nextToken: string
         :param nextToken:
@@ -1369,7 +1369,7 @@ class Client(BaseClient):
 
     def put_destination_policy(self, destinationName: str, accessPolicy: str):
         """
-        Creates or updates an access policy associated with an existing destination. An access policy is an `IAM policy document <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html>`__ that is used to authorize claims to register a subscription filter against a given destination.
+        Creates or updates an access policy associated with an existing destination. An access policy is an `IAM policy document <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html>`__ that is used to authorize claims to register a subscription filter against a given destination.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutDestinationPolicy>`_
         
         **Request Syntax**
@@ -1624,7 +1624,7 @@ class Client(BaseClient):
     def start_query(self, logGroupName: str, startTime: int, endTime: int, queryString: str, limit: int = None) -> Dict:
         """
         Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.
-        For more information, see `CloudWatch Logs Insights Query Syntax <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html>`__ .
+        For more information, see `CloudWatch Logs Insights Query Syntax <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/StartQuery>`_
         
         **Request Syntax**
@@ -1652,13 +1652,13 @@ class Client(BaseClient):
           The log group on which to perform the query.
         :type startTime: integer
         :param startTime: **[REQUIRED]**
-          The beginning of the time range to query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+          The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
         :type endTime: integer
         :param endTime: **[REQUIRED]**
-          The end of the time range to query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+          The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
         :type queryString: string
         :param queryString: **[REQUIRED]**
-          The query string to use. For more information, see `CloudWatch Logs Insights Query Syntax <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html>`__ .
+          The query string to use. For more information, see `CloudWatch Logs Insights Query Syntax <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html>`__ .
         :type limit: integer
         :param limit:
           The maximum number of log events to return in the query. If the query string uses the ``fields`` command, only the specified fields and their values are returned.
@@ -1700,7 +1700,7 @@ class Client(BaseClient):
         """
         Adds or updates the specified tags for the specified log group.
         To list the tags for a log group, use  ListTagsLogGroup . To remove tags, use  UntagLogGroup .
-        For more information about tags, see `Tag Log Groups in Amazon CloudWatch Logs <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html>`__ in the *Amazon CloudWatch Logs User Guide* .
+        For more information about tags, see `Tag Log Groups in Amazon CloudWatch Logs <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html>`__ in the *Amazon CloudWatch Logs User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/TagLogGroup>`_
         
         **Request Syntax**

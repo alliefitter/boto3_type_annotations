@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -14,7 +14,7 @@ class Client(BaseClient):
     def generate_presigned_url(self, ClientMethod: str = None, Params: Dict = None, ExpiresIn: int = None, HttpMethod: str = None):
         pass
 
-    def get_cost_and_usage(self, TimePeriod: Dict = None, Granularity: str = None, Filter: Dict = None, Metrics: List = None, GroupBy: List = None, NextPageToken: str = None) -> Dict:
+    def get_cost_and_usage(self, TimePeriod: Dict, Granularity: str = None, Filter: Dict = None, Metrics: List = None, GroupBy: List = None, NextPageToken: str = None) -> Dict:
         pass
 
     def get_cost_forecast(self, TimePeriod: Dict, Metric: str, Granularity: str, Filter: Dict = None, PredictionIntervalLevel: int = None) -> Dict:

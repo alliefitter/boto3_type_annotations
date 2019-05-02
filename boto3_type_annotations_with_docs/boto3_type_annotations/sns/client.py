@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -132,8 +132,8 @@ class Client(BaseClient):
 
     def create_platform_application(self, Name: str, Platform: str, Attributes: Dict) -> Dict:
         """
-        Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the ``CreatePlatformApplication`` action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is "Package Security Identifier". For MPNS, PlatformPrincipal is "TLS certificate". For Baidu, PlatformPrincipal is "API key".
-        For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using ``CreatePlatformApplication`` is then used as an attribute for the ``CreatePlatformEndpoint`` action. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see `Getting Started with Apple Push Notification Service <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html>`__ , `Getting Started with Amazon Device Messaging <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html>`__ , `Getting Started with Baidu Cloud Push <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html>`__ , `Getting Started with Google Cloud Messaging for Android <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html>`__ , `Getting Started with MPNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html>`__ , or `Getting Started with WNS <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html>`__ . 
+        Creates a platform application object for one of the supported push notification services, such as APNS and FCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the ``CreatePlatformApplication`` action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is "Package Security Identifier". For MPNS, PlatformPrincipal is "TLS certificate". For Baidu, PlatformPrincipal is "API key".
+        For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using ``CreatePlatformApplication`` is then used as an attribute for the ``CreatePlatformEndpoint`` action. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see `Getting Started with Apple Push Notification Service <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html>`__ , `Getting Started with Amazon Device Messaging <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html>`__ , `Getting Started with Baidu Cloud Push <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html>`__ , `Getting Started with Google Cloud Messaging for Android <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html>`__ , `Getting Started with MPNS <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html>`__ , or `Getting Started with WNS <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/CreatePlatformApplication>`_
         
         **Request Syntax**
@@ -165,7 +165,7 @@ class Client(BaseClient):
           The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud Messaging).
         :type Attributes: dict
         :param Attributes: **[REQUIRED]**
-          For a list of attributes, see `SetPlatformApplicationAttributes <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html>`__
+          For a list of attributes, see `SetPlatformApplicationAttributes <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html>`__
           - *(string) --*
             - *(string) --*
         :rtype: dict
@@ -175,8 +175,8 @@ class Client(BaseClient):
 
     def create_platform_endpoint(self, PlatformApplicationArn: str, Token: str, CustomUserData: str = None, Attributes: Dict = None) -> Dict:
         """
-        Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM and APNS. ``CreatePlatformEndpoint`` requires the PlatformApplicationArn that is returned from ``CreatePlatformApplication`` . The EndpointArn that is returned when using ``CreatePlatformEndpoint`` can then be used by the ``Publish`` action to send a message to a mobile app or by the ``Subscribe`` action for subscription to a topic. The ``CreatePlatformEndpoint`` action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint's ARN is returned without creating a new endpoint. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
-        When using ``CreatePlatformEndpoint`` with Baidu, two attributes must be provided: ChannelId and UserId. The token field must also contain the ChannelId. For more information, see `Creating an Amazon SNS Endpoint for Baidu <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html>`__ . 
+        Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM and APNS. ``CreatePlatformEndpoint`` requires the PlatformApplicationArn that is returned from ``CreatePlatformApplication`` . The EndpointArn that is returned when using ``CreatePlatformEndpoint`` can then be used by the ``Publish`` action to send a message to a mobile app or by the ``Subscribe`` action for subscription to a topic. The ``CreatePlatformEndpoint`` action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint's ARN is returned without creating a new endpoint. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
+        When using ``CreatePlatformEndpoint`` with Baidu, two attributes must be provided: ChannelId and UserId. The token field must also contain the ChannelId. For more information, see `Creating an Amazon SNS Endpoint for Baidu <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/CreatePlatformEndpoint>`_
         
         **Request Syntax**
@@ -212,7 +212,7 @@ class Client(BaseClient):
           Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
         :type Attributes: dict
         :param Attributes:
-          For a list of attributes, see `SetEndpointAttributes <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html>`__ .
+          For a list of attributes, see `SetEndpointAttributes <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html>`__ .
           - *(string) --*
             - *(string) --*
         :rtype: dict
@@ -220,9 +220,9 @@ class Client(BaseClient):
         """
         pass
 
-    def create_topic(self, Name: str, Attributes: Dict = None) -> Dict:
+    def create_topic(self, Name: str, Attributes: Dict = None, Tags: List = None) -> Dict:
         """
-        Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see `http\://aws.amazon.com/sns <http://aws.amazon.com/sns/>`__ . This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.
+        Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see `https\://aws.amazon.com/sns <http://aws.amazon.com/sns/>`__ . This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/CreateTopic>`_
         
         **Request Syntax**
@@ -231,7 +231,13 @@ class Client(BaseClient):
               Name='string',
               Attributes={
                   'string': 'string'
-              }
+              },
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -256,8 +262,19 @@ class Client(BaseClient):
           * ``DeliveryPolicy`` – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
           * ``DisplayName`` – The display name to use for a topic with SMS subscriptions.
           * ``Policy`` – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.
+          The following attribute applies only to `server-side-encryption <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html>`__ :
+          * ``KmsMasterKeyId`` - The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see `Key Terms <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms>`__ . For more examples, see `KeyId <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters>`__ in the *AWS Key Management Service API Reference* .
           - *(string) --*
             - *(string) --*
+        :type Tags: list
+        :param Tags:
+          The list of tags to add to a new topic.
+          - *(dict) --*
+            The list of tags to be added to the specified topic.
+            - **Key** *(string) --* **[REQUIRED]**
+              The required key portion of the tag.
+            - **Value** *(string) --* **[REQUIRED]**
+              The optional value portion of the tag.
         :rtype: dict
         :returns:
         """
@@ -265,7 +282,7 @@ class Client(BaseClient):
 
     def delete_endpoint(self, EndpointArn: str):
         """
-        Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
+        Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
         When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/DeleteEndpoint>`_
         
@@ -283,7 +300,7 @@ class Client(BaseClient):
 
     def delete_platform_application(self, PlatformApplicationArn: str):
         """
-        Deletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
+        Deletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/DeletePlatformApplication>`_
         
         **Request Syntax**
@@ -335,7 +352,7 @@ class Client(BaseClient):
 
     def get_endpoint_attributes(self, EndpointArn: str) -> Dict:
         """
-        Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
+        Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/GetEndpointAttributes>`_
         
         **Request Syntax**
@@ -390,7 +407,7 @@ class Client(BaseClient):
 
     def get_platform_application_attributes(self, PlatformApplicationArn: str) -> Dict:
         """
-        Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
+        Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/GetPlatformApplicationAttributes>`_
         
         **Request Syntax**
@@ -458,7 +475,7 @@ class Client(BaseClient):
         :type attributes: list
         :param attributes:
           A list of the individual attribute names, such as ``MonthlySpendLimit`` , for which you want values.
-          For all attribute names, see `SetSMSAttributes <http://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html>`__ .
+          For all attribute names, see `SetSMSAttributes <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html>`__ .
           If you don\'t use this parameter, Amazon SNS returns all SMS attributes.
           - *(string) --*
         :rtype: dict
@@ -565,7 +582,7 @@ class Client(BaseClient):
 
     def list_endpoints_by_platform_application(self, PlatformApplicationArn: str, NextToken: str = None) -> Dict:
         """
-        Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for ``ListEndpointsByPlatformApplication`` are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call ``ListEndpointsByPlatformApplication`` again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
+        Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for ``ListEndpointsByPlatformApplication`` are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call ``ListEndpointsByPlatformApplication`` again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
         This action is throttled at 30 transactions per second (TPS).
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/ListEndpointsByPlatformApplication>`_
         
@@ -655,7 +672,7 @@ class Client(BaseClient):
 
     def list_platform_applications(self, NextToken: str = None) -> Dict:
         """
-        Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for ``ListPlatformApplications`` are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call ``ListPlatformApplications`` using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
+        Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for ``ListPlatformApplications`` are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call ``ListPlatformApplications`` using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
         This action is throttled at 15 transactions per second (TPS).
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/ListPlatformApplications>`_
         
@@ -814,6 +831,46 @@ class Client(BaseClient):
         """
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        """
+        List all tags added to the specified Amazon SNS topic. For an overview, see `Amazon SNS Tags <https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html>`__ in the *Amazon Simple Notification Service Developer Guide* .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': [
+                    {
+                        'Key': 'string',
+                        'Value': 'string'
+                    },
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Tags** *(list) --* 
+              The tags associated with the specified topic.
+              - *(dict) --* 
+                The list of tags to be added to the specified topic.
+                - **Key** *(string) --* 
+                  The required key portion of the tag.
+                - **Value** *(string) --* 
+                  The optional value portion of the tag.
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The ARN of the topic for which to list tags.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def list_topics(self, NextToken: str = None) -> Dict:
         """
         Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a ``NextToken`` is also returned. Use the ``NextToken`` parameter in a new ``ListTopics`` call to get further results.
@@ -889,7 +946,7 @@ class Client(BaseClient):
         If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.
         When a ``messageId`` is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.
         To use the ``Publish`` action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the ``CreatePlatformEndpoint`` action. 
-        For more information about formatting messages, see `Send Custom Platform-Specific Payloads in Messages to Mobile Devices <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html>`__ . 
+        For more information about formatting messages, see `Send Custom Platform-Specific Payloads in Messages to Mobile Devices <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/Publish>`_
         
         **Request Syntax**
@@ -928,7 +985,6 @@ class Client(BaseClient):
           If you don\'t specify a value for the ``TopicArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TargetArn`` parameters.
         :type TargetArn: string
         :param TargetArn:
-          Either TopicArn or EndpointArn, but not both.
           If you don\'t specify a value for the ``TargetArn`` parameter, you must specify a value for the ``PhoneNumber`` or ``TopicArn`` parameters.
         :type PhoneNumber: string
         :param PhoneNumber:
@@ -963,19 +1019,19 @@ class Client(BaseClient):
           * be a syntactically valid JSON object; and
           * contain at least a top-level JSON key of \"default\" with a value that is a string.
           You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., \"http\").
-          For information about sending different messages for each protocol using the AWS Management Console, go to `Create Different Messages for Each Protocol <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol>`__ in the *Amazon Simple Notification Service Getting Started Guide* .
+          For information about sending different messages for each protocol using the AWS Management Console, go to `Create Different Messages for Each Protocol <https://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol>`__ in the *Amazon Simple Notification Service Getting Started Guide* .
           Valid value: ``json``
         :type MessageAttributes: dict
         :param MessageAttributes:
           Message attributes for Publish action.
           - *(string) --*
             - *(dict) --*
-              The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see `Publish <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html>`__ .
-              Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes). For more information, see `Using Amazon SNS Message Attributes <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html>`__ .
+              The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see `Publish <https://docs.aws.amazon.com/sns/latest/api/API_Publish.html>`__ .
+              Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes). For more information, see `Using Amazon SNS Message Attributes <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html>`__ .
               - **DataType** *(string) --* **[REQUIRED]**
-                Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see `Message Attribute Data Types <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes>`__ .
+                Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see `Message Attribute Data Types <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes>`__ .
               - **StringValue** *(string) --*
-                Strings are Unicode with UTF8 binary encoding. For a list of code values, see `http\://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>`__ .
+                Strings are Unicode with UTF8 binary encoding. For a list of code values, see `ASCII Printable Characters <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>`__ .
               - **BinaryValue** *(bytes) --*
                 Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.
         :rtype: dict
@@ -1006,7 +1062,7 @@ class Client(BaseClient):
 
     def set_endpoint_attributes(self, EndpointArn: str, Attributes: Dict):
         """
-        Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
+        Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetEndpointAttributes>`_
         
         **Request Syntax**
@@ -1034,7 +1090,7 @@ class Client(BaseClient):
 
     def set_platform_application_attributes(self, PlatformApplicationArn: str, Attributes: Dict):
         """
-        Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see `Using Amazon SNS Mobile Push Notifications <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . For information on configuring attributes for message delivery status, see `Using Amazon SNS Application Attributes for Message Delivery Status <http://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html>`__ . 
+        Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see `Using Amazon SNS Mobile Push Notifications <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html>`__ . For information on configuring attributes for message delivery status, see `Using Amazon SNS Application Attributes for Message Delivery Status <https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetPlatformApplicationAttributes>`_
         
         **Request Syntax**
@@ -1069,7 +1125,7 @@ class Client(BaseClient):
     def set_sms_attributes(self, attributes: Dict) -> Dict:
         """
         Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.
-        You can override some of these settings for a single message when you use the ``Publish`` action with the ``MessageAttributes.entry.N`` parameter. For more information, see `Sending an SMS Message <http://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html>`__ in the *Amazon SNS Developer Guide* .
+        You can override some of these settings for a single message when you use the ``Publish`` action with the ``MessageAttributes.entry.N`` parameter. For more information, see `Sending an SMS Message <https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html>`__ in the *Amazon SNS Developer Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/SetSMSAttributes>`_
         
         **Request Syntax**
@@ -1110,7 +1166,7 @@ class Client(BaseClient):
           * Part number (a message is split into multiple parts if it is too long for a single message)
           * Total number of parts
           To receive the report, the bucket must have a policy that allows the Amazon SNS service principle to perform the ``s3:PutObject`` and ``s3:GetBucketLocation`` actions.
-          For an example bucket policy and usage report, see `Monitoring SMS Activity <http://docs.aws.amazon.com/sns/latest/dg/sms_stats.html>`__ in the *Amazon SNS Developer Guide* .
+          For an example bucket policy and usage report, see `Monitoring SMS Activity <https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html>`__ in the *Amazon SNS Developer Guide* .
           - *(string) --*
             - *(string) --*
         :rtype: dict
@@ -1169,6 +1225,8 @@ class Client(BaseClient):
           * ``DeliveryPolicy`` – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
           * ``DisplayName`` – The display name to use for a topic with SMS subscriptions.
           * ``Policy`` – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.
+          The following attribute applies only to `server-side-encryption <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html>`__ :
+          * ``KmsMasterKeyId`` - The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see `Key Terms <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms>`__ . For more examples, see `KeyId <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters>`__ in the *AWS Key Management Service API Reference* .
         :type AttributeValue: string
         :param AttributeValue:
           The new value for the attribute.
@@ -1222,7 +1280,7 @@ class Client(BaseClient):
         :type Endpoint: string
         :param Endpoint:
           The endpoint that you want to receive notifications. Endpoints vary by protocol:
-          * For the ``http`` protocol, the endpoint is an URL beginning with \"http://\"
+          * For the ``http`` protocol, the endpoint is an URL beginning with \"https://\"
           * For the ``https`` protocol, the endpoint is a URL beginning with \"https://\"
           * For the ``email`` protocol, the endpoint is an email address
           * For the ``email-json`` protocol, the endpoint is an email address
@@ -1250,6 +1308,53 @@ class Client(BaseClient):
         """
         pass
 
+    def tag_resource(self, ResourceArn: str, Tags: List) -> Dict:
+        """
+        Add tags to the specified Amazon SNS topic. For an overview, see `Amazon SNS Tags <https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html>`__ in the *Amazon SNS Developer Guide* .
+        When you use topic tags, keep the following guidelines in mind:
+        * Adding more than 50 tags to a topic isn't recommended. 
+        * Tags don't have any semantic meaning. Amazon SNS interprets tags as character strings. 
+        * Tags are case-sensitive. 
+        * A new tag with a key identical to that of an existing tag overwrites the existing tag. 
+        * Tagging actions are limited to 10 TPS per AWS account. If your application requires a higher throughput, file a `technical support request <https://console.aws.amazon.com/support/home#/case/create?issueType=technical>`__ . 
+        For a full list of tag restrictions, see `Limits Related to Topics <https://docs.aws.amazon.com/sns/latest/dg/sns-limits.html#limits-topics>`__ in the *Amazon SNS Developer Guide* .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The ARN of the topic to which to add tags.
+        :type Tags: list
+        :param Tags: **[REQUIRED]**
+          The tags to be added to the specified topic. A tag consists of a required key and an optional value.
+          - *(dict) --*
+            The list of tags to be added to the specified topic.
+            - **Key** *(string) --* **[REQUIRED]**
+              The required key portion of the tag.
+            - **Value** *(string) --* **[REQUIRED]**
+              The optional value portion of the tag.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def unsubscribe(self, SubscriptionArn: str):
         """
         Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature is required. If the ``Unsubscribe`` call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the ``Unsubscribe`` request was unintended.
@@ -1265,5 +1370,37 @@ class Client(BaseClient):
         :param SubscriptionArn: **[REQUIRED]**
           The ARN of the subscription to be deleted.
         :returns: None
+        """
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List) -> Dict:
+        """
+        Remove tags from the specified Amazon SNS topic. For an overview, see `Amazon SNS Tags <https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html>`__ in the *Amazon SNS Developer Guide* .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sns-2010-03-31/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The ARN of the topic from which to remove tags.
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]**
+          The list of tag keys to remove from the specified topic.
+          - *(string) --*
+        :rtype: dict
+        :returns:
         """
         pass

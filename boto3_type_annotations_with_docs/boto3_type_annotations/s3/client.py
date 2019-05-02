@@ -1,14 +1,14 @@
+from typing import Callable
+from botocore.client import BaseClient
+from typing import Optional
+from typing import Dict
+from boto3.s3.transfer import TransferConfig
+from botocore.paginate import Paginator
+from datetime import datetime
+from typing import List
+from botocore.waiter import Waiter
 from typing import Union
 from typing import IO
-from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Callable
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
-from boto3.s3.transfer import TransferConfig
 
 
 class Client(BaseClient):
@@ -214,7 +214,7 @@ class Client(BaseClient):
               MetadataDirective='COPY'|'REPLACE',
               TaggingDirective='COPY'|'REPLACE',
               ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
               WebsiteRedirectLocation='string',
               SSECustomerAlgorithm='string',
               SSECustomerKey='string',
@@ -417,7 +417,7 @@ class Client(BaseClient):
         :type CreateBucketConfiguration: dict
         :param CreateBucketConfiguration:
           - **LocationConstraint** *(string) --*
-            Specifies the region where the bucket will be created. If you don\'t specify a region, the bucket will be created in US Standard.
+            Specifies the region where the bucket will be created. If you don\'t specify a region, the bucket is created in US East (N. Virginia) Region (us-east-1).
         :type GrantFullControl: string
         :param GrantFullControl:
           Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
@@ -467,7 +467,7 @@ class Client(BaseClient):
                   'string': 'string'
               },
               ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
               WebsiteRedirectLocation='string',
               SSECustomerAlgorithm='string',
               SSECustomerKey='string',
@@ -1517,7 +1517,7 @@ class Client(BaseClient):
 
     def get_bucket_lifecycle(self, Bucket: str) -> Dict:
         """
-        Deprecated, see the GetBucketLifecycleConfiguration operation.
+        No longer used, see the GetBucketLifecycleConfiguration operation.
         .. danger::
             This operation is deprecated and may not function as expected. This operation should not be used going forward and is only kept for the purpose of backwards compatiblity.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycle>`_
@@ -1544,11 +1544,11 @@ class Client(BaseClient):
                         'Transition': {
                             'Date': datetime(2015, 1, 1),
                             'Days': 123,
-                            'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'
+                            'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'
                         },
                         'NoncurrentVersionTransition': {
                             'NoncurrentDays': 123,
-                            'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'
+                            'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'
                         },
                         'NoncurrentVersionExpiration': {
                             'NoncurrentDays': 123
@@ -1585,15 +1585,15 @@ class Client(BaseClient):
                   - **StorageClass** *(string) --* 
                     The class of storage used to store the object.
                 - **NoncurrentVersionTransition** *(dict) --* 
-                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class at a specific period in the object's lifetime.
+                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
                   - **NoncurrentDays** *(integer) --* 
-                    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
+                    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
                   - **StorageClass** *(string) --* 
                     The class of storage used to store the object.
                 - **NoncurrentVersionExpiration** *(dict) --* 
                   Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
                   - **NoncurrentDays** *(integer) --* 
-                    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
+                    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
                 - **AbortIncompleteMultipartUpload** *(dict) --* 
                   Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
                   - **DaysAfterInitiation** *(integer) --* 
@@ -1649,13 +1649,13 @@ class Client(BaseClient):
                             {
                                 'Date': datetime(2015, 1, 1),
                                 'Days': 123,
-                                'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'
+                                'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'
                             },
                         ],
                         'NoncurrentVersionTransitions': [
                             {
                                 'NoncurrentDays': 123,
-                                'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'
+                                'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'
                             },
                         ],
                         'NoncurrentVersionExpiration': {
@@ -1682,7 +1682,7 @@ class Client(BaseClient):
                 - **ID** *(string) --* 
                   Unique identifier for the rule. The value cannot be longer than 255 characters.
                 - **Prefix** *(string) --* 
-                  Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.
+                  Prefix identifying one or more objects to which the rule applies. This is No longer used; use Filter instead.
                 - **Filter** *(dict) --* 
                   The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.
                   - **Prefix** *(string) --* 
@@ -1715,15 +1715,15 @@ class Client(BaseClient):
                       The class of storage used to store the object.
                 - **NoncurrentVersionTransitions** *(list) --* 
                   - *(dict) --* 
-                    Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class at a specific period in the object's lifetime.
+                    Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
                     - **NoncurrentDays** *(integer) --* 
-                      Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
+                      Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
                     - **StorageClass** *(string) --* 
                       The class of storage used to store the object.
                 - **NoncurrentVersionExpiration** *(dict) --* 
                   Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
                   - **NoncurrentDays** *(integer) --* 
-                    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
+                    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
                 - **AbortIncompleteMultipartUpload** *(dict) --* 
                   Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
                   - **DaysAfterInitiation** *(integer) --* 
@@ -1900,7 +1900,7 @@ class Client(BaseClient):
 
     def get_bucket_notification(self, Bucket: str) -> Dict:
         """
-        Deprecated, see the GetBucketNotificationConfiguration operation.
+        No longer used, see the GetBucketNotificationConfiguration operation.
         .. danger::
             This operation is deprecated and may not function as expected. This operation should not be used going forward and is only kept for the purpose of backwards compatiblity.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketNotification>`_
@@ -2067,7 +2067,7 @@ class Client(BaseClient):
                   - *(string) --* 
                     The bucket event for which to send notifications.
                 - **Filter** *(dict) --* 
-                  A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                  A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                   - **Key** *(dict) --* 
                     A container for object key name prefix and suffix filtering rules.
                     - **FilterRules** *(list) --* 
@@ -2075,7 +2075,7 @@ class Client(BaseClient):
                       - *(dict) --* 
                         A container for a key value pair that defines the criteria for the filter rule.
                         - **Name** *(string) --* 
-                          The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                          The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                         - **Value** *(string) --* 
             - **QueueConfigurations** *(list) --* 
               - *(dict) --* 
@@ -2088,7 +2088,7 @@ class Client(BaseClient):
                   - *(string) --* 
                     The bucket event for which to send notifications.
                 - **Filter** *(dict) --* 
-                  A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                  A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                   - **Key** *(dict) --* 
                     A container for object key name prefix and suffix filtering rules.
                     - **FilterRules** *(list) --* 
@@ -2096,7 +2096,7 @@ class Client(BaseClient):
                       - *(dict) --* 
                         A container for a key value pair that defines the criteria for the filter rule.
                         - **Name** *(string) --* 
-                          The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                          The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                         - **Value** *(string) --* 
             - **LambdaFunctionConfigurations** *(list) --* 
               - *(dict) --* 
@@ -2109,7 +2109,7 @@ class Client(BaseClient):
                   - *(string) --* 
                     The bucket event for which to send notifications.
                 - **Filter** *(dict) --* 
-                  A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                  A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                   - **Key** *(dict) --* 
                     A container for object key name prefix and suffix filtering rules.
                     - **FilterRules** *(list) --* 
@@ -2117,7 +2117,7 @@ class Client(BaseClient):
                       - *(dict) --* 
                         A container for a key value pair that defines the criteria for the filter rule.
                         - **Name** *(string) --* 
-                          The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                          The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                         - **Value** *(string) --* 
         :type Bucket: string
         :param Bucket: **[REQUIRED]**
@@ -2236,7 +2236,7 @@ class Client(BaseClient):
                             'Destination': {
                                 'Bucket': 'string',
                                 'Account': 'string',
-                                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+                                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
                                 'AccessControlTranslation': {
                                     'Owner': 'Destination'
                                 },
@@ -2567,7 +2567,7 @@ class Client(BaseClient):
                 'SSECustomerAlgorithm': 'string',
                 'SSECustomerKeyMD5': 'string',
                 'SSEKMSKeyId': 'string',
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
                 'RequestCharged': 'requester',
                 'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
                 'PartsCount': 123,
@@ -3141,7 +3141,7 @@ class Client(BaseClient):
                 'SSECustomerAlgorithm': 'string',
                 'SSECustomerKeyMD5': 'string',
                 'SSEKMSKeyId': 'string',
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
                 'RequestCharged': 'requester',
                 'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
                 'PartsCount': 123,
@@ -3636,7 +3636,7 @@ class Client(BaseClient):
                         'UploadId': 'string',
                         'Key': 'string',
                         'Initiated': datetime(2015, 1, 1),
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
                         'Owner': {
                             'DisplayName': 'string',
                             'ID': 'string'
@@ -3892,7 +3892,7 @@ class Client(BaseClient):
                         'LastModified': datetime(2015, 1, 1),
                         'ETag': 'string',
                         'Size': 123,
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING',
+                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE',
                         'Owner': {
                             'DisplayName': 'string',
                             'ID': 'string'
@@ -3992,7 +3992,7 @@ class Client(BaseClient):
                         'LastModified': datetime(2015, 1, 1),
                         'ETag': 'string',
                         'Size': 123,
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING',
+                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE',
                         'Owner': {
                             'DisplayName': 'string',
                             'ID': 'string'
@@ -4129,7 +4129,7 @@ class Client(BaseClient):
                     'DisplayName': 'string',
                     'ID': 'string'
                 },
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
                 'RequestCharged': 'requester'
             }
         
@@ -4477,7 +4477,7 @@ class Client(BaseClient):
           The name of the bucket for which the server-side encryption configuration is set.
         :type ContentMD5: string
         :param ContentMD5:
-          The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.
+          The base64-encoded 128-bit MD5 digest of the server-side encryption configuration. This parameter is auto-populated when using the command from the CLI
         :type ServerSideEncryptionConfiguration: dict
         :param ServerSideEncryptionConfiguration: **[REQUIRED]**
           Container for server-side encryption configuration rules. Currently S3 supports one rule only.
@@ -4587,7 +4587,7 @@ class Client(BaseClient):
 
     def put_bucket_lifecycle(self, Bucket: str, LifecycleConfiguration: Dict = None):
         """
-        Deprecated, see the PutBucketLifecycleConfiguration operation.
+        No longer used, see the PutBucketLifecycleConfiguration operation.
         .. danger::
             This operation is deprecated and may not function as expected. This operation should not be used going forward and is only kept for the purpose of backwards compatiblity.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycle>`_
@@ -4610,11 +4610,11 @@ class Client(BaseClient):
                           'Transition': {
                               'Date': datetime(2015, 1, 1),
                               'Days': 123,
-                              'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'
+                              'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'
                           },
                           'NoncurrentVersionTransition': {
                               'NoncurrentDays': 123,
-                              'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'
+                              'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'
                           },
                           'NoncurrentVersionExpiration': {
                               'NoncurrentDays': 123
@@ -4653,15 +4653,15 @@ class Client(BaseClient):
                 - **StorageClass** *(string) --*
                   The class of storage used to store the object.
               - **NoncurrentVersionTransition** *(dict) --*
-                Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class at a specific period in the object\'s lifetime.
+                Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class at a specific period in the object\'s lifetime.
                 - **NoncurrentDays** *(integer) --*
-                  Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
+                  Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
                 - **StorageClass** *(string) --*
                   The class of storage used to store the object.
               - **NoncurrentVersionExpiration** *(dict) --*
                 Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
                 - **NoncurrentDays** *(integer) --*
-                  Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
+                  Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
               - **AbortIncompleteMultipartUpload** *(dict) --*
                 Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
                 - **DaysAfterInitiation** *(integer) --*
@@ -4710,13 +4710,13 @@ class Client(BaseClient):
                               {
                                   'Date': datetime(2015, 1, 1),
                                   'Days': 123,
-                                  'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'
+                                  'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'
                               },
                           ],
                           'NoncurrentVersionTransitions': [
                               {
                                   'NoncurrentDays': 123,
-                                  'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'
+                                  'StorageClass': 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'
                               },
                           ],
                           'NoncurrentVersionExpiration': {
@@ -4745,7 +4745,7 @@ class Client(BaseClient):
               - **ID** *(string) --*
                 Unique identifier for the rule. The value cannot be longer than 255 characters.
               - **Prefix** *(string) --*
-                Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.
+                Prefix identifying one or more objects to which the rule applies. This is No longer used; use Filter instead.
               - **Filter** *(dict) --*
                 The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.
                 - **Prefix** *(string) --*
@@ -4778,15 +4778,15 @@ class Client(BaseClient):
                     The class of storage used to store the object.
               - **NoncurrentVersionTransitions** *(list) --*
                 - *(dict) --*
-                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class at a specific period in the object\'s lifetime.
+                  Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class at a specific period in the object\'s lifetime.
                   - **NoncurrentDays** *(integer) --*
-                    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
+                    Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
                   - **StorageClass** *(string) --*
                     The class of storage used to store the object.
               - **NoncurrentVersionExpiration** *(dict) --*
                 Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object\'s lifetime.
                 - **NoncurrentDays** *(integer) --*
-                  Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
+                  Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ in the Amazon Simple Storage Service Developer Guide.
               - **AbortIncompleteMultipartUpload** *(dict) --*
                 Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
                 - **DaysAfterInitiation** *(integer) --*
@@ -4920,7 +4920,7 @@ class Client(BaseClient):
 
     def put_bucket_notification(self, Bucket: str, NotificationConfiguration: Dict):
         """
-        Deprecated, see the PutBucketNotificationConfiguraiton operation.
+        No longer used, see the PutBucketNotificationConfiguration operation.
         .. danger::
             This operation is deprecated and may not function as expected. This operation should not be used going forward and is only kept for the purpose of backwards compatiblity.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketNotification>`_
@@ -5079,7 +5079,7 @@ class Client(BaseClient):
                 - *(string) --*
                   The bucket event for which to send notifications.
               - **Filter** *(dict) --*
-                A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                 - **Key** *(dict) --*
                   A container for object key name prefix and suffix filtering rules.
                   - **FilterRules** *(list) --*
@@ -5087,7 +5087,7 @@ class Client(BaseClient):
                     - *(dict) --*
                       A container for a key value pair that defines the criteria for the filter rule.
                       - **Name** *(string) --*
-                        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                       - **Value** *(string) --*
           - **QueueConfigurations** *(list) --*
             - *(dict) --*
@@ -5100,7 +5100,7 @@ class Client(BaseClient):
                 - *(string) --*
                   The bucket event for which to send notifications.
               - **Filter** *(dict) --*
-                A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                 - **Key** *(dict) --*
                   A container for object key name prefix and suffix filtering rules.
                   - **FilterRules** *(list) --*
@@ -5108,7 +5108,7 @@ class Client(BaseClient):
                     - *(dict) --*
                       A container for a key value pair that defines the criteria for the filter rule.
                       - **Name** *(string) --*
-                        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                       - **Value** *(string) --*
           - **LambdaFunctionConfigurations** *(list) --*
             - *(dict) --*
@@ -5121,7 +5121,7 @@ class Client(BaseClient):
                 - *(string) --*
                   The bucket event for which to send notifications.
               - **Filter** *(dict) --*
-                A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                A container for object key name filtering rules. For information about key name filtering, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                 - **Key** *(dict) --*
                   A container for object key name prefix and suffix filtering rules.
                   - **FilterRules** *(list) --*
@@ -5129,7 +5129,7 @@ class Client(BaseClient):
                     - *(dict) --*
                       A container for a key value pair that defines the criteria for the filter rule.
                       - **Name** *(string) --*
-                        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+                        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see `Configuring Event Notifications <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
                       - **Value** *(string) --*
         :returns: None
         """
@@ -5200,7 +5200,7 @@ class Client(BaseClient):
                           'Destination': {
                               'Bucket': 'string',
                               'Account': 'string',
-                              'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+                              'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
                               'AccessControlTranslation': {
                                   'Owner': 'Destination'
                               },
@@ -5484,7 +5484,7 @@ class Client(BaseClient):
                   'string': 'string'
               },
               ServerSideEncryption='AES256'|'aws:kms',
-              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+              StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
               WebsiteRedirectLocation='string',
               SSECustomerAlgorithm='string',
               SSECustomerKey='string',
@@ -5553,7 +5553,7 @@ class Client(BaseClient):
           Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
         :type ContentMD5: string
         :param ContentMD5:
-          The base64-encoded 128-bit MD5 digest of the part data.
+          The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI
         :type ContentType: string
         :param ContentType:
           A standard MIME type describing the format of the object data.
@@ -5834,6 +5834,7 @@ class Client(BaseClient):
           Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
         :type Token: string
         :param Token:
+          A token to allow Object Lock to be enabled for an existing bucket.
         :type ContentMD5: string
         :param ContentMD5:
           The MD5 hash for the request body.
@@ -6085,7 +6086,7 @@ class Client(BaseClient):
                                   'Value': 'string'
                               },
                           ],
-                          'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'
+                          'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE'
                       }
                   }
               },
@@ -6347,13 +6348,13 @@ class Client(BaseClient):
           The object key.
         :type SSECustomerAlgorithm: string
         :param SSECustomerAlgorithm:
-          The SSE Algorithm used to encrypt the object. For more information, see `Server-Side Encryption (Using Customer-Provided Encryption Keys <http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html>`__ .
+          The SSE Algorithm used to encrypt the object. For more information, see `Server-Side Encryption (Using Customer-Provided Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html>`__ .
         :type SSECustomerKey: string
         :param SSECustomerKey:
-          The SSE Customer Key. For more information, see `Server-Side Encryption (Using Customer-Provided Encryption Keys <http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html>`__ .
+          The SSE Customer Key. For more information, see `Server-Side Encryption (Using Customer-Provided Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html>`__ .
         :type SSECustomerKeyMD5: string
         :param SSECustomerKeyMD5:
-          The SSE Customer Key MD5. For more information, see `Server-Side Encryption (Using Customer-Provided Encryption Keys <http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html>`__ .
+          The SSE Customer Key MD5. For more information, see `Server-Side Encryption (Using Customer-Provided Encryption Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html>`__ .
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type Expression: string
         :param Expression: **[REQUIRED]**
@@ -6637,7 +6638,7 @@ class Client(BaseClient):
           Copies the object if it hasn\'t been modified since the specified time.
         :type CopySourceRange: string
         :param CopySourceRange:
-          The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.
+          The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.
         :type Key: string
         :param Key: **[REQUIRED]**
         :type PartNumber: integer

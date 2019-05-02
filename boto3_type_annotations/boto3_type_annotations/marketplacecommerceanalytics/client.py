@@ -1,9 +1,9 @@
 from typing import Optional
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
-from datetime import datetime
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
 
 

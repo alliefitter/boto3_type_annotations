@@ -1,6 +1,6 @@
 from typing import List
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
 from botocore.paginate import Paginator
 
 
@@ -55,7 +55,7 @@ class DescribeReplicationTaskAssessmentResults(Paginator):
 
 
 class DescribeReplicationTasks(Paginator):
-    def paginate(self, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, Filters: List = None, WithoutSettings: bool = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

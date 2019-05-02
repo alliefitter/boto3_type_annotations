@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from datetime import datetime
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -37,6 +37,9 @@ class Client(BaseClient):
         pass
 
     def delete_pending_aggregation_request(self, RequesterAccountId: str, RequesterAwsRegion: str):
+        pass
+
+    def delete_remediation_configuration(self, ConfigRuleName: str, ResourceType: str = None) -> Dict:
         pass
 
     def delete_retention_configuration(self, RetentionConfigurationName: str):
@@ -82,6 +85,12 @@ class Client(BaseClient):
         pass
 
     def describe_pending_aggregation_requests(self, Limit: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def describe_remediation_configurations(self, ConfigRuleNames: List) -> Dict:
+        pass
+
+    def describe_remediation_execution_status(self, ConfigRuleName: str, ResourceKeys: List = None, Limit: int = None, NextToken: str = None) -> Dict:
         pass
 
     def describe_retention_configurations(self, RetentionConfigurationNames: List = None, NextToken: str = None) -> Dict:
@@ -132,6 +141,9 @@ class Client(BaseClient):
     def list_discovered_resources(self, resourceType: str, resourceIds: List = None, resourceName: str = None, limit: int = None, includeDeletedResources: bool = None, nextToken: str = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str, Limit: int = None, NextToken: str = None) -> Dict:
+        pass
+
     def put_aggregation_authorization(self, AuthorizedAccountId: str, AuthorizedAwsRegion: str) -> Dict:
         pass
 
@@ -150,7 +162,13 @@ class Client(BaseClient):
     def put_evaluations(self, ResultToken: str, Evaluations: List = None, TestMode: bool = None) -> Dict:
         pass
 
+    def put_remediation_configurations(self, RemediationConfigurations: List) -> Dict:
+        pass
+
     def put_retention_configuration(self, RetentionPeriodInDays: int) -> Dict:
+        pass
+
+    def select_resource_config(self, Expression: str, Limit: int = None, NextToken: str = None) -> Dict:
         pass
 
     def start_config_rules_evaluation(self, ConfigRuleNames: List = None) -> Dict:
@@ -159,5 +177,14 @@ class Client(BaseClient):
     def start_configuration_recorder(self, ConfigurationRecorderName: str):
         pass
 
+    def start_remediation_execution(self, ConfigRuleName: str, ResourceKeys: List) -> Dict:
+        pass
+
     def stop_configuration_recorder(self, ConfigurationRecorderName: str):
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: List):
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
         pass

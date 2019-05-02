@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.waiter import Waiter
 
 
@@ -31,12 +31,12 @@ class BundleTaskComplete(Waiter):
           )
         :type BundleIds: list
         :param BundleIds:
-          One or more bundle task IDs.
+          The bundle task IDs.
           Default: Describes all your bundle tasks.
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``bundle-id`` - The ID of the bundle task.
           * ``error-code`` - If the task failed, the error code returned.
           * ``error-message`` - If the task failed, the error message returned.
@@ -62,7 +62,7 @@ class BundleTaskComplete(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -99,7 +99,7 @@ class ConversionTaskCancelled(Waiter):
           )
         :type ConversionTaskIds: list
         :param ConversionTaskIds:
-          One or more conversion task IDs.
+          The conversion task IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -136,7 +136,7 @@ class ConversionTaskCompleted(Waiter):
           )
         :type ConversionTaskIds: list
         :param ConversionTaskIds:
-          One or more conversion task IDs.
+          The conversion task IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -173,7 +173,7 @@ class ConversionTaskDeleted(Waiter):
           )
         :type ConversionTaskIds: list
         :param ConversionTaskIds:
-          One or more conversion task IDs.
+          The conversion task IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -246,7 +246,7 @@ class CustomerGatewayAvailable(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -282,7 +282,7 @@ class ExportTaskCancelled(Waiter):
           )
         :type ExportTaskIds: list
         :param ExportTaskIds:
-          One or more export task IDs.
+          The export task IDs.
           - *(string) --*
         :type WaiterConfig: dict
         :param WaiterConfig:
@@ -315,7 +315,7 @@ class ExportTaskCompleted(Waiter):
           )
         :type ExportTaskIds: list
         :param ExportTaskIds:
-          One or more export task IDs.
+          The export task IDs.
           - *(string) --*
         :type WaiterConfig: dict
         :param WaiterConfig:
@@ -367,7 +367,7 @@ class ImageAvailable(Waiter):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``architecture`` - The image architecture (``i386`` | ``x86_64`` ).
           * ``block-device-mapping.delete-on-termination`` - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.
           * ``block-device-mapping.device-name`` - The device name specified in the block device mapping (for example, ``/dev/sdh`` or ``xvdh`` ).
@@ -414,11 +414,11 @@ class ImageAvailable(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ImageIds: list
         :param ImageIds:
-          One or more image IDs.
+          The image IDs.
           Default: Describes all images available to you.
           - *(string) --*
         :type Owners: list
@@ -478,7 +478,7 @@ class ImageExists(Waiter):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``architecture`` - The image architecture (``i386`` | ``x86_64`` ).
           * ``block-device-mapping.delete-on-termination`` - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.
           * ``block-device-mapping.device-name`` - The device name specified in the block device mapping (for example, ``/dev/sdh`` or ``xvdh`` ).
@@ -525,11 +525,11 @@ class ImageExists(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ImageIds: list
         :param ImageIds:
-          One or more image IDs.
+          The image IDs.
           Default: Describes all images available to you.
           - *(string) --*
         :type Owners: list
@@ -581,7 +581,7 @@ class InstanceExists(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -645,7 +645,7 @@ class InstanceExists(Waiter):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -681,11 +681,11 @@ class InstanceExists(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           - *(string) --*
         :type DryRun: boolean
@@ -739,7 +739,7 @@ class InstanceRunning(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -803,7 +803,7 @@ class InstanceRunning(Waiter):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -839,11 +839,11 @@ class InstanceRunning(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           - *(string) --*
         :type DryRun: boolean
@@ -898,12 +898,14 @@ class InstanceStatusOk(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone of the instance.
           * ``event.code`` - The code for the scheduled event (``instance-reboot`` | ``system-reboot`` | ``system-maintenance`` | ``instance-retirement`` | ``instance-stop`` ).
           * ``event.description`` - A description of the event.
+          * ``event.instance-event-id`` - The ID of the event whose date and time you are modifying.
           * ``event.not-after`` - The latest end time for the scheduled event (for example, ``2014-09-15T17:15:20.000Z`` ).
           * ``event.not-before`` - The earliest start time for the scheduled event (for example, ``2014-09-15T17:15:20.000Z`` ).
+          * ``event.not-before-deadline`` - The deadline for starting the event (for example, ``2014-09-15T17:15:20.000Z`` ).
           * ``instance-state-code`` - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
           * ``instance-state-name`` - The state of the instance (``pending`` | ``running`` | ``shutting-down`` | ``terminated`` | ``stopping`` | ``stopped`` ).
           * ``instance-status.reachability`` - Filters on instance status where the name is ``reachability`` (``passed`` | ``failed`` | ``initializing`` | ``insufficient-data`` ).
@@ -925,11 +927,11 @@ class InstanceStatusOk(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           Constraints: Maximum 100 explicitly specified instance IDs.
           - *(string) --*
@@ -988,7 +990,7 @@ class InstanceStopped(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -1052,7 +1054,7 @@ class InstanceStopped(Waiter):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -1088,11 +1090,11 @@ class InstanceStopped(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           - *(string) --*
         :type DryRun: boolean
@@ -1146,7 +1148,7 @@ class InstanceTerminated(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -1210,7 +1212,7 @@ class InstanceTerminated(Waiter):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -1246,11 +1248,11 @@ class InstanceTerminated(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           - *(string) --*
         :type DryRun: boolean
@@ -1302,7 +1304,7 @@ class KeyPairExists(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``fingerprint`` - The fingerprint of the key pair.
           * ``key-name`` - The name of the key pair.
           - *(dict) --*
@@ -1320,11 +1322,11 @@ class KeyPairExists(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type KeyNames: list
         :param KeyNames:
-          One or more key pair names.
+          The key pair names.
           Default: Describes all your key pairs.
           - *(string) --*
         :type DryRun: boolean
@@ -1393,19 +1395,18 @@ class NatGatewayAvailable(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
-          Constraint: If the value specified is greater than 1000, we return only 1000 items.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type NatGatewayIds: list
         :param NatGatewayIds:
           One or more NAT gateway IDs.
           - *(string) --*
         :type NextToken: string
         :param NextToken:
-          The token to retrieve the next page of results.
+          The token for the next page of results.
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
@@ -1478,7 +1479,7 @@ class NetworkInterfaceAvailable(Waiter):
           * ``private-dns-name`` - The private DNS name of the network interface (IPv4).
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).
           * ``requester-managed`` - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).
-          * ``source-desk-check`` - Indicates whether the network interface performs source/destination checking. A value of ``true`` means checking is enabled, and ``false`` means checking is disabled. The value must be ``false`` for the network interface to perform network address translation (NAT) in your VPC.
+          * ``source-dest-check`` - Indicates whether the network interface performs source/destination checking. A value of ``true`` means checking is enabled, and ``false`` means checking is disabled. The value must be ``false`` for the network interface to perform network address translation (NAT) in your VPC.
           * ``status`` - The status of the network interface. If the network interface is not attached to an instance, the status is ``available`` ; if a network interface is attached to an instance the status is ``in-use`` .
           * ``subnet-id`` - The ID of the subnet for the network interface.
           * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
@@ -1499,7 +1500,7 @@ class NetworkInterfaceAvailable(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -1597,9 +1598,10 @@ class SnapshotCompleted(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``description`` - A description of the snapshot.
-          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
+          * ``encrypted`` - Indicates whether the snapshot is encrypted (``true`` | ``false`` )
+          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``self`` | ``all`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
           * ``owner-id`` - The ID of the AWS account that owns the snapshot.
           * ``progress`` - The progress of the snapshot, as a percentage (for example, 80%).
           * ``snapshot-id`` - The snapshot ID.
@@ -1624,7 +1626,7 @@ class SnapshotCompleted(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxResults: integer
         :param MaxResults:
@@ -1634,16 +1636,16 @@ class SnapshotCompleted(Waiter):
           The ``NextToken`` value returned from a previous paginated ``DescribeSnapshots`` request where ``MaxResults`` was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the ``NextToken`` value. This value is ``null`` when there are no more results to return.
         :type OwnerIds: list
         :param OwnerIds:
-          Returns the snapshots owned by the specified owner. Multiple owners can be specified.
+          Describes the snapshots owned by these owners.
           - *(string) --*
         :type RestorableByUserIds: list
         :param RestorableByUserIds:
-          One or more AWS accounts IDs that can create volumes from the snapshot.
+          The IDs of the AWS accounts that can create volumes from the snapshot.
           - *(string) --*
         :type SnapshotIds: list
         :param SnapshotIds:
-          One or more snapshot IDs.
-          Default: Describes snapshots for which you have launch permissions.
+          The snapshot IDs.
+          Default: Describes the snapshots for which you have create volume permissions.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -1745,7 +1747,7 @@ class SpotInstanceRequestFulfilled(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -1831,7 +1833,7 @@ class SubnetAvailable(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type SubnetIds: list
         :param SubnetIds:
@@ -1884,12 +1886,14 @@ class SystemStatusOk(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone of the instance.
           * ``event.code`` - The code for the scheduled event (``instance-reboot`` | ``system-reboot`` | ``system-maintenance`` | ``instance-retirement`` | ``instance-stop`` ).
           * ``event.description`` - A description of the event.
+          * ``event.instance-event-id`` - The ID of the event whose date and time you are modifying.
           * ``event.not-after`` - The latest end time for the scheduled event (for example, ``2014-09-15T17:15:20.000Z`` ).
           * ``event.not-before`` - The earliest start time for the scheduled event (for example, ``2014-09-15T17:15:20.000Z`` ).
+          * ``event.not-before-deadline`` - The deadline for starting the event (for example, ``2014-09-15T17:15:20.000Z`` ).
           * ``instance-state-code`` - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
           * ``instance-state-name`` - The state of the instance (``pending`` | ``running`` | ``shutting-down`` | ``terminated`` | ``stopping`` | ``stopped`` ).
           * ``instance-status.reachability`` - Filters on instance status where the name is ``reachability`` (``passed`` | ``failed`` | ``initializing`` | ``insufficient-data`` ).
@@ -1911,11 +1915,11 @@ class SystemStatusOk(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           Constraints: Maximum 100 explicitly specified instance IDs.
           - *(string) --*
@@ -1974,7 +1978,7 @@ class VolumeAvailable(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``attachment.attach-time`` - The time stamp when the attachment initiated.
           * ``attachment.delete-on-termination`` - Whether the volume is deleted on instance termination.
           * ``attachment.device`` - The device name specified in the block device mapping (for example, ``/dev/sda1`` ).
@@ -1982,7 +1986,7 @@ class VolumeAvailable(Waiter):
           * ``attachment.status`` - The attachment state (``attaching`` | ``attached`` | ``detaching`` ).
           * ``availability-zone`` - The Availability Zone in which the volume was created.
           * ``create-time`` - The time stamp when the volume was created.
-          * ``encrypted`` - The encryption status of the volume.
+          * ``encrypted`` - Indicates whether the volume is encrypted (``true`` | ``false`` )
           * ``size`` - The size of the volume, in GiB.
           * ``snapshot-id`` - The snapshot from which the volume was created.
           * ``status`` - The status of the volume (``creating`` | ``available`` | ``in-use`` | ``deleting`` | ``deleted`` | ``error`` ).
@@ -2005,11 +2009,11 @@ class VolumeAvailable(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs.
+          The volume IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -2062,7 +2066,7 @@ class VolumeDeleted(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``attachment.attach-time`` - The time stamp when the attachment initiated.
           * ``attachment.delete-on-termination`` - Whether the volume is deleted on instance termination.
           * ``attachment.device`` - The device name specified in the block device mapping (for example, ``/dev/sda1`` ).
@@ -2070,7 +2074,7 @@ class VolumeDeleted(Waiter):
           * ``attachment.status`` - The attachment state (``attaching`` | ``attached`` | ``detaching`` ).
           * ``availability-zone`` - The Availability Zone in which the volume was created.
           * ``create-time`` - The time stamp when the volume was created.
-          * ``encrypted`` - The encryption status of the volume.
+          * ``encrypted`` - Indicates whether the volume is encrypted (``true`` | ``false`` )
           * ``size`` - The size of the volume, in GiB.
           * ``snapshot-id`` - The snapshot from which the volume was created.
           * ``status`` - The status of the volume (``creating`` | ``available`` | ``in-use`` | ``deleting`` | ``deleted`` | ``error`` ).
@@ -2093,11 +2097,11 @@ class VolumeDeleted(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs.
+          The volume IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -2150,7 +2154,7 @@ class VolumeInUse(Waiter):
           )
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``attachment.attach-time`` - The time stamp when the attachment initiated.
           * ``attachment.delete-on-termination`` - Whether the volume is deleted on instance termination.
           * ``attachment.device`` - The device name specified in the block device mapping (for example, ``/dev/sda1`` ).
@@ -2158,7 +2162,7 @@ class VolumeInUse(Waiter):
           * ``attachment.status`` - The attachment state (``attaching`` | ``attached`` | ``detaching`` ).
           * ``availability-zone`` - The Availability Zone in which the volume was created.
           * ``create-time`` - The time stamp when the volume was created.
-          * ``encrypted`` - The encryption status of the volume.
+          * ``encrypted`` - Indicates whether the volume is encrypted (``true`` | ``false`` )
           * ``size`` - The size of the volume, in GiB.
           * ``snapshot-id`` - The snapshot from which the volume was created.
           * ``status`` - The status of the volume (``creating`` | ``available`` | ``in-use`` | ``deleting`` | ``deleted`` | ``error`` ).
@@ -2181,11 +2185,11 @@ class VolumeInUse(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs.
+          The volume IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -2209,7 +2213,7 @@ class VolumeInUse(Waiter):
 
 
 class VpcAvailable(Waiter):
-    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None):
         """
         Polls :py:meth:`EC2.Client.describe_vpcs` every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -2229,6 +2233,8 @@ class VpcAvailable(Waiter):
                   'string',
               ],
               DryRun=True|False,
+              NextToken='string',
+              MaxResults=123,
               WaiterConfig={
                   'Delay': 123,
                   'MaxAttempts': 123
@@ -2266,7 +2272,7 @@ class VpcAvailable(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VpcIds: list
         :param VpcIds:
@@ -2276,6 +2282,12 @@ class VpcAvailable(Waiter):
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
@@ -2289,7 +2301,7 @@ class VpcAvailable(Waiter):
 
 
 class VpcExists(Waiter):
-    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, NextToken: str = None, MaxResults: int = None, WaiterConfig: Dict = None):
         """
         Polls :py:meth:`EC2.Client.describe_vpcs` every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
@@ -2309,6 +2321,8 @@ class VpcExists(Waiter):
                   'string',
               ],
               DryRun=True|False,
+              NextToken='string',
+              MaxResults=123,
               WaiterConfig={
                   'Delay': 123,
                   'MaxAttempts': 123
@@ -2346,7 +2360,7 @@ class VpcExists(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VpcIds: list
         :param VpcIds:
@@ -2356,6 +2370,12 @@ class VpcExists(Waiter):
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type NextToken: string
+        :param NextToken:
+          The token for the next page of results.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
@@ -2426,7 +2446,7 @@ class VpcPeeringConnectionDeleted(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -2438,10 +2458,10 @@ class VpcPeeringConnectionDeleted(Waiter):
           - *(string) --*
         :type NextToken: string
         :param NextToken:
-          The token to request the next page of results. (You received this token from a prior call.)
+          The token for the next page of results.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
@@ -2512,7 +2532,7 @@ class VpcPeeringConnectionExists(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -2524,10 +2544,10 @@ class VpcPeeringConnectionExists(Waiter):
           - *(string) --*
         :type NextToken: string
         :param NextToken:
-          The token to request the next page of results. (You received this token from a prior call.)
+          The token for the next page of results.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+          The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned ``nextToken`` value.
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
@@ -2595,7 +2615,7 @@ class VpnConnectionAvailable(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VpnConnectionIds: list
         :param VpnConnectionIds:
@@ -2672,7 +2692,7 @@ class VpnConnectionDeleted(Waiter):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VpnConnectionIds: list
         :param VpnConnectionIds:

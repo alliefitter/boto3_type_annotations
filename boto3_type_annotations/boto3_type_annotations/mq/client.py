@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -33,6 +33,12 @@ class Client(BaseClient):
         pass
 
     def describe_broker(self, BrokerId: str) -> Dict:
+        pass
+
+    def describe_broker_engine_types(self, EngineType: str = None, MaxResults: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def describe_broker_instance_options(self, EngineType: str = None, HostInstanceType: str = None, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
     def describe_configuration(self, ConfigurationId: str) -> Dict:

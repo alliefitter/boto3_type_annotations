@@ -1,14 +1,14 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
-    def activate_gateway(self, ActivationKey: str, GatewayName: str, GatewayTimezone: str, GatewayRegion: str, GatewayType: str = None, TapeDriveType: str = None, MediumChangerType: str = None) -> Dict:
+    def activate_gateway(self, ActivationKey: str, GatewayName: str, GatewayTimezone: str, GatewayRegion: str, GatewayType: str = None, TapeDriveType: str = None, MediumChangerType: str = None, Tags: List = None) -> Dict:
         """
         Activates the gateway you previously deployed on your host. In the activation process, you specify information such as the region you want to use for storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window, an activation key, and a name for your gateway. The activation process also associates your gateway with your account; for more information, see  UpdateGatewayInformation .
         .. note::
@@ -24,7 +24,13 @@ class Client(BaseClient):
               GatewayRegion='string',
               GatewayType='string',
               TapeDriveType='string',
-              MediumChangerType='string'
+              MediumChangerType='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -52,8 +58,8 @@ class Client(BaseClient):
           A value that indicates the time zone you want to set for the gateway. The time zone is of the format \"GMT-hr:mm\" or \"GMT+hr:mm\". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway\'s maintenance schedule.
         :type GatewayRegion: string
         :param GatewayRegion: **[REQUIRED]**
-          A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your ``Host`` header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region>`__ in the *Amazon Web Services Glossary* .
-          Valid Values: \"us-east-1\", \"us-east-2\", \"us-west-1\", \"us-west-2\", \"ca-central-1\", \"eu-west-1\", \"eu-central-1\", \"eu-west-2\", \"eu-west-3\", \"ap-northeast-1\", \"ap-northeast-2\", \"ap-southeast-1\", \"ap-southeast-2\", \"ap-south-1\", \"sa-east-1\"
+          A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your ``Host`` header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see `Regions and Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region>`__ in the *Amazon Web Services Glossary* .
+          Valid Values: See `AWS Storage Gateway Regions and Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region>`__ in the AWS General Reference.
         :type GatewayType: string
         :param GatewayType:
           A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is ``CACHED`` .
@@ -66,6 +72,17 @@ class Client(BaseClient):
         :param MediumChangerType:
           The value that indicates the type of medium changer to use for tape gateway. This field is optional.
           Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"
+        :type Tags: list
+        :param Tags:
+          A list of up to 50 tags that can be assigned to the gateway. Each tag is a key-value pair.
+          .. note::
+            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag\'s key is 128 characters, and the maximum length for a tag\'s value is 256.
+          - *(dict) --*
+            A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+            - **Key** *(string) --* **[REQUIRED]**
+              Tag key (String). The key can\'t start with aws:.
+            - **Value** *(string) --* **[REQUIRED]**
+              Value of the tag key.
         :rtype: dict
         :returns:
         """
@@ -73,7 +90,7 @@ class Client(BaseClient):
 
     def add_cache(self, GatewayARN: str, DiskIds: List) -> Dict:
         """
-        Configures one or more gateway local disks as cache for a gateway. This operation is only supported in the cached volume, tape and file gateway type (see `Storage Gateway Concepts <http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html>`__ ).
+        Configures one or more gateway local disks as cache for a gateway. This operation is only supported in the cached volume, tape and file gateway type (see `Storage Gateway Concepts <https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html>`__ ).
         In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add cache, and one or more disk IDs that you want to configure as cache.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/AddCache>`_
         
@@ -101,6 +118,7 @@ class Client(BaseClient):
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
         :type DiskIds: list
         :param DiskIds: **[REQUIRED]**
+          An array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the  ListLocalDisks API.
           - *(string) --*
         :rtype: dict
         :returns:
@@ -111,9 +129,10 @@ class Client(BaseClient):
         """
         Adds one or more tags to the specified resource. You use tags to add metadata to resources, which you can use to categorize these resources. For example, you can categorize resources by purpose, owner, environment, or team. Each tag consists of a key and a value, which you define. You can add tags to the following AWS Storage Gateway resources:
         * Storage gateways of all types 
-        * Storage Volumes 
-        * Virtual Tapes 
-        You can create a maximum of 10 tags for each resource. Virtual tapes and storage volumes that are recovered to a new gateway maintain their tags.
+        * Storage volumes 
+        * Virtual tapes 
+        * NFS and SMB file shares 
+        You can create a maximum of 50 tags for each resource. Virtual tapes and storage volumes that are recovered to a new gateway maintain their tags.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/AddTagsToResource>`_
         
         **Request Syntax**
@@ -146,10 +165,13 @@ class Client(BaseClient):
         :param Tags: **[REQUIRED]**
           The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
           .. note::
-            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @.
+            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag\'s key is 128 characters, and the maximum length for a tag\'s value is 256.
           - *(dict) --*
+            A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
             - **Key** *(string) --* **[REQUIRED]**
+              Tag key (String). The key can\'t start with aws:.
             - **Value** *(string) --* **[REQUIRED]**
+              Value of the tag key.
         :rtype: dict
         :returns:
         """
@@ -185,6 +207,7 @@ class Client(BaseClient):
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
         :type DiskIds: list
         :param DiskIds: **[REQUIRED]**
+          An array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the  ListLocalDisks API.
           - *(string) --*
         :rtype: dict
         :returns:
@@ -365,7 +388,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_cached_iscsi_volume(self, GatewayARN: str, VolumeSizeInBytes: int, TargetName: str, NetworkInterfaceId: str, ClientToken: str, SnapshotId: str = None, SourceVolumeARN: str = None, KMSEncrypted: bool = None, KMSKey: str = None) -> Dict:
+    def create_cached_iscsi_volume(self, GatewayARN: str, VolumeSizeInBytes: int, TargetName: str, NetworkInterfaceId: str, ClientToken: str, SnapshotId: str = None, SourceVolumeARN: str = None, KMSEncrypted: bool = None, KMSKey: str = None, Tags: List = None) -> Dict:
         """
         Creates a cached volume on a specified cached volume gateway. This operation is only supported in the cached volume gateway type.
         .. note::
@@ -385,7 +408,13 @@ class Client(BaseClient):
               NetworkInterfaceId='string',
               ClientToken='string',
               KMSEncrypted=True|False,
-              KMSKey='string'
+              KMSKey='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -409,10 +438,11 @@ class Client(BaseClient):
           The size of the volume in bytes.
         :type SnapshotId: string
         :param SnapshotId:
-          The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use `DescribeSnapshots <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
+          The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use `DescribeSnapshots <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
         :type TargetName: string
         :param TargetName: **[REQUIRED]**
-          The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying ``TargetName`` as *myvolume* results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway.
+          The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying ``TargetName`` as *myvolume* results in the target ARN of ``arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume`` . The target name must be unique across all volumes on a gateway.
+          If you don\'t specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
         :type SourceVolumeARN: string
         :param SourceVolumeARN:
           The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume\'s latest recovery point. The ``VolumeSizeInBytes`` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
@@ -429,12 +459,23 @@ class Client(BaseClient):
         :type KMSKey: string
         :param KMSKey:
           The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+        :type Tags: list
+        :param Tags:
+          A list of up to 50 tags that can be assigned to a cached volume. Each tag is a key-value pair.
+          .. note::
+            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag\'s key is 128 characters, and the maximum length for a tag\'s value is 256.
+          - *(dict) --*
+            A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+            - **Key** *(string) --* **[REQUIRED]**
+              Tag key (String). The key can\'t start with aws:.
+            - **Value** *(string) --* **[REQUIRED]**
+              Value of the tag key.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_nfs_file_share(self, ClientToken: str, GatewayARN: str, Role: str, LocationARN: str, NFSFileShareDefaults: Dict = None, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ClientList: List = None, Squash: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None) -> Dict:
+    def create_nfs_file_share(self, ClientToken: str, GatewayARN: str, Role: str, LocationARN: str, NFSFileShareDefaults: Dict = None, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ClientList: List = None, Squash: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, Tags: List = None) -> Dict:
         """
         Creates a Network File System (NFS) file share on an existing file gateway. In Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes file shares using a NFS interface. This operation is only supported for file gateways.
         .. warning::
@@ -465,7 +506,13 @@ class Client(BaseClient):
               Squash='string',
               ReadOnly=True|False,
               GuessMIMETypeEnabled=True|False,
-              RequesterPays=True|False
+              RequesterPays=True|False,
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -520,7 +567,7 @@ class Client(BaseClient):
           - *(string) --*
         :type Squash: string
         :param Squash:
-          Maps a user to anonymous user. Valid options are the following:
+          A value that maps a user to anonymous user. Valid options are the following:
           * ``RootSquash`` - Only root is mapped to anonymous user.
           * ``NoSquash`` - No one is mapped to anonymous user
           * ``AllSquash`` - Everyone is mapped to anonymous user.
@@ -532,17 +579,30 @@ class Client(BaseClient):
           A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
         :type RequesterPays: boolean
         :param RequesterPays:
-          A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is ``private`` .
+          A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+          .. note::
+             ``RequesterPays`` is a configuration for the S3 bucket that backs the file share, so make sure that the configuration on the file share is the same as the S3 bucket configuration.
+        :type Tags: list
+        :param Tags:
+          A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
+          .. note::
+            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag\'s key is 128 characters, and the maximum length for a tag\'s value is 256.
+          - *(dict) --*
+            A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+            - **Key** *(string) --* **[REQUIRED]**
+              Tag key (String). The key can\'t start with aws:.
+            - **Value** *(string) --* **[REQUIRED]**
+              Value of the tag key.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_smb_file_share(self, ClientToken: str, GatewayARN: str, Role: str, LocationARN: str, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, ValidUserList: List = None, InvalidUserList: List = None, Authentication: str = None) -> Dict:
+    def create_smb_file_share(self, ClientToken: str, GatewayARN: str, Role: str, LocationARN: str, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, SMBACLEnabled: bool = None, ValidUserList: List = None, InvalidUserList: List = None, Authentication: str = None, Tags: List = None) -> Dict:
         """
         Creates a Server Message Block (SMB) file share on an existing file gateway. In Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway expose file shares using a SMB interface. This operation is only supported for file gateways.
         .. warning::
-          File gateways require AWS Security Token Service (AWS STS) to be activated to enable you to create a file share. Make sure that AWS STS is activated in the AWS Region you are creating your file gateway in. If AWS STS is not activated in this AWS Region, activate it. For information about how to activate AWS STS, see `Activating and Deactivating AWS STS in an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide.*  
+          File gateways require AWS Security Token Service (AWS STS) to be activated to enable you to create a file share. Make sure that AWS STS is activated in the AWS Region you are creating your file gateway in. If AWS STS is not activated in this AWS Region, activate it. For information about how to activate AWS STS, see `Activating and Deactivating AWS STS in an AWS Region <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide.*  
           File gateways don't support creating hard or symbolic links on a file share.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/CreateSMBFileShare>`_
         
@@ -560,13 +620,20 @@ class Client(BaseClient):
               ReadOnly=True|False,
               GuessMIMETypeEnabled=True|False,
               RequesterPays=True|False,
+              SMBACLEnabled=True|False,
               ValidUserList=[
                   'string',
               ],
               InvalidUserList=[
                   'string',
               ],
-              Authentication='string'
+              Authentication='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -612,7 +679,12 @@ class Client(BaseClient):
           A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
         :type RequesterPays: boolean
         :param RequesterPays:
-          A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is ``private`` .
+          A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+          .. note::
+             ``RequesterPays`` is a configuration for the S3 bucket that backs the file share, so make sure that the configuration on the file share is the same as the S3 bucket configuration.
+        :type SMBACLEnabled: boolean
+        :param SMBACLEnabled:
+          Set this value to \"true to enable ACL (access control list) on the SMB file share. Set it to \"false\" to map file and directory permissions to the POSIX permissions.
         :type ValidUserList: list
         :param ValidUserList:
           A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. For example ``@group1`` . Can only be set if Authentication is set to ``ActiveDirectory`` .
@@ -625,6 +697,17 @@ class Client(BaseClient):
         :param Authentication:
           The authentication method that users use to access the file share.
           Valid values are ``ActiveDirectory`` or ``GuestAccess`` . The default is ``ActiveDirectory`` .
+        :type Tags: list
+        :param Tags:
+          A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a key-value pair.
+          .. note::
+            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag\'s key is 128 characters, and the maximum length for a tag\'s value is 256.
+          - *(dict) --*
+            A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+            - **Key** *(string) --* **[REQUIRED]**
+              Tag key (String). The key can\'t start with aws:.
+            - **Value** *(string) --* **[REQUIRED]**
+              Value of the tag key.
         :rtype: dict
         :returns:
         """
@@ -633,12 +716,12 @@ class Client(BaseClient):
     def create_snapshot(self, VolumeARN: str, SnapshotDescription: str) -> Dict:
         """
         Initiates a snapshot of a volume.
-        AWS Storage Gateway provides the ability to back up point-in-time snapshots of your data to Amazon Simple Storage (S3) for durable off-site recovery, as well as import the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway volume on a scheduled or ad-hoc basis. This API enables you to take ad-hoc snapshot. For more information, see `Editing a Snapshot Schedule <http://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot>`__ .
+        AWS Storage Gateway provides the ability to back up point-in-time snapshots of your data to Amazon Simple Storage (S3) for durable off-site recovery, as well as import the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway volume on a scheduled or ad hoc basis. This API enables you to take ad-hoc snapshot. For more information, see `Editing a Snapshot Schedule <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot>`__ .
         In the CreateSnapshot request you identify the volume by providing its Amazon Resource Name (ARN). You must also provide description for the snapshot. When AWS Storage Gateway takes the snapshot of specified volume, the snapshot and description appears in the AWS Storage Gateway Console. In response, AWS Storage Gateway returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it when you want to create a volume from a snapshot. This operation is only supported in stored and cached volume gateway type.
         .. note::
-          To list or delete a snapshot, you must use the Amazon EC2 API. For more information, see DescribeSnapshots or DeleteSnapshot in the `EC2 API reference <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html>`__ .
+          To list or delete a snapshot, you must use the Amazon EC2 API. For more information, see DescribeSnapshots or DeleteSnapshot in the `EC2 API reference <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html>`__ .
         .. warning::
-          Volume and snapshot IDs are changing to a longer length ID format. For more information, see the important note on the `Welcome <http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html>`__ page.
+          Volume and snapshot IDs are changing to a longer length ID format. For more information, see the important note on the `Welcome <https://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html>`__ page.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/CreateSnapshot>`_
         
         **Request Syntax**
@@ -700,18 +783,23 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **SnapshotId** *(string) --* 
+              The ID of the snapshot.
             - **VolumeARN** *(string) --* 
+              The Amazon Resource Name (ARN) of the iSCSI volume target. Use the  DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN for specified VolumeARN.
             - **VolumeRecoveryPointTime** *(string) --* 
+              The time the volume was created from the recovery point.
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the iSCSI volume target. Use the  DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN for specified VolumeARN.
         :type SnapshotDescription: string
         :param SnapshotDescription: **[REQUIRED]**
+          Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the **Description** field, and in the AWS Storage Gateway snapshot **Details** pane, **Description** field
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_stored_iscsi_volume(self, GatewayARN: str, DiskId: str, PreserveExistingData: bool, TargetName: str, NetworkInterfaceId: str, SnapshotId: str = None, KMSEncrypted: bool = None, KMSKey: str = None) -> Dict:
+    def create_stored_iscsi_volume(self, GatewayARN: str, DiskId: str, PreserveExistingData: bool, TargetName: str, NetworkInterfaceId: str, SnapshotId: str = None, KMSEncrypted: bool = None, KMSKey: str = None, Tags: List = None) -> Dict:
         """
         Creates a volume on a specified gateway. This operation is only supported in the stored volume gateway type.
         The size of the volume to create is inferred from the disk size. You can choose to preserve existing data on the disk, create volume from an existing snapshot, or create an empty volume. If you choose to create an empty gateway volume, then any existing data on the disk is erased.
@@ -728,7 +816,13 @@ class Client(BaseClient):
               TargetName='string',
               NetworkInterfaceId='string',
               KMSEncrypted=True|False,
-              KMSKey='string'
+              KMSKey='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -753,17 +847,18 @@ class Client(BaseClient):
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
         :type DiskId: string
         :param DiskId: **[REQUIRED]**
-          The unique identifier for the gateway local disk that is configured as a stored volume. Use `ListLocalDisks <http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html>`__ to list disk IDs for a gateway.
+          The unique identifier for the gateway local disk that is configured as a stored volume. Use `ListLocalDisks <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html>`__ to list disk IDs for a gateway.
         :type SnapshotId: string
         :param SnapshotId:
-          The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use `DescribeSnapshots <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
+          The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use `DescribeSnapshots <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
         :type PreserveExistingData: boolean
         :param PreserveExistingData: **[REQUIRED]**
           Specify this field as true if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
           Valid Values: true, false
         :type TargetName: string
         :param TargetName: **[REQUIRED]**
-          The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying ``TargetName`` as *myvolume* results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway.
+          The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying ``TargetName`` as *myvolume* results in the target ARN of ``arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume`` . The target name must be unique across all volumes on a gateway.
+          If you don\'t specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
         :type NetworkInterfaceId: string
         :param NetworkInterfaceId: **[REQUIRED]**
           The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use  DescribeGatewayInformation to get a list of the network interfaces available on a gateway.
@@ -774,12 +869,23 @@ class Client(BaseClient):
         :type KMSKey: string
         :param KMSKey:
           The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+        :type Tags: list
+        :param Tags:
+          A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
+          .. note::
+            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag\'s key is 128 characters, and the maximum length for a tag\'s value is 256.
+          - *(dict) --*
+            A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+            - **Key** *(string) --* **[REQUIRED]**
+              Tag key (String). The key can\'t start with aws:.
+            - **Value** *(string) --* **[REQUIRED]**
+              Value of the tag key.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_tape_with_barcode(self, GatewayARN: str, TapeSizeInBytes: int, TapeBarcode: str, KMSEncrypted: bool = None, KMSKey: str = None) -> Dict:
+    def create_tape_with_barcode(self, GatewayARN: str, TapeSizeInBytes: int, TapeBarcode: str, KMSEncrypted: bool = None, KMSKey: str = None, PoolId: str = None, Tags: List = None) -> Dict:
         """
         Creates a virtual tape by using your own barcode. You write data to the virtual tape and then archive the tape. A barcode is unique and can not be reused if it has already been used on a tape . This applies to barcodes used on deleted tapes. This operation is only supported in the tape gateway type.
         .. note::
@@ -793,7 +899,14 @@ class Client(BaseClient):
               TapeSizeInBytes=123,
               TapeBarcode='string',
               KMSEncrypted=True|False,
-              KMSKey='string'
+              KMSKey='string',
+              PoolId='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -826,12 +939,27 @@ class Client(BaseClient):
         :type KMSKey: string
         :param KMSKey:
           The Amazon Resource Name (ARN) of the AWS KMS Key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+        :type PoolId: string
+        :param PoolId:
+          The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (Glacier or Deep Archive) that corresponds to the pool.
+          Valid values: \"GLACIER\", \"DEEP_ARCHIVE\"
+        :type Tags: list
+        :param Tags:
+          A list of up to 50 tags that can be assigned to a virtual tape that has a barcode. Each tag is a key-value pair.
+          .. note::
+            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag\'s key is 128 characters, and the maximum length for a tag\'s value is 256.
+          - *(dict) --*
+            A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+            - **Key** *(string) --* **[REQUIRED]**
+              Tag key (String). The key can\'t start with aws:.
+            - **Value** *(string) --* **[REQUIRED]**
+              Value of the tag key.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_tapes(self, GatewayARN: str, TapeSizeInBytes: int, ClientToken: str, NumTapesToCreate: int, TapeBarcodePrefix: str, KMSEncrypted: bool = None, KMSKey: str = None) -> Dict:
+    def create_tapes(self, GatewayARN: str, TapeSizeInBytes: int, ClientToken: str, NumTapesToCreate: int, TapeBarcodePrefix: str, KMSEncrypted: bool = None, KMSKey: str = None, PoolId: str = None, Tags: List = None) -> Dict:
         """
         Creates one or more virtual tapes. You write data to the virtual tapes and then archive the tapes. This operation is only supported in the tape gateway type.
         .. note::
@@ -847,7 +975,14 @@ class Client(BaseClient):
               NumTapesToCreate=123,
               TapeBarcodePrefix='string',
               KMSEncrypted=True|False,
-              KMSKey='string'
+              KMSKey='string',
+              PoolId='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -891,6 +1026,21 @@ class Client(BaseClient):
         :type KMSKey: string
         :param KMSKey:
           The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+        :type PoolId: string
+        :param PoolId:
+          The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (Glacier or Deep Archive) that corresponds to the pool.
+          Valid values: \"GLACIER\", \"DEEP_ARCHIVE\"
+        :type Tags: list
+        :param Tags:
+          A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value pair.
+          .. note::
+            Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag\'s key is 128 characters, and the maximum length for a tag\'s value is 256.
+          - *(dict) --*
+            A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+            - **Key** *(string) --* **[REQUIRED]**
+              Tag key (String). The key can\'t start with aws:.
+            - **Value** *(string) --* **[REQUIRED]**
+              Value of the tag key.
         :rtype: dict
         :returns:
         """
@@ -1038,7 +1188,7 @@ class Client(BaseClient):
     def delete_snapshot_schedule(self, VolumeARN: str) -> Dict:
         """
         Deletes a snapshot of a volume.
-        You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API action enables you to delete a snapshot schedule for a volume. For more information, see `Working with Snapshots <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html>`__ . In the ``DeleteSnapshotSchedule`` request, you identify the volume by providing its Amazon Resource Name (ARN). This operation is only supported in stored and cached volume gateway types.
+        You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API action enables you to delete a snapshot schedule for a volume. For more information, see `Working with Snapshots <https://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html>`__ . In the ``DeleteSnapshotSchedule`` request, you identify the volume by providing its Amazon Resource Name (ARN). This operation is only supported in stored and cached volume gateway types.
         .. note::
           To list or delete a snapshot, you must use the Amazon EC2 API. in *Amazon Elastic Compute Cloud API Reference* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/DeleteSnapshotSchedule>`_
@@ -1058,8 +1208,10 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **VolumeARN** *(string) --* 
+              The volume which snapshot schedule was deleted.
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]**
+          The volume which snapshot schedule to delete.
         :rtype: dict
         :returns:
         """
@@ -1132,7 +1284,7 @@ class Client(BaseClient):
     def delete_volume(self, VolumeARN: str) -> Dict:
         """
         Deletes the specified storage volume that you previously created using the  CreateCachediSCSIVolume or  CreateStorediSCSIVolume API. This operation is only supported in the cached volume and stored volume types. For stored volume gateways, the local disk that was configured as the storage volume is not deleted. You can reuse the local disk to create another storage volume. 
-        Before you delete a volume, make sure there are no iSCSI connections to the volume you are deleting. You should also make sure there is no snapshot in progress. You can use the Amazon Elastic Compute Cloud (Amazon EC2) API to query snapshots on the volume you are deleting and check the snapshot status. For more information, go to `DescribeSnapshots <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
+        Before you delete a volume, make sure there are no iSCSI connections to the volume you are deleting. You should also make sure there is no snapshot in progress. You can use the Amazon Elastic Compute Cloud (Amazon EC2) API to query snapshots on the volume you are deleting and check the snapshot status. For more information, go to `DescribeSnapshots <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>`__ in the *Amazon Elastic Compute Cloud API Reference* .
         In the request, you must provide the Amazon Resource Name (ARN) of the storage volume you want to delete.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/DeleteVolume>`_
         
@@ -1229,12 +1381,18 @@ class Client(BaseClient):
             - **GatewayARN** *(string) --* 
               The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
             - **DiskIds** *(list) --* 
+              An array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the  ListLocalDisks API.
               - *(string) --* 
             - **CacheAllocatedInBytes** *(integer) --* 
+              The amount of cache in bytes allocated to the a gateway.
             - **CacheUsedPercentage** *(float) --* 
+              Percent use of the gateway's cache storage. This metric applies only to the gateway-cached volume setup. The sample is taken at the end of the reporting period.
             - **CacheDirtyPercentage** *(float) --* 
+              The file share's contribution to the overall percentage of the gateway's cache that has not been persisted to AWS. The sample is taken at the end of the reporting period.
             - **CacheHitPercentage** *(float) --* 
+              Percent of application read operations from the file shares that are served from cache. The sample is taken at the end of the reporting period.
             - **CacheMissPercentage** *(float) --* 
+              Percent of application read operations from the file shares that are not served from cache. The sample is taken at the end of the reporting period.
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
@@ -1301,7 +1459,7 @@ class Client(BaseClient):
                 - **VolumeStatus** *(string) --* 
                   One of the VolumeStatus values that indicates the state of the storage volume.
                 - **VolumeAttachmentStatus** *(string) --* 
-                  A value that indicates whether a storage volume is attached to or detached from a gateway.
+                  A value that indicates whether a storage volume is attached to or detached from a gateway. For more information, see `Moving Your Volumes to a Different Gateway <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume>`__ .
                 - **VolumeSizeInBytes** *(integer) --* 
                   The size, in bytes, of the volume capacity.
                 - **VolumeProgress** *(float) --* 
@@ -1323,15 +1481,17 @@ class Client(BaseClient):
                 - **CreatedDate** *(datetime) --* 
                   The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp.
                 - **VolumeUsedInBytes** *(integer) --* 
-                  The size of the data stored on the volume in bytes.
+                  The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. ``VolumeUsedInBytes`` is different from the compressed size of the volume, which is the value that is used to calculate your bill.
                   .. note::
                     This value is not available for volumes created prior to May 13, 2015, until you store data on the volume.
                 - **KMSKey** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
                 - **TargetName** *(string) --* 
-                  The name of the iSCSI target that is used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying ``TargetName`` as *myvolume* results in the target ARN of ``arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume`` .
+                  The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying ``TargetName`` as *myvolume* results in the target ARN of ``arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume`` . The target name must be unique across all volumes on a gateway.
+                  If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
         :type VolumeARNs: list
         :param VolumeARNs: **[REQUIRED]**
+          An array of strings where each string represents the Amazon Resource Name (ARN) of a cached volume. All of the specified cached volumes must from the same gateway. Use  ListVolumes to get volume ARNs for a gateway.
           - *(string) --*
         :rtype: dict
         :returns:
@@ -1418,7 +1578,15 @@ class Client(BaseClient):
                 ],
                 'GatewayType': 'string',
                 'NextUpdateAvailabilityDate': 'string',
-                'LastSoftwareUpdate': 'string'
+                'LastSoftwareUpdate': 'string',
+                'Ec2InstanceId': 'string',
+                'Ec2InstanceRegion': 'string',
+                'Tags': [
+                    {
+                        'Key': 'string',
+                        'Value': 'string'
+                    },
+                ]
             }
         
         **Response Structure**
@@ -1452,6 +1620,18 @@ class Client(BaseClient):
               The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
             - **LastSoftwareUpdate** *(string) --* 
               The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
+            - **Ec2InstanceId** *(string) --* 
+              The ID of the Amazon EC2 instance that was used to launch the gateway.
+            - **Ec2InstanceRegion** *(string) --* 
+              The AWS Region where the Amazon EC2 instance is located.
+            - **Tags** *(list) --* 
+              A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the ``ListTagsForResource`` API operation.
+              - *(dict) --* 
+                A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+                - **Key** *(string) --* 
+                  Tag key (String). The key can't start with aws:. 
+                - **Value** *(string) --* 
+                  Value of the tag key.
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
@@ -1478,12 +1658,14 @@ class Client(BaseClient):
                 'HourOfDay': 123,
                 'MinuteOfHour': 123,
                 'DayOfWeek': 123,
+                'DayOfMonth': 123,
                 'Timezone': 'string'
             }
         
         **Response Structure**
           - *(dict) --* 
             A JSON object containing the following fields:
+            *  DescribeMaintenanceStartTimeOutput$DayOfMonth   
             *  DescribeMaintenanceStartTimeOutput$DayOfWeek   
             *  DescribeMaintenanceStartTimeOutput$HourOfDay   
             *  DescribeMaintenanceStartTimeOutput$MinuteOfHour   
@@ -1496,7 +1678,12 @@ class Client(BaseClient):
               The minute component of the maintenance start time represented as *mm* , where *mm* is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.
             - **DayOfWeek** *(integer) --* 
               An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
+            - **DayOfMonth** *(integer) --* 
+              The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+              .. note::
+                This value is only available for tape and volume gateways.
             - **Timezone** *(string) --* 
+              A value that indicates the time zone that is set for the gateway. The start time and day of week specified should be in the time zone of the gateway.
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
@@ -1546,7 +1733,13 @@ class Client(BaseClient):
                         'Squash': 'string',
                         'ReadOnly': True|False,
                         'GuessMIMETypeEnabled': True|False,
-                        'RequesterPays': True|False
+                        'RequesterPays': True|False,
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ]
                     },
                 ]
             }
@@ -1603,7 +1796,17 @@ class Client(BaseClient):
                 - **GuessMIMETypeEnabled** *(boolean) --* 
                   A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
                 - **RequesterPays** *(boolean) --* 
-                  A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is ``private`` .
+                  A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+                  .. note::
+                     ``RequesterPays`` is a configuration for the S3 bucket that backs the file share, so make sure that the configuration on the file share is the same as the S3 bucket configuration.
+                - **Tags** *(list) --* 
+                  A list of up to 50 tags assigned to the NFS file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the ``ListTagsForResource`` API operation.
+                  - *(dict) --* 
+                    A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+                    - **Key** *(string) --* 
+                      Tag key (String). The key can't start with aws:. 
+                    - **Value** *(string) --* 
+                      Value of the tag key.
         :type FileShareARNList: list
         :param FileShareARNList: **[REQUIRED]**
           An array containing the Amazon Resource Name (ARN) of each file share to be described.
@@ -1646,13 +1849,20 @@ class Client(BaseClient):
                         'ReadOnly': True|False,
                         'GuessMIMETypeEnabled': True|False,
                         'RequesterPays': True|False,
+                        'SMBACLEnabled': True|False,
                         'ValidUserList': [
                             'string',
                         ],
                         'InvalidUserList': [
                             'string',
                         ],
-                        'Authentication': 'string'
+                        'Authentication': 'string',
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ]
                     },
                 ]
             }
@@ -1691,7 +1901,11 @@ class Client(BaseClient):
                 - **GuessMIMETypeEnabled** *(boolean) --* 
                   A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
                 - **RequesterPays** *(boolean) --* 
-                  A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is ``private`` .
+                  A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+                  .. note::
+                     ``RequesterPays`` is a configuration for the S3 bucket that backs the file share, so make sure that the configuration on the file share is the same as the S3 bucket configuration.
+                - **SMBACLEnabled** *(boolean) --* 
+                  If this value is set to "true", indicates that ACL (access control list) is enabled on the SMB file share. If it is set to "false", it indicates that file and directory permissions are mapped to the POSIX permission.
                 - **ValidUserList** *(list) --* 
                   A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. For example ``@group1`` . Can only be set if Authentication is set to ``ActiveDirectory`` .
                   - *(string) --* 
@@ -1701,6 +1915,14 @@ class Client(BaseClient):
                 - **Authentication** *(string) --* 
                   The authentication method of the file share.
                   Valid values are ``ActiveDirectory`` or ``GuestAccess`` . The default is ``ActiveDirectory`` .
+                - **Tags** *(list) --* 
+                  A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the ``ListTagsForResource`` API operation.
+                  - *(dict) --* 
+                    A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
+                    - **Key** *(string) --* 
+                      Tag key (String). The key can't start with aws:. 
+                    - **Value** *(string) --* 
+                      Value of the tag key.
         :type FileShareARNList: list
         :param FileShareARNList: **[REQUIRED]**
           An array containing the Amazon Resource Name (ARN) of each file share to be described.
@@ -1770,10 +1992,15 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **VolumeARN** *(string) --* 
+              The Amazon Resource Name (ARN) of the volume that was specified in the request.
             - **StartAt** *(integer) --* 
+              The hour of the day at which the snapshot schedule begins represented as *hh* , where *hh* is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
             - **RecurrenceInHours** *(integer) --* 
+              The number of hours between snapshots.
             - **Description** *(string) --* 
+              The snapshot description.
             - **Timezone** *(string) --* 
+              A value that indicates the time zone of the gateway.
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the volume. Use the  ListVolumes operation to return a list of gateway volumes.
@@ -1828,6 +2055,23 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **StorediSCSIVolumes** *(list) --* 
+              Describes a single unit of output from  DescribeStorediSCSIVolumes . The following fields are returned:
+              * **ChapEnabled** : Indicates whether mutual CHAP is enabled for the iSCSI target. 
+              * **LunNumber** : The logical disk number. 
+              * **NetworkInterfaceId** : The network interface ID of the stored volume that initiator use to map the stored volume as an iSCSI target. 
+              * **NetworkInterfacePort** : The port used to communicate with iSCSI targets. 
+              * **PreservedExistingData** : Indicates if when the stored volume was created, existing data on the underlying local disk was preserved. 
+              * **SourceSnapshotId** : If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-1122aabb. Otherwise, this field is not included. 
+              * **StorediSCSIVolumes** : An array of StorediSCSIVolume objects where each object contains metadata about one stored volume. 
+              * **TargetARN** : The Amazon Resource Name (ARN) of the volume target. 
+              * **VolumeARN** : The Amazon Resource Name (ARN) of the stored volume. 
+              * **VolumeDiskId** : The disk ID of the local disk that was specified in the  CreateStorediSCSIVolume operation. 
+              * **VolumeId** : The unique identifier of the storage volume, e.g. vol-1122AABB. 
+              * **VolumeiSCSIAttributes** : An  VolumeiSCSIAttributes object that represents a collection of iSCSI attributes for one stored volume. 
+              * **VolumeProgress** : Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping. 
+              * **VolumeSizeInBytes** : The size of the volume in bytes. 
+              * **VolumeStatus** : One of the ``VolumeStatus`` values that indicates the state of the volume. 
+              * **VolumeType** : One of the enumeration values describing the type of the volume. Currently, on STORED volumes are supported. 
               - *(dict) --* 
                 Describes an iSCSI stored volume.
                 - **VolumeARN** *(string) --* 
@@ -1839,7 +2083,7 @@ class Client(BaseClient):
                 - **VolumeStatus** *(string) --* 
                   One of the VolumeStatus values that indicates the state of the storage volume.
                 - **VolumeAttachmentStatus** *(string) --* 
-                  A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
+                  A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see `Moving Your Volumes to a Different Gateway <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume>`__ .
                 - **VolumeSizeInBytes** *(integer) --* 
                   The size of the volume in bytes.
                 - **VolumeProgress** *(float) --* 
@@ -1866,13 +2110,14 @@ class Client(BaseClient):
                 - **CreatedDate** *(datetime) --* 
                   The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp.
                 - **VolumeUsedInBytes** *(integer) --* 
-                  The size of the data stored on the volume in bytes. 
+                  The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. ``VolumeUsedInBytes`` is different from the compressed size of the volume, which is the value that is used to calculate your bill.
                   .. note::
                     This value is not available for volumes created prior to May 13, 2015, until you store data on the volume.
                 - **KMSKey** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
                 - **TargetName** *(string) --* 
-                  The name of the iSCSI target that is used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying ``TargetName`` as *myvolume* results in the target ARN of ``arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume`` .
+                  The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying ``TargetName`` as *myvolume* results in the target ARN of ``arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume`` . The target name must be unique across all volumes on a gateway.
+                  If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
         :type VolumeARNs: list
         :param VolumeARNs: **[REQUIRED]**
           An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use  ListVolumes to get volume ARNs for a gateway.
@@ -1911,7 +2156,8 @@ class Client(BaseClient):
                         'RetrievedTo': 'string',
                         'TapeStatus': 'string',
                         'TapeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        'KMSKey': 'string',
+                        'PoolId': 'string'
                     },
                 ],
                 'Marker': 'string'
@@ -1946,6 +2192,9 @@ class Client(BaseClient):
                     This value is not available for tapes created prior to May 13, 2015.
                 - **KMSKey** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+                - **PoolId** *(string) --* 
+                  The ID of the pool that was used to archive the tape. The tapes in this pool are archived in the S3 storage class that is associated with the pool.
+                  Valid values: "GLACIER", "DEEP_ARCHIVE"
             - **Marker** *(string) --* 
               An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response.
         :type TapeARNs: list
@@ -2009,6 +2258,7 @@ class Client(BaseClient):
                 - **TapeSizeInBytes** *(integer) --* 
                   The size, in bytes, of the virtual tapes to recover.
                 - **TapeStatus** *(string) --* 
+                  The status of the virtual tapes.
             - **Marker** *(string) --* 
               An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended.
               Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
@@ -2055,7 +2305,8 @@ class Client(BaseClient):
                         'VTLDevice': 'string',
                         'Progress': 123.0,
                         'TapeUsedInBytes': 123,
-                        'KMSKey': 'string'
+                        'KMSKey': 'string',
+                        'PoolId': 'string'
                     },
                 ],
                 'Marker': 'string'
@@ -2089,6 +2340,9 @@ class Client(BaseClient):
                     This value is not available for tapes created prior to May 13, 2015.
                 - **KMSKey** *(string) --* 
                   The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+                - **PoolId** *(string) --* 
+                  The ID of the pool that contains tapes that will be archived. The tapes in this pool are archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (Glacier or Deep Archive) that corresponds to the pool.
+                  Valid values: "GLACIER", "DEEP_ARCHIVE"
             - **Marker** *(string) --* 
               An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results.
               If a response does not contain a marker, then there are no more results to be retrieved.
@@ -2141,9 +2395,12 @@ class Client(BaseClient):
             - **GatewayARN** *(string) --* 
               The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
             - **DiskIds** *(list) --* 
+              An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
               - *(string) --* 
             - **UploadBufferUsedInBytes** *(integer) --* 
+              The total number of bytes being used in the gateway's upload buffer.
             - **UploadBufferAllocatedInBytes** *(integer) --* 
+              The total number of bytes allocated in the gateway's as upload buffer.
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
@@ -2202,8 +2459,11 @@ class Client(BaseClient):
                 - **VTLDeviceARN** *(string) --* 
                   Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
                 - **VTLDeviceType** *(string) --* 
+                  Specifies the type of device that the VTL device emulates.
                 - **VTLDeviceVendor** *(string) --* 
+                  Specifies the vendor of the device that the VTL device object emulates.
                 - **VTLDeviceProductIdentifier** *(string) --* 
+                  Specifies the model number of device that the VTL device emulates.
                 - **DeviceiSCSIAttributes** *(dict) --* 
                   A list of iSCSI information about a VTL device.
                   - **TargetARN** *(string) --* 
@@ -2535,7 +2795,9 @@ class Client(BaseClient):
                         'GatewayARN': 'string',
                         'GatewayType': 'string',
                         'GatewayOperationalState': 'string',
-                        'GatewayName': 'string'
+                        'GatewayName': 'string',
+                        'Ec2InstanceId': 'string',
+                        'Ec2InstanceRegion': 'string'
                     },
                 ],
                 'Marker': 'string'
@@ -2544,6 +2806,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **Gateways** *(list) --* 
+              An array of  GatewayInfo objects.
               - *(dict) --* 
                 Describes a gateway object.
                 - **GatewayId** *(string) --* 
@@ -2557,7 +2820,12 @@ class Client(BaseClient):
                   Valid Values: DISABLED or ACTIVE
                 - **GatewayName** *(string) --* 
                   The name of the gateway.
+                - **Ec2InstanceId** *(string) --* 
+                  The ID of the Amazon EC2 instance that was used to launch the gateway.
+                - **Ec2InstanceRegion** *(string) --* 
+                  The AWS Region where the Amazon EC2 instance is located.
             - **Marker** *(string) --* 
+              Use the marker in your next request to fetch the next set of gateways in the list. If there are no more gateways to list, this field does not appear in the response.
         :type Marker: string
         :param Marker:
           An opaque string that indicates the position at which to begin the returned list of gateways.
@@ -2606,6 +2874,8 @@ class Client(BaseClient):
             - **GatewayARN** *(string) --* 
               The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
             - **Disks** *(list) --* 
+              A JSON object containing the following fields:
+              *  ListLocalDisksOutput$Disks   
               - *(dict) --* 
                 Represents a gateway's local disk.
                 - **DiskId** *(string) --* 
@@ -2669,8 +2939,11 @@ class Client(BaseClient):
             - **Tags** *(list) --* 
               An array that contains the tags for the specified resource.
               - *(dict) --* 
+                A key-value pair that helps you manage, filter, and search for your resource. Allowed characters: letters, white space, and numbers, representable in UTF-8, and the following characters: + - = . _ : /
                 - **Key** *(string) --* 
+                  Tag key (String). The key can't start with aws:. 
                 - **Value** *(string) --* 
+                  Value of the tag key.
         :type ResourceARN: string
         :param ResourceARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the resource for which you want to list tags.
@@ -2710,7 +2983,8 @@ class Client(BaseClient):
                         'TapeBarcode': 'string',
                         'TapeSizeInBytes': 123,
                         'TapeStatus': 'string',
-                        'GatewayARN': 'string'
+                        'GatewayARN': 'string',
+                        'PoolId': 'string'
                     },
                 ],
                 'Marker': 'string'
@@ -2735,6 +3009,9 @@ class Client(BaseClient):
                   The status of the tape.
                 - **GatewayARN** *(string) --* 
                   The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
+                - **PoolId** *(string) --* 
+                  The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (Glacier or Deep Archive) that corresponds to the pool.
+                  Valid values: "GLACIER", "DEEP_ARCHIVE"
             - **Marker** *(string) --* 
               A string that indicates the position at which to begin returning the next list of tapes. Use the marker in your next request to continue pagination of tapes. If there are no more tapes to list, this element does not appear in the response body.
         :type TapeARNs: list
@@ -2816,11 +3093,19 @@ class Client(BaseClient):
             - **GatewayARN** *(string) --* 
               The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
             - **VolumeRecoveryPointInfos** *(list) --* 
+              An array of  VolumeRecoveryPointInfo objects.
               - *(dict) --* 
+                Describes a storage volume recovery point object.
                 - **VolumeARN** *(string) --* 
+                  The Amazon Resource Name (ARN) of the volume target.
                 - **VolumeSizeInBytes** *(integer) --* 
+                  The size of the volume in bytes.
                 - **VolumeUsageInBytes** *(integer) --* 
+                  The size of the data stored on the volume in bytes.
+                  .. note::
+                    This value is not available for volumes created prior to May 13, 2015, until you store data on the volume.
                 - **VolumeRecoveryPointTime** *(string) --* 
+                  The time the recovery point was taken.
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
@@ -2863,10 +3148,15 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
+            A JSON object containing the following fields:
+            *  ListVolumesOutput$Marker   
+            *  ListVolumesOutput$VolumeInfos   
             - **GatewayARN** *(string) --* 
               The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
             - **Marker** *(string) --* 
+              Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.
             - **VolumeInfos** *(list) --* 
+              An array of  VolumeInfo objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then ``VolumeInfos`` is an empty array "[]".
               - *(dict) --* 
                 Describes a storage volume object.
                 - **VolumeARN** *(string) --* 
@@ -2882,10 +3172,12 @@ class Client(BaseClient):
                   The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
                   Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
                 - **VolumeType** *(string) --* 
+                  One of the VolumeType enumeration values describing the type of the volume.
                 - **VolumeSizeInBytes** *(integer) --* 
                   The size of the volume in bytes.
                   Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
                 - **VolumeAttachmentStatus** *(string) --* 
+                  One of the VolumeStatus values that indicates the state of the storage volume. 
         :type GatewayARN: string
         :param GatewayARN:
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
@@ -2937,6 +3229,7 @@ class Client(BaseClient):
     def refresh_cache(self, FileShareARN: str, FolderList: List = None, Recursive: bool = None) -> Dict:
         """
         Refreshes the cache for the specified file share. This operation finds objects in the Amazon S3 bucket that were added, removed or replaced since the gateway last listed the bucket's contents and cached the results. This operation is only supported in the file gateway type. You can subscribe to be notified through an Amazon CloudWatch event when your RefreshCache operation completes. For more information, see `Getting Notified About File Operations <https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification>`__ .
+        When this API is called, it only initiates the refresh operation. When the API call completes and returns a success code, it doesn't necessarily mean that the file refresh has completed. You should use the refresh-complete notification to determine that the operation has completed before you check for new files on the gateway file share. You can subscribe to be notified through an CloudWatch event when your ``RefreshCache`` operation completes. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/RefreshCache>`_
         
         **Request Syntax**
@@ -3375,6 +3668,7 @@ class Client(BaseClient):
             - **GatewayARN** *(string) --* 
               The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
             - **GatewayName** *(string) --* 
+              The name you configured for your gateway.
         :type GatewayARN: string
         :param GatewayARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the gateway. Use the  ListGateways operation to return a list of gateways for your account and region.
@@ -3383,6 +3677,7 @@ class Client(BaseClient):
           The name you configured for your gateway.
         :type GatewayTimezone: string
         :param GatewayTimezone:
+          A value that indicates the time zone of the gateway.
         :rtype: dict
         :returns:
         """
@@ -3394,7 +3689,7 @@ class Client(BaseClient):
         .. note::
           When you make this request, you get a ``200 OK`` success response immediately. However, it might take some time for the update to complete. You can call  DescribeGatewayInformation to verify the gateway is in the ``STATE_RUNNING`` state.
         .. warning::
-          A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see `Customizing Your Windows iSCSI Settings <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings>`__ and `Customizing Your Linux iSCSI Settings <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings>`__ , respectively.
+          A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see `Customizing Your Windows iSCSI Settings <https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings>`__ and `Customizing Your Linux iSCSI Settings <https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings>`__ , respectively.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateGatewaySoftwareNow>`_
         
         **Request Syntax**
@@ -3422,7 +3717,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_maintenance_start_time(self, GatewayARN: str, HourOfDay: int, MinuteOfHour: int, DayOfWeek: int) -> Dict:
+    def update_maintenance_start_time(self, GatewayARN: str, HourOfDay: int, MinuteOfHour: int, DayOfWeek: int = None, DayOfMonth: int = None) -> Dict:
         """
         Updates a gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateMaintenanceStartTime>`_
@@ -3433,7 +3728,8 @@ class Client(BaseClient):
               GatewayARN='string',
               HourOfDay=123,
               MinuteOfHour=123,
-              DayOfWeek=123
+              DayOfWeek=123,
+              DayOfMonth=123
           )
         
         **Response Syntax**
@@ -3457,8 +3753,13 @@ class Client(BaseClient):
         :param MinuteOfHour: **[REQUIRED]**
           The minute component of the maintenance start time represented as *mm* , where *mm* is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
         :type DayOfWeek: integer
-        :param DayOfWeek: **[REQUIRED]**
-          The maintenance start time day of the week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+        :param DayOfWeek:
+          The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+        :type DayOfMonth: integer
+        :param DayOfMonth:
+          The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+          .. note::
+            This value is only available for tape and volume gateways.
         :rtype: dict
         :returns:
         """
@@ -3557,19 +3858,21 @@ class Client(BaseClient):
           A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
         :type RequesterPays: boolean
         :param RequesterPays:
-          A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is ``private`` .
+          A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+          .. note::
+             ``RequesterPays`` is a configuration for the S3 bucket that backs the file share, so make sure that the configuration on the file share is the same as the S3 bucket configuration.
         :rtype: dict
         :returns:
         """
         pass
 
-    def update_smb_file_share(self, FileShareARN: str, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, ValidUserList: List = None, InvalidUserList: List = None) -> Dict:
+    def update_smb_file_share(self, FileShareARN: str, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, SMBACLEnabled: bool = None, ValidUserList: List = None, InvalidUserList: List = None) -> Dict:
         """
         Updates a Server Message Block (SMB) file share.
         .. note::
           To leave a file share field unchanged, set the corresponding input field to null. This operation is only supported for file gateways.
         .. warning::
-          File gateways require AWS Security Token Service (AWS STS) to be activated to enable you to create a file share. Make sure that AWS STS is activated in the AWS Region you are creating your file gateway in. If AWS STS is not activated in this AWS Region, activate it. For information about how to activate AWS STS, see `Activating and Deactivating AWS STS in an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide.*  
+          File gateways require AWS Security Token Service (AWS STS) to be activated to enable you to create a file share. Make sure that AWS STS is activated in the AWS Region you are creating your file gateway in. If AWS STS is not activated in this AWS Region, activate it. For information about how to activate AWS STS, see `Activating and Deactivating AWS STS in an AWS Region <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide.*  
           File gateways don't support creating hard or symbolic links on a file share.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/storagegateway-2013-06-30/UpdateSMBFileShare>`_
         
@@ -3584,6 +3887,7 @@ class Client(BaseClient):
               ReadOnly=True|False,
               GuessMIMETypeEnabled=True|False,
               RequesterPays=True|False,
+              SMBACLEnabled=True|False,
               ValidUserList=[
                   'string',
               ],
@@ -3626,7 +3930,12 @@ class Client(BaseClient):
           A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
         :type RequesterPays: boolean
         :param RequesterPays:
-          A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is ``private`` .
+          A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to true, the requester pays the costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+          .. note::
+             ``RequesterPays`` is a configuration for the S3 bucket that backs the file share, so make sure that the configuration on the file share is the same as the S3 bucket configuration.
+        :type SMBACLEnabled: boolean
+        :param SMBACLEnabled:
+          Set this value to \"true to enable ACL (access control list) on the SMB file share. Set it to \"false\" to map file and directory permissions to the POSIX permissions.
         :type ValidUserList: list
         :param ValidUserList:
           A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. For example ``@group1`` . Can only be set if Authentication is set to ``ActiveDirectory`` .
@@ -3666,6 +3975,7 @@ class Client(BaseClient):
           - *(dict) --* 
             A JSON object containing the of the updated storage volume.
             - **VolumeARN** *(string) --* 
+              The Amazon Resource Name (ARN) of the volume. Use the  ListVolumes operation to return a list of gateway volumes.
         :type VolumeARN: string
         :param VolumeARN: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the volume. Use the  ListVolumes operation to return a list of gateway volumes.

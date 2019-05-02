@@ -160,7 +160,7 @@ class ListPolicies(Paginator):
                         'PolicyId': 'string',
                         'PolicyName': 'string',
                         'ResourceType': 'string',
-                        'SecurityServiceType': 'WAF',
+                        'SecurityServiceType': 'WAF'|'SHIELD_ADVANCED',
                         'RemediationEnabled': True|False
                     },
                 ],
@@ -179,9 +179,9 @@ class ListPolicies(Paginator):
                 - **PolicyName** *(string) --* 
                   The friendly name of the specified policy.
                 - **ResourceType** *(string) --* 
-                  The type of resource to protect with the policy, either an Application Load Balancer or a CloudFront distribution. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . Valid values are ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
+                  The type of resource to protect with the policy. This is in the format shown in `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ . For example: ``AWS::ElasticLoadBalancingV2::LoadBalancer`` or ``AWS::CloudFront::Distribution`` .
                 - **SecurityServiceType** *(string) --* 
-                  The service that the policy is using to protect the resources. This value is ``WAF`` .
+                  The service that the policy is using to protect the resources. This specifies the type of policy that is created, either a WAF policy or Shield Advanced policy.
                 - **RemediationEnabled** *(boolean) --* 
                   Indicates if the policy should be automatically applied to new resources.
         :type PaginationConfig: dict

@@ -211,7 +211,7 @@ class ListDatasets(Paginator):
                     - **schedule** *(dict) --* 
                       The "Schedule" when the trigger is initiated.
                       - **expression** *(string) --* 
-                        The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch documentation.
+                        The expression that defines when to trigger an update. For more information, see `Schedule Expressions for Rules <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html>`__ in the Amazon CloudWatch Events User Guide.
                     - **dataset** *(dict) --* 
                       The data set whose content creation triggers the creation of this data set's contents.
                       - **name** *(string) --* 

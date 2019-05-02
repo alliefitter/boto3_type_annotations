@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -152,7 +152,7 @@ class Client(BaseClient):
 
     def create_certificate_authority_audit_report(self, CertificateAuthorityArn: str, S3BucketName: str, AuditReportResponseFormat: str) -> Dict:
         """
-        Creates an audit report that lists every time that the your CA private key is used. The report is saved in the Amazon S3 bucket that you specify on input. The  IssueCertificate and  RevokeCertificate operations use the private key. You can generate a new report every 30 minutes.
+        Creates an audit report that lists every time that your CA private key is used. The report is saved in the Amazon S3 bucket that you specify on input. The  IssueCertificate and  RevokeCertificate operations use the private key. You can generate a new report every 30 minutes.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/CreateCertificateAuthorityAuditReport>`_
         
         **Request Syntax**
@@ -178,16 +178,50 @@ class Client(BaseClient):
               The **key** that uniquely identifies the report file in your S3 bucket.
         :type CertificateAuthorityArn: string
         :param CertificateAuthorityArn: **[REQUIRED]**
-          Amazon Resource Name (ARN) of the CA to be audited. This is of the form:
+          The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:
            ``arn:aws:acm-pca:*region* :*account* :certificate-authority/*12345678-1234-1234-1234-123456789012* `` .
         :type S3BucketName: string
         :param S3BucketName: **[REQUIRED]**
-          Name of the S3 bucket that will contain the audit report.
+          The name of the S3 bucket that will contain the audit report.
         :type AuditReportResponseFormat: string
         :param AuditReportResponseFormat: **[REQUIRED]**
-          Format in which to create the report. This can be either **JSON** or **CSV** .
+          The format in which to create the report. This can be either **JSON** or **CSV** .
         :rtype: dict
         :returns:
+        """
+        pass
+
+    def create_permission(self, CertificateAuthorityArn: str, Principal: str, Actions: List, SourceAccount: str = None):
+        """
+        Assigns permissions from a private CA to a designated AWS service. Services are specified by their service principals and can be given permission to create and retrieve certificates on a private CA. Services can also be given permission to list the active permissions that the private CA has granted. For ACM to automatically renew your private CA's certificates, you must assign all possible permissions from the CA to the ACM service principal.
+        At this time, you can only assign permissions to ACM (``acm.amazonaws.com`` ). Permissions can be revoked with the  DeletePermission operation and listed with the  ListPermissions operation.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/CreatePermission>`_
+        
+        **Request Syntax**
+        ::
+          response = client.create_permission(
+              CertificateAuthorityArn='string',
+              Principal='string',
+              SourceAccount='string',
+              Actions=[
+                  'IssueCertificate'|'GetCertificate'|'ListPermissions',
+              ]
+          )
+        :type CertificateAuthorityArn: string
+        :param CertificateAuthorityArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN by calling the  ListCertificateAuthorities operation. This must have the following form:
+           ``arn:aws:acm-pca:*region* :*account* :certificate-authority/*12345678-1234-1234-1234-123456789012* `` .
+        :type Principal: string
+        :param Principal: **[REQUIRED]**
+          The AWS service or identity that receives the permission. At this time, the only valid principal is ``acm.amazonaws.com`` .
+        :type SourceAccount: string
+        :param SourceAccount:
+          The ID of the calling account.
+        :type Actions: list
+        :param Actions: **[REQUIRED]**
+          The actions that the specified AWS service principal can use. These include ``IssueCertificate`` , ``GetCertificate`` , and ``ListPermissions`` .
+          - *(string) --*
+        :returns: None
         """
         pass
 
@@ -195,7 +229,7 @@ class Client(BaseClient):
         """
         Deletes a private certificate authority (CA). You must provide the ARN (Amazon Resource Name) of the private CA that you want to delete. You can find the ARN by calling the  ListCertificateAuthorities operation. Before you can delete a CA, you must disable it. Call the  UpdateCertificateAuthority operation and set the **CertificateAuthorityStatus** parameter to ``DISABLED`` . 
         Additionally, you can delete a CA if you are waiting for it to be created (the **Status** field of the  CertificateAuthority is ``CREATING`` ). You can also delete it if the CA has been created but you haven't yet imported the signed certificate (the **Status** is ``PENDING_CERTIFICATE`` ) into ACM PCA. 
-        If the CA is in one of the aforementioned states and you call  DeleteCertificateAuthority , the CA's status changes to ``DELETED`` . However, the CA won't be permentantly deleted until the restoration period has passed. By default, if you do not set the ``PermanentDeletionTimeInDays`` parameter, the CA remains restorable for 30 days. You can set the parameter from 7 to 30 days. The  DescribeCertificateAuthority operation returns the time remaining in the restoration window of a Private CA in the ``DELETED`` state. To restore an eligable CA, call the  RestoreCertificateAuthority operation.
+        If the CA is in one of the previously mentioned states and you call  DeleteCertificateAuthority , the CA's status changes to ``DELETED`` . However, the CA won't be permanently deleted until the restoration period has passed. By default, if you do not set the ``PermanentDeletionTimeInDays`` parameter, the CA remains restorable for 30 days. You can set the parameter from 7 to 30 days. The  DescribeCertificateAuthority operation returns the time remaining in the restoration window of a Private CA in the ``DELETED`` state. To restore an eligible CA, call the  RestoreCertificateAuthority operation.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/DeleteCertificateAuthority>`_
         
         **Request Syntax**
@@ -211,6 +245,32 @@ class Client(BaseClient):
         :type PermanentDeletionTimeInDays: integer
         :param PermanentDeletionTimeInDays:
           The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
+        :returns: None
+        """
+        pass
+
+    def delete_permission(self, CertificateAuthorityArn: str, Principal: str, SourceAccount: str = None):
+        """
+        Revokes permissions that a private CA assigned to a designated AWS service. Permissions can be created with the  CreatePermission operation and listed with the  ListPermissions operation. 
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/DeletePermission>`_
+        
+        **Request Syntax**
+        ::
+          response = client.delete_permission(
+              CertificateAuthorityArn='string',
+              Principal='string',
+              SourceAccount='string'
+          )
+        :type CertificateAuthorityArn: string
+        :param CertificateAuthorityArn: **[REQUIRED]**
+          The Amazon Resource Number (ARN) of the private CA that issued the permissions. You can find the CA\'s ARN by calling the  ListCertificateAuthorities operation. This must have the following form:
+           ``arn:aws:acm-pca:*region* :*account* :certificate-authority/*12345678-1234-1234-1234-123456789012* `` .
+        :type Principal: string
+        :param Principal: **[REQUIRED]**
+          The AWS service or identity that will have its CA permissions revoked. At this time, the only valid service principal is ``acm.amazonaws.com``
+        :type SourceAccount: string
+        :param SourceAccount:
+          The AWS account that calls this operation.
         :returns: None
         """
         pass
@@ -783,6 +843,72 @@ class Client(BaseClient):
         :type MaxResults: integer
         :param MaxResults:
           Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the ``NextToken`` element is sent in the response. Use this ``NextToken`` value in a subsequent request to retrieve additional items.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_permissions(self, CertificateAuthorityArn: str, NextToken: str = None, MaxResults: int = None) -> Dict:
+        """
+        Lists all the permissions, if any, that have been assigned by a private CA. Permissions can be granted with the  CreatePermission operation and revoked with the  DeletePermission operation.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/ListPermissions>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_permissions(
+              CertificateAuthorityArn='string',
+              NextToken='string',
+              MaxResults=123
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Permissions': [
+                    {
+                        'CertificateAuthorityArn': 'string',
+                        'CreatedAt': datetime(2015, 1, 1),
+                        'Principal': 'string',
+                        'SourceAccount': 'string',
+                        'Actions': [
+                            'IssueCertificate'|'GetCertificate'|'ListPermissions',
+                        ],
+                        'Policy': 'string'
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Permissions** *(list) --* 
+              Summary information about each permission assigned by the specified private CA, including the action enabled, the policy provided, and the time of creation.
+              - *(dict) --* 
+                Permissions designate which private CA operations can be performed by an AWS service or entity. In order for ACM to automatically renew private certificates, you must give the ACM service principal all available permissions (``IssueCertificate`` , ``GetCertificate`` , and ``ListPermissions`` ). Permissions can be assigned with the  CreatePermission operation, removed with the  DeletePermission operation, and listed with the  ListPermissions operation.
+                - **CertificateAuthorityArn** *(string) --* 
+                  The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
+                - **CreatedAt** *(datetime) --* 
+                  The time at which the permission was created.
+                - **Principal** *(string) --* 
+                  The AWS service or entity that holds the permission. At this time, the only valid principal is ``acm.amazonaws.com`` .
+                - **SourceAccount** *(string) --* 
+                  The ID of the account that assigned the permission.
+                - **Actions** *(list) --* 
+                  The private CA operations that can be performed by the designated AWS service.
+                  - *(string) --* 
+                - **Policy** *(string) --* 
+                  The name of the policy that is associated with the permission.
+            - **NextToken** *(string) --* 
+              When the list is truncated, this value is present and should be used for the **NextToken** parameter in a subsequent pagination request. 
+        :type CertificateAuthorityArn: string
+        :param CertificateAuthorityArn: **[REQUIRED]**
+          The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the  ListCertificateAuthorities operation. This must be of the form: ``arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`` You can get a private CA\'s ARN by running the  ListCertificateAuthorities operation.
+        :type NextToken: string
+        :param NextToken:
+          When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of **NextToken** from the response you just received.
+        :type MaxResults: integer
+        :param MaxResults:
+          When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the **NextToken** element is sent in the response. Use this **NextToken** value in a subsequent request to retrieve additional items.
         :rtype: dict
         :returns:
         """

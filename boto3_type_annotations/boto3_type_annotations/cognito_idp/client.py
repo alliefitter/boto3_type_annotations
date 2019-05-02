@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -230,6 +230,9 @@ class Client(BaseClient):
     def list_resource_servers(self, UserPoolId: str, MaxResults: int = None, NextToken: str = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        pass
+
     def list_user_import_jobs(self, UserPoolId: str, MaxResults: int, PaginationToken: str = None) -> Dict:
         pass
 
@@ -273,6 +276,12 @@ class Client(BaseClient):
         pass
 
     def stop_user_import_job(self, UserPoolId: str, JobId: str) -> Dict:
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: Dict = None) -> Dict:
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List = None) -> Dict:
         pass
 
     def update_auth_event_feedback(self, UserPoolId: str, Username: str, EventId: str, FeedbackToken: str, FeedbackValue: str) -> Dict:

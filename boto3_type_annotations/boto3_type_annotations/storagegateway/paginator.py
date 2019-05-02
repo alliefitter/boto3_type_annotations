@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -23,8 +23,18 @@ class DescribeVTLDevices(Paginator):
         pass
 
 
+class ListFileShares(Paginator):
+    def paginate(self, GatewayARN: str = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListGateways(Paginator):
     def paginate(self, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class ListTagsForResource(Paginator):
+    def paginate(self, ResourceARN: str, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
-from datetime import datetime
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -42,7 +42,7 @@ class Client(BaseClient):
     def create_model_package(self, ModelPackageName: str, ModelPackageDescription: str = None, InferenceSpecification: Dict = None, ValidationSpecification: Dict = None, SourceAlgorithmSpecification: Dict = None, CertifyForMarketplace: bool = None) -> Dict:
         pass
 
-    def create_notebook_instance(self, NotebookInstanceName: str, InstanceType: str, RoleArn: str, SubnetId: str = None, SecurityGroupIds: List = None, KmsKeyId: str = None, Tags: List = None, LifecycleConfigName: str = None, DirectInternetAccess: str = None, VolumeSizeInGB: int = None, AcceleratorTypes: List = None, DefaultCodeRepository: str = None, AdditionalCodeRepositories: List = None) -> Dict:
+    def create_notebook_instance(self, NotebookInstanceName: str, InstanceType: str, RoleArn: str, SubnetId: str = None, SecurityGroupIds: List = None, KmsKeyId: str = None, Tags: List = None, LifecycleConfigName: str = None, DirectInternetAccess: str = None, VolumeSizeInGB: int = None, AcceleratorTypes: List = None, DefaultCodeRepository: str = None, AdditionalCodeRepositories: List = None, RootAccess: str = None) -> Dict:
         pass
 
     def create_notebook_instance_lifecycle_config(self, NotebookInstanceLifecycleConfigName: str, OnCreate: List = None, OnStart: List = None) -> Dict:
@@ -237,7 +237,7 @@ class Client(BaseClient):
     def update_endpoint_weights_and_capacities(self, EndpointName: str, DesiredWeightsAndCapacities: List) -> Dict:
         pass
 
-    def update_notebook_instance(self, NotebookInstanceName: str, InstanceType: str = None, RoleArn: str = None, LifecycleConfigName: str = None, DisassociateLifecycleConfig: bool = None, VolumeSizeInGB: int = None, DefaultCodeRepository: str = None, AdditionalCodeRepositories: List = None, AcceleratorTypes: List = None, DisassociateAcceleratorTypes: bool = None, DisassociateDefaultCodeRepository: bool = None, DisassociateAdditionalCodeRepositories: bool = None) -> Dict:
+    def update_notebook_instance(self, NotebookInstanceName: str, InstanceType: str = None, RoleArn: str = None, LifecycleConfigName: str = None, DisassociateLifecycleConfig: bool = None, VolumeSizeInGB: int = None, DefaultCodeRepository: str = None, AdditionalCodeRepositories: List = None, AcceleratorTypes: List = None, DisassociateAcceleratorTypes: bool = None, DisassociateDefaultCodeRepository: bool = None, DisassociateAdditionalCodeRepositories: bool = None, RootAccess: str = None) -> Dict:
         pass
 
     def update_notebook_instance_lifecycle_config(self, NotebookInstanceLifecycleConfigName: str, OnCreate: List = None, OnStart: List = None) -> Dict:

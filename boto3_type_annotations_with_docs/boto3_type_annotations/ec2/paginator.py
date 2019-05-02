@@ -1,6 +1,6 @@
-from typing import List
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -200,7 +200,7 @@ class DescribeCapacityReservations(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -322,7 +322,7 @@ class DescribeClassicLinkInstances(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -395,8 +395,7 @@ class DescribeClientVpnAuthorizationRules(Paginator):
             - **AuthorizationRules** *(list) --* 
               Information about the authorization rules.
               - *(dict) --* 
-        
-        **Information about an authorization rule.**
+                Information about an authorization rule.
                 - **ClientVpnEndpointId** *(string) --* 
                   The ID of the Client VPN endpoint with which the authorization rule is associated.
                 - **Description** *(string) --* 
@@ -437,7 +436,7 @@ class DescribeClientVpnAuthorizationRules(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -514,8 +513,7 @@ class DescribeClientVpnConnections(Paginator):
                 - **ClientVpnEndpointId** *(string) --* 
                   The ID of the Client VPN endpoint to which the client is connected.
                 - **Timestamp** *(string) --* 
-        
-        **The current date and time.**
+                  The current date and time.
                 - **ConnectionId** *(string) --* 
                   The ID of the client connection.
                 - **Username** *(string) --* 
@@ -533,8 +531,7 @@ class DescribeClientVpnConnections(Paginator):
                 - **ClientIp** *(string) --* 
                   The IP address of the client.
                 - **CommonName** *(string) --* 
-        
-        **The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.**
+                  The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.
                 - **Status** *(dict) --* 
                   The current state of the client connection.
                   - **Code** *(string) --* 
@@ -564,7 +561,7 @@ class DescribeClientVpnConnections(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -702,24 +699,21 @@ class DescribeClientVpnEndpoints(Paginator):
                 - **VpnProtocol** *(string) --* 
                   The protocol used by the VPN session.
                 - **TransportProtocol** *(string) --* 
-        
-        **The transport protocol used by the Client VPN endpoint.**
+                  The transport protocol used by the Client VPN endpoint.
                 - **AssociatedTargetNetworks** *(list) --* 
                   Information about the associated target networks. A target network is a subnet in a VPC.
                   - *(dict) --* 
                     Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.
                     - **NetworkId** *(string) --* 
-        
-        **The ID of the subnet.**
+                      The ID of the subnet.
                     - **NetworkType** *(string) --* 
-        
-        **The target network type.**
+                      The target network type.
                 - **ServerCertificateArn** *(string) --* 
                   The ARN of the server certificate.
                 - **AuthenticationOptions** *(list) --* 
                   Information about the authentication method used by the Client VPN endpoint.
                   - *(dict) --* 
-                    Describes the authentication methods used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see `Authentication <vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication>`__ in the *AWS Client VPN Admin Guide* .
+                    Describes the authentication methods used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see `Authentication <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication>`__ in the *AWS Client VPN Administrator Guide* .
                     - **Type** *(string) --* 
                       The authentication type used.
                     - **ActiveDirectory** *(dict) --* 
@@ -729,8 +723,7 @@ class DescribeClientVpnEndpoints(Paginator):
                     - **MutualAuthentication** *(dict) --* 
                       Information about the authentication certificates, if applicable.
                       - **ClientRootCertificateChain** *(string) --* 
-        
-        **The ARN of the client certificate.**
+                        The ARN of the client certificate. 
                 - **ConnectionLogOptions** *(dict) --* 
                   Information about the client connection logging options for the Client VPN endpoint.
                   - **Enabled** *(boolean) --* 
@@ -771,7 +764,7 @@ class DescribeClientVpnEndpoints(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -841,8 +834,7 @@ class DescribeClientVpnRoutes(Paginator):
             - **Routes** *(list) --* 
               Information about the Client VPN endpoint routes.
               - *(dict) --* 
-        
-        **Information about a Client VPN endpoint route.**
+                Information about a Client VPN endpoint route.
                 - **ClientVpnEndpointId** *(string) --* 
                   The ID of the Client VPN endpoint with which the route is associated.
                 - **DestinationCidr** *(string) --* 
@@ -850,8 +842,7 @@ class DescribeClientVpnRoutes(Paginator):
                 - **TargetSubnet** *(string) --* 
                   The ID of the subnet through which traffic is routed.
                 - **Type** *(string) --* 
-        
-        **The route type.**
+                  The route type.
                 - **Origin** *(string) --* 
                   Indicates how the route was associated with the Client VPN endpoint. ``associate`` indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. ``add-route`` indicates that the route was manually added using the **CreateClientVpnRoute** action.
                 - **Status** *(dict) --* 
@@ -883,7 +874,7 @@ class DescribeClientVpnRoutes(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -1000,7 +991,7 @@ class DescribeClientVpnTargetNetworks(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -1144,7 +1135,7 @@ class DescribeFleets(Paginator):
                                 },
                                 'Overrides': [
                                     {
-                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                         'MaxPrice': 'string',
                                         'SubnetId': 'string',
                                         'AvailabilityZone': 'string',
@@ -1197,7 +1188,7 @@ class DescribeFleets(Paginator):
                                         'Version': 'string'
                                     },
                                     'Overrides': {
-                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                         'MaxPrice': 'string',
                                         'SubnetId': 'string',
                                         'AvailabilityZone': 'string',
@@ -1222,7 +1213,7 @@ class DescribeFleets(Paginator):
                                         'Version': 'string'
                                     },
                                     'Overrides': {
-                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                         'MaxPrice': 'string',
                                         'SubnetId': 'string',
                                         'AvailabilityZone': 'string',
@@ -1237,7 +1228,7 @@ class DescribeFleets(Paginator):
                                 'InstanceIds': [
                                     'string',
                                 ],
-                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                 'Platform': 'Windows'
                             },
                         ]
@@ -1442,7 +1433,7 @@ class DescribeFleets(Paginator):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``activity-status`` - The progress of the EC2 Fleet ( ``error`` | ``pending-fulfillment`` | ``pending-termination`` | ``fulfilled`` ).
           * ``excess-capacity-termination-policy`` - Indicates whether to terminate running instances if the target capacity is decreased below the current EC2 Fleet size (``true`` | ``false`` ).
           * ``fleet-state`` - The state of the EC2 Fleet (``submitted`` | ``active`` | ``deleted`` | ``failed`` | ``deleted-running`` | ``deleted-terminating`` | ``modifying`` ).
@@ -1463,7 +1454,7 @@ class DescribeFleets(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -1583,7 +1574,7 @@ class DescribeFlowLogs(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type FlowLogIds: list
         :param FlowLogIds:
@@ -1671,7 +1662,8 @@ class DescribeFpgaImages(Paginator):
                                 'Value': 'string'
                             },
                         ],
-                        'Public': True|False
+                        'Public': True|False,
+                        'DataRetentionSupport': True|False
                     },
                 ],
             }
@@ -1679,7 +1671,7 @@ class DescribeFpgaImages(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **FpgaImages** *(list) --* 
-              Information about one or more FPGA images.
+              Information about the FPGA images.
               - *(dict) --* 
                 Describes an Amazon FPGA image (AFI).
                 - **FpgaImageId** *(string) --* 
@@ -1740,12 +1732,14 @@ class DescribeFpgaImages(Paginator):
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
                 - **Public** *(boolean) --* 
                   Indicates whether the AFI is public.
+                - **DataRetentionSupport** *(boolean) --* 
+                  Indicates whether data retention support is enabled for the AFI.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type FpgaImageIds: list
         :param FpgaImageIds:
-          One or more AFI IDs.
+          The AFI IDs.
           - *(string) --*
         :type Owners: list
         :param Owners:
@@ -1753,7 +1747,7 @@ class DescribeFpgaImages(Paginator):
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``create-time`` - The creation time of the AFI.
           * ``fpga-image-id`` - The FPGA image identifier (AFI ID).
           * ``fpga-image-global-id`` - The global FPGA image identifier (AGFI ID).
@@ -1780,7 +1774,7 @@ class DescribeFpgaImages(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -1862,7 +1856,7 @@ class DescribeHostReservationOfferings(Paginator):
                   The upfront price of the offering. Does not apply to No Upfront offerings.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-family`` - The instance family of the offering (for example, ``m4`` ).
           * ``payment-option`` - The payment option (``NoUpfront`` | ``PartialUpfront`` | ``AllUpfront`` ).
           - *(dict) --*
@@ -1880,7 +1874,7 @@ class DescribeHostReservationOfferings(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type MaxDuration: integer
         :param MaxDuration:
@@ -1952,7 +1946,13 @@ class DescribeHostReservations(Paginator):
                         'PaymentOption': 'AllUpfront'|'PartialUpfront'|'NoUpfront',
                         'Start': datetime(2015, 1, 1),
                         'State': 'payment-pending'|'payment-failed'|'active'|'retired',
-                        'UpfrontPrice': 'string'
+                        'UpfrontPrice': 'string',
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ]
                     },
                 ],
             }
@@ -1990,12 +1990,24 @@ class DescribeHostReservations(Paginator):
                   The state of the reservation.
                 - **UpfrontPrice** *(string) --* 
                   The upfront price of the reservation.
+                - **Tags** *(list) --* 
+                  Any tags assigned to the Dedicated Host Reservation.
+                  - *(dict) --* 
+                    Describes a tag.
+                    - **Key** *(string) --* 
+                      The key of the tag.
+                      Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:`` .
+                    - **Value** *(string) --* 
+                      The value of the tag.
+                      Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-family`` - The instance family (for example, ``m4`` ).
           * ``payment-option`` - The payment option (``NoUpfront`` | ``PartialUpfront`` | ``AllUpfront`` ).
           * ``state`` - The state of the reservation (``payment-pending`` | ``payment-failed`` | ``active`` | ``retired`` ).
+          * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
+          * ``tag-key`` - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
             *  DescribeAvailabilityZones
@@ -2011,11 +2023,11 @@ class DescribeHostReservations(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type HostReservationIdSet: list
         :param HostReservationIdSet:
-          One or more host reservation IDs.
+          The host reservation IDs.
           - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -2170,7 +2182,7 @@ class DescribeHosts(Paginator):
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``auto-placement`` - Whether auto-placement is enabled or disabled (``on`` | ``off`` ).
           * ``availability-zone`` - The Availability Zone of the host.
           * ``client-token`` - The idempotency token that you provided when you allocated the host.
@@ -2193,7 +2205,7 @@ class DescribeHosts(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type HostIds: list
         :param HostIds:
@@ -2261,7 +2273,7 @@ class DescribeIamInstanceProfileAssociations(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **IamInstanceProfileAssociations** *(list) --* 
-              Information about one or more IAM instance profile associations.
+              Information about the IAM instance profile associations.
               - *(dict) --* 
                 Describes an association between an IAM instance profile and an instance.
                 - **AssociationId** *(string) --* 
@@ -2280,11 +2292,11 @@ class DescribeIamInstanceProfileAssociations(Paginator):
                   The time the IAM instance profile was associated with the instance.
         :type AssociationIds: list
         :param AssociationIds:
-          One or more IAM instance profile associations.
+          The IAM instance profile associations.
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-id`` - The ID of the instance.
           * ``state`` - The state of the association (``associating`` | ``associated`` | ``disassociating`` | ``disassociated`` ).
           - *(dict) --*
@@ -2302,7 +2314,7 @@ class DescribeIamInstanceProfileAssociations(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -2467,7 +2479,7 @@ class DescribeImportImageTasks(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ImportTaskIds: list
         :param ImportTaskIds:
@@ -2587,7 +2599,7 @@ class DescribeImportSnapshotTasks(Paginator):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
             *  DescribeAvailabilityZones
@@ -2603,7 +2615,7 @@ class DescribeImportSnapshotTasks(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ImportTaskIds: list
         :param ImportTaskIds:
@@ -2678,7 +2690,7 @@ class DescribeInstanceCreditSpecifications(Paginator):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``instance-id`` - The ID of the instance.
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
@@ -2695,11 +2707,11 @@ class DescribeInstanceCreditSpecifications(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           Constraints: Maximum 1000 explicitly specified instance IDs.
           - *(string) --*
@@ -2755,10 +2767,12 @@ class DescribeInstanceStatus(Paginator):
                         'AvailabilityZone': 'string',
                         'Events': [
                             {
+                                'InstanceEventId': 'string',
                                 'Code': 'instance-reboot'|'system-reboot'|'system-maintenance'|'instance-retirement'|'instance-stop',
                                 'Description': 'string',
                                 'NotAfter': datetime(2015, 1, 1),
-                                'NotBefore': datetime(2015, 1, 1)
+                                'NotBefore': datetime(2015, 1, 1),
+                                'NotBeforeDeadline': datetime(2015, 1, 1)
                             },
                         ],
                         'InstanceId': 'string',
@@ -2793,7 +2807,7 @@ class DescribeInstanceStatus(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **InstanceStatuses** *(list) --* 
-              One or more instance status descriptions.
+              Information about the status of the instances.
               - *(dict) --* 
                 Describes the status of an instance.
                 - **AvailabilityZone** *(string) --* 
@@ -2802,6 +2816,8 @@ class DescribeInstanceStatus(Paginator):
                   Any scheduled events associated with the instance.
                   - *(dict) --* 
                     Describes a scheduled event for an instance.
+                    - **InstanceEventId** *(string) --* 
+                      The ID of the event.
                     - **Code** *(string) --* 
                       The event code.
                     - **Description** *(string) --* 
@@ -2811,18 +2827,24 @@ class DescribeInstanceStatus(Paginator):
                       The latest scheduled end time for the event.
                     - **NotBefore** *(datetime) --* 
                       The earliest scheduled start time for the event.
+                    - **NotBeforeDeadline** *(datetime) --* 
+                      The deadline for starting the event.
                 - **InstanceId** *(string) --* 
                   The ID of the instance.
                 - **InstanceState** *(dict) --* 
                   The intended state of the instance.  DescribeInstanceStatus requires that an instance be in the ``running`` state.
                   - **Code** *(integer) --* 
-                    The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                    The state of the instance as a 16-bit unsigned integer. 
+                    The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                    The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                    The valid values for instance-state-code will all be in the range of the low byte and they are:
                     * ``0`` : ``pending``   
                     * ``16`` : ``running``   
                     * ``32`` : ``shutting-down``   
                     * ``48`` : ``terminated``   
                     * ``64`` : ``stopping``   
                     * ``80`` : ``stopped``   
+                    You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                   - **Name** *(string) --* 
                     The current state of the instance.
                 - **InstanceStatus** *(dict) --* 
@@ -2855,12 +2877,14 @@ class DescribeInstanceStatus(Paginator):
                     The status.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone of the instance.
           * ``event.code`` - The code for the scheduled event (``instance-reboot`` | ``system-reboot`` | ``system-maintenance`` | ``instance-retirement`` | ``instance-stop`` ).
           * ``event.description`` - A description of the event.
+          * ``event.instance-event-id`` - The ID of the event whose date and time you are modifying.
           * ``event.not-after`` - The latest end time for the scheduled event (for example, ``2014-09-15T17:15:20.000Z`` ).
           * ``event.not-before`` - The earliest start time for the scheduled event (for example, ``2014-09-15T17:15:20.000Z`` ).
+          * ``event.not-before-deadline`` - The deadline for starting the event (for example, ``2014-09-15T17:15:20.000Z`` ).
           * ``instance-state-code`` - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
           * ``instance-state-name`` - The state of the instance (``pending`` | ``running`` | ``shutting-down`` | ``terminated`` | ``stopping`` | ``stopped`` ).
           * ``instance-status.reachability`` - Filters on instance status where the name is ``reachability`` (``passed`` | ``failed`` | ``initializing`` | ``insufficient-data`` ).
@@ -2882,11 +2906,11 @@ class DescribeInstanceStatus(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           Constraints: Maximum 100 explicitly specified instance IDs.
           - *(string) --*
@@ -2956,7 +2980,7 @@ class DescribeInstances(Paginator):
                                 'AmiLaunchIndex': 123,
                                 'ImageId': 'string',
                                 'InstanceId': 'string',
-                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                 'KernelId': 'string',
                                 'KeyName': 'string',
                                 'LaunchTime': datetime(2015, 1, 1),
@@ -3074,7 +3098,8 @@ class DescribeInstances(Paginator):
                                         'SourceDestCheck': True|False,
                                         'Status': 'available'|'associated'|'attaching'|'in-use'|'detaching',
                                         'SubnetId': 'string',
-                                        'VpcId': 'string'
+                                        'VpcId': 'string',
+                                        'InterfaceType': 'string'
                                     },
                                 ],
                                 'RootDeviceName': 'string',
@@ -3130,11 +3155,11 @@ class DescribeInstances(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **Reservations** *(list) --* 
-              Zero or more reservations.
+              Information about the reservations.
               - *(dict) --* 
                 Describes a reservation.
                 - **Groups** *(list) --* 
-                  [EC2-Classic only] One or more security groups.
+                  [EC2-Classic only] The security groups.
                   - *(dict) --* 
                     Describes a security group.
                     - **GroupName** *(string) --* 
@@ -3142,7 +3167,7 @@ class DescribeInstances(Paginator):
                     - **GroupId** *(string) --* 
                       The ID of the security group.
                 - **Instances** *(list) --* 
-                  One or more instances.
+                  The instances.
                   - *(dict) --* 
                     Describes an instance.
                     - **AmiLaunchIndex** *(integer) --* 
@@ -3167,6 +3192,7 @@ class DescribeInstances(Paginator):
                       The location where the instance launched, if applicable.
                       - **AvailabilityZone** *(string) --* 
                         The Availability Zone of the instance.
+                        If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the region.
                       - **Affinity** *(string) --* 
                         The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the  ImportInstance command.
                       - **GroupName** *(string) --* 
@@ -3203,13 +3229,17 @@ class DescribeInstances(Paginator):
                     - **State** *(dict) --* 
                       The current state of the instance.
                       - **Code** *(integer) --* 
-                        The low byte represents the state. The high byte is used for internal purposes and should be ignored.
+                        The state of the instance as a 16-bit unsigned integer. 
+                        The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored.
+                        The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255. 
+                        The valid values for instance-state-code will all be in the range of the low byte and they are:
                         * ``0`` : ``pending``   
                         * ``16`` : ``running``   
                         * ``32`` : ``shutting-down``   
                         * ``48`` : ``terminated``   
                         * ``64`` : ``stopping``   
                         * ``80`` : ``stopped``   
+                        You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
                       - **Name** *(string) --* 
                         The current state of the instance.
                     - **StateTransitionReason** *(string) --* 
@@ -3277,7 +3307,7 @@ class DescribeInstances(Paginator):
                         - **ElasticInferenceAcceleratorAssociationTime** *(datetime) --* 
                           The time at which the elastic inference accelerator is associated with an instance. 
                     - **NetworkInterfaces** *(list) --* 
-                      [EC2-VPC] One or more network interfaces for the instance.
+                      [EC2-VPC] The network interfaces for the instance.
                       - *(dict) --* 
                         Describes a network interface.
                         - **Association** *(dict) --* 
@@ -3352,12 +3382,14 @@ class DescribeInstances(Paginator):
                           The ID of the subnet.
                         - **VpcId** *(string) --* 
                           The ID of the VPC.
+                        - **InterfaceType** *(string) --* 
+                          Describes the type of network interface.
                     - **RootDeviceName** *(string) --* 
                       The device name of the root device volume (for example, ``/dev/sda1`` ).
                     - **RootDeviceType** *(string) --* 
                       The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
                     - **SecurityGroups** *(list) --* 
-                      One or more security groups for the instance.
+                      The security groups for the instance.
                       - *(dict) --* 
                         Describes a security group.
                         - **GroupName** *(string) --* 
@@ -3436,7 +3468,7 @@ class DescribeInstances(Paginator):
                   The ID of the reservation.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``affinity`` - The affinity setting for an instance running on a Dedicated Host (``default`` | ``host`` ).
           * ``architecture`` - The instance architecture (``i386`` | ``x86_64`` ).
           * ``availability-zone`` - The Availability Zone of the instance.
@@ -3500,7 +3532,7 @@ class DescribeInstances(Paginator):
           * ``owner-id`` - The AWS account ID of the instance owner.
           * ``placement-group-name`` - The name of the placement group for the instance.
           * ``placement-partition-number`` - The partition in which the instance is located.
-          * ``platform`` - The platform. Use ``windows`` if you have Windows instances; otherwise, leave blank.
+          * ``platform`` - The platform. To list only Windows instances, use ``windows`` .
           * ``private-dns-name`` - The private IPv4 DNS name of the instance.
           * ``private-ip-address`` - The private IPv4 address of the instance.
           * ``product-code`` - The product code associated with the AMI used to launch the instance.
@@ -3536,16 +3568,144 @@ class DescribeInstances(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type InstanceIds: list
         :param InstanceIds:
-          One or more instance IDs.
+          The instance IDs.
           Default: Describes all your instances.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+
+class DescribeInternetGateways(Paginator):
+    def paginate(self, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None, PaginationConfig: Dict = None) -> Dict:
+        """
+        Creates an iterator that will paginate through responses from :py:meth:`EC2.Client.describe_internet_gateways`.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInternetGateways>`_
+        
+        **Request Syntax**
+        ::
+          response_iterator = paginator.paginate(
+              Filters=[
+                  {
+                      'Name': 'string',
+                      'Values': [
+                          'string',
+                      ]
+                  },
+              ],
+              DryRun=True|False,
+              InternetGatewayIds=[
+                  'string',
+              ],
+              PaginationConfig={
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'InternetGateways': [
+                    {
+                        'Attachments': [
+                            {
+                                'State': 'attaching'|'attached'|'detaching'|'detached',
+                                'VpcId': 'string'
+                            },
+                        ],
+                        'InternetGatewayId': 'string',
+                        'OwnerId': 'string',
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ]
+                    },
+                ],
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **InternetGateways** *(list) --* 
+              Information about one or more internet gateways.
+              - *(dict) --* 
+                Describes an internet gateway.
+                - **Attachments** *(list) --* 
+                  Any VPCs attached to the internet gateway.
+                  - *(dict) --* 
+                    Describes the attachment of a VPC to an internet gateway or an egress-only internet gateway.
+                    - **State** *(string) --* 
+                      The current state of the attachment. For an internet gateway, the state is ``available`` when attached to a VPC; otherwise, this value is not returned.
+                    - **VpcId** *(string) --* 
+                      The ID of the VPC.
+                - **InternetGatewayId** *(string) --* 
+                  The ID of the internet gateway.
+                - **OwnerId** *(string) --* 
+                  The ID of the AWS account that owns the internet gateway.
+                - **Tags** *(list) --* 
+                  Any tags assigned to the internet gateway.
+                  - *(dict) --* 
+                    Describes a tag.
+                    - **Key** *(string) --* 
+                      The key of the tag.
+                      Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:`` .
+                    - **Value** *(string) --* 
+                      The value of the tag.
+                      Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
+        :type Filters: list
+        :param Filters:
+          One or more filters.
+          * ``attachment.state`` - The current state of the attachment between the gateway and the VPC (``available`` ). Present only if a VPC is attached.
+          * ``attachment.vpc-id`` - The ID of an attached VPC.
+          * ``internet-gateway-id`` - The ID of the Internet gateway.
+          * ``owner-id`` - The ID of the AWS account that owns the internet gateway.
+          * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
+          * ``tag-key`` - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+          - *(dict) --*
+            A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
+            *  DescribeAvailabilityZones
+            *  DescribeImages
+            *  DescribeInstances
+            *  DescribeKeyPairs
+            *  DescribeSecurityGroups
+            *  DescribeSnapshots
+            *  DescribeSubnets
+            *  DescribeTags
+            *  DescribeVolumes
+            *  DescribeVpcs
+            - **Name** *(string) --*
+              The name of the filter. Filter names are case-sensitive.
+            - **Values** *(list) --*
+              The filter values. Filter values are case-sensitive.
+              - *(string) --*
+        :type DryRun: boolean
+        :param DryRun:
+          Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type InternetGatewayIds: list
+        :param InternetGatewayIds:
+          One or more internet gateway IDs.
+          Default: Describes all your internet gateways.
+          - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -3637,6 +3797,7 @@ class DescribeLaunchTemplateVersions(Paginator):
                                     'Groups': [
                                         'string',
                                     ],
+                                    'InterfaceType': 'string',
                                     'Ipv6AddressCount': 123,
                                     'Ipv6Addresses': [
                                         {
@@ -3656,7 +3817,7 @@ class DescribeLaunchTemplateVersions(Paginator):
                                 },
                             ],
                             'ImageId': 'string',
-                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                             'KeyName': 'string',
                             'Monitoring': {
                                 'Enabled': True|False
@@ -3675,7 +3836,7 @@ class DescribeLaunchTemplateVersions(Paginator):
                             'UserData': 'string',
                             'TagSpecifications': [
                                 {
-                                    'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                                    'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                                     'Tags': [
                                         {
                                             'Key': 'string',
@@ -3723,14 +3884,14 @@ class DescribeLaunchTemplateVersions(Paginator):
                                     'CapacityReservationId': 'string'
                                 }
                             },
-                            'HibernationOptions': {
-                                'Configured': True|False
-                            },
                             'LicenseSpecifications': [
                                 {
                                     'LicenseConfigurationArn': 'string'
                                 },
-                            ]
+                            ],
+                            'HibernationOptions': {
+                                'Configured': True|False
+                            }
                         }
                     },
                 ],
@@ -3809,6 +3970,8 @@ class DescribeLaunchTemplateVersions(Paginator):
                       - **Groups** *(list) --* 
                         The IDs of one or more security groups.
                         - *(string) --* 
+                      - **InterfaceType** *(string) --* 
+                        The type of network interface.
                       - **Ipv6AddressCount** *(integer) --* 
                         The number of IPv6 addresses for the network interface.
                       - **Ipv6Addresses** *(list) --* 
@@ -3935,16 +4098,16 @@ class DescribeLaunchTemplateVersions(Paginator):
                       Information about the target Capacity Reservation.
                       - **CapacityReservationId** *(string) --* 
                         The ID of the Capacity Reservation.
-                  - **HibernationOptions** *(dict) --* 
-                    Indicates whether an instance is configured for hibernation. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                    - **Configured** *(boolean) --* 
-                      If this parameter is set to ``true`` , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
                   - **LicenseSpecifications** *(list) --* 
                     The license configurations.
                     - *(dict) --* 
                       Describes a license configuration.
                       - **LicenseConfigurationArn** *(string) --* 
                         The Amazon Resource Name (ARN) of the license configuration.
+                  - **HibernationOptions** *(dict) --* 
+                    Indicates whether an instance is configured for hibernation. For more information, see `Hibernate Your Instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                    - **Configured** *(boolean) --* 
+                      If this parameter is set to ``true`` , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -3990,7 +4153,7 @@ class DescribeLaunchTemplateVersions(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -4120,7 +4283,7 @@ class DescribeLaunchTemplates(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -4205,7 +4368,7 @@ class DescribeMovingAddresses(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -4385,11 +4548,206 @@ class DescribeNatGateways(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type NatGatewayIds: list
         :param NatGatewayIds:
           One or more NAT gateway IDs.
+          - *(string) --*
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+
+class DescribeNetworkAcls(Paginator):
+    def paginate(self, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None, PaginationConfig: Dict = None) -> Dict:
+        """
+        Creates an iterator that will paginate through responses from :py:meth:`EC2.Client.describe_network_acls`.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkAcls>`_
+        
+        **Request Syntax**
+        ::
+          response_iterator = paginator.paginate(
+              Filters=[
+                  {
+                      'Name': 'string',
+                      'Values': [
+                          'string',
+                      ]
+                  },
+              ],
+              DryRun=True|False,
+              NetworkAclIds=[
+                  'string',
+              ],
+              PaginationConfig={
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'NetworkAcls': [
+                    {
+                        'Associations': [
+                            {
+                                'NetworkAclAssociationId': 'string',
+                                'NetworkAclId': 'string',
+                                'SubnetId': 'string'
+                            },
+                        ],
+                        'Entries': [
+                            {
+                                'CidrBlock': 'string',
+                                'Egress': True|False,
+                                'IcmpTypeCode': {
+                                    'Code': 123,
+                                    'Type': 123
+                                },
+                                'Ipv6CidrBlock': 'string',
+                                'PortRange': {
+                                    'From': 123,
+                                    'To': 123
+                                },
+                                'Protocol': 'string',
+                                'RuleAction': 'allow'|'deny',
+                                'RuleNumber': 123
+                            },
+                        ],
+                        'IsDefault': True|False,
+                        'NetworkAclId': 'string',
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ],
+                        'VpcId': 'string',
+                        'OwnerId': 'string'
+                    },
+                ],
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **NetworkAcls** *(list) --* 
+              Information about one or more network ACLs.
+              - *(dict) --* 
+                Describes a network ACL.
+                - **Associations** *(list) --* 
+                  Any associations between the network ACL and one or more subnets
+                  - *(dict) --* 
+                    Describes an association between a network ACL and a subnet.
+                    - **NetworkAclAssociationId** *(string) --* 
+                      The ID of the association between a network ACL and a subnet.
+                    - **NetworkAclId** *(string) --* 
+                      The ID of the network ACL.
+                    - **SubnetId** *(string) --* 
+                      The ID of the subnet.
+                - **Entries** *(list) --* 
+                  One or more entries (rules) in the network ACL.
+                  - *(dict) --* 
+                    Describes an entry in a network ACL.
+                    - **CidrBlock** *(string) --* 
+                      The IPv4 network range to allow or deny, in CIDR notation.
+                    - **Egress** *(boolean) --* 
+                      Indicates whether the rule is an egress rule (applied to traffic leaving the subnet).
+                    - **IcmpTypeCode** *(dict) --* 
+                      ICMP protocol: The ICMP type and code.
+                      - **Code** *(integer) --* 
+                        The ICMP code. A value of -1 means all codes for the specified ICMP type.
+                      - **Type** *(integer) --* 
+                        The ICMP type. A value of -1 means all types.
+                    - **Ipv6CidrBlock** *(string) --* 
+                      The IPv6 network range to allow or deny, in CIDR notation.
+                    - **PortRange** *(dict) --* 
+                      TCP or UDP protocols: The range of ports the rule applies to.
+                      - **From** *(integer) --* 
+                        The first port in the range.
+                      - **To** *(integer) --* 
+                        The last port in the range.
+                    - **Protocol** *(string) --* 
+                      The protocol number. A value of "-1" means all protocols.
+                    - **RuleAction** *(string) --* 
+                      Indicates whether to allow or deny the traffic that matches the rule.
+                    - **RuleNumber** *(integer) --* 
+                      The rule number for the entry. ACL entries are processed in ascending order by rule number.
+                - **IsDefault** *(boolean) --* 
+                  Indicates whether this is the default network ACL for the VPC.
+                - **NetworkAclId** *(string) --* 
+                  The ID of the network ACL.
+                - **Tags** *(list) --* 
+                  Any tags assigned to the network ACL.
+                  - *(dict) --* 
+                    Describes a tag.
+                    - **Key** *(string) --* 
+                      The key of the tag.
+                      Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:`` .
+                    - **Value** *(string) --* 
+                      The value of the tag.
+                      Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
+                - **VpcId** *(string) --* 
+                  The ID of the VPC for the network ACL.
+                - **OwnerId** *(string) --* 
+                  The ID of the AWS account that owns the network ACL.
+        :type Filters: list
+        :param Filters:
+          One or more filters.
+          * ``association.association-id`` - The ID of an association ID for the ACL.
+          * ``association.network-acl-id`` - The ID of the network ACL involved in the association.
+          * ``association.subnet-id`` - The ID of the subnet involved in the association.
+          * ``default`` - Indicates whether the ACL is the default network ACL for the VPC.
+          * ``entry.cidr`` - The IPv4 CIDR range specified in the entry.
+          * ``entry.icmp.code`` - The ICMP code specified in the entry, if any.
+          * ``entry.icmp.type`` - The ICMP type specified in the entry, if any.
+          * ``entry.ipv6-cidr`` - The IPv6 CIDR range specified in the entry.
+          * ``entry.port-range.from`` - The start of the port range specified in the entry.
+          * ``entry.port-range.to`` - The end of the port range specified in the entry.
+          * ``entry.protocol`` - The protocol specified in the entry (``tcp`` | ``udp`` | ``icmp`` or a protocol number).
+          * ``entry.rule-action`` - Allows or denies the matching traffic (``allow`` | ``deny`` ).
+          * ``entry.rule-number`` - The number of an entry (in other words, rule) in the set of ACL entries.
+          * ``network-acl-id`` - The ID of the network ACL.
+          * ``owner-id`` - The ID of the AWS account that owns the network ACL.
+          * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
+          * ``tag-key`` - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+          * ``vpc-id`` - The ID of the VPC for the network ACL.
+          - *(dict) --*
+            A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
+            *  DescribeAvailabilityZones
+            *  DescribeImages
+            *  DescribeInstances
+            *  DescribeKeyPairs
+            *  DescribeSecurityGroups
+            *  DescribeSnapshots
+            *  DescribeSubnets
+            *  DescribeTags
+            *  DescribeVolumes
+            *  DescribeVpcs
+            - **Name** *(string) --*
+              The name of the filter. Filter names are case-sensitive.
+            - **Values** *(list) --*
+              The filter values. Filter values are case-sensitive.
+              - *(string) --*
+        :type DryRun: boolean
+        :param DryRun:
+          Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type NetworkAclIds: list
+        :param NetworkAclIds:
+          One or more network ACL IDs.
+          Default: Describes all your network ACLs.
           - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -4501,7 +4859,7 @@ class DescribeNetworkInterfacePermissions(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -4575,7 +4933,7 @@ class DescribeNetworkInterfaces(Paginator):
                                 'GroupId': 'string'
                             },
                         ],
-                        'InterfaceType': 'interface'|'natGateway',
+                        'InterfaceType': 'interface'|'natGateway'|'efa',
                         'Ipv6Addresses': [
                             {
                                 'Ipv6Address': 'string'
@@ -4664,7 +5022,7 @@ class DescribeNetworkInterfaces(Paginator):
                     - **GroupId** *(string) --* 
                       The ID of the security group.
                 - **InterfaceType** *(string) --* 
-                  The type of interface.
+                  The type of network interface.
                 - **Ipv6Addresses** *(list) --* 
                   The IPv6 addresses associated with the network interface.
                   - *(dict) --* 
@@ -4757,7 +5115,7 @@ class DescribeNetworkInterfaces(Paginator):
           * ``private-dns-name`` - The private DNS name of the network interface (IPv4).
           * ``requester-id`` - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).
           * ``requester-managed`` - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).
-          * ``source-desk-check`` - Indicates whether the network interface performs source/destination checking. A value of ``true`` means checking is enabled, and ``false`` means checking is disabled. The value must be ``false`` for the network interface to perform network address translation (NAT) in your VPC.
+          * ``source-dest-check`` - Indicates whether the network interface performs source/destination checking. A value of ``true`` means checking is enabled, and ``false`` means checking is disabled. The value must be ``false`` for the network interface to perform network address translation (NAT) in your VPC.
           * ``status`` - The status of the network interface. If the network interface is not attached to an instance, the status is ``available`` ; if a network interface is attached to an instance the status is ``in-use`` .
           * ``subnet-id`` - The ID of the subnet for the network interface.
           * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
@@ -4778,7 +5136,7 @@ class DescribeNetworkInterfaces(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -4881,7 +5239,7 @@ class DescribePrefixLists(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PrefixListIds: list
         :param PrefixListIds:
@@ -5105,7 +5463,7 @@ class DescribeReservedInstancesModifications(Paginator):
                                 'TargetConfiguration': {
                                     'AvailabilityZone': 'string',
                                     'InstanceCount': 123,
-                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                     'Platform': 'string',
                                     'Scope': 'Availability Zone'|'Region'
                                 }
@@ -5202,7 +5560,7 @@ class DescribeReservedInstancesModifications(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ReservedInstancesModificationIds: list
         :param ReservedInstancesModificationIds:
@@ -5242,7 +5600,7 @@ class DescribeReservedInstancesOfferings(Paginator):
                   },
               ],
               IncludeMarketplace=True|False,
-              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+              InstanceType='t1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
               MaxDuration=123,
               MaxInstanceCount=123,
               MinDuration=123,
@@ -5269,7 +5627,7 @@ class DescribeReservedInstancesOfferings(Paginator):
                         'AvailabilityZone': 'string',
                         'Duration': 123,
                         'FixedPrice': ...,
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                         'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
                         'ReservedInstancesOfferingId': 'string',
                         'UsagePrice': ...,
@@ -5374,7 +5732,7 @@ class DescribeReservedInstancesOfferings(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type IncludeMarketplace: boolean
         :param IncludeMarketplace:
@@ -5619,7 +5977,7 @@ class DescribeRouteTables(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -5763,7 +6121,7 @@ class DescribeScheduledInstanceAvailability(Paginator):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone (for example, ``us-west-2a`` ).
           * ``instance-type`` - The instance type (for example, ``c4.large`` ).
           * ``network-platform`` - The network platform (``EC2-Classic`` or ``EC2-VPC`` ).
@@ -5783,7 +6141,7 @@ class DescribeScheduledInstanceAvailability(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type FirstSlotStartTimeRange: dict
         :param FirstSlotStartTimeRange: **[REQUIRED]**
@@ -5944,7 +6302,7 @@ class DescribeScheduledInstances(Paginator):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``availability-zone`` - The Availability Zone (for example, ``us-west-2a`` ).
           * ``instance-type`` - The instance type (for example, ``c4.large`` ).
           * ``network-platform`` - The network platform (``EC2-Classic`` or ``EC2-VPC`` ).
@@ -5964,11 +6322,11 @@ class DescribeScheduledInstances(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type ScheduledInstanceIds: list
         :param ScheduledInstanceIds:
-          One or more Scheduled Instance IDs.
+          The Scheduled Instance IDs.
           - *(string) --*
         :type SlotStartTimeRange: dict
         :param SlotStartTimeRange:
@@ -6118,7 +6476,7 @@ class DescribeSecurityGroups(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **SecurityGroups** *(list) --* 
-              Information about one or more security groups.
+              Information about the security groups.
               - *(dict) --* 
                 Describes a security group
                 - **Description** *(string) --* 
@@ -6126,16 +6484,16 @@ class DescribeSecurityGroups(Paginator):
                 - **GroupName** *(string) --* 
                   The name of the security group.
                 - **IpPermissions** *(list) --* 
-                  One or more inbound rules associated with the security group.
+                  The inbound rules associated with the security group.
                   - *(dict) --* 
                     Describes a set of permissions for a security group rule.
                     - **FromPort** *(integer) --* 
                       The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
                     - **IpProtocol** *(string) --* 
-                      The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
-                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+                      The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+                      [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
                     - **IpRanges** *(list) --* 
-                      One or more IPv4 ranges.
+                      The IPv4 ranges.
                       - *(dict) --* 
                         Describes an IPv4 range.
                         - **CidrIp** *(string) --* 
@@ -6144,7 +6502,7 @@ class DescribeSecurityGroups(Paginator):
                           A description for the security group rule that references this IPv4 address range.
                           Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
                     - **Ipv6Ranges** *(list) --* 
-                      [EC2-VPC only] One or more IPv6 ranges.
+                      [VPC only] The IPv6 ranges.
                       - *(dict) --* 
                         [EC2-VPC only] Describes an IPv6 range.
                         - **CidrIpv6** *(string) --* 
@@ -6153,7 +6511,7 @@ class DescribeSecurityGroups(Paginator):
                           A description for the security group rule that references this IPv6 address range.
                           Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
                     - **PrefixListIds** *(list) --* 
-                      [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+                      [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
                       - *(dict) --* 
                         Describes a prefix list ID.
                         - **Description** *(string) --* 
@@ -6162,9 +6520,9 @@ class DescribeSecurityGroups(Paginator):
                         - **PrefixListId** *(string) --* 
                           The ID of the prefix.
                     - **ToPort** *(integer) --* 
-                      The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+                      The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
                     - **UserIdGroupPairs** *(list) --* 
-                      One or more security group and AWS account ID pairs.
+                      The security group and AWS account ID pairs.
                       - *(dict) --* 
                         Describes a security group and AWS account ID pair.
                         - **Description** *(string) --* 
@@ -6190,16 +6548,16 @@ class DescribeSecurityGroups(Paginator):
                 - **GroupId** *(string) --* 
                   The ID of the security group.
                 - **IpPermissionsEgress** *(list) --* 
-                  [EC2-VPC] One or more outbound rules associated with the security group.
+                  [VPC only] The outbound rules associated with the security group.
                   - *(dict) --* 
                     Describes a set of permissions for a security group rule.
                     - **FromPort** *(integer) --* 
                       The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of ``-1`` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
                     - **IpProtocol** *(string) --* 
-                      The IP protocol name (``tcp`` , ``udp`` , ``icmp`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ). 
-                      [EC2-VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``58`` (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``58`` (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules. 
+                      The IP protocol name (``tcp`` , ``udp`` , ``icmp`` , ``icmpv6`` ) or number (see `Protocol Numbers <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ ).
+                      [VPC only] Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp`` , ``udp`` , ``icmp`` , or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp`` , ``udp`` , and ``icmp`` , you must specify a port range. For ``icmpv6`` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
                     - **IpRanges** *(list) --* 
-                      One or more IPv4 ranges.
+                      The IPv4 ranges.
                       - *(dict) --* 
                         Describes an IPv4 range.
                         - **CidrIp** *(string) --* 
@@ -6208,7 +6566,7 @@ class DescribeSecurityGroups(Paginator):
                           A description for the security group rule that references this IPv4 address range.
                           Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
                     - **Ipv6Ranges** *(list) --* 
-                      [EC2-VPC only] One or more IPv6 ranges.
+                      [VPC only] The IPv6 ranges.
                       - *(dict) --* 
                         [EC2-VPC only] Describes an IPv6 range.
                         - **CidrIpv6** *(string) --* 
@@ -6217,7 +6575,7 @@ class DescribeSecurityGroups(Paginator):
                           A description for the security group rule that references this IPv6 address range.
                           Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
                     - **PrefixListIds** *(list) --* 
-                      [EC2-VPC only] One or more prefix list IDs for an AWS service. With  AuthorizeSecurityGroupEgress , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+                      [VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS service to access through a VPC endpoint from instances associated with the security group.
                       - *(dict) --* 
                         Describes a prefix list ID.
                         - **Description** *(string) --* 
@@ -6226,9 +6584,9 @@ class DescribeSecurityGroups(Paginator):
                         - **PrefixListId** *(string) --* 
                           The ID of the prefix.
                     - **ToPort** *(integer) --* 
-                      The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+                      The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of ``-1`` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
                     - **UserIdGroupPairs** *(list) --* 
-                      One or more security group and AWS account ID pairs.
+                      The security group and AWS account ID pairs.
                       - *(dict) --* 
                         Describes a security group and AWS account ID pair.
                         - **Description** *(string) --* 
@@ -6260,10 +6618,10 @@ class DescribeSecurityGroups(Paginator):
                       The value of the tag.
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
                 - **VpcId** *(string) --* 
-                  [EC2-VPC] The ID of the VPC for the security group.
+                  [VPC only] The ID of the VPC for the security group.
         :type Filters: list
         :param Filters:
-          One or more filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.
+          The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.
           * ``description`` - The description of the security group.
           * ``egress.ip-permission.cidr`` - An IPv4 CIDR block for an outbound security group rule.
           * ``egress.ip-permission.from-port`` - For an outbound rule, the start of port range for the TCP and UDP protocols, or an ICMP type number.
@@ -6304,16 +6662,16 @@ class DescribeSecurityGroups(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type GroupIds: list
         :param GroupIds:
-          One or more security group IDs. Required for security groups in a nondefault VPC.
+          The IDs of the security groups. Required for security groups in a nondefault VPC.
           Default: Describes all your security groups.
           - *(string) --*
         :type GroupNames: list
         :param GroupNames:
-          [EC2-Classic and default VPC only] One or more security group names. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the ``group-name`` filter to describe security groups by name.
+          [EC2-Classic and default VPC only] The names of the security groups. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the ``group-name`` filter to describe security groups by name.
           Default: Describes all your security groups.
           - *(string) --*
         :type DryRun: boolean
@@ -6398,7 +6756,6 @@ class DescribeSnapshots(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeSnapshots.
             - **Snapshots** *(list) --* 
               Information about the snapshots.
               - *(dict) --* 
@@ -6428,7 +6785,7 @@ class DescribeSnapshots(Paginator):
                 - **VolumeSize** *(integer) --* 
                   The size of the volume, in GiB.
                 - **OwnerAlias** *(string) --* 
-                  Value from an Amazon-maintained list (``amazon`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console. 
+                  Value from an Amazon-maintained list (``amazon`` | ``self`` | ``all`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console. 
                 - **Tags** *(list) --* 
                   Any tags assigned to the snapshot.
                   - *(dict) --* 
@@ -6441,9 +6798,10 @@ class DescribeSnapshots(Paginator):
                       Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``description`` - A description of the snapshot.
-          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
+          * ``encrypted`` - Indicates whether the snapshot is encrypted (``true`` | ``false`` )
+          * ``owner-alias`` - Value from an Amazon-maintained list (``amazon`` | ``self`` | ``all`` | ``aws-marketplace`` | ``microsoft`` ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.
           * ``owner-id`` - The ID of the AWS account that owns the snapshot.
           * ``progress`` - The progress of the snapshot, as a percentage (for example, 80%).
           * ``snapshot-id`` - The snapshot ID.
@@ -6468,20 +6826,20 @@ class DescribeSnapshots(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type OwnerIds: list
         :param OwnerIds:
-          Returns the snapshots owned by the specified owner. Multiple owners can be specified.
+          Describes the snapshots owned by these owners.
           - *(string) --*
         :type RestorableByUserIds: list
         :param RestorableByUserIds:
-          One or more AWS accounts IDs that can create volumes from the snapshot.
+          The IDs of the AWS accounts that can create volumes from the snapshot.
           - *(string) --*
         :type SnapshotIds: list
         :param SnapshotIds:
-          One or more snapshot IDs.
-          Default: Describes snapshots for which you have launch permissions.
+          The snapshot IDs.
+          Default: Describes the snapshots for which you have create volume permissions.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -6637,7 +6995,7 @@ class DescribeSpotFleetRequests(Paginator):
                                         'Name': 'string'
                                     },
                                     'ImageId': 'string',
-                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                    'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                     'KernelId': 'string',
                                     'KeyName': 'string',
                                     'Monitoring': {
@@ -6667,7 +7025,8 @@ class DescribeSpotFleetRequests(Paginator):
                                                 },
                                             ],
                                             'SecondaryPrivateIpAddressCount': 123,
-                                            'SubnetId': 'string'
+                                            'SubnetId': 'string',
+                                            'InterfaceType': 'string'
                                         },
                                     ],
                                     'Placement': {
@@ -6682,7 +7041,7 @@ class DescribeSpotFleetRequests(Paginator):
                                     'WeightedCapacity': 123.0,
                                     'TagSpecifications': [
                                         {
-                                            'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                                            'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                                             'Tags': [
                                                 {
                                                     'Key': 'string',
@@ -6702,7 +7061,7 @@ class DescribeSpotFleetRequests(Paginator):
                                     },
                                     'Overrides': [
                                         {
-                                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                                             'SpotPrice': 'string',
                                             'SubnetId': 'string',
                                             'AvailabilityZone': 'string',
@@ -6773,7 +7132,7 @@ class DescribeSpotFleetRequests(Paginator):
                   - **IamFleetRole** *(string) --* 
                     Grants the Spot Fleet permission to terminate Spot Instances on your behalf when you cancel its Spot Fleet request using  CancelSpotFleetRequests or when the Spot Fleet request expires, if you set ``terminateInstancesWithExpiration`` .
                   - **LaunchSpecifications** *(list) --* 
-                    The launch specifications for the Spot Fleet request.
+                    The launch specifications for the Spot Fleet request. If you specify ``LaunchSpecifications`` , you can't specify ``LaunchTemplateConfigs`` .
                     - *(dict) --* 
                       Describes the launch specification for one or more Spot Instances.
                       - **SecurityGroups** *(list) --* 
@@ -6801,20 +7160,20 @@ class DescribeSpotFleetRequests(Paginator):
                             - **DeleteOnTermination** *(boolean) --* 
                               Indicates whether the EBS volume is deleted on instance termination.
                             - **Iops** *(integer) --* 
-                              The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` , this represents the number of IOPS that are provisioned for the volume. For ``gp2`` , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                              Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most Regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                              The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                              Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                               Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                             - **SnapshotId** *(string) --* 
                               The ID of the snapshot.
                             - **VolumeSize** *(integer) --* 
                               The size of the volume, in GiB.
-                              Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                               Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                              Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
                             - **VolumeType** *(string) --* 
-                              The volume type: ``gp2`` , ``io1`` , ``st1`` , ``sc1`` , or ``standard`` .
+                              The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
                               Default: ``standard``  
                             - **Encrypted** *(boolean) --* 
-                              Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. 
+                              Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
                               If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
                             - **KmsKeyId** *(string) --* 
                               Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.
@@ -6882,6 +7241,8 @@ class DescribeSpotFleetRequests(Paginator):
                             The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
                           - **SubnetId** *(string) --* 
                             The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+                          - **InterfaceType** *(string) --* 
+                            The type of interface.
                       - **Placement** *(dict) --* 
                         The placement information.
                         - **AvailabilityZone** *(string) --* 
@@ -6919,7 +7280,7 @@ class DescribeSpotFleetRequests(Paginator):
                                 The value of the tag.
                                 Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
                   - **LaunchTemplateConfigs** *(list) --* 
-                    The launch template and overrides.
+                    The launch template and overrides. If you specify ``LaunchTemplateConfigs`` , you can't specify ``LaunchSpecifications`` .
                     - *(dict) --* 
                       Describes a launch template and overrides.
                       - **LaunchTemplateSpecification** *(dict) --* 
@@ -6959,7 +7320,7 @@ class DescribeSpotFleetRequests(Paginator):
                   - **ValidFrom** *(datetime) --* 
                     The start date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). The default is to start fulfilling the request immediately.
                   - **ValidUntil** *(datetime) --* 
-                    The end date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
+                    The end date and time of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
                   - **ReplaceUnhealthyInstances** *(boolean) --* 
                     Indicates whether Spot Fleet should replace unhealthy instances.
                   - **InstanceInterruptionBehavior** *(string) --* 
@@ -7011,6 +7372,412 @@ class DescribeSpotFleetRequests(Paginator):
         pass
 
 
+class DescribeSpotInstanceRequests(Paginator):
+    def paginate(self, Filters: List = None, DryRun: bool = None, SpotInstanceRequestIds: List = None, PaginationConfig: Dict = None) -> Dict:
+        """
+        Creates an iterator that will paginate through responses from :py:meth:`EC2.Client.describe_spot_instance_requests`.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotInstanceRequests>`_
+        
+        **Request Syntax**
+        ::
+          response_iterator = paginator.paginate(
+              Filters=[
+                  {
+                      'Name': 'string',
+                      'Values': [
+                          'string',
+                      ]
+                  },
+              ],
+              DryRun=True|False,
+              SpotInstanceRequestIds=[
+                  'string',
+              ],
+              PaginationConfig={
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'SpotInstanceRequests': [
+                    {
+                        'ActualBlockHourlyPrice': 'string',
+                        'AvailabilityZoneGroup': 'string',
+                        'BlockDurationMinutes': 123,
+                        'CreateTime': datetime(2015, 1, 1),
+                        'Fault': {
+                            'Code': 'string',
+                            'Message': 'string'
+                        },
+                        'InstanceId': 'string',
+                        'LaunchGroup': 'string',
+                        'LaunchSpecification': {
+                            'UserData': 'string',
+                            'SecurityGroups': [
+                                {
+                                    'GroupName': 'string',
+                                    'GroupId': 'string'
+                                },
+                            ],
+                            'AddressingType': 'string',
+                            'BlockDeviceMappings': [
+                                {
+                                    'DeviceName': 'string',
+                                    'VirtualName': 'string',
+                                    'Ebs': {
+                                        'DeleteOnTermination': True|False,
+                                        'Iops': 123,
+                                        'SnapshotId': 'string',
+                                        'VolumeSize': 123,
+                                        'VolumeType': 'standard'|'io1'|'gp2'|'sc1'|'st1',
+                                        'Encrypted': True|False,
+                                        'KmsKeyId': 'string'
+                                    },
+                                    'NoDevice': 'string'
+                                },
+                            ],
+                            'EbsOptimized': True|False,
+                            'IamInstanceProfile': {
+                                'Arn': 'string',
+                                'Name': 'string'
+                            },
+                            'ImageId': 'string',
+                            'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                            'KernelId': 'string',
+                            'KeyName': 'string',
+                            'NetworkInterfaces': [
+                                {
+                                    'AssociatePublicIpAddress': True|False,
+                                    'DeleteOnTermination': True|False,
+                                    'Description': 'string',
+                                    'DeviceIndex': 123,
+                                    'Groups': [
+                                        'string',
+                                    ],
+                                    'Ipv6AddressCount': 123,
+                                    'Ipv6Addresses': [
+                                        {
+                                            'Ipv6Address': 'string'
+                                        },
+                                    ],
+                                    'NetworkInterfaceId': 'string',
+                                    'PrivateIpAddress': 'string',
+                                    'PrivateIpAddresses': [
+                                        {
+                                            'Primary': True|False,
+                                            'PrivateIpAddress': 'string'
+                                        },
+                                    ],
+                                    'SecondaryPrivateIpAddressCount': 123,
+                                    'SubnetId': 'string',
+                                    'InterfaceType': 'string'
+                                },
+                            ],
+                            'Placement': {
+                                'AvailabilityZone': 'string',
+                                'GroupName': 'string',
+                                'Tenancy': 'default'|'dedicated'|'host'
+                            },
+                            'RamdiskId': 'string',
+                            'SubnetId': 'string',
+                            'Monitoring': {
+                                'Enabled': True|False
+                            }
+                        },
+                        'LaunchedAvailabilityZone': 'string',
+                        'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
+                        'SpotInstanceRequestId': 'string',
+                        'SpotPrice': 'string',
+                        'State': 'open'|'active'|'closed'|'cancelled'|'failed',
+                        'Status': {
+                            'Code': 'string',
+                            'Message': 'string',
+                            'UpdateTime': datetime(2015, 1, 1)
+                        },
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ],
+                        'Type': 'one-time'|'persistent',
+                        'ValidFrom': datetime(2015, 1, 1),
+                        'ValidUntil': datetime(2015, 1, 1),
+                        'InstanceInterruptionBehavior': 'hibernate'|'stop'|'terminate'
+                    },
+                ],
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            Contains the output of DescribeSpotInstanceRequests.
+            - **SpotInstanceRequests** *(list) --* 
+              One or more Spot Instance requests.
+              - *(dict) --* 
+                Describes a Spot Instance request.
+                - **ActualBlockHourlyPrice** *(string) --* 
+                  If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.
+                - **AvailabilityZoneGroup** *(string) --* 
+                  The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.
+                - **BlockDurationMinutes** *(integer) --* 
+                  The duration for the Spot Instance, in minutes.
+                - **CreateTime** *(datetime) --* 
+                  The date and time when the Spot Instance request was created, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z).
+                - **Fault** *(dict) --* 
+                  The fault codes for the Spot Instance request, if any.
+                  - **Code** *(string) --* 
+                    The reason code for the Spot Instance state change.
+                  - **Message** *(string) --* 
+                    The message for the Spot Instance state change.
+                - **InstanceId** *(string) --* 
+                  The instance ID, if an instance has been launched to fulfill the Spot Instance request.
+                - **LaunchGroup** *(string) --* 
+                  The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
+                - **LaunchSpecification** *(dict) --* 
+                  Additional information for launching instances.
+                  - **UserData** *(string) --* 
+                    The Base64-encoded user data for the instance.
+                  - **SecurityGroups** *(list) --* 
+                    One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+                    - *(dict) --* 
+                      Describes a security group.
+                      - **GroupName** *(string) --* 
+                        The name of the security group.
+                      - **GroupId** *(string) --* 
+                        The ID of the security group.
+                  - **AddressingType** *(string) --* 
+                    Deprecated.
+                  - **BlockDeviceMappings** *(list) --* 
+                    One or more block device mapping entries.
+                    - *(dict) --* 
+                      Describes a block device mapping.
+                      - **DeviceName** *(string) --* 
+                        The device name (for example, ``/dev/sdh`` or ``xvdh`` ).
+                      - **VirtualName** *(string) --* 
+                        The virtual device name (``ephemeral`` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ``ephemeral0`` and ``ephemeral1`` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+                        NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+                        Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+                      - **Ebs** *(dict) --* 
+                        Parameters used to automatically set up EBS volumes when the instance is launched.
+                        - **DeleteOnTermination** *(boolean) --* 
+                          Indicates whether the EBS volume is deleted on instance termination.
+                        - **Iops** *(integer) --* 
+                          The number of I/O operations per second (IOPS) that the volume supports. For ``io1`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                          Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
+                          Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
+                        - **SnapshotId** *(string) --* 
+                          The ID of the snapshot.
+                        - **VolumeSize** *(integer) --* 
+                          The size of the volume, in GiB.
+                          Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+                          Constraints: 1-16384 for General Purpose SSD (``gp2`` ), 4-16384 for Provisioned IOPS SSD (``io1`` ), 500-16384 for Throughput Optimized HDD (``st1`` ), 500-16384 for Cold HDD (``sc1`` ), and 1-1024 for Magnetic (``standard`` ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
+                        - **VolumeType** *(string) --* 
+                          The volume type. If you set the type to ``io1`` , you must also set the **Iops** property.
+                          Default: ``standard``  
+                        - **Encrypted** *(boolean) --* 
+                          Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption.
+                          If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
+                        - **KmsKeyId** *(string) --* 
+                          Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.
+                          This parameter is only supported on ``BlockDeviceMapping`` objects called by `RunInstances <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html>`__ , `RequestSpotFleet <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html>`__ , and `RequestSpotInstances <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html>`__ .
+                      - **NoDevice** *(string) --* 
+                        Suppresses the specified device included in the block device mapping of the AMI.
+                  - **EbsOptimized** *(boolean) --* 
+                    Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+                    Default: ``false``  
+                  - **IamInstanceProfile** *(dict) --* 
+                    The IAM instance profile.
+                    - **Arn** *(string) --* 
+                      The Amazon Resource Name (ARN) of the instance profile.
+                    - **Name** *(string) --* 
+                      The name of the instance profile.
+                  - **ImageId** *(string) --* 
+                    The ID of the AMI.
+                  - **InstanceType** *(string) --* 
+                    The instance type.
+                  - **KernelId** *(string) --* 
+                    The ID of the kernel.
+                  - **KeyName** *(string) --* 
+                    The name of the key pair.
+                  - **NetworkInterfaces** *(list) --* 
+                    One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+                    - *(dict) --* 
+                      Describes a network interface.
+                      - **AssociatePublicIpAddress** *(boolean) --* 
+                        Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is ``true`` .
+                      - **DeleteOnTermination** *(boolean) --* 
+                        If set to ``true`` , the interface is deleted when the instance is terminated. You can specify ``true`` only if creating a new network interface when launching an instance.
+                      - **Description** *(string) --* 
+                        The description of the network interface. Applies only if creating a network interface when launching an instance.
+                      - **DeviceIndex** *(integer) --* 
+                        The index of the device on the instance for the network interface attachment. If you are specifying a network interface in a  RunInstances request, you must provide the device index.
+                      - **Groups** *(list) --* 
+                        The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
+                        - *(string) --* 
+                      - **Ipv6AddressCount** *(integer) --* 
+                        A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+                      - **Ipv6Addresses** *(list) --* 
+                        One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+                        - *(dict) --* 
+                          Describes an IPv6 address.
+                          - **Ipv6Address** *(string) --* 
+                            The IPv6 address.
+                      - **NetworkInterfaceId** *(string) --* 
+                        The ID of the network interface.
+                      - **PrivateIpAddress** *(string) --* 
+                        The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                      - **PrivateIpAddresses** *(list) --* 
+                        One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                        - *(dict) --* 
+                          Describes a secondary private IPv4 address for a network interface.
+                          - **Primary** *(boolean) --* 
+                            Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+                          - **PrivateIpAddress** *(string) --* 
+                            The private IPv4 addresses.
+                      - **SecondaryPrivateIpAddressCount** *(integer) --* 
+                        The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a  RunInstances request.
+                      - **SubnetId** *(string) --* 
+                        The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
+                      - **InterfaceType** *(string) --* 
+                        The type of interface.
+                  - **Placement** *(dict) --* 
+                    The placement information for the instance.
+                    - **AvailabilityZone** *(string) --* 
+                      The Availability Zone.
+                      [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+                    - **GroupName** *(string) --* 
+                      The name of the placement group.
+                    - **Tenancy** *(string) --* 
+                      The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of ``dedicated`` runs on single-tenant hardware. The ``host`` tenancy is not supported for Spot Instances.
+                  - **RamdiskId** *(string) --* 
+                    The ID of the RAM disk.
+                  - **SubnetId** *(string) --* 
+                    The ID of the subnet in which to launch the instance.
+                  - **Monitoring** *(dict) --* 
+                    Describes the monitoring of an instance.
+                    - **Enabled** *(boolean) --* 
+                      Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+                - **LaunchedAvailabilityZone** *(string) --* 
+                  The Availability Zone in which the request is launched.
+                - **ProductDescription** *(string) --* 
+                  The product description associated with the Spot Instance.
+                - **SpotInstanceRequestId** *(string) --* 
+                  The ID of the Spot Instance request.
+                - **SpotPrice** *(string) --* 
+                  The maximum price per hour that you are willing to pay for a Spot Instance.
+                - **State** *(string) --* 
+                  The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see `Spot Status <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+                - **Status** *(dict) --* 
+                  The status code and status message describing the Spot Instance request.
+                  - **Code** *(string) --* 
+                    The status code. For a list of status codes, see `Spot Status Codes <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+                  - **Message** *(string) --* 
+                    The description for the status code.
+                  - **UpdateTime** *(datetime) --* 
+                    The date and time of the most recent status update, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z).
+                - **Tags** *(list) --* 
+                  Any tags assigned to the resource.
+                  - *(dict) --* 
+                    Describes a tag.
+                    - **Key** *(string) --* 
+                      The key of the tag.
+                      Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:`` .
+                    - **Value** *(string) --* 
+                      The value of the tag.
+                      Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
+                - **Type** *(string) --* 
+                  The Spot Instance request type.
+                - **ValidFrom** *(datetime) --* 
+                  The start date of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). The request becomes active at this date and time.
+                - **ValidUntil** *(datetime) --* 
+                  The end date of the request, in UTC format (for example, *YYYY* -*MM* -*DD* T*HH* :*MM* :*SS* Z). If this is a one-time request, it remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date is reached. The default end date is 7 days from the current date.
+                - **InstanceInterruptionBehavior** *(string) --* 
+                  The behavior when a Spot Instance is interrupted.
+        :type Filters: list
+        :param Filters:
+          One or more filters.
+          * ``availability-zone-group`` - The Availability Zone group.
+          * ``create-time`` - The time stamp when the Spot Instance request was created.
+          * ``fault-code`` - The fault code related to the request.
+          * ``fault-message`` - The fault message related to the request.
+          * ``instance-id`` - The ID of the instance that fulfilled the request.
+          * ``launch-group`` - The Spot Instance launch group.
+          * ``launch.block-device-mapping.delete-on-termination`` - Indicates whether the EBS volume is deleted on instance termination.
+          * ``launch.block-device-mapping.device-name`` - The device name for the volume in the block device mapping (for example, ``/dev/sdh`` or ``xvdh`` ).
+          * ``launch.block-device-mapping.snapshot-id`` - The ID of the snapshot for the EBS volume.
+          * ``launch.block-device-mapping.volume-size`` - The size of the EBS volume, in GiB.
+          * ``launch.block-device-mapping.volume-type`` - The type of EBS volume: ``gp2`` for General Purpose SSD, ``io1`` for Provisioned IOPS SSD, ``st1`` for Throughput Optimized HDD, ``sc1`` for Cold HDD, or ``standard`` for Magnetic.
+          * ``launch.group-id`` - The ID of the security group for the instance.
+          * ``launch.group-name`` - The name of the security group for the instance.
+          * ``launch.image-id`` - The ID of the AMI.
+          * ``launch.instance-type`` - The type of instance (for example, ``m3.medium`` ).
+          * ``launch.kernel-id`` - The kernel ID.
+          * ``launch.key-name`` - The name of the key pair the instance launched with.
+          * ``launch.monitoring-enabled`` - Whether detailed monitoring is enabled for the Spot Instance.
+          * ``launch.ramdisk-id`` - The RAM disk ID.
+          * ``launched-availability-zone`` - The Availability Zone in which the request is launched.
+          * ``network-interface.addresses.primary`` - Indicates whether the IP address is the primary private IP address.
+          * ``network-interface.delete-on-termination`` - Indicates whether the network interface is deleted when the instance is terminated.
+          * ``network-interface.description`` - A description of the network interface.
+          * ``network-interface.device-index`` - The index of the device for the network interface attachment on the instance.
+          * ``network-interface.group-id`` - The ID of the security group associated with the network interface.
+          * ``network-interface.network-interface-id`` - The ID of the network interface.
+          * ``network-interface.private-ip-address`` - The primary private IP address of the network interface.
+          * ``network-interface.subnet-id`` - The ID of the subnet for the instance.
+          * ``product-description`` - The product description associated with the instance (``Linux/UNIX`` | ``Windows`` ).
+          * ``spot-instance-request-id`` - The Spot Instance request ID.
+          * ``spot-price`` - The maximum hourly price for any Spot Instance launched to fulfill the request.
+          * ``state`` - The state of the Spot Instance request (``open`` | ``active`` | ``closed`` | ``cancelled`` | ``failed`` ). Spot request status information can help you track your Amazon EC2 Spot Instance requests. For more information, see `Spot Request Status <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+          * ``status-code`` - The short code describing the most recent evaluation of your Spot Instance request.
+          * ``status-message`` - The message explaining the status of the Spot Instance request.
+          * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
+          * ``tag-key`` - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+          * ``type`` - The type of Spot Instance request (``one-time`` | ``persistent`` ).
+          * ``valid-from`` - The start date of the request.
+          * ``valid-until`` - The end date of the request.
+          - *(dict) --*
+            A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
+            *  DescribeAvailabilityZones
+            *  DescribeImages
+            *  DescribeInstances
+            *  DescribeKeyPairs
+            *  DescribeSecurityGroups
+            *  DescribeSnapshots
+            *  DescribeSubnets
+            *  DescribeTags
+            *  DescribeVolumes
+            *  DescribeVpcs
+            - **Name** *(string) --*
+              The name of the filter. Filter names are case-sensitive.
+            - **Values** *(list) --*
+              The filter values. Filter values are case-sensitive.
+              - *(string) --*
+        :type DryRun: boolean
+        :param DryRun:
+          Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
+        :type SpotInstanceRequestIds: list
+        :param SpotInstanceRequestIds:
+          One or more Spot Instance request IDs.
+          - *(string) --*
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+
 class DescribeSpotPriceHistory(Paginator):
     def paginate(self, Filters: List = None, AvailabilityZone: str = None, DryRun: bool = None, EndTime: datetime = None, InstanceTypes: List = None, ProductDescriptions: List = None, StartTime: datetime = None, PaginationConfig: Dict = None) -> Dict:
         """
@@ -7032,7 +7799,7 @@ class DescribeSpotPriceHistory(Paginator):
               DryRun=True|False,
               EndTime=datetime(2015, 1, 1),
               InstanceTypes=[
-                  't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                  't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
               ],
               ProductDescriptions=[
                   'string',
@@ -7051,7 +7818,7 @@ class DescribeSpotPriceHistory(Paginator):
                 'SpotPriceHistory': [
                     {
                         'AvailabilityZone': 'string',
-                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
+                        'InstanceType': 't1.micro'|'t2.nano'|'t2.micro'|'t2.small'|'t2.medium'|'t2.large'|'t2.xlarge'|'t2.2xlarge'|'t3.nano'|'t3.micro'|'t3.small'|'t3.medium'|'t3.large'|'t3.xlarge'|'t3.2xlarge'|'t3a.nano'|'t3a.micro'|'t3a.small'|'t3a.medium'|'t3a.large'|'t3a.xlarge'|'t3a.2xlarge'|'m1.small'|'m1.medium'|'m1.large'|'m1.xlarge'|'m3.medium'|'m3.large'|'m3.xlarge'|'m3.2xlarge'|'m4.large'|'m4.xlarge'|'m4.2xlarge'|'m4.4xlarge'|'m4.10xlarge'|'m4.16xlarge'|'m2.xlarge'|'m2.2xlarge'|'m2.4xlarge'|'cr1.8xlarge'|'r3.large'|'r3.xlarge'|'r3.2xlarge'|'r3.4xlarge'|'r3.8xlarge'|'r4.large'|'r4.xlarge'|'r4.2xlarge'|'r4.4xlarge'|'r4.8xlarge'|'r4.16xlarge'|'r5.large'|'r5.xlarge'|'r5.2xlarge'|'r5.4xlarge'|'r5.12xlarge'|'r5.24xlarge'|'r5.metal'|'r5a.large'|'r5a.xlarge'|'r5a.2xlarge'|'r5a.4xlarge'|'r5a.12xlarge'|'r5a.24xlarge'|'r5d.large'|'r5d.xlarge'|'r5d.2xlarge'|'r5d.4xlarge'|'r5d.12xlarge'|'r5d.24xlarge'|'r5d.metal'|'r5ad.large'|'r5ad.xlarge'|'r5ad.2xlarge'|'r5ad.4xlarge'|'r5ad.8xlarge'|'r5ad.12xlarge'|'r5ad.16xlarge'|'r5ad.24xlarge'|'x1.16xlarge'|'x1.32xlarge'|'x1e.xlarge'|'x1e.2xlarge'|'x1e.4xlarge'|'x1e.8xlarge'|'x1e.16xlarge'|'x1e.32xlarge'|'i2.xlarge'|'i2.2xlarge'|'i2.4xlarge'|'i2.8xlarge'|'i3.large'|'i3.xlarge'|'i3.2xlarge'|'i3.4xlarge'|'i3.8xlarge'|'i3.16xlarge'|'i3.metal'|'hi1.4xlarge'|'hs1.8xlarge'|'c1.medium'|'c1.xlarge'|'c3.large'|'c3.xlarge'|'c3.2xlarge'|'c3.4xlarge'|'c3.8xlarge'|'c4.large'|'c4.xlarge'|'c4.2xlarge'|'c4.4xlarge'|'c4.8xlarge'|'c5.large'|'c5.xlarge'|'c5.2xlarge'|'c5.4xlarge'|'c5.9xlarge'|'c5.18xlarge'|'c5d.large'|'c5d.xlarge'|'c5d.2xlarge'|'c5d.4xlarge'|'c5d.9xlarge'|'c5d.18xlarge'|'c5n.large'|'c5n.xlarge'|'c5n.2xlarge'|'c5n.4xlarge'|'c5n.9xlarge'|'c5n.18xlarge'|'cc1.4xlarge'|'cc2.8xlarge'|'g2.2xlarge'|'g2.8xlarge'|'g3.4xlarge'|'g3.8xlarge'|'g3.16xlarge'|'g3s.xlarge'|'cg1.4xlarge'|'p2.xlarge'|'p2.8xlarge'|'p2.16xlarge'|'p3.2xlarge'|'p3.8xlarge'|'p3.16xlarge'|'p3dn.24xlarge'|'d2.xlarge'|'d2.2xlarge'|'d2.4xlarge'|'d2.8xlarge'|'f1.2xlarge'|'f1.4xlarge'|'f1.16xlarge'|'m5.large'|'m5.xlarge'|'m5.2xlarge'|'m5.4xlarge'|'m5.12xlarge'|'m5.24xlarge'|'m5.metal'|'m5a.large'|'m5a.xlarge'|'m5a.2xlarge'|'m5a.4xlarge'|'m5a.12xlarge'|'m5a.24xlarge'|'m5d.large'|'m5d.xlarge'|'m5d.2xlarge'|'m5d.4xlarge'|'m5d.12xlarge'|'m5d.24xlarge'|'m5d.metal'|'m5ad.large'|'m5ad.xlarge'|'m5ad.2xlarge'|'m5ad.4xlarge'|'m5ad.8xlarge'|'m5ad.12xlarge'|'m5ad.16xlarge'|'m5ad.24xlarge'|'h1.2xlarge'|'h1.4xlarge'|'h1.8xlarge'|'h1.16xlarge'|'z1d.large'|'z1d.xlarge'|'z1d.2xlarge'|'z1d.3xlarge'|'z1d.6xlarge'|'z1d.12xlarge'|'z1d.metal'|'u-6tb1.metal'|'u-9tb1.metal'|'u-12tb1.metal'|'a1.medium'|'a1.large'|'a1.xlarge'|'a1.2xlarge'|'a1.4xlarge',
                         'ProductDescription': 'Linux/UNIX'|'Linux/UNIX (Amazon VPC)'|'Windows'|'Windows (Amazon VPC)',
                         'SpotPrice': 'string',
                         'Timestamp': datetime(2015, 1, 1)
@@ -7099,7 +7866,7 @@ class DescribeSpotPriceHistory(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type AvailabilityZone: string
         :param AvailabilityZone:
@@ -7236,15 +8003,15 @@ class DescribeStaleSecurityGroups(Paginator):
                     - **IpProtocol** *(string) --* 
                       The IP protocol name (for ``tcp`` , ``udp`` , and ``icmp`` ) or number (see `Protocol Numbers) <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ .
                     - **IpRanges** *(list) --* 
-                      One or more IP ranges. Not applicable for stale security group rules.
+                      The IP ranges. Not applicable for stale security group rules.
                       - *(string) --* 
                     - **PrefixListIds** *(list) --* 
-                      One or more prefix list IDs for an AWS service. Not applicable for stale security group rules.
+                      The prefix list IDs for an AWS service. Not applicable for stale security group rules.
                       - *(string) --* 
                     - **ToPort** *(integer) --* 
                       The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of ``-1`` indicates all ICMP types. 
                     - **UserIdGroupPairs** *(list) --* 
-                      One or more security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
+                      The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
                       - *(dict) --* 
                         Describes a security group and AWS account ID pair.
                         - **Description** *(string) --* 
@@ -7274,15 +8041,15 @@ class DescribeStaleSecurityGroups(Paginator):
                     - **IpProtocol** *(string) --* 
                       The IP protocol name (for ``tcp`` , ``udp`` , and ``icmp`` ) or number (see `Protocol Numbers) <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>`__ .
                     - **IpRanges** *(list) --* 
-                      One or more IP ranges. Not applicable for stale security group rules.
+                      The IP ranges. Not applicable for stale security group rules.
                       - *(string) --* 
                     - **PrefixListIds** *(list) --* 
-                      One or more prefix list IDs for an AWS service. Not applicable for stale security group rules.
+                      The prefix list IDs for an AWS service. Not applicable for stale security group rules.
                       - *(string) --* 
                     - **ToPort** *(integer) --* 
                       The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of ``-1`` indicates all ICMP types. 
                     - **UserIdGroupPairs** *(list) --* 
-                      One or more security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
+                      The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
                       - *(dict) --* 
                         Describes a security group and AWS account ID pair.
                         - **Description** *(string) --* 
@@ -7358,7 +8125,7 @@ class DescribeTags(Paginator):
                     {
                         'Key': 'string',
                         'ResourceId': 'string',
-                        'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
+                        'ResourceType': 'client-vpn-endpoint'|'customer-gateway'|'dedicated-host'|'dhcp-options'|'elastic-ip'|'fleet'|'fpga-image'|'host-reservation'|'image'|'instance'|'internet-gateway'|'launch-template'|'natgateway'|'network-acl'|'network-interface'|'reserved-instances'|'route-table'|'security-group'|'snapshot'|'spot-instances-request'|'subnet'|'transit-gateway'|'transit-gateway-attachment'|'transit-gateway-route-table'|'volume'|'vpc'|'vpc-peering-connection'|'vpn-connection'|'vpn-gateway',
                         'Value': 'string'
                     },
                 ]
@@ -7383,10 +8150,10 @@ class DescribeTags(Paginator):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``key`` - The tag key.
           * ``resource-id`` - The ID of the resource.
-          * ``resource-type`` - The resource type (``customer-gateway`` | ``dedicated-host`` | ``dhcp-options`` | ``elastic-ip`` | ``fleet`` | ``fpga-image`` | ``image`` | ``instance`` | ``internet-gateway`` | ``launch-template`` | ``natgateway`` | ``network-acl`` | ``network-interface`` | ``reserved-instances`` | ``route-table`` | ``security-group`` | ``snapshot`` | ``spot-instances-request`` | ``subnet`` | ``volume`` | ``vpc`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` ).
+          * ``resource-type`` - The resource type (``customer-gateway`` | ``dedicated-host`` | ``dhcp-options`` | ``elastic-ip`` | ``fleet`` | ``fpga-image`` | ``image`` | ``instance`` | ``host-reservation`` | ``internet-gateway`` | ``launch-template`` | ``natgateway`` | ``network-acl`` | ``network-interface`` | ``reserved-instances`` | ``route-table`` | ``security-group`` | ``snapshot`` | ``spot-instances-request`` | ``subnet`` | ``volume`` | ``vpc`` | ``vpc-peering-connection`` | ``vpn-connection`` | ``vpn-gateway`` ).
           * ``tag`` :<key> - The key/value combination of the tag. For example, specify \"tag:Owner\" for the filter name and \"TeamA\" for the filter value to find resources with the tag \"Owner=TeamA\".
           * ``value`` - The tag value.
           - *(dict) --*
@@ -7404,7 +8171,7 @@ class DescribeTags(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -7545,7 +8312,7 @@ class DescribeTransitGatewayAttachments(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -7669,7 +8436,7 @@ class DescribeTransitGatewayRouteTables(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -7808,7 +8575,7 @@ class DescribeTransitGatewayVpcAttachments(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -7966,7 +8733,7 @@ class DescribeTransitGateways(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -8053,9 +8820,8 @@ class DescribeVolumeStatus(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeVolumeStatus.
             - **VolumeStatuses** *(list) --* 
-              A list of volumes.
+              Information about the status of the volumes.
               - *(dict) --* 
                 Describes the volume status.
                 - **Actions** *(list) --* 
@@ -8102,7 +8868,7 @@ class DescribeVolumeStatus(Paginator):
                     The status of the volume.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``action.code`` - The action code for the event (for example, ``enable-volume-io`` ).
           * ``action.description`` - A description of the action.
           * ``action.event-id`` - The event ID associated with the action.
@@ -8130,11 +8896,11 @@ class DescribeVolumeStatus(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs.
+          The IDs of the volumes.
           Default: Describes all your volumes.
           - *(string) --*
         :type DryRun: boolean
@@ -8220,7 +8986,6 @@ class DescribeVolumes(Paginator):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the output of DescribeVolumes.
             - **Volumes** *(list) --* 
               Information about the volumes.
               - *(dict) --* 
@@ -8258,8 +9023,8 @@ class DescribeVolumes(Paginator):
                 - **VolumeId** *(string) --* 
                   The ID of the volume.
                 - **Iops** *(integer) --* 
-                  The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
-                  Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes in most regions. Maximum ``io1`` IOPS of 64,000 is guaranteed only on `Nitro-based instances <AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see `Amazon EBS Volume Types <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html>`__ in the *Amazon Elastic Compute Cloud User Guide* .
+                  Constraints: Range is 100-16,000 IOPS for ``gp2`` volumes and 100 to 64,000IOPS for ``io1`` volumes, in most Regions. The maximum IOPS for ``io1`` of 64,000 is guaranteed only on `Nitro-based instances <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances>`__ . Other instance families guarantee performance up to 32,000 IOPS.
                   Condition: This parameter is required for requests to create ``io1`` volumes; it is not used in requests to create ``gp2`` , ``st1`` , ``sc1`` , or ``standard`` volumes.
                 - **Tags** *(list) --* 
                   Any tags assigned to the volume.
@@ -8275,7 +9040,7 @@ class DescribeVolumes(Paginator):
                   The volume type. This can be ``gp2`` for General Purpose SSD, ``io1`` for Provisioned IOPS SSD, ``st1`` for Throughput Optimized HDD, ``sc1`` for Cold HDD, or ``standard`` for Magnetic volumes.
         :type Filters: list
         :param Filters:
-          One or more filters.
+          The filters.
           * ``attachment.attach-time`` - The time stamp when the attachment initiated.
           * ``attachment.delete-on-termination`` - Whether the volume is deleted on instance termination.
           * ``attachment.device`` - The device name specified in the block device mapping (for example, ``/dev/sda1`` ).
@@ -8283,7 +9048,7 @@ class DescribeVolumes(Paginator):
           * ``attachment.status`` - The attachment state (``attaching`` | ``attached`` | ``detaching`` ).
           * ``availability-zone`` - The Availability Zone in which the volume was created.
           * ``create-time`` - The time stamp when the volume was created.
-          * ``encrypted`` - The encryption status of the volume.
+          * ``encrypted`` - Indicates whether the volume is encrypted (``true`` | ``false`` )
           * ``size`` - The size of the volume, in GiB.
           * ``snapshot-id`` - The snapshot from which the volume was created.
           * ``status`` - The status of the volume (``creating`` | ``available`` | ``in-use`` | ``deleting`` | ``deleted`` | ``error`` ).
@@ -8306,11 +9071,11 @@ class DescribeVolumes(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs.
+          The volume IDs.
           - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -8382,7 +9147,7 @@ class DescribeVolumesModifications(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **VolumesModifications** *(list) --* 
-              A list of returned  VolumeModification objects.
+              Information about the volume modifications.
               - *(dict) --* 
                 Describes the modification status of an EBS volume.
                 If the volume has never been modified, some element values will be null.
@@ -8415,11 +9180,11 @@ class DescribeVolumesModifications(Paginator):
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type VolumeIds: list
         :param VolumeIds:
-          One or more volume IDs for which in-progress modifications will be described.
+          The IDs of the volumes for which in-progress modifications will be described.
           - *(string) --*
         :type Filters: list
         :param Filters:
-          One or more filters. Supported filters: ``volume-id`` , ``modification-state`` , ``target-size`` , ``target-iops`` , ``target-volume-type`` , ``original-size`` , ``original-iops`` , ``original-volume-type`` , ``start-time`` .
+          The filters. Supported filters: ``volume-id`` , ``modification-state`` , ``target-size`` , ``target-iops`` , ``target-volume-type`` , ``original-size`` , ``original-iops`` , ``original-volume-type`` , ``start-time`` .
           - *(dict) --*
             A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
             *  DescribeAvailabilityZones
@@ -8435,7 +9200,7 @@ class DescribeVolumesModifications(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -8606,7 +9371,7 @@ class DescribeVpcEndpointConnectionNotifications(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -8703,7 +9468,7 @@ class DescribeVpcEndpointConnections(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -8765,6 +9530,7 @@ class DescribeVpcEndpointServiceConfigurations(Paginator):
                             'string',
                         ],
                         'AcceptanceRequired': True|False,
+                        'ManagesVpcEndpoints': True|False,
                         'NetworkLoadBalancerArns': [
                             'string',
                         ],
@@ -8799,6 +9565,8 @@ class DescribeVpcEndpointServiceConfigurations(Paginator):
                   - *(string) --* 
                 - **AcceptanceRequired** *(boolean) --* 
                   Indicates whether requests from other AWS accounts to create an endpoint to the service must first be accepted.
+                - **ManagesVpcEndpoints** *(boolean) --* 
+                  Indicates whether the service manages it's VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
                 - **NetworkLoadBalancerArns** *(list) --* 
                   The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.
                   - *(string) --* 
@@ -8835,7 +9603,7 @@ class DescribeVpcEndpointServiceConfigurations(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -8925,7 +9693,7 @@ class DescribeVpcEndpointServicePermissions(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -8993,7 +9761,8 @@ class DescribeVpcEndpointServices(Paginator):
                         ],
                         'PrivateDnsName': 'string',
                         'VpcEndpointPolicySupported': True|False,
-                        'AcceptanceRequired': True|False
+                        'AcceptanceRequired': True|False,
+                        'ManagesVpcEndpoints': True|False
                     },
                 ],
             }
@@ -9030,6 +9799,8 @@ class DescribeVpcEndpointServices(Paginator):
                   Indicates whether the service supports endpoint policies.
                 - **AcceptanceRequired** *(boolean) --* 
                   Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
+                - **ManagesVpcEndpoints** *(boolean) --* 
+                  Indicates whether the service manages it's VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
         :type DryRun: boolean
         :param DryRun:
           Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
@@ -9056,7 +9827,7 @@ class DescribeVpcEndpointServices(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -9125,6 +9896,7 @@ class DescribeVpcEndpoints(Paginator):
                             },
                         ],
                         'PrivateDnsEnabled': True|False,
+                        'RequesterManaged': True|False,
                         'NetworkInterfaceIds': [
                             'string',
                         ],
@@ -9174,6 +9946,8 @@ class DescribeVpcEndpoints(Paginator):
                       The name of the security group.
                 - **PrivateDnsEnabled** *(boolean) --* 
                   (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.
+                - **RequesterManaged** *(boolean) --* 
+                  Indicates whether the VPC endpoint is being managed by its service.
                 - **NetworkInterfaceIds** *(list) --* 
                   (Interface endpoint) One or more network interfaces for the endpoint.
                   - *(string) --* 
@@ -9216,7 +9990,7 @@ class DescribeVpcEndpoints(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type PaginationConfig: dict
         :param PaginationConfig:
@@ -9440,7 +10214,7 @@ class DescribeVpcPeeringConnections(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -9450,6 +10224,191 @@ class DescribeVpcPeeringConnections(Paginator):
           One or more VPC peering connection IDs.
           Default: Describes all your VPC peering connections.
           - *(string) --*
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+
+class DescribeVpcs(Paginator):
+    def paginate(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, PaginationConfig: Dict = None) -> Dict:
+        """
+        Creates an iterator that will paginate through responses from :py:meth:`EC2.Client.describe_vpcs`.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs>`_
+        
+        **Request Syntax**
+        ::
+          response_iterator = paginator.paginate(
+              Filters=[
+                  {
+                      'Name': 'string',
+                      'Values': [
+                          'string',
+                      ]
+                  },
+              ],
+              VpcIds=[
+                  'string',
+              ],
+              DryRun=True|False,
+              PaginationConfig={
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Vpcs': [
+                    {
+                        'CidrBlock': 'string',
+                        'DhcpOptionsId': 'string',
+                        'State': 'pending'|'available',
+                        'VpcId': 'string',
+                        'OwnerId': 'string',
+                        'InstanceTenancy': 'default'|'dedicated'|'host',
+                        'Ipv6CidrBlockAssociationSet': [
+                            {
+                                'AssociationId': 'string',
+                                'Ipv6CidrBlock': 'string',
+                                'Ipv6CidrBlockState': {
+                                    'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
+                                    'StatusMessage': 'string'
+                                }
+                            },
+                        ],
+                        'CidrBlockAssociationSet': [
+                            {
+                                'AssociationId': 'string',
+                                'CidrBlock': 'string',
+                                'CidrBlockState': {
+                                    'State': 'associating'|'associated'|'disassociating'|'disassociated'|'failing'|'failed',
+                                    'StatusMessage': 'string'
+                                }
+                            },
+                        ],
+                        'IsDefault': True|False,
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ]
+                    },
+                ],
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Vpcs** *(list) --* 
+              Information about one or more VPCs.
+              - *(dict) --* 
+                Describes a VPC.
+                - **CidrBlock** *(string) --* 
+                  The primary IPv4 CIDR block for the VPC.
+                - **DhcpOptionsId** *(string) --* 
+                  The ID of the set of DHCP options you've associated with the VPC (or ``default`` if the default options are associated with the VPC).
+                - **State** *(string) --* 
+                  The current state of the VPC.
+                - **VpcId** *(string) --* 
+                  The ID of the VPC.
+                - **OwnerId** *(string) --* 
+                  The ID of the AWS account that owns the VPC.
+                - **InstanceTenancy** *(string) --* 
+                  The allowed tenancy of instances launched into the VPC.
+                - **Ipv6CidrBlockAssociationSet** *(list) --* 
+                  Information about the IPv6 CIDR blocks associated with the VPC.
+                  - *(dict) --* 
+                    Describes an IPv6 CIDR block associated with a VPC.
+                    - **AssociationId** *(string) --* 
+                      The association ID for the IPv6 CIDR block.
+                    - **Ipv6CidrBlock** *(string) --* 
+                      The IPv6 CIDR block.
+                    - **Ipv6CidrBlockState** *(dict) --* 
+                      Information about the state of the CIDR block.
+                      - **State** *(string) --* 
+                        The state of the CIDR block.
+                      - **StatusMessage** *(string) --* 
+                        A message about the status of the CIDR block, if applicable.
+                - **CidrBlockAssociationSet** *(list) --* 
+                  Information about the IPv4 CIDR blocks associated with the VPC.
+                  - *(dict) --* 
+                    Describes an IPv4 CIDR block associated with a VPC.
+                    - **AssociationId** *(string) --* 
+                      The association ID for the IPv4 CIDR block.
+                    - **CidrBlock** *(string) --* 
+                      The IPv4 CIDR block.
+                    - **CidrBlockState** *(dict) --* 
+                      Information about the state of the CIDR block.
+                      - **State** *(string) --* 
+                        The state of the CIDR block.
+                      - **StatusMessage** *(string) --* 
+                        A message about the status of the CIDR block, if applicable.
+                - **IsDefault** *(boolean) --* 
+                  Indicates whether the VPC is the default VPC.
+                - **Tags** *(list) --* 
+                  Any tags assigned to the VPC.
+                  - *(dict) --* 
+                    Describes a tag.
+                    - **Key** *(string) --* 
+                      The key of the tag.
+                      Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:`` .
+                    - **Value** *(string) --* 
+                      The value of the tag.
+                      Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
+        :type Filters: list
+        :param Filters:
+          One or more filters.
+          * ``cidr`` - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC\'s CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, ``/28`` ).
+          * ``cidr-block-association.cidr-block`` - An IPv4 CIDR block associated with the VPC.
+          * ``cidr-block-association.association-id`` - The association ID for an IPv4 CIDR block associated with the VPC.
+          * ``cidr-block-association.state`` - The state of an IPv4 CIDR block associated with the VPC.
+          * ``dhcp-options-id`` - The ID of a set of DHCP options.
+          * ``ipv6-cidr-block-association.ipv6-cidr-block`` - An IPv6 CIDR block associated with the VPC.
+          * ``ipv6-cidr-block-association.association-id`` - The association ID for an IPv6 CIDR block associated with the VPC.
+          * ``ipv6-cidr-block-association.state`` - The state of an IPv6 CIDR block associated with the VPC.
+          * ``isDefault`` - Indicates whether the VPC is the default VPC.
+          * ``owner-id`` - The ID of the AWS account that owns the VPC.
+          * ``state`` - The state of the VPC (``pending`` | ``available`` ).
+          * ``tag`` :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key ``Owner`` and the value ``TeamA`` , specify ``tag:Owner`` for the filter name and ``TeamA`` for the filter value.
+          * ``tag-key`` - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+          * ``vpc-id`` - The ID of the VPC.
+          - *(dict) --*
+            A filter name and value pair that is used to return a more specific list of results from a describe operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. The filters supported by a describe operation are documented with the describe operation. For example:
+            *  DescribeAvailabilityZones
+            *  DescribeImages
+            *  DescribeInstances
+            *  DescribeKeyPairs
+            *  DescribeSecurityGroups
+            *  DescribeSnapshots
+            *  DescribeSubnets
+            *  DescribeTags
+            *  DescribeVolumes
+            *  DescribeVpcs
+            - **Name** *(string) --*
+              The name of the filter. Filter names are case-sensitive.
+            - **Values** *(list) --*
+              The filter values. Filter values are case-sensitive.
+              - *(string) --*
+        :type VpcIds: list
+        :param VpcIds:
+          One or more VPC IDs.
+          Default: Describes all your VPCs.
+          - *(string) --*
+        :type DryRun: boolean
+        :param DryRun:
+          Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is ``DryRunOperation`` . Otherwise, it is ``UnauthorizedOperation`` .
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -9534,7 +10493,7 @@ class GetTransitGatewayAttachmentPropagations(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -9631,7 +10590,7 @@ class GetTransitGatewayRouteTableAssociations(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:
@@ -9728,7 +10687,7 @@ class GetTransitGatewayRouteTablePropagations(Paginator):
             - **Name** *(string) --*
               The name of the filter. Filter names are case-sensitive.
             - **Values** *(list) --*
-              One or more filter values. Filter values are case-sensitive.
+              The filter values. Filter values are case-sensitive.
               - *(string) --*
         :type DryRun: boolean
         :param DryRun:

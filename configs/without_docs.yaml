@@ -6,6 +6,6 @@ with_paginators: true
 with_waiters: true
 package_name: boto3_type_annotations
 module_name: boto3_type_annotations
-version: 0.3.0
+version: 0.3.1
 readme: "../README.md"
 license: "../LICENSE"

@@ -36,9 +36,9 @@ class DescribeAccountLimits(Paginator):
             - **AccountLimits** *(list) --* 
               An account limit structure that contain a list of AWS CloudFormation account limits and their values.
               - *(dict) --* 
-                The AccountLimit data type.
+                The AccountLimit data type. For more information about account limits, see `AWS CloudFormation Limits <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html>`__ in the *AWS CloudFormation User Guide* .
                 - **Name** *(string) --* 
-                  The name of the account limit. Currently, the only account limit is ``StackLimit`` .
+                  The name of the account limit.
                 - **Value** *(integer) --* 
                   The value that is associated with the account limit name.
         :type PaginationConfig: dict
@@ -158,7 +158,7 @@ class DescribeChangeSet(Paginator):
             - **Description** *(string) --* 
               Information about the change set.
             - **Parameters** *(list) --* 
-              A list of ``Parameter`` structures that describes the input parameters and their values used to create the change set. For more information, see the `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html>`__ data type.
+              A list of ``Parameter`` structures that describes the input parameters and their values used to create the change set. For more information, see the `Parameter <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html>`__ data type.
               - *(dict) --* 
                 The Parameter data type.
                 - **ParameterKey** *(string) --* 
@@ -168,7 +168,7 @@ class DescribeChangeSet(Paginator):
                 - **UsePreviousValue** *(boolean) --* 
                   During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
                 - **ResolvedValue** *(string) --* 
-                  Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+                  Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
             - **CreationTime** *(datetime) --* 
               The start time when the change set was created, in UTC.
             - **ExecutionStatus** *(string) --* 
@@ -195,11 +195,11 @@ class DescribeChangeSet(Paginator):
                     The Amazon Resource Name (ARN) of the rollback trigger.
                     If a specified trigger is missing, the entire stack operation fails and is rolled back. 
                   - **Type** *(string) --* 
-                    The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
+                    The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
               - **MonitoringTimeInMinutes** *(integer) --* 
                 The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources.
                 The default is 0 minutes.
-                If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
+                If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
                 If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
             - **Capabilities** *(list) --* 
               If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
@@ -245,7 +245,7 @@ class DescribeChangeSet(Paginator):
                         - **Name** *(string) --* 
                           If the ``Attribute`` value is ``Properties`` , the name of the property. For all other attributes, the value is null.
                         - **RequiresRecreation** *(string) --* 
-                          If the ``Attribute`` value is ``Properties`` , indicates whether a change to this property causes the resource to be recreated. The value can be ``Never`` , ``Always`` , or ``Conditionally`` . To determine the conditions for a ``Conditionally`` recreation, see the update behavior for that `property <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.
+                          If the ``Attribute`` value is ``Properties`` , indicates whether a change to this property causes the resource to be recreated. The value can be ``Never`` , ``Always`` , or ``Conditionally`` . To determine the conditions for a ``Conditionally`` recreation, see the update behavior for that `property <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.
                       - **Evaluation** *(string) --* 
                         Indicates whether AWS CloudFormation can determine the target value, and whether the target value will change before you execute a change set.
                         For ``Static`` evaluations, AWS CloudFormation can determine that the target value will change, and its value. For example, if you directly modify the ``InstanceType`` property of an EC2 instance, AWS CloudFormation knows that this property value will change, and its value, so this is a ``Static`` evaluation.
@@ -336,7 +336,7 @@ class DescribeStackEvents(Paginator):
                 - **PhysicalResourceId** *(string) --* 
                   The name or unique identifier associated with the physical instance of the resource.
                 - **ResourceType** *(string) --* 
-                  Type of resource. (For more information, go to `AWS Resource Types Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
+                  Type of resource. (For more information, go to `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
                 - **Timestamp** *(datetime) --* 
                   Time the status was updated.
                 - **ResourceStatus** *(string) --* 
@@ -478,7 +478,7 @@ class DescribeStacks(Paginator):
                     - **UsePreviousValue** *(boolean) --* 
                       During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify ``true`` , do not specify a parameter value.
                     - **ResolvedValue** *(string) --* 
-                      Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
+                      Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only for ` ``SSM`` parameter types <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types>`__ in the template.
                 - **CreationTime** *(datetime) --* 
                   The time at which the stack was created.
                 - **DeletionTime** *(datetime) --* 
@@ -500,11 +500,11 @@ class DescribeStacks(Paginator):
                         The Amazon Resource Name (ARN) of the rollback trigger.
                         If a specified trigger is missing, the entire stack operation fails and is rolled back. 
                       - **Type** *(string) --* 
-                        The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
+                        The resource type of the rollback trigger. Currently, `AWS\:\:CloudWatch\:\:Alarm <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__ is the only supported resource type.
                   - **MonitoringTimeInMinutes** *(integer) --* 
                     The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources.
                     The default is 0 minutes.
-                    If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
+                    If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources after update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using `CancelUpdateStack <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>`__ , for example) as necessary.
                     If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
                 - **StackStatus** *(string) --* 
                   Current status of the stack.
@@ -894,7 +894,7 @@ class ListStackResources(Paginator):
                 - **PhysicalResourceId** *(string) --* 
                   The name or unique identifier that corresponds to a physical instance ID of the resource.
                 - **ResourceType** *(string) --* 
-                  Type of resource. (For more information, go to `AWS Resource Types Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
+                  Type of resource. (For more information, go to `AWS Resource Types Reference <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html>`__ in the AWS CloudFormation User Guide.)
                 - **LastUpdatedTimestamp** *(datetime) --* 
                   Time the status was updated.
                 - **ResourceStatus** *(string) --* 
@@ -907,7 +907,7 @@ class ListStackResources(Paginator):
                     Status of the resource's actual configuration compared to its expected configuration
                     * ``DELETED`` : The resource differs from its expected configuration in that it has been deleted. 
                     * ``MODIFIED`` : The resource differs from its expected configuration. 
-                    * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ . If you performed an  ContinueUpdateRollback operation on a stack, any resources included in ``ResourcesToSkip`` will also have a status of ``NOT_CHECKED`` . For more information on skipping resources during rollback operations, see `Continue Rolling Back an Update <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html>`__ in the AWS CloudFormation User Guide. 
+                    * ``NOT_CHECKED`` : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of ``NOT_CHECKED`` . For more information, see `Resources that Support Drift Detection <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html>`__ . If you performed an  ContinueUpdateRollback operation on a stack, any resources included in ``ResourcesToSkip`` will also have a status of ``NOT_CHECKED`` . For more information on skipping resources during rollback operations, see `Continue Rolling Back an Update <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html>`__ in the AWS CloudFormation User Guide. 
                     * ``IN_SYNC`` : The resources's actual configuration matches its expected configuration. 
                   - **LastCheckTimestamp** *(datetime) --* 
                     When AWS CloudFormation last checked if the resource had drifted from its expected configuration.

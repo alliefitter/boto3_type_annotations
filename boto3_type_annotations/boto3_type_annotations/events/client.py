@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -41,6 +41,9 @@ class Client(BaseClient):
     def list_rules(self, NamePrefix: str = None, NextToken: str = None, Limit: int = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceARN: str) -> Dict:
+        pass
+
     def list_targets_by_rule(self, Rule: str, NextToken: str = None, Limit: int = None) -> Dict:
         pass
 
@@ -50,7 +53,7 @@ class Client(BaseClient):
     def put_permission(self, Action: str, Principal: str, StatementId: str, Condition: Dict = None):
         pass
 
-    def put_rule(self, Name: str, ScheduleExpression: str = None, EventPattern: str = None, State: str = None, Description: str = None, RoleArn: str = None) -> Dict:
+    def put_rule(self, Name: str, ScheduleExpression: str = None, EventPattern: str = None, State: str = None, Description: str = None, RoleArn: str = None, Tags: List = None) -> Dict:
         pass
 
     def put_targets(self, Rule: str, Targets: List) -> Dict:
@@ -62,5 +65,11 @@ class Client(BaseClient):
     def remove_targets(self, Rule: str, Ids: List, Force: bool = None) -> Dict:
         pass
 
+    def tag_resource(self, ResourceARN: str, Tags: List) -> Dict:
+        pass
+
     def test_event_pattern(self, EventPattern: str, Event: str) -> Dict:
+        pass
+
+    def untag_resource(self, ResourceARN: str, TagKeys: List) -> Dict:
         pass

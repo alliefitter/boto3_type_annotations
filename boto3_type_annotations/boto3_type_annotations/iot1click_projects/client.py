@@ -1,9 +1,10 @@
 from typing import Optional
-from typing import Union
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
+from typing import Union
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -16,7 +17,7 @@ class Client(BaseClient):
     def create_placement(self, placementName: str, projectName: str, attributes: Dict = None) -> Dict:
         pass
 
-    def create_project(self, projectName: str, description: str = None, placementTemplate: Dict = None) -> Dict:
+    def create_project(self, projectName: str, description: str = None, placementTemplate: Dict = None, tags: Dict = None) -> Dict:
         pass
 
     def delete_placement(self, placementName: str, projectName: str) -> Dict:
@@ -50,6 +51,15 @@ class Client(BaseClient):
         pass
 
     def list_projects(self, nextToken: str = None, maxResults: int = None) -> Dict:
+        pass
+
+    def list_tags_for_resource(self, resourceArn: str) -> Dict:
+        pass
+
+    def tag_resource(self, resourceArn: str, tags: Dict) -> Dict:
+        pass
+
+    def untag_resource(self, resourceArn: str, tagKeys: List) -> Dict:
         pass
 
     def update_placement(self, placementName: str, projectName: str, attributes: Dict = None) -> Dict:

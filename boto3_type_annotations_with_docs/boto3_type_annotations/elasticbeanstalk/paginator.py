@@ -1,6 +1,6 @@
+from typing import Dict
 from typing import List
 from datetime import datetime
-from typing import Dict
 from botocore.paginate import Paginator
 
 
@@ -324,7 +324,7 @@ class DescribeEnvironments(Paginator):
                   * ``Grey`` : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an ``UpdateEnvironment`` or ``RestartEnvironment`` request. 
                   Default: ``Grey``  
                 - **HealthStatus** *(string) --* 
-                  Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
+                  Returns the health status of the application running in your environment. For more information, see `Health Colors and Statuses <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html>`__ .
                 - **Resources** *(dict) --* 
                   The description of the AWS resources used by this environment.
                   - **LoadBalancer** *(dict) --* 
@@ -360,7 +360,7 @@ class DescribeEnvironments(Paginator):
                 - **EnvironmentLinks** *(list) --* 
                   A list of links to other environments in the same group.
                   - *(dict) --* 
-                    A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
+                    A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See `Environment Manifest (env.yaml) <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html>`__ for details.
                     - **LinkName** *(string) --* 
                       The name of the link.
                     - **EnvironmentName** *(string) --* 

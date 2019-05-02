@@ -1,9 +1,10 @@
-from typing import Union
-from botocore.paginate import Paginator
-from botocore.client import BaseClient
-from botocore.waiter import Waiter
 from typing import Optional
+from botocore.client import BaseClient
 from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -568,5 +569,88 @@ class Client(BaseClient):
           The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response. To get another batch of clusters, provide this token in your next request.
         :rtype: dict
         :returns:
+        """
+        pass
+
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        """
+        Returns a list of tags attached to a resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kafka-2018-11-14/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': {
+                    'string': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            Successful response.
+            - **Tags** *(dict) --* 
+              The key-value pairs for the resource tags
+              - *(string) --* 
+                - *(string) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) that uniquely identifies the resource.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: Dict):
+        """
+        Tag a resource with given tags.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kafka-2018-11-14/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              Tags={
+                  'string': 'string'
+              }
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) that uniquely identifies the resource.
+        :type Tags: dict
+        :param Tags: **[REQUIRED]**
+          The key-value pairs for the resource tags
+          - *(string) --*
+            - *(string) --*
+        :returns: None
+        """
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
+        """
+        Remove tags of a resource by given tag keys.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/kafka-2018-11-14/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) that uniquely identifies the resource.
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]**
+          The list of tag keys.
+          - *(string) --*
+        :returns: None
         """
         pass

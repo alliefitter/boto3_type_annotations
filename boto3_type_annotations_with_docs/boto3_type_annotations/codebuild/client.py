@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -103,6 +103,9 @@ class Client(BaseClient):
                             'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                             'location': 'string',
                             'gitCloneDepth': 123,
+                            'gitSubmodulesConfig': {
+                                'fetchSubmodules': True|False
+                            },
                             'buildspec': 'string',
                             'auth': {
                                 'type': 'OAUTH',
@@ -117,6 +120,9 @@ class Client(BaseClient):
                                 'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                                 'location': 'string',
                                 'gitCloneDepth': 123,
+                                'gitSubmodulesConfig': {
+                                    'fetchSubmodules': True|False
+                                },
                                 'buildspec': 'string',
                                 'auth': {
                                     'type': 'OAUTH',
@@ -190,7 +196,8 @@ class Client(BaseClient):
                             },
                             's3Logs': {
                                 'status': 'ENABLED'|'DISABLED',
-                                'location': 'string'
+                                'location': 'string',
+                                'encryptionDisabled': True|False
                             }
                         },
                         'timeoutInMinutes': 123,
@@ -311,7 +318,11 @@ class Client(BaseClient):
                     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                     * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   - **gitCloneDepth** *(integer) --* 
-                    Information about the git clone depth for the build project.
+                    Information about the Git clone depth for the build project.
+                  - **gitSubmodulesConfig** *(dict) --* 
+                    Information about the Git submodules configuration for the build project. 
+                    - **fetchSubmodules** *(boolean) --* 
+                      Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                   - **buildspec** *(string) --* 
                     The build spec declaration to use for the builds in this build project.
                     If this value is not specified, a build spec must be included along with the source code to be built.
@@ -352,7 +363,11 @@ class Client(BaseClient):
                       * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                       * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                     - **gitCloneDepth** *(integer) --* 
-                      Information about the git clone depth for the build project.
+                      Information about the Git clone depth for the build project.
+                    - **gitSubmodulesConfig** *(dict) --* 
+                      Information about the Git submodules configuration for the build project. 
+                      - **fetchSubmodules** *(boolean) --* 
+                        Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                     - **buildspec** *(string) --* 
                       The build spec declaration to use for the builds in this build project.
                       If this value is not specified, a build spec must be included along with the source code to be built.
@@ -442,13 +457,13 @@ class Client(BaseClient):
                     * ``S3`` : This is the S3 bucket name/prefix. 
                   - **modes** *(list) --* 
                     If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time. 
-                    * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.  
-                    * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.  
+                    * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.  
+                    * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.  
                     .. note::
-                        * You can only use a Docker layer cache in the Linux enviornment.  
-                        * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.  
-                        * You should consider the security implications before using a Docker layer cache.  
-                    * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:  
+                        * You can use a Docker layer cache in the Linux enviornment only.  
+                        * The ``privileged`` flag must be set so that your project has the required Docker permissions.  
+                        * You should consider the security implications before you use a Docker layer cache.  
+                    * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:  
                       * Only directories can be specified for caching. You cannot specify individual files.  
                       * Symlinks are used to reference cached directories.  
                       * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.  
@@ -531,6 +546,8 @@ class Client(BaseClient):
                       * ``DISABLED`` : S3 build logs are not enabled for this build project. 
                     - **location** *(string) --* 
                       The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` . 
+                    - **encryptionDisabled** *(boolean) --* 
+                      Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. 
                 - **timeoutInMinutes** *(integer) --* 
                   How long, in minutes, for AWS CodeBuild to wait before timing out this build if it does not get marked as completed.
                 - **queuedTimeoutInMinutes** *(integer) --* 
@@ -560,7 +577,9 @@ class Client(BaseClient):
                     The ID of the network interface.
                 - **encryptionKey** *(string) --* 
                   The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
-                  This is expressed either as the Amazon Resource Name (ARN) of the CMK or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                  .. note::
+                    You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. 
+                  You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format ``alias/*alias-name* `` ).
             - **buildsNotFound** *(list) --* 
               The IDs of builds for which information could not be found.
               - *(string) --* 
@@ -598,6 +617,9 @@ class Client(BaseClient):
                             'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                             'location': 'string',
                             'gitCloneDepth': 123,
+                            'gitSubmodulesConfig': {
+                                'fetchSubmodules': True|False
+                            },
                             'buildspec': 'string',
                             'auth': {
                                 'type': 'OAUTH',
@@ -612,6 +634,9 @@ class Client(BaseClient):
                                 'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                                 'location': 'string',
                                 'gitCloneDepth': 123,
+                                'gitSubmodulesConfig': {
+                                    'fetchSubmodules': True|False
+                                },
                                 'buildspec': 'string',
                                 'auth': {
                                     'type': 'OAUTH',
@@ -721,7 +746,8 @@ class Client(BaseClient):
                             },
                             's3Logs': {
                                 'status': 'ENABLED'|'DISABLED',
-                                'location': 'string'
+                                'location': 'string',
+                                'encryptionDisabled': True|False
                             }
                         }
                     },
@@ -763,7 +789,11 @@ class Client(BaseClient):
                     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                     * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   - **gitCloneDepth** *(integer) --* 
-                    Information about the git clone depth for the build project.
+                    Information about the Git clone depth for the build project.
+                  - **gitSubmodulesConfig** *(dict) --* 
+                    Information about the Git submodules configuration for the build project. 
+                    - **fetchSubmodules** *(boolean) --* 
+                      Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                   - **buildspec** *(string) --* 
                     The build spec declaration to use for the builds in this build project.
                     If this value is not specified, a build spec must be included along with the source code to be built.
@@ -804,7 +834,11 @@ class Client(BaseClient):
                       * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                       * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                     - **gitCloneDepth** *(integer) --* 
-                      Information about the git clone depth for the build project.
+                      Information about the Git clone depth for the build project.
+                    - **gitSubmodulesConfig** *(dict) --* 
+                      Information about the Git submodules configuration for the build project. 
+                      - **fetchSubmodules** *(boolean) --* 
+                        Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                     - **buildspec** *(string) --* 
                       The build spec declaration to use for the builds in this build project.
                       If this value is not specified, a build spec must be included along with the source code to be built.
@@ -934,13 +968,13 @@ class Client(BaseClient):
                     * ``S3`` : This is the S3 bucket name/prefix. 
                   - **modes** *(list) --* 
                     If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time. 
-                    * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.  
-                    * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.  
+                    * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.  
+                    * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.  
                     .. note::
-                        * You can only use a Docker layer cache in the Linux enviornment.  
-                        * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.  
-                        * You should consider the security implications before using a Docker layer cache.  
-                    * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:  
+                        * You can use a Docker layer cache in the Linux enviornment only.  
+                        * The ``privileged`` flag must be set so that your project has the required Docker permissions.  
+                        * You should consider the security implications before you use a Docker layer cache.  
+                    * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:  
                       * Only directories can be specified for caching. You cannot specify individual files.  
                       * Symlinks are used to reference cached directories.  
                       * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.  
@@ -1001,7 +1035,9 @@ class Client(BaseClient):
                   The number of minutes a build is allowed to be queued before it times out. 
                 - **encryptionKey** *(string) --* 
                   The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
-                  This is expressed either as the Amazon Resource Name (ARN) of the CMK or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                  .. note::
+                    You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. 
+                  You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format ``alias/*alias-name* `` ).
                 - **tags** *(list) --* 
                   The tags for this build project.
                   These tags are available for use by AWS services that support AWS CodeBuild build project tags.
@@ -1099,6 +1135,8 @@ class Client(BaseClient):
                       * ``DISABLED`` : S3 build logs are not enabled for this build project. 
                     - **location** *(string) --* 
                       The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` . 
+                    - **encryptionDisabled** *(boolean) --* 
+                      Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. 
             - **projectsNotFound** *(list) --* 
               The names of build projects for which information could not be found.
               - *(string) --* 
@@ -1140,6 +1178,9 @@ class Client(BaseClient):
                   'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                   'location': 'string',
                   'gitCloneDepth': 123,
+                  'gitSubmodulesConfig': {
+                      'fetchSubmodules': True|False
+                  },
                   'buildspec': 'string',
                   'auth': {
                       'type': 'OAUTH',
@@ -1154,6 +1195,9 @@ class Client(BaseClient):
                       'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                       'location': 'string',
                       'gitCloneDepth': 123,
+                      'gitSubmodulesConfig': {
+                          'fetchSubmodules': True|False
+                      },
                       'buildspec': 'string',
                       'auth': {
                           'type': 'OAUTH',
@@ -1242,7 +1286,8 @@ class Client(BaseClient):
                   },
                   's3Logs': {
                       'status': 'ENABLED'|'DISABLED',
-                      'location': 'string'
+                      'location': 'string',
+                      'encryptionDisabled': True|False
                   }
               }
           )
@@ -1258,6 +1303,9 @@ class Client(BaseClient):
                         'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                         'location': 'string',
                         'gitCloneDepth': 123,
+                        'gitSubmodulesConfig': {
+                            'fetchSubmodules': True|False
+                        },
                         'buildspec': 'string',
                         'auth': {
                             'type': 'OAUTH',
@@ -1272,6 +1320,9 @@ class Client(BaseClient):
                             'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                             'location': 'string',
                             'gitCloneDepth': 123,
+                            'gitSubmodulesConfig': {
+                                'fetchSubmodules': True|False
+                            },
                             'buildspec': 'string',
                             'auth': {
                                 'type': 'OAUTH',
@@ -1381,7 +1432,8 @@ class Client(BaseClient):
                         },
                         's3Logs': {
                             'status': 'ENABLED'|'DISABLED',
-                            'location': 'string'
+                            'location': 'string',
+                            'encryptionDisabled': True|False
                         }
                     }
                 }
@@ -1417,7 +1469,11 @@ class Client(BaseClient):
                   * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                 - **gitCloneDepth** *(integer) --* 
-                  Information about the git clone depth for the build project.
+                  Information about the Git clone depth for the build project.
+                - **gitSubmodulesConfig** *(dict) --* 
+                  Information about the Git submodules configuration for the build project. 
+                  - **fetchSubmodules** *(boolean) --* 
+                    Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                 - **buildspec** *(string) --* 
                   The build spec declaration to use for the builds in this build project.
                   If this value is not specified, a build spec must be included along with the source code to be built.
@@ -1458,7 +1514,11 @@ class Client(BaseClient):
                     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                     * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   - **gitCloneDepth** *(integer) --* 
-                    Information about the git clone depth for the build project.
+                    Information about the Git clone depth for the build project.
+                  - **gitSubmodulesConfig** *(dict) --* 
+                    Information about the Git submodules configuration for the build project. 
+                    - **fetchSubmodules** *(boolean) --* 
+                      Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                   - **buildspec** *(string) --* 
                     The build spec declaration to use for the builds in this build project.
                     If this value is not specified, a build spec must be included along with the source code to be built.
@@ -1588,13 +1648,13 @@ class Client(BaseClient):
                   * ``S3`` : This is the S3 bucket name/prefix. 
                 - **modes** *(list) --* 
                   If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time. 
-                  * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.  
-                  * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.  
+                  * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.  
+                  * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.  
                   .. note::
-                      * You can only use a Docker layer cache in the Linux enviornment.  
-                      * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.  
-                      * You should consider the security implications before using a Docker layer cache.  
-                  * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:  
+                      * You can use a Docker layer cache in the Linux enviornment only.  
+                      * The ``privileged`` flag must be set so that your project has the required Docker permissions.  
+                      * You should consider the security implications before you use a Docker layer cache.  
+                  * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:  
                     * Only directories can be specified for caching. You cannot specify individual files.  
                     * Symlinks are used to reference cached directories.  
                     * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.  
@@ -1655,7 +1715,9 @@ class Client(BaseClient):
                 The number of minutes a build is allowed to be queued before it times out. 
               - **encryptionKey** *(string) --* 
                 The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
-                This is expressed either as the Amazon Resource Name (ARN) of the CMK or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                .. note::
+                  You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. 
+                You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format ``alias/*alias-name* `` ).
               - **tags** *(list) --* 
                 The tags for this build project.
                 These tags are available for use by AWS services that support AWS CodeBuild build project tags.
@@ -1753,6 +1815,8 @@ class Client(BaseClient):
                     * ``DISABLED`` : S3 build logs are not enabled for this build project. 
                   - **location** *(string) --* 
                     The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` . 
+                  - **encryptionDisabled** *(boolean) --* 
+                    Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. 
         :type name: string
         :param name: **[REQUIRED]**
           The name of the build project.
@@ -1780,7 +1844,11 @@ class Client(BaseClient):
             * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
             * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
           - **gitCloneDepth** *(integer) --*
-            Information about the git clone depth for the build project.
+            Information about the Git clone depth for the build project.
+          - **gitSubmodulesConfig** *(dict) --*
+            Information about the Git submodules configuration for the build project.
+            - **fetchSubmodules** *(boolean) --* **[REQUIRED]**
+              Set to true to fetch Git submodules for your AWS CodeBuild build project.
           - **buildspec** *(string) --*
             The build spec declaration to use for the builds in this build project.
             If this value is not specified, a build spec must be included along with the source code to be built.
@@ -1822,7 +1890,11 @@ class Client(BaseClient):
               * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
               * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
             - **gitCloneDepth** *(integer) --*
-              Information about the git clone depth for the build project.
+              Information about the Git clone depth for the build project.
+            - **gitSubmodulesConfig** *(dict) --*
+              Information about the Git submodules configuration for the build project.
+              - **fetchSubmodules** *(boolean) --* **[REQUIRED]**
+                Set to true to fetch Git submodules for your AWS CodeBuild build project.
             - **buildspec** *(string) --*
               The build spec declaration to use for the builds in this build project.
               If this value is not specified, a build spec must be included along with the source code to be built.
@@ -1955,13 +2027,13 @@ class Client(BaseClient):
             * ``S3`` : This is the S3 bucket name/prefix.
           - **modes** *(list) --*
             If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time.
-            * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.
-            * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.
+            * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+            * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
             .. note::
-                * You can only use a Docker layer cache in the Linux enviornment.
-                * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.
-                * You should consider the security implications before using a Docker layer cache.
-            * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:
+                * You can use a Docker layer cache in the Linux enviornment only.
+                * The ``privileged`` flag must be set so that your project has the required Docker permissions.
+                * You should consider the security implications before you use a Docker layer cache.
+            * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
               * Only directories can be specified for caching. You cannot specify individual files.
               * Symlinks are used to reference cached directories.
               * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
@@ -2027,6 +2099,8 @@ class Client(BaseClient):
         :type encryptionKey: string
         :param encryptionKey:
           The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
+          .. note::
+            You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key.
           You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         :type tags: list
         :param tags:
@@ -2074,6 +2148,8 @@ class Client(BaseClient):
               * ``DISABLED`` : S3 build logs are not enabled for this build project.
             - **location** *(string) --*
               The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` .
+            - **encryptionDisabled** *(boolean) --*
+              Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
         :rtype: dict
         :returns:
         """
@@ -2644,7 +2720,7 @@ class Client(BaseClient):
         """
         pass
 
-    def start_build(self, projectName: str, secondarySourcesOverride: List = None, secondarySourcesVersionOverride: List = None, sourceVersion: str = None, artifactsOverride: Dict = None, secondaryArtifactsOverride: List = None, environmentVariablesOverride: List = None, sourceTypeOverride: str = None, sourceLocationOverride: str = None, sourceAuthOverride: Dict = None, gitCloneDepthOverride: int = None, buildspecOverride: str = None, insecureSslOverride: bool = None, reportBuildStatusOverride: bool = None, environmentTypeOverride: str = None, imageOverride: str = None, computeTypeOverride: str = None, certificateOverride: str = None, cacheOverride: Dict = None, serviceRoleOverride: str = None, privilegedModeOverride: bool = None, timeoutInMinutesOverride: int = None, queuedTimeoutInMinutesOverride: int = None, idempotencyToken: str = None, logsConfigOverride: Dict = None, registryCredentialOverride: Dict = None, imagePullCredentialsTypeOverride: str = None) -> Dict:
+    def start_build(self, projectName: str, secondarySourcesOverride: List = None, secondarySourcesVersionOverride: List = None, sourceVersion: str = None, artifactsOverride: Dict = None, secondaryArtifactsOverride: List = None, environmentVariablesOverride: List = None, sourceTypeOverride: str = None, sourceLocationOverride: str = None, sourceAuthOverride: Dict = None, gitCloneDepthOverride: int = None, gitSubmodulesConfigOverride: Dict = None, buildspecOverride: str = None, insecureSslOverride: bool = None, reportBuildStatusOverride: bool = None, environmentTypeOverride: str = None, imageOverride: str = None, computeTypeOverride: str = None, certificateOverride: str = None, cacheOverride: Dict = None, serviceRoleOverride: str = None, privilegedModeOverride: bool = None, timeoutInMinutesOverride: int = None, queuedTimeoutInMinutesOverride: int = None, idempotencyToken: str = None, logsConfigOverride: Dict = None, registryCredentialOverride: Dict = None, imagePullCredentialsTypeOverride: str = None) -> Dict:
         """
         Starts running a build.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/StartBuild>`_
@@ -2658,6 +2734,9 @@ class Client(BaseClient):
                       'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                       'location': 'string',
                       'gitCloneDepth': 123,
+                      'gitSubmodulesConfig': {
+                          'fetchSubmodules': True|False
+                      },
                       'buildspec': 'string',
                       'auth': {
                           'type': 'OAUTH',
@@ -2713,6 +2792,9 @@ class Client(BaseClient):
                   'resource': 'string'
               },
               gitCloneDepthOverride=123,
+              gitSubmodulesConfigOverride={
+                  'fetchSubmodules': True|False
+              },
               buildspecOverride='string',
               insecureSslOverride=True|False,
               reportBuildStatusOverride=True|False,
@@ -2740,7 +2822,8 @@ class Client(BaseClient):
                   },
                   's3Logs': {
                       'status': 'ENABLED'|'DISABLED',
-                      'location': 'string'
+                      'location': 'string',
+                      'encryptionDisabled': True|False
                   }
               },
               registryCredentialOverride={
@@ -2782,6 +2865,9 @@ class Client(BaseClient):
                         'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                         'location': 'string',
                         'gitCloneDepth': 123,
+                        'gitSubmodulesConfig': {
+                            'fetchSubmodules': True|False
+                        },
                         'buildspec': 'string',
                         'auth': {
                             'type': 'OAUTH',
@@ -2796,6 +2882,9 @@ class Client(BaseClient):
                             'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                             'location': 'string',
                             'gitCloneDepth': 123,
+                            'gitSubmodulesConfig': {
+                                'fetchSubmodules': True|False
+                            },
                             'buildspec': 'string',
                             'auth': {
                                 'type': 'OAUTH',
@@ -2869,7 +2958,8 @@ class Client(BaseClient):
                         },
                         's3Logs': {
                             'status': 'ENABLED'|'DISABLED',
-                            'location': 'string'
+                            'location': 'string',
+                            'encryptionDisabled': True|False
                         }
                     },
                     'timeoutInMinutes': 123,
@@ -2984,7 +3074,11 @@ class Client(BaseClient):
                   * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                 - **gitCloneDepth** *(integer) --* 
-                  Information about the git clone depth for the build project.
+                  Information about the Git clone depth for the build project.
+                - **gitSubmodulesConfig** *(dict) --* 
+                  Information about the Git submodules configuration for the build project. 
+                  - **fetchSubmodules** *(boolean) --* 
+                    Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                 - **buildspec** *(string) --* 
                   The build spec declaration to use for the builds in this build project.
                   If this value is not specified, a build spec must be included along with the source code to be built.
@@ -3025,7 +3119,11 @@ class Client(BaseClient):
                     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                     * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   - **gitCloneDepth** *(integer) --* 
-                    Information about the git clone depth for the build project.
+                    Information about the Git clone depth for the build project.
+                  - **gitSubmodulesConfig** *(dict) --* 
+                    Information about the Git submodules configuration for the build project. 
+                    - **fetchSubmodules** *(boolean) --* 
+                      Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                   - **buildspec** *(string) --* 
                     The build spec declaration to use for the builds in this build project.
                     If this value is not specified, a build spec must be included along with the source code to be built.
@@ -3115,13 +3213,13 @@ class Client(BaseClient):
                   * ``S3`` : This is the S3 bucket name/prefix. 
                 - **modes** *(list) --* 
                   If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time. 
-                  * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.  
-                  * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.  
+                  * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.  
+                  * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.  
                   .. note::
-                      * You can only use a Docker layer cache in the Linux enviornment.  
-                      * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.  
-                      * You should consider the security implications before using a Docker layer cache.  
-                  * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:  
+                      * You can use a Docker layer cache in the Linux enviornment only.  
+                      * The ``privileged`` flag must be set so that your project has the required Docker permissions.  
+                      * You should consider the security implications before you use a Docker layer cache.  
+                  * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:  
                     * Only directories can be specified for caching. You cannot specify individual files.  
                     * Symlinks are used to reference cached directories.  
                     * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.  
@@ -3204,6 +3302,8 @@ class Client(BaseClient):
                     * ``DISABLED`` : S3 build logs are not enabled for this build project. 
                   - **location** *(string) --* 
                     The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` . 
+                  - **encryptionDisabled** *(boolean) --* 
+                    Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. 
               - **timeoutInMinutes** *(integer) --* 
                 How long, in minutes, for AWS CodeBuild to wait before timing out this build if it does not get marked as completed.
               - **queuedTimeoutInMinutes** *(integer) --* 
@@ -3233,7 +3333,9 @@ class Client(BaseClient):
                   The ID of the network interface.
               - **encryptionKey** *(string) --* 
                 The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
-                This is expressed either as the Amazon Resource Name (ARN) of the CMK or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                .. note::
+                  You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. 
+                You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format ``alias/*alias-name* `` ).
         :type projectName: string
         :param projectName: **[REQUIRED]**
           The name of the AWS CodeBuild build project to start running a build.
@@ -3260,7 +3362,11 @@ class Client(BaseClient):
               * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
               * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
             - **gitCloneDepth** *(integer) --*
-              Information about the git clone depth for the build project.
+              Information about the Git clone depth for the build project.
+            - **gitSubmodulesConfig** *(dict) --*
+              Information about the Git submodules configuration for the build project.
+              - **fetchSubmodules** *(boolean) --* **[REQUIRED]**
+                Set to true to fetch Git submodules for your AWS CodeBuild build project.
             - **buildspec** *(string) --*
               The build spec declaration to use for the builds in this build project.
               If this value is not specified, a build spec must be included along with the source code to be built.
@@ -3432,6 +3538,11 @@ class Client(BaseClient):
         :type gitCloneDepthOverride: integer
         :param gitCloneDepthOverride:
           The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
+        :type gitSubmodulesConfigOverride: dict
+        :param gitSubmodulesConfigOverride:
+          Information about the Git submodules configuration for this build of an AWS CodeBuild build project.
+          - **fetchSubmodules** *(boolean) --* **[REQUIRED]**
+            Set to true to fetch Git submodules for your AWS CodeBuild build project.
         :type buildspecOverride: string
         :param buildspecOverride:
           A build spec declaration that overrides, for this build only, the latest one already defined in the build project.
@@ -3467,13 +3578,13 @@ class Client(BaseClient):
             * ``S3`` : This is the S3 bucket name/prefix.
           - **modes** *(list) --*
             If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time.
-            * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.
-            * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.
+            * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+            * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
             .. note::
-                * You can only use a Docker layer cache in the Linux enviornment.
-                * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.
-                * You should consider the security implications before using a Docker layer cache.
-            * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:
+                * You can use a Docker layer cache in the Linux enviornment only.
+                * The ``privileged`` flag must be set so that your project has the required Docker permissions.
+                * You should consider the security implications before you use a Docker layer cache.
+            * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
               * Only directories can be specified for caching. You cannot specify individual files.
               * Symlinks are used to reference cached directories.
               * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
@@ -3514,6 +3625,8 @@ class Client(BaseClient):
               * ``DISABLED`` : S3 build logs are not enabled for this build project.
             - **location** *(string) --*
               The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` .
+            - **encryptionDisabled** *(boolean) --*
+              Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
         :type registryCredentialOverride: dict
         :param registryCredentialOverride:
           The credentials for access to a private registry.
@@ -3577,6 +3690,9 @@ class Client(BaseClient):
                         'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                         'location': 'string',
                         'gitCloneDepth': 123,
+                        'gitSubmodulesConfig': {
+                            'fetchSubmodules': True|False
+                        },
                         'buildspec': 'string',
                         'auth': {
                             'type': 'OAUTH',
@@ -3591,6 +3707,9 @@ class Client(BaseClient):
                             'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                             'location': 'string',
                             'gitCloneDepth': 123,
+                            'gitSubmodulesConfig': {
+                                'fetchSubmodules': True|False
+                            },
                             'buildspec': 'string',
                             'auth': {
                                 'type': 'OAUTH',
@@ -3664,7 +3783,8 @@ class Client(BaseClient):
                         },
                         's3Logs': {
                             'status': 'ENABLED'|'DISABLED',
-                            'location': 'string'
+                            'location': 'string',
+                            'encryptionDisabled': True|False
                         }
                     },
                     'timeoutInMinutes': 123,
@@ -3779,7 +3899,11 @@ class Client(BaseClient):
                   * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                 - **gitCloneDepth** *(integer) --* 
-                  Information about the git clone depth for the build project.
+                  Information about the Git clone depth for the build project.
+                - **gitSubmodulesConfig** *(dict) --* 
+                  Information about the Git submodules configuration for the build project. 
+                  - **fetchSubmodules** *(boolean) --* 
+                    Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                 - **buildspec** *(string) --* 
                   The build spec declaration to use for the builds in this build project.
                   If this value is not specified, a build spec must be included along with the source code to be built.
@@ -3820,7 +3944,11 @@ class Client(BaseClient):
                     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                     * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   - **gitCloneDepth** *(integer) --* 
-                    Information about the git clone depth for the build project.
+                    Information about the Git clone depth for the build project.
+                  - **gitSubmodulesConfig** *(dict) --* 
+                    Information about the Git submodules configuration for the build project. 
+                    - **fetchSubmodules** *(boolean) --* 
+                      Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                   - **buildspec** *(string) --* 
                     The build spec declaration to use for the builds in this build project.
                     If this value is not specified, a build spec must be included along with the source code to be built.
@@ -3910,13 +4038,13 @@ class Client(BaseClient):
                   * ``S3`` : This is the S3 bucket name/prefix. 
                 - **modes** *(list) --* 
                   If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time. 
-                  * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.  
-                  * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.  
+                  * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.  
+                  * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.  
                   .. note::
-                      * You can only use a Docker layer cache in the Linux enviornment.  
-                      * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.  
-                      * You should consider the security implications before using a Docker layer cache.  
-                  * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:  
+                      * You can use a Docker layer cache in the Linux enviornment only.  
+                      * The ``privileged`` flag must be set so that your project has the required Docker permissions.  
+                      * You should consider the security implications before you use a Docker layer cache.  
+                  * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:  
                     * Only directories can be specified for caching. You cannot specify individual files.  
                     * Symlinks are used to reference cached directories.  
                     * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.  
@@ -3999,6 +4127,8 @@ class Client(BaseClient):
                     * ``DISABLED`` : S3 build logs are not enabled for this build project. 
                   - **location** *(string) --* 
                     The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` . 
+                  - **encryptionDisabled** *(boolean) --* 
+                    Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. 
               - **timeoutInMinutes** *(integer) --* 
                 How long, in minutes, for AWS CodeBuild to wait before timing out this build if it does not get marked as completed.
               - **queuedTimeoutInMinutes** *(integer) --* 
@@ -4028,7 +4158,9 @@ class Client(BaseClient):
                   The ID of the network interface.
               - **encryptionKey** *(string) --* 
                 The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
-                This is expressed either as the Amazon Resource Name (ARN) of the CMK or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                .. note::
+                  You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. 
+                You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format ``alias/*alias-name* `` ).
         :type id: string
         :param id: **[REQUIRED]**
           The ID of the build.
@@ -4051,6 +4183,9 @@ class Client(BaseClient):
                   'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                   'location': 'string',
                   'gitCloneDepth': 123,
+                  'gitSubmodulesConfig': {
+                      'fetchSubmodules': True|False
+                  },
                   'buildspec': 'string',
                   'auth': {
                       'type': 'OAUTH',
@@ -4065,6 +4200,9 @@ class Client(BaseClient):
                       'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                       'location': 'string',
                       'gitCloneDepth': 123,
+                      'gitSubmodulesConfig': {
+                          'fetchSubmodules': True|False
+                      },
                       'buildspec': 'string',
                       'auth': {
                           'type': 'OAUTH',
@@ -4153,7 +4291,8 @@ class Client(BaseClient):
                   },
                   's3Logs': {
                       'status': 'ENABLED'|'DISABLED',
-                      'location': 'string'
+                      'location': 'string',
+                      'encryptionDisabled': True|False
                   }
               }
           )
@@ -4169,6 +4308,9 @@ class Client(BaseClient):
                         'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                         'location': 'string',
                         'gitCloneDepth': 123,
+                        'gitSubmodulesConfig': {
+                            'fetchSubmodules': True|False
+                        },
                         'buildspec': 'string',
                         'auth': {
                             'type': 'OAUTH',
@@ -4183,6 +4325,9 @@ class Client(BaseClient):
                             'type': 'CODECOMMIT'|'CODEPIPELINE'|'GITHUB'|'S3'|'BITBUCKET'|'GITHUB_ENTERPRISE'|'NO_SOURCE',
                             'location': 'string',
                             'gitCloneDepth': 123,
+                            'gitSubmodulesConfig': {
+                                'fetchSubmodules': True|False
+                            },
                             'buildspec': 'string',
                             'auth': {
                                 'type': 'OAUTH',
@@ -4292,7 +4437,8 @@ class Client(BaseClient):
                         },
                         's3Logs': {
                             'status': 'ENABLED'|'DISABLED',
-                            'location': 'string'
+                            'location': 'string',
+                            'encryptionDisabled': True|False
                         }
                     }
                 }
@@ -4328,7 +4474,11 @@ class Client(BaseClient):
                   * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                 - **gitCloneDepth** *(integer) --* 
-                  Information about the git clone depth for the build project.
+                  Information about the Git clone depth for the build project.
+                - **gitSubmodulesConfig** *(dict) --* 
+                  Information about the Git submodules configuration for the build project. 
+                  - **fetchSubmodules** *(boolean) --* 
+                    Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                 - **buildspec** *(string) --* 
                   The build spec declaration to use for the builds in this build project.
                   If this value is not specified, a build spec must be included along with the source code to be built.
@@ -4369,7 +4519,11 @@ class Client(BaseClient):
                     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                     * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object's ``type`` value to ``OAUTH`` . 
                   - **gitCloneDepth** *(integer) --* 
-                    Information about the git clone depth for the build project.
+                    Information about the Git clone depth for the build project.
+                  - **gitSubmodulesConfig** *(dict) --* 
+                    Information about the Git submodules configuration for the build project. 
+                    - **fetchSubmodules** *(boolean) --* 
+                      Set to true to fetch Git submodules for your AWS CodeBuild build project. 
                   - **buildspec** *(string) --* 
                     The build spec declaration to use for the builds in this build project.
                     If this value is not specified, a build spec must be included along with the source code to be built.
@@ -4499,13 +4653,13 @@ class Client(BaseClient):
                   * ``S3`` : This is the S3 bucket name/prefix. 
                 - **modes** *(list) --* 
                   If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time. 
-                  * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.  
-                  * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.  
+                  * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.  
+                  * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.  
                   .. note::
-                      * You can only use a Docker layer cache in the Linux enviornment.  
-                      * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.  
-                      * You should consider the security implications before using a Docker layer cache.  
-                  * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:  
+                      * You can use a Docker layer cache in the Linux enviornment only.  
+                      * The ``privileged`` flag must be set so that your project has the required Docker permissions.  
+                      * You should consider the security implications before you use a Docker layer cache.  
+                  * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:  
                     * Only directories can be specified for caching. You cannot specify individual files.  
                     * Symlinks are used to reference cached directories.  
                     * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.  
@@ -4566,7 +4720,9 @@ class Client(BaseClient):
                 The number of minutes a build is allowed to be queued before it times out. 
               - **encryptionKey** *(string) --* 
                 The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
-                This is expressed either as the Amazon Resource Name (ARN) of the CMK or, if specified, the CMK's alias (using the format ``alias/*alias-name* `` ).
+                .. note::
+                  You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key. 
+                You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format ``alias/*alias-name* `` ).
               - **tags** *(list) --* 
                 The tags for this build project.
                 These tags are available for use by AWS services that support AWS CodeBuild build project tags.
@@ -4664,6 +4820,8 @@ class Client(BaseClient):
                     * ``DISABLED`` : S3 build logs are not enabled for this build project. 
                   - **location** *(string) --* 
                     The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` . 
+                  - **encryptionDisabled** *(boolean) --* 
+                    Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. 
         :type name: string
         :param name: **[REQUIRED]**
           The name of the build project.
@@ -4693,7 +4851,11 @@ class Client(BaseClient):
             * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
             * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
           - **gitCloneDepth** *(integer) --*
-            Information about the git clone depth for the build project.
+            Information about the Git clone depth for the build project.
+          - **gitSubmodulesConfig** *(dict) --*
+            Information about the Git submodules configuration for the build project.
+            - **fetchSubmodules** *(boolean) --* **[REQUIRED]**
+              Set to true to fetch Git submodules for your AWS CodeBuild build project.
           - **buildspec** *(string) --*
             The build spec declaration to use for the builds in this build project.
             If this value is not specified, a build spec must be included along with the source code to be built.
@@ -4735,7 +4897,11 @@ class Client(BaseClient):
               * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub **Authorize application** page, for **Organization access** , choose **Request access** next to each repository you want to allow AWS CodeBuild to have access to, and then choose **Authorize application** . (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
               * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket **Confirm access to your account** page, choose **Grant access** . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the ``source`` object, set the ``auth`` object\'s ``type`` value to ``OAUTH`` .
             - **gitCloneDepth** *(integer) --*
-              Information about the git clone depth for the build project.
+              Information about the Git clone depth for the build project.
+            - **gitSubmodulesConfig** *(dict) --*
+              Information about the Git submodules configuration for the build project.
+              - **fetchSubmodules** *(boolean) --* **[REQUIRED]**
+                Set to true to fetch Git submodules for your AWS CodeBuild build project.
             - **buildspec** *(string) --*
               The build spec declaration to use for the builds in this build project.
               If this value is not specified, a build spec must be included along with the source code to be built.
@@ -4868,13 +5034,13 @@ class Client(BaseClient):
             * ``S3`` : This is the S3 bucket name/prefix.
           - **modes** *(list) --*
             If you use a ``LOCAL`` cache, the local cache mode. You can use one or more local cache modes at the same time.
-            * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.
-            * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance hit that would be caused by pulling large Docker images down from the network.
+            * ``LOCAL_SOURCE_CACHE`` mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+            * ``LOCAL_DOCKER_LAYER_CACHE`` mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
             .. note::
-                * You can only use a Docker layer cache in the Linux enviornment.
-                * The ``privileged`` flag must be set so that your project has the necessary Docker privileges.
-                * You should consider the security implications before using a Docker layer cache.
-            * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario does not match one that works well with one of the other three local cache modes. If you use a custom cache:
+                * You can use a Docker layer cache in the Linux enviornment only.
+                * The ``privileged`` flag must be set so that your project has the required Docker permissions.
+                * You should consider the security implications before you use a Docker layer cache.
+            * ``LOCAL_CUSTOM_CACHE`` mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
               * Only directories can be specified for caching. You cannot specify individual files.
               * Symlinks are used to reference cached directories.
               * Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
@@ -4939,8 +5105,10 @@ class Client(BaseClient):
           The number of minutes a build is allowed to be queued before it times out.
         :type encryptionKey: string
         :param encryptionKey:
-          The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
-          You can specify either the Amazon Resource Name (ARN)of the CMK or, if available, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
+          The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
+          .. note::
+            You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key.
+          You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK\'s alias (using the format ``alias/*alias-name* `` ).
         :type tags: list
         :param tags:
           The replacement set of tags for this build project.
@@ -4987,6 +5155,8 @@ class Client(BaseClient):
               * ``DISABLED`` : S3 build logs are not enabled for this build project.
             - **location** *(string) --*
               The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is ``my-bucket`` , and your path prefix is ``build-log`` , then acceptable formats are ``my-bucket/build-log`` or ``arn:aws:s3:::my-bucket/build-log`` .
+            - **encryptionDisabled** *(boolean) --*
+              Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
         :rtype: dict
         :returns:
         """

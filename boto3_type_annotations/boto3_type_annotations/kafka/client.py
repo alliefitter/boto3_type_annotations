@@ -1,9 +1,10 @@
 from typing import Optional
-from typing import Union
-from botocore.waiter import Waiter
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
+from typing import Union
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -35,4 +36,13 @@ class Client(BaseClient):
         pass
 
     def list_nodes(self, ClusterArn: str, MaxResults: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: Dict):
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
         pass

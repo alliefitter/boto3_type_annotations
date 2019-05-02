@@ -1,6 +1,6 @@
+from typing import Dict
 from typing import List
 from datetime import datetime
-from typing import Dict
 from botocore.paginate import Paginator
 
 
@@ -231,7 +231,7 @@ class DescribeClusterParameters(Paginator):
                 - **AllowedValues** *(string) --* 
                   The valid range of values for the parameter.
                 - **ApplyType** *(string) --* 
-                  Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                  Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                 - **IsModifiable** *(boolean) --* 
                   If ``true`` , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
                 - **MinimumEngineVersion** *(string) --* 
@@ -578,7 +578,7 @@ class DescribeClusterSnapshots(Paginator):
                   The list of node types that this cluster snapshot is able to restore into.
                   - *(string) --* 
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **MaintenanceTrackName** *(string) --* 
@@ -594,7 +594,7 @@ class DescribeClusterSnapshots(Paginator):
               A token to resume pagination.
         :type ClusterIdentifier: string
         :param ClusterIdentifier:
-          The identifier of the cluster for which information about snapshots is requested.
+          The identifier of the cluster which generated the requested snapshots.
         :type SnapshotIdentifier: string
         :param SnapshotIdentifier:
           The snapshot identifier of the snapshot about which to return information.
@@ -623,7 +623,11 @@ class DescribeClusterSnapshots(Paginator):
           - *(string) --*
         :type ClusterExists: boolean
         :param ClusterExists:
-          A value that indicates whether to return snapshots only for an existing cluster. Table-level restore can be performed only using a snapshot of an existing cluster, that is, a cluster that has not been deleted. If ``ClusterExists`` is set to ``true`` , ``ClusterIdentifier`` is required.
+          A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows:
+          * If ``ClusterExists`` is set to ``true`` , ``ClusterIdentifier`` is required.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` isn\'t specified, all snapshots associated with deleted clusters (orphaned snapshots) are returned.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` is specified for a deleted cluster, snapshots associated with that cluster are returned.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` is specified for an existing cluster, no snapshots are returned.
         :type SortingEntities: list
         :param SortingEntities:
           - *(dict) --*
@@ -726,7 +730,6 @@ class DescribeClusterSubnetGroups(Paginator):
                     - **SubnetIdentifier** *(string) --* 
                       The identifier of the subnet.
                     - **SubnetAvailabilityZone** *(dict) --* 
-                      Describes an availability zone.
                       - **Name** *(string) --* 
                         The name of the availability zone.
                       - **SupportedPlatforms** *(list) --* 
@@ -1170,7 +1173,7 @@ class DescribeClusters(Paginator):
                       The status of parameter updates.
                     - **ClusterParameterStatusList** *(list) --* 
                       The list of parameter statuses.
-                      For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                      For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                       - *(dict) --* 
                         Describes the status of a parameter group.
                         - **ParameterName** *(string) --* 
@@ -1214,7 +1217,7 @@ class DescribeClusters(Paginator):
                   - **PubliclyAccessible** *(boolean) --* 
                     The pending or in-progress change of the ability to connect to the cluster from the public network.
                   - **EnhancedVpcRouting** *(boolean) --* 
-                    An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                    An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                     If this option is ``true`` , enhanced VPC routing is enabled. 
                     Default: false
                   - **MaintenanceTrackName** *(string) --* 
@@ -1246,7 +1249,6 @@ class DescribeClusters(Paginator):
                   - **EstimatedTimeToCompletionInSeconds** *(integer) --* 
                     The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore.
                 - **DataTransferProgress** *(dict) --* 
-                  Describes the status of a cluster while it is in the process of resizing with an incremental resize.
                   - **Status** *(string) --* 
                     Describes the status of the cluster. While the transfer is in progress the status is ``transferringdata`` .
                   - **CurrentRateInMegaBytesPerSecond** *(float) --* 
@@ -1311,7 +1313,7 @@ class DescribeClusters(Paginator):
                 - **KmsKeyId** *(string) --* 
                   The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
                 - **EnhancedVpcRouting** *(boolean) --* 
-                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
+                  An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see `Enhanced VPC Routing <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html>`__ in the Amazon Redshift Cluster Management Guide.
                   If this option is ``true`` , enhanced VPC routing is enabled. 
                   Default: false
                 - **IamRoles** *(list) --* 
@@ -1449,7 +1451,7 @@ class DescribeDefaultClusterParameters(Paginator):
                   - **AllowedValues** *(string) --* 
                     The valid range of values for the parameter.
                   - **ApplyType** *(string) --* 
-                    Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
+                    Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to `Amazon Redshift Parameter Groups <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html>`__ in the *Amazon Redshift Cluster Management Guide* .
                   - **IsModifiable** *(boolean) --* 
                     If ``true`` , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
                   - **MinimumEngineVersion** *(string) --* 
@@ -2220,7 +2222,7 @@ class DescribeSnapshotCopyGrants(Paginator):
               The list of ``SnapshotCopyGrant`` objects.
               - *(dict) --* 
                 The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.
-                For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
+                For more information about managing snapshot copy grants, go to `Amazon Redshift Database Encryption <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html>`__ in the *Amazon Redshift Cluster Management Guide* . 
                 - **SnapshotCopyGrantName** *(string) --* 
                   The name of the snapshot copy grant.
                 - **KmsKeyId** *(string) --* 
@@ -2323,7 +2325,7 @@ class DescribeSnapshotSchedules(Paginator):
               - *(dict) --* 
                 Describes a snapshot schedule. You can set a regular interval for creating snapshots of a cluster. You can also schedule snapshots for specific dates. 
                 - **ScheduleDefinitions** *(list) --* 
-                  A list of ScheduleDefinitions
+                  A list of ScheduleDefinitions.
                   - *(string) --* 
                 - **ScheduleIdentifier** *(string) --* 
                   A unique identifier for the schedule.
@@ -2340,7 +2342,9 @@ class DescribeSnapshotSchedules(Paginator):
                 - **NextInvocations** *(list) --* 
                   - *(datetime) --* 
                 - **AssociatedClusterCount** *(integer) --* 
+                  The number of clusters associated with the schedule.
                 - **AssociatedClusters** *(list) --* 
+                  A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
                   - *(dict) --* 
                     - **ClusterIdentifier** *(string) --* 
                     - **ScheduleAssociationState** *(string) --* 
@@ -2540,7 +2544,7 @@ class DescribeTags(Paginator):
                   * HSM connection 
                   * HSM certificate 
                   * Parameter group 
-                  For more information about Amazon Redshift resource types and constructing ARNs, go to `Constructing an Amazon Redshift Amazon Resource Name (ARN) <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions>`__ in the Amazon Redshift Cluster Management Guide. 
+                  For more information about Amazon Redshift resource types and constructing ARNs, go to `Constructing an Amazon Redshift Amazon Resource Name (ARN) <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions>`__ in the Amazon Redshift Cluster Management Guide. 
             - **NextToken** *(string) --* 
               A token to resume pagination.
         :type ResourceName: string
@@ -2559,7 +2563,7 @@ class DescribeTags(Paginator):
           * HSM certificate
           * Parameter group
           * Snapshot copy grant
-          For more information about Amazon Redshift resource types and constructing ARNs, go to `Specifying Policy Elements\: Actions, Effects, Resources, and Principals <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions>`__ in the Amazon Redshift Cluster Management Guide.
+          For more information about Amazon Redshift resource types and constructing ARNs, go to `Specifying Policy Elements\: Actions, Effects, Resources, and Principals <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions>`__ in the Amazon Redshift Cluster Management Guide.
         :type TagKeys: list
         :param TagKeys:
           A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called ``owner`` and ``environment`` . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.

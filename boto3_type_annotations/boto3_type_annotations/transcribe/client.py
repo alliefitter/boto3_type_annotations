@@ -1,17 +1,17 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_vocabulary(self, VocabularyName: str, LanguageCode: str, Phrases: List) -> Dict:
+    def create_vocabulary(self, VocabularyName: str, LanguageCode: str, Phrases: List = None, VocabularyFileUri: str = None) -> Dict:
         pass
 
     def delete_transcription_job(self, TranscriptionJobName: str):
@@ -44,5 +44,5 @@ class Client(BaseClient):
     def start_transcription_job(self, TranscriptionJobName: str, LanguageCode: str, MediaFormat: str, Media: Dict, MediaSampleRateHertz: int = None, OutputBucketName: str = None, Settings: Dict = None) -> Dict:
         pass
 
-    def update_vocabulary(self, VocabularyName: str, LanguageCode: str, Phrases: List) -> Dict:
+    def update_vocabulary(self, VocabularyName: str, LanguageCode: str, Phrases: List = None, VocabularyFileUri: str = None) -> Dict:
         pass

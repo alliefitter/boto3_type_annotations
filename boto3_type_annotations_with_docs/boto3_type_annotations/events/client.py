@@ -1,10 +1,10 @@
-from typing import Union
-from botocore.paginate import Paginator
-from typing import List
-from botocore.waiter import Waiter
 from typing import Optional
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -109,7 +109,7 @@ class Client(BaseClient):
             - **Arn** *(string) --* 
               The Amazon Resource Name (ARN) of the rule.
             - **EventPattern** *(string) --* 
-              The event pattern. For more information, see `Events and Event Patterns <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
+              The event pattern. For more information, see `Events and Event Patterns <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
             - **ScheduleExpression** *(string) --* 
               The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
             - **State** *(string) --* 
@@ -297,7 +297,7 @@ class Client(BaseClient):
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN) of the rule.
                 - **EventPattern** *(string) --* 
-                  The event pattern of the rule. For more information, see `Events and Event Patterns <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
+                  The event pattern of the rule. For more information, see `Events and Event Patterns <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
                 - **State** *(string) --* 
                   The state of the rule.
                 - **Description** *(string) --* 
@@ -319,6 +319,46 @@ class Client(BaseClient):
         :type Limit: integer
         :param Limit:
           The maximum number of results to return.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_tags_for_resource(self, ResourceARN: str) -> Dict:
+        """
+        Displays the tags associated with a CloudWatch Events resource. In CloudWatch Events, rules can be tagged.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceARN='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': [
+                    {
+                        'Key': 'string',
+                        'Value': 'string'
+                    },
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Tags** *(list) --* 
+              The list of tag keys and values associated with the rule you specified
+              - *(dict) --* 
+                A key-value pair associated with an AWS resource. In CloudWatch Events, rules support tagging.
+                - **Key** *(string) --* 
+                  A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+                - **Value** *(string) --* 
+                  The value for the specified tag key.
+        :type ResourceARN: string
+        :param ResourceARN: **[REQUIRED]**
+          The ARN of the CloudWatch Events rule for which you want to view tags.
         :rtype: dict
         :returns:
         """
@@ -408,7 +448,7 @@ class Client(BaseClient):
               The targets assigned to the rule.
               - *(dict) --* 
                 Targets are the resources to be invoked when a rule is triggered. For a complete list of services and resources that can be set as a target, see  PutTargets .
-                If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
+                If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
                 - **Id** *(string) --* 
                   The ID of the target.
                 - **Arn** *(string) --* 
@@ -447,7 +487,7 @@ class Client(BaseClient):
                 - **KinesisParameters** *(dict) --* 
                   The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the ``eventId`` as the partition key.
                   - **PartitionKeyPath** *(string) --* 
-                    The JSON path to be extracted from the event and used as the partition key. For more information, see `Amazon Kinesis Streams Key Concepts <http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key>`__ in the *Amazon Kinesis Streams Developer Guide* .
+                    The JSON path to be extracted from the event and used as the partition key. For more information, see `Amazon Kinesis Streams Key Concepts <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key>`__ in the *Amazon Kinesis Streams Developer Guide* .
                 - **RunCommandParameters** *(dict) --* 
                   Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
                   - **RunCommandTargets** *(list) --* 
@@ -460,13 +500,13 @@ class Client(BaseClient):
                         If ``Key`` is ``tag:``  *tag-key* , ``Values`` is a list of tag values. If ``Key`` is ``InstanceIds`` , ``Values`` is a list of Amazon EC2 instance IDs.
                         - *(string) --* 
                 - **EcsParameters** *(dict) --* 
-                  Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see `Task Definitions <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html>`__ in the *Amazon EC2 Container Service Developer Guide* .
+                  Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see `Task Definitions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html>`__ in the *Amazon EC2 Container Service Developer Guide* .
                   - **TaskDefinitionArn** *(string) --* 
                     The ARN of the task definition to use if the event target is an Amazon ECS task. 
                   - **TaskCount** *(integer) --* 
                     The number of tasks to create based on ``TaskDefinition`` . The default is 1.
                   - **LaunchType** *(string) --* 
-                    Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The ``FARGATE`` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see `AWS Fargate on Amazon ECS <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The ``FARGATE`` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see `AWS Fargate on Amazon ECS <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                   - **NetworkConfiguration** *(dict) --* 
                     Use this structure if the ECS task uses the ``awsvpc`` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if ``LaunchType`` is ``FARGATE`` because the ``awsvpc`` mode is required for Fargate tasks.
                     If you specify ``NetworkConfiguration`` when the target ECS task does not use the ``awsvpc`` network mode, the task fails.
@@ -482,11 +522,11 @@ class Client(BaseClient):
                         Specifies whether the task's elastic network interface receives a public IP address. You can specify ``ENABLED`` only when ``LaunchType`` in ``EcsParameters`` is set to ``FARGATE`` .
                   - **PlatformVersion** *(string) --* 
                     Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as ``1.1.0`` .
-                    This structure is used only if ``LaunchType`` is ``FARGATE`` . For more information about valid platform versions, see `AWS Fargate Platform Versions <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    This structure is used only if ``LaunchType`` is ``FARGATE`` . For more information about valid platform versions, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                   - **Group** *(string) --* 
                     Specifies an ECS task group for the task. The maximum length is 255 characters.
                 - **BatchParameters** *(dict) --* 
-                  If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see `Jobs <http://docs.aws.amazon.com/batch/latest/userguide/jobs.html>`__ in the *AWS Batch User Guide* .
+                  If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see `Jobs <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html>`__ in the *AWS Batch User Guide* .
                   - **JobDefinition** *(string) --* 
                     The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
                   - **JobName** *(string) --* 
@@ -594,7 +634,7 @@ class Client(BaseClient):
         Running ``PutPermission`` permits the specified AWS account or AWS organization to put events to your account's default *event bus* . CloudWatch Events rules in your account are triggered by these events arriving to your default event bus. 
         For another account to send events to your account, that external account must have a CloudWatch Events rule with your account's default event bus as a target.
         To enable multiple AWS accounts to put events to your default event bus, run ``PutPermission`` once for each of these accounts. Or, if all the accounts are members of the same AWS organization, you can run ``PutPermission`` once specifying ``Principal`` as "*" and specifying the AWS organization ID in ``Condition`` , to grant permissions to all accounts in that organization.
-        If you grant permissions using an organization, then accounts in that organization must specify a ``RoleArn`` with proper permissions when they use ``PutTarget`` to add your account's event bus as a target. For more information, see `Sending and Receiving Events Between AWS Accounts <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
+        If you grant permissions using an organization, then accounts in that organization must specify a ``RoleArn`` with proper permissions when they use ``PutTarget`` to add your account's event bus as a target. For more information, see `Sending and Receiving Events Between AWS Accounts <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
         The permission policy on the default event bus cannot exceed 10 KB in size.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/PutPermission>`_
         
@@ -622,7 +662,7 @@ class Client(BaseClient):
           An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this ``StatementId`` when you run  RemovePermission .
         :type Condition: dict
         :param Condition:
-          This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see `What Is AWS Organizations <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html>`__ in the *AWS Organizations User Guide* .
+          This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see `What Is AWS Organizations <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html>`__ in the *AWS Organizations User Guide* .
           If you specify ``Condition`` with an AWS organization ID, and specify \"*\" as the value for ``Principal`` , you grant permission to all the accounts in the named organization.
           The ``Condition`` is a JSON string which must contain ``Type`` , ``Key`` , and ``Value`` fields.
           - **Type** *(string) --* **[REQUIRED]**
@@ -635,16 +675,18 @@ class Client(BaseClient):
         """
         pass
 
-    def put_rule(self, Name: str, ScheduleExpression: str = None, EventPattern: str = None, State: str = None, Description: str = None, RoleArn: str = None) -> Dict:
+    def put_rule(self, Name: str, ScheduleExpression: str = None, EventPattern: str = None, State: str = None, Description: str = None, RoleArn: str = None, Tags: List = None) -> Dict:
         """
         Creates or updates the specified rule. Rules are enabled by default, or based on value of the state. You can disable a rule using  DisableRule .
         If you are updating an existing rule, the rule is replaced with what you specify in this ``PutRule`` command. If you omit arguments in ``PutRule`` , the old values for those arguments are not kept. Instead, they are replaced with null values.
         When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Allow a short period of time for changes to take effect.
         A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression, in which case the rule triggers on matching events as well as on a schedule.
+        When you initially create a rule, you can optionally assign one or more tags to the rule. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only rules with certain tag values. To use the ``PutRule`` operation and assign tags, you must have both the ``events:PutRule`` and ``events:TagResource`` permissions.
+        If you are updating an existing rule, any tags you specify in the ``PutRule`` operation are ignored. To update the tags of an existing rule, use  TagResource and  UntagResource .
         Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
         In CloudWatch Events, it is possible to create rules that lead to infinite loops, where a rule is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket, and trigger software to change them to the desired state. If the rule is not written carefully, the subsequent change to the ACLs fires the rule again, creating an infinite loop.
         To prevent this, write the rules so that the triggered actions do not re-fire the same rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead of after any change. 
-        An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, which alerts you when charges exceed your specified limit. For more information, see `Managing Your Costs with Budgets <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html>`__ .
+        An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, which alerts you when charges exceed your specified limit. For more information, see `Managing Your Costs with Budgets <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/PutRule>`_
         
         **Request Syntax**
@@ -655,7 +697,13 @@ class Client(BaseClient):
               EventPattern='string',
               State='ENABLED'|'DISABLED',
               Description='string',
-              RoleArn='string'
+              RoleArn='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -676,7 +724,7 @@ class Client(BaseClient):
           The scheduling expression. For example, \"cron(0 20 * * ? *)\" or \"rate(5 minutes)\".
         :type EventPattern: string
         :param EventPattern:
-          The event pattern. For more information, see `Events and Event Patterns <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
+          The event pattern. For more information, see `Events and Event Patterns <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
         :type State: string
         :param State:
           Indicates whether the rule is enabled or disabled.
@@ -686,6 +734,15 @@ class Client(BaseClient):
         :type RoleArn: string
         :param RoleArn:
           The Amazon Resource Name (ARN) of the IAM role associated with the rule.
+        :type Tags: list
+        :param Tags:
+          The list of key-value pairs to associate with the rule.
+          - *(dict) --*
+            A key-value pair associated with an AWS resource. In CloudWatch Events, rules support tagging.
+            - **Key** *(string) --* **[REQUIRED]**
+              A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+            - **Value** *(string) --* **[REQUIRED]**
+              The value for the specified tag key.
         :rtype: dict
         :returns:
         """
@@ -713,9 +770,9 @@ class Client(BaseClient):
         * The default event bus of another AWS account 
         Creating rules with built-in targets is supported only in the AWS Management Console. The built-in targets are ``EC2 CreateSnapshot API call`` , ``EC2 RebootInstances API call`` , ``EC2 StopInstances API call`` , and ``EC2 TerminateInstances API call`` . 
         For some target types, ``PutTargets`` provides target-specific parameters. If the target is a Kinesis data stream, you can optionally specify which shard the event goes to by using the ``KinesisParameters`` argument. To invoke a command on multiple EC2 instances with one rule, you can use the ``RunCommandParameters`` field.
-        To be able to make API calls against the resources that you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For EC2 instances, Kinesis data streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles that you specify in the ``RoleARN`` argument in ``PutTargets`` . For more information, see `Authentication and Access Control <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html>`__ in the *Amazon CloudWatch Events User Guide* .
+        To be able to make API calls against the resources that you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For EC2 instances, Kinesis data streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles that you specify in the ``RoleARN`` argument in ``PutTargets`` . For more information, see `Authentication and Access Control <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html>`__ in the *Amazon CloudWatch Events User Guide* .
         If another AWS account is in the same region and has granted you permission (using ``PutPermission`` ), you can send events to that account. Set that account's event bus as a target of the rules in your account. To send the matched events to the other account, specify that account's event bus as the ``Arn`` value when you run ``PutTargets`` . If your account sends events to another account, your account is charged for each sent event. Each event sent to another account is charged as a custom event. The account receiving the event is not charged. For more information, see `Amazon CloudWatch Pricing <https://aws.amazon.com/cloudwatch/pricing/>`__ .
-        If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
+        If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
         For more information about enabling cross-account events, see  PutPermission .
          **Input** , **InputPath** , and **InputTransformer** are mutually exclusive and optional parameters of a target. When a rule is triggered due to a matched event:
         * If none of the following arguments are specified for a target, then the entire event is passed to the target in JSON format (unless the target is Amazon EC2 Run Command or Amazon ECS task, in which case nothing from the event is passed to the target). 
@@ -827,7 +884,7 @@ class Client(BaseClient):
           The targets to update or add to the rule.
           - *(dict) --*
             Targets are the resources to be invoked when a rule is triggered. For a complete list of services and resources that can be set as a target, see  PutTargets .
-            If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
+            If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a ``RoleArn`` with proper permissions in the ``Target`` structure. For more information, see `Sending and Receiving Events Between AWS Accounts <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html>`__ in the *Amazon CloudWatch Events User Guide* .
             - **Id** *(string) --* **[REQUIRED]**
               The ID of the target.
             - **Arn** *(string) --* **[REQUIRED]**
@@ -866,7 +923,7 @@ class Client(BaseClient):
             - **KinesisParameters** *(dict) --*
               The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the ``eventId`` as the partition key.
               - **PartitionKeyPath** *(string) --* **[REQUIRED]**
-                The JSON path to be extracted from the event and used as the partition key. For more information, see `Amazon Kinesis Streams Key Concepts <http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key>`__ in the *Amazon Kinesis Streams Developer Guide* .
+                The JSON path to be extracted from the event and used as the partition key. For more information, see `Amazon Kinesis Streams Key Concepts <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key>`__ in the *Amazon Kinesis Streams Developer Guide* .
             - **RunCommandParameters** *(dict) --*
               Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
               - **RunCommandTargets** *(list) --* **[REQUIRED]**
@@ -879,13 +936,13 @@ class Client(BaseClient):
                     If ``Key`` is ``tag:``  *tag-key* , ``Values`` is a list of tag values. If ``Key`` is ``InstanceIds`` , ``Values`` is a list of Amazon EC2 instance IDs.
                     - *(string) --*
             - **EcsParameters** *(dict) --*
-              Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see `Task Definitions <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html>`__ in the *Amazon EC2 Container Service Developer Guide* .
+              Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see `Task Definitions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html>`__ in the *Amazon EC2 Container Service Developer Guide* .
               - **TaskDefinitionArn** *(string) --* **[REQUIRED]**
                 The ARN of the task definition to use if the event target is an Amazon ECS task.
               - **TaskCount** *(integer) --*
                 The number of tasks to create based on ``TaskDefinition`` . The default is 1.
               - **LaunchType** *(string) --*
-                Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The ``FARGATE`` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see `AWS Fargate on Amazon ECS <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The ``FARGATE`` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see `AWS Fargate on Amazon ECS <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
               - **NetworkConfiguration** *(dict) --*
                 Use this structure if the ECS task uses the ``awsvpc`` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if ``LaunchType`` is ``FARGATE`` because the ``awsvpc`` mode is required for Fargate tasks.
                 If you specify ``NetworkConfiguration`` when the target ECS task does not use the ``awsvpc`` network mode, the task fails.
@@ -901,11 +958,11 @@ class Client(BaseClient):
                     Specifies whether the task\'s elastic network interface receives a public IP address. You can specify ``ENABLED`` only when ``LaunchType`` in ``EcsParameters`` is set to ``FARGATE`` .
               - **PlatformVersion** *(string) --*
                 Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as ``1.1.0`` .
-                This structure is used only if ``LaunchType`` is ``FARGATE`` . For more information about valid platform versions, see `AWS Fargate Platform Versions <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                This structure is used only if ``LaunchType`` is ``FARGATE`` . For more information about valid platform versions, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
               - **Group** *(string) --*
                 Specifies an ECS task group for the task. The maximum length is 255 characters.
             - **BatchParameters** *(dict) --*
-              If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see `Jobs <http://docs.aws.amazon.com/batch/latest/userguide/jobs.html>`__ in the *AWS Batch User Guide* .
+              If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see `Jobs <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html>`__ in the *AWS Batch User Guide* .
               - **JobDefinition** *(string) --* **[REQUIRED]**
                 The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
               - **JobName** *(string) --* **[REQUIRED]**
@@ -1004,6 +1061,49 @@ class Client(BaseClient):
         """
         pass
 
+    def tag_resource(self, ResourceARN: str, Tags: List) -> Dict:
+        """
+        Assigns one or more tags (key-value pairs) to the specified CloudWatch Events resource. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values. In CloudWatch Events, rules can be tagged.
+        Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+        You can use the ``TagResource`` action with a rule that already has tags. If you specify a new tag key for the rule, this tag is appended to the list of tags associated with the rule. If you specify a tag key that is already associated with the rule, the new tag value that you specify replaces the previous value for that tag.
+        You can associate as many as 50 tags with a resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceARN='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceARN: string
+        :param ResourceARN: **[REQUIRED]**
+          The ARN of the CloudWatch Events rule that you\'re adding tags to.
+        :type Tags: list
+        :param Tags: **[REQUIRED]**
+          The list of key-value pairs to associate with the rule.
+          - *(dict) --*
+            A key-value pair associated with an AWS resource. In CloudWatch Events, rules support tagging.
+            - **Key** *(string) --* **[REQUIRED]**
+              A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+            - **Value** *(string) --* **[REQUIRED]**
+              The value for the specified tag key.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def test_event_pattern(self, EventPattern: str, Event: str) -> Dict:
         """
         Tests whether the specified event pattern matches the provided event.
@@ -1029,10 +1129,42 @@ class Client(BaseClient):
               Indicates whether the event matches the event pattern.
         :type EventPattern: string
         :param EventPattern: **[REQUIRED]**
-          The event pattern. For more information, see `Events and Event Patterns <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
+          The event pattern. For more information, see `Events and Event Patterns <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html>`__ in the *Amazon CloudWatch Events User Guide* .
         :type Event: string
         :param Event: **[REQUIRED]**
           The event, in JSON format, to test against the event pattern.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def untag_resource(self, ResourceARN: str, TagKeys: List) -> Dict:
+        """
+        Removes one or more tags from the specified CloudWatch Events resource. In CloudWatch Events, rules can be tagged.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceARN='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceARN: string
+        :param ResourceARN: **[REQUIRED]**
+          The ARN of the CloudWatch Events rule from which you are removing tags.
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]**
+          The list of tag keys to remove from the resource.
+          - *(string) --*
         :rtype: dict
         :returns:
         """

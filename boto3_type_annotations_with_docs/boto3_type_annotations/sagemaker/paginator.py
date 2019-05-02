@@ -1,5 +1,5 @@
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
 from botocore.paginate import Paginator
 
 
@@ -223,7 +223,7 @@ class ListCompilationJobs(Paginator):
                         'CreationTime': datetime(2015, 1, 1),
                         'CompilationStartTime': datetime(2015, 1, 1),
                         'CompilationEndTime': datetime(2015, 1, 1),
-                        'CompilationTargetDevice': 'ml_m4'|'ml_m5'|'ml_c4'|'ml_c5'|'ml_p2'|'ml_p3'|'jetson_tx1'|'jetson_tx2'|'rasp3b'|'deeplens',
+                        'CompilationTargetDevice': 'ml_m4'|'ml_m5'|'ml_c4'|'ml_c5'|'ml_p2'|'ml_p3'|'jetson_tx1'|'jetson_tx2'|'rasp3b'|'deeplens'|'rk3399'|'rk3288',
                         'LastModifiedTime': datetime(2015, 1, 1),
                         'CompilationJobStatus': 'INPROGRESS'|'COMPLETED'|'FAILED'|'STARTING'|'STOPPING'|'STOPPED'
                     },
@@ -341,7 +341,7 @@ class ListEndpointConfigs(Paginator):
           The field to sort results by. The default is ``CreationTime`` .
         :type SortOrder: string
         :param SortOrder:
-          The sort order for results. The default is ``Ascending`` .
+          The sort order for results. The default is ``Descending`` .
         :type NameContains: string
         :param NameContains:
           A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string.
@@ -423,7 +423,7 @@ class ListEndpoints(Paginator):
                   * ``OutOfService`` : Endpoint is not available to take incoming requests. 
                   * ``Creating`` :  CreateEndpoint is executing. 
                   * ``Updating`` :  UpdateEndpoint or  UpdateEndpointWeightsAndCapacities is executing. 
-                  * ``SystemUpdating`` : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This mainenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count. 
+                  * ``SystemUpdating`` : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count. 
                   * ``RollingBack`` : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an ``InService`` status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an  UpdateEndpointWeightsAndCapacities call or when the  UpdateEndpointWeightsAndCapacities operation is called explicitly. 
                   * ``InService`` : Endpoint is available to process incoming requests. 
                   * ``Deleting`` :  DeleteEndpoint is executing. 
@@ -434,7 +434,7 @@ class ListEndpoints(Paginator):
           Sorts the list of results. The default is ``CreationTime`` .
         :type SortOrder: string
         :param SortOrder:
-          The sort order for results. The default is ``Ascending`` .
+          The sort order for results. The default is ``Descending`` .
         :type NameContains: string
         :param NameContains:
           A string in endpoint names. This filter returns only endpoints whose name contains the specified string.
@@ -500,7 +500,7 @@ class ListHyperParameterTuningJobs(Paginator):
                         'HyperParameterTuningJobName': 'string',
                         'HyperParameterTuningJobArn': 'string',
                         'HyperParameterTuningJobStatus': 'Completed'|'InProgress'|'Failed'|'Stopped'|'Stopping',
-                        'Strategy': 'Bayesian',
+                        'Strategy': 'Bayesian'|'Random',
                         'CreationTime': datetime(2015, 1, 1),
                         'HyperParameterTuningEndTime': datetime(2015, 1, 1),
                         'LastModifiedTime': datetime(2015, 1, 1),
@@ -993,7 +993,7 @@ class ListModels(Paginator):
           Sorts the list of results. The default is ``CreationTime`` .
         :type SortOrder: string
         :param SortOrder:
-          The sort order for results. The default is ``Ascending`` .
+          The sort order for results. The default is ``Descending`` .
         :type NameContains: string
         :param NameContains:
           A string in the training job name. This filter returns only models in the training job whose name contains the specified string.
@@ -1174,7 +1174,7 @@ class ListNotebookInstances(Paginator):
                   A timestamp that shows when the notebook instance was last modified.
                 - **NotebookInstanceLifecycleConfigName** *(string) --* 
                   The name of a notebook instance lifecycle configuration associated with this notebook instance.
-                  For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+                  For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
                 - **DefaultCodeRepository** *(string) --* 
                   The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in `AWS CodeCommit <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html>`__ or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see `Associating Git Repositories with Amazon SageMaker Notebook Instances <http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html>`__ .
                 - **AdditionalCodeRepositories** *(list) --* 
@@ -1897,6 +1897,7 @@ class Search(Paginator):
                                 },
                             ],
                             'EnableNetworkIsolation': True|False,
+                            'EnableInterContainerTrafficEncryption': True|False,
                             'Tags': [
                                 {
                                     'Key': 'string',
@@ -1969,11 +1970,11 @@ class Search(Paginator):
                   - **AlgorithmSpecification** *(dict) --* 
                     Information about the algorithm used for training, and algorithm metadata.
                     - **TrainingImage** *(string) --* 
-                      The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ .
+                      The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ . Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
                     - **AlgorithmName** *(string) --* 
                       The name of the algorithm resource to use for the training job. This must be an algorithm resource that you created or subscribe to on AWS Marketplace. If you specify a value for this parameter, you can't specify a value for ``TrainingImage`` .
                     - **TrainingInputMode** *(string) --* 
-                      The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container. 
+                      The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container. 
                       In File mode, make sure you provision ML storage volume with sufficient capacity to accommodate the data download from S3. In addition to the training data, the ML storage volume also stores the output model. The algorithm container use ML storage volume to also store intermediate information, if any. 
                       For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won't be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. 
                     - **MetricDefinitions** *(list) --* 
@@ -1983,7 +1984,7 @@ class Search(Paginator):
                         - **Name** *(string) --* 
                           The name of the metric.
                         - **Regex** *(string) --* 
-                          A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
+                          A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
                   - **RoleArn** *(string) --* 
                     The AWS Identity and Access Management (IAM) role configured for the training job.
                   - **InputDataConfig** *(list) --* 
@@ -2056,7 +2057,7 @@ class Search(Paginator):
                       * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
                       * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
                   - **VpcConfig** *(dict) --* 
-                    A  VpcConfig object that specifies the VPC that this training job has access to. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
+                    A  VpcConfig object that specifies the VPC that this training job has access to. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
                     - **SecurityGroupIds** *(list) --* 
                       The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the ``Subnets`` field.
                       - *(string) --* 
@@ -2134,8 +2135,10 @@ class Search(Paginator):
                         The date and time that the algorithm emitted the metric.
                   - **EnableNetworkIsolation** *(boolean) --* 
                     If the ``TrainingJob`` was created with network isolation, the value is set to ``true`` . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
+                  - **EnableInterContainerTrafficEncryption** *(boolean) --* 
+                    To encrypt all communications between ML compute instances in distributed training, choose ``True`` . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
                   - **Tags** *(list) --* 
-                    An array of key-value pairs. For more information, see `Using Cost Allocation Tags <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
+                    An array of key-value pairs. For more information, see `Using Cost Allocation Tags <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
                     - *(dict) --* 
                       Describes a tag. 
                       - **Key** *(string) --* 

@@ -106,6 +106,7 @@ class ListUsers(Paginator):
                         'UserId': 'string',
                         'AccountId': 'string',
                         'PrimaryEmail': 'string',
+                        'PrimaryProvisionedNumber': 'string',
                         'DisplayName': 'string',
                         'LicenseType': 'Basic'|'Plus'|'Pro'|'ProTrial',
                         'UserRegistrationStatus': 'Unregistered'|'Registered'|'Suspended',
@@ -129,6 +130,8 @@ class ListUsers(Paginator):
                   The Amazon Chime account ID.
                 - **PrimaryEmail** *(string) --* 
                   The primary email address of the user.
+                - **PrimaryProvisionedNumber** *(string) --* 
+                  The primary phone number associated with the user.
                 - **DisplayName** *(string) --* 
                   The display name of the user.
                 - **LicenseType** *(string) --* 

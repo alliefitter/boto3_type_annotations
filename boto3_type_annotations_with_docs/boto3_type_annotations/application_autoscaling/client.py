@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -51,7 +51,7 @@ class Client(BaseClient):
           The name of the scaling policy.
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
           The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.
@@ -105,7 +105,7 @@ class Client(BaseClient):
           - *(dict) --* 
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ScheduledActionName: string
         :param ScheduledActionName: **[REQUIRED]**
           The name of the scheduled action.
@@ -163,7 +163,7 @@ class Client(BaseClient):
           - *(dict) --* 
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
           The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.
@@ -238,7 +238,7 @@ class Client(BaseClient):
               - *(dict) --* 
                 Represents a scalable target.
                 - **ServiceNamespace** *(string) --* 
-                  The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+                  The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
                 - **ResourceId** *(string) --* 
                   The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.
                   * ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/default/sample-webapp`` . 
@@ -275,7 +275,7 @@ class Client(BaseClient):
               The token required to get the next set of results. This value is ``null`` if there are no more results to return.
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ResourceIds: list
         :param ResourceIds:
           The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.
@@ -362,7 +362,7 @@ class Client(BaseClient):
                 - **ActivityId** *(string) --* 
                   The unique identifier of the scaling activity.
                 - **ServiceNamespace** *(string) --* 
-                  The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+                  The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
                 - **ResourceId** *(string) --* 
                   The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.
                   * ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/default/sample-webapp`` . 
@@ -405,7 +405,7 @@ class Client(BaseClient):
               The token required to get the next set of results. This value is ``null`` if there are no more results to return.
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ResourceId: string
         :param ResourceId:
           The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.
@@ -533,7 +533,7 @@ class Client(BaseClient):
                 - **PolicyName** *(string) --* 
                   The name of the scaling policy.
                 - **ServiceNamespace** *(string) --* 
-                  The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+                  The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
                 - **ResourceId** *(string) --* 
                   The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
                   * ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/default/sample-webapp`` . 
@@ -650,7 +650,7 @@ class Client(BaseClient):
           - *(string) --*
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ResourceId: string
         :param ResourceId:
           The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.
@@ -743,7 +743,7 @@ class Client(BaseClient):
                 - **ScheduledActionARN** *(string) --* 
                   The Amazon Resource Name (ARN) of the scheduled action.
                 - **ServiceNamespace** *(string) --* 
-                  The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+                  The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
                 - **Schedule** *(string) --* 
                   The schedule for this action. The following formats are supported:
                   * At expressions - "``at(*yyyy* -*mm* -*dd* T*hh* :*mm* :*ss* )`` " 
@@ -796,7 +796,7 @@ class Client(BaseClient):
           - *(string) --*
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ResourceId: string
         :param ResourceId:
           The identifier of the resource associated with the scheduled action. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.
@@ -966,7 +966,7 @@ class Client(BaseClient):
           The name of the scaling policy.
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
           The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
@@ -996,7 +996,7 @@ class Client(BaseClient):
         :type PolicyType: string
         :param PolicyType:
           The policy type. This parameter is required if you are creating a scaling policy.
-          For information on which services do not support ``StepScaling`` or ``TargetTrackingScaling`` , see `Step Scaling Policies for Application Auto Scaling <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html>`__ and `Target Tracking Scaling Policies for Application Auto Scaling <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html>`__ in the *Application Auto Scaling User Guide* .
+          For information on which services do not support ``StepScaling`` or ``TargetTrackingScaling`` , see the information about **Limits** in `Step Scaling Policies <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html>`__ and `Target Tracking Scaling Policies <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html>`__ in the *Application Auto Scaling User Guide* .
         :type StepScalingPolicyConfiguration: dict
         :param StepScalingPolicyConfiguration:
           A step scaling policy.
@@ -1111,7 +1111,7 @@ class Client(BaseClient):
           - *(dict) --* 
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type Schedule: string
         :param Schedule:
           The schedule for this action. The following formats are supported:
@@ -1194,7 +1194,7 @@ class Client(BaseClient):
           - *(dict) --* 
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
-          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
+          The namespace of the AWS service that provides the resource or ``custom-resource`` for a resource provided by your own application or service. For more information, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *Amazon Web Services General Reference* .
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
           The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.

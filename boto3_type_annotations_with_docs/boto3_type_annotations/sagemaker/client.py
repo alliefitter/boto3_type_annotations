@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -335,7 +335,7 @@ class Client(BaseClient):
               - **Name** *(string) --* **[REQUIRED]**
                 The name of the metric.
               - **Regex** *(string) --* **[REQUIRED]**
-                A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
+                A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
           - **TrainingChannels** *(list) --* **[REQUIRED]**
             A list of ``ChannelSpecification`` objects, which specify the input sources to be used by the algorithm.
             - *(dict) --*
@@ -379,7 +379,7 @@ class Client(BaseClient):
                 The DNS host name for the Docker container.
               - **Image** *(string) --* **[REQUIRED]**
                 The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
-                If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
+                If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
               - **ImageDigest** *(string) --*
                 An MD5 hash of the training algorithm that identifies the Docker image used for training.
               - **ModelDataUrl** *(string) --*
@@ -413,7 +413,7 @@ class Client(BaseClient):
               - **TrainingJobDefinition** *(dict) --* **[REQUIRED]**
                 The ``TrainingJobDefinition`` object that describes the training job that Amazon SageMaker runs to validate your algorithm.
                 - **TrainingInputMode** *(string) --* **[REQUIRED]**
-                  The input mode used by the algorithm for the training job. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .
+                  The input mode used by the algorithm for the training job. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .
                   If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container.
                 - **HyperParameters** *(dict) --*
                   The hyperparameters used for the training job.
@@ -524,15 +524,16 @@ class Client(BaseClient):
                   - **CompressionType** *(string) --*
                     If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is ``None`` .
                   - **SplitType** *(string) --*
-                    The method to use to split the transform job\'s data into smaller batches. If you don\'t want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` . The default value is ``None`` .
-                    Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit. For more information, see `RecordIO data format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                    The method to use to split the transform job\'s data files into smaller batches. Splitting is necessary when the total size of each object is too large to fit in a single request. You can also use data splitting to improve performance by processing multiple concurrent mini-batches. The default value for ``SplitType`` is ``None`` , which indicates that input data files are not split, and request payloads contain the entire contents of an input object. Set the value of this parameter to ``Line`` to split records on a newline character boundary. ``SplitType`` also supports a number of record-oriented binary data formats.
+                    When splitting is enabled, the size of a mini-batch depends on the values of the ``BatchStrategy`` and ``MaxPayloadInMB`` parameters. When the value of ``BatchStrategy`` is ``MultiRecord`` , Amazon SageMaker sends the maximum number of records in each request, up to the ``MaxPayloadInMB`` limit. If the value of ``BatchStrategy`` is ``SingleRecord`` , Amazon SageMaker sends individual records in each request.
                     .. note::
-                      For information about the ``RecordIO`` format, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                      Some data formats represent a record as a binary payload wrapped with extra padding bytes. When splitting is applied to a binary data format, padding is removed if the value of ``BatchStrategy`` is set to ``SingleRecord`` . Padding is not removed if the value of ``BatchStrategy`` is set to ``MultiRecord`` .
+                      For more information about the RecordIO, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ in the MXNet documentation. For more information about the TFRecord, see `Consuming TFRecord data <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data>`__ in the TensorFlow documentation.
                 - **TransformOutput** *(dict) --* **[REQUIRED]**
                   Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
                   - **S3OutputPath** *(string) --* **[REQUIRED]**
                     The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For example, ``s3://bucket-name/key-name-prefix`` .
-                    For every S3 object used as input for the transform job, the transformed data is stored in a corresponding subfolder in the location under the output prefix. For example, for the input data ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` the transformed data is stored at ``s3://bucket-name/key-name-prefix/dataset01/`` . This is based on the original name, as a series of .part files (.part0001, part0002, etc.).
+                    For every S3 object used as input for the transform job, batch transform stores the transformed data with an .``out`` suffix in a corresponding subfolder in the location in the output prefix. For example, for the input data stored at ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` , batch transform stores the transformed data at ``s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out`` . Batch transform doesn\'t upload partially processed objects. For an input S3 object that contains multiple records, it creates an .``out`` file only if the transform job succeeds on the entire file. When the input contains multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for successfully processed objects. If any object fails in the transform job batch transform marks the job as failed to prompt investigation.
                   - **Accept** *(string) --*
                     The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
                   - **AssembleWith** *(string) --*
@@ -633,7 +634,7 @@ class Client(BaseClient):
               },
               OutputConfig={
                   'S3OutputLocation': 'string',
-                  'TargetDevice': 'ml_m4'|'ml_m5'|'ml_c4'|'ml_c5'|'ml_p2'|'ml_p3'|'jetson_tx1'|'jetson_tx2'|'rasp3b'|'deeplens'
+                  'TargetDevice': 'ml_m4'|'ml_m5'|'ml_c4'|'ml_c5'|'ml_p2'|'ml_p3'|'jetson_tx1'|'jetson_tx2'|'rasp3b'|'deeplens'|'rk3399'|'rk3288'
               },
               StoppingCondition={
                   'MaxRuntimeInSeconds': 123
@@ -715,13 +716,13 @@ class Client(BaseClient):
 
     def create_endpoint(self, EndpointName: str, EndpointConfigName: str, Tags: List = None) -> Dict:
         """
-        Creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker uses the endpoint to provision resources and deploy models. You create the endpoint configuration with the `CreateEndpointConfig <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html>`__ API. 
+        Creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker uses the endpoint to provision resources and deploy models. You create the endpoint configuration with the `CreateEndpointConfig <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html>`__ API. 
         .. note::
           Use this API only for hosting models using Amazon SageMaker hosting services. 
         The endpoint name must be unique within an AWS Region in your AWS account. 
         When it receives the request, Amazon SageMaker creates the endpoint, launches the resources (ML compute instances), and deploys the model(s) on them. 
-        When Amazon SageMaker receives the request, it sets the endpoint status to ``Creating`` . After it creates the endpoint, it sets the status to ``InService`` . Amazon SageMaker can then process incoming requests for inferences. To check the status of an endpoint, use the `DescribeEndpoint <http://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html>`__ API.
-        For an example, see `Exercise 1\: Using the K-Means Algorithm Provided by Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/ex1.html>`__ . 
+        When Amazon SageMaker receives the request, it sets the endpoint status to ``Creating`` . After it creates the endpoint, it sets the status to ``InService`` . Amazon SageMaker can then process incoming requests for inferences. To check the status of an endpoint, use the `DescribeEndpoint <https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html>`__ API.
+        For an example, see `Exercise 1\: Using the K-Means Algorithm Provided by Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/ex1.html>`__ . 
         If any of the models hosted at this endpoint get model data from an Amazon S3 location, Amazon SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provided. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see `Activating and Deactivating AWS STS i an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/CreateEndpoint>`_
         
@@ -753,10 +754,10 @@ class Client(BaseClient):
           The name of the endpoint. The name must be unique within an AWS Region in your AWS account.
         :type EndpointConfigName: string
         :param EndpointConfigName: **[REQUIRED]**
-          The name of an endpoint configuration. For more information, see `CreateEndpointConfig <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html>`__ .
+          The name of an endpoint configuration. For more information, see `CreateEndpointConfig <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html>`__ .
         :type Tags: list
         :param Tags:
-          An array of key-value pairs. For more information, see `Using Cost Allocation Tags <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
+          An array of key-value pairs. For more information, see `Using Cost Allocation Tags <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --* **[REQUIRED]**
@@ -770,7 +771,7 @@ class Client(BaseClient):
 
     def create_endpoint_config(self, EndpointConfigName: str, ProductionVariants: List, Tags: List = None, KmsKeyId: str = None) -> Dict:
         """
-        Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the ``CreateModel`` API, to deploy and the resources that you want Amazon SageMaker to provision. Then you call the `CreateEndpoint <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html>`__ API.
+        Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the ``CreateModel`` API, to deploy and the resources that you want Amazon SageMaker to provision. Then you call the `CreateEndpoint <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html>`__ API.
         .. note::
           Use this API only if you want to use Amazon SageMaker hosting services to deploy models into production. 
         In the request, you define one or more ``ProductionVariant`` s, each of which identifies a model. Each ``ProductionVariant`` parameter also describes the resources that you want Amazon SageMaker to provision. This includes the number and type of ML compute instances to deploy. 
@@ -812,7 +813,7 @@ class Client(BaseClient):
               The Amazon Resource Name (ARN) of the endpoint configuration. 
         :type EndpointConfigName: string
         :param EndpointConfigName: **[REQUIRED]**
-          The name of the endpoint configuration. You specify this name in a `CreateEndpoint <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html>`__ request.
+          The name of the endpoint configuration. You specify this name in a `CreateEndpoint <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html>`__ request.
         :type ProductionVariants: list
         :param ProductionVariants: **[REQUIRED]**
           An array of ``ProductionVariant`` objects, one for each model that you want to host at this endpoint.
@@ -832,7 +833,7 @@ class Client(BaseClient):
               The size of the Elastic Inference (EI) instance to use for the production variant. EI instances provide on-demand GPU computing for inference. For more information, see `Using Elastic Inference in Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html>`__ . For more information, see `Using Elastic Inference in Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html>`__ .
         :type Tags: list
         :param Tags:
-          An array of key-value pairs. For more information, see `Using Cost Allocation Tags <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
+          An array of key-value pairs. For more information, see `Using Cost Allocation Tags <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --* **[REQUIRED]**
@@ -857,7 +858,7 @@ class Client(BaseClient):
           response = client.create_hyper_parameter_tuning_job(
               HyperParameterTuningJobName='string',
               HyperParameterTuningJobConfig={
-                  'Strategy': 'Bayesian',
+                  'Strategy': 'Bayesian'|'Random',
                   'HyperParameterTuningJobObjective': {
                       'Type': 'Maximize'|'Minimize',
                       'MetricName': 'string'
@@ -871,14 +872,16 @@ class Client(BaseClient):
                           {
                               'Name': 'string',
                               'MinValue': 'string',
-                              'MaxValue': 'string'
+                              'MaxValue': 'string',
+                              'ScalingType': 'Auto'|'Linear'|'Logarithmic'|'ReverseLogarithmic'
                           },
                       ],
                       'ContinuousParameterRanges': [
                           {
                               'Name': 'string',
                               'MinValue': 'string',
-                              'MaxValue': 'string'
+                              'MaxValue': 'string',
+                              'ScalingType': 'Auto'|'Linear'|'Logarithmic'|'ReverseLogarithmic'
                           },
                       ],
                       'CategoricalParameterRanges': [
@@ -987,7 +990,7 @@ class Client(BaseClient):
         :param HyperParameterTuningJobConfig: **[REQUIRED]**
           The  HyperParameterTuningJobConfig object that describes the tuning job, including the search strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job. For more information, see  automatic-model-tuning
           - **Strategy** *(string) --* **[REQUIRED]**
-            Specifies the search strategy for hyperparameters. Currently, the only valid value is ``Bayesian`` .
+            Specifies how hyperparameter tuning chooses the combinations of hyperparameter values to use for the training job it launches. To use the Bayesian search stategy, set this to ``Bayesian`` . To randomly search, set it to ``Random`` . For information about search strategies, see `How Hyperparameter Tuning Works <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html>`__ .
           - **HyperParameterTuningJobObjective** *(dict) --* **[REQUIRED]**
             The  HyperParameterTuningJobObjective object that specifies the objective metric for this tuning job.
             - **Type** *(string) --* **[REQUIRED]**
@@ -1012,6 +1015,15 @@ class Client(BaseClient):
                   The minimum value of the hyperparameter to search.
                 - **MaxValue** *(string) --* **[REQUIRED]**
                   The maximum value of the hyperparameter to search.
+                - **ScalingType** *(string) --*
+                  The scale that hyperparameter tuning uses to search the hyperparameter range. For information about choosing a hyperparameter scale, see `Hyperparameter Range Scaling <http://docs.aws.amazon.com//sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type>`__ . One of the following values:
+                    Auto
+                  Amazon SageMaker hyperparameter tuning chooses the best scale for the hyperparameter.
+                    Linear
+                  Hyperparameter tuning searches the values in the hyperparameter range by using a linear scale.
+                    Logarithmic
+                  Hyperparemeter tuning searches the values in the hyperparameter range by using a logarithmic scale.
+                  Logarithmic scaling works only for ranges that have only values greater than 0.
             - **ContinuousParameterRanges** *(list) --*
               The array of  ContinuousParameterRange objects that specify ranges of continuous hyperparameters that a hyperparameter tuning job searches.
               - *(dict) --*
@@ -1022,6 +1034,18 @@ class Client(BaseClient):
                   The minimum value for the hyperparameter. The tuning job uses floating-point values between this value and ``MaxValue`` for tuning.
                 - **MaxValue** *(string) --* **[REQUIRED]**
                   The maximum value for the hyperparameter. The tuning job uses floating-point values between ``MinValue`` value and this value for tuning.
+                - **ScalingType** *(string) --*
+                  The scale that hyperparameter tuning uses to search the hyperparameter range. For information about choosing a hyperparameter scale, see `Hyperparameter Range Scaling <http://docs.aws.amazon.com//sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type>`__ . One of the following values:
+                    Auto
+                  Amazon SageMaker hyperparameter tuning chooses the best scale for the hyperparameter.
+                    Linear
+                  Hyperparameter tuning searches the values in the hyperparameter range by using a linear scale.
+                    Logarithmic
+                  Hyperparemeter tuning searches the values in the hyperparameter range by using a logarithmic scale.
+                  Logarithmic scaling works only for ranges that have only values greater than 0.
+                    ReverseLogarithmic
+                  Hyperparemeter tuning searches the values in the hyperparameter range by using a reverse logarithmic scale.
+                  Reverse logarithmic scaling works only for ranges that are entirely within the range 0<=x<1.0.
             - **CategoricalParameterRanges** *(list) --*
               The array of  CategoricalParameterRange objects that specify ranges of categorical hyperparameters that a hyperparameter tuning job searches.
               - *(dict) --*
@@ -1047,11 +1071,11 @@ class Client(BaseClient):
           - **AlgorithmSpecification** *(dict) --* **[REQUIRED]**
             The  HyperParameterAlgorithmSpecification object that specifies the resource algorithm to use for the training jobs that the tuning job launches.
             - **TrainingImage** *(string) --*
-              The registry path of the Docker image that contains the training algorithm. For information about Docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ .
+              The registry path of the Docker image that contains the training algorithm. For information about Docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ . Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
             - **TrainingInputMode** *(string) --* **[REQUIRED]**
               The input mode that the algorithm supports: File or Pipe. In File input mode, Amazon SageMaker downloads the training data from Amazon S3 to the storage volume that is attached to the training instance and mounts the directory to the Docker volume for the training container. In Pipe input mode, Amazon SageMaker streams data directly from Amazon S3 to the container.
               If you specify File mode, make sure that you provision the storage volume that is attached to the training instance with enough capacity to accommodate the training data downloaded from Amazon S3, the model artifacts, and intermediate information.
-              For more information about input modes, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .
+              For more information about input modes, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .
             - **AlgorithmName** *(string) --*
               The name of the resource algorithm to use for the hyperparameter tuning job. If you specify a value for this parameter, do not specify a value for ``TrainingImage`` .
             - **MetricDefinitions** *(list) --*
@@ -1061,7 +1085,7 @@ class Client(BaseClient):
                 - **Name** *(string) --* **[REQUIRED]**
                   The name of the metric.
                 - **Regex** *(string) --* **[REQUIRED]**
-                  A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
+                  A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
           - **RoleArn** *(string) --* **[REQUIRED]**
             The Amazon Resource Name (ARN) of the IAM role associated with the training jobs that the tuning job launches.
           - **InputDataConfig** *(list) --*
@@ -1106,7 +1130,7 @@ class Client(BaseClient):
                 - **Seed** *(integer) --* **[REQUIRED]**
                   Determines the shuffling order in ``ShuffleConfig`` value.
           - **VpcConfig** *(dict) --*
-            The  VpcConfig object that specifies the VPC that you want the training jobs that this hyperparameter tuning job launches to connect to. Control access to and from your training container by configuring the VPC. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
+            The  VpcConfig object that specifies the VPC that you want the training jobs that this hyperparameter tuning job launches to connect to. Control access to and from your training container by configuring the VPC. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
             - **SecurityGroupIds** *(list) --* **[REQUIRED]**
               The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the ``Subnets`` field.
               - *(string) --*
@@ -1153,7 +1177,7 @@ class Client(BaseClient):
             .. note::
               The Semantic Segmentation built-in algorithm does not support network isolation.
           - **EnableInterContainerTrafficEncryption** *(boolean) --*
-            To encrypt all communications between ML compute instances in distributed training, specify ``True`` . Encryption provides greater security for distributed training, but training take longer because of the additional communications between ML compute instances.
+            To encrypt all communications between ML compute instances in distributed training, choose ``True`` . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
         :type WarmStartConfig: dict
         :param WarmStartConfig:
           Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.
@@ -1161,7 +1185,7 @@ class Client(BaseClient):
           .. note::
             All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs count against the limit of training jobs for the tuning job.
           - **ParentHyperParameterTuningJobs** *(list) --* **[REQUIRED]**
-            An array of hyperparameter tuning jobs that are used as the starting point for the new hyperparameter tuning job. For more information about warm starting a hyperparameter tuning job, see `Using a Previous Hyperparameter Tuning Job as a Starting Point <http://docs.aws.amazon.com/automatic-model-tuning-incremental>`__ .
+            An array of hyperparameter tuning jobs that are used as the starting point for the new hyperparameter tuning job. For more information about warm starting a hyperparameter tuning job, see `Using a Previous Hyperparameter Tuning Job as a Starting Point <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-warm-start.html>`__ .
             Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent jobs for warm start tuning jobs.
             - *(dict) --*
               A previously completed or stopped hyperparameter tuning job to be used as a starting point for a new hyperparameter tuning job.
@@ -1503,9 +1527,9 @@ class Client(BaseClient):
         :param PrimaryContainer:
           The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
           - **ContainerHostname** *(string) --*
-            The DNS host name for the container after Amazon SageMaker deploys it.
+            This parameter is ignored.
           - **Image** *(string) --*
-            The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__
+            The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__
           - **ModelDataUrl** *(string) --*
             The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
             If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see `Activating and Deactivating AWS STS in an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide* .
@@ -1521,9 +1545,9 @@ class Client(BaseClient):
           - *(dict) --*
             Describes the container, as part of model definition.
             - **ContainerHostname** *(string) --*
-              The DNS host name for the container after Amazon SageMaker deploys it.
+              This parameter is ignored.
             - **Image** *(string) --*
-              The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__
+              The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__
             - **ModelDataUrl** *(string) --*
               The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
               If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see `Activating and Deactivating AWS STS in an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide* .
@@ -1535,12 +1559,12 @@ class Client(BaseClient):
               The name of the model package to use to create the model.
         :type ExecutionRoleArn: string
         :param ExecutionRoleArn: **[REQUIRED]**
-          The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see `Amazon SageMaker Roles <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>`__ .
+          The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see `Amazon SageMaker Roles <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>`__ .
           .. note::
             To be able to pass this role to Amazon SageMaker, the caller of this API must have the ``iam:PassRole`` permission.
         :type Tags: list
         :param Tags:
-          An array of key-value pairs. For more information, see `Using Cost Allocation Tags <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
+          An array of key-value pairs. For more information, see `Using Cost Allocation Tags <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --* **[REQUIRED]**
@@ -1549,7 +1573,7 @@ class Client(BaseClient):
               The tag value.
         :type VpcConfig: dict
         :param VpcConfig:
-          A  VpcConfig object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. ``VpcConfig`` is used in hosting services and in batch transform. For more information, see `Protect Endpoints by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html>`__ and `Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html>`__ .
+          A  VpcConfig object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. ``VpcConfig`` is used in hosting services and in batch transform. For more information, see `Protect Endpoints by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html>`__ and `Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html>`__ .
           - **SecurityGroupIds** *(list) --* **[REQUIRED]**
             The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the ``Subnets`` field.
             - *(string) --*
@@ -1679,7 +1703,7 @@ class Client(BaseClient):
                 The DNS host name for the Docker container.
               - **Image** *(string) --* **[REQUIRED]**
                 The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
-                If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
+                If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
               - **ImageDigest** *(string) --*
                 An MD5 hash of the training algorithm that identifies the Docker image used for training.
               - **ModelDataUrl** *(string) --*
@@ -1741,15 +1765,16 @@ class Client(BaseClient):
                   - **CompressionType** *(string) --*
                     If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is ``None`` .
                   - **SplitType** *(string) --*
-                    The method to use to split the transform job\'s data into smaller batches. If you don\'t want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` . The default value is ``None`` .
-                    Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit. For more information, see `RecordIO data format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                    The method to use to split the transform job\'s data files into smaller batches. Splitting is necessary when the total size of each object is too large to fit in a single request. You can also use data splitting to improve performance by processing multiple concurrent mini-batches. The default value for ``SplitType`` is ``None`` , which indicates that input data files are not split, and request payloads contain the entire contents of an input object. Set the value of this parameter to ``Line`` to split records on a newline character boundary. ``SplitType`` also supports a number of record-oriented binary data formats.
+                    When splitting is enabled, the size of a mini-batch depends on the values of the ``BatchStrategy`` and ``MaxPayloadInMB`` parameters. When the value of ``BatchStrategy`` is ``MultiRecord`` , Amazon SageMaker sends the maximum number of records in each request, up to the ``MaxPayloadInMB`` limit. If the value of ``BatchStrategy`` is ``SingleRecord`` , Amazon SageMaker sends individual records in each request.
                     .. note::
-                      For information about the ``RecordIO`` format, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                      Some data formats represent a record as a binary payload wrapped with extra padding bytes. When splitting is applied to a binary data format, padding is removed if the value of ``BatchStrategy`` is set to ``SingleRecord`` . Padding is not removed if the value of ``BatchStrategy`` is set to ``MultiRecord`` .
+                      For more information about the RecordIO, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ in the MXNet documentation. For more information about the TFRecord, see `Consuming TFRecord data <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data>`__ in the TensorFlow documentation.
                 - **TransformOutput** *(dict) --* **[REQUIRED]**
                   Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
                   - **S3OutputPath** *(string) --* **[REQUIRED]**
                     The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For example, ``s3://bucket-name/key-name-prefix`` .
-                    For every S3 object used as input for the transform job, the transformed data is stored in a corresponding subfolder in the location under the output prefix. For example, for the input data ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` the transformed data is stored at ``s3://bucket-name/key-name-prefix/dataset01/`` . This is based on the original name, as a series of .part files (.part0001, part0002, etc.).
+                    For every S3 object used as input for the transform job, batch transform stores the transformed data with an .``out`` suffix in a corresponding subfolder in the location in the output prefix. For example, for the input data stored at ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` , batch transform stores the transformed data at ``s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out`` . Batch transform doesn\'t upload partially processed objects. For an input S3 object that contains multiple records, it creates an .``out`` file only if the transform job succeeds on the entire file. When the input contains multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for successfully processed objects. If any object fails in the transform job batch transform marks the job as failed to prompt investigation.
                   - **Accept** *(string) --*
                     The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
                   - **AssembleWith** *(string) --*
@@ -1791,7 +1816,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_notebook_instance(self, NotebookInstanceName: str, InstanceType: str, RoleArn: str, SubnetId: str = None, SecurityGroupIds: List = None, KmsKeyId: str = None, Tags: List = None, LifecycleConfigName: str = None, DirectInternetAccess: str = None, VolumeSizeInGB: int = None, AcceleratorTypes: List = None, DefaultCodeRepository: str = None, AdditionalCodeRepositories: List = None) -> Dict:
+    def create_notebook_instance(self, NotebookInstanceName: str, InstanceType: str, RoleArn: str, SubnetId: str = None, SecurityGroupIds: List = None, KmsKeyId: str = None, Tags: List = None, LifecycleConfigName: str = None, DirectInternetAccess: str = None, VolumeSizeInGB: int = None, AcceleratorTypes: List = None, DefaultCodeRepository: str = None, AdditionalCodeRepositories: List = None, RootAccess: str = None) -> Dict:
         """
         Creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning (ML) compute instance running on a Jupyter notebook. 
         In a ``CreateNotebookInstance`` request, specify the type of ML compute instance that you want to run. Amazon SageMaker launches the instance, installs common libraries that you can use to explore datasets for model training, and attaches an ML storage volume to the notebook instance. 
@@ -1802,7 +1827,7 @@ class Client(BaseClient):
         * Launches an EC2 instance of the type specified in the request in the Amazon SageMaker VPC. If you specified ``SubnetId`` of your VPC, Amazon SageMaker specifies both network interfaces when launching this instance. This enables inbound traffic from your own VPC to the notebook instance, assuming that the security groups allow it. 
         After creating the notebook instance, Amazon SageMaker returns its Amazon Resource Name (ARN).
         After Amazon SageMaker creates the notebook instance, you can connect to the Jupyter server and work in Jupyter notebooks. For example, you can write code to explore a dataset that you can use for model training, train a model, host models by creating Amazon SageMaker endpoints, and validate hosted models. 
-        For more information, see `How It Works <http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html>`__ . 
+        For more information, see `How It Works <https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/CreateNotebookInstance>`_
         
         **Request Syntax**
@@ -1831,7 +1856,8 @@ class Client(BaseClient):
               DefaultCodeRepository='string',
               AdditionalCodeRepositories=[
                   'string',
-              ]
+              ],
+              RootAccess='Enabled'|'Disabled'
           )
         
         **Response Syntax**
@@ -1859,7 +1885,7 @@ class Client(BaseClient):
           - *(string) --*
         :type RoleArn: string
         :param RoleArn: **[REQUIRED]**
-          When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see `Amazon SageMaker Roles <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>`__ .
+          When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see `Amazon SageMaker Roles <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>`__ .
           .. note::
             To be able to pass this role to Amazon SageMaker, the caller of this API must have the ``iam:PassRole`` permission.
         :type KmsKeyId: string
@@ -1876,11 +1902,11 @@ class Client(BaseClient):
               The tag value.
         :type LifecycleConfigName: string
         :param LifecycleConfigName:
-          The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+          The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
         :type DirectInternetAccess: string
         :param DirectInternetAccess:
           Sets whether Amazon SageMaker provides internet access to the notebook instance. If you set this to ``Disabled`` this notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
-          For more information, see `Notebook Instances Are Internet-Enabled by Default <http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access>`__ . You can set the value of this parameter to ``Disabled`` only if you set a value for the ``SubnetId`` parameter.
+          For more information, see `Notebook Instances Are Internet-Enabled by Default <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access>`__ . You can set the value of this parameter to ``Disabled`` only if you set a value for the ``SubnetId`` parameter.
         :type VolumeSizeInGB: integer
         :param VolumeSizeInGB:
           The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
@@ -1895,6 +1921,11 @@ class Client(BaseClient):
         :param AdditionalCodeRepositories:
           An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in `AWS CodeCommit <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html>`__ or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see `Associating Git Repositories with Amazon SageMaker Notebook Instances <http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html>`__ .
           - *(string) --*
+        :type RootAccess: string
+        :param RootAccess:
+          Whether root access is enabled or disabled for users of the notebook instance. The default value is ``Enabled`` .
+          .. note::
+            Lifecycle configurations need root access to be able to set up a notebook instance. Because of this, lifecycle configurations associated with a notebook instance always run with root access even if you disable root access for users.
         :rtype: dict
         :returns:
         """
@@ -1907,7 +1938,7 @@ class Client(BaseClient):
         The value of the ``$PATH`` environment variable that is available to both scripts is ``/sbin:bin:/usr/sbin:/usr/bin`` .
         View CloudWatch Logs for notebook instance lifecycle configurations in log group ``/aws/sagemaker/NotebookInstances`` in log stream ``[notebook-instance-name]/[LifecycleConfigHook]`` .
         Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
-        For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+        For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/CreateNotebookInstanceLifecycleConfig>`_
         
         **Request Syntax**
@@ -1948,7 +1979,7 @@ class Client(BaseClient):
             The value of the ``$PATH`` environment variable that is available to both scripts is ``/sbin:bin:/usr/sbin:/usr/bin`` .
             View CloudWatch Logs for notebook instance lifecycle configurations in log group ``/aws/sagemaker/NotebookInstances`` in log stream ``[notebook-instance-name]/[LifecycleConfigHook]`` .
             Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
-            For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+            For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
             - **Content** *(string) --*
               A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
         :type OnStart: list
@@ -1960,7 +1991,7 @@ class Client(BaseClient):
             The value of the ``$PATH`` environment variable that is available to both scripts is ``/sbin:bin:/usr/sbin:/usr/bin`` .
             View CloudWatch Logs for notebook instance lifecycle configurations in log group ``/aws/sagemaker/NotebookInstances`` in log stream ``[notebook-instance-name]/[LifecycleConfigHook]`` .
             Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
-            For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+            For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
             - **Content** *(string) --*
               A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
         :rtype: dict
@@ -1971,7 +2002,7 @@ class Client(BaseClient):
     def create_presigned_notebook_instance_url(self, NotebookInstanceName: str, SessionExpirationDurationInSeconds: int = None) -> Dict:
         """
         Returns a URL that you can use to connect to the Jupyter server from a notebook instance. In the Amazon SageMaker console, when you choose ``Open`` next to a notebook instance, Amazon SageMaker opens a new tab showing the Jupyter server home page from the notebook instance. The console uses this API to get the URL and show the page.
-        You can restrict access to this API and to the URL that it returns to a list of IP addresses that you specify. To restrict access, attach an IAM policy that denies access to this API unless the call comes from an IP address in the specified list to every AWS Identity and Access Management user, group, or role used to access the notebook instance. Use the ``NotIpAddress`` condition operator and the ``aws:SourceIP`` condition context key to specify the list of IP addresses that you want to have access to the notebook instance. For more information, see `Limit Access to a Notebook Instance by IP Address <http://docs.aws.amazon.com/sagemaker/latest/dg/howitworks-access-ws.html#nbi-ip-filter>`__ .
+        You can restrict access to this API and to the URL that it returns to a list of IP addresses that you specify. To restrict access, attach an IAM policy that denies access to this API unless the call comes from an IP address in the specified list to every AWS Identity and Access Management user, group, or role used to access the notebook instance. Use the ``NotIpAddress`` condition operator and the ``aws:SourceIP`` condition context key to specify the list of IP addresses that you want to have access to the notebook instance. For more information, see `Limit Access to a Notebook Instance by IP Address <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-ip-filter.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/CreatePresignedNotebookInstanceUrl>`_
         
         **Request Syntax**
@@ -2005,16 +2036,16 @@ class Client(BaseClient):
     def create_training_job(self, TrainingJobName: str, AlgorithmSpecification: Dict, RoleArn: str, OutputDataConfig: Dict, ResourceConfig: Dict, StoppingCondition: Dict, HyperParameters: Dict = None, InputDataConfig: List = None, VpcConfig: Dict = None, Tags: List = None, EnableNetworkIsolation: bool = None, EnableInterContainerTrafficEncryption: bool = None) -> Dict:
         """
         Starts a model training job. After training completes, Amazon SageMaker saves the resulting model artifacts to an Amazon S3 location that you specify. 
-        If you choose to host your model using Amazon SageMaker hosting services, you can use the resulting model artifacts as part of the model. You can also use the artifacts in a deep learning service other than Amazon SageMaker, provided that you know how to use them for inferences. 
+        If you choose to host your model using Amazon SageMaker hosting services, you can use the resulting model artifacts as part of the model. You can also use the artifacts in a machine learning service other than Amazon SageMaker, provided that you know how to use them for inferences. 
         In the request body, you provide the following: 
         * ``AlgorithmSpecification`` - Identifies the training algorithm to use.  
-        * ``HyperParameters`` - Specify these algorithm-specific parameters to influence the quality of the final model. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .  
+        * ``HyperParameters`` - Specify these algorithm-specific parameters to influence the quality of the final model. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .  
         * ``InputDataConfig`` - Describes the training dataset and the Amazon S3 location where it is stored. 
         * ``OutputDataConfig`` - Identifies the Amazon S3 location where you want Amazon SageMaker to save the results of model training.   
         * ``ResourceConfig`` - Identifies the resources, ML compute instances, and ML storage volumes to deploy for model training. In distributed training, you specify more than one instance.  
         * ``RoleARN`` - The Amazon Resource Number (ARN) that Amazon SageMaker assumes to perform tasks on your behalf during model training. You must grant this role the necessary permissions so that Amazon SageMaker can successfully complete model training.  
         * ``StoppingCondition`` - Sets a duration for training. Use this parameter to cap model training costs.  
-        For more information about Amazon SageMaker, see `How It Works <http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html>`__ . 
+        For more information about Amazon SageMaker, see `How It Works <https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/CreateTrainingJob>`_
         
         **Request Syntax**
@@ -2104,19 +2135,19 @@ class Client(BaseClient):
           The name of the training job. The name must be unique within an AWS Region in an AWS account.
         :type HyperParameters: dict
         :param HyperParameters:
-          Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .
+          Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .
           You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value pair. Each key and value is limited to 256 characters, as specified by the ``Length Constraint`` .
           - *(string) --*
             - *(string) --*
         :type AlgorithmSpecification: dict
         :param AlgorithmSpecification: **[REQUIRED]**
-          The registry path of the Docker image that contains the training algorithm and algorithm-specific metadata, including the input mode. For more information about algorithms provided by Amazon SageMaker, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . For information about providing your own algorithms, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
+          The registry path of the Docker image that contains the training algorithm and algorithm-specific metadata, including the input mode. For more information about algorithms provided by Amazon SageMaker, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . For information about providing your own algorithms, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
           - **TrainingImage** *(string) --*
-            The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ .
+            The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ . Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
           - **AlgorithmName** *(string) --*
             The name of the algorithm resource to use for the training job. This must be an algorithm resource that you created or subscribe to on AWS Marketplace. If you specify a value for this parameter, you can\'t specify a value for ``TrainingImage`` .
           - **TrainingInputMode** *(string) --* **[REQUIRED]**
-            The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container.
+            The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container.
             In File mode, make sure you provision ML storage volume with sufficient capacity to accommodate the data download from S3. In addition to the training data, the ML storage volume also stores the output model. The algorithm container use ML storage volume to also store intermediate information, if any.
             For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won\'t be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training.
           - **MetricDefinitions** *(list) --*
@@ -2126,11 +2157,11 @@ class Client(BaseClient):
               - **Name** *(string) --* **[REQUIRED]**
                 The name of the metric.
               - **Regex** *(string) --* **[REQUIRED]**
-                A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
+                A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
         :type RoleArn: string
         :param RoleArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-          During model training, Amazon SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see `Amazon SageMaker Roles <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>`__ .
+          During model training, Amazon SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see `Amazon SageMaker Roles <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>`__ .
           .. note::
             To be able to pass this role to Amazon SageMaker, the caller of this API must have the ``iam:PassRole`` permission.
         :type InputDataConfig: list
@@ -2210,7 +2241,7 @@ class Client(BaseClient):
             * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``
         :type VpcConfig: dict
         :param VpcConfig:
-          A  VpcConfig object that specifies the VPC that you want your training job to connect to. Control access to and from your training container by configuring the VPC. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
+          A  VpcConfig object that specifies the VPC that you want your training job to connect to. Control access to and from your training container by configuring the VPC. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
           - **SecurityGroupIds** *(list) --* **[REQUIRED]**
             The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the ``Subnets`` field.
             - *(string) --*
@@ -2225,7 +2256,7 @@ class Client(BaseClient):
             The maximum length of time, in seconds, that the training job can run. If model training does not complete during this time, Amazon SageMaker ends the job. If value is not specified, default value is 1 day. Maximum value is 28 days.
         :type Tags: list
         :param Tags:
-          An array of key-value pairs. For more information, see `Using Cost Allocation Tags <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
+          An array of key-value pairs. For more information, see `Using Cost Allocation Tags <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --* **[REQUIRED]**
@@ -2239,7 +2270,7 @@ class Client(BaseClient):
             The Semantic Segmentation built-in algorithm does not support network isolation.
         :type EnableInterContainerTrafficEncryption: boolean
         :param EnableInterContainerTrafficEncryption:
-          To encrypt all communications between ML compute instances in distributed training, choose ``True`` ,. Encryption provides greater security for distributed training, but training can take longer because of additional communications between ML compute instances.
+          To encrypt all communications between ML compute instances in distributed training, choose ``True`` . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training. For more information, see `Protect Communications Between ML Compute Instances in a Distributed Training Job <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -2255,7 +2286,7 @@ class Client(BaseClient):
         * ``TransformInput`` - Describes the dataset to be transformed and the Amazon S3 location where it is stored. 
         * ``TransformOutput`` - Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job. 
         * ``TransformResources`` - Identifies the ML compute instances for the transform job. 
-        For more information about how batch transformation works Amazon SageMaker, see `How It Works <http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html>`__ . 
+        For more information about how batch transformation works Amazon SageMaker, see `How It Works <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/CreateTransformJob>`_
         
         **Request Syntax**
@@ -2317,15 +2348,17 @@ class Client(BaseClient):
           The name of the model that you want to use for the transform job. ``ModelName`` must be the name of an existing Amazon SageMaker model within an AWS Region in an AWS account.
         :type MaxConcurrentTransforms: integer
         :param MaxConcurrentTransforms:
-          The maximum number of parallel requests that can be sent to an algorithm container on an instance. This is good for algorithms that implement multiple workers on larger instances . The default value is ``1`` . To allow Amazon SageMaker to determine the appropriate number for ``MaxConcurrentTransforms`` , do not set the value in the API.
+          The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is ``1`` . To allow Amazon SageMaker to determine the appropriate number for ``MaxConcurrentTransforms`` , set the value to ``0`` .
         :type MaxPayloadInMB: integer
         :param MaxPayloadInMB:
-          The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata). The value in ``MaxPayloadInMB`` must be greater or equal to the size of a single record. You can approximate the size of a record by dividing the size of your dataset by the number of records. Then multiply this value by the number of records you want in a mini-batch. We recommend to enter a slightly larger value than this to ensure the records fit within the maximum payload size. The default value is ``6`` MB.
-          For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the value to ``0`` . This feature only works in supported algorithms. Currently, Amazon SageMaker built-in algorithms do not support this feature.
+          The maximum allowed size of the payload, in MB. A *payload* is the data portion of a record (without metadata). The value in ``MaxPayloadInMB`` must be greater than, or equal to, the size of a single record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The default value is ``6`` MB.
+          For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the value to ``0`` . This feature works only in supported algorithms. Currently, Amazon SageMaker built-in algorithms do not support HTTP chunked encoding.
         :type BatchStrategy: string
         :param BatchStrategy:
-          Determines the number of records to include in a mini-batch. If you want to include only one record in a mini-batch, specify ``SingleRecord`` .. If you want mini-batches to contain a maximum of the number of records specified in the ``MaxPayloadInMB`` parameter, specify ``MultiRecord`` .
-          If you set ``SplitType`` to ``Line`` and ``BatchStrategy`` to ``MultiRecord`` , a batch transform automatically splits your input data into the specified payload size. There\'s no need to split the dataset into smaller files or to use larger payload sizes unless the records in your dataset are very large.
+          Specifies the number of records to include in a mini-batch for an HTTP inference request. A *record*  is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
+          To enable the batch strategy, you must set ``SplitType`` to ``Line`` , ``RecordIO`` , or ``TFRecord`` .
+          To use only one record when making an HTTP invocation request to a container, set ``BatchStrategy`` to ``SingleRecord`` and ``SplitType`` to ``Line`` .
+          To fit as many records in a mini-batch as can fit within the ``MaxPayloadInMB`` limit, set ``BatchStrategy`` to ``MultiRecord`` and ``SplitType`` to ``Line`` .
         :type Environment: dict
         :param Environment:
           The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
@@ -2350,16 +2383,17 @@ class Client(BaseClient):
           - **CompressionType** *(string) --*
             If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is ``None`` .
           - **SplitType** *(string) --*
-            The method to use to split the transform job\'s data into smaller batches. If you don\'t want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` . The default value is ``None`` .
-            Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit. For more information, see `RecordIO data format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+            The method to use to split the transform job\'s data files into smaller batches. Splitting is necessary when the total size of each object is too large to fit in a single request. You can also use data splitting to improve performance by processing multiple concurrent mini-batches. The default value for ``SplitType`` is ``None`` , which indicates that input data files are not split, and request payloads contain the entire contents of an input object. Set the value of this parameter to ``Line`` to split records on a newline character boundary. ``SplitType`` also supports a number of record-oriented binary data formats.
+            When splitting is enabled, the size of a mini-batch depends on the values of the ``BatchStrategy`` and ``MaxPayloadInMB`` parameters. When the value of ``BatchStrategy`` is ``MultiRecord`` , Amazon SageMaker sends the maximum number of records in each request, up to the ``MaxPayloadInMB`` limit. If the value of ``BatchStrategy`` is ``SingleRecord`` , Amazon SageMaker sends individual records in each request.
             .. note::
-              For information about the ``RecordIO`` format, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+              Some data formats represent a record as a binary payload wrapped with extra padding bytes. When splitting is applied to a binary data format, padding is removed if the value of ``BatchStrategy`` is set to ``SingleRecord`` . Padding is not removed if the value of ``BatchStrategy`` is set to ``MultiRecord`` .
+              For more information about the RecordIO, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ in the MXNet documentation. For more information about the TFRecord, see `Consuming TFRecord data <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data>`__ in the TensorFlow documentation.
         :type TransformOutput: dict
         :param TransformOutput: **[REQUIRED]**
           Describes the results of the transform job.
           - **S3OutputPath** *(string) --* **[REQUIRED]**
             The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For example, ``s3://bucket-name/key-name-prefix`` .
-            For every S3 object used as input for the transform job, the transformed data is stored in a corresponding subfolder in the location under the output prefix. For example, for the input data ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` the transformed data is stored at ``s3://bucket-name/key-name-prefix/dataset01/`` . This is based on the original name, as a series of .part files (.part0001, part0002, etc.).
+            For every S3 object used as input for the transform job, batch transform stores the transformed data with an .``out`` suffix in a corresponding subfolder in the location in the output prefix. For example, for the input data stored at ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` , batch transform stores the transformed data at ``s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out`` . Batch transform doesn\'t upload partially processed objects. For an input S3 object that contains multiple records, it creates an .``out`` file only if the transform job succeeds on the entire file. When the input contains multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for successfully processed objects. If any object fails in the transform job batch transform marks the job as failed to prompt investigation.
           - **Accept** *(string) --*
             The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
           - **AssembleWith** *(string) --*
@@ -2385,7 +2419,7 @@ class Client(BaseClient):
             * // Amazon Resource Name (ARN) of a KMS Key  ``\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"``
         :type Tags: list
         :param Tags:
-          (Optional) An array of key-value pairs. For more information, see `Using Cost Allocation Tags <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
+          (Optional) An array of key-value pairs. For more information, see `Using Cost Allocation Tags <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --* **[REQUIRED]**
@@ -2539,7 +2573,7 @@ class Client(BaseClient):
 
     def delete_model(self, ModelName: str):
         """
-        Deletes a model. The ``DeleteModel`` API deletes only the model entry that was created in Amazon SageMaker when you called the `CreateModel <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html>`__ API. It does not delete model artifacts, inference code, or the IAM role that you specified when creating the model. 
+        Deletes a model. The ``DeleteModel`` API deletes only the model entry that was created in Amazon SageMaker when you called the `CreateModel <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html>`__ API. It does not delete model artifacts, inference code, or the IAM role that you specified when creating the model. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DeleteModel>`_
         
         **Request Syntax**
@@ -2937,7 +2971,7 @@ class Client(BaseClient):
                   - **Name** *(string) --* 
                     The name of the metric.
                   - **Regex** *(string) --* 
-                    A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
+                    A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
               - **TrainingChannels** *(list) --* 
                 A list of ``ChannelSpecification`` objects, which specify the input sources to be used by the algorithm.
                 - *(dict) --* 
@@ -2977,7 +3011,7 @@ class Client(BaseClient):
                     The DNS host name for the Docker container.
                   - **Image** *(string) --* 
                     The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
-                    If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
+                    If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
                   - **ImageDigest** *(string) --* 
                     An MD5 hash of the training algorithm that identifies the Docker image used for training.
                   - **ModelDataUrl** *(string) --* 
@@ -3010,7 +3044,7 @@ class Client(BaseClient):
                   - **TrainingJobDefinition** *(dict) --* 
                     The ``TrainingJobDefinition`` object that describes the training job that Amazon SageMaker runs to validate your algorithm.
                     - **TrainingInputMode** *(string) --* 
-                      The input mode used by the algorithm for the training job. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .
+                      The input mode used by the algorithm for the training job. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ .
                       If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container.
                     - **HyperParameters** *(dict) --* 
                       The hyperparameters used for the training job.
@@ -3121,15 +3155,16 @@ class Client(BaseClient):
                       - **CompressionType** *(string) --* 
                         If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is ``None`` .
                       - **SplitType** *(string) --* 
-                        The method to use to split the transform job's data into smaller batches. If you don't want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` . The default value is ``None`` . 
-                        Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit. For more information, see `RecordIO data format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                        The method to use to split the transform job's data files into smaller batches. Splitting is necessary when the total size of each object is too large to fit in a single request. You can also use data splitting to improve performance by processing multiple concurrent mini-batches. The default value for ``SplitType`` is ``None`` , which indicates that input data files are not split, and request payloads contain the entire contents of an input object. Set the value of this parameter to ``Line`` to split records on a newline character boundary. ``SplitType`` also supports a number of record-oriented binary data formats.
+                        When splitting is enabled, the size of a mini-batch depends on the values of the ``BatchStrategy`` and ``MaxPayloadInMB`` parameters. When the value of ``BatchStrategy`` is ``MultiRecord`` , Amazon SageMaker sends the maximum number of records in each request, up to the ``MaxPayloadInMB`` limit. If the value of ``BatchStrategy`` is ``SingleRecord`` , Amazon SageMaker sends individual records in each request.
                         .. note::
-                          For information about the ``RecordIO`` format, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                          Some data formats represent a record as a binary payload wrapped with extra padding bytes. When splitting is applied to a binary data format, padding is removed if the value of ``BatchStrategy`` is set to ``SingleRecord`` . Padding is not removed if the value of ``BatchStrategy`` is set to ``MultiRecord`` .
+                          For more information about the RecordIO, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ in the MXNet documentation. For more information about the TFRecord, see `Consuming TFRecord data <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data>`__ in the TensorFlow documentation.
                     - **TransformOutput** *(dict) --* 
                       Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
                       - **S3OutputPath** *(string) --* 
                         The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For example, ``s3://bucket-name/key-name-prefix`` .
-                        For every S3 object used as input for the transform job, the transformed data is stored in a corresponding subfolder in the location under the output prefix. For example, for the input data ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` the transformed data is stored at ``s3://bucket-name/key-name-prefix/dataset01/`` . This is based on the original name, as a series of .part files (.part0001, part0002, etc.).
+                        For every S3 object used as input for the transform job, batch transform stores the transformed data with an .``out`` suffix in a corresponding subfolder in the location in the output prefix. For example, for the input data stored at ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` , batch transform stores the transformed data at ``s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out`` . Batch transform doesn't upload partially processed objects. For an input S3 object that contains multiple records, it creates an .``out`` file only if the transform job succeeds on the entire file. When the input contains multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for successfully processed objects. If any object fails in the transform job batch transform marks the job as failed to prompt investigation.
                       - **Accept** *(string) --* 
                         The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
                       - **AssembleWith** *(string) --* 
@@ -3277,7 +3312,7 @@ class Client(BaseClient):
                 },
                 'OutputConfig': {
                     'S3OutputLocation': 'string',
-                    'TargetDevice': 'ml_m4'|'ml_m5'|'ml_c4'|'ml_c5'|'ml_p2'|'ml_p3'|'jetson_tx1'|'jetson_tx2'|'rasp3b'|'deeplens'
+                    'TargetDevice': 'ml_m4'|'ml_m5'|'ml_c4'|'ml_c5'|'ml_p2'|'ml_p3'|'jetson_tx1'|'jetson_tx2'|'rasp3b'|'deeplens'|'rk3399'|'rk3288'
                 }
             }
         
@@ -3533,7 +3568,7 @@ class Client(BaseClient):
                 'HyperParameterTuningJobName': 'string',
                 'HyperParameterTuningJobArn': 'string',
                 'HyperParameterTuningJobConfig': {
-                    'Strategy': 'Bayesian',
+                    'Strategy': 'Bayesian'|'Random',
                     'HyperParameterTuningJobObjective': {
                         'Type': 'Maximize'|'Minimize',
                         'MetricName': 'string'
@@ -3547,14 +3582,16 @@ class Client(BaseClient):
                             {
                                 'Name': 'string',
                                 'MinValue': 'string',
-                                'MaxValue': 'string'
+                                'MaxValue': 'string',
+                                'ScalingType': 'Auto'|'Linear'|'Logarithmic'|'ReverseLogarithmic'
                             },
                         ],
                         'ContinuousParameterRanges': [
                             {
                                 'Name': 'string',
                                 'MinValue': 'string',
-                                'MaxValue': 'string'
+                                'MaxValue': 'string',
+                                'ScalingType': 'Auto'|'Linear'|'Logarithmic'|'ReverseLogarithmic'
                             },
                         ],
                         'CategoricalParameterRanges': [
@@ -3704,7 +3741,7 @@ class Client(BaseClient):
             - **HyperParameterTuningJobConfig** *(dict) --* 
               The  HyperParameterTuningJobConfig object that specifies the configuration of the tuning job.
               - **Strategy** *(string) --* 
-                Specifies the search strategy for hyperparameters. Currently, the only valid value is ``Bayesian`` .
+                Specifies how hyperparameter tuning chooses the combinations of hyperparameter values to use for the training job it launches. To use the Bayesian search stategy, set this to ``Bayesian`` . To randomly search, set it to ``Random`` . For information about search strategies, see `How Hyperparameter Tuning Works <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html>`__ .
               - **HyperParameterTuningJobObjective** *(dict) --* 
                 The  HyperParameterTuningJobObjective object that specifies the objective metric for this tuning job.
                 - **Type** *(string) --* 
@@ -3729,6 +3766,15 @@ class Client(BaseClient):
                       The minimum value of the hyperparameter to search.
                     - **MaxValue** *(string) --* 
                       The maximum value of the hyperparameter to search.
+                    - **ScalingType** *(string) --* 
+                      The scale that hyperparameter tuning uses to search the hyperparameter range. For information about choosing a hyperparameter scale, see `Hyperparameter Range Scaling <http://docs.aws.amazon.com//sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type>`__ . One of the following values:
+                        Auto  
+                      Amazon SageMaker hyperparameter tuning chooses the best scale for the hyperparameter.
+                        Linear  
+                      Hyperparameter tuning searches the values in the hyperparameter range by using a linear scale.
+                        Logarithmic  
+                      Hyperparemeter tuning searches the values in the hyperparameter range by using a logarithmic scale.
+                      Logarithmic scaling works only for ranges that have only values greater than 0.
                 - **ContinuousParameterRanges** *(list) --* 
                   The array of  ContinuousParameterRange objects that specify ranges of continuous hyperparameters that a hyperparameter tuning job searches.
                   - *(dict) --* 
@@ -3739,6 +3785,18 @@ class Client(BaseClient):
                       The minimum value for the hyperparameter. The tuning job uses floating-point values between this value and ``MaxValue`` for tuning.
                     - **MaxValue** *(string) --* 
                       The maximum value for the hyperparameter. The tuning job uses floating-point values between ``MinValue`` value and this value for tuning.
+                    - **ScalingType** *(string) --* 
+                      The scale that hyperparameter tuning uses to search the hyperparameter range. For information about choosing a hyperparameter scale, see `Hyperparameter Range Scaling <http://docs.aws.amazon.com//sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type>`__ . One of the following values:
+                        Auto  
+                      Amazon SageMaker hyperparameter tuning chooses the best scale for the hyperparameter.
+                        Linear  
+                      Hyperparameter tuning searches the values in the hyperparameter range by using a linear scale.
+                        Logarithmic  
+                      Hyperparemeter tuning searches the values in the hyperparameter range by using a logarithmic scale.
+                      Logarithmic scaling works only for ranges that have only values greater than 0.
+                        ReverseLogarithmic  
+                      Hyperparemeter tuning searches the values in the hyperparameter range by using a reverse logarithmic scale.
+                      Reverse logarithmic scaling works only for ranges that are entirely within the range 0<=x<1.0.
                 - **CategoricalParameterRanges** *(list) --* 
                   The array of  CategoricalParameterRange objects that specify ranges of categorical hyperparameters that a hyperparameter tuning job searches.
                   - *(dict) --* 
@@ -3763,11 +3821,11 @@ class Client(BaseClient):
               - **AlgorithmSpecification** *(dict) --* 
                 The  HyperParameterAlgorithmSpecification object that specifies the resource algorithm to use for the training jobs that the tuning job launches.
                 - **TrainingImage** *(string) --* 
-                  The registry path of the Docker image that contains the training algorithm. For information about Docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ .
+                  The registry path of the Docker image that contains the training algorithm. For information about Docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ . Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
                 - **TrainingInputMode** *(string) --* 
                   The input mode that the algorithm supports: File or Pipe. In File input mode, Amazon SageMaker downloads the training data from Amazon S3 to the storage volume that is attached to the training instance and mounts the directory to the Docker volume for the training container. In Pipe input mode, Amazon SageMaker streams data directly from Amazon S3 to the container. 
                   If you specify File mode, make sure that you provision the storage volume that is attached to the training instance with enough capacity to accommodate the training data downloaded from Amazon S3, the model artifacts, and intermediate information.
-                  For more information about input modes, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . 
+                  For more information about input modes, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . 
                 - **AlgorithmName** *(string) --* 
                   The name of the resource algorithm to use for the hyperparameter tuning job. If you specify a value for this parameter, do not specify a value for ``TrainingImage`` .
                 - **MetricDefinitions** *(list) --* 
@@ -3777,7 +3835,7 @@ class Client(BaseClient):
                     - **Name** *(string) --* 
                       The name of the metric.
                     - **Regex** *(string) --* 
-                      A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
+                      A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
               - **RoleArn** *(string) --* 
                 The Amazon Resource Name (ARN) of the IAM role associated with the training jobs that the tuning job launches.
               - **InputDataConfig** *(list) --* 
@@ -3822,7 +3880,7 @@ class Client(BaseClient):
                     - **Seed** *(integer) --* 
                       Determines the shuffling order in ``ShuffleConfig`` value.
               - **VpcConfig** *(dict) --* 
-                The  VpcConfig object that specifies the VPC that you want the training jobs that this hyperparameter tuning job launches to connect to. Control access to and from your training container by configuring the VPC. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
+                The  VpcConfig object that specifies the VPC that you want the training jobs that this hyperparameter tuning job launches to connect to. Control access to and from your training container by configuring the VPC. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
                 - **SecurityGroupIds** *(list) --* 
                   The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the ``Subnets`` field.
                   - *(string) --* 
@@ -3869,7 +3927,7 @@ class Client(BaseClient):
                 .. note::
                   The Semantic Segmentation built-in algorithm does not support network isolation.
               - **EnableInterContainerTrafficEncryption** *(boolean) --* 
-                To encrypt all communications between ML compute instances in distributed training, specify ``True`` . Encryption provides greater security for distributed training, but training take longer because of the additional communications between ML compute instances.
+                To encrypt all communications between ML compute instances in distributed training, choose ``True`` . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
             - **HyperParameterTuningJobStatus** *(string) --* 
               The status of the tuning job: InProgress, Completed, Failed, Stopping, or Stopped.
             - **CreationTime** *(datetime) --* 
@@ -3971,7 +4029,7 @@ class Client(BaseClient):
             - **WarmStartConfig** *(dict) --* 
               The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.
               - **ParentHyperParameterTuningJobs** *(list) --* 
-                An array of hyperparameter tuning jobs that are used as the starting point for the new hyperparameter tuning job. For more information about warm starting a hyperparameter tuning job, see `Using a Previous Hyperparameter Tuning Job as a Starting Point <http://docs.aws.amazon.com/automatic-model-tuning-incremental>`__ .
+                An array of hyperparameter tuning jobs that are used as the starting point for the new hyperparameter tuning job. For more information about warm starting a hyperparameter tuning job, see `Using a Previous Hyperparameter Tuning Job as a Starting Point <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-warm-start.html>`__ .
                 Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent jobs for warm start tuning jobs.
                 - *(dict) --* 
                   A previously completed or stopped hyperparameter tuning job to be used as a starting point for a new hyperparameter tuning job.
@@ -4331,9 +4389,9 @@ class Client(BaseClient):
             - **PrimaryContainer** *(dict) --* 
               The location of the primary inference code, associated artifacts, and custom environment map that the inference code uses when it is deployed in production. 
               - **ContainerHostname** *(string) --* 
-                The DNS host name for the container after Amazon SageMaker deploys it.
+                This parameter is ignored.
               - **Image** *(string) --* 
-                The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__  
+                The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__  
               - **ModelDataUrl** *(string) --* 
                 The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). 
                 If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see `Activating and Deactivating AWS STS in an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide* .
@@ -4348,9 +4406,9 @@ class Client(BaseClient):
               - *(dict) --* 
                 Describes the container, as part of model definition.
                 - **ContainerHostname** *(string) --* 
-                  The DNS host name for the container after Amazon SageMaker deploys it.
+                  This parameter is ignored.
                 - **Image** *(string) --* 
-                  The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__  
+                  The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored. If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__  
                 - **ModelDataUrl** *(string) --* 
                   The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). 
                   If you provide a value for this parameter, Amazon SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see `Activating and Deactivating AWS STS in an AWS Region <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *AWS Identity and Access Management User Guide* .
@@ -4363,7 +4421,7 @@ class Client(BaseClient):
             - **ExecutionRoleArn** *(string) --* 
               The Amazon Resource Name (ARN) of the IAM role that you specified for the model.
             - **VpcConfig** *(dict) --* 
-              A  VpcConfig object that specifies the VPC that this model has access to. For more information, see `Protect Endpoints by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html>`__  
+              A  VpcConfig object that specifies the VPC that this model has access to. For more information, see `Protect Endpoints by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html>`__  
               - **SecurityGroupIds** *(list) --* 
                 The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the ``Subnets`` field.
                 - *(string) --* 
@@ -4514,7 +4572,7 @@ class Client(BaseClient):
                     The DNS host name for the Docker container.
                   - **Image** *(string) --* 
                     The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
-                    If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
+                    If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
                   - **ImageDigest** *(string) --* 
                     An MD5 hash of the training algorithm that identifies the Docker image used for training.
                   - **ModelDataUrl** *(string) --* 
@@ -4585,15 +4643,16 @@ class Client(BaseClient):
                       - **CompressionType** *(string) --* 
                         If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is ``None`` .
                       - **SplitType** *(string) --* 
-                        The method to use to split the transform job's data into smaller batches. If you don't want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` . The default value is ``None`` . 
-                        Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit. For more information, see `RecordIO data format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                        The method to use to split the transform job's data files into smaller batches. Splitting is necessary when the total size of each object is too large to fit in a single request. You can also use data splitting to improve performance by processing multiple concurrent mini-batches. The default value for ``SplitType`` is ``None`` , which indicates that input data files are not split, and request payloads contain the entire contents of an input object. Set the value of this parameter to ``Line`` to split records on a newline character boundary. ``SplitType`` also supports a number of record-oriented binary data formats.
+                        When splitting is enabled, the size of a mini-batch depends on the values of the ``BatchStrategy`` and ``MaxPayloadInMB`` parameters. When the value of ``BatchStrategy`` is ``MultiRecord`` , Amazon SageMaker sends the maximum number of records in each request, up to the ``MaxPayloadInMB`` limit. If the value of ``BatchStrategy`` is ``SingleRecord`` , Amazon SageMaker sends individual records in each request.
                         .. note::
-                          For information about the ``RecordIO`` format, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                          Some data formats represent a record as a binary payload wrapped with extra padding bytes. When splitting is applied to a binary data format, padding is removed if the value of ``BatchStrategy`` is set to ``SingleRecord`` . Padding is not removed if the value of ``BatchStrategy`` is set to ``MultiRecord`` .
+                          For more information about the RecordIO, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ in the MXNet documentation. For more information about the TFRecord, see `Consuming TFRecord data <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data>`__ in the TensorFlow documentation.
                     - **TransformOutput** *(dict) --* 
                       Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
                       - **S3OutputPath** *(string) --* 
                         The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For example, ``s3://bucket-name/key-name-prefix`` .
-                        For every S3 object used as input for the transform job, the transformed data is stored in a corresponding subfolder in the location under the output prefix. For example, for the input data ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` the transformed data is stored at ``s3://bucket-name/key-name-prefix/dataset01/`` . This is based on the original name, as a series of .part files (.part0001, part0002, etc.).
+                        For every S3 object used as input for the transform job, batch transform stores the transformed data with an .``out`` suffix in a corresponding subfolder in the location in the output prefix. For example, for the input data stored at ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` , batch transform stores the transformed data at ``s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out`` . Batch transform doesn't upload partially processed objects. For an input S3 object that contains multiple records, it creates an .``out`` file only if the transform job succeeds on the entire file. When the input contains multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for successfully processed objects. If any object fails in the transform job batch transform marks the job as failed to prompt investigation.
                       - **Accept** *(string) --* 
                         The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
                       - **AssembleWith** *(string) --* 
@@ -4688,7 +4747,8 @@ class Client(BaseClient):
                 'DefaultCodeRepository': 'string',
                 'AdditionalCodeRepositories': [
                     'string',
-                ]
+                ],
+                'RootAccess': 'Enabled'|'Disabled'
             }
         
         **Response Structure**
@@ -4722,10 +4782,10 @@ class Client(BaseClient):
               A timestamp. Use this parameter to return the time when the notebook instance was created
             - **NotebookInstanceLifecycleConfigName** *(string) --* 
               Returns the name of a notebook instance lifecycle configuration.
-              For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__  
+              For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__  
             - **DirectInternetAccess** *(string) --* 
-              Describes whether Amazon SageMaker provides internet access to the notebook instance. If this value is set to *Disabled, he notebook instance does not have internet access, and cannot connect to Amazon SageMaker training and endpoint services* .
-              For more information, see `Notebook Instances Are Internet-Enabled by Default <http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access>`__ .
+              Describes whether Amazon SageMaker provides internet access to the notebook instance. If this value is set to *Disabled* , the notebook instance does not have internet access, and cannot connect to Amazon SageMaker training and endpoint services.
+              For more information, see `Notebook Instances Are Internet-Enabled by Default <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access>`__ .
             - **VolumeSizeInGB** *(integer) --* 
               The size, in GB, of the ML storage volume attached to the notebook instance.
             - **AcceleratorTypes** *(list) --* 
@@ -4736,6 +4796,10 @@ class Client(BaseClient):
             - **AdditionalCodeRepositories** *(list) --* 
               An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in `AWS CodeCommit <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html>`__ or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see `Associating Git Repositories with Amazon SageMaker Notebook Instances <http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html>`__ .
               - *(string) --* 
+            - **RootAccess** *(string) --* 
+              Whether root access is enabled or disabled for users of the notebook instance.
+              .. note::
+                Lifecycle configurations need root access to be able to set up a notebook instance. Because of this, lifecycle configurations associated with a notebook instance always run with root access even if you disable root access for users.
         :type NotebookInstanceName: string
         :param NotebookInstanceName: **[REQUIRED]**
           The name of the notebook instance that you want information about.
@@ -4747,7 +4811,7 @@ class Client(BaseClient):
     def describe_notebook_instance_lifecycle_config(self, NotebookInstanceLifecycleConfigName: str) -> Dict:
         """
         Returns a description of a notebook instance lifecycle configuration.
-        For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+        For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeNotebookInstanceLifecycleConfig>`_
         
         **Request Syntax**
@@ -4789,7 +4853,7 @@ class Client(BaseClient):
                 The value of the ``$PATH`` environment variable that is available to both scripts is ``/sbin:bin:/usr/sbin:/usr/bin`` .
                 View CloudWatch Logs for notebook instance lifecycle configurations in log group ``/aws/sagemaker/NotebookInstances`` in log stream ``[notebook-instance-name]/[LifecycleConfigHook]`` .
                 Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
-                For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+                For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
                 - **Content** *(string) --* 
                   A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
             - **OnStart** *(list) --* 
@@ -4800,7 +4864,7 @@ class Client(BaseClient):
                 The value of the ``$PATH`` environment variable that is available to both scripts is ``/sbin:bin:/usr/sbin:/usr/bin`` .
                 View CloudWatch Logs for notebook instance lifecycle configurations in log group ``/aws/sagemaker/NotebookInstances`` in log stream ``[notebook-instance-name]/[LifecycleConfigHook]`` .
                 Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
-                For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+                For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
                 - **Content** *(string) --* 
                   A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
             - **LastModifiedTime** *(datetime) --* 
@@ -5019,11 +5083,11 @@ class Client(BaseClient):
             - **AlgorithmSpecification** *(dict) --* 
               Information about the algorithm used for training, and algorithm metadata. 
               - **TrainingImage** *(string) --* 
-                The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ .
+                The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ . Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
               - **AlgorithmName** *(string) --* 
                 The name of the algorithm resource to use for the training job. This must be an algorithm resource that you created or subscribe to on AWS Marketplace. If you specify a value for this parameter, you can't specify a value for ``TrainingImage`` .
               - **TrainingInputMode** *(string) --* 
-                The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container. 
+                The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container. 
                 In File mode, make sure you provision ML storage volume with sufficient capacity to accommodate the data download from S3. In addition to the training data, the ML storage volume also stores the output model. The algorithm container use ML storage volume to also store intermediate information, if any. 
                 For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won't be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. 
               - **MetricDefinitions** *(list) --* 
@@ -5033,7 +5097,7 @@ class Client(BaseClient):
                   - **Name** *(string) --* 
                     The name of the metric.
                   - **Regex** *(string) --* 
-                    A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
+                    A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
             - **RoleArn** *(string) --* 
               The AWS Identity and Access Management (IAM) role configured for the training job. 
             - **InputDataConfig** *(list) --* 
@@ -5106,7 +5170,7 @@ class Client(BaseClient):
                 * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
                 * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
             - **VpcConfig** *(dict) --* 
-              A  VpcConfig object that specifies the VPC that this training job has access to. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
+              A  VpcConfig object that specifies the VPC that this training job has access to. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
               - **SecurityGroupIds** *(list) --* 
                 The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the ``Subnets`` field.
                 - *(string) --* 
@@ -5187,7 +5251,7 @@ class Client(BaseClient):
               .. note::
                 The Semantic Segmentation built-in algorithm does not support network isolation.
             - **EnableInterContainerTrafficEncryption** *(boolean) --* 
-              To encrypt all communications between ML compute instances in distributed training, specify ``True`` . Encryption provides greater security for distributed training, but training take longer because of the additional communications between ML compute instances.
+              To encrypt all communications between ML compute instances in distributed training, choose ``True`` . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
         :type TrainingJobName: string
         :param TrainingJobName: **[REQUIRED]**
           The name of the training job.
@@ -5258,7 +5322,7 @@ class Client(BaseClient):
             - **TransformJobStatus** *(string) --* 
               The status of the transform job. If the transform job failed, the reason is returned in the ``FailureReason`` field.
             - **FailureReason** *(string) --* 
-              If the transform job failed, the reason that it failed.
+              If the transform job failed, ``FailureReason`` describes why it failed. A transform job creates a log file, which includes error messages, and stores it as an Amazon S3 object. For more information, see `Log Amazon SageMaker Events with Amazon CloudWatch <http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html>`__ .
             - **ModelName** *(string) --* 
               The name of the model used in the transform job.
             - **MaxConcurrentTransforms** *(integer) --* 
@@ -5266,8 +5330,10 @@ class Client(BaseClient):
             - **MaxPayloadInMB** *(integer) --* 
               The maximum payload size, in MB, used in the transform job.
             - **BatchStrategy** *(string) --* 
-              If you want to include only one record in a batch, specify ``SingleRecord`` .. If you want batches to contain a maximum of the number of records specified in the ``MaxPayloadInMB`` parameter, specify ``MultiRecord`` .S
+              Specifies the number of records to include in a mini-batch for an HTTP inference request. A *record*  is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record. 
+              To enable the batch strategy, you must set ``SplitType`` to ``Line`` , ``RecordIO`` , or ``TFRecord`` .
             - **Environment** *(dict) --* 
+              The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
               - *(string) --* 
                 - *(string) --* 
             - **TransformInput** *(dict) --* 
@@ -5288,15 +5354,16 @@ class Client(BaseClient):
               - **CompressionType** *(string) --* 
                 If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is ``None`` .
               - **SplitType** *(string) --* 
-                The method to use to split the transform job's data into smaller batches. If you don't want to split the data, specify ``None`` . If you want to split records on a newline character boundary, specify ``Line`` . To split records according to the RecordIO format, specify ``RecordIO`` . The default value is ``None`` . 
-                Amazon SageMaker sends the maximum number of records per batch in each request up to the MaxPayloadInMB limit. For more information, see `RecordIO data format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                The method to use to split the transform job's data files into smaller batches. Splitting is necessary when the total size of each object is too large to fit in a single request. You can also use data splitting to improve performance by processing multiple concurrent mini-batches. The default value for ``SplitType`` is ``None`` , which indicates that input data files are not split, and request payloads contain the entire contents of an input object. Set the value of this parameter to ``Line`` to split records on a newline character boundary. ``SplitType`` also supports a number of record-oriented binary data formats.
+                When splitting is enabled, the size of a mini-batch depends on the values of the ``BatchStrategy`` and ``MaxPayloadInMB`` parameters. When the value of ``BatchStrategy`` is ``MultiRecord`` , Amazon SageMaker sends the maximum number of records in each request, up to the ``MaxPayloadInMB`` limit. If the value of ``BatchStrategy`` is ``SingleRecord`` , Amazon SageMaker sends individual records in each request.
                 .. note::
-                  For information about the ``RecordIO`` format, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ .
+                  Some data formats represent a record as a binary payload wrapped with extra padding bytes. When splitting is applied to a binary data format, padding is removed if the value of ``BatchStrategy`` is set to ``SingleRecord`` . Padding is not removed if the value of ``BatchStrategy`` is set to ``MultiRecord`` .
+                  For more information about the RecordIO, see `Data Format <http://mxnet.io/architecture/note_data_loading.html#data-format>`__ in the MXNet documentation. For more information about the TFRecord, see `Consuming TFRecord data <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data>`__ in the TensorFlow documentation.
             - **TransformOutput** *(dict) --* 
               Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
               - **S3OutputPath** *(string) --* 
                 The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For example, ``s3://bucket-name/key-name-prefix`` .
-                For every S3 object used as input for the transform job, the transformed data is stored in a corresponding subfolder in the location under the output prefix. For example, for the input data ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` the transformed data is stored at ``s3://bucket-name/key-name-prefix/dataset01/`` . This is based on the original name, as a series of .part files (.part0001, part0002, etc.).
+                For every S3 object used as input for the transform job, batch transform stores the transformed data with an .``out`` suffix in a corresponding subfolder in the location in the output prefix. For example, for the input data stored at ``s3://bucket-name/input-name-prefix/dataset01/data.csv`` , batch transform stores the transformed data at ``s3://bucket-name/output-name-prefix/input-name-prefix/data.csv.out`` . Batch transform doesn't upload partially processed objects. For an input S3 object that contains multiple records, it creates an .``out`` file only if the transform job succeeds on the entire file. When the input contains multiple S3 objects, the batch transform job processes the listed S3 objects and uploads only the output for successfully processed objects. If any object fails in the transform job batch transform marks the job as failed to prompt investigation.
               - **Accept** *(string) --* 
                 The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
               - **AssembleWith** *(string) --* 
@@ -5713,7 +5780,7 @@ class Client(BaseClient):
                         'CreationTime': datetime(2015, 1, 1),
                         'CompilationStartTime': datetime(2015, 1, 1),
                         'CompilationEndTime': datetime(2015, 1, 1),
-                        'CompilationTargetDevice': 'ml_m4'|'ml_m5'|'ml_c4'|'ml_c5'|'ml_p2'|'ml_p3'|'jetson_tx1'|'jetson_tx2'|'rasp3b'|'deeplens',
+                        'CompilationTargetDevice': 'ml_m4'|'ml_m5'|'ml_c4'|'ml_c5'|'ml_p2'|'ml_p3'|'jetson_tx1'|'jetson_tx2'|'rasp3b'|'deeplens'|'rk3399'|'rk3288',
                         'LastModifiedTime': datetime(2015, 1, 1),
                         'CompilationJobStatus': 'INPROGRESS'|'COMPLETED'|'FAILED'|'STARTING'|'STOPPING'|'STOPPED'
                     },
@@ -5829,7 +5896,7 @@ class Client(BaseClient):
           The field to sort results by. The default is ``CreationTime`` .
         :type SortOrder: string
         :param SortOrder:
-          The sort order for results. The default is ``Ascending`` .
+          The sort order for results. The default is ``Descending`` .
         :type NextToken: string
         :param NextToken:
           If the result of the previous ``ListEndpointConfig`` request was truncated, the response includes a ``NextToken`` . To retrieve the next set of endpoint configurations, use the token in the next request.
@@ -5904,7 +5971,7 @@ class Client(BaseClient):
                   * ``OutOfService`` : Endpoint is not available to take incoming requests. 
                   * ``Creating`` :  CreateEndpoint is executing. 
                   * ``Updating`` :  UpdateEndpoint or  UpdateEndpointWeightsAndCapacities is executing. 
-                  * ``SystemUpdating`` : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This mainenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count. 
+                  * ``SystemUpdating`` : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count. 
                   * ``RollingBack`` : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an ``InService`` status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an  UpdateEndpointWeightsAndCapacities call or when the  UpdateEndpointWeightsAndCapacities operation is called explicitly. 
                   * ``InService`` : Endpoint is available to process incoming requests. 
                   * ``Deleting`` :  DeleteEndpoint is executing. 
@@ -5917,7 +5984,7 @@ class Client(BaseClient):
           Sorts the list of results. The default is ``CreationTime`` .
         :type SortOrder: string
         :param SortOrder:
-          The sort order for results. The default is ``Ascending`` .
+          The sort order for results. The default is ``Descending`` .
         :type NextToken: string
         :param NextToken:
           If the result of a ``ListEndpoints`` request was truncated, the response includes a ``NextToken`` . To retrieve the next set of endpoints, use the token in the next request.
@@ -5975,7 +6042,7 @@ class Client(BaseClient):
                         'HyperParameterTuningJobName': 'string',
                         'HyperParameterTuningJobArn': 'string',
                         'HyperParameterTuningJobStatus': 'Completed'|'InProgress'|'Failed'|'Stopped'|'Stopping',
-                        'Strategy': 'Bayesian',
+                        'Strategy': 'Bayesian'|'Random',
                         'CreationTime': datetime(2015, 1, 1),
                         'HyperParameterTuningEndTime': datetime(2015, 1, 1),
                         'LastModifiedTime': datetime(2015, 1, 1),
@@ -6404,7 +6471,7 @@ class Client(BaseClient):
 
     def list_models(self, SortBy: str = None, SortOrder: str = None, NextToken: str = None, MaxResults: int = None, NameContains: str = None, CreationTimeBefore: datetime = None, CreationTimeAfter: datetime = None) -> Dict:
         """
-        Lists models created with the `CreateModel <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html>`__ API.
+        Lists models created with the `CreateModel <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html>`__ API.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/ListModels>`_
         
         **Request Syntax**
@@ -6451,7 +6518,7 @@ class Client(BaseClient):
           Sorts the list of results. The default is ``CreationTime`` .
         :type SortOrder: string
         :param SortOrder:
-          The sort order for results. The default is ``Ascending`` .
+          The sort order for results. The default is ``Descending`` .
         :type NextToken: string
         :param NextToken:
           If the response to a previous ``ListModels`` request was truncated, the response includes a ``NextToken`` . To retrieve the next set of models, use the token in the next request.
@@ -6622,7 +6689,7 @@ class Client(BaseClient):
                   A timestamp that shows when the notebook instance was last modified.
                 - **NotebookInstanceLifecycleConfigName** *(string) --* 
                   The name of a notebook instance lifecycle configuration associated with this notebook instance.
-                  For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+                  For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
                 - **DefaultCodeRepository** *(string) --* 
                   The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in `AWS CodeCommit <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html>`__ or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see `Associating Git Repositories with Amazon SageMaker Notebook Instances <http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html>`__ .
                 - **AdditionalCodeRepositories** *(list) --* 
@@ -7369,6 +7436,7 @@ class Client(BaseClient):
                                 },
                             ],
                             'EnableNetworkIsolation': True|False,
+                            'EnableInterContainerTrafficEncryption': True|False,
                             'Tags': [
                                 {
                                     'Key': 'string',
@@ -7442,11 +7510,11 @@ class Client(BaseClient):
                   - **AlgorithmSpecification** *(dict) --* 
                     Information about the algorithm used for training, and algorithm metadata.
                     - **TrainingImage** *(string) --* 
-                      The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ .
+                      The registry path of the Docker image that contains the training algorithm. For information about docker registry paths for built-in algorithms, see `Algorithms Provided by Amazon SageMaker\: Common Parameters <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html>`__ . Amazon SageMaker supports both ``registry/repository[:tag]`` and ``registry/repository[@digest]`` image path formats. For more information, see `Using Your Own Algorithms with Amazon SageMaker <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html>`__ .
                     - **AlgorithmName** *(string) --* 
                       The name of the algorithm resource to use for the training job. This must be an algorithm resource that you created or subscribe to on AWS Marketplace. If you specify a value for this parameter, you can't specify a value for ``TrainingImage`` .
                     - **TrainingInputMode** *(string) --* 
-                      The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container. 
+                      The input mode that the algorithm supports. For the input modes that Amazon SageMaker algorithms support, see `Algorithms <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html>`__ . If an algorithm supports the ``File`` input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the ``Pipe`` input mode, Amazon SageMaker streams data directly from S3 to the container. 
                       In File mode, make sure you provision ML storage volume with sufficient capacity to accommodate the data download from S3. In addition to the training data, the ML storage volume also stores the output model. The algorithm container use ML storage volume to also store intermediate information, if any. 
                       For distributed algorithms using File mode, training data is distributed uniformly, and your training duration is predictable if the input data objects size is approximately same. Amazon SageMaker does not split the files any further for model training. If the object sizes are skewed, training won't be optimal as the data distribution is also skewed where one host in a training cluster is overloaded, thus becoming bottleneck in training. 
                     - **MetricDefinitions** *(list) --* 
@@ -7456,7 +7524,7 @@ class Client(BaseClient):
                         - **Name** *(string) --* 
                           The name of the metric.
                         - **Regex** *(string) --* 
-                          A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
+                          A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see `Defining Objective Metrics <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html>`__ .
                   - **RoleArn** *(string) --* 
                     The AWS Identity and Access Management (IAM) role configured for the training job.
                   - **InputDataConfig** *(list) --* 
@@ -7529,7 +7597,7 @@ class Client(BaseClient):
                       * // KMS Key ID  ``"1234abcd-12ab-34cd-56ef-1234567890ab"``   
                       * // Amazon Resource Name (ARN) of a KMS Key  ``"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"``   
                   - **VpcConfig** *(dict) --* 
-                    A  VpcConfig object that specifies the VPC that this training job has access to. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
+                    A  VpcConfig object that specifies the VPC that this training job has access to. For more information, see `Protect Training Jobs by Using an Amazon Virtual Private Cloud <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html>`__ .
                     - **SecurityGroupIds** *(list) --* 
                       The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the ``Subnets`` field.
                       - *(string) --* 
@@ -7607,8 +7675,10 @@ class Client(BaseClient):
                         The date and time that the algorithm emitted the metric.
                   - **EnableNetworkIsolation** *(boolean) --* 
                     If the ``TrainingJob`` was created with network isolation, the value is set to ``true`` . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
+                  - **EnableInterContainerTrafficEncryption** *(boolean) --* 
+                    To encrypt all communications between ML compute instances in distributed training, choose ``True`` . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
                   - **Tags** *(list) --* 
-                    An array of key-value pairs. For more information, see `Using Cost Allocation Tags <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
+                    An array of key-value pairs. For more information, see `Using Cost Allocation Tags <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what>`__ in the *AWS Billing and Cost Management User Guide* .
                     - *(dict) --* 
                       Describes a tag. 
                       - **Key** *(string) --* 
@@ -7841,7 +7911,6 @@ class Client(BaseClient):
     def stop_training_job(self, TrainingJobName: str):
         """
         Stops a training job. To stop a job, Amazon SageMaker sends the algorithm the ``SIGTERM`` signal, which delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts, so the results of the training is not lost. 
-        Training algorithms provided by Amazon SageMaker save the intermediate results of a model training job. This intermediate data is a valid model artifact. You can use the model artifacts that are saved when Amazon SageMaker stops a training job to create a model. 
         When it receives a ``StopTrainingJob`` request, Amazon SageMaker changes the status of the job to ``Stopping`` . After Amazon SageMaker stops the job, it sets the status to ``Stopped`` .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/StopTrainingJob>`_
         
@@ -7917,7 +7986,7 @@ class Client(BaseClient):
     def update_endpoint(self, EndpointName: str, EndpointConfigName: str) -> Dict:
         """
         Deploys the new ``EndpointConfig`` specified in the request, switches to using newly created endpoint, and then deletes resources provisioned for the endpoint using the previous ``EndpointConfig`` (there is no availability loss). 
-        When Amazon SageMaker receives the request, it sets the endpoint status to ``Updating`` . After updating the endpoint, it sets the status to ``InService`` . To check the status of an endpoint, use the `DescribeEndpoint <http://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html>`__ API. 
+        When Amazon SageMaker receives the request, it sets the endpoint status to ``Updating`` . After updating the endpoint, it sets the status to ``InService`` . To check the status of an endpoint, use the `DescribeEndpoint <https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html>`__ API. 
         .. note::
           You cannot update an endpoint with the current ``EndpointConfig`` . To update an endpoint, you must create a new ``EndpointConfig`` .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/UpdateEndpoint>`_
@@ -7952,7 +8021,7 @@ class Client(BaseClient):
 
     def update_endpoint_weights_and_capacities(self, EndpointName: str, DesiredWeightsAndCapacities: List) -> Dict:
         """
-        Updates variant weight of one or more variants associated with an existing endpoint, or capacity of one variant associated with an existing endpoint. When it receives the request, Amazon SageMaker sets the endpoint status to ``Updating`` . After updating the endpoint, it sets the status to ``InService`` . To check the status of an endpoint, use the `DescribeEndpoint <http://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html>`__ API. 
+        Updates variant weight of one or more variants associated with an existing endpoint, or capacity of one variant associated with an existing endpoint. When it receives the request, Amazon SageMaker sets the endpoint status to ``Updating`` . After updating the endpoint, it sets the status to ``InService`` . To check the status of an endpoint, use the `DescribeEndpoint <https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html>`__ API. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/UpdateEndpointWeightsAndCapacities>`_
         
         **Request Syntax**
@@ -7997,7 +8066,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_notebook_instance(self, NotebookInstanceName: str, InstanceType: str = None, RoleArn: str = None, LifecycleConfigName: str = None, DisassociateLifecycleConfig: bool = None, VolumeSizeInGB: int = None, DefaultCodeRepository: str = None, AdditionalCodeRepositories: List = None, AcceleratorTypes: List = None, DisassociateAcceleratorTypes: bool = None, DisassociateDefaultCodeRepository: bool = None, DisassociateAdditionalCodeRepositories: bool = None) -> Dict:
+    def update_notebook_instance(self, NotebookInstanceName: str, InstanceType: str = None, RoleArn: str = None, LifecycleConfigName: str = None, DisassociateLifecycleConfig: bool = None, VolumeSizeInGB: int = None, DefaultCodeRepository: str = None, AdditionalCodeRepositories: List = None, AcceleratorTypes: List = None, DisassociateAcceleratorTypes: bool = None, DisassociateDefaultCodeRepository: bool = None, DisassociateAdditionalCodeRepositories: bool = None, RootAccess: str = None) -> Dict:
         """
         Updates a notebook instance. NotebookInstance updates include upgrading or downgrading the ML compute instance used for your notebook instance to accommodate changes in your workload requirements. You can also update the VPC security groups.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/UpdateNotebookInstance>`_
@@ -8020,7 +8089,8 @@ class Client(BaseClient):
               ],
               DisassociateAcceleratorTypes=True|False,
               DisassociateDefaultCodeRepository=True|False,
-              DisassociateAdditionalCodeRepositories=True|False
+              DisassociateAdditionalCodeRepositories=True|False,
+              RootAccess='Enabled'|'Disabled'
           )
         
         **Response Syntax**
@@ -8037,12 +8107,12 @@ class Client(BaseClient):
           The Amazon ML compute instance type.
         :type RoleArn: string
         :param RoleArn:
-          The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance. For more information, see `Amazon SageMaker Roles <http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>`__ .
+          The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance. For more information, see `Amazon SageMaker Roles <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html>`__ .
           .. note::
             To be able to pass this role to Amazon SageMaker, the caller of this API must have the ``iam:PassRole`` permission.
         :type LifecycleConfigName: string
         :param LifecycleConfigName:
-          The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+          The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
         :type DisassociateLifecycleConfig: boolean
         :param DisassociateLifecycleConfig:
           Set to ``true`` to remove the notebook instance lifecycle configuration currently associated with the notebook instance.
@@ -8054,7 +8124,7 @@ class Client(BaseClient):
           The Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in `AWS CodeCommit <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html>`__ or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see `Associating Git Repositories with Amazon SageMaker Notebook Instances <http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html>`__ .
         :type AdditionalCodeRepositories: list
         :param AdditionalCodeRepositories:
-          An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in `AWS CodeCommit <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html>`__ or in any other Git repository.. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see `Associating Git Repositories with Amazon SageMaker Notebook Instances <http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html>`__ .
+          An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in `AWS CodeCommit <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html>`__ or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see `Associating Git Repositories with Amazon SageMaker Notebook Instances <http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html>`__ .
           - *(string) --*
         :type AcceleratorTypes: list
         :param AcceleratorTypes:
@@ -8069,6 +8139,11 @@ class Client(BaseClient):
         :type DisassociateAdditionalCodeRepositories: boolean
         :param DisassociateAdditionalCodeRepositories:
           A list of names or URLs of the default Git repositories to remove from this notebook instance.
+        :type RootAccess: string
+        :param RootAccess:
+          Whether root access is enabled or disabled for users of the notebook instance. The default value is ``Enabled`` .
+          .. note::
+            If you set this to ``Disabled`` , users don\'t have root access on the notebook instance, but lifecycle configuration scripts still run with root permissions.
         :rtype: dict
         :returns:
         """
@@ -8113,7 +8188,7 @@ class Client(BaseClient):
             The value of the ``$PATH`` environment variable that is available to both scripts is ``/sbin:bin:/usr/sbin:/usr/bin`` .
             View CloudWatch Logs for notebook instance lifecycle configurations in log group ``/aws/sagemaker/NotebookInstances`` in log stream ``[notebook-instance-name]/[LifecycleConfigHook]`` .
             Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
-            For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+            For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
             - **Content** *(string) --*
               A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
         :type OnStart: list
@@ -8125,7 +8200,7 @@ class Client(BaseClient):
             The value of the ``$PATH`` environment variable that is available to both scripts is ``/sbin:bin:/usr/sbin:/usr/bin`` .
             View CloudWatch Logs for notebook instance lifecycle configurations in log group ``/aws/sagemaker/NotebookInstances`` in log stream ``[notebook-instance-name]/[LifecycleConfigHook]`` .
             Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
-            For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
+            For information about notebook instance lifestyle configurations, see `Step 2.1\: (Optional) Customize a Notebook Instance <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html>`__ .
             - **Content** *(string) --*
               A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
         :rtype: dict

@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -149,7 +149,7 @@ class Client(BaseClient):
         """
         pass
 
-    def associate_skill_with_users(self, SkillId: str, OrganizationArn: str = None) -> Dict:
+    def associate_skill_with_users(self, SkillId: str) -> Dict:
         """
         Makes a private skill available for enrolled users to enable on their devices.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/AssociateSkillWithUsers>`_
@@ -157,7 +157,6 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.associate_skill_with_users(
-              OrganizationArn='string',
               SkillId='string'
           )
         
@@ -167,12 +166,9 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-        :type OrganizationArn: string
-        :param OrganizationArn:
-          The ARN of the organization.
         :type SkillId: string
         :param SkillId: **[REQUIRED]**
-          The private skill ID you want to make available to enrolled users.>
+          The private skill ID you want to make available to enrolled users.
         :rtype: dict
         :returns:
         """
@@ -267,7 +263,7 @@ class Client(BaseClient):
           The name identifier of the schedule.
         :type S3BucketName: string
         :param S3BucketName:
-          The S3 bucket name of the output reports.
+          The S3 bucket name of the output reports. If this isn\'t specified, the report can be retrieved from a download link by calling ListBusinessReportSchedule.
         :type S3KeyPrefix: string
         :param S3KeyPrefix:
           The S3 key where the report is delivered.
@@ -281,7 +277,7 @@ class Client(BaseClient):
             The interval of the content range.
         :type Recurrence: dict
         :param Recurrence:
-          The recurrence of the reports.
+          The recurrence of the reports. If this isn\'t specified, the report will only be delivered one time when the API is called.
           - **StartDate** *(string) --*
             The start date.
         :type ClientRequestToken: string
@@ -407,6 +403,44 @@ class Client(BaseClient):
         :type ClientRequestToken: string
         :param ClientRequestToken:
           A unique, user-specified identifier for this request that ensures idempotency.
+          This field is autopopulated if not provided.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def create_gateway_group(self, Name: str, ClientRequestToken: str, Description: str = None) -> Dict:
+        """
+        Creates a gateway group with the specified details.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/CreateGatewayGroup>`_
+        
+        **Request Syntax**
+        ::
+          response = client.create_gateway_group(
+              Name='string',
+              Description='string',
+              ClientRequestToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'GatewayGroupArn': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **GatewayGroupArn** *(string) --* 
+              The ARN of the created gateway group.
+        :type Name: string
+        :param Name: **[REQUIRED]**
+          The name of the gateway group.
+        :type Description: string
+        :param Description:
+          The description of the gateway group.
+        :type ClientRequestToken: string
+        :param ClientRequestToken: **[REQUIRED]**
+          A unique, user-specified identifier for the request that ensures idempotency.
           This field is autopopulated if not provided.
         :rtype: dict
         :returns:
@@ -764,6 +798,31 @@ class Client(BaseClient):
         """
         pass
 
+    def delete_gateway_group(self, GatewayGroupArn: str) -> Dict:
+        """
+        Deletes a gateway group.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DeleteGatewayGroup>`_
+        
+        **Request Syntax**
+        ::
+          response = client.delete_gateway_group(
+              GatewayGroupArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type GatewayGroupArn: string
+        :param GatewayGroupArn: **[REQUIRED]**
+          The ARN of the gateway group to delete.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def delete_profile(self, ProfileArn: str = None) -> Dict:
         """
         Deletes a room profile by the profile ARN.
@@ -1013,7 +1072,7 @@ class Client(BaseClient):
         """
         pass
 
-    def disassociate_skill_from_users(self, SkillId: str, OrganizationArn: str = None) -> Dict:
+    def disassociate_skill_from_users(self, SkillId: str) -> Dict:
         """
         Makes a private skill unavailable for enrolled users and prevents them from enabling it on their devices.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DisassociateSkillFromUsers>`_
@@ -1021,7 +1080,6 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.disassociate_skill_from_users(
-              OrganizationArn='string',
               SkillId='string'
           )
         
@@ -1031,9 +1089,6 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-        :type OrganizationArn: string
-        :param OrganizationArn:
-          The ARN of the organization.
         :type SkillId: string
         :param SkillId: **[REQUIRED]**
           The private skill ID you want to make unavailable for enrolled users.
@@ -1365,6 +1420,123 @@ class Client(BaseClient):
         :type DeviceArn: string
         :param DeviceArn:
           The ARN of the device for which to request details. Required.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def get_gateway(self, GatewayArn: str) -> Dict:
+        """
+        Retrieves the details of a gateway.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetGateway>`_
+        
+        **Request Syntax**
+        ::
+          response = client.get_gateway(
+              GatewayArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Gateway': {
+                    'Arn': 'string',
+                    'Name': 'string',
+                    'Description': 'string',
+                    'GatewayGroupArn': 'string',
+                    'SoftwareVersion': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Gateway** *(dict) --* 
+              The details of the gateway.
+              - **Arn** *(string) --* 
+                The ARN of the gateway.
+              - **Name** *(string) --* 
+                The name of the gateway.
+              - **Description** *(string) --* 
+                The description of the gateway.
+              - **GatewayGroupArn** *(string) --* 
+                The ARN of the gateway group that the gateway is associated to.
+              - **SoftwareVersion** *(string) --* 
+                The software version of the gateway. The gateway automatically updates its software version during normal operation.
+        :type GatewayArn: string
+        :param GatewayArn: **[REQUIRED]**
+          The ARN of the gateway to get.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def get_gateway_group(self, GatewayGroupArn: str) -> Dict:
+        """
+        Retrieves the details of a gateway group.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetGatewayGroup>`_
+        
+        **Request Syntax**
+        ::
+          response = client.get_gateway_group(
+              GatewayGroupArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'GatewayGroup': {
+                    'Arn': 'string',
+                    'Name': 'string',
+                    'Description': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **GatewayGroup** *(dict) --* 
+              The details of the gateway group.
+              - **Arn** *(string) --* 
+                The ARN of the gateway group.
+              - **Name** *(string) --* 
+                The name of the gateway group.
+              - **Description** *(string) --* 
+                The description of the gateway group.
+        :type GatewayGroupArn: string
+        :param GatewayGroupArn: **[REQUIRED]**
+          The ARN of the gateway group to get.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def get_invitation_configuration(self) -> Dict:
+        """
+        Retrieves the configured values for the user enrollment invitation email template.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetInvitationConfiguration>`_
+        
+        **Request Syntax**
+        ::
+          response = client.get_invitation_configuration()
+        
+        **Response Syntax**
+        ::
+            {
+                'OrganizationName': 'string',
+                'ContactEmail': 'string',
+                'PrivateSkillIds': [
+                    'string',
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **OrganizationName** *(string) --* 
+              The name of the organization sending the enrollment invite to a user.
+            - **ContactEmail** *(string) --* 
+              The email ID of the organization or individual contact that the enrolled user can use. 
+            - **PrivateSkillIds** *(list) --* 
+              The list of private skill IDs that you want to recommend to the user to enable in the invitation.
+              - *(string) --* 
         :rtype: dict
         :returns:
         """
@@ -1830,6 +2002,116 @@ class Client(BaseClient):
         """
         pass
 
+    def list_gateway_groups(self, NextToken: str = None, MaxResults: int = None) -> Dict:
+        """
+        Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of a specific gateway group.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/ListGatewayGroups>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_gateway_groups(
+              NextToken='string',
+              MaxResults=123
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'GatewayGroups': [
+                    {
+                        'Arn': 'string',
+                        'Name': 'string',
+                        'Description': 'string'
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **GatewayGroups** *(list) --* 
+              The gateway groups in the list.
+              - *(dict) --* 
+                The summary of a gateway group.
+                - **Arn** *(string) --* 
+                  The ARN of the gateway group.
+                - **Name** *(string) --* 
+                  The name of the gateway group.
+                - **Description** *(string) --* 
+                  The description of the gateway group.
+            - **NextToken** *(string) --* 
+              The token used to paginate though multiple pages of gateway group summaries.
+        :type NextToken: string
+        :param NextToken:
+          The token used to paginate though multiple pages of gateway group summaries.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of gateway group summaries to return. The default is 50.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_gateways(self, GatewayGroupArn: str = None, NextToken: str = None, MaxResults: int = None) -> Dict:
+        """
+        Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries of gateways that are associated with that gateway group ARN.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/ListGateways>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_gateways(
+              GatewayGroupArn='string',
+              NextToken='string',
+              MaxResults=123
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Gateways': [
+                    {
+                        'Arn': 'string',
+                        'Name': 'string',
+                        'Description': 'string',
+                        'GatewayGroupArn': 'string',
+                        'SoftwareVersion': 'string'
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Gateways** *(list) --* 
+              The gateways in the list.
+              - *(dict) --* 
+                The summary of a gateway.
+                - **Arn** *(string) --* 
+                  The ARN of the gateway.
+                - **Name** *(string) --* 
+                  The name of the gateway.
+                - **Description** *(string) --* 
+                  The description of the gateway.
+                - **GatewayGroupArn** *(string) --* 
+                  The ARN of the gateway group that the gateway is associated to.
+                - **SoftwareVersion** *(string) --* 
+                  The software version of the gateway. The gateway automatically updates its software version during normal operation.
+            - **NextToken** *(string) --* 
+              The token used to paginate though multiple pages of gateway summaries.
+        :type GatewayGroupArn: string
+        :param GatewayGroupArn:
+          The gateway group ARN for which to list gateways.
+        :type NextToken: string
+        :param NextToken:
+          The token used to paginate though multiple pages of gateway summaries.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of gateway summaries to return. The default is 50.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def list_skills(self, SkillGroupArn: str = None, EnablementType: str = None, SkillType: str = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
         Lists all enabled skills in a specific skill group.
@@ -1880,7 +2162,7 @@ class Client(BaseClient):
               The token returned to indicate that there is more data available.
         :type SkillGroupArn: string
         :param SkillGroupArn:
-          The ARN of the skill group for which to list enabled skills.
+          The ARN of the skill group for which to list enabled skills. Required.
         :type EnablementType: string
         :param EnablementType:
           Whether the skill is enabled under the user\'s account, or if it requires linking to be used.
@@ -1889,10 +2171,10 @@ class Client(BaseClient):
           Whether the skill is publicly available or is a private skill.
         :type NextToken: string
         :param NextToken:
-          An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by ``MaxResults`` .
+          An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by ``MaxResults`` . Required.
         :type MaxResults: integer
         :param MaxResults:
-          The maximum number of results to include in the response. If more results exist than the specified ``MaxResults`` value, a token is included in the response so that the remaining results can be retrieved.
+          The maximum number of results to include in the response. If more results exist than the specified ``MaxResults`` value, a token is included in the response so that the remaining results can be retrieved. Required.
         :rtype: dict
         :returns:
         """
@@ -2203,6 +2485,42 @@ class Client(BaseClient):
           The conference preference of a specific conference provider.
           - **DefaultConferenceProviderArn** *(string) --*
             The ARN of the default conference provider.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def put_invitation_configuration(self, OrganizationName: str, ContactEmail: str = None, PrivateSkillIds: List = None) -> Dict:
+        """
+        Configures the email template for the user enrollment invitation with the specified attributes.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/PutInvitationConfiguration>`_
+        
+        **Request Syntax**
+        ::
+          response = client.put_invitation_configuration(
+              OrganizationName='string',
+              ContactEmail='string',
+              PrivateSkillIds=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type OrganizationName: string
+        :param OrganizationName: **[REQUIRED]**
+          The name of the organization sending the enrollment invite to a user.
+        :type ContactEmail: string
+        :param ContactEmail:
+          The email ID of the organization or individual contact that the enrolled user can use.
+        :type PrivateSkillIds: list
+        :param PrivateSkillIds:
+          The list of private skill IDs that you want to recommend to the user to enable in the invitation.
+          - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -3481,6 +3799,76 @@ class Client(BaseClient):
         :type DeviceName: string
         :param DeviceName:
           The updated device name. Required.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def update_gateway(self, GatewayArn: str, Name: str = None, Description: str = None, SoftwareVersion: str = None) -> Dict:
+        """
+        Updates the details of a gateway. If any optional field is not provided, the existing corresponding value is left unmodified.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateGateway>`_
+        
+        **Request Syntax**
+        ::
+          response = client.update_gateway(
+              GatewayArn='string',
+              Name='string',
+              Description='string',
+              SoftwareVersion='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type GatewayArn: string
+        :param GatewayArn: **[REQUIRED]**
+          The ARN of the gateway to update.
+        :type Name: string
+        :param Name:
+          The updated name of the gateway.
+        :type Description: string
+        :param Description:
+          The updated description of the gateway.
+        :type SoftwareVersion: string
+        :param SoftwareVersion:
+          The updated software version of the gateway. The gateway automatically updates its software version during normal operation.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def update_gateway_group(self, GatewayGroupArn: str, Name: str = None, Description: str = None) -> Dict:
+        """
+        Updates the details of a gateway group. If any optional field is not provided, the existing corresponding value is left unmodified.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateGatewayGroup>`_
+        
+        **Request Syntax**
+        ::
+          response = client.update_gateway_group(
+              GatewayGroupArn='string',
+              Name='string',
+              Description='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type GatewayGroupArn: string
+        :param GatewayGroupArn: **[REQUIRED]**
+          The ARN of the gateway group to update.
+        :type Name: string
+        :param Name:
+          The updated name of the gateway group.
+        :type Description: string
+        :param Description:
+          The updated description of the gateway group.
         :rtype: dict
         :returns:
         """

@@ -1,13 +1,16 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
+    def accept_direct_connect_gateway_association_proposal(self, directConnectGatewayId: str, proposalId: str, associatedGatewayOwnerAccount: str, overrideAllowedPrefixesToDirectConnectGateway: List = None) -> Dict:
+        pass
+
     def allocate_connection_on_interconnect(self, bandwidth: str, connectionName: str, ownerAccount: str, interconnectId: str, vlan: int) -> Dict:
         pass
 
@@ -18,6 +21,9 @@ class Client(BaseClient):
         pass
 
     def allocate_public_virtual_interface(self, connectionId: str, ownerAccount: str, newPublicVirtualInterfaceAllocation: Dict) -> Dict:
+        pass
+
+    def allocate_transit_virtual_interface(self, connectionId: str, ownerAccount: str, newTransitVirtualInterfaceAllocation: Dict) -> Dict:
         pass
 
     def associate_connection_with_lag(self, connectionId: str, lagId: str) -> Dict:
@@ -41,6 +47,9 @@ class Client(BaseClient):
     def confirm_public_virtual_interface(self, virtualInterfaceId: str) -> Dict:
         pass
 
+    def confirm_transit_virtual_interface(self, virtualInterfaceId: str, directConnectGatewayId: str) -> Dict:
+        pass
+
     def create_bgp_peer(self, virtualInterfaceId: str = None, newBGPPeer: Dict = None) -> Dict:
         pass
 
@@ -50,7 +59,10 @@ class Client(BaseClient):
     def create_direct_connect_gateway(self, directConnectGatewayName: str, amazonSideAsn: int = None) -> Dict:
         pass
 
-    def create_direct_connect_gateway_association(self, directConnectGatewayId: str, virtualGatewayId: str) -> Dict:
+    def create_direct_connect_gateway_association(self, directConnectGatewayId: str, gatewayId: str = None, addAllowedPrefixesToDirectConnectGateway: List = None, virtualGatewayId: str = None) -> Dict:
+        pass
+
+    def create_direct_connect_gateway_association_proposal(self, directConnectGatewayId: str, directConnectGatewayOwnerAccount: str, gatewayId: str, addAllowedPrefixesToDirectConnectGateway: List = None, removeAllowedPrefixesToDirectConnectGateway: List = None) -> Dict:
         pass
 
     def create_interconnect(self, interconnectName: str, bandwidth: str, location: str, lagId: str = None) -> Dict:
@@ -65,6 +77,9 @@ class Client(BaseClient):
     def create_public_virtual_interface(self, connectionId: str, newPublicVirtualInterface: Dict) -> Dict:
         pass
 
+    def create_transit_virtual_interface(self, connectionId: str, newTransitVirtualInterface: Dict) -> Dict:
+        pass
+
     def delete_bgp_peer(self, virtualInterfaceId: str = None, asn: int = None, customerAddress: str = None, bgpPeerId: str = None) -> Dict:
         pass
 
@@ -74,7 +89,10 @@ class Client(BaseClient):
     def delete_direct_connect_gateway(self, directConnectGatewayId: str) -> Dict:
         pass
 
-    def delete_direct_connect_gateway_association(self, directConnectGatewayId: str, virtualGatewayId: str) -> Dict:
+    def delete_direct_connect_gateway_association(self, associationId: str = None, directConnectGatewayId: str = None, virtualGatewayId: str = None) -> Dict:
+        pass
+
+    def delete_direct_connect_gateway_association_proposal(self, proposalId: str) -> Dict:
         pass
 
     def delete_interconnect(self, interconnectId: str) -> Dict:
@@ -95,7 +113,10 @@ class Client(BaseClient):
     def describe_connections_on_interconnect(self, interconnectId: str) -> Dict:
         pass
 
-    def describe_direct_connect_gateway_associations(self, directConnectGatewayId: str = None, virtualGatewayId: str = None, maxResults: int = None, nextToken: str = None) -> Dict:
+    def describe_direct_connect_gateway_association_proposals(self, directConnectGatewayId: str = None, proposalId: str = None, associatedGatewayId: str = None, maxResults: int = None, nextToken: str = None) -> Dict:
+        pass
+
+    def describe_direct_connect_gateway_associations(self, associationId: str = None, associatedGatewayId: str = None, directConnectGatewayId: str = None, maxResults: int = None, nextToken: str = None, virtualGatewayId: str = None) -> Dict:
         pass
 
     def describe_direct_connect_gateway_attachments(self, directConnectGatewayId: str = None, virtualInterfaceId: str = None, maxResults: int = None, nextToken: str = None) -> Dict:
@@ -147,6 +168,9 @@ class Client(BaseClient):
         pass
 
     def untag_resource(self, resourceArn: str, tagKeys: List) -> Dict:
+        pass
+
+    def update_direct_connect_gateway_association(self, associationId: str = None, addAllowedPrefixesToDirectConnectGateway: List = None, removeAllowedPrefixesToDirectConnectGateway: List = None) -> Dict:
         pass
 
     def update_lag(self, lagId: str, lagName: str = None, minimumLinks: int = None) -> Dict:

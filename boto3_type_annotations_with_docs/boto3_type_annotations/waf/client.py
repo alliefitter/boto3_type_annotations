@@ -1,10 +1,10 @@
-from typing import Union
-from botocore.paginate import Paginator
-from typing import List
-from botocore.waiter import Waiter
 from typing import Optional
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -31,7 +31,7 @@ class Client(BaseClient):
         * Submit a ``CreateByteMatchSet`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an ``UpdateByteMatchSet`` request. 
         * Submit an  UpdateByteMatchSet request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the value that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateByteMatchSet>`_
         
         **Request Syntax**
@@ -189,7 +189,7 @@ class Client(BaseClient):
         * Submit a ``CreateGeoMatchSet`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateGeoMatchSet request. 
         * Submit an ``UpdateGeoMatchSetSet`` request to specify the countries that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateGeoMatchSet>`_
         
         **Request Syntax**
@@ -253,7 +253,7 @@ class Client(BaseClient):
         * Submit a ``CreateIPSet`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateIPSet request. 
         * Submit an ``UpdateIPSet`` request to specify the IP addresses that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateIPSet>`_
         
         **Request Syntax**
@@ -336,7 +336,7 @@ class Client(BaseClient):
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateRule request. 
         * Submit an ``UpdateRateBasedRule`` request to specify the predicates that you want to include in the rule. 
         * Create and update a ``WebACL`` that contains the ``RateBasedRule`` . For more information, see  CreateWebACL . 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateRateBasedRule>`_
         
         **Request Syntax**
@@ -424,7 +424,7 @@ class Client(BaseClient):
         * Submit a ``CreateRegexMatchSet`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an ``UpdateRegexMatchSet`` request. 
         * Submit an  UpdateRegexMatchSet request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the value, using a ``RegexPatternSet`` , that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateRegexMatchSet>`_
         
         **Request Syntax**
@@ -551,7 +551,7 @@ class Client(BaseClient):
         * Submit a ``CreateRegexPatternSet`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an ``UpdateRegexPatternSet`` request. 
         * Submit an  UpdateRegexPatternSet request to specify the string that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateRegexPatternSet>`_
         
         **Request Syntax**
@@ -612,7 +612,7 @@ class Client(BaseClient):
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateRule request. 
         * Submit an ``UpdateRule`` request to specify the predicates that you want to include in the ``Rule`` . 
         * Create and update a ``WebACL`` that contains the ``Rule`` . For more information, see  CreateWebACL . 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateRule>`_
         
         **Request Syntax**
@@ -686,7 +686,7 @@ class Client(BaseClient):
         * Three rule groups per account. You can request an increase to this limit by contacting customer support. 
         * One rule group per web ACL. 
         * Ten rules per rule group. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateRuleGroup>`_
         
         **Request Syntax**
@@ -743,7 +743,7 @@ class Client(BaseClient):
         * Submit a ``CreateSizeConstraintSet`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an ``UpdateSizeConstraintSet`` request. 
         * Submit an  UpdateSizeConstraintSet request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the value that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateSizeConstraintSet>`_
         
         **Request Syntax**
@@ -875,7 +875,7 @@ class Client(BaseClient):
         * Submit a ``CreateSqlInjectionMatchSet`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateSqlInjectionMatchSet request. 
         * Submit an  UpdateSqlInjectionMatchSet request to specify the parts of web requests in which you want to allow, block, or count malicious SQL code. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateSqlInjectionMatchSet>`_
         
         **Request Syntax**
@@ -996,7 +996,7 @@ class Client(BaseClient):
         * Submit a ``CreateWebACL`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateWebACL request. 
         * Submit an  UpdateWebACL request to specify the ``Rules`` that you want to include in the ``WebACL`` , to specify the default action, and to associate the ``WebACL`` with a CloudFront distribution. 
-        For more information about how to use the AWS WAF API, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateWebACL>`_
         
         **Request Syntax**
@@ -1095,7 +1095,7 @@ class Client(BaseClient):
                     Sometimes it is necessary to troubleshoot rule groups that are blocking traffic unexpectedly (false positives). One troubleshooting technique is to identify the specific rule within the rule group that is blocking the legitimate traffic and then disable (exclude) that particular rule. You can exclude rules from both your own rule groups and AWS Marketplace rule groups that have been associated with a web ACL.
                     Specifying ``ExcludedRules`` does not remove those rules from the rule group. Rather, it changes the action for the rules to ``COUNT`` . Therefore, requests that match an ``ExcludedRule`` are counted but not blocked. The ``RuleGroup`` owner will receive COUNT metrics for each ``ExcludedRule`` .
                     If you want to exclude rules from a rule group that is already associated with a web ACL, perform the following steps:
-                    * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <http://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ . 
+                    * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ . 
                     * Submit an  UpdateWebACL request that has two actions: 
                       * The first action deletes the existing rule group from the web ACL. That is, in the  UpdateWebACL request, the first ``Updates:Action`` should be ``DELETE`` and ``Updates:ActivatedRule:RuleId`` should be the rule group that contains the rules that you want to exclude. 
                       * The second action inserts the same rule group back in, but specifying the rules to exclude. That is, the second ``Updates:Action`` should be ``INSERT`` , ``Updates:ActivatedRule:RuleId`` should be the rule group that you just removed, and ``ExcludedRules`` should contain the rules that you want to exclude. 
@@ -1137,7 +1137,7 @@ class Client(BaseClient):
         * Submit a ``CreateXssMatchSet`` request. 
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateXssMatchSet request. 
         * Submit an  UpdateXssMatchSet request to specify the parts of web requests in which you want to allow, block, or count cross-site scripting attacks. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/CreateXssMatchSet>`_
         
         **Request Syntax**
@@ -1948,7 +1948,7 @@ class Client(BaseClient):
         Returns the status of a ``ChangeToken`` that you got by calling  GetChangeToken . ``ChangeTokenStatus`` is one of the following values:
         * ``PROVISIONED`` : You requested the change token by calling ``GetChangeToken`` , but you haven't used it yet in a call to create, update, or delete an AWS WAF object. 
         * ``PENDING`` : AWS WAF is propagating the create, update, or delete request to all AWS WAF servers. 
-        * ``IN_SYNC`` : Propagation is complete. 
+        * ``INSYNC`` : Propagation is complete. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/GetChangeTokenStatus>`_
         
         **Request Syntax**
@@ -3010,7 +3010,7 @@ class Client(BaseClient):
                     Sometimes it is necessary to troubleshoot rule groups that are blocking traffic unexpectedly (false positives). One troubleshooting technique is to identify the specific rule within the rule group that is blocking the legitimate traffic and then disable (exclude) that particular rule. You can exclude rules from both your own rule groups and AWS Marketplace rule groups that have been associated with a web ACL.
                     Specifying ``ExcludedRules`` does not remove those rules from the rule group. Rather, it changes the action for the rules to ``COUNT`` . Therefore, requests that match an ``ExcludedRule`` are counted but not blocked. The ``RuleGroup`` owner will receive COUNT metrics for each ``ExcludedRule`` .
                     If you want to exclude rules from a rule group that is already associated with a web ACL, perform the following steps:
-                    * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <http://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ . 
+                    * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ . 
                     * Submit an  UpdateWebACL request that has two actions: 
                       * The first action deletes the existing rule group from the web ACL. That is, in the  UpdateWebACL request, the first ``Updates:Action`` should be ``DELETE`` and ``Updates:ActivatedRule:RuleId`` should be the rule group that contains the rules that you want to exclude. 
                       * The second action inserts the same rule group back in, but specifying the rules to exclude. That is, the second ``Updates:Action`` should be ``INSERT`` , ``Updates:ActivatedRule:RuleId`` should be the rule group that you just removed, and ``ExcludedRules`` should contain the rules that you want to exclude. 
@@ -3211,7 +3211,7 @@ class Client(BaseClient):
                   Sometimes it is necessary to troubleshoot rule groups that are blocking traffic unexpectedly (false positives). One troubleshooting technique is to identify the specific rule within the rule group that is blocking the legitimate traffic and then disable (exclude) that particular rule. You can exclude rules from both your own rule groups and AWS Marketplace rule groups that have been associated with a web ACL.
                   Specifying ``ExcludedRules`` does not remove those rules from the rule group. Rather, it changes the action for the rules to ``COUNT`` . Therefore, requests that match an ``ExcludedRule`` are counted but not blocked. The ``RuleGroup`` owner will receive COUNT metrics for each ``ExcludedRule`` .
                   If you want to exclude rules from a rule group that is already associated with a web ACL, perform the following steps:
-                  * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <http://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ . 
+                  * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ . 
                   * Submit an  UpdateWebACL request that has two actions: 
                     * The first action deletes the existing rule group from the web ACL. That is, in the  UpdateWebACL request, the first ``Updates:Action`` should be ``DELETE`` and ``Updates:ActivatedRule:RuleId`` should be the rule group that contains the rules that you want to exclude. 
                     * The second action inserts the same rule group back in, but specifying the rules to exclude. That is, the second ``Updates:Action`` should be ``INSERT`` , ``Updates:ActivatedRule:RuleId`` should be the rule group that you just removed, and ``ExcludedRules`` should contain the rules that you want to exclude. 
@@ -3936,9 +3936,9 @@ class Client(BaseClient):
         """
         Associates a  LoggingConfiguration with a specified web ACL.
         You can access information about all traffic that AWS WAF inspects using the following steps:
-        * Create an Amazon Kinesis Data Firehose .  
+        * Create an Amazon Kinesis Data Firehose .  Create the data firehose with a PUT source and in the region that you are operating. However, if you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia).  
         * Associate that firehose to your web ACL using a ``PutLoggingConfiguration`` request. 
-        When you successfully enable logging using a ``PutLoggingConfiguration`` request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose. For more information, see `Logging Web ACL Traffic Information <http://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ in the *AWS WAF Developer Guide* .
+        When you successfully enable logging using a ``PutLoggingConfiguration`` request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose. For more information, see `Logging Web ACL Traffic Information <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ in the *AWS WAF Developer Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/PutLoggingConfiguration>`_
         
         **Request Syntax**
@@ -4084,7 +4084,7 @@ class Client(BaseClient):
         * Create a ``ByteMatchSet.`` For more information, see  CreateByteMatchSet . 
         * Use  GetChangeToken to get the change token that you provide in the ``ChangeToken`` parameter of an ``UpdateByteMatchSet`` request. 
         * Submit an ``UpdateByteMatchSet`` request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the value that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateByteMatchSet>`_
         
         **Request Syntax**
@@ -4232,7 +4232,7 @@ class Client(BaseClient):
         * Use  GetChangeToken to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateGeoMatchSet request. 
         * Submit an ``UpdateGeoMatchSet`` request to specify the country that you want AWS WAF to watch for. 
         When you update an ``GeoMatchSet`` , you specify the country that you want to add and/or the country that you want to delete. If you want to change a country, you delete the existing country and add the new one.
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateGeoMatchSet>`_
         
         **Request Syntax**
@@ -4293,7 +4293,7 @@ class Client(BaseClient):
         * Whether to insert or delete the object from the array. If you want to change an ``IPSetDescriptor`` object, you delete the existing object and add a new one. 
         * The IP address version, ``IPv4`` or ``IPv6`` .  
         * The IP address in CIDR notation, for example, ``192.0.2.0/24`` (for the range of IP addresses from ``192.0.2.0`` to ``192.0.2.255`` ) or ``192.0.2.44/32`` (for the individual IP address ``192.0.2.44`` ).  
-        AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32. AWS WAF supports IPv6 address ranges: /16, /24, /32, /48, /56, /64, and /128. For more information about CIDR notation, see the Wikipedia entry `Classless Inter-Domain Routing <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__ .
+        AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32. AWS WAF supports IPv6 address ranges: /24, /32, /48, /56, /64, and /128. For more information about CIDR notation, see the Wikipedia entry `Classless Inter-Domain Routing <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__ .
         IPv6 addresses can be represented using any of the following formats:
         * 1111:0000:0000:0000:0000:0000:0000:0111/128 
         * 1111:0:0:0:0:0:0:0111/128 
@@ -4306,7 +4306,7 @@ class Client(BaseClient):
         * Submit an ``UpdateIPSet`` request to specify the IP addresses that you want AWS WAF to watch for. 
         When you update an ``IPSet`` , you specify the IP addresses that you want to add and/or the IP addresses that you want to delete. If you want to change an IP address, you delete the existing IP address and add the new one.
         You can insert a maximum of 1000 addresses in a single request.
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateIPSet>`_
         
         **Request Syntax**
@@ -4455,7 +4455,7 @@ class Client(BaseClient):
         * Create a ``RegexMatchSet.`` For more information, see  CreateRegexMatchSet . 
         * Use  GetChangeToken to get the change token that you provide in the ``ChangeToken`` parameter of an ``UpdateRegexMatchSet`` request. 
         * Submit an ``UpdateRegexMatchSet`` request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the identifier of the ``RegexPatternSet`` that contain the regular expression patters you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateRegexMatchSet>`_
         
         **Request Syntax**
@@ -4573,7 +4573,7 @@ class Client(BaseClient):
         * Create a ``RegexPatternSet.`` For more information, see  CreateRegexPatternSet . 
         * Use  GetChangeToken to get the change token that you provide in the ``ChangeToken`` parameter of an ``UpdateRegexPatternSet`` request. 
         * Submit an ``UpdateRegexPatternSet`` request to specify the regular expression pattern that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateRegexPatternSet>`_
         
         **Request Syntax**
@@ -4632,7 +4632,7 @@ class Client(BaseClient):
         * Submit an ``UpdateRule`` request to add predicates to the ``Rule`` . 
         * Create and update a ``WebACL`` that contains the ``Rule`` . See  CreateWebACL . 
         If you want to replace one ``ByteMatchSet`` or ``IPSet`` with another, you delete the existing one and add the new one.
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateRule>`_
         
         **Request Syntax**
@@ -4703,7 +4703,7 @@ class Client(BaseClient):
         * Submit an ``UpdateRuleGroup`` request to add ``Rules`` to the ``RuleGroup`` . 
         * Create and update a ``WebACL`` that contains the ``RuleGroup`` . See  CreateWebACL . 
         If you want to replace one ``Rule`` with another, you delete the existing one and add the new one.
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateRuleGroup>`_
         
         **Request Syntax**
@@ -4787,7 +4787,7 @@ class Client(BaseClient):
                 Sometimes it is necessary to troubleshoot rule groups that are blocking traffic unexpectedly (false positives). One troubleshooting technique is to identify the specific rule within the rule group that is blocking the legitimate traffic and then disable (exclude) that particular rule. You can exclude rules from both your own rule groups and AWS Marketplace rule groups that have been associated with a web ACL.
                 Specifying ``ExcludedRules`` does not remove those rules from the rule group. Rather, it changes the action for the rules to ``COUNT`` . Therefore, requests that match an ``ExcludedRule`` are counted but not blocked. The ``RuleGroup`` owner will receive COUNT metrics for each ``ExcludedRule`` .
                 If you want to exclude rules from a rule group that is already associated with a web ACL, perform the following steps:
-                * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <http://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ .
+                * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ .
                 * Submit an  UpdateWebACL request that has two actions:
                   * The first action deletes the existing rule group from the web ACL. That is, in the  UpdateWebACL request, the first ``Updates:Action`` should be ``DELETE`` and ``Updates:ActivatedRule:RuleId`` should be the rule group that contains the rules that you want to exclude.
                   * The second action inserts the same rule group back in, but specifying the rules to exclude. That is, the second ``Updates:Action`` should be ``INSERT`` , ``Updates:ActivatedRule:RuleId`` should be the rule group that you just removed, and ``ExcludedRules`` should contain the rules that you want to exclude.
@@ -4816,7 +4816,7 @@ class Client(BaseClient):
         * Create a ``SizeConstraintSet.`` For more information, see  CreateSizeConstraintSet . 
         * Use  GetChangeToken to get the change token that you provide in the ``ChangeToken`` parameter of an ``UpdateSizeConstraintSet`` request. 
         * Submit an ``UpdateSizeConstraintSet`` request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the value that you want AWS WAF to watch for. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateSizeConstraintSet>`_
         
         **Request Syntax**
@@ -4945,7 +4945,7 @@ class Client(BaseClient):
         * Submit a  CreateSqlInjectionMatchSet request. 
         * Use  GetChangeToken to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateIPSet request. 
         * Submit an ``UpdateSqlInjectionMatchSet`` request to specify the parts of web requests that you want AWS WAF to inspect for snippets of SQL code. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateSqlInjectionMatchSet>`_
         
         **Request Syntax**
@@ -5063,7 +5063,7 @@ class Client(BaseClient):
         * Use ``GetChangeToken`` to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateWebACL request. 
         * Submit an ``UpdateWebACL`` request to specify the ``Rules`` that you want to include in the ``WebACL`` , to specify the default action, and to associate the ``WebACL`` with a CloudFront distribution.  The ``ActivatedRule`` can be a rule group. If you specify a rule group as your ``ActivatedRule`` , you can exclude specific rules from that rule group. If you already have a rule group associated with a web ACL and want to submit an ``UpdateWebACL`` request to exclude certain rules from that rule group, you must first remove the rule group from the web ACL, the re-insert it again, specifying the excluded rules. For details, see  ActivatedRule$ExcludedRules .  
         Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the  UpdateWebACL request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateWebACL>`_
         
         **Request Syntax**
@@ -5155,7 +5155,7 @@ class Client(BaseClient):
                 Sometimes it is necessary to troubleshoot rule groups that are blocking traffic unexpectedly (false positives). One troubleshooting technique is to identify the specific rule within the rule group that is blocking the legitimate traffic and then disable (exclude) that particular rule. You can exclude rules from both your own rule groups and AWS Marketplace rule groups that have been associated with a web ACL.
                 Specifying ``ExcludedRules`` does not remove those rules from the rule group. Rather, it changes the action for the rules to ``COUNT`` . Therefore, requests that match an ``ExcludedRule`` are counted but not blocked. The ``RuleGroup`` owner will receive COUNT metrics for each ``ExcludedRule`` .
                 If you want to exclude rules from a rule group that is already associated with a web ACL, perform the following steps:
-                * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <http://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ .
+                * Use the AWS WAF logs to identify the IDs of the rules that you want to exclude. For more information about the logs, see `Logging Web ACL Traffic Information <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html>`__ .
                 * Submit an  UpdateWebACL request that has two actions:
                   * The first action deletes the existing rule group from the web ACL. That is, in the  UpdateWebACL request, the first ``Updates:Action`` should be ``DELETE`` and ``Updates:ActivatedRule:RuleId`` should be the rule group that contains the rules that you want to exclude.
                   * The second action inserts the same rule group back in, but specifying the rules to exclude. That is, the second ``Updates:Action`` should be ``INSERT`` , ``Updates:ActivatedRule:RuleId`` should be the rule group that you just removed, and ``ExcludedRules`` should contain the rules that you want to exclude.
@@ -5187,7 +5187,7 @@ class Client(BaseClient):
         * Submit a  CreateXssMatchSet request. 
         * Use  GetChangeToken to get the change token that you provide in the ``ChangeToken`` parameter of an  UpdateIPSet request. 
         * Submit an ``UpdateXssMatchSet`` request to specify the parts of web requests that you want AWS WAF to inspect for cross-site scripting attacks. 
-        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <http://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
+        For more information about how to use the AWS WAF API to allow or block HTTP requests, see the `AWS WAF Developer Guide <https://docs.aws.amazon.com/waf/latest/developerguide/>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/waf-2015-08-24/UpdateXssMatchSet>`_
         
         **Request Syntax**

@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -23,7 +23,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_vocabulary(self, VocabularyName: str, LanguageCode: str, Phrases: List) -> Dict:
+    def create_vocabulary(self, VocabularyName: str, LanguageCode: str, Phrases: List = None, VocabularyFileUri: str = None) -> Dict:
         """
         Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/CreateVocabulary>`_
@@ -32,17 +32,18 @@ class Client(BaseClient):
         ::
           response = client.create_vocabulary(
               VocabularyName='string',
-              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
               Phrases=[
                   'string',
-              ]
+              ],
+              VocabularyFileUri='string'
           )
         
         **Response Syntax**
         ::
             {
                 'VocabularyName': 'string',
-                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
                 'VocabularyState': 'PENDING'|'READY'|'FAILED',
                 'LastModifiedTime': datetime(2015, 1, 1),
                 'FailureReason': 'string'
@@ -67,9 +68,17 @@ class Client(BaseClient):
         :param LanguageCode: **[REQUIRED]**
           The language code of the vocabulary entries.
         :type Phrases: list
-        :param Phrases: **[REQUIRED]**
+        :param Phrases:
           An array of strings that contains the vocabulary entries.
           - *(string) --*
+        :type VocabularyFileUri: string
+        :param VocabularyFileUri:
+          The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is
+           ``https://s3-<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>``
+          For example:
+           ``https://s3-us-east-1.amazonaws.com/examplebucket/vocab.txt``
+          For more information about S3 object names, see `Object Keys <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys>`__ in the *Amazon S3 Developer Guide* .
+          For more information about custom vocabularies, see `Custom Vocabularies <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary>`__ .
         :rtype: dict
         :returns:
         """
@@ -162,7 +171,7 @@ class Client(BaseClient):
                 'TranscriptionJob': {
                     'TranscriptionJobName': 'string',
                     'TranscriptionJobStatus': 'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                    'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+                    'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
                     'MediaSampleRateHertz': 123,
                     'MediaFormat': 'mp3'|'mp4'|'wav'|'flac',
                     'Media': {
@@ -217,6 +226,13 @@ class Client(BaseClient):
                 A timestamp that shows when the job was completed.
               - **FailureReason** *(string) --* 
                 If the ``TranscriptionJobStatus`` field is ``FAILED`` , this field contains information about why the job failed.
+                The ``FailureReason`` field can contain one of the following values:
+                * ``Unsupported media format`` - The media format specified in the ``MediaFormat`` field of the request isn't valid. See the description of the ``MediaFormat`` field for a list of valid values. 
+                * ``The media format provided does not match the detected media format`` - The media format of the audio file doesn't match the format specified in the ``MediaFormat`` field in the request. Check the media format of your media file and make sure that the two values match. 
+                * ``Invalid sample rate for audio file`` - The sample rate specified in the ``MediaSampleRateHertz`` of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz. 
+                * ``The sample rate provided does not match the detected sample rate`` - The sample rate in the audio file doesn't match the sample rate specified in the ``MediaSampleRateHertz`` field in the request. Check the sample rate of your media file and make sure that the two values match. 
+                * ``Invalid file size: file size too large`` - The size of your audio file is larger than Amazon Transcribe can process. For more information, see `Limits <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits>`__ in the *Amazon Transcribe Developer Guide* . 
+                * ``Invalid number of channels: number of channels too large`` - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see `Amazon Transcribe Limits <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe>`__ in the *Amazon Web Services General Reference* . 
               - **Settings** *(dict) --* 
                 Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.
                 - **VocabularyName** *(string) --* 
@@ -253,7 +269,7 @@ class Client(BaseClient):
         ::
             {
                 'VocabularyName': 'string',
-                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
                 'VocabularyState': 'PENDING'|'READY'|'FAILED',
                 'LastModifiedTime': datetime(2015, 1, 1),
                 'FailureReason': 'string',
@@ -317,7 +333,7 @@ class Client(BaseClient):
                         'TranscriptionJobName': 'string',
                         'CreationTime': datetime(2015, 1, 1),
                         'CompletionTime': datetime(2015, 1, 1),
-                        'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+                        'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
                         'TranscriptionJobStatus': 'IN_PROGRESS'|'FAILED'|'COMPLETED',
                         'FailureReason': 'string',
                         'OutputLocationType': 'CUSTOMER_BUCKET'|'SERVICE_BUCKET'
@@ -390,7 +406,7 @@ class Client(BaseClient):
                 'Vocabularies': [
                     {
                         'VocabularyName': 'string',
-                        'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+                        'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
                         'LastModifiedTime': datetime(2015, 1, 1),
                         'VocabularyState': 'PENDING'|'READY'|'FAILED'
                     },
@@ -441,7 +457,7 @@ class Client(BaseClient):
         ::
           response = client.start_transcription_job(
               TranscriptionJobName='string',
-              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
               MediaSampleRateHertz=123,
               MediaFormat='mp3'|'mp4'|'wav'|'flac',
               Media={
@@ -462,7 +478,7 @@ class Client(BaseClient):
                 'TranscriptionJob': {
                     'TranscriptionJobName': 'string',
                     'TranscriptionJobStatus': 'IN_PROGRESS'|'FAILED'|'COMPLETED',
-                    'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+                    'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
                     'MediaSampleRateHertz': 123,
                     'MediaFormat': 'mp3'|'mp4'|'wav'|'flac',
                     'Media': {
@@ -517,6 +533,13 @@ class Client(BaseClient):
                 A timestamp that shows when the job was completed.
               - **FailureReason** *(string) --* 
                 If the ``TranscriptionJobStatus`` field is ``FAILED`` , this field contains information about why the job failed.
+                The ``FailureReason`` field can contain one of the following values:
+                * ``Unsupported media format`` - The media format specified in the ``MediaFormat`` field of the request isn't valid. See the description of the ``MediaFormat`` field for a list of valid values. 
+                * ``The media format provided does not match the detected media format`` - The media format of the audio file doesn't match the format specified in the ``MediaFormat`` field in the request. Check the media format of your media file and make sure that the two values match. 
+                * ``Invalid sample rate for audio file`` - The sample rate specified in the ``MediaSampleRateHertz`` of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz. 
+                * ``The sample rate provided does not match the detected sample rate`` - The sample rate in the audio file doesn't match the sample rate specified in the ``MediaSampleRateHertz`` field in the request. Check the sample rate of your media file and make sure that the two values match. 
+                * ``Invalid file size: file size too large`` - The size of your audio file is larger than Amazon Transcribe can process. For more information, see `Limits <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits>`__ in the *Amazon Transcribe Developer Guide* . 
+                * ``Invalid number of channels: number of channels too large`` - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see `Amazon Transcribe Limits <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe>`__ in the *Amazon Web Services General Reference* . 
               - **Settings** *(dict) --* 
                 Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.
                 - **VocabularyName** *(string) --* 
@@ -556,6 +579,7 @@ class Client(BaseClient):
         :param OutputBucketName:
           The location where the transcription is stored.
           If you set the ``OutputBucketName`` , Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the  GetTranscriptionJob operation, the operation returns this location in the ``TranscriptFileUri`` field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see `Permissions Required for IAM User Roles <https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user>`__ .
+          Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket. You can\'t specify your own encryption key.
           If you don\'t set the ``OutputBucketName`` , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the ``TranscriptFileUri`` field. Use this URL to download the transcription.
         :type Settings: dict
         :param Settings:
@@ -576,7 +600,7 @@ class Client(BaseClient):
         """
         pass
 
-    def update_vocabulary(self, VocabularyName: str, LanguageCode: str, Phrases: List) -> Dict:
+    def update_vocabulary(self, VocabularyName: str, LanguageCode: str, Phrases: List = None, VocabularyFileUri: str = None) -> Dict:
         """
         Updates an existing vocabulary with new values. The ``UpdateVocabulary`` operation overwrites all of the existing information with the values that you provide in the request. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/UpdateVocabulary>`_
@@ -585,17 +609,18 @@ class Client(BaseClient):
         ::
           response = client.update_vocabulary(
               VocabularyName='string',
-              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+              LanguageCode='en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
               Phrases=[
                   'string',
-              ]
+              ],
+              VocabularyFileUri='string'
           )
         
         **Response Syntax**
         ::
             {
                 'VocabularyName': 'string',
-                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT',
+                'LanguageCode': 'en-US'|'es-US'|'en-AU'|'fr-CA'|'en-GB'|'de-DE'|'pt-BR'|'fr-FR'|'it-IT'|'ko-KR'|'es-ES',
                 'LastModifiedTime': datetime(2015, 1, 1),
                 'VocabularyState': 'PENDING'|'READY'|'FAILED'
             }
@@ -617,9 +642,17 @@ class Client(BaseClient):
         :param LanguageCode: **[REQUIRED]**
           The language code of the vocabulary entries.
         :type Phrases: list
-        :param Phrases: **[REQUIRED]**
+        :param Phrases:
           An array of strings containing the vocabulary entries.
           - *(string) --*
+        :type VocabularyFileUri: string
+        :param VocabularyFileUri:
+          The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is
+           ``https://s3-<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>``
+          For example:
+           ``https://s3-us-east-1.amazonaws.com/examplebucket/vocab.txt``
+          For more information about S3 object names, see `Object Keys <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys>`__ in the *Amazon S3 Developer Guide* .
+          For more information about custom vocabularies, see `Custom Vocabularies <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary>`__ .
         :rtype: dict
         :returns:
         """

@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -128,15 +128,19 @@ class Client(BaseClient):
         """
         pass
 
-    def create_service(self, serviceName: str, taskDefinition: str, cluster: str = None, loadBalancers: List = None, serviceRegistries: List = None, desiredCount: int = None, clientToken: str = None, launchType: str = None, platformVersion: str = None, role: str = None, deploymentConfiguration: Dict = None, placementConstraints: List = None, placementStrategy: List = None, networkConfiguration: Dict = None, healthCheckGracePeriodSeconds: int = None, schedulingStrategy: str = None, deploymentController: Dict = None, tags: List = None, enableECSManagedTags: bool = None, propagateTags: str = None) -> Dict:
+    def create_service(self, serviceName: str, cluster: str = None, taskDefinition: str = None, loadBalancers: List = None, serviceRegistries: List = None, desiredCount: int = None, clientToken: str = None, launchType: str = None, platformVersion: str = None, role: str = None, deploymentConfiguration: Dict = None, placementConstraints: List = None, placementStrategy: List = None, networkConfiguration: Dict = None, healthCheckGracePeriodSeconds: int = None, schedulingStrategy: str = None, deploymentController: Dict = None, tags: List = None, enableECSManagedTags: bool = None, propagateTags: str = None) -> Dict:
         """
-        Runs and maintains a desired number of tasks from a specified task definition. If the number of tasks running in a service drops below ``desiredCount`` , Amazon ECS spawns another copy of the task in the specified cluster. To update an existing service, see  UpdateService .
+        Runs and maintains a desired number of tasks from a specified task definition. If the number of tasks running in a service drops below the ``desiredCount`` , Amazon ECS spawns another copy of the task in the specified cluster. To update an existing service, see  UpdateService .
         In addition to maintaining the desired count of tasks in your service, you can optionally run your service behind a load balancer. The load balancer distributes traffic across the tasks that are associated with the service. For more information, see `Service Load Balancing <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
-        You can optionally specify a deployment configuration for your service. The deployment is triggered by changing properties, such as the task definition or the desired count of a service, with an  UpdateService operation.
-        If a service is using the ``ECS`` deployment controller, the **minimum healthy percent** represents a lower limit on the number of tasks in a service that must remain in the ``RUNNING`` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state; tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and they are reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
+        Tasks for services that *do not* use a load balancer are considered healthy if they're in the ``RUNNING`` state. Tasks for services that *do* use a load balancer are considered healthy if they're in the ``RUNNING`` state and the container instance that they're hosted on is reported as healthy by the load balancer.
+        There are two service scheduler strategies available:
+        * ``REPLICA`` - The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. For more information, see `Service Scheduler Concepts <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html>`__ in the *Amazon Elastic Container Service Developer Guide* . 
+        * ``DAEMON`` - The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. When using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies. For more information, see `Service Scheduler Concepts <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html>`__ in the *Amazon Elastic Container Service Developer Guide* . 
+        You can optionally specify a deployment configuration for your service. The deployment is triggered by changing properties, such as the task definition or the desired count of a service, with an  UpdateService operation. The default value for a replica service for ``minimumHealthyPercent`` is 100%. The default value for a daemon service for ``minimumHealthyPercent`` is 0%.
+        If a service is using the ``ECS`` deployment controller, the minimum healthy percent represents a lower limit on the number of tasks in a service that must remain in the ``RUNNING`` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler might stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they're in the ``RUNNING`` state. Tasks for services that *do* use a load balancer are considered healthy if they're in the ``RUNNING`` state and they're reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
         If a service is using the ``ECS`` deployment controller, the **maximum percent** parameter represents an upper limit on the number of tasks in a service that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the desired number of tasks (rounded down to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to define the deployment batch size. For example, if your service has a desired number of four tasks and a maximum percent value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for maximum percent is 200%.
-        If a service is using the ``CODE_DEPLOY`` deployment controller and tasks that use the EC2 launch type, the **minimum healthy percent** and **maximum percent** values are only used to define the lower and upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent and maximum percent values are not used, although they are currently visible when describing your service.
-        Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state. Tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and the container instance they are hosted on is reported as healthy by the load balancer. The default value for a replica service for ``minimumHealthyPercent`` is 100%. The default value for a daemon service for ``minimumHealthyPercent`` is 0%.
+        If a service is using either the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types and tasks that use the EC2 launch type, the **minimum healthy percent** and **maximum percent** values are used only to define the lower and upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent and maximum percent values aren't used, although they're currently visible when describing your service.
+        When creating a service that uses the ``EXTERNAL`` deployment controller, you can specify only parameters that aren't controlled at the task set level. The only required parameter is the service name. You control your services using the  CreateTaskSet operation. For more information, see `Amazon ECS Deployment Types <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
         When the service scheduler launches new tasks, it determines task placement in your cluster using the following logic:
         * Determine which of the container instances in your cluster can support your service's task definition (for example, they have the required CPU, memory, ports, and container instance attributes). 
         * By default, the service scheduler attempts to balance tasks across Availability Zones in this manner (although you can choose a different placement strategy) with the ``placementStrategy`` parameter): 
@@ -201,7 +205,7 @@ class Client(BaseClient):
               healthCheckGracePeriodSeconds=123,
               schedulingStrategy='REPLICA'|'DAEMON',
               deploymentController={
-                  'type': 'ECS'|'CODE_DEPLOY'
+                  'type': 'ECS'|'CODE_DEPLOY'|'EXTERNAL'
               },
               tags=[
                   {
@@ -251,6 +255,8 @@ class Client(BaseClient):
                         {
                             'id': 'string',
                             'taskSetArn': 'string',
+                            'serviceArn': 'string',
+                            'clusterArn': 'string',
                             'startedBy': 'string',
                             'externalId': 'string',
                             'status': 'string',
@@ -277,6 +283,14 @@ class Client(BaseClient):
                                 {
                                     'targetGroupArn': 'string',
                                     'loadBalancerName': 'string',
+                                    'containerName': 'string',
+                                    'containerPort': 123
+                                },
+                            ],
+                            'serviceRegistries': [
+                                {
+                                    'registryArn': 'string',
+                                    'port': 123,
                                     'containerName': 'string',
                                     'containerPort': 123
                                 },
@@ -349,7 +363,7 @@ class Client(BaseClient):
                     'healthCheckGracePeriodSeconds': 123,
                     'schedulingStrategy': 'REPLICA'|'DAEMON',
                     'deploymentController': {
-                        'type': 'ECS'|'CODE_DEPLOY'
+                        'type': 'ECS'|'CODE_DEPLOY'|'EXTERNAL'
                     },
                     'tags': [
                         {
@@ -394,10 +408,11 @@ class Client(BaseClient):
                   - **containerPort** *(integer) --* 
                     The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
               - **serviceRegistries** *(list) --* 
+                The details of the service discovery registries to assign to this service. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
                 - *(dict) --* 
                   Details of the service registry.
                   - **registryArn** *(string) --* 
-                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is Amazon Route 53 Auto Naming. For more information, see `Service <https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html>`__ .
+                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
                   - **port** *(integer) --* 
                     The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
                   - **containerName** *(string) --* 
@@ -422,22 +437,28 @@ class Client(BaseClient):
                 Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
                 - **maximumPercent** *(integer) --* 
                   If a service is using the rolling update (``ECS`` ) deployment type, the **maximum percent** parameter represents an upper limit on the number of tasks in a service that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the desired number of tasks (rounded down to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to define the deployment batch size. For example, if your service has a desired number of four tasks and a maximum percent value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for maximum percent is 200%.
-                  If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+                  If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
                 - **minimumHealthyPercent** *(integer) --* 
                   If a service is using the rolling update (``ECS`` ) deployment type, the **minimum healthy percent** represents a lower limit on the number of tasks in a service that must remain in the ``RUNNING`` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state; tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and they are reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
-                  If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+                  If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
               - **taskSets** *(list) --* 
-                Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
                 - *(dict) --* 
-                  Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                  Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
                   - **id** *(string) --* 
                     The ID of the task set.
                   - **taskSetArn** *(string) --* 
                     The Amazon Resource Name (ARN) of the task set.
+                  - **serviceArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the service the task set exists in.
+                  - **clusterArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
                   - **startedBy** *(string) --* 
-                    The tag specified when a task set is started. If the task is started by an AWS CodeDeploy deployment, then the ``startedBy`` parameter is ``CODE_DEPLOY`` .
+                    The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
                   - **externalId** *(string) --* 
-                    The deployment ID of the AWS CodeDeploy deployment.
+                    The external ID associated with the task set.
+                    If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                    If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
                   - **status** *(string) --* 
                     The status of the task set. The following describes each state:
                       PRIMARY  
@@ -449,9 +470,9 @@ class Client(BaseClient):
                   - **taskDefinition** *(string) --* 
                     The task definition the task set is using.
                   - **computedDesiredCount** *(integer) --* 
-                    The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage.
+                    The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
                   - **pendingCount** *(integer) --* 
-                    The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time, or when it is restarted after being in the ``STOPPED`` state.
+                    The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
                   - **runningCount** *(integer) --* 
                     The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
                   - **createdAt** *(datetime) --* 
@@ -497,10 +518,22 @@ class Client(BaseClient):
                         The name of the container (as it appears in a container definition) to associate with the load balancer.
                       - **containerPort** *(integer) --* 
                         The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                  - **serviceRegistries** *(list) --* 
+                    The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                    - *(dict) --* 
+                      Details of the service registry.
+                      - **registryArn** *(string) --* 
+                        The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                      - **port** *(integer) --* 
+                        The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                      - **containerName** *(string) --* 
+                        The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                      - **containerPort** *(integer) --* 
+                        The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
                   - **scale** *(dict) --* 
-                    A floating-point percentage of the desired number of tasks to place and keep running in the service.
+                    A floating-point percentage of the desired number of tasks to place and keep running in the task set.
                     - **value** *(float) --* 
-                      The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set.
+                      The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
                     - **unit** *(string) --* 
                       The unit of measure for the scale value.
                   - **stabilityStatus** *(string) --* 
@@ -515,7 +548,7 @@ class Client(BaseClient):
               - **deployments** *(list) --* 
                 The current state of deployments for the service.
                 - *(dict) --* 
-                  The details of an Amazon ECS service deployment. This is used when a service uses the ``CODE_DEPLOY`` deployment controller type.
+                  The details of an Amazon ECS service deployment. This is used only when a service uses the ``ECS`` deployment controller type.
                   - **id** *(string) --* 
                     The ID of the deployment.
                   - **status** *(string) --* 
@@ -621,11 +654,13 @@ class Client(BaseClient):
                 The deployment controller type the service is using.
                 - **type** *(string) --* 
                   The deployment controller type to use.
-                  There are two deployment controller types available:
+                  There are three deployment controller types available:
                     ECS  
                   The rolling update (``ECS`` ) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the  DeploymentConfiguration .
                     CODE_DEPLOY  
-                  The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                  The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it.
+                    EXTERNAL  
+                  The external (``EXTERNAL`` ) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
               - **tags** *(list) --* 
                 The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
                 - *(dict) --* 
@@ -647,8 +682,9 @@ class Client(BaseClient):
         :param serviceName: **[REQUIRED]**
           The name of your service. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
         :type taskDefinition: string
-        :param taskDefinition: **[REQUIRED]**
+        :param taskDefinition:
           The ``family`` and ``revision`` (``family:revision`` ) or full ARN of the task definition to run in your service. If a ``revision`` is not specified, the latest ``ACTIVE`` revision is used.
+          A task definition must be specified if the service is using the ``ECS`` deployment controller.
         :type loadBalancers: list
         :param loadBalancers:
           A load balancer object representing the load balancer to use with your service.
@@ -681,7 +717,7 @@ class Client(BaseClient):
           - *(dict) --*
             Details of the service registry.
             - **registryArn** *(string) --*
-              The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is Amazon Route 53 Auto Naming. For more information, see `Service <https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html>`__ .
+              The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
             - **port** *(integer) --*
               The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
             - **containerName** *(string) --*
@@ -699,7 +735,7 @@ class Client(BaseClient):
           The launch type on which to run your service. For more information, see `Amazon ECS Launch Types <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
         :type platformVersion: string
         :param platformVersion:
-          The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the ``LATEST`` platform version is used by default. For more information, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+          The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn\'t specified, the ``LATEST`` platform version is used by default. For more information, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
         :type role: string
         :param role:
           The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is only permitted if you are using a load balancer with your service and your task definition does not use the ``awsvpc`` network mode. If you specify the ``role`` parameter, you must also specify a load balancer object with the ``loadBalancers`` parameter.
@@ -711,10 +747,10 @@ class Client(BaseClient):
           Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
           - **maximumPercent** *(integer) --*
             If a service is using the rolling update (``ECS`` ) deployment type, the **maximum percent** parameter represents an upper limit on the number of tasks in a service that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the desired number of tasks (rounded down to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to define the deployment batch size. For example, if your service has a desired number of four tasks and a maximum percent value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for maximum percent is 200%.
-            If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+            If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
           - **minimumHealthyPercent** *(integer) --*
             If a service is using the rolling update (``ECS`` ) deployment type, the **minimum healthy percent** represents a lower limit on the number of tasks in a service that must remain in the ``RUNNING`` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state; tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and they are reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
-            If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+            If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
         :type placementConstraints: list
         :param placementConstraints:
           An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
@@ -754,25 +790,27 @@ class Client(BaseClient):
               Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
         :type healthCheckGracePeriodSeconds: integer
         :param healthCheckGracePeriodSeconds:
-          The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service\'s tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 7,200 seconds. During that time, the ECS service scheduler ignores health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+          The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service\'s tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the ECS service scheduler ignores health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
         :type schedulingStrategy: string
         :param schedulingStrategy:
           The scheduling strategy to use for the service. For more information, see `Services <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html>`__ .
           There are two service scheduler strategies available:
-          * ``REPLICA`` -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if using the ``CODE_DEPLOY`` deployment controller.
-          * ``DAEMON`` -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. When you are using this strategy, there is no need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
+          * ``REPLICA`` -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service is using the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.
+          * ``DAEMON`` -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. When you\'re using this strategy, you don\'t need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
           .. note::
-             Tasks using the Fargate launch type or the ``CODE_DEPLOY`` deploymenet controller do not support the ``DAEMON`` scheduling strategy.
+             Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don\'t support the ``DAEMON`` scheduling strategy.
         :type deploymentController: dict
         :param deploymentController:
           The deployment controller to use for the service.
           - **type** *(string) --* **[REQUIRED]**
             The deployment controller type to use.
-            There are two deployment controller types available:
+            There are three deployment controller types available:
               ECS
             The rolling update (``ECS`` ) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the  DeploymentConfiguration .
               CODE_DEPLOY
-            The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+            The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it.
+              EXTERNAL
+            The external (``EXTERNAL`` ) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
         :type tags: list
         :param tags:
           The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
@@ -788,6 +826,296 @@ class Client(BaseClient):
         :type propagateTags: string
         :param propagateTags:
           Specifies whether to propagate the tags from the task definition or the service to the tasks in the service. If no value is specified, the tags are not propagated. Tags can only be propagated to the tasks within the service during service creation. To add tags to a task after service creation, use the  TagResource API action.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def create_task_set(self, service: str, cluster: str, taskDefinition: str, externalId: str = None, networkConfiguration: Dict = None, loadBalancers: List = None, serviceRegistries: List = None, launchType: str = None, platformVersion: str = None, scale: Dict = None, clientToken: str = None) -> Dict:
+        """
+        Create a task set in the specified cluster and service. This is used when a service uses the ``EXTERNAL`` deployment controller type. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/CreateTaskSet>`_
+        
+        **Request Syntax**
+        ::
+          response = client.create_task_set(
+              service='string',
+              cluster='string',
+              externalId='string',
+              taskDefinition='string',
+              networkConfiguration={
+                  'awsvpcConfiguration': {
+                      'subnets': [
+                          'string',
+                      ],
+                      'securityGroups': [
+                          'string',
+                      ],
+                      'assignPublicIp': 'ENABLED'|'DISABLED'
+                  }
+              },
+              loadBalancers=[
+                  {
+                      'targetGroupArn': 'string',
+                      'loadBalancerName': 'string',
+                      'containerName': 'string',
+                      'containerPort': 123
+                  },
+              ],
+              serviceRegistries=[
+                  {
+                      'registryArn': 'string',
+                      'port': 123,
+                      'containerName': 'string',
+                      'containerPort': 123
+                  },
+              ],
+              launchType='EC2'|'FARGATE',
+              platformVersion='string',
+              scale={
+                  'value': 123.0,
+                  'unit': 'PERCENT'
+              },
+              clientToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'taskSet': {
+                    'id': 'string',
+                    'taskSetArn': 'string',
+                    'serviceArn': 'string',
+                    'clusterArn': 'string',
+                    'startedBy': 'string',
+                    'externalId': 'string',
+                    'status': 'string',
+                    'taskDefinition': 'string',
+                    'computedDesiredCount': 123,
+                    'pendingCount': 123,
+                    'runningCount': 123,
+                    'createdAt': datetime(2015, 1, 1),
+                    'updatedAt': datetime(2015, 1, 1),
+                    'launchType': 'EC2'|'FARGATE',
+                    'platformVersion': 'string',
+                    'networkConfiguration': {
+                        'awsvpcConfiguration': {
+                            'subnets': [
+                                'string',
+                            ],
+                            'securityGroups': [
+                                'string',
+                            ],
+                            'assignPublicIp': 'ENABLED'|'DISABLED'
+                        }
+                    },
+                    'loadBalancers': [
+                        {
+                            'targetGroupArn': 'string',
+                            'loadBalancerName': 'string',
+                            'containerName': 'string',
+                            'containerPort': 123
+                        },
+                    ],
+                    'serviceRegistries': [
+                        {
+                            'registryArn': 'string',
+                            'port': 123,
+                            'containerName': 'string',
+                            'containerPort': 123
+                        },
+                    ],
+                    'scale': {
+                        'value': 123.0,
+                        'unit': 'PERCENT'
+                    },
+                    'stabilityStatus': 'STEADY_STATE'|'STABILIZING',
+                    'stabilityStatusAt': datetime(2015, 1, 1)
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **taskSet** *(dict) --* 
+              Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+              - **id** *(string) --* 
+                The ID of the task set.
+              - **taskSetArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the task set.
+              - **serviceArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the service the task set exists in.
+              - **clusterArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
+              - **startedBy** *(string) --* 
+                The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
+              - **externalId** *(string) --* 
+                The external ID associated with the task set.
+                If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
+              - **status** *(string) --* 
+                The status of the task set. The following describes each state:
+                  PRIMARY  
+                The task set is serving production traffic.
+                  ACTIVE  
+                The task set is not serving production traffic.
+                  DRAINING  
+                The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
+              - **taskDefinition** *(string) --* 
+                The task definition the task set is using.
+              - **computedDesiredCount** *(integer) --* 
+                The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
+              - **pendingCount** *(integer) --* 
+                The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
+              - **runningCount** *(integer) --* 
+                The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
+              - **createdAt** *(datetime) --* 
+                The Unix timestamp for when the task set was created.
+              - **updatedAt** *(datetime) --* 
+                The Unix timestamp for when the task set was last updated.
+              - **launchType** *(string) --* 
+                The launch type the tasks in the task set are using. For more information, see `Amazon ECS Launch Types <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              - **platformVersion** *(string) --* 
+                The platform version on which the tasks in the task set are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the ``LATEST`` platform version is used by default. For more information, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              - **networkConfiguration** *(dict) --* 
+                The network configuration for the task set.
+                - **awsvpcConfiguration** *(dict) --* 
+                  The VPC subnets and security groups associated with a task.
+                  .. note::
+                    All specified subnets and security groups must be from the same VPC.
+                  - **subnets** *(list) --* 
+                    The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per ``AwsVpcConfiguration`` .
+                    .. note::
+                      All specified subnets must be from the same VPC.
+                    - *(string) --* 
+                  - **securityGroups** *(list) --* 
+                    The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per ``AwsVpcConfiguration`` .
+                    .. note::
+                      All specified security groups must be from the same VPC.
+                    - *(string) --* 
+                  - **assignPublicIp** *(string) --* 
+                    Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+              - **loadBalancers** *(list) --* 
+                Details on a load balancer that is used with a task set.
+                - *(dict) --* 
+                  Details on a load balancer that is used with a service.
+                  If the service is using the ``ECS`` deployment controller, you are limited to one load balancer or target group.
+                  If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an AWS CodeDeploy deployment group, you specify two target groups (referred to as a ``targetGroupPair`` ). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+                  Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance`` . Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                  - **targetGroupArn** *(string) --* 
+                    The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service. For services using the ``ECS`` deployment controller, you are limited to one target group. For services using the ``CODE_DEPLOY`` deployment controller, you are required to define two target groups for the load balancer.
+                    .. warning::
+                      If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                  - **loadBalancerName** *(string) --* 
+                    The name of a load balancer.
+                  - **containerName** *(string) --* 
+                    The name of the container (as it appears in a container definition) to associate with the load balancer.
+                  - **containerPort** *(integer) --* 
+                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+              - **serviceRegistries** *(list) --* 
+                The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                - *(dict) --* 
+                  Details of the service registry.
+                  - **registryArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                  - **port** *(integer) --* 
+                    The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                  - **containerName** *(string) --* 
+                    The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                  - **containerPort** *(integer) --* 
+                    The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+              - **scale** *(dict) --* 
+                A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+                - **value** *(float) --* 
+                  The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
+                - **unit** *(string) --* 
+                  The unit of measure for the scale value.
+              - **stabilityStatus** *(string) --* 
+                The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in ``STEADY_STATE`` :
+                * The task ``runningCount`` is equal to the ``computedDesiredCount`` . 
+                * The ``pendingCount`` is ``0`` . 
+                * There are no tasks running on container instances in the ``DRAINING`` status. 
+                * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks. 
+                If any of those conditions are not met, the stability status returns ``STABILIZING`` .
+              - **stabilityStatusAt** *(datetime) --* 
+                The Unix timestamp for when the task set stability status was retrieved.
+        :type service: string
+        :param service: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+        :type cluster: string
+        :param cluster: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+        :type externalId: string
+        :param externalId:
+          An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute set to the provided value.
+        :type taskDefinition: string
+        :param taskDefinition: **[REQUIRED]**
+          The task definition for the tasks in the task set to use.
+        :type networkConfiguration: dict
+        :param networkConfiguration:
+          An object representing the network configuration for a task or service.
+          - **awsvpcConfiguration** *(dict) --*
+            The VPC subnets and security groups associated with a task.
+            .. note::
+              All specified subnets and security groups must be from the same VPC.
+            - **subnets** *(list) --* **[REQUIRED]**
+              The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per ``AwsVpcConfiguration`` .
+              .. note::
+                All specified subnets must be from the same VPC.
+              - *(string) --*
+            - **securityGroups** *(list) --*
+              The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per ``AwsVpcConfiguration`` .
+              .. note::
+                All specified security groups must be from the same VPC.
+              - *(string) --*
+            - **assignPublicIp** *(string) --*
+              Whether the task\'s elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+        :type loadBalancers: list
+        :param loadBalancers:
+          A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+          - *(dict) --*
+            Details on a load balancer that is used with a service.
+            If the service is using the ``ECS`` deployment controller, you are limited to one load balancer or target group.
+            If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an AWS CodeDeploy deployment group, you specify two target groups (referred to as a ``targetGroupPair`` ). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+            Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance`` . Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+            - **targetGroupArn** *(string) --*
+              The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service. For services using the ``ECS`` deployment controller, you are limited to one target group. For services using the ``CODE_DEPLOY`` deployment controller, you are required to define two target groups for the load balancer.
+              .. warning::
+                If your service\'s task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+            - **loadBalancerName** *(string) --*
+              The name of a load balancer.
+            - **containerName** *(string) --*
+              The name of the container (as it appears in a container definition) to associate with the load balancer.
+            - **containerPort** *(integer) --*
+              The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service\'s task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+        :type serviceRegistries: list
+        :param serviceRegistries:
+          The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+          - *(dict) --*
+            Details of the service registry.
+            - **registryArn** *(string) --*
+              The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+            - **port** *(integer) --*
+              The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+            - **containerName** *(string) --*
+              The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+            - **containerPort** *(integer) --*
+              The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+        :type launchType: string
+        :param launchType:
+          The launch type that new tasks in the task set will use. For more information, see `Amazon ECS Launch Types <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+        :type platformVersion: string
+        :param platformVersion:
+          The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn\'t specified, the ``LATEST`` platform version is used by default.
+        :type scale: dict
+        :param scale:
+          A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+          - **value** *(float) --*
+            The value, specified as a percent total of a service\'s ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
+          - **unit** *(string) --*
+            The unit of measure for the scale value.
+        :type clientToken: string
+        :param clientToken:
+          Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
         :rtype: dict
         :returns:
         """
@@ -822,7 +1150,7 @@ class Client(BaseClient):
               - **name** *(string) --* 
                 The account resource name.
               - **value** *(string) --* 
-                The current account setting for the resource name. If ``enabled`` , then the resource will receive the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , then the resource will receive the old Amazon Resource Name (ARN) and resource identifier (ID) format.
+                The current account setting for the resource name. If ``enabled`` , the resource receives the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , the resource receives the old Amazon Resource Name (ARN) and resource identifier (ID) format.
               - **principalArn** *(string) --* 
                 The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
         :type name: string
@@ -1045,6 +1373,8 @@ class Client(BaseClient):
                         {
                             'id': 'string',
                             'taskSetArn': 'string',
+                            'serviceArn': 'string',
+                            'clusterArn': 'string',
                             'startedBy': 'string',
                             'externalId': 'string',
                             'status': 'string',
@@ -1071,6 +1401,14 @@ class Client(BaseClient):
                                 {
                                     'targetGroupArn': 'string',
                                     'loadBalancerName': 'string',
+                                    'containerName': 'string',
+                                    'containerPort': 123
+                                },
+                            ],
+                            'serviceRegistries': [
+                                {
+                                    'registryArn': 'string',
+                                    'port': 123,
                                     'containerName': 'string',
                                     'containerPort': 123
                                 },
@@ -1143,7 +1481,7 @@ class Client(BaseClient):
                     'healthCheckGracePeriodSeconds': 123,
                     'schedulingStrategy': 'REPLICA'|'DAEMON',
                     'deploymentController': {
-                        'type': 'ECS'|'CODE_DEPLOY'
+                        'type': 'ECS'|'CODE_DEPLOY'|'EXTERNAL'
                     },
                     'tags': [
                         {
@@ -1186,10 +1524,11 @@ class Client(BaseClient):
                   - **containerPort** *(integer) --* 
                     The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
               - **serviceRegistries** *(list) --* 
+                The details of the service discovery registries to assign to this service. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
                 - *(dict) --* 
                   Details of the service registry.
                   - **registryArn** *(string) --* 
-                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is Amazon Route 53 Auto Naming. For more information, see `Service <https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html>`__ .
+                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
                   - **port** *(integer) --* 
                     The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
                   - **containerName** *(string) --* 
@@ -1214,22 +1553,28 @@ class Client(BaseClient):
                 Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
                 - **maximumPercent** *(integer) --* 
                   If a service is using the rolling update (``ECS`` ) deployment type, the **maximum percent** parameter represents an upper limit on the number of tasks in a service that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the desired number of tasks (rounded down to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to define the deployment batch size. For example, if your service has a desired number of four tasks and a maximum percent value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for maximum percent is 200%.
-                  If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+                  If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
                 - **minimumHealthyPercent** *(integer) --* 
                   If a service is using the rolling update (``ECS`` ) deployment type, the **minimum healthy percent** represents a lower limit on the number of tasks in a service that must remain in the ``RUNNING`` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state; tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and they are reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
-                  If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+                  If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
               - **taskSets** *(list) --* 
-                Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
                 - *(dict) --* 
-                  Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                  Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
                   - **id** *(string) --* 
                     The ID of the task set.
                   - **taskSetArn** *(string) --* 
                     The Amazon Resource Name (ARN) of the task set.
+                  - **serviceArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the service the task set exists in.
+                  - **clusterArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
                   - **startedBy** *(string) --* 
-                    The tag specified when a task set is started. If the task is started by an AWS CodeDeploy deployment, then the ``startedBy`` parameter is ``CODE_DEPLOY`` .
+                    The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
                   - **externalId** *(string) --* 
-                    The deployment ID of the AWS CodeDeploy deployment.
+                    The external ID associated with the task set.
+                    If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                    If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
                   - **status** *(string) --* 
                     The status of the task set. The following describes each state:
                       PRIMARY  
@@ -1241,9 +1586,9 @@ class Client(BaseClient):
                   - **taskDefinition** *(string) --* 
                     The task definition the task set is using.
                   - **computedDesiredCount** *(integer) --* 
-                    The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage.
+                    The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
                   - **pendingCount** *(integer) --* 
-                    The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time, or when it is restarted after being in the ``STOPPED`` state.
+                    The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
                   - **runningCount** *(integer) --* 
                     The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
                   - **createdAt** *(datetime) --* 
@@ -1289,10 +1634,22 @@ class Client(BaseClient):
                         The name of the container (as it appears in a container definition) to associate with the load balancer.
                       - **containerPort** *(integer) --* 
                         The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                  - **serviceRegistries** *(list) --* 
+                    The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                    - *(dict) --* 
+                      Details of the service registry.
+                      - **registryArn** *(string) --* 
+                        The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                      - **port** *(integer) --* 
+                        The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                      - **containerName** *(string) --* 
+                        The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                      - **containerPort** *(integer) --* 
+                        The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
                   - **scale** *(dict) --* 
-                    A floating-point percentage of the desired number of tasks to place and keep running in the service.
+                    A floating-point percentage of the desired number of tasks to place and keep running in the task set.
                     - **value** *(float) --* 
-                      The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set.
+                      The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
                     - **unit** *(string) --* 
                       The unit of measure for the scale value.
                   - **stabilityStatus** *(string) --* 
@@ -1307,7 +1664,7 @@ class Client(BaseClient):
               - **deployments** *(list) --* 
                 The current state of deployments for the service.
                 - *(dict) --* 
-                  The details of an Amazon ECS service deployment. This is used when a service uses the ``CODE_DEPLOY`` deployment controller type.
+                  The details of an Amazon ECS service deployment. This is used only when a service uses the ``ECS`` deployment controller type.
                   - **id** *(string) --* 
                     The ID of the deployment.
                   - **status** *(string) --* 
@@ -1413,11 +1770,13 @@ class Client(BaseClient):
                 The deployment controller type the service is using.
                 - **type** *(string) --* 
                   The deployment controller type to use.
-                  There are two deployment controller types available:
+                  There are three deployment controller types available:
                     ECS  
                   The rolling update (``ECS`` ) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the  DeploymentConfiguration .
                     CODE_DEPLOY  
-                  The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                  The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it.
+                    EXTERNAL  
+                  The external (``EXTERNAL`` ) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
               - **tags** *(list) --* 
                 The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
                 - *(dict) --* 
@@ -1441,6 +1800,196 @@ class Client(BaseClient):
         :type force: boolean
         :param force:
           If ``true`` , allows you to delete a service even if it has not been scaled down to zero tasks. It is only necessary to use this if the service is using the ``REPLICA`` scheduling strategy.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def delete_task_set(self, cluster: str, service: str, taskSet: str, force: bool = None) -> Dict:
+        """
+        Deletes a specified task set within a service. This is used when a service uses the ``EXTERNAL`` deployment controller type. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DeleteTaskSet>`_
+        
+        **Request Syntax**
+        ::
+          response = client.delete_task_set(
+              cluster='string',
+              service='string',
+              taskSet='string',
+              force=True|False
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'taskSet': {
+                    'id': 'string',
+                    'taskSetArn': 'string',
+                    'serviceArn': 'string',
+                    'clusterArn': 'string',
+                    'startedBy': 'string',
+                    'externalId': 'string',
+                    'status': 'string',
+                    'taskDefinition': 'string',
+                    'computedDesiredCount': 123,
+                    'pendingCount': 123,
+                    'runningCount': 123,
+                    'createdAt': datetime(2015, 1, 1),
+                    'updatedAt': datetime(2015, 1, 1),
+                    'launchType': 'EC2'|'FARGATE',
+                    'platformVersion': 'string',
+                    'networkConfiguration': {
+                        'awsvpcConfiguration': {
+                            'subnets': [
+                                'string',
+                            ],
+                            'securityGroups': [
+                                'string',
+                            ],
+                            'assignPublicIp': 'ENABLED'|'DISABLED'
+                        }
+                    },
+                    'loadBalancers': [
+                        {
+                            'targetGroupArn': 'string',
+                            'loadBalancerName': 'string',
+                            'containerName': 'string',
+                            'containerPort': 123
+                        },
+                    ],
+                    'serviceRegistries': [
+                        {
+                            'registryArn': 'string',
+                            'port': 123,
+                            'containerName': 'string',
+                            'containerPort': 123
+                        },
+                    ],
+                    'scale': {
+                        'value': 123.0,
+                        'unit': 'PERCENT'
+                    },
+                    'stabilityStatus': 'STEADY_STATE'|'STABILIZING',
+                    'stabilityStatusAt': datetime(2015, 1, 1)
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **taskSet** *(dict) --* 
+              Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+              - **id** *(string) --* 
+                The ID of the task set.
+              - **taskSetArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the task set.
+              - **serviceArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the service the task set exists in.
+              - **clusterArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
+              - **startedBy** *(string) --* 
+                The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
+              - **externalId** *(string) --* 
+                The external ID associated with the task set.
+                If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
+              - **status** *(string) --* 
+                The status of the task set. The following describes each state:
+                  PRIMARY  
+                The task set is serving production traffic.
+                  ACTIVE  
+                The task set is not serving production traffic.
+                  DRAINING  
+                The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
+              - **taskDefinition** *(string) --* 
+                The task definition the task set is using.
+              - **computedDesiredCount** *(integer) --* 
+                The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
+              - **pendingCount** *(integer) --* 
+                The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
+              - **runningCount** *(integer) --* 
+                The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
+              - **createdAt** *(datetime) --* 
+                The Unix timestamp for when the task set was created.
+              - **updatedAt** *(datetime) --* 
+                The Unix timestamp for when the task set was last updated.
+              - **launchType** *(string) --* 
+                The launch type the tasks in the task set are using. For more information, see `Amazon ECS Launch Types <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              - **platformVersion** *(string) --* 
+                The platform version on which the tasks in the task set are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the ``LATEST`` platform version is used by default. For more information, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              - **networkConfiguration** *(dict) --* 
+                The network configuration for the task set.
+                - **awsvpcConfiguration** *(dict) --* 
+                  The VPC subnets and security groups associated with a task.
+                  .. note::
+                    All specified subnets and security groups must be from the same VPC.
+                  - **subnets** *(list) --* 
+                    The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per ``AwsVpcConfiguration`` .
+                    .. note::
+                      All specified subnets must be from the same VPC.
+                    - *(string) --* 
+                  - **securityGroups** *(list) --* 
+                    The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per ``AwsVpcConfiguration`` .
+                    .. note::
+                      All specified security groups must be from the same VPC.
+                    - *(string) --* 
+                  - **assignPublicIp** *(string) --* 
+                    Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+              - **loadBalancers** *(list) --* 
+                Details on a load balancer that is used with a task set.
+                - *(dict) --* 
+                  Details on a load balancer that is used with a service.
+                  If the service is using the ``ECS`` deployment controller, you are limited to one load balancer or target group.
+                  If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an AWS CodeDeploy deployment group, you specify two target groups (referred to as a ``targetGroupPair`` ). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+                  Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance`` . Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                  - **targetGroupArn** *(string) --* 
+                    The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service. For services using the ``ECS`` deployment controller, you are limited to one target group. For services using the ``CODE_DEPLOY`` deployment controller, you are required to define two target groups for the load balancer.
+                    .. warning::
+                      If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                  - **loadBalancerName** *(string) --* 
+                    The name of a load balancer.
+                  - **containerName** *(string) --* 
+                    The name of the container (as it appears in a container definition) to associate with the load balancer.
+                  - **containerPort** *(integer) --* 
+                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+              - **serviceRegistries** *(list) --* 
+                The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                - *(dict) --* 
+                  Details of the service registry.
+                  - **registryArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                  - **port** *(integer) --* 
+                    The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                  - **containerName** *(string) --* 
+                    The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                  - **containerPort** *(integer) --* 
+                    The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+              - **scale** *(dict) --* 
+                A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+                - **value** *(float) --* 
+                  The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
+                - **unit** *(string) --* 
+                  The unit of measure for the scale value.
+              - **stabilityStatus** *(string) --* 
+                The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in ``STEADY_STATE`` :
+                * The task ``runningCount`` is equal to the ``computedDesiredCount`` . 
+                * The ``pendingCount`` is ``0`` . 
+                * There are no tasks running on container instances in the ``DRAINING`` status. 
+                * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks. 
+                If any of those conditions are not met, the stability status returns ``STABILIZING`` .
+              - **stabilityStatusAt** *(datetime) --* 
+                The Unix timestamp for when the task set stability status was retrieved.
+        :type cluster: string
+        :param cluster: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
+        :type service: string
+        :param service: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.
+        :type taskSet: string
+        :param taskSet: **[REQUIRED]**
+          The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
+        :type force: boolean
+        :param force:
+          If ``true`` , this allows you to delete a task set even if it hasn\'t been scaled down to zero.
         :rtype: dict
         :returns:
         """
@@ -1755,6 +2304,14 @@ class Client(BaseClient):
                                     'valueFrom': 'string'
                                 },
                             ],
+                            'dependsOn': [
+                                {
+                                    'containerName': 'string',
+                                    'condition': 'START'|'COMPLETE'|'SUCCESS'|'HEALTHY'
+                                },
+                            ],
+                            'startTimeout': 123,
+                            'stopTimeout': 123,
                             'hostname': 'string',
                             'user': 'string',
                             'workingDirectory': 'string',
@@ -1792,7 +2349,13 @@ class Client(BaseClient):
                                 'logDriver': 'json-file'|'syslog'|'journald'|'gelf'|'fluentd'|'awslogs'|'splunk',
                                 'options': {
                                     'string': 'string'
-                                }
+                                },
+                                'secretOptions': [
+                                    {
+                                        'name': 'string',
+                                        'valueFrom': 'string'
+                                    },
+                                ]
                             },
                             'healthCheck': {
                                 'command': [
@@ -1865,7 +2428,17 @@ class Client(BaseClient):
                     'cpu': 'string',
                     'memory': 'string',
                     'pidMode': 'host'|'task',
-                    'ipcMode': 'host'|'task'|'none'
+                    'ipcMode': 'host'|'task'|'none',
+                    'proxyConfiguration': {
+                        'type': 'APPMESH',
+                        'containerName': 'string',
+                        'properties': [
+                            {
+                                'name': 'string',
+                                'value': 'string'
+                            },
+                        ]
+                    }
                 }
             }
         
@@ -2042,19 +2615,53 @@ class Client(BaseClient):
                   - **secrets** *(list) --* 
                     The secrets to pass to the container. For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                     - *(dict) --* 
-                      An object representing the secret to expose to your container. For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+                      * To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter. 
+                      * To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter. 
+                      For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                       - **name** *(string) --* 
-                        The value to set as the environment variable on the container.
+                        The name of the secret.
                       - **valueFrom** *(string) --* 
-                        The secret to expose to the container. If your task is using the EC2 launch type, then supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store. If your task is using the Fargate launch type, then the only supported value is the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+                        The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
                         .. note::
                           If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+                  - **dependsOn** *(list) --* 
+                    The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+                    For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                    - *(dict) --* 
+                      The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+                      Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      .. note::
+                        If you are using tasks that use the Fargate launch type, container dependency parameters are not supported.
+                      - **containerName** *(string) --* 
+                        The name of a container.
+                      - **condition** *(string) --* 
+                        The dependency condition of the container. The following are the available conditions and their behavior:
+                        * ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start. 
+                        * ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. 
+                        * ``SUCCESS`` - This condition is the same as ``COMPLETE`` , but it also requires that the container exits with a ``zero`` status. 
+                        * ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup. 
+                  - **startTimeout** *(integer) --* 
+                    Time duration to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE`` , ``SUCCESS`` , or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it does not reach the desired status within that time then containerA will give up and not start. This results in the task transitioning to a ``STOPPED`` state.
+                    For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to enable a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                  - **stopTimeout** *(integer) --* 
+                    Time duration to wait before the container is forcefully killed if it doesn't exit normally on its own. For tasks using the Fargate launch type, the max ``stopTimeout`` value is 2 minutes. This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                    For tasks using the EC2 launch type, the stop timeout value for the container takes precedence over the ``ECS_CONTAINER_STOP_TIMEOUT`` container agent configuration parameter, if used. Container instances require at least version 1.26.0 of the container agent to enable a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                   - **hostname** *(string) --* 
                     The hostname to use for your container. This parameter maps to ``Hostname`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--hostname`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     .. note::
                       The ``hostname`` parameter is not supported if you are using the ``awsvpc`` network mode.
                   - **user** *(string) --* 
                     The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    You can use the following formats. If specifying a UID or GID, you must specify it as a positive integer.
+                    * ``user``   
+                    * ``user:group``   
+                    * ``uid``   
+                    * ``uid:gid``   
+                    * ``user:gid``   
+                    * ``uid:group``   
                     .. note::
                       This parameter is not supported for Windows containers.
                   - **workingDirectory** *(string) --* 
@@ -2120,7 +2727,8 @@ class Client(BaseClient):
                         The hard limit for the ulimit type.
                   - **logConfiguration** *(dict) --* 
                     The log configuration specification for the container.
-                    If you are using the Fargate launch type, the only supported value is ``awslogs`` .
+                    For tasks using the Fargate launch type, the supported log drivers are ``awslogs`` and ``splunk`` .
+                    For tasks using the EC2 launch type, the supported log drivers are ``awslogs`` , ``syslog`` , ``gelf`` , ``fluentd`` , ``splunk`` , ``journald`` , and ``json-file`` .
                     This parameter maps to ``LogConfig`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--log-driver`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . By default, containers use the same logging driver that the Docker daemon uses. However the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see `Configure logging drivers <https://docs.docker.com/engine/admin/logging/overview/>`__ in the Docker documentation.
                     .. note::
                       Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the  LogConfiguration data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
@@ -2128,7 +2736,10 @@ class Client(BaseClient):
                     .. note::
                       The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see `Amazon ECS Container Agent Configuration <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                     - **logDriver** *(string) --* 
-                      The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default. If you are using the Fargate launch type, the only supported value is ``awslogs`` . For more information about using the ``awslogs`` driver, see `Using the awslogs Log Driver <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
+                      For tasks using the Fargate launch type, the supported log drivers are ``awslogs`` and ``splunk`` .
+                      For tasks using the EC2 launch type, the supported log drivers are ``awslogs`` , ``syslog`` , ``gelf`` , ``fluentd`` , ``splunk`` , ``journald`` , and ``json-file`` .
+                      For more information about using the ``awslogs`` log driver, see `Using the awslogs Log Driver <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                       .. note::
                         If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is `available on GitHub <https://github.com/aws/amazon-ecs-agent>`__ and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently support running modified copies of this software.
                       This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``  
@@ -2136,6 +2747,19 @@ class Client(BaseClient):
                       The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``  
                       - *(string) --* 
                         - *(string) --* 
+                    - **secretOptions** *(list) --* 
+                      The secrets to pass to the log configuration.
+                      - *(dict) --* 
+                        An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+                        * To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter. 
+                        * To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter. 
+                        For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                        - **name** *(string) --* 
+                          The name of the secret.
+                        - **valueFrom** *(string) --* 
+                          The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+                          .. note::
+                            If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
                   - **healthCheck** *(dict) --* 
                     The health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``HEALTHCHECK`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     - **command** *(list) --* 
@@ -2281,6 +2905,28 @@ class Client(BaseClient):
                 * For tasks that use the ``task`` IPC mode, IPC namespace related ``systemControls`` will apply to all containers within a task. 
                 .. note::
                   This parameter is not supported for Windows containers or tasks using the Fargate launch type.
+              - **proxyConfiguration** *(dict) --* 
+                The configuration details for the App Mesh proxy.
+                Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to enable a proxy configuration. If your container instances are launched from the Amazon ECS-optimized AMI version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                - **type** *(string) --* 
+                  The proxy type. The only supported value is ``APPMESH`` .
+                - **containerName** *(string) --* 
+                  The name of the container that will serve as the App Mesh proxy.
+                - **properties** *(list) --* 
+                  The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
+                  * ``IgnoredUID`` - (Required) The user ID (UID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty. 
+                  * ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty. 
+                  * ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort`` . 
+                  * ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to. 
+                  * ``ProxyEgressPort`` - (Required) Specifies the port that outgoing traffic from the ``AppPorts`` is directed to. 
+                  * ``EgressIgnoredPorts`` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the ``ProxyEgressPort`` . It can be an empty list. 
+                  * ``EgressIgnoredIPs`` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the ``ProxyEgressPort`` . It can be an empty list. 
+                  - *(dict) --* 
+                    A key-value pair object.
+                    - **name** *(string) --* 
+                      The name of the key-value pair. For environment variables, this is the name of the environment variable.
+                    - **value** *(string) --* 
+                      The value of the key-value pair. For environment variables, this is the value of the environment variable.
         :type taskDefinition: string
         :param taskDefinition: **[REQUIRED]**
           The ``family`` and ``revision`` (``family:revision`` ) or full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a ``revision`` .
@@ -2693,6 +3339,8 @@ class Client(BaseClient):
                             {
                                 'id': 'string',
                                 'taskSetArn': 'string',
+                                'serviceArn': 'string',
+                                'clusterArn': 'string',
                                 'startedBy': 'string',
                                 'externalId': 'string',
                                 'status': 'string',
@@ -2719,6 +3367,14 @@ class Client(BaseClient):
                                     {
                                         'targetGroupArn': 'string',
                                         'loadBalancerName': 'string',
+                                        'containerName': 'string',
+                                        'containerPort': 123
+                                    },
+                                ],
+                                'serviceRegistries': [
+                                    {
+                                        'registryArn': 'string',
+                                        'port': 123,
                                         'containerName': 'string',
                                         'containerPort': 123
                                     },
@@ -2791,7 +3447,7 @@ class Client(BaseClient):
                         'healthCheckGracePeriodSeconds': 123,
                         'schedulingStrategy': 'REPLICA'|'DAEMON',
                         'deploymentController': {
-                            'type': 'ECS'|'CODE_DEPLOY'
+                            'type': 'ECS'|'CODE_DEPLOY'|'EXTERNAL'
                         },
                         'tags': [
                             {
@@ -2843,10 +3499,11 @@ class Client(BaseClient):
                     - **containerPort** *(integer) --* 
                       The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
                 - **serviceRegistries** *(list) --* 
+                  The details of the service discovery registries to assign to this service. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
                   - *(dict) --* 
                     Details of the service registry.
                     - **registryArn** *(string) --* 
-                      The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is Amazon Route 53 Auto Naming. For more information, see `Service <https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html>`__ .
+                      The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
                     - **port** *(integer) --* 
                       The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
                     - **containerName** *(string) --* 
@@ -2871,22 +3528,28 @@ class Client(BaseClient):
                   Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
                   - **maximumPercent** *(integer) --* 
                     If a service is using the rolling update (``ECS`` ) deployment type, the **maximum percent** parameter represents an upper limit on the number of tasks in a service that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the desired number of tasks (rounded down to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to define the deployment batch size. For example, if your service has a desired number of four tasks and a maximum percent value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for maximum percent is 200%.
-                    If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+                    If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
                   - **minimumHealthyPercent** *(integer) --* 
                     If a service is using the rolling update (``ECS`` ) deployment type, the **minimum healthy percent** represents a lower limit on the number of tasks in a service that must remain in the ``RUNNING`` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state; tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and they are reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
-                    If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+                    If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
                 - **taskSets** *(list) --* 
-                  Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                  Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
                   - *(dict) --* 
-                    Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                    Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
                     - **id** *(string) --* 
                       The ID of the task set.
                     - **taskSetArn** *(string) --* 
                       The Amazon Resource Name (ARN) of the task set.
+                    - **serviceArn** *(string) --* 
+                      The Amazon Resource Name (ARN) of the service the task set exists in.
+                    - **clusterArn** *(string) --* 
+                      The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
                     - **startedBy** *(string) --* 
-                      The tag specified when a task set is started. If the task is started by an AWS CodeDeploy deployment, then the ``startedBy`` parameter is ``CODE_DEPLOY`` .
+                      The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
                     - **externalId** *(string) --* 
-                      The deployment ID of the AWS CodeDeploy deployment.
+                      The external ID associated with the task set.
+                      If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                      If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
                     - **status** *(string) --* 
                       The status of the task set. The following describes each state:
                         PRIMARY  
@@ -2898,9 +3561,9 @@ class Client(BaseClient):
                     - **taskDefinition** *(string) --* 
                       The task definition the task set is using.
                     - **computedDesiredCount** *(integer) --* 
-                      The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage.
+                      The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
                     - **pendingCount** *(integer) --* 
-                      The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time, or when it is restarted after being in the ``STOPPED`` state.
+                      The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
                     - **runningCount** *(integer) --* 
                       The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
                     - **createdAt** *(datetime) --* 
@@ -2946,10 +3609,22 @@ class Client(BaseClient):
                           The name of the container (as it appears in a container definition) to associate with the load balancer.
                         - **containerPort** *(integer) --* 
                           The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                    - **serviceRegistries** *(list) --* 
+                      The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                      - *(dict) --* 
+                        Details of the service registry.
+                        - **registryArn** *(string) --* 
+                          The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                        - **port** *(integer) --* 
+                          The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                        - **containerName** *(string) --* 
+                          The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                        - **containerPort** *(integer) --* 
+                          The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
                     - **scale** *(dict) --* 
-                      A floating-point percentage of the desired number of tasks to place and keep running in the service.
+                      A floating-point percentage of the desired number of tasks to place and keep running in the task set.
                       - **value** *(float) --* 
-                        The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set.
+                        The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
                       - **unit** *(string) --* 
                         The unit of measure for the scale value.
                     - **stabilityStatus** *(string) --* 
@@ -2964,7 +3639,7 @@ class Client(BaseClient):
                 - **deployments** *(list) --* 
                   The current state of deployments for the service.
                   - *(dict) --* 
-                    The details of an Amazon ECS service deployment. This is used when a service uses the ``CODE_DEPLOY`` deployment controller type.
+                    The details of an Amazon ECS service deployment. This is used only when a service uses the ``ECS`` deployment controller type.
                     - **id** *(string) --* 
                       The ID of the deployment.
                     - **status** *(string) --* 
@@ -3070,11 +3745,13 @@ class Client(BaseClient):
                   The deployment controller type the service is using.
                   - **type** *(string) --* 
                     The deployment controller type to use.
-                    There are two deployment controller types available:
+                    There are three deployment controller types available:
                       ECS  
                     The rolling update (``ECS`` ) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the  DeploymentConfiguration .
                       CODE_DEPLOY  
-                    The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it.
+                      EXTERNAL  
+                    The external (``EXTERNAL`` ) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
                 - **tags** *(list) --* 
                   The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
                   - *(dict) --* 
@@ -3218,6 +3895,14 @@ class Client(BaseClient):
                                     'valueFrom': 'string'
                                 },
                             ],
+                            'dependsOn': [
+                                {
+                                    'containerName': 'string',
+                                    'condition': 'START'|'COMPLETE'|'SUCCESS'|'HEALTHY'
+                                },
+                            ],
+                            'startTimeout': 123,
+                            'stopTimeout': 123,
                             'hostname': 'string',
                             'user': 'string',
                             'workingDirectory': 'string',
@@ -3255,7 +3940,13 @@ class Client(BaseClient):
                                 'logDriver': 'json-file'|'syslog'|'journald'|'gelf'|'fluentd'|'awslogs'|'splunk',
                                 'options': {
                                     'string': 'string'
-                                }
+                                },
+                                'secretOptions': [
+                                    {
+                                        'name': 'string',
+                                        'valueFrom': 'string'
+                                    },
+                                ]
                             },
                             'healthCheck': {
                                 'command': [
@@ -3328,7 +4019,17 @@ class Client(BaseClient):
                     'cpu': 'string',
                     'memory': 'string',
                     'pidMode': 'host'|'task',
-                    'ipcMode': 'host'|'task'|'none'
+                    'ipcMode': 'host'|'task'|'none',
+                    'proxyConfiguration': {
+                        'type': 'APPMESH',
+                        'containerName': 'string',
+                        'properties': [
+                            {
+                                'name': 'string',
+                                'value': 'string'
+                            },
+                        ]
+                    }
                 },
                 'tags': [
                     {
@@ -3511,19 +4212,53 @@ class Client(BaseClient):
                   - **secrets** *(list) --* 
                     The secrets to pass to the container. For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                     - *(dict) --* 
-                      An object representing the secret to expose to your container. For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+                      * To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter. 
+                      * To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter. 
+                      For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                       - **name** *(string) --* 
-                        The value to set as the environment variable on the container.
+                        The name of the secret.
                       - **valueFrom** *(string) --* 
-                        The secret to expose to the container. If your task is using the EC2 launch type, then supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store. If your task is using the Fargate launch type, then the only supported value is the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+                        The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
                         .. note::
                           If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+                  - **dependsOn** *(list) --* 
+                    The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+                    For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                    - *(dict) --* 
+                      The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+                      Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      .. note::
+                        If you are using tasks that use the Fargate launch type, container dependency parameters are not supported.
+                      - **containerName** *(string) --* 
+                        The name of a container.
+                      - **condition** *(string) --* 
+                        The dependency condition of the container. The following are the available conditions and their behavior:
+                        * ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start. 
+                        * ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. 
+                        * ``SUCCESS`` - This condition is the same as ``COMPLETE`` , but it also requires that the container exits with a ``zero`` status. 
+                        * ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup. 
+                  - **startTimeout** *(integer) --* 
+                    Time duration to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE`` , ``SUCCESS`` , or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it does not reach the desired status within that time then containerA will give up and not start. This results in the task transitioning to a ``STOPPED`` state.
+                    For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to enable a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                  - **stopTimeout** *(integer) --* 
+                    Time duration to wait before the container is forcefully killed if it doesn't exit normally on its own. For tasks using the Fargate launch type, the max ``stopTimeout`` value is 2 minutes. This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                    For tasks using the EC2 launch type, the stop timeout value for the container takes precedence over the ``ECS_CONTAINER_STOP_TIMEOUT`` container agent configuration parameter, if used. Container instances require at least version 1.26.0 of the container agent to enable a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                   - **hostname** *(string) --* 
                     The hostname to use for your container. This parameter maps to ``Hostname`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--hostname`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     .. note::
                       The ``hostname`` parameter is not supported if you are using the ``awsvpc`` network mode.
                   - **user** *(string) --* 
                     The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    You can use the following formats. If specifying a UID or GID, you must specify it as a positive integer.
+                    * ``user``   
+                    * ``user:group``   
+                    * ``uid``   
+                    * ``uid:gid``   
+                    * ``user:gid``   
+                    * ``uid:group``   
                     .. note::
                       This parameter is not supported for Windows containers.
                   - **workingDirectory** *(string) --* 
@@ -3589,7 +4324,8 @@ class Client(BaseClient):
                         The hard limit for the ulimit type.
                   - **logConfiguration** *(dict) --* 
                     The log configuration specification for the container.
-                    If you are using the Fargate launch type, the only supported value is ``awslogs`` .
+                    For tasks using the Fargate launch type, the supported log drivers are ``awslogs`` and ``splunk`` .
+                    For tasks using the EC2 launch type, the supported log drivers are ``awslogs`` , ``syslog`` , ``gelf`` , ``fluentd`` , ``splunk`` , ``journald`` , and ``json-file`` .
                     This parameter maps to ``LogConfig`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--log-driver`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . By default, containers use the same logging driver that the Docker daemon uses. However the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see `Configure logging drivers <https://docs.docker.com/engine/admin/logging/overview/>`__ in the Docker documentation.
                     .. note::
                       Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the  LogConfiguration data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
@@ -3597,7 +4333,10 @@ class Client(BaseClient):
                     .. note::
                       The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see `Amazon ECS Container Agent Configuration <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                     - **logDriver** *(string) --* 
-                      The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default. If you are using the Fargate launch type, the only supported value is ``awslogs`` . For more information about using the ``awslogs`` driver, see `Using the awslogs Log Driver <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
+                      For tasks using the Fargate launch type, the supported log drivers are ``awslogs`` and ``splunk`` .
+                      For tasks using the EC2 launch type, the supported log drivers are ``awslogs`` , ``syslog`` , ``gelf`` , ``fluentd`` , ``splunk`` , ``journald`` , and ``json-file`` .
+                      For more information about using the ``awslogs`` log driver, see `Using the awslogs Log Driver <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                       .. note::
                         If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is `available on GitHub <https://github.com/aws/amazon-ecs-agent>`__ and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently support running modified copies of this software.
                       This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``  
@@ -3605,6 +4344,19 @@ class Client(BaseClient):
                       The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``  
                       - *(string) --* 
                         - *(string) --* 
+                    - **secretOptions** *(list) --* 
+                      The secrets to pass to the log configuration.
+                      - *(dict) --* 
+                        An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+                        * To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter. 
+                        * To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter. 
+                        For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                        - **name** *(string) --* 
+                          The name of the secret.
+                        - **valueFrom** *(string) --* 
+                          The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+                          .. note::
+                            If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
                   - **healthCheck** *(dict) --* 
                     The health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``HEALTHCHECK`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     - **command** *(list) --* 
@@ -3750,6 +4502,28 @@ class Client(BaseClient):
                 * For tasks that use the ``task`` IPC mode, IPC namespace related ``systemControls`` will apply to all containers within a task. 
                 .. note::
                   This parameter is not supported for Windows containers or tasks using the Fargate launch type.
+              - **proxyConfiguration** *(dict) --* 
+                The configuration details for the App Mesh proxy.
+                Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to enable a proxy configuration. If your container instances are launched from the Amazon ECS-optimized AMI version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                - **type** *(string) --* 
+                  The proxy type. The only supported value is ``APPMESH`` .
+                - **containerName** *(string) --* 
+                  The name of the container that will serve as the App Mesh proxy.
+                - **properties** *(list) --* 
+                  The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
+                  * ``IgnoredUID`` - (Required) The user ID (UID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty. 
+                  * ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty. 
+                  * ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort`` . 
+                  * ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to. 
+                  * ``ProxyEgressPort`` - (Required) Specifies the port that outgoing traffic from the ``AppPorts`` is directed to. 
+                  * ``EgressIgnoredPorts`` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the ``ProxyEgressPort`` . It can be an empty list. 
+                  * ``EgressIgnoredIPs`` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the ``ProxyEgressPort`` . It can be an empty list. 
+                  - *(dict) --* 
+                    A key-value pair object.
+                    - **name** *(string) --* 
+                      The name of the key-value pair. For environment variables, this is the name of the environment variable.
+                    - **value** *(string) --* 
+                      The value of the key-value pair. For environment variables, this is the value of the environment variable.
             - **tags** *(list) --* 
               The metadata that is applied to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
               - *(dict) --* 
@@ -3764,6 +4538,213 @@ class Client(BaseClient):
         :type include: list
         :param include:
           Specifies whether to see the resource tags for the task definition. If ``TAGS`` is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+          - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def describe_task_sets(self, cluster: str, service: str, taskSets: List = None) -> Dict:
+        """
+        Describes the task sets in the specified cluster and service. This is used when a service uses the ``EXTERNAL`` deployment controller type. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DescribeTaskSets>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_task_sets(
+              cluster='string',
+              service='string',
+              taskSets=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'taskSets': [
+                    {
+                        'id': 'string',
+                        'taskSetArn': 'string',
+                        'serviceArn': 'string',
+                        'clusterArn': 'string',
+                        'startedBy': 'string',
+                        'externalId': 'string',
+                        'status': 'string',
+                        'taskDefinition': 'string',
+                        'computedDesiredCount': 123,
+                        'pendingCount': 123,
+                        'runningCount': 123,
+                        'createdAt': datetime(2015, 1, 1),
+                        'updatedAt': datetime(2015, 1, 1),
+                        'launchType': 'EC2'|'FARGATE',
+                        'platformVersion': 'string',
+                        'networkConfiguration': {
+                            'awsvpcConfiguration': {
+                                'subnets': [
+                                    'string',
+                                ],
+                                'securityGroups': [
+                                    'string',
+                                ],
+                                'assignPublicIp': 'ENABLED'|'DISABLED'
+                            }
+                        },
+                        'loadBalancers': [
+                            {
+                                'targetGroupArn': 'string',
+                                'loadBalancerName': 'string',
+                                'containerName': 'string',
+                                'containerPort': 123
+                            },
+                        ],
+                        'serviceRegistries': [
+                            {
+                                'registryArn': 'string',
+                                'port': 123,
+                                'containerName': 'string',
+                                'containerPort': 123
+                            },
+                        ],
+                        'scale': {
+                            'value': 123.0,
+                            'unit': 'PERCENT'
+                        },
+                        'stabilityStatus': 'STEADY_STATE'|'STABILIZING',
+                        'stabilityStatusAt': datetime(2015, 1, 1)
+                    },
+                ],
+                'failures': [
+                    {
+                        'arn': 'string',
+                        'reason': 'string'
+                    },
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **taskSets** *(list) --* 
+              The list of task sets described.
+              - *(dict) --* 
+                Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                - **id** *(string) --* 
+                  The ID of the task set.
+                - **taskSetArn** *(string) --* 
+                  The Amazon Resource Name (ARN) of the task set.
+                - **serviceArn** *(string) --* 
+                  The Amazon Resource Name (ARN) of the service the task set exists in.
+                - **clusterArn** *(string) --* 
+                  The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
+                - **startedBy** *(string) --* 
+                  The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
+                - **externalId** *(string) --* 
+                  The external ID associated with the task set.
+                  If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                  If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
+                - **status** *(string) --* 
+                  The status of the task set. The following describes each state:
+                    PRIMARY  
+                  The task set is serving production traffic.
+                    ACTIVE  
+                  The task set is not serving production traffic.
+                    DRAINING  
+                  The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
+                - **taskDefinition** *(string) --* 
+                  The task definition the task set is using.
+                - **computedDesiredCount** *(integer) --* 
+                  The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
+                - **pendingCount** *(integer) --* 
+                  The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
+                - **runningCount** *(integer) --* 
+                  The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
+                - **createdAt** *(datetime) --* 
+                  The Unix timestamp for when the task set was created.
+                - **updatedAt** *(datetime) --* 
+                  The Unix timestamp for when the task set was last updated.
+                - **launchType** *(string) --* 
+                  The launch type the tasks in the task set are using. For more information, see `Amazon ECS Launch Types <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                - **platformVersion** *(string) --* 
+                  The platform version on which the tasks in the task set are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the ``LATEST`` platform version is used by default. For more information, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                - **networkConfiguration** *(dict) --* 
+                  The network configuration for the task set.
+                  - **awsvpcConfiguration** *(dict) --* 
+                    The VPC subnets and security groups associated with a task.
+                    .. note::
+                      All specified subnets and security groups must be from the same VPC.
+                    - **subnets** *(list) --* 
+                      The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per ``AwsVpcConfiguration`` .
+                      .. note::
+                        All specified subnets must be from the same VPC.
+                      - *(string) --* 
+                    - **securityGroups** *(list) --* 
+                      The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per ``AwsVpcConfiguration`` .
+                      .. note::
+                        All specified security groups must be from the same VPC.
+                      - *(string) --* 
+                    - **assignPublicIp** *(string) --* 
+                      Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+                - **loadBalancers** *(list) --* 
+                  Details on a load balancer that is used with a task set.
+                  - *(dict) --* 
+                    Details on a load balancer that is used with a service.
+                    If the service is using the ``ECS`` deployment controller, you are limited to one load balancer or target group.
+                    If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an AWS CodeDeploy deployment group, you specify two target groups (referred to as a ``targetGroupPair`` ). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+                    Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance`` . Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                    - **targetGroupArn** *(string) --* 
+                      The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service. For services using the ``ECS`` deployment controller, you are limited to one target group. For services using the ``CODE_DEPLOY`` deployment controller, you are required to define two target groups for the load balancer.
+                      .. warning::
+                        If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                    - **loadBalancerName** *(string) --* 
+                      The name of a load balancer.
+                    - **containerName** *(string) --* 
+                      The name of the container (as it appears in a container definition) to associate with the load balancer.
+                    - **containerPort** *(integer) --* 
+                      The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                - **serviceRegistries** *(list) --* 
+                  The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                  - *(dict) --* 
+                    Details of the service registry.
+                    - **registryArn** *(string) --* 
+                      The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                    - **port** *(integer) --* 
+                      The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                    - **containerName** *(string) --* 
+                      The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                    - **containerPort** *(integer) --* 
+                      The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                - **scale** *(dict) --* 
+                  A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+                  - **value** *(float) --* 
+                    The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
+                  - **unit** *(string) --* 
+                    The unit of measure for the scale value.
+                - **stabilityStatus** *(string) --* 
+                  The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in ``STEADY_STATE`` :
+                  * The task ``runningCount`` is equal to the ``computedDesiredCount`` . 
+                  * The ``pendingCount`` is ``0`` . 
+                  * There are no tasks running on container instances in the ``DRAINING`` status. 
+                  * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks. 
+                  If any of those conditions are not met, the stability status returns ``STABILIZING`` .
+                - **stabilityStatusAt** *(datetime) --* 
+                  The Unix timestamp for when the task set stability status was retrieved.
+            - **failures** *(list) --* 
+              Any failures associated with the call.
+              - *(dict) --* 
+                A failed resource.
+                - **arn** *(string) --* 
+                  The Amazon Resource Name (ARN) of the failed resource.
+                - **reason** *(string) --* 
+                  The reason for the failure.
+        :type cluster: string
+        :param cluster: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.
+        :type service: string
+        :param service: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.
+        :type taskSets: list
+        :param taskSets:
+          The ID or full Amazon Resource Name (ARN) of task sets to describe.
           - *(string) --*
         :rtype: dict
         :returns:
@@ -4236,7 +5217,7 @@ class Client(BaseClient):
                 - **name** *(string) --* 
                   The account resource name.
                 - **value** *(string) --* 
-                  The current account setting for the resource name. If ``enabled`` , then the resource will receive the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , then the resource will receive the old Amazon Resource Name (ARN) and resource identifier (ID) format.
+                  The current account setting for the resource name. If ``enabled`` , the resource receives the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , the resource receives the old Amazon Resource Name (ARN) and resource identifier (ID) format.
                 - **principalArn** *(string) --* 
                   The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
             - **nextToken** *(string) --* 
@@ -4729,7 +5710,7 @@ class Client(BaseClient):
               - **name** *(string) --* 
                 The account resource name.
               - **value** *(string) --* 
-                The current account setting for the resource name. If ``enabled`` , then the resource will receive the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , then the resource will receive the old Amazon Resource Name (ARN) and resource identifier (ID) format.
+                The current account setting for the resource name. If ``enabled`` , the resource receives the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , the resource receives the old Amazon Resource Name (ARN) and resource identifier (ID) format.
               - **principalArn** *(string) --* 
                 The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
         :type name: string
@@ -4775,7 +5756,7 @@ class Client(BaseClient):
               - **name** *(string) --* 
                 The account resource name.
               - **value** *(string) --* 
-                The current account setting for the resource name. If ``enabled`` , then the resource will receive the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , then the resource will receive the old Amazon Resource Name (ARN) and resource identifier (ID) format.
+                The current account setting for the resource name. If ``enabled`` , the resource receives the new Amazon Resource Name (ARN) and resource identifier (ID) format. If ``disabled`` , the resource receives the old Amazon Resource Name (ARN) and resource identifier (ID) format.
               - **principalArn** *(string) --* 
                 The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
         :type name: string
@@ -5158,7 +6139,7 @@ class Client(BaseClient):
         """
         pass
 
-    def register_task_definition(self, family: str, containerDefinitions: List, taskRoleArn: str = None, executionRoleArn: str = None, networkMode: str = None, volumes: List = None, placementConstraints: List = None, requiresCompatibilities: List = None, cpu: str = None, memory: str = None, tags: List = None, pidMode: str = None, ipcMode: str = None) -> Dict:
+    def register_task_definition(self, family: str, containerDefinitions: List, taskRoleArn: str = None, executionRoleArn: str = None, networkMode: str = None, volumes: List = None, placementConstraints: List = None, requiresCompatibilities: List = None, cpu: str = None, memory: str = None, tags: List = None, pidMode: str = None, ipcMode: str = None, proxyConfiguration: Dict = None) -> Dict:
         """
         .. _https://docs.docker.com/engine/reference/commandline/run/: https://docs.docker.com/engine/reference/commandline/run/
         .. _https://docs.docker.com/engine/reference/commandline/volume_create/: https://docs.docker.com/engine/reference/commandline/volume_create/
@@ -5256,6 +6237,14 @@ class Client(BaseClient):
                               'valueFrom': 'string'
                           },
                       ],
+                      'dependsOn': [
+                          {
+                              'containerName': 'string',
+                              'condition': 'START'|'COMPLETE'|'SUCCESS'|'HEALTHY'
+                          },
+                      ],
+                      'startTimeout': 123,
+                      'stopTimeout': 123,
                       'hostname': 'string',
                       'user': 'string',
                       'workingDirectory': 'string',
@@ -5293,7 +6282,13 @@ class Client(BaseClient):
                           'logDriver': 'json-file'|'syslog'|'journald'|'gelf'|'fluentd'|'awslogs'|'splunk',
                           'options': {
                               'string': 'string'
-                          }
+                          },
+                          'secretOptions': [
+                              {
+                                  'name': 'string',
+                                  'valueFrom': 'string'
+                              },
+                          ]
                       },
                       'healthCheck': {
                           'command': [
@@ -5355,7 +6350,17 @@ class Client(BaseClient):
                   },
               ],
               pidMode='host'|'task',
-              ipcMode='host'|'task'|'none'
+              ipcMode='host'|'task'|'none',
+              proxyConfiguration={
+                  'type': 'APPMESH',
+                  'containerName': 'string',
+                  'properties': [
+                      {
+                          'name': 'string',
+                          'value': 'string'
+                      },
+                  ]
+              }
           )
         
         **Response Syntax**
@@ -5445,6 +6450,14 @@ class Client(BaseClient):
                                     'valueFrom': 'string'
                                 },
                             ],
+                            'dependsOn': [
+                                {
+                                    'containerName': 'string',
+                                    'condition': 'START'|'COMPLETE'|'SUCCESS'|'HEALTHY'
+                                },
+                            ],
+                            'startTimeout': 123,
+                            'stopTimeout': 123,
                             'hostname': 'string',
                             'user': 'string',
                             'workingDirectory': 'string',
@@ -5482,7 +6495,13 @@ class Client(BaseClient):
                                 'logDriver': 'json-file'|'syslog'|'journald'|'gelf'|'fluentd'|'awslogs'|'splunk',
                                 'options': {
                                     'string': 'string'
-                                }
+                                },
+                                'secretOptions': [
+                                    {
+                                        'name': 'string',
+                                        'valueFrom': 'string'
+                                    },
+                                ]
                             },
                             'healthCheck': {
                                 'command': [
@@ -5555,7 +6574,17 @@ class Client(BaseClient):
                     'cpu': 'string',
                     'memory': 'string',
                     'pidMode': 'host'|'task',
-                    'ipcMode': 'host'|'task'|'none'
+                    'ipcMode': 'host'|'task'|'none',
+                    'proxyConfiguration': {
+                        'type': 'APPMESH',
+                        'containerName': 'string',
+                        'properties': [
+                            {
+                                'name': 'string',
+                                'value': 'string'
+                            },
+                        ]
+                    }
                 },
                 'tags': [
                     {
@@ -5738,19 +6767,53 @@ class Client(BaseClient):
                   - **secrets** *(list) --* 
                     The secrets to pass to the container. For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                     - *(dict) --* 
-                      An object representing the secret to expose to your container. For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+                      * To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter. 
+                      * To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter. 
+                      For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                       - **name** *(string) --* 
-                        The value to set as the environment variable on the container.
+                        The name of the secret.
                       - **valueFrom** *(string) --* 
-                        The secret to expose to the container. If your task is using the EC2 launch type, then supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store. If your task is using the Fargate launch type, then the only supported value is the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+                        The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
                         .. note::
                           If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+                  - **dependsOn** *(list) --* 
+                    The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+                    For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                    - *(dict) --* 
+                      The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+                      Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      .. note::
+                        If you are using tasks that use the Fargate launch type, container dependency parameters are not supported.
+                      - **containerName** *(string) --* 
+                        The name of a container.
+                      - **condition** *(string) --* 
+                        The dependency condition of the container. The following are the available conditions and their behavior:
+                        * ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start. 
+                        * ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. 
+                        * ``SUCCESS`` - This condition is the same as ``COMPLETE`` , but it also requires that the container exits with a ``zero`` status. 
+                        * ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup. 
+                  - **startTimeout** *(integer) --* 
+                    Time duration to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE`` , ``SUCCESS`` , or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it does not reach the desired status within that time then containerA will give up and not start. This results in the task transitioning to a ``STOPPED`` state.
+                    For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to enable a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                    This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                  - **stopTimeout** *(integer) --* 
+                    Time duration to wait before the container is forcefully killed if it doesn't exit normally on its own. For tasks using the Fargate launch type, the max ``stopTimeout`` value is 2 minutes. This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+                    For tasks using the EC2 launch type, the stop timeout value for the container takes precedence over the ``ECS_CONTAINER_STOP_TIMEOUT`` container agent configuration parameter, if used. Container instances require at least version 1.26.0 of the container agent to enable a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                   - **hostname** *(string) --* 
                     The hostname to use for your container. This parameter maps to ``Hostname`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--hostname`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     .. note::
                       The ``hostname`` parameter is not supported if you are using the ``awsvpc`` network mode.
                   - **user** *(string) --* 
                     The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    You can use the following formats. If specifying a UID or GID, you must specify it as a positive integer.
+                    * ``user``   
+                    * ``user:group``   
+                    * ``uid``   
+                    * ``uid:gid``   
+                    * ``user:gid``   
+                    * ``uid:group``   
                     .. note::
                       This parameter is not supported for Windows containers.
                   - **workingDirectory** *(string) --* 
@@ -5816,7 +6879,8 @@ class Client(BaseClient):
                         The hard limit for the ulimit type.
                   - **logConfiguration** *(dict) --* 
                     The log configuration specification for the container.
-                    If you are using the Fargate launch type, the only supported value is ``awslogs`` .
+                    For tasks using the Fargate launch type, the supported log drivers are ``awslogs`` and ``splunk`` .
+                    For tasks using the EC2 launch type, the supported log drivers are ``awslogs`` , ``syslog`` , ``gelf`` , ``fluentd`` , ``splunk`` , ``journald`` , and ``json-file`` .
                     This parameter maps to ``LogConfig`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--log-driver`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . By default, containers use the same logging driver that the Docker daemon uses. However the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see `Configure logging drivers <https://docs.docker.com/engine/admin/logging/overview/>`__ in the Docker documentation.
                     .. note::
                       Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the  LogConfiguration data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
@@ -5824,7 +6888,10 @@ class Client(BaseClient):
                     .. note::
                       The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see `Amazon ECS Container Agent Configuration <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                     - **logDriver** *(string) --* 
-                      The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default. If you are using the Fargate launch type, the only supported value is ``awslogs`` . For more information about using the ``awslogs`` driver, see `Using the awslogs Log Driver <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                      The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
+                      For tasks using the Fargate launch type, the supported log drivers are ``awslogs`` and ``splunk`` .
+                      For tasks using the EC2 launch type, the supported log drivers are ``awslogs`` , ``syslog`` , ``gelf`` , ``fluentd`` , ``splunk`` , ``journald`` , and ``json-file`` .
+                      For more information about using the ``awslogs`` log driver, see `Using the awslogs Log Driver <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                       .. note::
                         If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is `available on GitHub <https://github.com/aws/amazon-ecs-agent>`__ and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently support running modified copies of this software.
                       This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``  
@@ -5832,6 +6899,19 @@ class Client(BaseClient):
                       The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``  
                       - *(string) --* 
                         - *(string) --* 
+                    - **secretOptions** *(list) --* 
+                      The secrets to pass to the log configuration.
+                      - *(dict) --* 
+                        An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+                        * To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter. 
+                        * To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter. 
+                        For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                        - **name** *(string) --* 
+                          The name of the secret.
+                        - **valueFrom** *(string) --* 
+                          The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+                          .. note::
+                            If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
                   - **healthCheck** *(dict) --* 
                     The health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``HEALTHCHECK`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     - **command** *(list) --* 
@@ -5977,6 +7057,28 @@ class Client(BaseClient):
                 * For tasks that use the ``task`` IPC mode, IPC namespace related ``systemControls`` will apply to all containers within a task. 
                 .. note::
                   This parameter is not supported for Windows containers or tasks using the Fargate launch type.
+              - **proxyConfiguration** *(dict) --* 
+                The configuration details for the App Mesh proxy.
+                Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to enable a proxy configuration. If your container instances are launched from the Amazon ECS-optimized AMI version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                - **type** *(string) --* 
+                  The proxy type. The only supported value is ``APPMESH`` .
+                - **containerName** *(string) --* 
+                  The name of the container that will serve as the App Mesh proxy.
+                - **properties** *(list) --* 
+                  The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
+                  * ``IgnoredUID`` - (Required) The user ID (UID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty. 
+                  * ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty. 
+                  * ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort`` . 
+                  * ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to. 
+                  * ``ProxyEgressPort`` - (Required) Specifies the port that outgoing traffic from the ``AppPorts`` is directed to. 
+                  * ``EgressIgnoredPorts`` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the ``ProxyEgressPort`` . It can be an empty list. 
+                  * ``EgressIgnoredIPs`` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the ``ProxyEgressPort`` . It can be an empty list. 
+                  - *(dict) --* 
+                    A key-value pair object.
+                    - **name** *(string) --* 
+                      The name of the key-value pair. For environment variables, this is the name of the environment variable.
+                    - **value** *(string) --* 
+                      The value of the key-value pair. For environment variables, this is the value of the environment variable.
             - **tags** *(list) --* 
               The list of tags associated with the task definition.
               - *(dict) --* 
@@ -6172,19 +7274,53 @@ class Client(BaseClient):
             - **secrets** *(list) --*
               The secrets to pass to the container. For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
               - *(dict) --*
-                An object representing the secret to expose to your container. For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+                * To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter.
+                * To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.
+                For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                 - **name** *(string) --* **[REQUIRED]**
-                  The value to set as the environment variable on the container.
+                  The name of the secret.
                 - **valueFrom** *(string) --* **[REQUIRED]**
-                  The secret to expose to the container. If your task is using the EC2 launch type, then supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store. If your task is using the Fargate launch type, then the only supported value is the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+                  The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
                   .. note::
                     If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+            - **dependsOn** *(list) --*
+              The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+              For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+              - *(dict) --*
+                The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+                Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                .. note::
+                  If you are using tasks that use the Fargate launch type, container dependency parameters are not supported.
+                - **containerName** *(string) --* **[REQUIRED]**
+                  The name of a container.
+                - **condition** *(string) --* **[REQUIRED]**
+                  The dependency condition of the container. The following are the available conditions and their behavior:
+                  * ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
+                  * ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit.
+                  * ``SUCCESS`` - This condition is the same as ``COMPLETE`` , but it also requires that the container exits with a ``zero`` status.
+                  * ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
+            - **startTimeout** *(integer) --*
+              Time duration to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE`` , ``SUCCESS`` , or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it does not reach the desired status within that time then containerA will give up and not start. This results in the task transitioning to a ``STOPPED`` state.
+              For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to enable a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+            - **stopTimeout** *(integer) --*
+              Time duration to wait before the container is forcefully killed if it doesn\'t exit normally on its own. For tasks using the Fargate launch type, the max ``stopTimeout`` value is 2 minutes. This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+              For tasks using the EC2 launch type, the stop timeout value for the container takes precedence over the ``ECS_CONTAINER_STOP_TIMEOUT`` container agent configuration parameter, if used. Container instances require at least version 1.26.0 of the container agent to enable a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see `Updating the Amazon ECS Container Agent <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html>`__ in the *Amazon Elastic Container Service Developer Guide* . If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
             - **hostname** *(string) --*
               The hostname to use for your container. This parameter maps to ``Hostname`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--hostname`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
               .. note::
                 The ``hostname`` parameter is not supported if you are using the ``awsvpc`` network mode.
             - **user** *(string) --*
               The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+              You can use the following formats. If specifying a UID or GID, you must specify it as a positive integer.
+              * ``user``
+              * ``user:group``
+              * ``uid``
+              * ``uid:gid``
+              * ``user:gid``
+              * ``uid:group``
               .. note::
                 This parameter is not supported for Windows containers.
             - **workingDirectory** *(string) --*
@@ -6250,7 +7386,8 @@ class Client(BaseClient):
                   The hard limit for the ulimit type.
             - **logConfiguration** *(dict) --*
               The log configuration specification for the container.
-              If you are using the Fargate launch type, the only supported value is ``awslogs`` .
+              For tasks using the Fargate launch type, the supported log drivers are ``awslogs`` and ``splunk`` .
+              For tasks using the EC2 launch type, the supported log drivers are ``awslogs`` , ``syslog`` , ``gelf`` , ``fluentd`` , ``splunk`` , ``journald`` , and ``json-file`` .
               This parameter maps to ``LogConfig`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``--log-driver`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . By default, containers use the same logging driver that the Docker daemon uses. However the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see `Configure logging drivers <https://docs.docker.com/engine/admin/logging/overview/>`__ in the Docker documentation.
               .. note::
                 Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the  LogConfiguration data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
@@ -6258,7 +7395,10 @@ class Client(BaseClient):
               .. note::
                 The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see `Amazon ECS Container Agent Configuration <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
               - **logDriver** *(string) --* **[REQUIRED]**
-                The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default. If you are using the Fargate launch type, the only supported value is ``awslogs`` . For more information about using the ``awslogs`` driver, see `Using the awslogs Log Driver <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                The log driver to use for the container. The valid values listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
+                For tasks using the Fargate launch type, the supported log drivers are ``awslogs`` and ``splunk`` .
+                For tasks using the EC2 launch type, the supported log drivers are ``awslogs`` , ``syslog`` , ``gelf`` , ``fluentd`` , ``splunk`` , ``journald`` , and ``json-file`` .
+                For more information about using the ``awslogs`` log driver, see `Using the awslogs Log Driver <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
                 .. note::
                   If you have a custom driver that is not listed above that you would like to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that is `available on GitHub <https://github.com/aws/amazon-ecs-agent>`__ and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, Amazon Web Services does not currently support running modified copies of this software.
                 This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format \'{{.Server.APIVersion}}\'``
@@ -6266,6 +7406,19 @@ class Client(BaseClient):
                 The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format \'{{.Server.APIVersion}}\'``
                 - *(string) --*
                   - *(string) --*
+              - **secretOptions** *(list) --*
+                The secrets to pass to the log configuration.
+                - *(dict) --*
+                  An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+                  * To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter.
+                  * To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.
+                  For more information, see `Specifying Sensitive Data <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                  - **name** *(string) --* **[REQUIRED]**
+                    The name of the secret.
+                  - **valueFrom** *(string) --* **[REQUIRED]**
+                    The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+                    .. note::
+                      If the AWS Systems Manager Parameter Store parameter exists in the same Region as the task you are launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
             - **healthCheck** *(dict) --*
               The health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the `Create a container <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.35/>`__ and the ``HEALTHCHECK`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
               - **command** *(list) --* **[REQUIRED]**
@@ -6398,6 +7551,30 @@ class Client(BaseClient):
           * For tasks that use the ``task`` IPC mode, IPC namespace related ``systemControls`` will apply to all containers within a task.
           .. note::
             This parameter is not supported for Windows containers or tasks using the Fargate launch type.
+        :type proxyConfiguration: dict
+        :param proxyConfiguration:
+          The configuration details for the App Mesh proxy.
+          For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to enable a proxy configuration. If your container instances are launched from the Amazon ECS-optimized AMI version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init`` . For more information, see `Amazon ECS-optimized Linux AMI <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+          This parameter is available for tasks using the Fargate launch type in the Ohio (us-east-2) region only and the task or service requires platform version 1.3.0 or later.
+          - **type** *(string) --*
+            The proxy type. The only supported value is ``APPMESH`` .
+          - **containerName** *(string) --* **[REQUIRED]**
+            The name of the container that will serve as the App Mesh proxy.
+          - **properties** *(list) --*
+            The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
+            * ``IgnoredUID`` - (Required) The user ID (UID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty.
+            * ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty.
+            * ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort`` .
+            * ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to.
+            * ``ProxyEgressPort`` - (Required) Specifies the port that outgoing traffic from the ``AppPorts`` is directed to.
+            * ``EgressIgnoredPorts`` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the ``ProxyEgressPort`` . It can be an empty list.
+            * ``EgressIgnoredIPs`` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the ``ProxyEgressPort`` . It can be an empty list.
+            - *(dict) --*
+              A key-value pair object.
+              - **name** *(string) --*
+                The name of the key-value pair. For environment variables, this is the name of the environment variable.
+              - **value** *(string) --*
+                The value of the key-value pair. For environment variables, this is the value of the environment variable.
         :rtype: dict
         :returns:
         """
@@ -7698,7 +8875,7 @@ class Client(BaseClient):
           The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
         :type task: string
         :param task: **[REQUIRED]**
-          The task ID or full ARN entry of the task to stop.
+          The task ID or full Amazon Resource Name (ARN) of the task to stop.
         :type reason: string
         :param reason:
           An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message appears in subsequent  DescribeTasks API operations on this task. Up to 255 characters are allowed in this message.
@@ -8395,6 +9572,7 @@ class Client(BaseClient):
         Modifies the parameters of a service.
         For services using the rolling update (``ECS`` ) deployment controller, the desired count, deployment configuration, network configuration, or task definition used can be updated.
         For services using the blue/green (``CODE_DEPLOY`` ) deployment controller, only the desired count, deployment configuration, and health check grace period can be updated using this API. If the network configuration, platform version, or task definition need to be updated, a new AWS CodeDeploy deployment should be created. For more information, see `CreateDeployment <https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html>`__ in the *AWS CodeDeploy API Reference* .
+        For services using an external deployment controller, you can update only the desired count and health check grace period using this API. If the launch type, load balancer, network configuration, platform version, or task definition need to be updated, you should create a new task set. For more information, see  CreateTaskSet .
         You can add to or subtract from the number of instantiations of a task definition in a service by specifying the cluster that the service is running in and a new ``desiredCount`` parameter.
         If you have updated the Docker image of your application, you can create a new task definition with that image and deploy it to your service. The service scheduler uses the minimum healthy percent and maximum percent parameters (in the service's deployment configuration) to determine the deployment strategy.
         .. note::
@@ -8478,6 +9656,8 @@ class Client(BaseClient):
                         {
                             'id': 'string',
                             'taskSetArn': 'string',
+                            'serviceArn': 'string',
+                            'clusterArn': 'string',
                             'startedBy': 'string',
                             'externalId': 'string',
                             'status': 'string',
@@ -8504,6 +9684,14 @@ class Client(BaseClient):
                                 {
                                     'targetGroupArn': 'string',
                                     'loadBalancerName': 'string',
+                                    'containerName': 'string',
+                                    'containerPort': 123
+                                },
+                            ],
+                            'serviceRegistries': [
+                                {
+                                    'registryArn': 'string',
+                                    'port': 123,
                                     'containerName': 'string',
                                     'containerPort': 123
                                 },
@@ -8576,7 +9764,7 @@ class Client(BaseClient):
                     'healthCheckGracePeriodSeconds': 123,
                     'schedulingStrategy': 'REPLICA'|'DAEMON',
                     'deploymentController': {
-                        'type': 'ECS'|'CODE_DEPLOY'
+                        'type': 'ECS'|'CODE_DEPLOY'|'EXTERNAL'
                     },
                     'tags': [
                         {
@@ -8619,10 +9807,11 @@ class Client(BaseClient):
                   - **containerPort** *(integer) --* 
                     The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
               - **serviceRegistries** *(list) --* 
+                The details of the service discovery registries to assign to this service. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
                 - *(dict) --* 
                   Details of the service registry.
                   - **registryArn** *(string) --* 
-                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is Amazon Route 53 Auto Naming. For more information, see `Service <https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html>`__ .
+                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
                   - **port** *(integer) --* 
                     The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
                   - **containerName** *(string) --* 
@@ -8647,22 +9836,28 @@ class Client(BaseClient):
                 Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
                 - **maximumPercent** *(integer) --* 
                   If a service is using the rolling update (``ECS`` ) deployment type, the **maximum percent** parameter represents an upper limit on the number of tasks in a service that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the desired number of tasks (rounded down to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to define the deployment batch size. For example, if your service has a desired number of four tasks and a maximum percent value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for maximum percent is 200%.
-                  If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+                  If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
                 - **minimumHealthyPercent** *(integer) --* 
                   If a service is using the rolling update (``ECS`` ) deployment type, the **minimum healthy percent** represents a lower limit on the number of tasks in a service that must remain in the ``RUNNING`` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state; tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and they are reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
-                  If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+                  If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
               - **taskSets** *(list) --* 
-                Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
                 - *(dict) --* 
-                  Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+                  Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
                   - **id** *(string) --* 
                     The ID of the task set.
                   - **taskSetArn** *(string) --* 
                     The Amazon Resource Name (ARN) of the task set.
+                  - **serviceArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the service the task set exists in.
+                  - **clusterArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
                   - **startedBy** *(string) --* 
-                    The tag specified when a task set is started. If the task is started by an AWS CodeDeploy deployment, then the ``startedBy`` parameter is ``CODE_DEPLOY`` .
+                    The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
                   - **externalId** *(string) --* 
-                    The deployment ID of the AWS CodeDeploy deployment.
+                    The external ID associated with the task set.
+                    If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                    If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
                   - **status** *(string) --* 
                     The status of the task set. The following describes each state:
                       PRIMARY  
@@ -8674,9 +9869,9 @@ class Client(BaseClient):
                   - **taskDefinition** *(string) --* 
                     The task definition the task set is using.
                   - **computedDesiredCount** *(integer) --* 
-                    The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage.
+                    The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
                   - **pendingCount** *(integer) --* 
-                    The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time, or when it is restarted after being in the ``STOPPED`` state.
+                    The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
                   - **runningCount** *(integer) --* 
                     The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
                   - **createdAt** *(datetime) --* 
@@ -8722,10 +9917,22 @@ class Client(BaseClient):
                         The name of the container (as it appears in a container definition) to associate with the load balancer.
                       - **containerPort** *(integer) --* 
                         The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+                  - **serviceRegistries** *(list) --* 
+                    The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                    - *(dict) --* 
+                      Details of the service registry.
+                      - **registryArn** *(string) --* 
+                        The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                      - **port** *(integer) --* 
+                        The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                      - **containerName** *(string) --* 
+                        The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                      - **containerPort** *(integer) --* 
+                        The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
                   - **scale** *(dict) --* 
-                    A floating-point percentage of the desired number of tasks to place and keep running in the service.
+                    A floating-point percentage of the desired number of tasks to place and keep running in the task set.
                     - **value** *(float) --* 
-                      The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set.
+                      The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
                     - **unit** *(string) --* 
                       The unit of measure for the scale value.
                   - **stabilityStatus** *(string) --* 
@@ -8740,7 +9947,7 @@ class Client(BaseClient):
               - **deployments** *(list) --* 
                 The current state of deployments for the service.
                 - *(dict) --* 
-                  The details of an Amazon ECS service deployment. This is used when a service uses the ``CODE_DEPLOY`` deployment controller type.
+                  The details of an Amazon ECS service deployment. This is used only when a service uses the ``ECS`` deployment controller type.
                   - **id** *(string) --* 
                     The ID of the deployment.
                   - **status** *(string) --* 
@@ -8846,11 +10053,13 @@ class Client(BaseClient):
                 The deployment controller type the service is using.
                 - **type** *(string) --* 
                   The deployment controller type to use.
-                  There are two deployment controller types available:
+                  There are three deployment controller types available:
                     ECS  
                   The rolling update (``ECS`` ) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the  DeploymentConfiguration .
                     CODE_DEPLOY  
-                  The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+                  The blue/green (``CODE_DEPLOY`` ) deployment type uses the blue/green deployment model powered by AWS CodeDeploy, which allows you to verify a new deployment of a service before sending production traffic to it.
+                    EXTERNAL  
+                  The external (``EXTERNAL`` ) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
               - **tags** *(list) --* 
                 The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
                 - *(dict) --* 
@@ -8882,10 +10091,10 @@ class Client(BaseClient):
           Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
           - **maximumPercent** *(integer) --*
             If a service is using the rolling update (``ECS`` ) deployment type, the **maximum percent** parameter represents an upper limit on the number of tasks in a service that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the desired number of tasks (rounded down to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to define the deployment batch size. For example, if your service has a desired number of four tasks and a maximum percent value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for maximum percent is 200%.
-            If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+            If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **maximum percent** value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
           - **minimumHealthyPercent** *(integer) --*
             If a service is using the rolling update (``ECS`` ) deployment type, the **minimum healthy percent** represents a lower limit on the number of tasks in a service that must remain in the ``RUNNING`` state during a deployment, as a percentage of the desired number of tasks (rounded up to the nearest integer), and while any container instances are in the ``DRAINING`` state if the service contains tasks using the EC2 launch type. This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a desired number of four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that *do not* use a load balancer are considered healthy if they are in the ``RUNNING`` state; tasks for services that *do* use a load balancer are considered healthy if they are in the ``RUNNING`` state and they are reported as healthy by the load balancer. The default value for minimum healthy percent is 100%.
-            If a service is using the blue/green (``CODE_DEPLOY`` ) deployment type and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+            If a service is using the blue/green (``CODE_DEPLOY`` ) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the **minimum healthy percent** value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
         :type networkConfiguration: dict
         :param networkConfiguration:
           The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see `Task Networking <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
@@ -8916,6 +10125,389 @@ class Client(BaseClient):
         :type healthCheckGracePeriodSeconds: integer
         :param healthCheckGracePeriodSeconds:
           The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service\'s tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds. During that time, the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def update_service_primary_task_set(self, cluster: str, service: str, primaryTaskSet: str) -> Dict:
+        """
+        Modifies which task set in a service is the primary task set. Any parameters that are updated on the primary task set in a service will transition to the service. This is used when a service uses the ``EXTERNAL`` deployment controller type. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/UpdateServicePrimaryTaskSet>`_
+        
+        **Request Syntax**
+        ::
+          response = client.update_service_primary_task_set(
+              cluster='string',
+              service='string',
+              primaryTaskSet='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'taskSet': {
+                    'id': 'string',
+                    'taskSetArn': 'string',
+                    'serviceArn': 'string',
+                    'clusterArn': 'string',
+                    'startedBy': 'string',
+                    'externalId': 'string',
+                    'status': 'string',
+                    'taskDefinition': 'string',
+                    'computedDesiredCount': 123,
+                    'pendingCount': 123,
+                    'runningCount': 123,
+                    'createdAt': datetime(2015, 1, 1),
+                    'updatedAt': datetime(2015, 1, 1),
+                    'launchType': 'EC2'|'FARGATE',
+                    'platformVersion': 'string',
+                    'networkConfiguration': {
+                        'awsvpcConfiguration': {
+                            'subnets': [
+                                'string',
+                            ],
+                            'securityGroups': [
+                                'string',
+                            ],
+                            'assignPublicIp': 'ENABLED'|'DISABLED'
+                        }
+                    },
+                    'loadBalancers': [
+                        {
+                            'targetGroupArn': 'string',
+                            'loadBalancerName': 'string',
+                            'containerName': 'string',
+                            'containerPort': 123
+                        },
+                    ],
+                    'serviceRegistries': [
+                        {
+                            'registryArn': 'string',
+                            'port': 123,
+                            'containerName': 'string',
+                            'containerPort': 123
+                        },
+                    ],
+                    'scale': {
+                        'value': 123.0,
+                        'unit': 'PERCENT'
+                    },
+                    'stabilityStatus': 'STEADY_STATE'|'STABILIZING',
+                    'stabilityStatusAt': datetime(2015, 1, 1)
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **taskSet** *(dict) --* 
+              Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+              - **id** *(string) --* 
+                The ID of the task set.
+              - **taskSetArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the task set.
+              - **serviceArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the service the task set exists in.
+              - **clusterArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
+              - **startedBy** *(string) --* 
+                The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
+              - **externalId** *(string) --* 
+                The external ID associated with the task set.
+                If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
+              - **status** *(string) --* 
+                The status of the task set. The following describes each state:
+                  PRIMARY  
+                The task set is serving production traffic.
+                  ACTIVE  
+                The task set is not serving production traffic.
+                  DRAINING  
+                The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
+              - **taskDefinition** *(string) --* 
+                The task definition the task set is using.
+              - **computedDesiredCount** *(integer) --* 
+                The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
+              - **pendingCount** *(integer) --* 
+                The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
+              - **runningCount** *(integer) --* 
+                The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
+              - **createdAt** *(datetime) --* 
+                The Unix timestamp for when the task set was created.
+              - **updatedAt** *(datetime) --* 
+                The Unix timestamp for when the task set was last updated.
+              - **launchType** *(string) --* 
+                The launch type the tasks in the task set are using. For more information, see `Amazon ECS Launch Types <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              - **platformVersion** *(string) --* 
+                The platform version on which the tasks in the task set are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the ``LATEST`` platform version is used by default. For more information, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              - **networkConfiguration** *(dict) --* 
+                The network configuration for the task set.
+                - **awsvpcConfiguration** *(dict) --* 
+                  The VPC subnets and security groups associated with a task.
+                  .. note::
+                    All specified subnets and security groups must be from the same VPC.
+                  - **subnets** *(list) --* 
+                    The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per ``AwsVpcConfiguration`` .
+                    .. note::
+                      All specified subnets must be from the same VPC.
+                    - *(string) --* 
+                  - **securityGroups** *(list) --* 
+                    The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per ``AwsVpcConfiguration`` .
+                    .. note::
+                      All specified security groups must be from the same VPC.
+                    - *(string) --* 
+                  - **assignPublicIp** *(string) --* 
+                    Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+              - **loadBalancers** *(list) --* 
+                Details on a load balancer that is used with a task set.
+                - *(dict) --* 
+                  Details on a load balancer that is used with a service.
+                  If the service is using the ``ECS`` deployment controller, you are limited to one load balancer or target group.
+                  If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an AWS CodeDeploy deployment group, you specify two target groups (referred to as a ``targetGroupPair`` ). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+                  Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance`` . Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                  - **targetGroupArn** *(string) --* 
+                    The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service. For services using the ``ECS`` deployment controller, you are limited to one target group. For services using the ``CODE_DEPLOY`` deployment controller, you are required to define two target groups for the load balancer.
+                    .. warning::
+                      If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                  - **loadBalancerName** *(string) --* 
+                    The name of a load balancer.
+                  - **containerName** *(string) --* 
+                    The name of the container (as it appears in a container definition) to associate with the load balancer.
+                  - **containerPort** *(integer) --* 
+                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+              - **serviceRegistries** *(list) --* 
+                The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                - *(dict) --* 
+                  Details of the service registry.
+                  - **registryArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                  - **port** *(integer) --* 
+                    The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                  - **containerName** *(string) --* 
+                    The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                  - **containerPort** *(integer) --* 
+                    The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+              - **scale** *(dict) --* 
+                A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+                - **value** *(float) --* 
+                  The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
+                - **unit** *(string) --* 
+                  The unit of measure for the scale value.
+              - **stabilityStatus** *(string) --* 
+                The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in ``STEADY_STATE`` :
+                * The task ``runningCount`` is equal to the ``computedDesiredCount`` . 
+                * The ``pendingCount`` is ``0`` . 
+                * There are no tasks running on container instances in the ``DRAINING`` status. 
+                * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks. 
+                If any of those conditions are not met, the stability status returns ``STABILIZING`` .
+              - **stabilityStatusAt** *(datetime) --* 
+                The Unix timestamp for when the task set stability status was retrieved.
+        :type cluster: string
+        :param cluster: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
+        :type service: string
+        :param service: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
+        :type primaryTaskSet: string
+        :param primaryTaskSet: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the deployment.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def update_task_set(self, cluster: str, service: str, taskSet: str, scale: Dict) -> Dict:
+        """
+        Modifies a task set. This is used when a service uses the ``EXTERNAL`` deployment controller type. For more information, see `Amazon ECS Deployment Types <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/UpdateTaskSet>`_
+        
+        **Request Syntax**
+        ::
+          response = client.update_task_set(
+              cluster='string',
+              service='string',
+              taskSet='string',
+              scale={
+                  'value': 123.0,
+                  'unit': 'PERCENT'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'taskSet': {
+                    'id': 'string',
+                    'taskSetArn': 'string',
+                    'serviceArn': 'string',
+                    'clusterArn': 'string',
+                    'startedBy': 'string',
+                    'externalId': 'string',
+                    'status': 'string',
+                    'taskDefinition': 'string',
+                    'computedDesiredCount': 123,
+                    'pendingCount': 123,
+                    'runningCount': 123,
+                    'createdAt': datetime(2015, 1, 1),
+                    'updatedAt': datetime(2015, 1, 1),
+                    'launchType': 'EC2'|'FARGATE',
+                    'platformVersion': 'string',
+                    'networkConfiguration': {
+                        'awsvpcConfiguration': {
+                            'subnets': [
+                                'string',
+                            ],
+                            'securityGroups': [
+                                'string',
+                            ],
+                            'assignPublicIp': 'ENABLED'|'DISABLED'
+                        }
+                    },
+                    'loadBalancers': [
+                        {
+                            'targetGroupArn': 'string',
+                            'loadBalancerName': 'string',
+                            'containerName': 'string',
+                            'containerPort': 123
+                        },
+                    ],
+                    'serviceRegistries': [
+                        {
+                            'registryArn': 'string',
+                            'port': 123,
+                            'containerName': 'string',
+                            'containerPort': 123
+                        },
+                    ],
+                    'scale': {
+                        'value': 123.0,
+                        'unit': 'PERCENT'
+                    },
+                    'stabilityStatus': 'STEADY_STATE'|'STABILIZING',
+                    'stabilityStatusAt': datetime(2015, 1, 1)
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **taskSet** *(dict) --* 
+              Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an ``EXTERNAL`` deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+              - **id** *(string) --* 
+                The ID of the task set.
+              - **taskSetArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the task set.
+              - **serviceArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the service the task set exists in.
+              - **clusterArn** *(string) --* 
+                The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
+              - **startedBy** *(string) --* 
+                The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the ``startedBy`` parameter is ``CODE_DEPLOY`` . For a task set created for an external deployment, the startedBy field isn't used.
+              - **externalId** *(string) --* 
+                The external ID associated with the task set.
+                If a task set is created by an AWS CodeDeploy deployment, the ``externalId`` parameter contains the AWS CodeDeploy deployment ID.
+                If a task set is created for an external deployment and is associated with a service discovery registry, the ``externalId`` parameter contains the ``ECS_TASK_SET_EXTERNAL_ID`` AWS Cloud Map attribute.
+              - **status** *(string) --* 
+                The status of the task set. The following describes each state:
+                  PRIMARY  
+                The task set is serving production traffic.
+                  ACTIVE  
+                The task set is not serving production traffic.
+                  DRAINING  
+                The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
+              - **taskDefinition** *(string) --* 
+                The task definition the task set is using.
+              - **computedDesiredCount** *(integer) --* 
+                The computed desired count for the task set. This is calculated by multiplying the service's ``desiredCount`` by the task set's ``scale`` percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
+              - **pendingCount** *(integer) --* 
+                The number of tasks in the task set that are in the ``PENDING`` status during a deployment. A task in the ``PENDING`` state is preparing to enter the ``RUNNING`` state. A task set enters the ``PENDING`` status when it launches for the first time or when it is restarted after being in the ``STOPPED`` state.
+              - **runningCount** *(integer) --* 
+                The number of tasks in the task set that are in the ``RUNNING`` status during a deployment. A task in the ``RUNNING`` state is running and ready for use.
+              - **createdAt** *(datetime) --* 
+                The Unix timestamp for when the task set was created.
+              - **updatedAt** *(datetime) --* 
+                The Unix timestamp for when the task set was last updated.
+              - **launchType** *(string) --* 
+                The launch type the tasks in the task set are using. For more information, see `Amazon ECS Launch Types <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              - **platformVersion** *(string) --* 
+                The platform version on which the tasks in the task set are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the ``LATEST`` platform version is used by default. For more information, see `AWS Fargate Platform Versions <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+              - **networkConfiguration** *(dict) --* 
+                The network configuration for the task set.
+                - **awsvpcConfiguration** *(dict) --* 
+                  The VPC subnets and security groups associated with a task.
+                  .. note::
+                    All specified subnets and security groups must be from the same VPC.
+                  - **subnets** *(list) --* 
+                    The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per ``AwsVpcConfiguration`` .
+                    .. note::
+                      All specified subnets must be from the same VPC.
+                    - *(string) --* 
+                  - **securityGroups** *(list) --* 
+                    The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per ``AwsVpcConfiguration`` .
+                    .. note::
+                      All specified security groups must be from the same VPC.
+                    - *(string) --* 
+                  - **assignPublicIp** *(string) --* 
+                    Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED`` .
+              - **loadBalancers** *(list) --* 
+                Details on a load balancer that is used with a task set.
+                - *(dict) --* 
+                  Details on a load balancer that is used with a service.
+                  If the service is using the ``ECS`` deployment controller, you are limited to one load balancer or target group.
+                  If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an AWS CodeDeploy deployment group, you specify two target groups (referred to as a ``targetGroupPair`` ). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+                  Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance`` . Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                  - **targetGroupArn** *(string) --* 
+                    The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service. For services using the ``ECS`` deployment controller, you are limited to one target group. For services using the ``CODE_DEPLOY`` deployment controller, you are required to define two target groups for the load balancer.
+                    .. warning::
+                      If your service's task definition uses the ``awsvpc`` network mode (which is required for the Fargate launch type), you must choose ``ip`` as the target type, not ``instance`` , because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+                  - **loadBalancerName** *(string) --* 
+                    The name of a load balancer.
+                  - **containerName** *(string) --* 
+                    The name of the container (as it appears in a container definition) to associate with the load balancer.
+                  - **containerPort** *(integer) --* 
+                    The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the service's task definition. Your container instances must allow ingress traffic on the ``hostPort`` of the port mapping.
+              - **serviceRegistries** *(list) --* 
+                The details of the service discovery registries to assign to this task set. For more information, see `Service Discovery <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html>`__ .
+                - *(dict) --* 
+                  Details of the service registry.
+                  - **registryArn** *(string) --* 
+                    The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see `CreateService <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html>`__ .
+                  - **port** *(integer) --* 
+                    The port value used if your service discovery service specified an SRV record. This field may be used if both the ``awsvpc`` network mode and SRV records are used.
+                  - **containerName** *(string) --* 
+                    The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+                  - **containerPort** *(integer) --* 
+                    The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value, but not both.
+              - **scale** *(dict) --* 
+                A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+                - **value** *(float) --* 
+                  The value, specified as a percent total of a service's ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
+                - **unit** *(string) --* 
+                  The unit of measure for the scale value.
+              - **stabilityStatus** *(string) --* 
+                The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in ``STEADY_STATE`` :
+                * The task ``runningCount`` is equal to the ``computedDesiredCount`` . 
+                * The ``pendingCount`` is ``0`` . 
+                * There are no tasks running on container instances in the ``DRAINING`` status. 
+                * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks. 
+                If any of those conditions are not met, the stability status returns ``STABILIZING`` .
+              - **stabilityStatusAt** *(datetime) --* 
+                The Unix timestamp for when the task set stability status was retrieved.
+        :type cluster: string
+        :param cluster: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
+        :type service: string
+        :param service: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
+        :type taskSet: string
+        :param taskSet: **[REQUIRED]**
+          The short name or full Amazon Resource Name (ARN) of the task set to update.
+        :type scale: dict
+        :param scale: **[REQUIRED]**
+          A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+          - **value** *(float) --*
+            The value, specified as a percent total of a service\'s ``desiredCount`` , to scale the task set. Accepted values are numbers between 0 and 100.
+          - **unit** *(string) --*
+            The unit of measure for the scale value.
         :rtype: dict
         :returns:
         """

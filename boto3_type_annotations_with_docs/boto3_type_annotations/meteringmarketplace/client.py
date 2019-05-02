@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -73,7 +73,7 @@ class Client(BaseClient):
                   - **Dimension** *(string) --* 
                     During the process of registering a product on AWS Marketplace, up to eight dimensions are specified. These represent different units of value in your application.
                   - **Quantity** *(integer) --* 
-                    The quantity of usage consumed by the customer for the given dimension and time.
+                    The quantity of usage consumed by the customer for the given dimension and time. Defaults to ``0`` if not specified.
                 - **MeteringRecordId** *(string) --* 
                   The MeteringRecordId is a unique identifier for this metering event.
                 - **Status** *(string) --* 
@@ -94,7 +94,7 @@ class Client(BaseClient):
                 - **Dimension** *(string) --* 
                   During the process of registering a product on AWS Marketplace, up to eight dimensions are specified. These represent different units of value in your application.
                 - **Quantity** *(integer) --* 
-                  The quantity of usage consumed by the customer for the given dimension and time.
+                  The quantity of usage consumed by the customer for the given dimension and time. Defaults to ``0`` if not specified.
         :type UsageRecords: list
         :param UsageRecords: **[REQUIRED]**
           The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at a time.
@@ -108,8 +108,8 @@ class Client(BaseClient):
               The CustomerIdentifier is obtained through the ResolveCustomer operation and represents an individual buyer in your application.
             - **Dimension** *(string) --* **[REQUIRED]**
               During the process of registering a product on AWS Marketplace, up to eight dimensions are specified. These represent different units of value in your application.
-            - **Quantity** *(integer) --* **[REQUIRED]**
-              The quantity of usage consumed by the customer for the given dimension and time.
+            - **Quantity** *(integer) --*
+              The quantity of usage consumed by the customer for the given dimension and time. Defaults to ``0`` if not specified.
         :type ProductCode: string
         :param ProductCode: **[REQUIRED]**
           Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
@@ -180,7 +180,7 @@ class Client(BaseClient):
         """
         pass
 
-    def meter_usage(self, ProductCode: str, Timestamp: datetime, UsageDimension: str, UsageQuantity: int, DryRun: bool) -> Dict:
+    def meter_usage(self, ProductCode: str, Timestamp: datetime, UsageDimension: str, UsageQuantity: int = None, DryRun: bool = None) -> Dict:
         """
         API to emit metering records. For identical requests, the API is idempotent. It simply returns the metering record ID.
         MeterUsage is authenticated on the buyer's AWS account, generally when running from an EC2 instance on the AWS Marketplace.
@@ -216,11 +216,11 @@ class Client(BaseClient):
         :param UsageDimension: **[REQUIRED]**
           It will be one of the fcp dimension name provided during the publishing of the product.
         :type UsageQuantity: integer
-        :param UsageQuantity: **[REQUIRED]**
-          Consumption value for the hour.
+        :param UsageQuantity:
+          Consumption value for the hour. Defaults to ``0`` if not specified.
         :type DryRun: boolean
-        :param DryRun: **[REQUIRED]**
-          Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException.
+        :param DryRun:
+          Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException. Defaults to ``false`` if not specified.
         :rtype: dict
         :returns:
         """

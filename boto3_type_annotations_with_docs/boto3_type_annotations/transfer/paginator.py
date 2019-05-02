@@ -25,6 +25,7 @@ class ListServers(Paginator):
                     {
                         'Arn': 'string',
                         'IdentityProviderType': 'SERVICE_MANAGED'|'API_GATEWAY',
+                        'EndpointType': 'PUBLIC'|'VPC_ENDPOINT',
                         'LoggingRole': 'string',
                         'ServerId': 'string',
                         'State': 'OFFLINE'|'ONLINE'|'STARTING'|'STOPPING'|'START_FAILED'|'STOP_FAILED',
@@ -43,6 +44,8 @@ class ListServers(Paginator):
                   The unique Amazon Resource Name (ARN) for the server to be listed.
                 - **IdentityProviderType** *(string) --* 
                   The authentication method used to validate a user for the server that was specified. listed. This can include Secure Shell (SSH), user name and password combinations, or your own custom authentication method. Valid values include ``SERVICE_MANAGED`` or ``API_GATEWAY`` .
+                - **EndpointType** *(string) --* 
+                  The type of VPC endpoint that your SFTP server is connected to. If your SFTP server is connected to a VPC endpoint, your server isn't accessible over the public internet.
                 - **LoggingRole** *(string) --* 
                   The AWS Identity and Access Management entity that allows the server to turn on Amazon CloudWatch logging.
                 - **ServerId** *(string) --* 

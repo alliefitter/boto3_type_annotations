@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -734,7 +734,7 @@ class FilterLogEvents(Paginator):
           The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
         :type filterPattern: string
         :param filterPattern:
-          The filter pattern to use. For more information, see `Filter and Pattern Syntax <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html>`__ .
+          The filter pattern to use. For more information, see `Filter and Pattern Syntax <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html>`__ .
           If not provided, all the events are matched.
         :type interleaved: boolean
         :param interleaved:

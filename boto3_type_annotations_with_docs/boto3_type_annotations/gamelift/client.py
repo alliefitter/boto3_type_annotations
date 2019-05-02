@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from datetime import datetime
-from typing import Dict
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -165,13 +165,19 @@ class Client(BaseClient):
     def create_build(self, Name: str = None, Version: str = None, StorageLocation: Dict = None, OperatingSystem: str = None) -> Dict:
         """
         Creates a new Amazon GameLift build record for your game server binary files and points to the location of your game server build files in an Amazon Simple Storage Service (Amazon S3) location. 
-        Game server binaries must be combined into a ``.zip`` file for use with Amazon GameLift. See `Uploading Your Game <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html>`__ for more information. 
+        Game server binaries must be combined into a ``.zip`` file for use with Amazon GameLift. 
         .. warning::
-          To create new builds quickly and easily, use the AWS CLI command ** `upload-build <https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html>`__ ** . This helper command uploads your build and creates a new build record in one step, and automatically handles the necessary permissions. See `Upload Build Files to Amazon GameLift <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html>`__ for more help.
+          To create new builds quickly and easily, use the AWS CLI command ** `upload-build <https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html>`__ ** . This helper command uploads your build and creates a new build record in one step, and automatically handles the necessary permissions. 
         The ``CreateBuild`` operation should be used only when you need to manually upload your build files, as in the following scenarios:
-        * Store a build file in an Amazon S3 bucket under your own AWS account. To use this option, you must first give Amazon GameLift access to that Amazon S3 bucket. See `Create a Build with Files in Amazon S3 <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build>`__ for detailed help. To create a new build record using files in your Amazon S3 bucket, call ``CreateBuild`` and specify a build name, operating system, and the storage location of your game build. 
+        * Store a build file in an Amazon S3 bucket under your own AWS account. To use this option, you must first give Amazon GameLift access to that Amazon S3 bucket. To create a new build record using files in your Amazon S3 bucket, call ``CreateBuild`` and specify a build name, operating system, and the storage location of your game build. 
         * Upload a build file directly to Amazon GameLift's Amazon S3 account. To use this option, you first call ``CreateBuild`` with a build name and operating system. This action creates a new build record and returns an Amazon S3 storage location (bucket and key only) and temporary access credentials. Use the credentials to manually upload your build file to the storage location (see the Amazon S3 topic `Uploading Objects <https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html>`__ ). You can upload files to a location only once.  
         If successful, this operation creates a new build record with a unique build ID and places it in ``INITIALIZED`` status. You can use  DescribeBuild to check the status of your build. A build must be in ``READY`` status before it can be used to create fleets.
+        
+        **Learn more**
+         `Uploading Your Game <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html>`__  
+         `Create a Build with Files in Amazon S3 <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build>`__  
+        
+        **Related operations**
         *  CreateBuild   
         *  ListBuilds   
         *  DescribeBuild   
@@ -187,7 +193,8 @@ class Client(BaseClient):
               StorageLocation={
                   'Bucket': 'string',
                   'Key': 'string',
-                  'RoleArn': 'string'
+                  'RoleArn': 'string',
+                  'ObjectVersion': 'string'
               },
               OperatingSystem='WINDOWS_2012'|'AMAZON_LINUX'
           )
@@ -212,7 +219,8 @@ class Client(BaseClient):
                 'StorageLocation': {
                     'Bucket': 'string',
                     'Key': 'string',
-                    'RoleArn': 'string'
+                    'RoleArn': 'string',
+                    'ObjectVersion': 'string'
                 }
             }
         
@@ -226,7 +234,7 @@ class Client(BaseClient):
               - **Name** *(string) --* 
                 Descriptive label that is associated with a build. Build names do not need to be unique. It can be set using  CreateBuild or  UpdateBuild .
               - **Version** *(string) --* 
-                Version that is associated with this build. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
+                Version that is associated with a build or script. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
               - **Status** *(string) --* 
                 Current status of the build.
                 Possible build statuses include the following:
@@ -250,26 +258,30 @@ class Client(BaseClient):
             - **StorageLocation** *(dict) --* 
               Amazon S3 location for your game build file, including bucket name and key.
               - **Bucket** *(string) --* 
-                Amazon S3 bucket identifier. This is the name of your S3 bucket.
+                Amazon S3 bucket identifier. This is the name of the S3 bucket.
               - **Key** *(string) --* 
-                Name of the zip file containing your build files. 
+                Name of the zip file containing the build files or script files. 
               - **RoleArn** *(string) --* 
-                Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for the access role that allows Amazon GameLift to access your S3 bucket.
+                Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+              - **ObjectVersion** *(string) --* 
+                Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved. 
         :type Name: string
         :param Name:
           Descriptive label that is associated with a build. Build names do not need to be unique. You can use  UpdateBuild to change this value later.
         :type Version: string
         :param Version:
-          Version that is associated with this build. Version strings do not need to be unique. You can use  UpdateBuild to change this value later.
+          Version that is associated with a build or script. Version strings do not need to be unique. You can use  UpdateBuild to change this value later.
         :type StorageLocation: dict
         :param StorageLocation:
-          Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key, as well as a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket must be in the same region that you want to create a new build in.
+          Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key, as well as a the ARN for a role that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket must be in the same region that you want to create a new build in.
           - **Bucket** *(string) --*
-            Amazon S3 bucket identifier. This is the name of your S3 bucket.
+            Amazon S3 bucket identifier. This is the name of the S3 bucket.
           - **Key** *(string) --*
-            Name of the zip file containing your build files.
+            Name of the zip file containing the build files or script files.
           - **RoleArn** *(string) --*
-            Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for the access role that allows Amazon GameLift to access your S3 bucket.
+            Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+          - **ObjectVersion** *(string) --*
+            Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved.
         :type OperatingSystem: string
         :param OperatingSystem:
           Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
@@ -278,19 +290,22 @@ class Client(BaseClient):
         """
         pass
 
-    def create_fleet(self, Name: str, BuildId: str, EC2InstanceType: str, Description: str = None, ServerLaunchPath: str = None, ServerLaunchParameters: str = None, LogPaths: List = None, EC2InboundPermissions: List = None, NewGameSessionProtectionPolicy: str = None, RuntimeConfiguration: Dict = None, ResourceCreationLimitPolicy: Dict = None, MetricGroups: List = None, PeerVpcAwsAccountId: str = None, PeerVpcId: str = None, FleetType: str = None) -> Dict:
+    def create_fleet(self, Name: str, EC2InstanceType: str, Description: str = None, BuildId: str = None, ScriptId: str = None, ServerLaunchPath: str = None, ServerLaunchParameters: str = None, LogPaths: List = None, EC2InboundPermissions: List = None, NewGameSessionProtectionPolicy: str = None, RuntimeConfiguration: Dict = None, ResourceCreationLimitPolicy: Dict = None, MetricGroups: List = None, PeerVpcAwsAccountId: str = None, PeerVpcId: str = None, FleetType: str = None, InstanceRoleArn: str = None) -> Dict:
         """
-        Creates a new fleet to run your game servers. A fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances, each of which can run multiple server processes to host game sessions. You set up a fleet to use instances with certain hardware specifications (see `Amazon EC2 Instance Types <http://aws.amazon.com/ec2/instance-types/>`__ ), and deploy your game build to the fleet. 
-        To create a new fleet, you must provide the following: (1) a fleet name, (2) an EC2 instance type, (3) the build ID for your game build, and (4) a run-time configuration, which specifies the server processes to run on each instance in the fleet. If fleet type is not set, the new fleet will use on-demand instances by default.
+        Creates a new fleet to run your game servers. whether they are custom game builds or Realtime Servers with game-specific script. A fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances, each of which can host multiple game sessions. When creating a fleet, you choose the hardware specifications, set some configuration options, and specify the game server to deploy on the new fleet. 
+        To create a new fleet, you must provide the following: (1) a fleet name, (2) an EC2 instance type and fleet type (spot or on-demand), (3) the build ID for your game build or script ID if using Realtime Servers, and (4) a run-time configuration, which determines how game servers will run on each instance in the fleet. 
+        .. note::
+          When creating a Realtime Servers fleet, we recommend using a minimal version of the Realtime script (see this `working code example <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-script.html#realtime-script-examples>`__ ). This will make it much easier to troubleshoot any fleet creation issues. Once the fleet is active, you can update your Realtime script as needed.
         If the ``CreateFleet`` call is successful, Amazon GameLift performs the following tasks. You can track the process of a fleet by checking the fleet status or by monitoring fleet creation events:
         * Creates a fleet record. Status: ``NEW`` . 
         * Begins writing events to the fleet event log, which can be accessed in the Amazon GameLift console. Sets the fleet's target capacity to 1 (desired instances), which triggers Amazon GameLift to start one new EC2 instance. 
-        * Downloads the game build to the new instance and installs it. Statuses: ``DOWNLOADING`` , ``VALIDATING`` , ``BUILDING`` .  
+        * Downloads the game build or Realtime script to the new instance and installs it. Statuses: ``DOWNLOADING`` , ``VALIDATING`` , ``BUILDING`` .  
         * Starts launching server processes on the instance. If the fleet is configured to run multiple server processes per instance, Amazon GameLift staggers each launch by a few seconds. Status: ``ACTIVATING`` . 
         * Sets the fleet's status to ``ACTIVE`` as soon as one server process is ready to host a game session. 
         
         **Learn more**
-        See Amazon GameLift Developer Guide topics in `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__  
+         `Debug Fleet Creation Issues <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html>`__  
         
         **Related operations**
         *  CreateFleet   
@@ -320,6 +335,7 @@ class Client(BaseClient):
               Name='string',
               Description='string',
               BuildId='string',
+              ScriptId='string',
               ServerLaunchPath='string',
               ServerLaunchParameters='string',
               LogPaths=[
@@ -355,7 +371,8 @@ class Client(BaseClient):
               ],
               PeerVpcAwsAccountId='string',
               PeerVpcId='string',
-              FleetType='ON_DEMAND'|'SPOT'
+              FleetType='ON_DEMAND'|'SPOT',
+              InstanceRoleArn='string'
           )
         
         **Response Syntax**
@@ -372,6 +389,7 @@ class Client(BaseClient):
                     'TerminationTime': datetime(2015, 1, 1),
                     'Status': 'NEW'|'DOWNLOADING'|'VALIDATING'|'BUILDING'|'ACTIVATING'|'ACTIVE'|'DELETING'|'ERROR'|'TERMINATED',
                     'BuildId': 'string',
+                    'ScriptId': 'string',
                     'ServerLaunchPath': 'string',
                     'ServerLaunchParameters': 'string',
                     'LogPaths': [
@@ -388,7 +406,8 @@ class Client(BaseClient):
                     ],
                     'StoppedActions': [
                         'AUTO_SCALING',
-                    ]
+                    ],
+                    'InstanceRoleArn': 'string'
                 }
             }
         
@@ -417,13 +436,15 @@ class Client(BaseClient):
                 Current status of the fleet.
                 Possible fleet statuses include the following:
                 * **NEW** -- A new fleet has been defined and desired instances is set to 1.  
-                * **DOWNLOADING/VALIDATING/BUILDING/ACTIVATING** -- Amazon GameLift is setting up the new fleet, creating new instances with the game build and starting server processes. 
+                * **DOWNLOADING/VALIDATING/BUILDING/ACTIVATING** -- Amazon GameLift is setting up the new fleet, creating new instances with the game build or Realtime script and starting server processes. 
                 * **ACTIVE** -- Hosts can now accept game sessions. 
                 * **ERROR** -- An error occurred when downloading, validating, building, or activating the fleet. 
                 * **DELETING** -- Hosts are responding to a delete fleet request. 
                 * **TERMINATED** -- The fleet no longer exists. 
               - **BuildId** *(string) --* 
                 Unique identifier for a build.
+              - **ScriptId** *(string) --* 
+                Unique identifier for a Realtime script.
               - **ServerLaunchPath** *(string) --* 
                 Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's  RuntimeConfiguration .
               - **ServerLaunchParameters** *(string) --* 
@@ -449,6 +470,8 @@ class Client(BaseClient):
               - **StoppedActions** *(list) --* 
                 List of fleet actions that have been suspended using  StopFleetActions . This includes auto-scaling.
                 - *(string) --* 
+              - **InstanceRoleArn** *(string) --* 
+                Unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, daemons (background processes). Create a role or look up a role's ARN using the `IAM dashboard <https://console.aws.amazon.com/iam/>`__ in the AWS Management Console. Learn more about using on-box credentials for your game servers at `Access external resources from a game server <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html>`__ .
         :type Name: string
         :param Name: **[REQUIRED]**
           Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
@@ -456,8 +479,11 @@ class Client(BaseClient):
         :param Description:
           Human-readable description of a fleet.
         :type BuildId: string
-        :param BuildId: **[REQUIRED]**
-          Unique identifier for a build to be deployed on the new fleet. The build must have been successfully uploaded to Amazon GameLift and be in a ``READY`` status. This fleet setting cannot be changed once the fleet is created.
+        :param BuildId:
+          Unique identifier for a build to be deployed on the new fleet. The custom game server build must have been successfully uploaded to Amazon GameLift and be in a ``READY`` status. This fleet setting cannot be changed once the fleet is created.
+        :type ScriptId: string
+        :param ScriptId:
+          Unique identifier for a Realtime script to be deployed on the new fleet. The Realtime script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
         :type ServerLaunchPath: string
         :param ServerLaunchPath:
           This parameter is no longer used. Instead, specify a server launch path using the ``RuntimeConfiguration`` parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
@@ -473,9 +499,9 @@ class Client(BaseClient):
           Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See `Amazon EC2 Instance Types <http://aws.amazon.com/ec2/instance-types/>`__ for detailed descriptions.
         :type EC2InboundPermissions: list
         :param EC2InboundPermissions:
-          Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. If no inbound permissions are set, including both IP address range and port range, the server processes in the fleet cannot accept connections. You can specify one or more sets of permissions for a fleet.
+          Range of IP addresses and port settings that permit inbound traffic to access game sessions that running on the fleet. For fleets using a custom game build, this parameter is required before game sessions running on the fleet can accept connections. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges for use by the Realtime servers. You can specify multiple permission settings or add more by updating the fleet.
           - *(dict) --*
-            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet\'s allowed ranges. This combination is included in the  GameSession object.
+            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet\'s allowed ranges. For fleets created with a custom game server, the ranges reflect the server\'s game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP for use by the Realtime servers.
             - **FromPort** *(integer) --* **[REQUIRED]**
               Starting value for a range of allowed port numbers.
             - **ToPort** *(integer) --* **[REQUIRED]**
@@ -491,15 +517,17 @@ class Client(BaseClient):
           * **FullProtection** -- If the game session is in an ``ACTIVE`` status, it cannot be terminated during a scale-down event.
         :type RuntimeConfiguration: dict
         :param RuntimeConfiguration:
-          Instructions for launching server processes on each instance in the fleet. The run-time configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance. A CreateFleet request must include a run-time configuration with at least one server process configuration; otherwise the request fails with an invalid request exception. (This parameter replaces the parameters ``ServerLaunchPath`` and ``ServerLaunchParameters`` ; requests that contain values for these parameters instead of a run-time configuration will continue to work.)
+          Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The run-time configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a run-time configuration with at least one server process configuration.
           - **ServerProcesses** *(list) --*
             Collection of server process configurations that describe which server processes to run on each instance in a fleet.
             - *(dict) --*
-              A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s ``  RuntimeConfiguration `` .
+              A set of instructions for launching server processes on each instance in a fleet. Server processes run either a custom game build executable or a Realtime Servers script. Each instruction set identifies the location of the custom game build executable or Realtime launch script, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s ``  RuntimeConfiguration `` .
               - **LaunchPath** *(string) --* **[REQUIRED]**
-                Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of \"``C:\game\MyGame\latest\server.exe`` \". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of \"``/local/game/MyGame/latest/server.exe`` \".
+                Location of the server executable in a custom game build or the name of the Realtime script file that contains the ``Init()`` function. Game builds and Realtime scripts are installed on instances at the root:
+                * Windows (for custom game builds only): ``C:\game`` . Example: \"``C:\game\MyGame\server.exe`` \"
+                * Linux: ``/local/game`` . Examples: \"``/local/game/MyGame/server.exe`` \" or \"``/local/game/MyRealtimeScript.js`` \"
               - **Parameters** *(string) --*
-                Optional list of parameters to pass to the server executable on launch.
+                Optional list of parameters to pass to the server executable or Realtime script on launch.
               - **ConcurrentExecutions** *(integer) --* **[REQUIRED]**
                 Number of server processes using this configuration to run concurrently on an instance.
           - **MaxConcurrentGameSessionActivations** *(integer) --*
@@ -525,7 +553,10 @@ class Client(BaseClient):
           Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. Look up a VPC ID using the `VPC Dashboard <https://console.aws.amazon.com/vpc/>`__ in the AWS Management Console. Learn more about VPC peering in `VPC Peering with Amazon GameLift Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html>`__ .
         :type FleetType: string
         :param FleetType:
-          Indicates whether to use on-demand instances or spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations, based on the instance type selected for this fleet. You can acquire on-demand instances at any time for a fixed price and keep them as long as you need them. Spot instances have lower prices, but spot pricing is variable, and while in use they can be interrupted (with a two-minute notification). Learn more about Amazon GameLift spot instances with at `Set up Access to External Services <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-credentials.html>`__ .
+          Indicates whether to use on-demand instances or spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet. Learn more about `On-Demand versus Spot Instances <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot>`__ .
+        :type InstanceRoleArn: string
+        :param InstanceRoleArn:
+          Unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, daemons (background processes). Create a role or look up a role\'s ARN using the `IAM dashboard <https://console.aws.amazon.com/iam/>`__ in the AWS Management Console. Learn more about using on-box credentials for your game servers at `Access external resources from a game server <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -1015,8 +1046,8 @@ class Client(BaseClient):
 
     def create_player_session(self, GameSessionId: str, PlayerId: str, PlayerData: str = None) -> Dict:
         """
-        Adds a player to a game session and creates a player session record. Before a player can be added, a game session must have an ``ACTIVE`` status, have a creation policy of ``ALLOW_ALL`` , and have an open player slot. To add a group of players to a game session, use  CreatePlayerSessions .
-        To create a player session, specify a game session ID, player ID, and optionally a string of player data. If successful, the player is added to the game session and a new  PlayerSession object is returned. Player sessions cannot be updated. 
+        Reserves an open player slot in an active game session. Before a player can be added, a game session must have an ``ACTIVE`` status, have a creation policy of ``ALLOW_ALL`` , and have an open player slot. To add a group of players to a game session, use  CreatePlayerSessions . When the player connects to the game server and references a player session ID, the game server contacts the Amazon GameLift service to validate the player reservation and accept the player.
+        To create a player session, specify a game session ID, player ID, and optionally a string of player data. If successful, a slot is reserved in the game session for the player and a new  PlayerSession object is returned. Player sessions cannot be updated. 
          *Available in Amazon GameLift Local.*  
         *  CreatePlayerSession   
         *  CreatePlayerSessions   
@@ -1098,8 +1129,8 @@ class Client(BaseClient):
 
     def create_player_sessions(self, GameSessionId: str, PlayerIds: List, PlayerDataMap: Dict = None) -> Dict:
         """
-        Adds a group of players to a game session. This action is useful with a team matching feature. Before players can be added, a game session must have an ``ACTIVE`` status, have a creation policy of ``ALLOW_ALL`` , and have an open player slot. To add a single player to a game session, use  CreatePlayerSession .
-        To create player sessions, specify a game session ID, a list of player IDs, and optionally a set of player data strings. If successful, the players are added to the game session and a set of new  PlayerSession objects is returned. Player sessions cannot be updated.
+        Reserves open slots in a game session for a group of players. Before players can be added, a game session must have an ``ACTIVE`` status, have a creation policy of ``ALLOW_ALL`` , and have an open player slot. To add a single player to a game session, use  CreatePlayerSession . When a player connects to the game server and references a player session ID, the game server contacts the Amazon GameLift service to validate the player reservation and accept the player.
+        To create player sessions, specify a game session ID, a list of player IDs, and optionally a set of player data strings. If successful, a slot is reserved in the game session for each player and a set of new  PlayerSession objects is returned. Player sessions cannot be updated.
          *Available in Amazon GameLift Local.*  
         *  CreatePlayerSession   
         *  CreatePlayerSessions   
@@ -1193,6 +1224,108 @@ class Client(BaseClient):
           Map of string pairs, each specifying a player ID and a set of developer-defined information related to the player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game. Player data strings for player IDs not included in the ``PlayerIds`` parameter are ignored.
           - *(string) --*
             - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def create_script(self, Name: str = None, Version: str = None, StorageLocation: Dict = None, ZipFile: bytes = None) -> Dict:
+        """
+        Creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session. 
+        To create a new script record, specify a script name and provide the script file(s). The script files and all dependencies must be zipped into a single file. You can pull the zip file from either of these locations: 
+        * A locally available directory. Use the *ZipFile* parameter for this option. 
+        * An Amazon Simple Storage Service (Amazon S3) bucket under your AWS account. Use the *StorageLocation* parameter for this option. You'll need to have an Identity Access Management (IAM) role that allows the Amazon GameLift service to access your S3 bucket.  
+        If the call is successful, a new script record is created with a unique script ID. If the script file is provided as a local file, the file is uploaded to an Amazon GameLift-owned S3 bucket and the script record's storage location reflects this location. If the script file is provided as an S3 bucket, Amazon GameLift accesses the file at this storage location as needed for deployment.
+        
+        **Learn more**
+         `Amazon GameLift Realtime Servers <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html>`__  
+         `Set Up a Role for Amazon GameLift Access <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html>`__  
+        
+        **Related operations**
+        *  CreateScript   
+        *  ListScripts   
+        *  DescribeScript   
+        *  UpdateScript   
+        *  DeleteScript   
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/CreateScript>`_
+        
+        **Request Syntax**
+        ::
+          response = client.create_script(
+              Name='string',
+              Version='string',
+              StorageLocation={
+                  'Bucket': 'string',
+                  'Key': 'string',
+                  'RoleArn': 'string',
+                  'ObjectVersion': 'string'
+              },
+              ZipFile=b'bytes'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Script': {
+                    'ScriptId': 'string',
+                    'Name': 'string',
+                    'Version': 'string',
+                    'SizeOnDisk': 123,
+                    'CreationTime': datetime(2015, 1, 1),
+                    'StorageLocation': {
+                        'Bucket': 'string',
+                        'Key': 'string',
+                        'RoleArn': 'string',
+                        'ObjectVersion': 'string'
+                    }
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Script** *(dict) --* 
+              The newly created script record with a unique script ID. The new script's storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket under your account, the storage location reflects the information that was provided in the *CreateScript* request; (2) If the script file was uploaded from a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift service.
+              - **ScriptId** *(string) --* 
+                Unique identifier for a Realtime script
+              - **Name** *(string) --* 
+                Descriptive label that is associated with a script. Script names do not need to be unique.
+              - **Version** *(string) --* 
+                Version that is associated with a build or script. Version strings do not need to be unique.
+              - **SizeOnDisk** *(integer) --* 
+                File size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
+              - **CreationTime** *(datetime) --* 
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+              - **StorageLocation** *(dict) --* 
+                Location in Amazon Simple Storage Service (Amazon S3) where build or script files are stored for access by Amazon GameLift. This location is specified in  CreateBuild ,  CreateScript , and  UpdateScript requests. 
+                - **Bucket** *(string) --* 
+                  Amazon S3 bucket identifier. This is the name of the S3 bucket.
+                - **Key** *(string) --* 
+                  Name of the zip file containing the build files or script files. 
+                - **RoleArn** *(string) --* 
+                  Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+                - **ObjectVersion** *(string) --* 
+                  Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved. 
+        :type Name: string
+        :param Name:
+          Descriptive label that is associated with a script. Script names do not need to be unique. You can use  UpdateScript to change this value later.
+        :type Version: string
+        :param Version:
+          Version that is associated with a build or script. Version strings do not need to be unique. You can use  UpdateScript to change this value later.
+        :type StorageLocation: dict
+        :param StorageLocation:
+          Location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the \"key\"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ``ObjectVersion`` parameter to specify an earlier version.
+          - **Bucket** *(string) --*
+            Amazon S3 bucket identifier. This is the name of the S3 bucket.
+          - **Key** *(string) --*
+            Name of the zip file containing the build files or script files.
+          - **RoleArn** *(string) --*
+            Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+          - **ObjectVersion** *(string) --*
+            Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved.
+        :type ZipFile: bytes
+        :param ZipFile:
+          Data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+          When using the AWS CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string \"fileb://\" to indicate that the file data is a binary object. For example: ``--zip-file fileb://myRealtimeScript.zip`` .
         :rtype: dict
         :returns:
         """
@@ -1325,6 +1458,11 @@ class Client(BaseClient):
         """
         Deletes a build. This action permanently deletes the build record and any uploaded build files.
         To delete a build, specify its ID. Deleting a build does not affect the status of any active fleets using the build, but you can no longer create new fleets with the deleted build.
+        
+        **Learn more**
+         `Working with Builds <https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html>`__  
+        
+        **Related operations**
         *  CreateBuild   
         *  ListBuilds   
         *  DescribeBuild   
@@ -1348,6 +1486,11 @@ class Client(BaseClient):
         """
         Deletes everything related to a fleet. Before deleting a fleet, you must set the fleet's desired capacity to zero. See  UpdateFleetCapacity .
         This action removes the fleet's resources and the fleet record. Once a fleet is deleted, you can no longer use that fleet.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -1514,6 +1657,34 @@ class Client(BaseClient):
         """
         pass
 
+    def delete_script(self, ScriptId: str):
+        """
+        Deletes a Realtime script. This action permanently deletes the script record. If script files were uploaded, they are also deleted (files stored in an S3 bucket are not deleted). 
+        To delete a script, specify the script ID. Before deleting a script, be sure to terminate all fleets that are deployed with the script being deleted. Fleet instances periodically check for script updates, and if the script record no longer exists, the instance will go into an error state and be unable to host game sessions.
+        
+        **Learn more**
+         `Amazon GameLift Realtime Servers <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html>`__  
+        
+        **Related operations**
+        *  CreateScript   
+        *  ListScripts   
+        *  DescribeScript   
+        *  UpdateScript   
+        *  DeleteScript   
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/DeleteScript>`_
+        
+        **Request Syntax**
+        ::
+          response = client.delete_script(
+              ScriptId='string'
+          )
+        :type ScriptId: string
+        :param ScriptId: **[REQUIRED]**
+          Unique identifier for a Realtime script to delete.
+        :returns: None
+        """
+        pass
+
     def delete_vpc_peering_authorization(self, GameLiftAwsAccountId: str, PeerVpcId: str) -> Dict:
         """
         Cancels a pending VPC peering authorization for the specified VPC. If the authorization has already been used to create a peering connection, call  DeleteVpcPeeringConnection to remove the connection. 
@@ -1660,6 +1831,11 @@ class Client(BaseClient):
     def describe_build(self, BuildId: str) -> Dict:
         """
         Retrieves properties for a build. To request a build record, specify a build ID. If successful, an object containing the build properties is returned.
+        
+        **Learn more**
+         `Working with Builds <https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html>`__  
+        
+        **Related operations**
         *  CreateBuild   
         *  ListBuilds   
         *  DescribeBuild   
@@ -1697,7 +1873,7 @@ class Client(BaseClient):
               - **Name** *(string) --* 
                 Descriptive label that is associated with a build. Build names do not need to be unique. It can be set using  CreateBuild or  UpdateBuild .
               - **Version** *(string) --* 
-                Version that is associated with this build. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
+                Version that is associated with a build or script. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
               - **Status** *(string) --* 
                 Current status of the build.
                 Possible build statuses include the following:
@@ -1724,6 +1900,11 @@ class Client(BaseClient):
         * maximum number of instances allowed per AWS account (service limit) 
         * current usage level for the AWS account 
         Service limits vary depending on region. Available regions for Amazon GameLift can be found in the AWS Management Console for Amazon GameLift (see the drop-down list in the upper right corner).
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -1789,6 +1970,11 @@ class Client(BaseClient):
         Retrieves fleet properties, including metadata, status, and configuration, for one or more fleets. You can request attributes for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a  FleetAttributes object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist. 
         .. note::
           Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -1835,6 +2021,7 @@ class Client(BaseClient):
                         'TerminationTime': datetime(2015, 1, 1),
                         'Status': 'NEW'|'DOWNLOADING'|'VALIDATING'|'BUILDING'|'ACTIVATING'|'ACTIVE'|'DELETING'|'ERROR'|'TERMINATED',
                         'BuildId': 'string',
+                        'ScriptId': 'string',
                         'ServerLaunchPath': 'string',
                         'ServerLaunchParameters': 'string',
                         'LogPaths': [
@@ -1851,7 +2038,8 @@ class Client(BaseClient):
                         ],
                         'StoppedActions': [
                             'AUTO_SCALING',
-                        ]
+                        ],
+                        'InstanceRoleArn': 'string'
                     },
                 ],
                 'NextToken': 'string'
@@ -1903,13 +2091,15 @@ class Client(BaseClient):
                   Current status of the fleet.
                   Possible fleet statuses include the following:
                   * **NEW** -- A new fleet has been defined and desired instances is set to 1.  
-                  * **DOWNLOADING/VALIDATING/BUILDING/ACTIVATING** -- Amazon GameLift is setting up the new fleet, creating new instances with the game build and starting server processes. 
+                  * **DOWNLOADING/VALIDATING/BUILDING/ACTIVATING** -- Amazon GameLift is setting up the new fleet, creating new instances with the game build or Realtime script and starting server processes. 
                   * **ACTIVE** -- Hosts can now accept game sessions. 
                   * **ERROR** -- An error occurred when downloading, validating, building, or activating the fleet. 
                   * **DELETING** -- Hosts are responding to a delete fleet request. 
                   * **TERMINATED** -- The fleet no longer exists. 
                 - **BuildId** *(string) --* 
                   Unique identifier for a build.
+                - **ScriptId** *(string) --* 
+                  Unique identifier for a Realtime script.
                 - **ServerLaunchPath** *(string) --* 
                   Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's  RuntimeConfiguration .
                 - **ServerLaunchParameters** *(string) --* 
@@ -1935,6 +2125,8 @@ class Client(BaseClient):
                 - **StoppedActions** *(list) --* 
                   List of fleet actions that have been suspended using  StopFleetActions . This includes auto-scaling.
                   - *(string) --* 
+                - **InstanceRoleArn** *(string) --* 
+                  Unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, daemons (background processes). Create a role or look up a role's ARN using the `IAM dashboard <https://console.aws.amazon.com/iam/>`__ in the AWS Management Console. Learn more about using on-box credentials for your game servers at `Access external resources from a game server <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html>`__ .
             - **NextToken** *(string) --* 
               Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
         :type FleetIds: list
@@ -1957,6 +2149,11 @@ class Client(BaseClient):
         Retrieves the current status of fleet capacity for one or more fleets. This information includes the number of instances that have been requested for the fleet and the number currently active. You can request capacity for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a  FleetCapacity object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist. 
         .. note::
           Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -2075,6 +2272,11 @@ class Client(BaseClient):
     def describe_fleet_events(self, FleetId: str, StartTime: datetime = None, EndTime: datetime = None, Limit: int = None, NextToken: str = None) -> Dict:
         """
         Retrieves entries from the specified fleet's event log. You can specify a time range to limit the result set. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a collection of event log entries matching the request are returned.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -2195,6 +2397,11 @@ class Client(BaseClient):
     def describe_fleet_port_settings(self, FleetId: str) -> Dict:
         """
         Retrieves the inbound connection permissions for a fleet. Connection permissions include a range of IP addresses and port settings that incoming traffic can use to access server processes in the fleet. To get a fleet's inbound connection permissions, specify a fleet ID. If successful, a collection of  IpPermission objects is returned for the requested fleet ID. If the requested fleet has been deleted, the result set is empty.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -2241,7 +2448,7 @@ class Client(BaseClient):
             - **InboundPermissions** *(list) --* 
               Object that contains port settings for the requested fleet ID.
               - *(dict) --* 
-                A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet's allowed ranges. This combination is included in the  GameSession object. 
+                A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP for use by the Realtime servers.
                 - **FromPort** *(integer) --* 
                   Starting value for a range of allowed port numbers.
                 - **ToPort** *(integer) --* 
@@ -2263,6 +2470,11 @@ class Client(BaseClient):
         Retrieves utilization statistics for one or more fleets. You can request utilization data for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a  FleetUtilization object is returned for each requested fleet ID. When specifying a list of fleet IDs, utilization objects are returned only for fleets that currently exist. 
         .. note::
           Some API actions may limit the number of fleet IDs allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -3421,6 +3633,11 @@ class Client(BaseClient):
     def describe_runtime_configuration(self, FleetId: str) -> Dict:
         """
         Retrieves the current run-time configuration for the specified fleet. The run-time configuration tells Amazon GameLift how to launch server processes on instances in the fleet.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -3472,11 +3689,13 @@ class Client(BaseClient):
               - **ServerProcesses** *(list) --* 
                 Collection of server process configurations that describe which server processes to run on each instance in a fleet.
                 - *(dict) --* 
-                  A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's ``  RuntimeConfiguration `` .
+                  A set of instructions for launching server processes on each instance in a fleet. Server processes run either a custom game build executable or a Realtime Servers script. Each instruction set identifies the location of the custom game build executable or Realtime launch script, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's ``  RuntimeConfiguration `` .
                   - **LaunchPath** *(string) --* 
-                    Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of "``C:\game\MyGame\latest\server.exe`` ". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of "``/local/game/MyGame/latest/server.exe`` ". 
+                    Location of the server executable in a custom game build or the name of the Realtime script file that contains the ``Init()`` function. Game builds and Realtime scripts are installed on instances at the root: 
+                    * Windows (for custom game builds only): ``C:\game`` . Example: "``C:\game\MyGame\server.exe`` "  
+                    * Linux: ``/local/game`` . Examples: "``/local/game/MyGame/server.exe`` " or "``/local/game/MyRealtimeScript.js`` " 
                   - **Parameters** *(string) --* 
-                    Optional list of parameters to pass to the server executable on launch.
+                    Optional list of parameters to pass to the server executable or Realtime script on launch.
                   - **ConcurrentExecutions** *(integer) --* 
                     Number of server processes using this configuration to run concurrently on an instance.
               - **MaxConcurrentGameSessionActivations** *(integer) --* 
@@ -3623,6 +3842,78 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken:
           Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def describe_script(self, ScriptId: str) -> Dict:
+        """
+        Retrieves properties for a Realtime script. 
+        To request a script record, specify the script ID. If successful, an object containing the script properties is returned.
+        
+        **Learn more**
+         `Amazon GameLift Realtime Servers <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html>`__  
+        
+        **Related operations**
+        *  CreateScript   
+        *  ListScripts   
+        *  DescribeScript   
+        *  UpdateScript   
+        *  DeleteScript   
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/DescribeScript>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_script(
+              ScriptId='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Script': {
+                    'ScriptId': 'string',
+                    'Name': 'string',
+                    'Version': 'string',
+                    'SizeOnDisk': 123,
+                    'CreationTime': datetime(2015, 1, 1),
+                    'StorageLocation': {
+                        'Bucket': 'string',
+                        'Key': 'string',
+                        'RoleArn': 'string',
+                        'ObjectVersion': 'string'
+                    }
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Script** *(dict) --* 
+              Set of properties describing the requested script.
+              - **ScriptId** *(string) --* 
+                Unique identifier for a Realtime script
+              - **Name** *(string) --* 
+                Descriptive label that is associated with a script. Script names do not need to be unique.
+              - **Version** *(string) --* 
+                Version that is associated with a build or script. Version strings do not need to be unique.
+              - **SizeOnDisk** *(integer) --* 
+                File size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
+              - **CreationTime** *(datetime) --* 
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+              - **StorageLocation** *(dict) --* 
+                Location in Amazon Simple Storage Service (Amazon S3) where build or script files are stored for access by Amazon GameLift. This location is specified in  CreateBuild ,  CreateScript , and  UpdateScript requests. 
+                - **Bucket** *(string) --* 
+                  Amazon S3 bucket identifier. This is the name of the S3 bucket.
+                - **Key** *(string) --* 
+                  Name of the zip file containing the build files or script files. 
+                - **RoleArn** *(string) --* 
+                  Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+                - **ObjectVersion** *(string) --* 
+                  Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved. 
+        :type ScriptId: string
+        :param ScriptId: **[REQUIRED]**
+          Unique identifier for a Realtime script to retrieve properties for.
         :rtype: dict
         :returns:
         """
@@ -4010,6 +4301,11 @@ class Client(BaseClient):
         Retrieves build records for all builds associated with the AWS account in use. You can limit results to builds that are in a specific status by using the ``Status`` parameter. Use the pagination parameters to retrieve results in a set of sequential pages. 
         .. note::
           Build records are not listed in any particular order.
+        
+        **Learn more**
+         `Working with Builds <https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html>`__  
+        
+        **Related operations**
         *  CreateBuild   
         *  ListBuilds   
         *  DescribeBuild   
@@ -4048,7 +4344,9 @@ class Client(BaseClient):
             - **Builds** *(list) --* 
               Collection of build records that match the request.
               - *(dict) --* 
-                Properties describing a game build.
+                Properties describing a custom game build.
+        
+        **Related operations**
                 *  CreateBuild   
                 *  ListBuilds   
                 *  DescribeBuild   
@@ -4059,7 +4357,7 @@ class Client(BaseClient):
                 - **Name** *(string) --* 
                   Descriptive label that is associated with a build. Build names do not need to be unique. It can be set using  CreateBuild or  UpdateBuild .
                 - **Version** *(string) --* 
-                  Version that is associated with this build. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
+                  Version that is associated with a build or script. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
                 - **Status** *(string) --* 
                   Current status of the build.
                   Possible build statuses include the following:
@@ -4092,11 +4390,16 @@ class Client(BaseClient):
         """
         pass
 
-    def list_fleets(self, BuildId: str = None, Limit: int = None, NextToken: str = None) -> Dict:
+    def list_fleets(self, BuildId: str = None, ScriptId: str = None, Limit: int = None, NextToken: str = None) -> Dict:
         """
-        Retrieves a collection of fleet records for this AWS account. You can filter the result set by build ID. Use the pagination parameters to retrieve results in sequential pages.
+        Retrieves a collection of fleet records for this AWS account. You can filter the result set to find only those fleets that are deployed with a specific build or script. Use the pagination parameters to retrieve results in sequential pages.
         .. note::
-          Fleet records are not listed in any particular order.
+          Fleet records are not listed in a particular order.
+        
+        **Learn more**
+         `Set Up Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -4122,6 +4425,7 @@ class Client(BaseClient):
         ::
           response = client.list_fleets(
               BuildId='string',
+              ScriptId='string',
               Limit=123,
               NextToken='string'
           )
@@ -4146,6 +4450,98 @@ class Client(BaseClient):
         :type BuildId: string
         :param BuildId:
           Unique identifier for a build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
+        :type ScriptId: string
+        :param ScriptId:
+          Unique identifier for a Realtime script to return fleets for. Use this parameter to return only fleets using the specified script. To retrieve all fleets, leave this parameter empty.
+        :type Limit: integer
+        :param Limit:
+          Maximum number of results to return. Use this parameter with ``NextToken`` to get results as a set of sequential pages.
+        :type NextToken: string
+        :param NextToken:
+          Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_scripts(self, Limit: int = None, NextToken: str = None) -> Dict:
+        """
+        Retrieves script records for all Realtime scripts that are associated with the AWS account in use. 
+        
+        **Learn more**
+         `Amazon GameLift Realtime Servers <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html>`__  
+        
+        **Related operations**
+        *  CreateScript   
+        *  ListScripts   
+        *  DescribeScript   
+        *  UpdateScript   
+        *  DeleteScript   
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/ListScripts>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_scripts(
+              Limit=123,
+              NextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Scripts': [
+                    {
+                        'ScriptId': 'string',
+                        'Name': 'string',
+                        'Version': 'string',
+                        'SizeOnDisk': 123,
+                        'CreationTime': datetime(2015, 1, 1),
+                        'StorageLocation': {
+                            'Bucket': 'string',
+                            'Key': 'string',
+                            'RoleArn': 'string',
+                            'ObjectVersion': 'string'
+                        }
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Scripts** *(list) --* 
+              Set of properties describing the requested script.
+              - *(dict) --* 
+                Properties describing a Realtime script.
+        
+        **Related operations**
+                *  CreateScript   
+                *  ListScripts   
+                *  DescribeScript   
+                *  UpdateScript   
+                *  DeleteScript   
+                - **ScriptId** *(string) --* 
+                  Unique identifier for a Realtime script
+                - **Name** *(string) --* 
+                  Descriptive label that is associated with a script. Script names do not need to be unique.
+                - **Version** *(string) --* 
+                  Version that is associated with a build or script. Version strings do not need to be unique.
+                - **SizeOnDisk** *(integer) --* 
+                  File size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
+                - **CreationTime** *(datetime) --* 
+                  Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+                - **StorageLocation** *(dict) --* 
+                  Location in Amazon Simple Storage Service (Amazon S3) where build or script files are stored for access by Amazon GameLift. This location is specified in  CreateBuild ,  CreateScript , and  UpdateScript requests. 
+                  - **Bucket** *(string) --* 
+                    Amazon S3 bucket identifier. This is the name of the S3 bucket.
+                  - **Key** *(string) --* 
+                    Name of the zip file containing the build files or script files. 
+                  - **RoleArn** *(string) --* 
+                    Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+                  - **ObjectVersion** *(string) --* 
+                    Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved. 
+            - **NextToken** *(string) --* 
+              Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
         :type Limit: integer
         :param Limit:
           Maximum number of results to return. Use this parameter with ``NextToken`` to get results as a set of sequential pages.
@@ -4272,6 +4668,16 @@ class Client(BaseClient):
         """
         Retrieves a fresh set of credentials for use when uploading a new set of game build files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see  CreateBuild .
         To request new credentials, specify the build ID as returned with an initial ``CreateBuild`` request. If successful, a new set of credentials are returned, along with the S3 storage location associated with the build ID.
+        
+        **Learn more**
+         `Uploading Your Game <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html>`__  
+        
+        **Related operations**
+        *  CreateBuild   
+        *  ListBuilds   
+        *  DescribeBuild   
+        *  UpdateBuild   
+        *  DeleteBuild   
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/RequestUploadCredentials>`_
         
         **Request Syntax**
@@ -4291,7 +4697,8 @@ class Client(BaseClient):
                 'StorageLocation': {
                     'Bucket': 'string',
                     'Key': 'string',
-                    'RoleArn': 'string'
+                    'RoleArn': 'string',
+                    'ObjectVersion': 'string'
                 }
             }
         
@@ -4309,11 +4716,13 @@ class Client(BaseClient):
             - **StorageLocation** *(dict) --* 
               Amazon S3 path and key, identifying where the game build files are stored.
               - **Bucket** *(string) --* 
-                Amazon S3 bucket identifier. This is the name of your S3 bucket.
+                Amazon S3 bucket identifier. This is the name of the S3 bucket.
               - **Key** *(string) --* 
-                Name of the zip file containing your build files. 
+                Name of the zip file containing the build files or script files. 
               - **RoleArn** *(string) --* 
-                Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for the access role that allows Amazon GameLift to access your S3 bucket.
+                Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+              - **ObjectVersion** *(string) --* 
+                Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved. 
         :type BuildId: string
         :param BuildId: **[REQUIRED]**
           Unique identifier for a build to get credentials for.
@@ -4527,13 +4936,27 @@ class Client(BaseClient):
         """
         Resumes activity on a fleet that was suspended with  StopFleetActions . Currently, this operation is used to restart a fleet's auto-scaling activity. 
         To start fleet actions, specify the fleet ID and the type of actions to restart. When auto-scaling fleet actions are restarted, Amazon GameLift once again initiates scaling events as triggered by the fleet's scaling policies. If actions on the fleet were never stopped, this operation will have no effect. You can view a fleet's stopped actions using  DescribeFleetAttributes .
-        *  DescribeFleetCapacity   
-        *  UpdateFleetCapacity   
-        *  DescribeEC2InstanceLimits   
-        * Manage scaling policies: 
-          *  PutScalingPolicy (auto-scaling) 
-          *  DescribeScalingPolicies (auto-scaling) 
-          *  DeleteScalingPolicy (auto-scaling) 
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
+        *  CreateFleet   
+        *  ListFleets   
+        *  DeleteFleet   
+        * Describe fleets: 
+          *  DescribeFleetAttributes   
+          *  DescribeFleetCapacity   
+          *  DescribeFleetPortSettings   
+          *  DescribeFleetUtilization   
+          *  DescribeRuntimeConfiguration   
+          *  DescribeEC2InstanceLimits   
+          *  DescribeFleetEvents   
+        * Update fleets: 
+          *  UpdateFleetAttributes   
+          *  UpdateFleetCapacity   
+          *  UpdateFleetPortSettings   
+          *  UpdateRuntimeConfiguration   
         * Manage fleet actions: 
           *  StartFleetActions   
           *  StopFleetActions   
@@ -5207,6 +5630,30 @@ class Client(BaseClient):
         """
         Suspends activity on a fleet. Currently, this operation is used to stop a fleet's auto-scaling activity. It is used to temporarily stop scaling events triggered by the fleet's scaling policies. The policies can be retained and auto-scaling activity can be restarted using  StartFleetActions . You can view a fleet's stopped actions using  DescribeFleetAttributes .
         To stop fleet actions, specify the fleet ID and the type of actions to suspend. When auto-scaling fleet actions are stopped, Amazon GameLift no longer initiates scaling events except to maintain the fleet's desired instances setting ( FleetCapacity . Changes to the fleet's capacity must be done manually using  UpdateFleetCapacity . 
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
+        *  CreateFleet   
+        *  ListFleets   
+        *  DeleteFleet   
+        * Describe fleets: 
+          *  DescribeFleetAttributes   
+          *  DescribeFleetCapacity   
+          *  DescribeFleetPortSettings   
+          *  DescribeFleetUtilization   
+          *  DescribeRuntimeConfiguration   
+          *  DescribeEC2InstanceLimits   
+          *  DescribeFleetEvents   
+        * Update fleets: 
+          *  UpdateFleetAttributes   
+          *  UpdateFleetCapacity   
+          *  UpdateFleetPortSettings   
+          *  UpdateRuntimeConfiguration   
+        * Manage fleet actions: 
+          *  StartFleetActions   
+          *  StopFleetActions   
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/StopFleetActions>`_
         
         **Request Syntax**
@@ -5504,6 +5951,11 @@ class Client(BaseClient):
     def update_build(self, BuildId: str, Name: str = None, Version: str = None) -> Dict:
         """
         Updates metadata in a build record, including the build name and version. To update the metadata, specify the build ID to update and provide the new values. If successful, a build object containing the updated metadata is returned.
+        
+        **Learn more**
+         `Working with Builds <https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html>`__  
+        
+        **Related operations**
         *  CreateBuild   
         *  ListBuilds   
         *  DescribeBuild   
@@ -5543,7 +5995,7 @@ class Client(BaseClient):
               - **Name** *(string) --* 
                 Descriptive label that is associated with a build. Build names do not need to be unique. It can be set using  CreateBuild or  UpdateBuild .
               - **Version** *(string) --* 
-                Version that is associated with this build. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
+                Version that is associated with a build or script. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
               - **Status** *(string) --* 
                 Current status of the build.
                 Possible build statuses include the following:
@@ -5564,7 +6016,7 @@ class Client(BaseClient):
           Descriptive label that is associated with a build. Build names do not need to be unique.
         :type Version: string
         :param Version:
-          Version that is associated with this build. Version strings do not need to be unique.
+          Version that is associated with a build or script. Version strings do not need to be unique.
         :rtype: dict
         :returns:
         """
@@ -5573,6 +6025,11 @@ class Client(BaseClient):
     def update_fleet_attributes(self, FleetId: str, Name: str = None, Description: str = None, NewGameSessionProtectionPolicy: str = None, ResourceCreationLimitPolicy: Dict = None, MetricGroups: List = None) -> Dict:
         """
         Updates fleet properties, including name and description, for a fleet. To update metadata, specify the fleet ID and the property values that you want to change. If successful, the fleet ID for the updated fleet is returned.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -5656,6 +6113,11 @@ class Client(BaseClient):
         Updates capacity settings for a fleet. Use this action to specify the number of EC2 instances (hosts) that you want this fleet to contain. Before calling this action, you may want to call  DescribeEC2InstanceLimits to get the maximum capacity based on the fleet's EC2 instance type.
         Specify minimum and maximum number of instances. Amazon GameLift will not change fleet capacity to values fall outside of this range. This is particularly important when using auto-scaling (see  PutScalingPolicy ) to allow capacity to adjust based on player demand while imposing limits on automatic adjustments.
         To update fleet capacity, specify the fleet ID and the number of instances you want the fleet to host. If successful, Amazon GameLift starts or terminates instances so that the fleet's active instance count matches the desired instance count. You can view a fleet's current capacity information by calling  DescribeFleetCapacity . If the desired instance count is higher than the instance type's limit, the "Limit Exceeded" exception occurs.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -5717,6 +6179,11 @@ class Client(BaseClient):
     def update_fleet_port_settings(self, FleetId: str, InboundPermissionAuthorizations: List = None, InboundPermissionRevocations: List = None) -> Dict:
         """
         Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in ``InboundPermissionAuthorizations`` , and permissions you want to remove in ``InboundPermissionRevocations`` . Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -5778,7 +6245,7 @@ class Client(BaseClient):
         :param InboundPermissionAuthorizations:
           Collection of port settings to be added to the fleet record.
           - *(dict) --*
-            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet\'s allowed ranges. This combination is included in the  GameSession object.
+            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet\'s allowed ranges. For fleets created with a custom game server, the ranges reflect the server\'s game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP for use by the Realtime servers.
             - **FromPort** *(integer) --* **[REQUIRED]**
               Starting value for a range of allowed port numbers.
             - **ToPort** *(integer) --* **[REQUIRED]**
@@ -5791,7 +6258,7 @@ class Client(BaseClient):
         :param InboundPermissionRevocations:
           Collection of port settings to be removed from the fleet record.
           - *(dict) --*
-            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on Amazon GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet\'s allowed ranges. This combination is included in the  GameSession object.
+            A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet\'s allowed ranges. For fleets created with a custom game server, the ranges reflect the server\'s game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP for use by the Realtime servers.
             - **FromPort** *(integer) --* **[REQUIRED]**
               Starting value for a range of allowed port numbers.
             - **ToPort** *(integer) --* **[REQUIRED]**
@@ -6192,8 +6659,13 @@ class Client(BaseClient):
     def update_runtime_configuration(self, FleetId: str, RuntimeConfiguration: Dict) -> Dict:
         """
         Updates the current run-time configuration for the specified fleet, which tells Amazon GameLift how to launch server processes on instances in the fleet. You can update a fleet's run-time configuration at any time after the fleet is created; it does not need to be in an ``ACTIVE`` status.
-        To update run-time configuration, specify the fleet ID and provide a ``RuntimeConfiguration`` object with the updated collection of server process configurations.
-        Each instance in a Amazon GameLift fleet checks regularly for an updated run-time configuration and changes how it launches server processes to comply with the latest version. Existing server processes are not affected by the update; they continue to run until they end, while Amazon GameLift simply adds new server processes to fit the current run-time configuration. As a result, the run-time configuration changes are applied gradually as existing processes shut down and new processes are launched in Amazon GameLift's normal process recycling activity.
+        To update run-time configuration, specify the fleet ID and provide a ``RuntimeConfiguration`` object with an updated set of server process configurations.
+        Each instance in a Amazon GameLift fleet checks regularly for an updated run-time configuration and changes how it launches server processes to comply with the latest version. Existing server processes are not affected by the update; run-time configuration changes are applied gradually as existing processes shut down and new processes are launched during Amazon GameLift's normal process recycling activity.
+        
+        **Learn more**
+         `Working with Fleets <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html>`__ .
+        
+        **Related operations**
         *  CreateFleet   
         *  ListFleets   
         *  DeleteFleet   
@@ -6256,11 +6728,13 @@ class Client(BaseClient):
               - **ServerProcesses** *(list) --* 
                 Collection of server process configurations that describe which server processes to run on each instance in a fleet.
                 - *(dict) --* 
-                  A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's ``  RuntimeConfiguration `` .
+                  A set of instructions for launching server processes on each instance in a fleet. Server processes run either a custom game build executable or a Realtime Servers script. Each instruction set identifies the location of the custom game build executable or Realtime launch script, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's ``  RuntimeConfiguration `` .
                   - **LaunchPath** *(string) --* 
-                    Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of "``C:\game\MyGame\latest\server.exe`` ". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of "``/local/game/MyGame/latest/server.exe`` ". 
+                    Location of the server executable in a custom game build or the name of the Realtime script file that contains the ``Init()`` function. Game builds and Realtime scripts are installed on instances at the root: 
+                    * Windows (for custom game builds only): ``C:\game`` . Example: "``C:\game\MyGame\server.exe`` "  
+                    * Linux: ``/local/game`` . Examples: "``/local/game/MyGame/server.exe`` " or "``/local/game/MyRealtimeScript.js`` " 
                   - **Parameters** *(string) --* 
-                    Optional list of parameters to pass to the server executable on launch.
+                    Optional list of parameters to pass to the server executable or Realtime script on launch.
                   - **ConcurrentExecutions** *(integer) --* 
                     Number of server processes using this configuration to run concurrently on an instance.
               - **MaxConcurrentGameSessionActivations** *(integer) --* 
@@ -6272,21 +6746,127 @@ class Client(BaseClient):
           Unique identifier for a fleet to update run-time configuration for.
         :type RuntimeConfiguration: dict
         :param RuntimeConfiguration: **[REQUIRED]**
-          Instructions for launching server processes on each instance in the fleet. The run-time configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance.
+          Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The run-time configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a run-time configuration with at least one server process configuration.
           - **ServerProcesses** *(list) --*
             Collection of server process configurations that describe which server processes to run on each instance in a fleet.
             - *(dict) --*
-              A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s ``  RuntimeConfiguration `` .
+              A set of instructions for launching server processes on each instance in a fleet. Server processes run either a custom game build executable or a Realtime Servers script. Each instruction set identifies the location of the custom game build executable or Realtime launch script, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s ``  RuntimeConfiguration `` .
               - **LaunchPath** *(string) --* **[REQUIRED]**
-                Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances ``C:\game`` , and for Linux instances ``/local/game`` . A Windows game build with an executable file located at ``MyGame\latest\server.exe`` must have a launch path of \"``C:\game\MyGame\latest\server.exe`` \". A Linux game build with an executable file located at ``MyGame/latest/server.exe`` must have a launch path of \"``/local/game/MyGame/latest/server.exe`` \".
+                Location of the server executable in a custom game build or the name of the Realtime script file that contains the ``Init()`` function. Game builds and Realtime scripts are installed on instances at the root:
+                * Windows (for custom game builds only): ``C:\game`` . Example: \"``C:\game\MyGame\server.exe`` \"
+                * Linux: ``/local/game`` . Examples: \"``/local/game/MyGame/server.exe`` \" or \"``/local/game/MyRealtimeScript.js`` \"
               - **Parameters** *(string) --*
-                Optional list of parameters to pass to the server executable on launch.
+                Optional list of parameters to pass to the server executable or Realtime script on launch.
               - **ConcurrentExecutions** *(integer) --* **[REQUIRED]**
                 Number of server processes using this configuration to run concurrently on an instance.
           - **MaxConcurrentGameSessionActivations** *(integer) --*
             Maximum number of game sessions with status ``ACTIVATING`` to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
           - **GameSessionActivationTimeoutSeconds** *(integer) --*
             Maximum amount of time (in seconds) that a game session can remain in status ``ACTIVATING`` . If the game session is not active before the timeout, activation is terminated and the game session status is changed to ``TERMINATED`` .
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def update_script(self, ScriptId: str, Name: str = None, Version: str = None, StorageLocation: Dict = None, ZipFile: bytes = None) -> Dict:
+        """
+        Updates Realtime script metadata and content.
+        To update script metadata, specify the script ID and provide updated name and/or version values. 
+        To update script content, provide an updated zip file by pointing to either a local file or an Amazon S3 bucket location. You can use either method regardless of how the original script was uploaded. Use the *Version* parameter to track updates to the script.
+        If the call is successful, the updated metadata is stored in the script record and a revised script is uploaded to the Amazon GameLift service. Once the script is updated and acquired by a fleet instance, the new version is used for all new game sessions. 
+        
+        **Learn more**
+         `Amazon GameLift Realtime Servers <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html>`__  
+        
+        **Related operations**
+        *  CreateScript   
+        *  ListScripts   
+        *  DescribeScript   
+        *  UpdateScript   
+        *  DeleteScript   
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/UpdateScript>`_
+        
+        **Request Syntax**
+        ::
+          response = client.update_script(
+              ScriptId='string',
+              Name='string',
+              Version='string',
+              StorageLocation={
+                  'Bucket': 'string',
+                  'Key': 'string',
+                  'RoleArn': 'string',
+                  'ObjectVersion': 'string'
+              },
+              ZipFile=b'bytes'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Script': {
+                    'ScriptId': 'string',
+                    'Name': 'string',
+                    'Version': 'string',
+                    'SizeOnDisk': 123,
+                    'CreationTime': datetime(2015, 1, 1),
+                    'StorageLocation': {
+                        'Bucket': 'string',
+                        'Key': 'string',
+                        'RoleArn': 'string',
+                        'ObjectVersion': 'string'
+                    }
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Script** *(dict) --* 
+              The newly created script record with a unique script ID. The new script's storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket under your account, the storage location reflects the information that was provided in the *CreateScript* request; (2) If the script file was uploaded from a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift service.
+              - **ScriptId** *(string) --* 
+                Unique identifier for a Realtime script
+              - **Name** *(string) --* 
+                Descriptive label that is associated with a script. Script names do not need to be unique.
+              - **Version** *(string) --* 
+                Version that is associated with a build or script. Version strings do not need to be unique.
+              - **SizeOnDisk** *(integer) --* 
+                File size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
+              - **CreationTime** *(datetime) --* 
+                Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+              - **StorageLocation** *(dict) --* 
+                Location in Amazon Simple Storage Service (Amazon S3) where build or script files are stored for access by Amazon GameLift. This location is specified in  CreateBuild ,  CreateScript , and  UpdateScript requests. 
+                - **Bucket** *(string) --* 
+                  Amazon S3 bucket identifier. This is the name of the S3 bucket.
+                - **Key** *(string) --* 
+                  Name of the zip file containing the build files or script files. 
+                - **RoleArn** *(string) --* 
+                  Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+                - **ObjectVersion** *(string) --* 
+                  Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved. 
+        :type ScriptId: string
+        :param ScriptId: **[REQUIRED]**
+          Unique identifier for a Realtime script to update.
+        :type Name: string
+        :param Name:
+          Descriptive label that is associated with a script. Script names do not need to be unique.
+        :type Version: string
+        :param Version:
+          Version that is associated with a build or script. Version strings do not need to be unique.
+        :type StorageLocation: dict
+        :param StorageLocation:
+          Location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the \"key\"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ``ObjectVersion`` parameter to specify an earlier version.
+          - **Bucket** *(string) --*
+            Amazon S3 bucket identifier. This is the name of the S3 bucket.
+          - **Key** *(string) --*
+            Name of the zip file containing the build files or script files.
+          - **RoleArn** *(string) --*
+            Amazon Resource Name (`ARN <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html>`__ ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+          - **ObjectVersion** *(string) --*
+            Version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file; if not set, the latest version of the file is retrieved.
+        :type ZipFile: bytes
+        :param ZipFile:
+          Data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+          When using the AWS CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string \"fileb://\" to indicate that the file data is a binary object. For example: ``--zip-file fileb://myRealtimeScript.zip`` .
         :rtype: dict
         :returns:
         """

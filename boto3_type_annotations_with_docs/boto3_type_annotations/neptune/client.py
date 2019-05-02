@@ -1,17 +1,17 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
     def add_role_to_db_cluster(self, DBClusterIdentifier: str, RoleArn: str):
         """
-        Associates an Identity and Access Management (IAM) role from an Neptune DB cluster. 
+        Associates an Identity and Access Management (IAM) role from an Neptune DB cluster.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/AddRoleToDBCluster>`_
         
         **Request Syntax**
@@ -126,7 +126,7 @@ class Client(BaseClient):
           )
         :type ResourceName: string
         :param ResourceName: **[REQUIRED]**
-          The Amazon Neptune resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
+          The Amazon Neptune resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
         :type Tags: list
         :param Tags: **[REQUIRED]**
           The tags to be assigned to the Amazon Neptune resource.
@@ -195,7 +195,7 @@ class Client(BaseClient):
                     A description providing more detail about the maintenance action.
         :type ResourceIdentifier: string
         :param ResourceIdentifier: **[REQUIRED]**
-          The Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
+          The Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
         :type ApplyAction: string
         :param ApplyAction: **[REQUIRED]**
           The pending maintenance action to apply to this resource.
@@ -260,8 +260,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBClusterParameterGroup** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster parameter group. 
-              This data type is used as a response element in the  DescribeDBClusterParameterGroups action. 
+              Contains the details of an Amazon Neptune DB cluster parameter group.
+              This data type is used as a response element in the  DescribeDBClusterParameterGroups action.
               - **DBClusterParameterGroupName** *(string) --* 
                 Provides the name of the DB cluster parameter group.
               - **DBParameterGroupFamily** *(string) --* 
@@ -272,7 +272,7 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) for the DB cluster parameter group.
         :type SourceDBClusterParameterGroupIdentifier: string
         :param SourceDBClusterParameterGroupIdentifier: **[REQUIRED]**
-          The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
+          The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
           Constraints:
           * Must specify a valid DB cluster parameter group.
           * If the source DB cluster parameter group is in the same AWS Region as the copy, specify a valid DB parameter group identifier, for example ``my-db-cluster-param-group`` , or a valid ARN.
@@ -291,7 +291,7 @@ class Client(BaseClient):
           A description for the copied DB cluster parameter group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to be assigned to the copied DB cluster parameter group.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -307,16 +307,7 @@ class Client(BaseClient):
         """
         Copies a snapshot of a DB cluster.
         To copy a DB cluster snapshot from a shared manual DB cluster snapshot, ``SourceDBClusterSnapshotIdentifier`` must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.
-        You can copy an encrypted DB cluster snapshot from another AWS Region. In that case, the AWS Region where you call the ``CopyDBClusterSnapshot`` action is the destination AWS Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another AWS Region, you must provide the following values:
-        * ``KmsKeyId`` - The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. 
-        * ``PreSignedUrl`` - A URL that contains a Signature Version 4 signed request for the ``CopyDBClusterSnapshot`` action to be called in the source AWS Region where the DB cluster snapshot is copied from. The pre-signed URL must be a valid request for the ``CopyDBClusterSnapshot`` API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. The pre-signed URL request must contain the following parameter values: 
-          * ``KmsKeyId`` - The KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the ``CopyDBClusterSnapshot`` action that is called in the destination AWS Region, and the action contained in the pre-signed URL. 
-          * ``DestinationRegion`` - The name of the AWS Region that the DB cluster snapshot will be created in. 
-          * ``SourceDBClusterSnapshotIdentifier`` - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your ``SourceDBClusterSnapshotIdentifier`` looks like the following example: ``arn:aws:rds:us-west-2:123456789012:cluster-snapshot:neptune-cluster1-snapshot-20161115`` . 
-        To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
-        * ``TargetDBClusterSnapshotIdentifier`` - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region. 
-        * ``SourceDBClusterSnapshotIdentifier`` - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the ARN format for the source AWS Region and is the same value as the ``SourceDBClusterSnapshotIdentifier`` in the pre-signed URL.  
-        To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified by ``TargetDBClusterSnapshotIdentifier`` while that DB cluster snapshot is in "copying" status.
+        You can't copy from one AWS Region to another.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CopyDBClusterSnapshot>`_
         
         **Request Syntax**
@@ -367,8 +358,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBClusterSnapshot** *(dict) --* 
-              Contains the details for an Amazon Neptune DB cluster snapshot 
-              This data type is used as a response element in the  DescribeDBClusterSnapshots action. 
+              Contains the details for an Amazon Neptune DB cluster snapshot
+              This data type is used as a response element in the  DescribeDBClusterSnapshots action.
               - **AvailabilityZones** *(list) --* 
                 Provides the list of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
                 - *(string) --* 
@@ -413,11 +404,10 @@ class Client(BaseClient):
         :type SourceDBClusterSnapshotIdentifier: string
         :param SourceDBClusterSnapshotIdentifier: **[REQUIRED]**
           The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.
-          You can\'t copy an encrypted, shared DB cluster snapshot from one AWS Region to another.
+          You can\'t copy from one AWS Region to another.
           Constraints:
           * Must specify a valid system snapshot in the \"available\" state.
-          * If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot identifier.
-          * If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN.
+          * Specify a valid DB snapshot identifier.
           Example: ``my-cluster-snapshot1``
         :type TargetDBClusterSnapshotIdentifier: string
         :param TargetDBClusterSnapshotIdentifier: **[REQUIRED]**
@@ -433,22 +423,17 @@ class Client(BaseClient):
           If you copy an unencrypted DB cluster snapshot and specify a value for the ``KmsKeyId`` parameter, Amazon Neptune encrypts the target DB cluster snapshot using the specified KMS encryption key.
           If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for ``KmsKeyId`` to encrypt the copy with a new KMS encryption key. If you don\'t specify a value for ``KmsKeyId`` , then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot.
           If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for ``KmsKeyId`` .
-          To copy an encrypted DB cluster snapshot to another AWS Region, you must set ``KmsKeyId`` to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can\'t use encryption keys from one AWS Region in another AWS Region.
+          KMS encryption keys are specific to the AWS Region that they are created in, and you can\'t use encryption keys from one AWS Region in another AWS Region.
         :type PreSignedUrl: string
         :param PreSignedUrl:
-          The URL that contains a Signature Version 4 signed request for the ``CopyDBClusterSnapshot`` API action in the AWS Region that contains the source DB cluster snapshot to copy. The ``PreSignedUrl`` parameter must be used when copying an encrypted DB cluster snapshot from another AWS Region.
-          The pre-signed URL must be a valid request for the ``CopyDBSClusterSnapshot`` API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. The pre-signed URL request must contain the following parameter values:
-          * ``KmsKeyId`` - The AWS KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the ``CopyDBClusterSnapshot`` action that is called in the destination AWS Region, and the action contained in the pre-signed URL.
-          * ``DestinationRegion`` - The name of the AWS Region that the DB cluster snapshot will be created in.
-          * ``SourceDBClusterSnapshotIdentifier`` - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your ``SourceDBClusterSnapshotIdentifier`` looks like the following example: ``arn:aws:rds:us-west-2:123456789012:cluster-snapshot:neptune-cluster1-snapshot-20161115`` .
-          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          Not currently supported.
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type CopyTags: boolean
         :param CopyTags:
           True to copy all tags from the source DB cluster snapshot to the target DB cluster snapshot, and otherwise false. The default is false.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to assign to the new DB cluster snapshot copy.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -496,8 +481,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBParameterGroup** *(dict) --* 
-              Contains the details of an Amazon Neptune DB parameter group. 
-              This data type is used as a response element in the  DescribeDBParameterGroups action. 
+              Contains the details of an Amazon Neptune DB parameter group.
+              This data type is used as a response element in the  DescribeDBParameterGroups action.
               - **DBParameterGroupName** *(string) --* 
                 Provides the name of the DB parameter group.
               - **DBParameterGroupFamily** *(string) --* 
@@ -508,7 +493,7 @@ class Client(BaseClient):
                 The Amazon Resource Name (ARN) for the DB parameter group.
         :type SourceDBParameterGroupIdentifier: string
         :param SourceDBParameterGroupIdentifier: **[REQUIRED]**
-          The identifier or ARN for the source DB parameter group. For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
+          The identifier or ARN for the source DB parameter group. For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
           Constraints:
           * Must specify a valid DB parameter group.
           * Must specify a valid DB parameter group identifier, for example ``my-db-param-group`` , or a valid ARN.
@@ -516,17 +501,17 @@ class Client(BaseClient):
         :param TargetDBParameterGroupIdentifier: **[REQUIRED]**
           The identifier for the copied DB parameter group.
           Constraints:
-          * Cannot be null, empty, or blank
-          * Must contain from 1 to 255 letters, numbers, or hyphens
-          * First character must be a letter
-          * Cannot end with a hyphen or contain two consecutive hyphens
+          * Cannot be null, empty, or blank.
+          * Must contain from 1 to 255 letters, numbers, or hyphens.
+          * First character must be a letter.
+          * Cannot end with a hyphen or contain two consecutive hyphens.
           Example: ``my-db-parameter-group``
         :type TargetDBParameterGroupDescription: string
         :param TargetDBParameterGroupDescription: **[REQUIRED]**
           A description for the copied DB parameter group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to be assigned to the copied DB parameter group.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -541,7 +526,7 @@ class Client(BaseClient):
     def create_db_cluster(self, DBClusterIdentifier: str, Engine: str, AvailabilityZones: List = None, BackupRetentionPeriod: int = None, CharacterSetName: str = None, DatabaseName: str = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, DBSubnetGroupName: str = None, EngineVersion: str = None, Port: int = None, MasterUsername: str = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, ReplicationSourceIdentifier: str = None, Tags: List = None, StorageEncrypted: bool = None, KmsKeyId: str = None, PreSignedUrl: str = None, EnableIAMDatabaseAuthentication: bool = None, SourceRegion: str = None) -> Dict:
         """
         Creates a new Amazon Neptune DB cluster.
-        You can use the ``ReplicationSourceIdentifier`` parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance. For cross-region replication where the DB cluster identified by ``ReplicationSourceIdentifier`` is encrypted, you must also specify the ``PreSignedUrl`` parameter.
+        You can use the ``ReplicationSourceIdentifier`` parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CreateDBCluster>`_
         
         **Request Syntax**
@@ -651,8 +636,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBCluster** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster. 
-              This data type is used as a response element in the  DescribeDBClusters action. 
+              Contains the details of an Amazon Neptune DB cluster.
+              This data type is used as a response element in the  DescribeDBClusters action.
               - **AllocatedStorage** *(integer) --* 
                  ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
               - **AvailabilityZones** *(list) --* 
@@ -679,7 +664,7 @@ class Client(BaseClient):
               - **Endpoint** *(string) --* 
                 Specifies the connection endpoint for the primary instance of the DB cluster.
               - **ReaderEndpoint** *(string) --* 
-                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                 If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
               - **MultiAZ** *(boolean) --* 
                 Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -702,11 +687,11 @@ class Client(BaseClient):
                   - **Status** *(string) --* 
                     Specifies the status of the DB cluster option group.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **PreferredMaintenanceWindow** *(string) --* 
                 Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
               - **ReplicationSourceIdentifier** *(string) --* 
-                Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                Not supported by Neptune.
               - **ReadReplicaIdentifiers** *(list) --* 
                 Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                 - *(string) --* 
@@ -721,7 +706,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -825,7 +810,7 @@ class Client(BaseClient):
         :type PreferredBackupWindow: string
         :param PreferredBackupWindow:
           The daily time range during which automated backups are created if automated backups are enabled using the ``BackupRetentionPeriod`` parameter.
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html>`__ in the *Amazon Neptune User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html>`__ in the *Amazon Neptune User Guide.*
           Constraints:
           * Must be in the format ``hh24:mi-hh24:mi`` .
           * Must be in Universal Coordinated Time (UTC).
@@ -835,7 +820,7 @@ class Client(BaseClient):
         :param PreferredMaintenanceWindow:
           The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
           Format: ``ddd:hh24:mi-ddd:hh24:mi``
-          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html>`__ in the *Amazon Neptune User Guide.*
+          The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see `Adjusting the Preferred Maintenance Window <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html>`__ in the *Amazon Neptune User Guide.*
           Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
           Constraints: Minimum 30-minute window.
         :type ReplicationSourceIdentifier: string
@@ -843,7 +828,7 @@ class Client(BaseClient):
           The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to assign to the new DB cluster.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -864,13 +849,7 @@ class Client(BaseClient):
           If you create a Read Replica of an encrypted DB cluster in another AWS Region, you must set ``KmsKeyId`` to a KMS key ID that is valid in the destination AWS Region. This key is used to encrypt the Read Replica in that AWS Region.
         :type PreSignedUrl: string
         :param PreSignedUrl:
-          A URL that contains a Signature Version 4 signed request for the ``CreateDBCluster`` action to be called in the source AWS Region where the DB cluster is replicated from. You only need to specify ``PreSignedUrl`` when you are performing cross-region replication from an encrypted DB cluster.
-          The pre-signed URL must be a valid request for the ``CreateDBCluster`` API action that can be executed in the source AWS Region that contains the encrypted DB cluster to be copied.
-          The pre-signed URL request must contain the following parameter values:
-          * ``KmsKeyId`` - The AWS KMS key identifier for the key to use to encrypt the copy of the DB cluster in the destination AWS Region. This should refer to the same KMS key for both the ``CreateDBCluster`` action that is called in the destination AWS Region, and the action contained in the pre-signed URL.
-          * ``DestinationRegion`` - The name of the AWS Region that Read Replica will be created in.
-          * ``ReplicationSourceIdentifier`` - The DB cluster identifier for the encrypted DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster from the us-west-2 AWS Region, then your ``ReplicationSourceIdentifier`` would look like Example: ``arn:aws:rds:us-west-2:123456789012:cluster:neptune-cluster1`` .
-          To learn how to generate a Signature Version 4 signed request, see `Authenticating Requests\: Using Query Parameters (AWS Signature Version 4) <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html>`__ and `Signature Version 4 Signing Process <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          This parameter is not currently supported.
             Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
         :type EnableIAMDatabaseAuthentication: boolean
         :param EnableIAMDatabaseAuthentication:
@@ -888,7 +867,7 @@ class Client(BaseClient):
         """
         Creates a new DB cluster parameter group.
         Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.
-        A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using  ModifyDBClusterParameterGroup . Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using  ModifyDBCluster . When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect. 
+        A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using  ModifyDBClusterParameterGroup . Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using  ModifyDBCluster . When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.
         .. warning::
           After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the ``character_set_database`` parameter. You can use the *Parameter Groups* option of the `Amazon Neptune console <https://console.aws.amazon.com/rds/>`__ or the  DescribeDBClusterParameters command to verify that your DB cluster parameter group has been created or modified.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CreateDBClusterParameterGroup>`_
@@ -921,8 +900,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBClusterParameterGroup** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster parameter group. 
-              This data type is used as a response element in the  DescribeDBClusterParameterGroups action. 
+              Contains the details of an Amazon Neptune DB cluster parameter group.
+              This data type is used as a response element in the  DescribeDBClusterParameterGroups action.
               - **DBClusterParameterGroupName** *(string) --* 
                 Provides the name of the DB cluster parameter group.
               - **DBParameterGroupFamily** *(string) --* 
@@ -946,7 +925,7 @@ class Client(BaseClient):
           The description for the DB cluster parameter group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to be assigned to the new DB cluster parameter group.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -960,7 +939,7 @@ class Client(BaseClient):
 
     def create_db_cluster_snapshot(self, DBClusterSnapshotIdentifier: str, DBClusterIdentifier: str, Tags: List = None) -> Dict:
         """
-        Creates a snapshot of a DB cluster. 
+        Creates a snapshot of a DB cluster.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CreateDBClusterSnapshot>`_
         
         **Request Syntax**
@@ -1008,8 +987,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBClusterSnapshot** *(dict) --* 
-              Contains the details for an Amazon Neptune DB cluster snapshot 
-              This data type is used as a response element in the  DescribeDBClusterSnapshots action. 
+              Contains the details for an Amazon Neptune DB cluster snapshot
+              This data type is used as a response element in the  DescribeDBClusterSnapshots action.
               - **AvailabilityZones** *(list) --* 
                 Provides the list of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
                 - *(string) --* 
@@ -1285,8 +1264,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBInstance** *(dict) --* 
-              Contains the details of an Amazon Neptune DB instance. 
-              This data type is used as a response element in the  DescribeDBInstances action. 
+              Contains the details of an Amazon Neptune DB instance.
+              This data type is used as a response element in the  DescribeDBInstances action.
               - **DBInstanceIdentifier** *(string) --* 
                 Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
               - **DBInstanceClass** *(string) --* 
@@ -1312,15 +1291,13 @@ class Client(BaseClient):
               - **InstanceCreateTime** *(datetime) --* 
                 Provides the date and time the DB instance was created.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **BackupRetentionPeriod** *(integer) --* 
                 Specifies the number of days for which automatic DB snapshots are retained.
               - **DBSecurityGroups** *(list) --* 
-                Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements. 
+                Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements.
                 - *(dict) --* 
-                  This data type is used as a response element in the following actions:
-                  *  ModifyDBInstance   
-                  *  RebootDBInstance   
+                  Specifies membership in a designated DB security group.
                   - **DBSecurityGroupName** *(string) --* 
                     The name of the DB security group.
                   - **Status** *(string) --* 
@@ -1359,15 +1336,14 @@ class Client(BaseClient):
                 - **SubnetGroupStatus** *(string) --* 
                   Provides the status of the DB subnet group.
                 - **Subnets** *(list) --* 
-                  Contains a list of  Subnet elements. 
+                  Contains a list of  Subnet elements.
                   - *(dict) --* 
-                    This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                    Specifies a subnet.
+                    This data type is used as a response element in the  DescribeDBSubnetGroups action.
                     - **SubnetIdentifier** *(string) --* 
                       Specifies the identifier of the subnet.
                     - **SubnetAvailabilityZone** *(dict) --* 
-                      Contains Availability Zone information.
-                      This data type is used as an element in the following data type:
-                      *  OrderableDBInstanceOption   
+                      Specifies the EC2 Availability Zone that the subnet is in.
                       - **Name** *(string) --* 
                         The name of the availability zone.
                     - **SubnetStatus** *(string) --* 
@@ -1379,9 +1355,9 @@ class Client(BaseClient):
               - **PendingModifiedValues** *(dict) --* 
                 Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
                 - **DBInstanceClass** *(string) --* 
-                  Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied.
                 - **AllocatedStorage** *(integer) --* 
-                  Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied.
                 - **MasterUserPassword** *(string) --* 
                   Contains the pending or currently-in-progress change of the master credentials for the DB instance.
                 - **Port** *(integer) --* 
@@ -1398,15 +1374,15 @@ class Client(BaseClient):
                 - **Iops** *(integer) --* 
                   Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
                 - **DBInstanceIdentifier** *(string) --* 
-                  Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied.
                 - **StorageType** *(string) --* 
                   Specifies the storage type to be associated with the DB instance.
                 - **CACertificateIdentifier** *(string) --* 
                   Specifies the identifier of the CA certificate for the DB instance.
                 - **DBSubnetGroupName** *(string) --* 
-                  The new DB subnet group for the DB instance. 
+                  The new DB subnet group for the DB instance.
                 - **PendingCloudwatchLogsExports** *(dict) --* 
-                  A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
+                  Specifies the CloudWatch logs to be exported.
                   - **LogTypesToEnable** *(list) --* 
                     Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
                     - *(string) --* 
@@ -1440,13 +1416,13 @@ class Client(BaseClient):
                   - **OptionGroupName** *(string) --* 
                     The name of the option group that the instance belongs to.
                   - **Status** *(string) --* 
-                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` .
               - **CharacterSetName** *(string) --* 
                 If present, specifies the name of the character set that this instance is associated with.
               - **SecondaryAvailabilityZone** *(string) --* 
                 If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
               - **PubliclyAccessible** *(boolean) --* 
-                This parameter is not supported.
+                This flag should no longer be used.
               - **StatusInfos** *(list) --* 
                 The status of a Read Replica. If the instance is not a Read Replica, this is blank.
                 - *(dict) --* 
@@ -1468,9 +1444,9 @@ class Client(BaseClient):
               - **DBClusterIdentifier** *(string) --* 
                 If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
               - **StorageEncrypted** *(boolean) --* 
-                Specifies whether the DB instance is encrypted.
+                Not supported: The encryption for DB instances is managed by the DB cluster.
               - **KmsKeyId** *(string) --* 
-                If ``StorageEncrypted`` is true, the AWS KMS key identifier for the encrypted DB instance. 
+                Not supported: The encryption for DB instances is managed by the DB cluster.
               - **DbiResourceId** *(string) --* 
                 The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
               - **CACertificateIdentifier** *(string) --* 
@@ -1478,7 +1454,7 @@ class Client(BaseClient):
               - **DomainMemberships** *(list) --* 
                 Not supported
                 - *(dict) --* 
-                  An Active Directory Domain membership record associated with the DB instance.
+                  An Active Directory Domain membership record associated with a DB instance.
                   - **Domain** *(string) --* 
                     The identifier of the Active Directory Domain.
                   - **Status** *(string) --* 
@@ -1500,7 +1476,7 @@ class Client(BaseClient):
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
-                Not supported. 
+                Not supported.
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise false.
               - **PerformanceInsightsEnabled** *(boolean) --* 
@@ -1512,8 +1488,7 @@ class Client(BaseClient):
                 - *(string) --* 
         :type DBName: string
         :param DBName:
-          The database name.
-          Type: String
+          Not supported.
         :type DBInstanceIdentifier: string
         :param DBInstanceIdentifier: **[REQUIRED]**
           The DB instance identifier. This parameter is stored as a lowercase string.
@@ -1554,7 +1529,7 @@ class Client(BaseClient):
           - *(string) --*
         :type AvailabilityZone: string
         :param AvailabilityZone:
-          The EC2 Availability Zone that the DB instance is created in.
+          The EC2 Availability Zone that the DB instance is created in
           Default: A random, system-chosen Availability Zone in the endpoint\'s AWS Region.
           Example: ``us-east-1d``
           Constraint: The AvailabilityZone parameter can\'t be specified if the MultiAZ parameter is set to ``true`` . The specified Availability Zone must be in the same AWS Region as the current endpoint.
@@ -1621,10 +1596,10 @@ class Client(BaseClient):
           Not applicable. The character set is managed by the DB cluster. For more information, see  CreateDBCluster .
         :type PubliclyAccessible: boolean
         :param PubliclyAccessible:
-          This parameter is not supported.
+          This flag should no longer be used.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to assign to the new instance.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -1705,7 +1680,7 @@ class Client(BaseClient):
     def create_db_parameter_group(self, DBParameterGroupName: str, DBParameterGroupFamily: str, Description: str, Tags: List = None) -> Dict:
         """
         Creates a new DB parameter group.
-        A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using *ModifyDBParameterGroup* . Once you've created a DB parameter group, you need to associate it with your DB instance using *ModifyDBInstance* . When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect. 
+        A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using *ModifyDBParameterGroup* . Once you've created a DB parameter group, you need to associate it with your DB instance using *ModifyDBInstance* . When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect.
         .. warning::
           After you create a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the ``character_set_database`` parameter. You can use the *Parameter Groups* option of the Amazon Neptune console or the *DescribeDBParameters* command to verify that your DB parameter group has been created or modified.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CreateDBParameterGroup>`_
@@ -1738,8 +1713,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBParameterGroup** *(dict) --* 
-              Contains the details of an Amazon Neptune DB parameter group. 
-              This data type is used as a response element in the  DescribeDBParameterGroups action. 
+              Contains the details of an Amazon Neptune DB parameter group.
+              This data type is used as a response element in the  DescribeDBParameterGroups action.
               - **DBParameterGroupName** *(string) --* 
                 Provides the name of the DB parameter group.
               - **DBParameterGroupFamily** *(string) --* 
@@ -1765,7 +1740,7 @@ class Client(BaseClient):
           The description for the DB parameter group.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to be assigned to the new DB parameter group.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -1822,8 +1797,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBSubnetGroup** *(dict) --* 
-              Contains the details of an Amazon Neptune DB subnet group. 
-              This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+              Contains the details of an Amazon Neptune DB subnet group.
+              This data type is used as a response element in the  DescribeDBSubnetGroups action.
               - **DBSubnetGroupName** *(string) --* 
                 The name of the DB subnet group.
               - **DBSubnetGroupDescription** *(string) --* 
@@ -1833,15 +1808,14 @@ class Client(BaseClient):
               - **SubnetGroupStatus** *(string) --* 
                 Provides the status of the DB subnet group.
               - **Subnets** *(list) --* 
-                Contains a list of  Subnet elements. 
+                Contains a list of  Subnet elements.
                 - *(dict) --* 
-                  This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                  Specifies a subnet.
+                  This data type is used as a response element in the  DescribeDBSubnetGroups action.
                   - **SubnetIdentifier** *(string) --* 
                     Specifies the identifier of the subnet.
                   - **SubnetAvailabilityZone** *(dict) --* 
-                    Contains Availability Zone information.
-                    This data type is used as an element in the following data type:
-                    *  OrderableDBInstanceOption   
+                    Specifies the EC2 Availability Zone that the subnet is in.
                     - **Name** *(string) --* 
                       The name of the availability zone.
                   - **SubnetStatus** *(string) --* 
@@ -1862,7 +1836,7 @@ class Client(BaseClient):
           - *(string) --*
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to be assigned to the new DB subnet group.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -1982,7 +1956,7 @@ class Client(BaseClient):
           A Boolean value; set to **true** to activate the subscription, set to **false** to create the subscription but not active it.
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to be applied to the new event subscription.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -2078,8 +2052,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBCluster** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster. 
-              This data type is used as a response element in the  DescribeDBClusters action. 
+              Contains the details of an Amazon Neptune DB cluster.
+              This data type is used as a response element in the  DescribeDBClusters action.
               - **AllocatedStorage** *(integer) --* 
                  ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
               - **AvailabilityZones** *(list) --* 
@@ -2106,7 +2080,7 @@ class Client(BaseClient):
               - **Endpoint** *(string) --* 
                 Specifies the connection endpoint for the primary instance of the DB cluster.
               - **ReaderEndpoint** *(string) --* 
-                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                 If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
               - **MultiAZ** *(boolean) --* 
                 Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -2129,11 +2103,11 @@ class Client(BaseClient):
                   - **Status** *(string) --* 
                     Specifies the status of the DB cluster option group.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **PreferredMaintenanceWindow** *(string) --* 
                 Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
               - **ReplicationSourceIdentifier** *(string) --* 
-                Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                Not supported by Neptune.
               - **ReadReplicaIdentifiers** *(list) --* 
                 Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                 - *(string) --* 
@@ -2148,7 +2122,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -2275,8 +2249,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBClusterSnapshot** *(dict) --* 
-              Contains the details for an Amazon Neptune DB cluster snapshot 
-              This data type is used as a response element in the  DescribeDBClusterSnapshots action. 
+              Contains the details for an Amazon Neptune DB cluster snapshot
+              This data type is used as a response element in the  DescribeDBClusterSnapshots action.
               - **AvailabilityZones** *(list) --* 
                 Provides the list of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
                 - *(string) --* 
@@ -2330,12 +2304,10 @@ class Client(BaseClient):
     def delete_db_instance(self, DBInstanceIdentifier: str, SkipFinalSnapshot: bool = None, FinalDBSnapshotIdentifier: str = None) -> Dict:
         """
         The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered. Manual DB snapshots of the DB instance to be deleted by ``DeleteDBInstance`` are not deleted.
-        If you request a final DB snapshot the status of the Amazon Neptune DB instance is ``deleting`` until the DB snapshot is created. The API action ``DescribeDBInstance`` is used to monitor the status of this operation. The action can't be canceled or reverted once submitted. 
+        If you request a final DB snapshot the status of the Amazon Neptune DB instance is ``deleting`` until the DB snapshot is created. The API action ``DescribeDBInstance`` is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.
         Note that when a DB instance is in a failure state and has a status of ``failed`` , ``incompatible-restore`` , or ``incompatible-network`` , you can only delete it when the ``SkipFinalSnapshot`` parameter is set to ``true`` .
         If the specified DB instance is part of a DB cluster, you can't delete the DB instance if both of the following conditions are true:
-        * The DB cluster is a Read Replica of another DB cluster. 
         * The DB instance is the only instance in the DB cluster. 
-        To delete a DB instance in this case, first call the  PromoteReadReplicaDBCluster API action to promote the DB cluster so it's no longer a Read Replica. After the promotion completes, then call the ``DeleteDBInstance`` API action to delete the final instance in the DB cluster.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DeleteDBInstance>`_
         
         **Request Syntax**
@@ -2489,8 +2461,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBInstance** *(dict) --* 
-              Contains the details of an Amazon Neptune DB instance. 
-              This data type is used as a response element in the  DescribeDBInstances action. 
+              Contains the details of an Amazon Neptune DB instance.
+              This data type is used as a response element in the  DescribeDBInstances action.
               - **DBInstanceIdentifier** *(string) --* 
                 Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
               - **DBInstanceClass** *(string) --* 
@@ -2516,15 +2488,13 @@ class Client(BaseClient):
               - **InstanceCreateTime** *(datetime) --* 
                 Provides the date and time the DB instance was created.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **BackupRetentionPeriod** *(integer) --* 
                 Specifies the number of days for which automatic DB snapshots are retained.
               - **DBSecurityGroups** *(list) --* 
-                Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements. 
+                Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements.
                 - *(dict) --* 
-                  This data type is used as a response element in the following actions:
-                  *  ModifyDBInstance   
-                  *  RebootDBInstance   
+                  Specifies membership in a designated DB security group.
                   - **DBSecurityGroupName** *(string) --* 
                     The name of the DB security group.
                   - **Status** *(string) --* 
@@ -2563,15 +2533,14 @@ class Client(BaseClient):
                 - **SubnetGroupStatus** *(string) --* 
                   Provides the status of the DB subnet group.
                 - **Subnets** *(list) --* 
-                  Contains a list of  Subnet elements. 
+                  Contains a list of  Subnet elements.
                   - *(dict) --* 
-                    This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                    Specifies a subnet.
+                    This data type is used as a response element in the  DescribeDBSubnetGroups action.
                     - **SubnetIdentifier** *(string) --* 
                       Specifies the identifier of the subnet.
                     - **SubnetAvailabilityZone** *(dict) --* 
-                      Contains Availability Zone information.
-                      This data type is used as an element in the following data type:
-                      *  OrderableDBInstanceOption   
+                      Specifies the EC2 Availability Zone that the subnet is in.
                       - **Name** *(string) --* 
                         The name of the availability zone.
                     - **SubnetStatus** *(string) --* 
@@ -2583,9 +2552,9 @@ class Client(BaseClient):
               - **PendingModifiedValues** *(dict) --* 
                 Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
                 - **DBInstanceClass** *(string) --* 
-                  Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied.
                 - **AllocatedStorage** *(integer) --* 
-                  Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied.
                 - **MasterUserPassword** *(string) --* 
                   Contains the pending or currently-in-progress change of the master credentials for the DB instance.
                 - **Port** *(integer) --* 
@@ -2602,15 +2571,15 @@ class Client(BaseClient):
                 - **Iops** *(integer) --* 
                   Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
                 - **DBInstanceIdentifier** *(string) --* 
-                  Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied.
                 - **StorageType** *(string) --* 
                   Specifies the storage type to be associated with the DB instance.
                 - **CACertificateIdentifier** *(string) --* 
                   Specifies the identifier of the CA certificate for the DB instance.
                 - **DBSubnetGroupName** *(string) --* 
-                  The new DB subnet group for the DB instance. 
+                  The new DB subnet group for the DB instance.
                 - **PendingCloudwatchLogsExports** *(dict) --* 
-                  A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
+                  Specifies the CloudWatch logs to be exported.
                   - **LogTypesToEnable** *(list) --* 
                     Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
                     - *(string) --* 
@@ -2644,13 +2613,13 @@ class Client(BaseClient):
                   - **OptionGroupName** *(string) --* 
                     The name of the option group that the instance belongs to.
                   - **Status** *(string) --* 
-                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` .
               - **CharacterSetName** *(string) --* 
                 If present, specifies the name of the character set that this instance is associated with.
               - **SecondaryAvailabilityZone** *(string) --* 
                 If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
               - **PubliclyAccessible** *(boolean) --* 
-                This parameter is not supported.
+                This flag should no longer be used.
               - **StatusInfos** *(list) --* 
                 The status of a Read Replica. If the instance is not a Read Replica, this is blank.
                 - *(dict) --* 
@@ -2672,9 +2641,9 @@ class Client(BaseClient):
               - **DBClusterIdentifier** *(string) --* 
                 If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
               - **StorageEncrypted** *(boolean) --* 
-                Specifies whether the DB instance is encrypted.
+                Not supported: The encryption for DB instances is managed by the DB cluster.
               - **KmsKeyId** *(string) --* 
-                If ``StorageEncrypted`` is true, the AWS KMS key identifier for the encrypted DB instance. 
+                Not supported: The encryption for DB instances is managed by the DB cluster.
               - **DbiResourceId** *(string) --* 
                 The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
               - **CACertificateIdentifier** *(string) --* 
@@ -2682,7 +2651,7 @@ class Client(BaseClient):
               - **DomainMemberships** *(list) --* 
                 Not supported
                 - *(dict) --* 
-                  An Active Directory Domain membership record associated with the DB instance.
+                  An Active Directory Domain membership record associated with a DB instance.
                   - **Domain** *(string) --* 
                     The identifier of the Active Directory Domain.
                   - **Status** *(string) --* 
@@ -2704,7 +2673,7 @@ class Client(BaseClient):
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
-                Not supported. 
+                Not supported.
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise false.
               - **PerformanceInsightsEnabled** *(boolean) --* 
@@ -2858,7 +2827,7 @@ class Client(BaseClient):
 
     def describe_db_cluster_parameter_groups(self, DBClusterParameterGroupName: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
-        Returns a list of ``DBClusterParameterGroup`` descriptions. If a ``DBClusterParameterGroupName`` parameter is specified, the list will contain only the description of the specified DB cluster parameter group. 
+        Returns a list of ``DBClusterParameterGroup`` descriptions. If a ``DBClusterParameterGroupName`` parameter is specified, the list will contain only the description of the specified DB cluster parameter group.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DescribeDBClusterParameterGroups>`_
         
         **Request Syntax**
@@ -2894,12 +2863,12 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous ``DescribeDBClusterParameterGroups`` request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous ``DescribeDBClusterParameterGroups`` request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
             - **DBClusterParameterGroups** *(list) --* 
               A list of DB cluster parameter groups.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB cluster parameter group. 
-                This data type is used as a response element in the  DescribeDBClusterParameterGroups action. 
+                Contains the details of an Amazon Neptune DB cluster parameter group.
+                This data type is used as a response element in the  DescribeDBClusterParameterGroups action.
                 - **DBClusterParameterGroupName** *(string) --* 
                   Provides the name of the DB cluster parameter group.
                 - **DBParameterGroupFamily** *(string) --* 
@@ -2980,12 +2949,10 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.
             - **Parameters** *(list) --* 
               Provides a list of parameters for the DB cluster parameter group.
               - *(dict) --* 
-                This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions. 
-                This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+                Specifies a parameter.
                 - **ParameterName** *(string) --* 
                   Specifies the name of the parameter.
                 - **ParameterValue** *(string) --* 
@@ -3001,13 +2968,13 @@ class Client(BaseClient):
                 - **AllowedValues** *(string) --* 
                   Specifies the valid range of values for the parameter.
                 - **IsModifiable** *(boolean) --* 
-                  Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
+                  Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
                 - **MinimumEngineVersion** *(string) --* 
                   The earliest engine version to which the parameter can apply.
                 - **ApplyMethod** *(string) --* 
                   Indicates when to apply parameter updates.
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
         :type DBClusterParameterGroupName: string
         :param DBClusterParameterGroupName: **[REQUIRED]**
           The name of a specific DB cluster parameter group to return parameter details for.
@@ -3154,14 +3121,13 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Provides a list of DB cluster snapshots for the user as the result of a call to the  DescribeDBClusterSnapshots action. 
             - **Marker** *(string) --* 
               An optional pagination token provided by a previous  DescribeDBClusterSnapshots request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
             - **DBClusterSnapshots** *(list) --* 
               Provides a list of DB cluster snapshots for the user.
               - *(dict) --* 
-                Contains the details for an Amazon Neptune DB cluster snapshot 
-                This data type is used as a response element in the  DescribeDBClusterSnapshots action. 
+                Contains the details for an Amazon Neptune DB cluster snapshot
+                This data type is used as a response element in the  DescribeDBClusterSnapshots action.
                 - **AvailabilityZones** *(list) --* 
                   Provides the list of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
                   - *(string) --* 
@@ -3348,14 +3314,13 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBClusters action.
             - **Marker** *(string) --* 
               A pagination token that can be used in a subsequent DescribeDBClusters request.
             - **DBClusters** *(list) --* 
               Contains a list of DB clusters for the user.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB cluster. 
-                This data type is used as a response element in the  DescribeDBClusters action. 
+                Contains the details of an Amazon Neptune DB cluster.
+                This data type is used as a response element in the  DescribeDBClusters action.
                 - **AllocatedStorage** *(integer) --* 
                    ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
                 - **AvailabilityZones** *(list) --* 
@@ -3382,7 +3347,7 @@ class Client(BaseClient):
                 - **Endpoint** *(string) --* 
                   Specifies the connection endpoint for the primary instance of the DB cluster.
                 - **ReaderEndpoint** *(string) --* 
-                  The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                  The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                   If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
                 - **MultiAZ** *(boolean) --* 
                   Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -3405,11 +3370,11 @@ class Client(BaseClient):
                     - **Status** *(string) --* 
                       Specifies the status of the DB cluster option group.
                 - **PreferredBackupWindow** *(string) --* 
-                  Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                  Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
                 - **PreferredMaintenanceWindow** *(string) --* 
                   Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
                 - **ReplicationSourceIdentifier** *(string) --* 
-                  Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                  Not supported by Neptune.
                 - **ReadReplicaIdentifiers** *(list) --* 
                   Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                   - *(string) --* 
@@ -3424,7 +3389,7 @@ class Client(BaseClient):
                     - **DBClusterParameterGroupStatus** *(string) --* 
                       Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                     - **PromotionTier** *(integer) --* 
-                      A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                      A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
                 - **VpcSecurityGroups** *(list) --* 
                   Provides a list of VPC security groups that the DB cluster belongs to.
                   - *(dict) --* 
@@ -3562,13 +3527,12 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBEngineVersions action. 
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
             - **DBEngineVersions** *(list) --* 
-              A list of ``DBEngineVersion`` elements. 
+              A list of ``DBEngineVersion`` elements.
               - *(dict) --* 
-                This data type is used as a response element in the action  DescribeDBEngineVersions . 
+                This data type is used as a response element in the action  DescribeDBEngineVersions .
                 - **Engine** *(string) --* 
                   The name of the database engine.
                 - **EngineVersion** *(string) --* 
@@ -3580,15 +3544,15 @@ class Client(BaseClient):
                 - **DBEngineVersionDescription** *(string) --* 
                   The description of the database engine version.
                 - **DefaultCharacterSet** *(dict) --* 
-                  The default character set for new instances of this engine version, if the ``CharacterSetName`` parameter of the CreateDBInstance API is not specified. 
+                  The default character set for new instances of this engine version, if the ``CharacterSetName`` parameter of the CreateDBInstance API is not specified.
                   - **CharacterSetName** *(string) --* 
                     The name of the character set.
                   - **CharacterSetDescription** *(string) --* 
                     The description of the character set.
                 - **SupportedCharacterSets** *(list) --* 
-                  A list of the character sets supported by this engine for the ``CharacterSetName`` parameter of the ``CreateDBInstance`` action. 
+                  A list of the character sets supported by this engine for the ``CharacterSetName`` parameter of the ``CreateDBInstance`` action.
                   - *(dict) --* 
-                    This data type is used as a response element in the action  DescribeDBEngineVersions . 
+                    Specifies a character set.
                     - **CharacterSetName** *(string) --* 
                       The name of the character set.
                     - **CharacterSetDescription** *(string) --* 
@@ -3608,9 +3572,9 @@ class Client(BaseClient):
                     - **IsMajorVersionUpgrade** *(boolean) --* 
                       A value that indicates whether a database engine is upgraded to a major version.
                 - **SupportedTimezones** *(list) --* 
-                  A list of the time zones supported by this engine for the ``Timezone`` parameter of the ``CreateDBInstance`` action. 
+                  A list of the time zones supported by this engine for the ``Timezone`` parameter of the ``CreateDBInstance`` action.
                   - *(dict) --* 
-                    A time zone associated with a  DBInstance . This data type is an element in the response to the  DescribeDBInstances , and the  DescribeDBEngineVersions actions. 
+                    A time zone associated with a  DBInstance .
                     - **TimezoneName** *(string) --* 
                       The name of the time zone.
                 - **ExportableLogTypes** *(list) --* 
@@ -3830,14 +3794,13 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBInstances action. 
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
             - **DBInstances** *(list) --* 
-              A list of  DBInstance instances. 
+              A list of  DBInstance instances.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB instance. 
-                This data type is used as a response element in the  DescribeDBInstances action. 
+                Contains the details of an Amazon Neptune DB instance.
+                This data type is used as a response element in the  DescribeDBInstances action.
                 - **DBInstanceIdentifier** *(string) --* 
                   Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
                 - **DBInstanceClass** *(string) --* 
@@ -3863,15 +3826,13 @@ class Client(BaseClient):
                 - **InstanceCreateTime** *(datetime) --* 
                   Provides the date and time the DB instance was created.
                 - **PreferredBackupWindow** *(string) --* 
-                  Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                  Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
                 - **BackupRetentionPeriod** *(integer) --* 
                   Specifies the number of days for which automatic DB snapshots are retained.
                 - **DBSecurityGroups** *(list) --* 
-                  Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements. 
+                  Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements.
                   - *(dict) --* 
-                    This data type is used as a response element in the following actions:
-                    *  ModifyDBInstance   
-                    *  RebootDBInstance   
+                    Specifies membership in a designated DB security group.
                     - **DBSecurityGroupName** *(string) --* 
                       The name of the DB security group.
                     - **Status** *(string) --* 
@@ -3910,15 +3871,14 @@ class Client(BaseClient):
                   - **SubnetGroupStatus** *(string) --* 
                     Provides the status of the DB subnet group.
                   - **Subnets** *(list) --* 
-                    Contains a list of  Subnet elements. 
+                    Contains a list of  Subnet elements.
                     - *(dict) --* 
-                      This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                      Specifies a subnet.
+                      This data type is used as a response element in the  DescribeDBSubnetGroups action.
                       - **SubnetIdentifier** *(string) --* 
                         Specifies the identifier of the subnet.
                       - **SubnetAvailabilityZone** *(dict) --* 
-                        Contains Availability Zone information.
-                        This data type is used as an element in the following data type:
-                        *  OrderableDBInstanceOption   
+                        Specifies the EC2 Availability Zone that the subnet is in.
                         - **Name** *(string) --* 
                           The name of the availability zone.
                       - **SubnetStatus** *(string) --* 
@@ -3930,9 +3890,9 @@ class Client(BaseClient):
                 - **PendingModifiedValues** *(dict) --* 
                   Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
                   - **DBInstanceClass** *(string) --* 
-                    Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied. 
+                    Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied.
                   - **AllocatedStorage** *(integer) --* 
-                    Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied. 
+                    Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied.
                   - **MasterUserPassword** *(string) --* 
                     Contains the pending or currently-in-progress change of the master credentials for the DB instance.
                   - **Port** *(integer) --* 
@@ -3949,15 +3909,15 @@ class Client(BaseClient):
                   - **Iops** *(integer) --* 
                     Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
                   - **DBInstanceIdentifier** *(string) --* 
-                    Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied. 
+                    Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied.
                   - **StorageType** *(string) --* 
                     Specifies the storage type to be associated with the DB instance.
                   - **CACertificateIdentifier** *(string) --* 
                     Specifies the identifier of the CA certificate for the DB instance.
                   - **DBSubnetGroupName** *(string) --* 
-                    The new DB subnet group for the DB instance. 
+                    The new DB subnet group for the DB instance.
                   - **PendingCloudwatchLogsExports** *(dict) --* 
-                    A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
+                    Specifies the CloudWatch logs to be exported.
                     - **LogTypesToEnable** *(list) --* 
                       Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
                       - *(string) --* 
@@ -3991,13 +3951,13 @@ class Client(BaseClient):
                     - **OptionGroupName** *(string) --* 
                       The name of the option group that the instance belongs to.
                     - **Status** *(string) --* 
-                      The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                      The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` .
                 - **CharacterSetName** *(string) --* 
                   If present, specifies the name of the character set that this instance is associated with.
                 - **SecondaryAvailabilityZone** *(string) --* 
                   If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
                 - **PubliclyAccessible** *(boolean) --* 
-                  This parameter is not supported.
+                  This flag should no longer be used.
                 - **StatusInfos** *(list) --* 
                   The status of a Read Replica. If the instance is not a Read Replica, this is blank.
                   - *(dict) --* 
@@ -4019,9 +3979,9 @@ class Client(BaseClient):
                 - **DBClusterIdentifier** *(string) --* 
                   If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
                 - **StorageEncrypted** *(boolean) --* 
-                  Specifies whether the DB instance is encrypted.
+                  Not supported: The encryption for DB instances is managed by the DB cluster.
                 - **KmsKeyId** *(string) --* 
-                  If ``StorageEncrypted`` is true, the AWS KMS key identifier for the encrypted DB instance. 
+                  Not supported: The encryption for DB instances is managed by the DB cluster.
                 - **DbiResourceId** *(string) --* 
                   The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
                 - **CACertificateIdentifier** *(string) --* 
@@ -4029,7 +3989,7 @@ class Client(BaseClient):
                 - **DomainMemberships** *(list) --* 
                   Not supported
                   - *(dict) --* 
-                    An Active Directory Domain membership record associated with the DB instance.
+                    An Active Directory Domain membership record associated with a DB instance.
                     - **Domain** *(string) --* 
                       The identifier of the Active Directory Domain.
                     - **Status** *(string) --* 
@@ -4051,7 +4011,7 @@ class Client(BaseClient):
                 - **DBInstanceArn** *(string) --* 
                   The Amazon Resource Name (ARN) for the DB instance.
                 - **Timezone** *(string) --* 
-                  Not supported. 
+                  Not supported.
                 - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                   True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise false.
                 - **PerformanceInsightsEnabled** *(boolean) --* 
@@ -4094,7 +4054,7 @@ class Client(BaseClient):
 
     def describe_db_parameter_groups(self, DBParameterGroupName: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
-        Returns a list of ``DBParameterGroup`` descriptions. If a ``DBParameterGroupName`` is specified, the list will contain only the description of the specified DB parameter group. 
+        Returns a list of ``DBParameterGroup`` descriptions. If a ``DBParameterGroupName`` is specified, the list will contain only the description of the specified DB parameter group.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DescribeDBParameterGroups>`_
         
         **Request Syntax**
@@ -4129,14 +4089,13 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBParameterGroups action. 
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
             - **DBParameterGroups** *(list) --* 
-              A list of  DBParameterGroup instances. 
+              A list of  DBParameterGroup instances.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB parameter group. 
-                This data type is used as a response element in the  DescribeDBParameterGroups action. 
+                Contains the details of an Amazon Neptune DB parameter group.
+                This data type is used as a response element in the  DescribeDBParameterGroups action.
                 - **DBParameterGroupName** *(string) --* 
                   Provides the name of the DB parameter group.
                 - **DBParameterGroupFamily** *(string) --* 
@@ -4217,12 +4176,10 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBParameters action. 
             - **Parameters** *(list) --* 
-              A list of  Parameter values. 
+              A list of  Parameter values.
               - *(dict) --* 
-                This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions. 
-                This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+                Specifies a parameter.
                 - **ParameterName** *(string) --* 
                   Specifies the name of the parameter.
                 - **ParameterValue** *(string) --* 
@@ -4238,13 +4195,13 @@ class Client(BaseClient):
                 - **AllowedValues** *(string) --* 
                   Specifies the valid range of values for the parameter.
                 - **IsModifiable** *(boolean) --* 
-                  Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
+                  Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
                 - **MinimumEngineVersion** *(string) --* 
                   The earliest engine version to which the parameter can apply.
                 - **ApplyMethod** *(string) --* 
                   Indicates when to apply parameter updates.
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
         :type DBParameterGroupName: string
         :param DBParameterGroupName: **[REQUIRED]**
           The name of a specific DB parameter group to return details for.
@@ -4281,7 +4238,7 @@ class Client(BaseClient):
     def describe_db_subnet_groups(self, DBSubnetGroupName: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
         Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.
-        For an overview of CIDR ranges, go to the `Wikipedia Tutorial <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__ . 
+        For an overview of CIDR ranges, go to the `Wikipedia Tutorial <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DescribeDBSubnetGroups>`_
         
         **Request Syntax**
@@ -4326,14 +4283,13 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeDBSubnetGroups action. 
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
             - **DBSubnetGroups** *(list) --* 
-              A list of  DBSubnetGroup instances. 
+              A list of  DBSubnetGroup instances.
               - *(dict) --* 
-                Contains the details of an Amazon Neptune DB subnet group. 
-                This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                Contains the details of an Amazon Neptune DB subnet group.
+                This data type is used as a response element in the  DescribeDBSubnetGroups action.
                 - **DBSubnetGroupName** *(string) --* 
                   The name of the DB subnet group.
                 - **DBSubnetGroupDescription** *(string) --* 
@@ -4343,15 +4299,14 @@ class Client(BaseClient):
                 - **SubnetGroupStatus** *(string) --* 
                   Provides the status of the DB subnet group.
                 - **Subnets** *(list) --* 
-                  Contains a list of  Subnet elements. 
+                  Contains a list of  Subnet elements.
                   - *(dict) --* 
-                    This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                    Specifies a subnet.
+                    This data type is used as a response element in the  DescribeDBSubnetGroups action.
                     - **SubnetIdentifier** *(string) --* 
                       Specifies the identifier of the subnet.
                     - **SubnetAvailabilityZone** *(dict) --* 
-                      Contains Availability Zone information.
-                      This data type is used as an element in the following data type:
-                      *  OrderableDBInstanceOption   
+                      Specifies the EC2 Availability Zone that the subnet is in.
                       - **Name** *(string) --* 
                         The name of the availability zone.
                     - **SubnetStatus** *(string) --* 
@@ -4431,16 +4386,15 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **EngineDefaults** *(dict) --* 
-              Contains the result of a successful invocation of the  DescribeEngineDefaultParameters action. 
+              Contains the result of a successful invocation of the  DescribeEngineDefaultParameters action.
               - **DBParameterGroupFamily** *(string) --* 
                 Specifies the name of the DB parameter group family that the engine default parameters apply to.
               - **Marker** *(string) --* 
-                An optional pagination token provided by a previous EngineDefaults request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+                An optional pagination token provided by a previous EngineDefaults request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
               - **Parameters** *(list) --* 
                 Contains a list of engine default parameters.
                 - *(dict) --* 
-                  This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions. 
-                  This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+                  Specifies a parameter.
                   - **ParameterName** *(string) --* 
                     Specifies the name of the parameter.
                   - **ParameterValue** *(string) --* 
@@ -4456,7 +4410,7 @@ class Client(BaseClient):
                   - **AllowedValues** *(string) --* 
                     Specifies the valid range of values for the parameter.
                   - **IsModifiable** *(boolean) --* 
-                    Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
+                    Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
                   - **MinimumEngineVersion** *(string) --* 
                     The earliest engine version to which the parameter can apply.
                   - **ApplyMethod** *(string) --* 
@@ -4534,16 +4488,15 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **EngineDefaults** *(dict) --* 
-              Contains the result of a successful invocation of the  DescribeEngineDefaultParameters action. 
+              Contains the result of a successful invocation of the  DescribeEngineDefaultParameters action.
               - **DBParameterGroupFamily** *(string) --* 
                 Specifies the name of the DB parameter group family that the engine default parameters apply to.
               - **Marker** *(string) --* 
-                An optional pagination token provided by a previous EngineDefaults request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+                An optional pagination token provided by a previous EngineDefaults request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
               - **Parameters** *(list) --* 
                 Contains a list of engine default parameters.
                 - *(dict) --* 
-                  This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions. 
-                  This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+                  Specifies a parameter.
                   - **ParameterName** *(string) --* 
                     Specifies the name of the parameter.
                   - **ParameterValue** *(string) --* 
@@ -4559,7 +4512,7 @@ class Client(BaseClient):
                   - **AllowedValues** *(string) --* 
                     Specifies the valid range of values for the parameter.
                   - **IsModifiable** *(boolean) --* 
-                    Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed. 
+                    Indicates whether (``true`` ) or not (``false`` ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
                   - **MinimumEngineVersion** *(string) --* 
                     The earliest engine version to which the parameter can apply.
                   - **ApplyMethod** *(string) --* 
@@ -4592,7 +4545,7 @@ class Client(BaseClient):
 
     def describe_event_categories(self, SourceType: str = None, Filters: List = None) -> Dict:
         """
-        Displays a list of categories for all event source types, or, if specified, for a specified source type. 
+        Displays a list of categories for all event source types, or, if specified, for a specified source type.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DescribeEventCategories>`_
         
         **Request Syntax**
@@ -4624,7 +4577,6 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Data returned from the **DescribeEventCategories** action.
             - **EventCategoriesMapList** *(list) --* 
               A list of EventCategoriesMap data types.
               - *(dict) --* 
@@ -4701,9 +4653,8 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Data returned by the **DescribeEventSubscriptions** action.
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
             - **EventSubscriptionsList** *(list) --* 
               A list of EventSubscriptions data types.
               - *(dict) --* 
@@ -4807,13 +4758,12 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeEvents action. 
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
             - **Events** *(list) --* 
-              A list of  Event instances. 
+              A list of  Event instances.
               - *(dict) --* 
-                This data type is used as a response element in the  DescribeEvents action. 
+                This data type is used as a response element in the  DescribeEvents action.
                 - **SourceIdentifier** *(string) --* 
                   Provides the identifier for the source of the event.
                 - **SourceType** *(string) --* 
@@ -4940,12 +4890,11 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  DescribeOrderableDBInstanceOptions action. 
             - **OrderableDBInstanceOptions** *(list) --* 
               An  OrderableDBInstanceOption structure containing information about orderable options for the DB instance.
               - *(dict) --* 
                 Contains a list of available options for a DB instance.
-                This data type is used as a response element in the  DescribeOrderableDBInstanceOptions action. 
+                This data type is used as a response element in the  DescribeOrderableDBInstanceOptions action.
                 - **Engine** *(string) --* 
                   The engine type of a DB instance.
                 - **EngineVersion** *(string) --* 
@@ -4957,9 +4906,7 @@ class Client(BaseClient):
                 - **AvailabilityZones** *(list) --* 
                   A list of Availability Zones for a DB instance.
                   - *(dict) --* 
-                    Contains Availability Zone information.
-                    This data type is used as an element in the following data type:
-                    *  OrderableDBInstanceOption   
+                    Specifies an Availability Zone.
                     - **Name** *(string) --* 
                       The name of the availability zone.
                 - **MultiAZCapable** *(boolean) --* 
@@ -4993,7 +4940,7 @@ class Client(BaseClient):
                 - **MaxIopsPerGib** *(float) --* 
                   Maximum provisioned IOPS per GiB for a DB instance.
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
         :type Engine: string
         :param Engine: **[REQUIRED]**
           The name of the engine to retrieve DB instance options for.
@@ -5076,7 +5023,6 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Data returned from the **DescribePendingMaintenanceActions** action.
             - **PendingMaintenanceActions** *(list) --* 
               A list of the pending maintenance actions for the resource.
               - *(dict) --* 
@@ -5100,7 +5046,7 @@ class Client(BaseClient):
                     - **Description** *(string) --* 
                       A description providing more detail about the maintenance action.
             - **Marker** *(string) --* 
-              An optional pagination token provided by a previous ``DescribePendingMaintenanceActions`` request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by ``MaxRecords`` . 
+              An optional pagination token provided by a previous ``DescribePendingMaintenanceActions`` request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by ``MaxRecords`` .
         :type ResourceIdentifier: string
         :param ResourceIdentifier:
           The ARN of a resource to return pending maintenance actions for.
@@ -5132,7 +5078,7 @@ class Client(BaseClient):
 
     def describe_valid_db_instance_modifications(self, DBInstanceIdentifier: str) -> Dict:
         """
-        You can call  DescribeValidDBInstanceModifications to learn what modifications you can make to your DB instance. You can use this information when you call  ModifyDBInstance . 
+        You can call  DescribeValidDBInstanceModifications to learn what modifications you can make to your DB instance. You can use this information when you call  ModifyDBInstance .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DescribeValidDBInstanceModifications>`_
         
         **Request Syntax**
@@ -5178,13 +5124,14 @@ class Client(BaseClient):
             - **ValidDBInstanceModificationsMessage** *(dict) --* 
               Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the  DescribeValidDBInstanceModifications action. You can use this information when you call  ModifyDBInstance . 
               - **Storage** *(list) --* 
-                Valid storage options for your DB instance. 
+                Valid storage options for your DB instance.
                 - *(dict) --* 
-                  Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the  DescribeValidDBInstanceModifications action. 
+                  Information about valid modifications that you can make to your DB instance.
+                  Contains the result of a successful call to the  DescribeValidDBInstanceModifications action.
                   - **StorageType** *(string) --* 
-                    The valid storage types for your DB instance. For example, gp2, io1. 
+                    The valid storage types for your DB instance. For example, gp2, io1.
                   - **StorageSize** *(list) --* 
-                    The valid range of storage in gibibytes. For example, 100 to 16384. 
+                    The valid range of storage in gibibytes. For example, 100 to 16384.
                     - *(dict) --* 
                       A range of integer values.
                       - **From** *(integer) --* 
@@ -5192,9 +5139,9 @@ class Client(BaseClient):
                       - **To** *(integer) --* 
                         The maximum value in the range.
                       - **Step** *(integer) --* 
-                        The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000... 
+                        The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000...
                   - **ProvisionedIops** *(list) --* 
-                    The valid range of provisioned IOPS. For example, 1000-20000. 
+                    The valid range of provisioned IOPS. For example, 1000-20000.
                     - *(dict) --* 
                       A range of integer values.
                       - **From** *(integer) --* 
@@ -5202,9 +5149,9 @@ class Client(BaseClient):
                       - **To** *(integer) --* 
                         The maximum value in the range.
                       - **Step** *(integer) --* 
-                        The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000... 
+                        The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000...
                   - **IopsToStorageRatio** *(list) --* 
-                    The valid range of Provisioned IOPS to gibibytes of storage multiplier. For example, 3-10, which means that provisioned IOPS can be between 3 and 10 times storage. 
+                    The valid range of Provisioned IOPS to gibibytes of storage multiplier. For example, 3-10, which means that provisioned IOPS can be between 3 and 10 times storage.
                     - *(dict) --* 
                       A range of double values.
                       - **From** *(float) --* 
@@ -5304,8 +5251,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBCluster** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster. 
-              This data type is used as a response element in the  DescribeDBClusters action. 
+              Contains the details of an Amazon Neptune DB cluster.
+              This data type is used as a response element in the  DescribeDBClusters action.
               - **AllocatedStorage** *(integer) --* 
                  ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
               - **AvailabilityZones** *(list) --* 
@@ -5332,7 +5279,7 @@ class Client(BaseClient):
               - **Endpoint** *(string) --* 
                 Specifies the connection endpoint for the primary instance of the DB cluster.
               - **ReaderEndpoint** *(string) --* 
-                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                 If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
               - **MultiAZ** *(boolean) --* 
                 Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -5355,11 +5302,11 @@ class Client(BaseClient):
                   - **Status** *(string) --* 
                     Specifies the status of the DB cluster option group.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **PreferredMaintenanceWindow** *(string) --* 
                 Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
               - **ReplicationSourceIdentifier** *(string) --* 
-                Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                Not supported by Neptune.
               - **ReadReplicaIdentifiers** *(list) --* 
                 Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                 - *(string) --* 
@@ -5374,7 +5321,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -5513,7 +5460,7 @@ class Client(BaseClient):
                   A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
         :type ResourceName: string
         :param ResourceName: **[REQUIRED]**
-          The Amazon Neptune resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
+          The Amazon Neptune resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
         :type Filters: list
         :param Filters:
           This parameter is not currently supported.
@@ -5531,7 +5478,7 @@ class Client(BaseClient):
 
     def modify_db_cluster(self, DBClusterIdentifier: str, NewDBClusterIdentifier: str = None, ApplyImmediately: bool = None, BackupRetentionPeriod: int = None, DBClusterParameterGroupName: str = None, VpcSecurityGroupIds: List = None, Port: int = None, MasterUserPassword: str = None, OptionGroupName: str = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, EnableIAMDatabaseAuthentication: bool = None, EngineVersion: str = None) -> Dict:
         """
-        Modify a setting for a DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. 
+        Modify a setting for a DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ModifyDBCluster>`_
         
         **Request Syntax**
@@ -5625,8 +5572,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBCluster** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster. 
-              This data type is used as a response element in the  DescribeDBClusters action. 
+              Contains the details of an Amazon Neptune DB cluster.
+              This data type is used as a response element in the  DescribeDBClusters action.
               - **AllocatedStorage** *(integer) --* 
                  ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
               - **AvailabilityZones** *(list) --* 
@@ -5653,7 +5600,7 @@ class Client(BaseClient):
               - **Endpoint** *(string) --* 
                 Specifies the connection endpoint for the primary instance of the DB cluster.
               - **ReaderEndpoint** *(string) --* 
-                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                 If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
               - **MultiAZ** *(boolean) --* 
                 Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -5676,11 +5623,11 @@ class Client(BaseClient):
                   - **Status** *(string) --* 
                     Specifies the status of the DB cluster option group.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **PreferredMaintenanceWindow** *(string) --* 
                 Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
               - **ReplicationSourceIdentifier** *(string) --* 
-                Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                Not supported by Neptune.
               - **ReadReplicaIdentifiers** *(list) --* 
                 Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                 - *(string) --* 
@@ -5695,7 +5642,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -5806,7 +5753,7 @@ class Client(BaseClient):
 
     def modify_db_cluster_parameter_group(self, DBClusterParameterGroupName: str, Parameters: List) -> Dict:
         """
-        Modifies the parameters of a DB cluster parameter group. To modify more than one parameter, submit a list of the following: ``ParameterName`` , ``ParameterValue`` , and ``ApplyMethod`` . A maximum of 20 parameters can be modified in a single request. 
+        Modifies the parameters of a DB cluster parameter group. To modify more than one parameter, submit a list of the following: ``ParameterName`` , ``ParameterValue`` , and ``ApplyMethod`` . A maximum of 20 parameters can be modified in a single request.
         .. note::
           Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot without failover to the DB cluster associated with the parameter group before the change can take effect.
         .. warning::
@@ -5856,8 +5803,7 @@ class Client(BaseClient):
         :param Parameters: **[REQUIRED]**
           A list of parameters in the DB cluster parameter group to modify.
           - *(dict) --*
-            This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions.
-            This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+            Specifies a parameter.
             - **ParameterName** *(string) --*
               Specifies the name of the parameter.
             - **ParameterValue** *(string) --*
@@ -5962,7 +5908,7 @@ class Client(BaseClient):
 
     def modify_db_instance(self, DBInstanceIdentifier: str, AllocatedStorage: int = None, DBInstanceClass: str = None, DBSubnetGroupName: str = None, DBSecurityGroups: List = None, VpcSecurityGroupIds: List = None, ApplyImmediately: bool = None, MasterUserPassword: str = None, DBParameterGroupName: str = None, BackupRetentionPeriod: int = None, PreferredBackupWindow: str = None, PreferredMaintenanceWindow: str = None, MultiAZ: bool = None, EngineVersion: str = None, AllowMajorVersionUpgrade: bool = None, AutoMinorVersionUpgrade: bool = None, LicenseModel: str = None, Iops: int = None, OptionGroupName: str = None, NewDBInstanceIdentifier: str = None, StorageType: str = None, TdeCredentialArn: str = None, TdeCredentialPassword: str = None, CACertificateIdentifier: str = None, Domain: str = None, CopyTagsToSnapshot: bool = None, MonitoringInterval: int = None, DBPortNumber: int = None, PubliclyAccessible: bool = None, MonitoringRoleArn: str = None, DomainIAMRoleName: str = None, PromotionTier: int = None, EnableIAMDatabaseAuthentication: bool = None, EnablePerformanceInsights: bool = None, PerformanceInsightsKMSKeyId: str = None, CloudwatchLogsExportConfiguration: Dict = None) -> Dict:
         """
-        Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. To learn what modifications you can make to your DB instance, call  DescribeValidDBInstanceModifications before you call  ModifyDBInstance . 
+        Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. To learn what modifications you can make to your DB instance, call  DescribeValidDBInstanceModifications before you call  ModifyDBInstance .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ModifyDBInstance>`_
         
         **Request Syntax**
@@ -6160,8 +6106,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBInstance** *(dict) --* 
-              Contains the details of an Amazon Neptune DB instance. 
-              This data type is used as a response element in the  DescribeDBInstances action. 
+              Contains the details of an Amazon Neptune DB instance.
+              This data type is used as a response element in the  DescribeDBInstances action.
               - **DBInstanceIdentifier** *(string) --* 
                 Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
               - **DBInstanceClass** *(string) --* 
@@ -6187,15 +6133,13 @@ class Client(BaseClient):
               - **InstanceCreateTime** *(datetime) --* 
                 Provides the date and time the DB instance was created.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **BackupRetentionPeriod** *(integer) --* 
                 Specifies the number of days for which automatic DB snapshots are retained.
               - **DBSecurityGroups** *(list) --* 
-                Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements. 
+                Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements.
                 - *(dict) --* 
-                  This data type is used as a response element in the following actions:
-                  *  ModifyDBInstance   
-                  *  RebootDBInstance   
+                  Specifies membership in a designated DB security group.
                   - **DBSecurityGroupName** *(string) --* 
                     The name of the DB security group.
                   - **Status** *(string) --* 
@@ -6234,15 +6178,14 @@ class Client(BaseClient):
                 - **SubnetGroupStatus** *(string) --* 
                   Provides the status of the DB subnet group.
                 - **Subnets** *(list) --* 
-                  Contains a list of  Subnet elements. 
+                  Contains a list of  Subnet elements.
                   - *(dict) --* 
-                    This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                    Specifies a subnet.
+                    This data type is used as a response element in the  DescribeDBSubnetGroups action.
                     - **SubnetIdentifier** *(string) --* 
                       Specifies the identifier of the subnet.
                     - **SubnetAvailabilityZone** *(dict) --* 
-                      Contains Availability Zone information.
-                      This data type is used as an element in the following data type:
-                      *  OrderableDBInstanceOption   
+                      Specifies the EC2 Availability Zone that the subnet is in.
                       - **Name** *(string) --* 
                         The name of the availability zone.
                     - **SubnetStatus** *(string) --* 
@@ -6254,9 +6197,9 @@ class Client(BaseClient):
               - **PendingModifiedValues** *(dict) --* 
                 Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
                 - **DBInstanceClass** *(string) --* 
-                  Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied.
                 - **AllocatedStorage** *(integer) --* 
-                  Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied.
                 - **MasterUserPassword** *(string) --* 
                   Contains the pending or currently-in-progress change of the master credentials for the DB instance.
                 - **Port** *(integer) --* 
@@ -6273,15 +6216,15 @@ class Client(BaseClient):
                 - **Iops** *(integer) --* 
                   Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
                 - **DBInstanceIdentifier** *(string) --* 
-                  Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied.
                 - **StorageType** *(string) --* 
                   Specifies the storage type to be associated with the DB instance.
                 - **CACertificateIdentifier** *(string) --* 
                   Specifies the identifier of the CA certificate for the DB instance.
                 - **DBSubnetGroupName** *(string) --* 
-                  The new DB subnet group for the DB instance. 
+                  The new DB subnet group for the DB instance.
                 - **PendingCloudwatchLogsExports** *(dict) --* 
-                  A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
+                  Specifies the CloudWatch logs to be exported.
                   - **LogTypesToEnable** *(list) --* 
                     Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
                     - *(string) --* 
@@ -6315,13 +6258,13 @@ class Client(BaseClient):
                   - **OptionGroupName** *(string) --* 
                     The name of the option group that the instance belongs to.
                   - **Status** *(string) --* 
-                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` .
               - **CharacterSetName** *(string) --* 
                 If present, specifies the name of the character set that this instance is associated with.
               - **SecondaryAvailabilityZone** *(string) --* 
                 If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
               - **PubliclyAccessible** *(boolean) --* 
-                This parameter is not supported.
+                This flag should no longer be used.
               - **StatusInfos** *(list) --* 
                 The status of a Read Replica. If the instance is not a Read Replica, this is blank.
                 - *(dict) --* 
@@ -6343,9 +6286,9 @@ class Client(BaseClient):
               - **DBClusterIdentifier** *(string) --* 
                 If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
               - **StorageEncrypted** *(boolean) --* 
-                Specifies whether the DB instance is encrypted.
+                Not supported: The encryption for DB instances is managed by the DB cluster.
               - **KmsKeyId** *(string) --* 
-                If ``StorageEncrypted`` is true, the AWS KMS key identifier for the encrypted DB instance. 
+                Not supported: The encryption for DB instances is managed by the DB cluster.
               - **DbiResourceId** *(string) --* 
                 The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
               - **CACertificateIdentifier** *(string) --* 
@@ -6353,7 +6296,7 @@ class Client(BaseClient):
               - **DomainMemberships** *(list) --* 
                 Not supported
                 - *(dict) --* 
-                  An Active Directory Domain membership record associated with the DB instance.
+                  An Active Directory Domain membership record associated with a DB instance.
                   - **Domain** *(string) --* 
                     The identifier of the Active Directory Domain.
                   - **Status** *(string) --* 
@@ -6375,7 +6318,7 @@ class Client(BaseClient):
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
-                Not supported. 
+                Not supported.
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise false.
               - **PerformanceInsightsEnabled** *(boolean) --* 
@@ -6425,9 +6368,7 @@ class Client(BaseClient):
           Default: ``false``
         :type MasterUserPassword: string
         :param MasterUserPassword:
-          The new password for the master user. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".
           Not applicable.
-          Default: Uses existing setting
         :type DBParameterGroupName: string
         :param DBParameterGroupName:
           The name of the DB parameter group to apply to the DB instance. Changing this setting doesn\'t result in an outage. The parameter group name itself is changed immediately, but the actual parameter changes are not applied until you reboot the instance without failover. The db instance will NOT be rebooted automatically and the parameter changes will NOT be applied during the next maintenance window.
@@ -6435,7 +6376,6 @@ class Client(BaseClient):
           Constraints: The DB parameter group must be in the same DB parameter group family as this DB instance.
         :type BackupRetentionPeriod: integer
         :param BackupRetentionPeriod:
-          The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
           Not applicable. The retention period for automated backups is managed by the DB cluster. For more information, see  ModifyDBCluster .
           Default: Uses existing setting
         :type PreferredBackupWindow: string
@@ -6470,8 +6410,7 @@ class Client(BaseClient):
           Indicates that minor version upgrades are applied automatically to the DB instance during the maintenance window. Changing this parameter doesn\'t result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to ``true`` during the maintenance window, and a newer minor version is available, and Neptune has enabled auto patching for that engine version.
         :type LicenseModel: string
         :param LicenseModel:
-          The license model for the DB instance.
-          Valid values: ``license-included`` | ``bring-your-own-license`` | ``general-public-license``
+          Not supported.
         :type Iops: integer
         :param Iops:
           The new Provisioned IOPS (I/O operations per second) value for the instance.
@@ -6491,11 +6430,7 @@ class Client(BaseClient):
           Example: ``mydbinstance``
         :type StorageType: string
         :param StorageType:
-          Specifies the storage type to be associated with the DB instance.
-          If you specify Provisioned IOPS (``io1`` ), you must also include a value for the ``Iops`` parameter.
-          If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon Neptune operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a Read Replica for the instance, and creating a DB snapshot of the instance.
-          Valid values: ``standard | gp2 | io1``
-          Default: ``io1`` if the ``Iops`` parameter is specified, otherwise ``standard``
+          Not supported.
         :type TdeCredentialArn: string
         :param TdeCredentialArn:
           The ARN from the key store with which to associate the instance for TDE encryption.
@@ -6524,7 +6459,7 @@ class Client(BaseClient):
           Default: ``8182``
         :type PubliclyAccessible: boolean
         :param PubliclyAccessible:
-          This parameter is not supported.
+          This flag should no longer be used.
         :type MonitoringRoleArn: string
         :param MonitoringRoleArn:
           The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, ``arn:aws:iam:123456789012:role/emaccess`` .
@@ -6545,10 +6480,10 @@ class Client(BaseClient):
           Default: ``false``
         :type EnablePerformanceInsights: boolean
         :param EnablePerformanceInsights:
-          True to enable Performance Insights for the DB instance, and otherwise false.
+          Not supported.
         :type PerformanceInsightsKMSKeyId: string
         :param PerformanceInsightsKMSKeyId:
-          The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+          Not supported.
         :type CloudwatchLogsExportConfiguration: dict
         :param CloudwatchLogsExportConfiguration:
           The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster.
@@ -6565,7 +6500,7 @@ class Client(BaseClient):
 
     def modify_db_parameter_group(self, DBParameterGroupName: str, Parameters: List) -> Dict:
         """
-        Modifies the parameters of a DB parameter group. To modify more than one parameter, submit a list of the following: ``ParameterName`` , ``ParameterValue`` , and ``ApplyMethod`` . A maximum of 20 parameters can be modified in a single request. 
+        Modifies the parameters of a DB parameter group. To modify more than one parameter, submit a list of the following: ``ParameterName`` , ``ParameterValue`` , and ``ApplyMethod`` . A maximum of 20 parameters can be modified in a single request.
         .. note::
           Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot without failover to the DB instance associated with the parameter group before the change can take effect.
         .. warning::
@@ -6600,7 +6535,6 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  ModifyDBParameterGroup or  ResetDBParameterGroup action. 
             - **DBParameterGroupName** *(string) --* 
               Provides the name of the DB parameter group.
         :type DBParameterGroupName: string
@@ -6615,8 +6549,7 @@ class Client(BaseClient):
           .. note::
             You can use the immediate value with dynamic parameters only. You can use the pending-reboot value for both dynamic and static parameters, and changes are applied when you reboot the DB instance without failover.
           - *(dict) --*
-            This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions.
-            This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+            Specifies a parameter.
             - **ParameterName** *(string) --*
               Specifies the name of the parameter.
             - **ParameterValue** *(string) --*
@@ -6681,8 +6614,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBSubnetGroup** *(dict) --* 
-              Contains the details of an Amazon Neptune DB subnet group. 
-              This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+              Contains the details of an Amazon Neptune DB subnet group.
+              This data type is used as a response element in the  DescribeDBSubnetGroups action.
               - **DBSubnetGroupName** *(string) --* 
                 The name of the DB subnet group.
               - **DBSubnetGroupDescription** *(string) --* 
@@ -6692,15 +6625,14 @@ class Client(BaseClient):
               - **SubnetGroupStatus** *(string) --* 
                 Provides the status of the DB subnet group.
               - **Subnets** *(list) --* 
-                Contains a list of  Subnet elements. 
+                Contains a list of  Subnet elements.
                 - *(dict) --* 
-                  This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                  Specifies a subnet.
+                  This data type is used as a response element in the  DescribeDBSubnetGroups action.
                   - **SubnetIdentifier** *(string) --* 
                     Specifies the identifier of the subnet.
                   - **SubnetAvailabilityZone** *(dict) --* 
-                    Contains Availability Zone information.
-                    This data type is used as an element in the following data type:
-                    *  OrderableDBInstanceOption   
+                    Specifies the EC2 Availability Zone that the subnet is in.
                     - **Name** *(string) --* 
                       The name of the availability zone.
                   - **SubnetStatus** *(string) --* 
@@ -6816,7 +6748,7 @@ class Client(BaseClient):
 
     def promote_read_replica_db_cluster(self, DBClusterIdentifier: str) -> Dict:
         """
-        Promotes a Read Replica DB cluster to a standalone DB cluster.
+        Not supported.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/PromoteReadReplicaDBCluster>`_
         
         **Request Syntax**
@@ -6896,8 +6828,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBCluster** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster. 
-              This data type is used as a response element in the  DescribeDBClusters action. 
+              Contains the details of an Amazon Neptune DB cluster.
+              This data type is used as a response element in the  DescribeDBClusters action.
               - **AllocatedStorage** *(integer) --* 
                  ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
               - **AvailabilityZones** *(list) --* 
@@ -6924,7 +6856,7 @@ class Client(BaseClient):
               - **Endpoint** *(string) --* 
                 Specifies the connection endpoint for the primary instance of the DB cluster.
               - **ReaderEndpoint** *(string) --* 
-                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                 If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
               - **MultiAZ** *(boolean) --* 
                 Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -6947,11 +6879,11 @@ class Client(BaseClient):
                   - **Status** *(string) --* 
                     Specifies the status of the DB cluster option group.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **PreferredMaintenanceWindow** *(string) --* 
                 Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
               - **ReplicationSourceIdentifier** *(string) --* 
-                Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                Not supported by Neptune.
               - **ReadReplicaIdentifiers** *(list) --* 
                 Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                 - *(string) --* 
@@ -6966,7 +6898,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -7004,10 +6936,7 @@ class Client(BaseClient):
                 Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
         :type DBClusterIdentifier: string
         :param DBClusterIdentifier: **[REQUIRED]**
-          The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.
-          Constraints:
-          * Must match the identifier of an existing DBCluster Read Replica.
-          Example: ``my-cluster-replica1``
+          Not supported.
         :rtype: dict
         :returns:
         """
@@ -7015,8 +6944,8 @@ class Client(BaseClient):
 
     def reboot_db_instance(self, DBInstanceIdentifier: str, ForceFailover: bool = None) -> Dict:
         """
-        You might need to reboot your DB instance, usually for maintenance reasons. For example, if you make certain modifications, or if you change the DB parameter group associated with the DB instance, you must reboot the instance for the changes to take effect. 
-        Rebooting a DB instance restarts the database engine service. Rebooting a DB instance results in a momentary outage, during which the DB instance status is set to rebooting. 
+        You might need to reboot your DB instance, usually for maintenance reasons. For example, if you make certain modifications, or if you change the DB parameter group associated with the DB instance, you must reboot the instance for the changes to take effect.
+        Rebooting a DB instance restarts the database engine service. Rebooting a DB instance results in a momentary outage, during which the DB instance status is set to rebooting.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/RebootDBInstance>`_
         
         **Request Syntax**
@@ -7169,8 +7098,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBInstance** *(dict) --* 
-              Contains the details of an Amazon Neptune DB instance. 
-              This data type is used as a response element in the  DescribeDBInstances action. 
+              Contains the details of an Amazon Neptune DB instance.
+              This data type is used as a response element in the  DescribeDBInstances action.
               - **DBInstanceIdentifier** *(string) --* 
                 Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
               - **DBInstanceClass** *(string) --* 
@@ -7196,15 +7125,13 @@ class Client(BaseClient):
               - **InstanceCreateTime** *(datetime) --* 
                 Provides the date and time the DB instance was created.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **BackupRetentionPeriod** *(integer) --* 
                 Specifies the number of days for which automatic DB snapshots are retained.
               - **DBSecurityGroups** *(list) --* 
-                Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements. 
+                Provides List of DB security group elements containing only ``DBSecurityGroup.Name`` and ``DBSecurityGroup.Status`` subelements.
                 - *(dict) --* 
-                  This data type is used as a response element in the following actions:
-                  *  ModifyDBInstance   
-                  *  RebootDBInstance   
+                  Specifies membership in a designated DB security group.
                   - **DBSecurityGroupName** *(string) --* 
                     The name of the DB security group.
                   - **Status** *(string) --* 
@@ -7243,15 +7170,14 @@ class Client(BaseClient):
                 - **SubnetGroupStatus** *(string) --* 
                   Provides the status of the DB subnet group.
                 - **Subnets** *(list) --* 
-                  Contains a list of  Subnet elements. 
+                  Contains a list of  Subnet elements.
                   - *(dict) --* 
-                    This data type is used as a response element in the  DescribeDBSubnetGroups action. 
+                    Specifies a subnet.
+                    This data type is used as a response element in the  DescribeDBSubnetGroups action.
                     - **SubnetIdentifier** *(string) --* 
                       Specifies the identifier of the subnet.
                     - **SubnetAvailabilityZone** *(dict) --* 
-                      Contains Availability Zone information.
-                      This data type is used as an element in the following data type:
-                      *  OrderableDBInstanceOption   
+                      Specifies the EC2 Availability Zone that the subnet is in.
                       - **Name** *(string) --* 
                         The name of the availability zone.
                     - **SubnetStatus** *(string) --* 
@@ -7263,9 +7189,9 @@ class Client(BaseClient):
               - **PendingModifiedValues** *(dict) --* 
                 Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
                 - **DBInstanceClass** *(string) --* 
-                  Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``DBInstanceClass`` for the DB instance that will be applied or is currently being applied.
                 - **AllocatedStorage** *(integer) --* 
-                  Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``AllocatedStorage`` size for the DB instance that will be applied or is currently being applied.
                 - **MasterUserPassword** *(string) --* 
                   Contains the pending or currently-in-progress change of the master credentials for the DB instance.
                 - **Port** *(integer) --* 
@@ -7282,15 +7208,15 @@ class Client(BaseClient):
                 - **Iops** *(integer) --* 
                   Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
                 - **DBInstanceIdentifier** *(string) --* 
-                  Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied. 
+                  Contains the new ``DBInstanceIdentifier`` for the DB instance that will be applied or is currently being applied.
                 - **StorageType** *(string) --* 
                   Specifies the storage type to be associated with the DB instance.
                 - **CACertificateIdentifier** *(string) --* 
                   Specifies the identifier of the CA certificate for the DB instance.
                 - **DBSubnetGroupName** *(string) --* 
-                  The new DB subnet group for the DB instance. 
+                  The new DB subnet group for the DB instance.
                 - **PendingCloudwatchLogsExports** *(dict) --* 
-                  A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
+                  Specifies the CloudWatch logs to be exported.
                   - **LogTypesToEnable** *(list) --* 
                     Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
                     - *(string) --* 
@@ -7324,13 +7250,13 @@ class Client(BaseClient):
                   - **OptionGroupName** *(string) --* 
                     The name of the option group that the instance belongs to.
                   - **Status** *(string) --* 
-                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` . 
+                    The status of the DB instance's option group membership. Valid values are: ``in-sync`` , ``pending-apply`` , ``pending-removal`` , ``pending-maintenance-apply`` , ``pending-maintenance-removal`` , ``applying`` , ``removing`` , and ``failed`` .
               - **CharacterSetName** *(string) --* 
                 If present, specifies the name of the character set that this instance is associated with.
               - **SecondaryAvailabilityZone** *(string) --* 
                 If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
               - **PubliclyAccessible** *(boolean) --* 
-                This parameter is not supported.
+                This flag should no longer be used.
               - **StatusInfos** *(list) --* 
                 The status of a Read Replica. If the instance is not a Read Replica, this is blank.
                 - *(dict) --* 
@@ -7352,9 +7278,9 @@ class Client(BaseClient):
               - **DBClusterIdentifier** *(string) --* 
                 If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
               - **StorageEncrypted** *(boolean) --* 
-                Specifies whether the DB instance is encrypted.
+                Not supported: The encryption for DB instances is managed by the DB cluster.
               - **KmsKeyId** *(string) --* 
-                If ``StorageEncrypted`` is true, the AWS KMS key identifier for the encrypted DB instance. 
+                Not supported: The encryption for DB instances is managed by the DB cluster.
               - **DbiResourceId** *(string) --* 
                 The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
               - **CACertificateIdentifier** *(string) --* 
@@ -7362,7 +7288,7 @@ class Client(BaseClient):
               - **DomainMemberships** *(list) --* 
                 Not supported
                 - *(dict) --* 
-                  An Active Directory Domain membership record associated with the DB instance.
+                  An Active Directory Domain membership record associated with a DB instance.
                   - **Domain** *(string) --* 
                     The identifier of the Active Directory Domain.
                   - **Status** *(string) --* 
@@ -7384,7 +7310,7 @@ class Client(BaseClient):
               - **DBInstanceArn** *(string) --* 
                 The Amazon Resource Name (ARN) for the DB instance.
               - **Timezone** *(string) --* 
-                Not supported. 
+                Not supported.
               - **IAMDatabaseAuthenticationEnabled** *(boolean) --* 
                 True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise false.
               - **PerformanceInsightsEnabled** *(boolean) --* 
@@ -7410,7 +7336,7 @@ class Client(BaseClient):
 
     def remove_role_from_db_cluster(self, DBClusterIdentifier: str, RoleArn: str):
         """
-        Disassociates an Identity and Access Management (IAM) role from a DB cluster. 
+        Disassociates an Identity and Access Management (IAM) role from a DB cluster.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/RemoveRoleFromDBCluster>`_
         
         **Request Syntax**
@@ -7517,7 +7443,7 @@ class Client(BaseClient):
           )
         :type ResourceName: string
         :param ResourceName: **[REQUIRED]**
-          The Amazon Neptune resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
+          The Amazon Neptune resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing>`__ .
         :type TagKeys: list
         :param TagKeys: **[REQUIRED]**
           The tag key (name) of the tag to be removed.
@@ -7528,7 +7454,7 @@ class Client(BaseClient):
 
     def reset_db_cluster_parameter_group(self, DBClusterParameterGroupName: str, ResetAllParameters: bool = None, Parameters: List = None) -> Dict:
         """
-        Modifies the parameters of a DB cluster parameter group to the default value. To reset specific parameters submit a list of the following: ``ParameterName`` and ``ApplyMethod`` . To reset the entire DB cluster parameter group, specify the ``DBClusterParameterGroupName`` and ``ResetAllParameters`` parameters. 
+        Modifies the parameters of a DB cluster parameter group to the default value. To reset specific parameters submit a list of the following: ``ParameterName`` and ``ApplyMethod`` . To reset the entire DB cluster parameter group, specify the ``DBClusterParameterGroupName`` and ``ResetAllParameters`` parameters.
         When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to ``pending-reboot`` to take effect on the next DB instance restart or  RebootDBInstance request. You must call  RebootDBInstance for every DB instance in your DB cluster that you want the updated static parameter to apply to.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ResetDBClusterParameterGroup>`_
         
@@ -7579,8 +7505,7 @@ class Client(BaseClient):
         :param Parameters:
           A list of parameter names in the DB cluster parameter group to reset to the default values. You can\'t use this parameter if the ``ResetAllParameters`` parameter is set to ``true`` .
           - *(dict) --*
-            This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions.
-            This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+            Specifies a parameter.
             - **ParameterName** *(string) --*
               Specifies the name of the parameter.
             - **ParameterValue** *(string) --*
@@ -7608,7 +7533,7 @@ class Client(BaseClient):
 
     def reset_db_parameter_group(self, DBParameterGroupName: str, ResetAllParameters: bool = None, Parameters: List = None) -> Dict:
         """
-        Modifies the parameters of a DB parameter group to the engine/system default value. To reset specific parameters, provide a list of the following: ``ParameterName`` and ``ApplyMethod`` . To reset the entire DB parameter group, specify the ``DBParameterGroup`` name and ``ResetAllParameters`` parameters. When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to ``pending-reboot`` to take effect on the next DB instance restart or ``RebootDBInstance`` request. 
+        Modifies the parameters of a DB parameter group to the engine/system default value. To reset specific parameters, provide a list of the following: ``ParameterName`` and ``ApplyMethod`` . To reset the entire DB parameter group, specify the ``DBParameterGroup`` name and ``ResetAllParameters`` parameters. When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to ``pending-reboot`` to take effect on the next DB instance restart or ``RebootDBInstance`` request.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ResetDBParameterGroup>`_
         
         **Request Syntax**
@@ -7640,7 +7565,6 @@ class Client(BaseClient):
         
         **Response Structure**
           - *(dict) --* 
-            Contains the result of a successful invocation of the  ModifyDBParameterGroup or  ResetDBParameterGroup action. 
             - **DBParameterGroupName** *(string) --* 
               Provides the name of the DB parameter group.
         :type DBParameterGroupName: string
@@ -7657,8 +7581,7 @@ class Client(BaseClient):
           To reset the entire DB parameter group, specify the ``DBParameterGroup`` name and ``ResetAllParameters`` parameters. To reset specific parameters, provide a list of the following: ``ParameterName`` and ``ApplyMethod`` . A maximum of 20 parameters can be modified in a single request.
           Valid Values (for Apply method): ``pending-reboot``
           - *(dict) --*
-            This data type is used as a request parameter in the  ModifyDBParameterGroup and  ResetDBParameterGroup actions.
-            This data type is used as a response element in the  DescribeEngineDefaultParameters and  DescribeDBParameters actions.
+            Specifies a parameter.
             - **ParameterName** *(string) --*
               Specifies the name of the parameter.
             - **ParameterValue** *(string) --*
@@ -7684,7 +7607,7 @@ class Client(BaseClient):
         """
         pass
 
-    def restore_db_cluster_from_snapshot(self, DBClusterIdentifier: str, SnapshotIdentifier: str, Engine: str, AvailabilityZones: List = None, EngineVersion: str = None, Port: int = None, DBSubnetGroupName: str = None, DatabaseName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None) -> Dict:
+    def restore_db_cluster_from_snapshot(self, DBClusterIdentifier: str, SnapshotIdentifier: str, Engine: str, AvailabilityZones: List = None, EngineVersion: str = None, Port: int = None, DBSubnetGroupName: str = None, DatabaseName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, DBClusterParameterGroupName: str = None) -> Dict:
         """
         Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
         If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
@@ -7715,7 +7638,8 @@ class Client(BaseClient):
                   },
               ],
               KmsKeyId='string',
-              EnableIAMDatabaseAuthentication=True|False
+              EnableIAMDatabaseAuthentication=True|False,
+              DBClusterParameterGroupName='string'
           )
         
         **Response Syntax**
@@ -7789,8 +7713,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBCluster** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster. 
-              This data type is used as a response element in the  DescribeDBClusters action. 
+              Contains the details of an Amazon Neptune DB cluster.
+              This data type is used as a response element in the  DescribeDBClusters action.
               - **AllocatedStorage** *(integer) --* 
                  ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
               - **AvailabilityZones** *(list) --* 
@@ -7817,7 +7741,7 @@ class Client(BaseClient):
               - **Endpoint** *(string) --* 
                 Specifies the connection endpoint for the primary instance of the DB cluster.
               - **ReaderEndpoint** *(string) --* 
-                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                 If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
               - **MultiAZ** *(boolean) --* 
                 Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -7840,11 +7764,11 @@ class Client(BaseClient):
                   - **Status** *(string) --* 
                     Specifies the status of the DB cluster option group.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **PreferredMaintenanceWindow** *(string) --* 
                 Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
               - **ReplicationSourceIdentifier** *(string) --* 
-                Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                Not supported by Neptune.
               - **ReadReplicaIdentifiers** *(list) --* 
                 Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                 - *(string) --* 
@@ -7859,7 +7783,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -7933,7 +7857,7 @@ class Client(BaseClient):
           Example: ``mySubnetgroup``
         :type DatabaseName: string
         :param DatabaseName:
-          The database name for the restored DB cluster.
+          Not supported.
         :type OptionGroupName: string
         :param OptionGroupName:
           The name of the option group to use for the restored DB cluster.
@@ -7961,14 +7885,19 @@ class Client(BaseClient):
         :param EnableIAMDatabaseAuthentication:
           True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false.
           Default: ``false``
+        :type DBClusterParameterGroupName: string
+        :param DBClusterParameterGroupName:
+          The name of the DB cluster parameter group to associate with the new DB cluster.
+          Constraints:
+          * If supplied, must match the name of an existing DBClusterParameterGroup.
         :rtype: dict
         :returns:
         """
         pass
 
-    def restore_db_cluster_to_point_in_time(self, DBClusterIdentifier: str, SourceDBClusterIdentifier: str, RestoreType: str = None, RestoreToTime: datetime = None, UseLatestRestorableTime: bool = None, Port: int = None, DBSubnetGroupName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None) -> Dict:
+    def restore_db_cluster_to_point_in_time(self, DBClusterIdentifier: str, SourceDBClusterIdentifier: str, RestoreType: str = None, RestoreToTime: datetime = None, UseLatestRestorableTime: bool = None, Port: int = None, DBSubnetGroupName: str = None, OptionGroupName: str = None, VpcSecurityGroupIds: List = None, Tags: List = None, KmsKeyId: str = None, EnableIAMDatabaseAuthentication: bool = None, DBClusterParameterGroupName: str = None) -> Dict:
         """
-        Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before ``LatestRestorableTime`` for up to ``BackupRetentionPeriod`` days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group. 
+        Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before ``LatestRestorableTime`` for up to ``BackupRetentionPeriod`` days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group.
         .. note::
           This action only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the  CreateDBInstance action to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in ``DBClusterIdentifier`` . You can create DB instances only after the ``RestoreDBClusterToPointInTime`` action has completed and the DB cluster is available.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/RestoreDBClusterToPointInTime>`_
@@ -7994,7 +7923,8 @@ class Client(BaseClient):
                   },
               ],
               KmsKeyId='string',
-              EnableIAMDatabaseAuthentication=True|False
+              EnableIAMDatabaseAuthentication=True|False,
+              DBClusterParameterGroupName='string'
           )
         
         **Response Syntax**
@@ -8068,8 +7998,8 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **DBCluster** *(dict) --* 
-              Contains the details of an Amazon Neptune DB cluster. 
-              This data type is used as a response element in the  DescribeDBClusters action. 
+              Contains the details of an Amazon Neptune DB cluster.
+              This data type is used as a response element in the  DescribeDBClusters action.
               - **AllocatedStorage** *(integer) --* 
                  ``AllocatedStorage`` always returns 1, because Neptune DB cluster storage size is not fixed, but instead automatically adjusts as needed.
               - **AvailabilityZones** *(list) --* 
@@ -8096,7 +8026,7 @@ class Client(BaseClient):
               - **Endpoint** *(string) --* 
                 Specifies the connection endpoint for the primary instance of the DB cluster.
               - **ReaderEndpoint** *(string) --* 
-                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster. 
+                The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Read Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Neptune distributes the connection requests among the Read Replicas in the DB cluster. This functionality can help balance your read workload across multiple Read Replicas in your DB cluster.
                 If a failover occurs, and the Read Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Read Replicas in the cluster, you can then reconnect to the reader endpoint.
               - **MultiAZ** *(boolean) --* 
                 Specifies whether the DB cluster has instances in multiple Availability Zones.
@@ -8119,11 +8049,11 @@ class Client(BaseClient):
                   - **Status** *(string) --* 
                     Specifies the status of the DB cluster option group.
               - **PreferredBackupWindow** *(string) --* 
-                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` . 
+                Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the ``BackupRetentionPeriod`` .
               - **PreferredMaintenanceWindow** *(string) --* 
                 Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
               - **ReplicationSourceIdentifier** *(string) --* 
-                Contains the identifier of the source DB cluster if this DB cluster is a Read Replica.
+                Not supported by Neptune.
               - **ReadReplicaIdentifiers** *(list) --* 
                 Contains one or more identifiers of the Read Replicas associated with this DB cluster.
                 - *(string) --* 
@@ -8138,7 +8068,7 @@ class Client(BaseClient):
                   - **DBClusterParameterGroupStatus** *(string) --* 
                     Specifies the status of the DB cluster parameter group for this member of the DB cluster.
                   - **PromotionTier** *(integer) --* 
-                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance. 
+                    A value that specifies the order in which a Read Replica is promoted to the primary instance after a failure of the existing primary instance.
               - **VpcSecurityGroups** *(list) --* 
                 Provides a list of VPC security groups that the DB cluster belongs to.
                 - *(dict) --* 
@@ -8183,11 +8113,7 @@ class Client(BaseClient):
           * Cannot end with a hyphen or contain two consecutive hyphens
         :type RestoreType: string
         :param RestoreType:
-          The type of restore to be performed. You can specify one of the following values:
-          * ``full-copy`` - The new DB cluster is restored as a full copy of the source DB cluster.
-          * ``copy-on-write`` - The new DB cluster is restored as a clone of the source DB cluster.
-          Constraints: You can\'t specify ``copy-on-write`` if the engine version of the source DB cluster is earlier than 1.11.
-          If you don\'t specify a ``RestoreType`` value, then the new DB cluster is restored as a full copy of the source DB cluster.
+          The type of restore to be performed. The only type of restore currently supported is ``full-copy`` (the default).
         :type SourceDBClusterIdentifier: string
         :param SourceDBClusterIdentifier: **[REQUIRED]**
           The identifier of the source DB cluster from which to restore.
@@ -8227,7 +8153,7 @@ class Client(BaseClient):
           - *(string) --*
         :type Tags: list
         :param Tags:
-          A list of tags. For more information, see `Tagging Amazon Neptune Resources <http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html>`__ .
+          The tags to be applied to the restored DB cluster.
           - *(dict) --*
             Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.
             - **Key** *(string) --*
@@ -8247,6 +8173,11 @@ class Client(BaseClient):
         :param EnableIAMDatabaseAuthentication:
           True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false.
           Default: ``false``
+        :type DBClusterParameterGroupName: string
+        :param DBClusterParameterGroupName:
+          The name of the DB cluster parameter group to associate with the new DB cluster.
+          Constraints:
+          * If supplied, must match the name of an existing DBClusterParameterGroup.
         :rtype: dict
         :returns:
         """

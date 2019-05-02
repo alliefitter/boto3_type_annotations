@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -164,7 +164,7 @@ class DescribeAssociationExecutionTargets(Paginator):
                 - **AssociationVersion** *(string) --* 
                   The association version.
                 - **ExecutionId** *(string) --* 
-                  The execution ID. If the association does not run at intervals or according to a schedule, then the ExecutionID is the same as the AssociationID.
+                  The execution ID.
                 - **ResourceId** *(string) --* 
                   The resource ID, for example, the instance ID where the association ran.
                 - **ResourceType** *(string) --* 
@@ -266,7 +266,7 @@ class DescribeAssociationExecutions(Paginator):
                 - **AssociationVersion** *(string) --* 
                   The association version.
                 - **ExecutionId** *(string) --* 
-                  The execution ID for the association. If the association does not run at intervals or according to a schedule, then the ExecutionID is the same as the AssociationID.
+                  The execution ID for the association.
                 - **Status** *(string) --* 
                   The status of the association execution.
                 - **DetailedStatus** *(string) --* 
@@ -405,7 +405,7 @@ class DescribeAutomationExecutions(Paginator):
                 - **ExecutionEndTime** *(datetime) --* 
                   The time the execution finished. This is not populated if the execution is still in progress.
                 - **ExecutedBy** *(string) --* 
-                  The IAM role ARN of the user who executed the Automation.
+                  The IAM role ARN of the user who ran the Automation.
                 - **LogFile** *(string) --* 
                   An Amazon S3 bucket where execution information is stored.
                 - **Outputs** *(dict) --* 
@@ -418,9 +418,9 @@ class DescribeAutomationExecutions(Paginator):
                 - **ParentAutomationExecutionId** *(string) --* 
                   The ExecutionId of the parent Automation.
                 - **CurrentStepName** *(string) --* 
-                  The name of the currently executing step.
+                  The name of the step that is currently running.
                 - **CurrentAction** *(string) --* 
-                  The action of the currently executing step.
+                  The action of the step that is currently running.
                 - **FailureMessage** *(string) --* 
                   The list of execution outputs as defined in the Automation document.
                 - **TargetParameterName** *(string) --* 
@@ -430,9 +430,9 @@ class DescribeAutomationExecutions(Paginator):
                   - *(dict) --* 
                     An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
                     - **Key** *(string) --* 
-                      User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
                     - **Values** *(list) --* 
-                      User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
                       - *(string) --* 
                 - **TargetMaps** *(list) --* 
                   The specified key-value mapping of document parameters to target resources.
@@ -454,7 +454,7 @@ class DescribeAutomationExecutions(Paginator):
                 - **Target** *(string) --* 
                   The list of execution outputs as defined in the Automation document.
                 - **AutomationType** *(string) --* 
-                  Use this filter with  DescribeAutomationExecutions . Specify either Local or CrossAccount. CrossAccount is an Automation that executes in multiple AWS Regions and accounts. For more information, see `Concurrently Executing Automations in Multiple AWS Regions and Accounts <http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html>`__ in the *AWS Systems Manager User Guide* . 
+                  Use this filter with  DescribeAutomationExecutions . Specify either Local or CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and accounts. For more information, see `Executing Automations in Multiple AWS Regions and Accounts <http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html>`__ in the *AWS Systems Manager User Guide* . 
         :type Filters: list
         :param Filters:
           Filters used to limit the scope of executions that are requested.
@@ -625,7 +625,7 @@ class DescribeAutomationStepExecutions(Paginator):
                 - **StepExecutionId** *(string) --* 
                   The unique ID of a step execution.
                 - **OverriddenParameters** *(dict) --* 
-                  A user-specified list of parameters to override when executing a step.
+                  A user-specified list of parameters to override when running a step.
                   - *(string) --* 
                     - *(list) --* 
                       - *(string) --* 
@@ -636,16 +636,16 @@ class DescribeAutomationStepExecutions(Paginator):
                 - **IsCritical** *(boolean) --* 
                   The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
                 - **ValidNextSteps** *(list) --* 
-                  Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to execute the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
+                  Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to run the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
                   - *(string) --* 
                 - **Targets** *(list) --* 
                   The targets for the step execution.
                   - *(dict) --* 
                     An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
                     - **Key** *(string) --* 
-                      User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
                     - **Values** *(list) --* 
-                      User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
                       - *(string) --* 
                 - **TargetLocation** *(dict) --* 
                   The combination of AWS Regions and accounts targeted by the current Automation execution.
@@ -658,9 +658,9 @@ class DescribeAutomationStepExecutions(Paginator):
                   - **TargetLocationMaxConcurrency** *(string) --* 
                     The maxium number of AWS accounts and AWS regions allowed to run the Automation concurrently 
                   - **TargetLocationMaxErrors** *(string) --* 
-                    The maxium number of errors allowed before the system stops queueing additional Automation executions for the currently executing Automation. 
+                    The maxium number of errors allowed before the system stops queueing additional Automation executions for the currently running Automation. 
                   - **ExecutionRoleName** *(string) --* 
-                    The Automation execution role used by the currently executing Automation.
+                    The Automation execution role used by the currently running Automation.
         :type AutomationExecutionId: string
         :param AutomationExecutionId: **[REQUIRED]**
           The Automation execution ID for which you want step execution descriptions.
@@ -1022,7 +1022,7 @@ class DescribeInstanceAssociationsStatus(Paginator):
                 - **InstanceId** *(string) --* 
                   The instance ID where the association was created.
                 - **ExecutionDate** *(datetime) --* 
-                  The date the instance association executed. 
+                  The date the instance association ran. 
                 - **Status** *(string) --* 
                   Status information about the instance association.
                 - **DetailedStatus** *(string) --* 
@@ -1161,7 +1161,7 @@ class DescribeInstanceInformation(Paginator):
                 - **AssociationStatus** *(string) --* 
                   The status of the association.
                 - **LastAssociationExecutionDate** *(datetime) --* 
-                  The date the association was last executed.
+                  The date the association was last run.
                 - **LastSuccessfulAssociationExecutionDate** *(datetime) --* 
                   The last date the association was successfully run.
                 - **AssociationOverview** *(dict) --* 
@@ -1688,7 +1688,7 @@ class DescribeMaintenanceWindowExecutionTaskInvocations(Paginator):
                 - **TaskType** *(string) --* 
                   The task type.
                 - **Parameters** *(string) --* 
-                  The parameters that were provided for the invocation when it was executed.
+                  The parameters that were provided for the invocation when it was run.
                 - **Status** *(string) --* 
                   The status of the task invocation.
                 - **StatusDetails** *(string) --* 
@@ -1793,9 +1793,9 @@ class DescribeMaintenanceWindowExecutionTasks(Paginator):
                 - **EndTime** *(datetime) --* 
                   The time the task execution finished.
                 - **TaskArn** *(string) --* 
-                  The ARN of the executed task.
+                  The ARN of the task that ran.
                 - **TaskType** *(string) --* 
-                  The type of executed task.
+                  The type of task that ran.
         :type WindowExecutionId: string
         :param WindowExecutionId: **[REQUIRED]**
           The ID of the Maintenance Window execution whose task executions should be retrieved.
@@ -1980,9 +1980,9 @@ class DescribeMaintenanceWindowSchedule(Paginator):
           - *(dict) --*
             An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
             - **Key** *(string) --*
-              User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+              User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
             - **Values** *(list) --*
-              User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+              User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
               - *(string) --*
         :type ResourceType: string
         :param ResourceType:
@@ -2067,26 +2067,30 @@ class DescribeMaintenanceWindowTargets(Paginator):
               - *(dict) --* 
                 The target registered with the Maintenance Window.
                 - **WindowId** *(string) --* 
-                  The Maintenance Window ID where the target is registered.
+                  The ID of the Maintenance Window to register the target with.
                 - **WindowTargetId** *(string) --* 
                   The ID of the target.
                 - **ResourceType** *(string) --* 
-                  The type of target.
+                  The type of target that is being registered with the Maintenance Window.
                 - **Targets** *(list) --* 
-                  The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+                  The targets, either instances or tags.
+                  Specify instances using the following format:
+                   ``Key=instanceids,Values=<instanceid1>,<instanceid2>``  
+                  Tags are specified using the following format:
+                   ``Key=<tag name>,Values=<tag value>`` .
                   - *(dict) --* 
                     An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
                     - **Key** *(string) --* 
-                      User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
                     - **Values** *(list) --* 
-                      User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
                       - *(string) --* 
                 - **OwnerInformation** *(string) --* 
-                  User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+                  A user-provided value that will be included in any CloudWatch events that are raised while running tasks for these targets in this Maintenance Window.
                 - **Name** *(string) --* 
                   The target name.
                 - **Description** *(string) --* 
-                  A description of the target.
+                  A description for the target.
         :type WindowId: string
         :param WindowId: **[REQUIRED]**
           The ID of the Maintenance Window whose targets should be retrieved.
@@ -2186,7 +2190,7 @@ class DescribeMaintenanceWindowTasks(Paginator):
               - *(dict) --* 
                 Information about a task defined for a Maintenance Window.
                 - **WindowId** *(string) --* 
-                  The Maintenance Window ID where the task is registered.
+                  The ID of the Maintenance Window where the task is registered.
                 - **WindowTaskId** *(string) --* 
                   The task ID.
                 - **TaskArn** *(string) --* 
@@ -2198,12 +2202,12 @@ class DescribeMaintenanceWindowTasks(Paginator):
                   - *(dict) --* 
                     An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
                     - **Key** *(string) --* 
-                      User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
                     - **Values** *(list) --* 
-                      User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
                       - *(string) --* 
                 - **TaskParameters** *(dict) --* 
-                  The parameters that should be passed to the task when it is executed.
+                  The parameters that should be passed to the task when it is run.
                   .. note::
                      ``TaskParameters`` has been deprecated. To specify parameters to pass to a task when it runs, instead use the ``Parameters`` option in the ``TaskInvocationParameters`` structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see  MaintenanceWindowTaskInvocationParameters .
                   - *(string) --* 
@@ -2225,9 +2229,9 @@ class DescribeMaintenanceWindowTasks(Paginator):
                   - **S3Region** *(string) --* 
                     The region where the Amazon S3 bucket is located.
                 - **ServiceRoleArn** *(string) --* 
-                  The role that should be assumed when executing the task
+                  The role that should be assumed when running the task.
                 - **MaxConcurrency** *(string) --* 
-                  The maximum number of targets this task can be run for in parallel.
+                  The maximum number of targets this task can be run for, in parallel.
                 - **MaxErrors** *(string) --* 
                   The maximum number of errors allowed before this task stops being scheduled.
                 - **Name** *(string) --* 
@@ -2411,9 +2415,9 @@ class DescribeMaintenanceWindowsForTarget(Paginator):
           - *(dict) --*
             An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don\'t provide one or more instance IDs in the call.
             - **Key** *(string) --*
-              User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+              User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
             - **Values** *(list) --*
-              User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+              User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
               - *(string) --*
         :type ResourceType: string
         :param ResourceType: **[REQUIRED]**
@@ -2478,7 +2482,15 @@ class DescribeParameters(Paginator):
                         'LastModifiedUser': 'string',
                         'Description': 'string',
                         'AllowedPattern': 'string',
-                        'Version': 123
+                        'Version': 123,
+                        'Tier': 'Standard'|'Advanced',
+                        'Policies': [
+                            {
+                                'PolicyText': 'string',
+                                'PolicyType': 'string',
+                                'PolicyStatus': 'string'
+                            },
+                        ]
                     },
                 ],
             }
@@ -2506,6 +2518,18 @@ class DescribeParameters(Paginator):
                   a-zA-Z0-9_.-
                 - **Version** *(integer) --* 
                   The parameter version.
+                - **Tier** *(string) --* 
+                  The parameter tier.
+                - **Policies** *(list) --* 
+                  A list of policies associated with a parameter.
+                  - *(dict) --* 
+                    One or more policies assigned to a parameter.
+                    - **PolicyText** *(string) --* 
+                      The JSON text of the policy.
+                    - **PolicyType** *(string) --* 
+                      The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification. 
+                    - **PolicyStatus** *(string) --* 
+                      The status of the policy. Policies report the following statuses: Pending (the policy has not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not applied), or InProgress (the policy is being applied now). 
         :type Filters: list
         :param Filters:
           One or more filters. Use a filter to return a more specific list of results.
@@ -2522,7 +2546,7 @@ class DescribeParameters(Paginator):
           - *(dict) --*
             One or more filters. Use a filter to return a more specific list of results.
             .. note::
-              The ``Name`` field can\'t be used with the  GetParametersByPath API action.
+              The ``Name`` and ``Tier`` filter keys can\'t be used with the  GetParametersByPath API action. Also, the ``Label`` filter key can\'t be used with the  DescribeParameters API action.
             - **Key** *(string) --* **[REQUIRED]**
               The name of the filter.
             - **Option** *(string) --*
@@ -3098,6 +3122,14 @@ class GetParameterHistory(Paginator):
                         'Version': 123,
                         'Labels': [
                             'string',
+                        ],
+                        'Tier': 'Standard'|'Advanced',
+                        'Policies': [
+                            {
+                                'PolicyText': 'string',
+                                'PolicyType': 'string',
+                                'PolicyStatus': 'string'
+                            },
                         ]
                     },
                 ],
@@ -3131,6 +3163,18 @@ class GetParameterHistory(Paginator):
                 - **Labels** *(list) --* 
                   Labels assigned to the parameter version.
                   - *(string) --* 
+                - **Tier** *(string) --* 
+                  The parameter tier.
+                - **Policies** *(list) --* 
+                  Information about the policies assigned to a parameter.
+                  - *(dict) --* 
+                    One or more policies assigned to a parameter.
+                    - **PolicyText** *(string) --* 
+                      The JSON text of the policy.
+                    - **PolicyType** *(string) --* 
+                      The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification. 
+                    - **PolicyStatus** *(string) --* 
+                      The status of the policy. Policies report the following statuses: Pending (the policy has not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not applied), or InProgress (the policy is being applied now). 
         :type Name: string
         :param Name: **[REQUIRED]**
           The name of a parameter you want to query.
@@ -3228,7 +3272,7 @@ class GetParametersByPath(Paginator):
         :param Recursive:
           Retrieve all parameters within a hierarchy.
           .. warning::
-            If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path /a, then the user can also access /a/b. Even if a user has explicitly been denied access in IAM for parameter /a, they can still call the GetParametersByPath API action recursively and view /a/b.
+            If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path ``/a`` , then the user can also access ``/a/b`` . Even if a user has explicitly been denied access in IAM for parameter ``/a/b`` , they can still call the GetParametersByPath API action recursively for ``/a`` and view ``/a/b`` .
         :type ParameterFilters: list
         :param ParameterFilters:
           Filters to limit the request results.
@@ -3237,7 +3281,7 @@ class GetParametersByPath(Paginator):
           - *(dict) --*
             One or more filters. Use a filter to return a more specific list of results.
             .. note::
-              The ``Name`` field can\'t be used with the  GetParametersByPath API action.
+              The ``Name`` and ``Tier`` filter keys can\'t be used with the  GetParametersByPath API action. Also, the ``Label`` filter key can\'t be used with the  DescribeParameters API action.
             - **Key** *(string) --* **[REQUIRED]**
               The name of the filter.
             - **Option** *(string) --*
@@ -3345,9 +3389,9 @@ class ListAssociationVersions(Paginator):
                   - *(dict) --* 
                     An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
                     - **Key** *(string) --* 
-                      User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
                     - **Values** *(list) --* 
-                      User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
                       - *(string) --* 
                 - **ScheduleExpression** *(string) --* 
                   The cron or rate schedule specified for the association when the association version was created.
@@ -3368,7 +3412,7 @@ class ListAssociationVersions(Paginator):
                   Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
                 - **MaxConcurrency** *(string) --* 
                   The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
-                  If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+                  If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
                 - **ComplianceSeverity** *(string) --* 
                   The severity level that is assigned to the association.
         :type AssociationId: string
@@ -3464,9 +3508,9 @@ class ListAssociations(Paginator):
                   - *(dict) --* 
                     An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
                     - **Key** *(string) --* 
-                      User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
                     - **Values** *(list) --* 
-                      User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
                       - *(string) --* 
                 - **LastExecutionDate** *(datetime) --* 
                   The date on which the association was last run.
@@ -3587,7 +3631,7 @@ class ListCommandInvocations(Paginator):
             - **CommandInvocations** *(list) --* 
               (Optional) A list of all invocations. 
               - *(dict) --* 
-                An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. A command invocation returns status and detail information about a command you executed. 
+                An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user runs SendCommand against three instances, then a command invocation is created for each requested instance ID. A command invocation returns status and detail information about a command you ran. 
                 - **CommandId** *(string) --* 
                   The command against which this invocation was requested.
                 - **InstanceId** *(string) --* 
@@ -3627,7 +3671,7 @@ class ListCommandInvocations(Paginator):
                     - **Name** *(string) --* 
                       The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent. 
                     - **Status** *(string) --* 
-                      The status of this plugin. You can execute a document with multiple plugins.
+                      The status of this plugin. You can run a document with multiple plugins.
                     - **StatusDetails** *(string) --* 
                       A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see `Understanding Command Statuses <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html>`__ in the *AWS Systems Manager User Guide* . StatusDetails can be one of the following values:
                       * Pending: The command has not been sent to the instance. 
@@ -3640,11 +3684,11 @@ class ListCommandInvocations(Paginator):
                       * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state. 
                       * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state. 
                     - **ResponseCode** *(integer) --* 
-                      A numeric response code generated after executing the plugin. 
+                      A numeric response code generated after running the plugin. 
                     - **ResponseStartDateTime** *(datetime) --* 
-                      The time the plugin started executing. 
+                      The time the plugin started running. 
                     - **ResponseFinishDateTime** *(datetime) --* 
-                      The time the plugin stopped executing. Could stop prematurely if, for example, a cancel command was sent. 
+                      The time the plugin stopped running. Could stop prematurely if, for example, a cancel command was sent. 
                     - **Output** *(string) --* 
                       Output of the plugin execution.
                     - **StandardOutputUrl** *(string) --* 
@@ -3824,9 +3868,9 @@ class ListCommands(Paginator):
                 - **Comment** *(string) --* 
                   User-specified information about the command, such as a brief description of what the command should do.
                 - **ExpiresAfter** *(datetime) --* 
-                  If this time is reached and the command has not already started executing, it will not run. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.
+                  If this time is reached and the command has not already started running, it will not run. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.
                 - **Parameters** *(dict) --* 
-                  The parameter values to be inserted in the document when executing the command.
+                  The parameter values to be inserted in the document when running the command.
                   - *(string) --* 
                     - *(list) --* 
                       - *(string) --* 
@@ -3838,9 +3882,9 @@ class ListCommands(Paginator):
                   - *(dict) --* 
                     An array of search criteria that targets instances using a Key,Value combination that you specify. ``Targets`` is required if you don't provide one or more instance IDs in the call.
                     - **Key** *(string) --* 
-                      User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see `Targeting Multiple Instances <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria for sending commands that target instances that meet the criteria. ``Key`` can be ``tag:<Amazon EC2 tag>`` or ``InstanceIds`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting>`__ in the *AWS Systems Manager User Guide* .
                     - **Values** *(list) --* 
-                      User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see `Sending Commands to a Fleet <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
+                      User-defined criteria that maps to ``Key`` . For example, if you specified ``tag:ServerRole`` , you could specify ``value:WebServer`` to run a command on instances that include Amazon EC2 tags of ``ServerRole,WebServer`` . For more information about how to send commands that target instances using ``Key,Value`` parameters, see `Using Targets and Rate Controls to Send Commands to a Fleet <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html>`__ in the *AWS Systems Manager User Guide* .
                       - *(string) --* 
                 - **RequestedDateTime** *(datetime) --* 
                   The date and time the command was requested.
@@ -3850,13 +3894,13 @@ class ListCommands(Paginator):
                   A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see `Understanding Command Statuses <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html>`__ in the *AWS Systems Manager User Guide* . StatusDetails can be one of the following values:
                   * Pending: The command has not been sent to any instances. 
                   * In Progress: The command has been sent to at least one instance but has not reached a final state on all instances. 
-                  * Success: The command successfully executed on all invocations. This is a terminal state. 
+                  * Success: The command successfully ran on all invocations. This is a terminal state. 
                   * Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state. 
                   * Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state. 
                   * Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state. 
                   * Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state. 
                   * Canceled: The command was terminated before it was completed. This is a terminal state. 
-                  * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state. 
+                  * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before running it on any instance. This is a terminal state. 
                 - **OutputS3Region** *(string) --* 
                   (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
                 - **OutputS3BucketName** *(string) --* 
@@ -3864,9 +3908,9 @@ class ListCommands(Paginator):
                 - **OutputS3KeyPrefix** *(string) --* 
                   The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
                 - **MaxConcurrency** *(string) --* 
-                  The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see `Executing Commands Using Systems Manager Run Command <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html>`__ in the *AWS Systems Manager User Guide* .
+                  The maximum number of instances that are allowed to run the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see `Running Commands Using Systems Manager Run Command <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html>`__ in the *AWS Systems Manager User Guide* .
                 - **MaxErrors** *(string) --* 
-                  The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see `Executing Commands Using Systems Manager Run Command <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html>`__ in the *AWS Systems Manager User Guide* .
+                  The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see `Running Commands Using Systems Manager Run Command <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html>`__ in the *AWS Systems Manager User Guide* .
                 - **TargetCount** *(integer) --* 
                   The number of targets for the command.
                 - **CompletedCount** *(integer) --* 

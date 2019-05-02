@@ -1,6 +1,6 @@
-from typing import List
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -109,6 +109,11 @@ class DescribeInstances(Paginator):
         pass
 
 
+class DescribeInternetGateways(Paginator):
+    def paginate(self, Filters: List = None, DryRun: bool = None, InternetGatewayIds: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class DescribeLaunchTemplateVersions(Paginator):
     def paginate(self, DryRun: bool = None, LaunchTemplateId: str = None, LaunchTemplateName: str = None, Versions: List = None, MinVersion: str = None, MaxVersion: str = None, Filters: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
@@ -126,6 +131,11 @@ class DescribeMovingAddresses(Paginator):
 
 class DescribeNatGateways(Paginator):
     def paginate(self, Filters: List = None, NatGatewayIds: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeNetworkAcls(Paginator):
+    def paginate(self, Filters: List = None, DryRun: bool = None, NetworkAclIds: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -196,6 +206,11 @@ class DescribeSpotFleetInstances(Paginator):
 
 class DescribeSpotFleetRequests(Paginator):
     def paginate(self, DryRun: bool = None, SpotFleetRequestIds: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeSpotInstanceRequests(Paginator):
+    def paginate(self, Filters: List = None, DryRun: bool = None, SpotInstanceRequestIds: List = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
@@ -286,6 +301,11 @@ class DescribeVpcEndpoints(Paginator):
 
 class DescribeVpcPeeringConnections(Paginator):
     def paginate(self, Filters: List = None, DryRun: bool = None, VpcPeeringConnectionIds: List = None, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
+class DescribeVpcs(Paginator):
+    def paginate(self, Filters: List = None, VpcIds: List = None, DryRun: bool = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 

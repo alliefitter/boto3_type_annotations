@@ -88,9 +88,13 @@ class ListProjects(Paginator):
             {
                 'projects': [
                     {
+                        'arn': 'string',
                         'projectName': 'string',
                         'createdDate': datetime(2015, 1, 1),
-                        'updatedDate': datetime(2015, 1, 1)
+                        'updatedDate': datetime(2015, 1, 1),
+                        'tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -102,12 +106,18 @@ class ListProjects(Paginator):
               An object containing the list of projects.
               - *(dict) --* 
                 An object providing summary information for a particular project for an associated AWS account and region.
+                - **arn** *(string) --* 
+                  The ARN of the project.
                 - **projectName** *(string) --* 
                   The name of the project being summarized.
                 - **createdDate** *(datetime) --* 
                   The date when the project was originally created, in UNIX epoch time format.
                 - **updatedDate** *(datetime) --* 
                   The date when the project was last updated, in UNIX epoch time format. If the project was not updated, then ``createdDate`` and ``updatedDate`` are the same.
+                - **tags** *(dict) --* 
+                  The tags (metadata key/value pairs) associated with the project.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* 
               A token to resume pagination.
         :type PaginationConfig: dict

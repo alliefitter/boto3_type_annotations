@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -183,7 +183,7 @@ class Client(BaseClient):
                 - **owner** *(string) --* 
                   The creator of the action being called.
                 - **provider** *(string) --* 
-                  The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                  The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                 - **version** *(string) --* 
                   A string that describes the action version.
               - **settings** *(dict) --* 
@@ -254,7 +254,7 @@ class Client(BaseClient):
         :param configurationProperties:
           The configuration properties for the custom action.
           .. note::
-            You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see `Create a Custom Action for a Pipeline <http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html>`__ .
+            You can refer to a name in the configuration properties of the custom action within the URL templates by following the format of {Config:name}, as long as the configuration property is both required and not secret. For more information, see `Create a Custom Action for a Pipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html>`__ .
           - *(dict) --*
             Represents information about an action configuration property.
             - **name** *(string) --* **[REQUIRED]**
@@ -493,7 +493,7 @@ class Client(BaseClient):
                         - **owner** *(string) --* 
                           The creator of the action being called.
                         - **provider** *(string) --* 
-                          The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                          The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                         - **version** *(string) --* 
                           A string that describes the action version.
                       - **runOrder** *(integer) --* 
@@ -585,7 +585,7 @@ class Client(BaseClient):
                     - **owner** *(string) --* **[REQUIRED]**
                       The creator of the action being called.
                     - **provider** *(string) --* **[REQUIRED]**
-                      The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                      The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                     - **version** *(string) --* **[REQUIRED]**
                       A string that describes the action version.
                   - **runOrder** *(integer) --*
@@ -822,8 +822,11 @@ class Client(BaseClient):
                                 'name': 'string'
                             },
                             'action': {
-                                'name': 'string'
-                            }
+                                'name': 'string',
+                                'actionExecutionId': 'string'
+                            },
+                            'pipelineArn': 'string',
+                            'pipelineExecutionId': 'string'
                         },
                         'inputArtifacts': [
                             {
@@ -884,7 +887,7 @@ class Client(BaseClient):
                   - **owner** *(string) --* 
                     The creator of the action being called.
                   - **provider** *(string) --* 
-                    The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                    The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                   - **version** *(string) --* 
                     A string that describes the action version.
                 - **actionConfiguration** *(dict) --* 
@@ -895,6 +898,8 @@ class Client(BaseClient):
                       - *(string) --* 
                 - **pipelineContext** *(dict) --* 
                   Represents information about a pipeline to a job worker.
+                  .. note::
+                    Includes ``pipelineArn`` and ``pipelineExecutionId`` for Custom jobs.
                   - **pipelineName** *(string) --* 
                     The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
                   - **stage** *(dict) --* 
@@ -905,6 +910,12 @@ class Client(BaseClient):
                     The context of an action to a job worker within the stage of a pipeline.
                     - **name** *(string) --* 
                       The name of the action within the context of a job.
+                    - **actionExecutionId** *(string) --* 
+                      The system-generated unique ID that corresponds to an action's execution.
+                  - **pipelineArn** *(string) --* 
+                    The pipeline execution ID provided to the job worker.
+                  - **pipelineExecutionId** *(string) --* 
+                    The pipeline Amazon Resource Name (ARN) provided to the job worker.
                 - **inputArtifacts** *(list) --* 
                   The artifact supplied to the job.
                   - *(dict) --* 
@@ -1132,7 +1143,7 @@ class Client(BaseClient):
                         - **owner** *(string) --* 
                           The creator of the action being called.
                         - **provider** *(string) --* 
-                          The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                          The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                         - **version** *(string) --* 
                           A string that describes the action version.
                       - **runOrder** *(integer) --* 
@@ -1261,6 +1272,8 @@ class Client(BaseClient):
     def get_pipeline_state(self, name: str) -> Dict:
         """
         Returns information about the state of a pipeline, including the stages and actions.
+        .. note::
+          Values returned in the revisionId and revisionUrl fields indicate the source revision information, such as the commit ID, for the current state.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineState>`_
         
         **Request Syntax**
@@ -1441,8 +1454,11 @@ class Client(BaseClient):
                                 'name': 'string'
                             },
                             'action': {
-                                'name': 'string'
-                            }
+                                'name': 'string',
+                                'actionExecutionId': 'string'
+                            },
+                            'pipelineArn': 'string',
+                            'pipelineExecutionId': 'string'
                         },
                         'inputArtifacts': [
                             {
@@ -1501,7 +1517,7 @@ class Client(BaseClient):
                   - **owner** *(string) --* 
                     The creator of the action being called.
                   - **provider** *(string) --* 
-                    The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                    The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                   - **version** *(string) --* 
                     A string that describes the action version.
                 - **actionConfiguration** *(dict) --* 
@@ -1512,6 +1528,8 @@ class Client(BaseClient):
                       - *(string) --* 
                 - **pipelineContext** *(dict) --* 
                   Represents information about a pipeline to a job worker.
+                  .. note::
+                    Does not include ``pipelineArn`` and ``pipelineExecutionId`` for ThirdParty jobs.
                   - **pipelineName** *(string) --* 
                     The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
                   - **stage** *(dict) --* 
@@ -1522,6 +1540,12 @@ class Client(BaseClient):
                     The context of an action to a job worker within the stage of a pipeline.
                     - **name** *(string) --* 
                       The name of the action within the context of a job.
+                    - **actionExecutionId** *(string) --* 
+                      The system-generated unique ID that corresponds to an action's execution.
+                  - **pipelineArn** *(string) --* 
+                    The pipeline execution ID provided to the job worker.
+                  - **pipelineExecutionId** *(string) --* 
+                    The pipeline Amazon Resource Name (ARN) provided to the job worker.
                 - **inputArtifacts** *(list) --* 
                   The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as "MyApp", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
                   - *(dict) --* 
@@ -1598,6 +1622,177 @@ class Client(BaseClient):
         """
         pass
 
+    def list_action_executions(self, pipelineName: str, filter: Dict = None, maxResults: int = None, nextToken: str = None) -> Dict:
+        """
+        Lists the action executions that have occurred in a pipeline.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionExecutions>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_action_executions(
+              pipelineName='string',
+              filter={
+                  'pipelineExecutionId': 'string'
+              },
+              maxResults=123,
+              nextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'actionExecutionDetails': [
+                    {
+                        'pipelineExecutionId': 'string',
+                        'actionExecutionId': 'string',
+                        'pipelineVersion': 123,
+                        'stageName': 'string',
+                        'actionName': 'string',
+                        'startTime': datetime(2015, 1, 1),
+                        'lastUpdateTime': datetime(2015, 1, 1),
+                        'status': 'InProgress'|'Succeeded'|'Failed',
+                        'input': {
+                            'actionTypeId': {
+                                'category': 'Source'|'Build'|'Deploy'|'Test'|'Invoke'|'Approval',
+                                'owner': 'AWS'|'ThirdParty'|'Custom',
+                                'provider': 'string',
+                                'version': 'string'
+                            },
+                            'configuration': {
+                                'string': 'string'
+                            },
+                            'roleArn': 'string',
+                            'region': 'string',
+                            'inputArtifacts': [
+                                {
+                                    'name': 'string',
+                                    's3location': {
+                                        'bucket': 'string',
+                                        'key': 'string'
+                                    }
+                                },
+                            ]
+                        },
+                        'output': {
+                            'outputArtifacts': [
+                                {
+                                    'name': 'string',
+                                    's3location': {
+                                        'bucket': 'string',
+                                        'key': 'string'
+                                    }
+                                },
+                            ],
+                            'executionResult': {
+                                'externalExecutionId': 'string',
+                                'externalExecutionSummary': 'string',
+                                'externalExecutionUrl': 'string'
+                            }
+                        }
+                    },
+                ],
+                'nextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **actionExecutionDetails** *(list) --* 
+              The details for a list of recent executions, such as action execution ID.
+              - *(dict) --* 
+                Returns information about an execution of an action, including the action execution ID, and the name, version, and timing of the action. 
+                - **pipelineExecutionId** *(string) --* 
+                  The pipeline execution ID for the action execution.
+                - **actionExecutionId** *(string) --* 
+                  The action execution ID.
+                - **pipelineVersion** *(integer) --* 
+                  The version of the pipeline where the action was run.
+                - **stageName** *(string) --* 
+                  The name of the stage that contains the action.
+                - **actionName** *(string) --* 
+                  The name of the action.
+                - **startTime** *(datetime) --* 
+                  The start time of the action execution.
+                - **lastUpdateTime** *(datetime) --* 
+                  The last update time of the action execution.
+                - **status** *(string) --* 
+                  The status of the action execution. Status categories are InProgress, Succeeded, and Failed.
+                - **input** *(dict) --* 
+                  Input details for the action execution, such as role ARN, Region, and input artifacts.
+                  - **actionTypeId** *(dict) --* 
+                    Represents information about an action type.
+                    - **category** *(string) --* 
+                      A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
+                    - **owner** *(string) --* 
+                      The creator of the action being called.
+                    - **provider** *(string) --* 
+                      The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
+                    - **version** *(string) --* 
+                      A string that describes the action version.
+                  - **configuration** *(dict) --* 
+                    Configuration data for an action execution.
+                    - *(string) --* 
+                      - *(string) --* 
+                  - **roleArn** *(string) --* 
+                    The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline. 
+                  - **region** *(string) --* 
+                    The AWS Region for the action, such as us-east-1.
+                  - **inputArtifacts** *(list) --* 
+                    Details of input artifacts of the action that correspond to the action execution.
+                    - *(dict) --* 
+                      Artifact details for the action execution, such as the artifact location.
+                      - **name** *(string) --* 
+                        The artifact object name for the action execution.
+                      - **s3location** *(dict) --* 
+                        The Amazon S3 artifact location for the action execution.
+                        - **bucket** *(string) --* 
+                          The Amazon S3 artifact bucket for an action's artifacts.
+                        - **key** *(string) --* 
+                          The artifact name.
+                - **output** *(dict) --* 
+                  Output details for the action execution, such as the action execution result.
+                  - **outputArtifacts** *(list) --* 
+                    Details of output artifacts of the action that correspond to the action execution.
+                    - *(dict) --* 
+                      Artifact details for the action execution, such as the artifact location.
+                      - **name** *(string) --* 
+                        The artifact object name for the action execution.
+                      - **s3location** *(dict) --* 
+                        The Amazon S3 artifact location for the action execution.
+                        - **bucket** *(string) --* 
+                          The Amazon S3 artifact bucket for an action's artifacts.
+                        - **key** *(string) --* 
+                          The artifact name.
+                  - **executionResult** *(dict) --* 
+                    Execution result information listed in the output details for an action execution.
+                    - **externalExecutionId** *(string) --* 
+                      The action provider's external ID for the action execution.
+                    - **externalExecutionSummary** *(string) --* 
+                      The action provider's summary for the action execution.
+                    - **externalExecutionUrl** *(string) --* 
+                      The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
+            - **nextToken** *(string) --* 
+              If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent ListActionExecutions call to return the next set of action executions in the list.
+        :type pipelineName: string
+        :param pipelineName: **[REQUIRED]**
+          The name of the pipeline for which you want to list action execution history.
+        :type filter: dict
+        :param filter:
+          Input information used to filter action execution history.
+          - **pipelineExecutionId** *(string) --*
+            The pipeline execution ID used to filter action execution history.
+        :type maxResults: integer
+        :param maxResults:
+          The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Action execution history is retained for up to 12 months, based on action execution start times. Default value is 100.
+          .. note::
+            Detailed execution history is available for executions run on or after February 21, 2019.
+        :type nextToken: string
+        :param nextToken:
+          The token that was returned from the previous ListActionExecutions call, which can be used to return the next set of action executions in the list.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def list_action_types(self, actionOwnerFilter: str = None, nextToken: str = None) -> Dict:
         """
         Gets a summary of all AWS CodePipeline action types associated with your account.
@@ -1665,7 +1860,7 @@ class Client(BaseClient):
                   - **owner** *(string) --* 
                     The creator of the action being called.
                   - **provider** *(string) --* 
-                    The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                    The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                   - **version** *(string) --* 
                     A string that describes the action version.
                 - **settings** *(dict) --* 
@@ -1796,7 +1991,7 @@ class Client(BaseClient):
           The name of the pipeline for which you want to get execution summary information.
         :type maxResults: integer
         :param maxResults:
-          The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. The available pipeline execution history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
+          The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
         :type nextToken: string
         :param nextToken:
           The token that was returned from the previous ListPipelineExecutions call, which can be used to return the next set of pipeline executions in the list.
@@ -1919,7 +2114,7 @@ class Client(BaseClient):
                       - **jsonPath** *(string) --* 
                         A JsonPath expression that will be applied to the body/payload of the webhook. The value selected by JsonPath expression must match the value specified in the matchEquals field, otherwise the request will be ignored. More information on JsonPath expressions can be found here: https://github.com/json-path/JsonPath.
                       - **matchEquals** *(string) --* 
-                        The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
+                        The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
                   - **authentication** *(string) --* 
                     Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.
                     * GITHUB_HMAC implements the authentication scheme described here: https://developer.github.com/webhooks/securing/ 
@@ -2000,8 +2195,11 @@ class Client(BaseClient):
                                     'name': 'string'
                                 },
                                 'action': {
-                                    'name': 'string'
-                                }
+                                    'name': 'string',
+                                    'actionExecutionId': 'string'
+                                },
+                                'pipelineArn': 'string',
+                                'pipelineExecutionId': 'string'
                             },
                             'inputArtifacts': [
                                 {
@@ -2064,7 +2262,7 @@ class Client(BaseClient):
                     - **owner** *(string) --* 
                       The creator of the action being called.
                     - **provider** *(string) --* 
-                      The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                      The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                     - **version** *(string) --* 
                       A string that describes the action version.
                   - **actionConfiguration** *(dict) --* 
@@ -2075,6 +2273,8 @@ class Client(BaseClient):
                         - *(string) --* 
                   - **pipelineContext** *(dict) --* 
                     Represents information about a pipeline to a job worker.
+                    .. note::
+                      Includes ``pipelineArn`` and ``pipelineExecutionId`` for Custom jobs.
                     - **pipelineName** *(string) --* 
                       The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
                     - **stage** *(dict) --* 
@@ -2085,6 +2285,12 @@ class Client(BaseClient):
                       The context of an action to a job worker within the stage of a pipeline.
                       - **name** *(string) --* 
                         The name of the action within the context of a job.
+                      - **actionExecutionId** *(string) --* 
+                        The system-generated unique ID that corresponds to an action's execution.
+                    - **pipelineArn** *(string) --* 
+                      The pipeline execution ID provided to the job worker.
+                    - **pipelineExecutionId** *(string) --* 
+                      The pipeline Amazon Resource Name (ARN) provided to the job worker.
                   - **inputArtifacts** *(list) --* 
                     The artifact supplied to the job.
                     - *(dict) --* 
@@ -2149,7 +2355,7 @@ class Client(BaseClient):
           - **owner** *(string) --* **[REQUIRED]**
             The creator of the action being called.
           - **provider** *(string) --* **[REQUIRED]**
-            The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+            The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
           - **version** *(string) --* **[REQUIRED]**
             A string that describes the action version.
         :type maxBatchSize: integer
@@ -2214,7 +2420,7 @@ class Client(BaseClient):
           - **owner** *(string) --* **[REQUIRED]**
             The creator of the action being called.
           - **provider** *(string) --* **[REQUIRED]**
-            The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+            The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
           - **version** *(string) --* **[REQUIRED]**
             A string that describes the action version.
         :type maxBatchSize: integer
@@ -2580,7 +2786,7 @@ class Client(BaseClient):
                     - **jsonPath** *(string) --* 
                       A JsonPath expression that will be applied to the body/payload of the webhook. The value selected by JsonPath expression must match the value specified in the matchEquals field, otherwise the request will be ignored. More information on JsonPath expressions can be found here: https://github.com/json-path/JsonPath.
                     - **matchEquals** *(string) --* 
-                      The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
+                      The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
                 - **authentication** *(string) --* 
                   Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.
                   * GITHUB_HMAC implements the authentication scheme described here: https://developer.github.com/webhooks/securing/ 
@@ -2618,7 +2824,7 @@ class Client(BaseClient):
               - **jsonPath** *(string) --* **[REQUIRED]**
                 A JsonPath expression that will be applied to the body/payload of the webhook. The value selected by JsonPath expression must match the value specified in the matchEquals field, otherwise the request will be ignored. More information on JsonPath expressions can be found here: https://github.com/json-path/JsonPath.
               - **matchEquals** *(string) --*
-                The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is \"refs/heads/{Branch}\" and the target action has an action configuration property called \"Branch\" with a value of \"master\", the MatchEquals value will be evaluated as \"refs/heads/master\". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
+                The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is \"refs/heads/{Branch}\" and the target action has an action configuration property called \"Branch\" with a value of \"master\", the MatchEquals value will be evaluated as \"refs/heads/master\". A list of action configuration properties for built-in action types can be found here: `Pipeline Structure Reference Action Requirements <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements>`__ .
           - **authentication** *(string) --* **[REQUIRED]**
             Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.
             * GITHUB_HMAC implements the authentication scheme described here: https://developer.github.com/webhooks/securing/
@@ -2938,7 +3144,7 @@ class Client(BaseClient):
                         - **owner** *(string) --* 
                           The creator of the action being called.
                         - **provider** *(string) --* 
-                          The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                          The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                         - **version** *(string) --* 
                           A string that describes the action version.
                       - **runOrder** *(integer) --* 
@@ -3030,7 +3236,7 @@ class Client(BaseClient):
                     - **owner** *(string) --* **[REQUIRED]**
                       The creator of the action being called.
                     - **provider** *(string) --* **[REQUIRED]**
-                      The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+                      The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see `Valid Action Types and Providers in CodePipeline <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers>`__ .
                     - **version** *(string) --* **[REQUIRED]**
                       A string that describes the action version.
                   - **runOrder** *(integer) --*

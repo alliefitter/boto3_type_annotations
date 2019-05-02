@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -233,6 +233,8 @@ class Client(BaseClient):
         """
         Deploys a specific version of a robot application to robots in a fleet.
         The robot application must have a numbered ``applicationVersion`` for consistency reasons. To create a new version, use ``CreateRobotApplicationVersion`` or see `Creating a Robot Application Version <https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html>`__ . 
+        .. note::
+          After 90 days, deployment jobs expire and will be deleted. They will no longer be accessible. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/robomaker-2018-06-29/CreateDeploymentJob>`_
         
         **Request Syntax**
@@ -286,7 +288,7 @@ class Client(BaseClient):
                     },
                 ],
                 'failureReason': 'string',
-                'failureCode': 'ResourceNotFound'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
+                'failureCode': 'ResourceNotFound'|'EnvironmentSetupError'|'EtagMismatch'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'RobotAgentConnectionTimeout'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
                 'createdAt': datetime(2015, 1, 1),
                 'deploymentConfig': {
                     'concurrentDeploymentPercentage': 123,
@@ -973,6 +975,8 @@ class Client(BaseClient):
     def create_simulation_job(self, maxJobDurationInSeconds: int, iamRole: str, clientRequestToken: str = None, outputLocation: Dict = None, failureBehavior: str = None, robotApplications: List = None, simulationApplications: List = None, tags: Dict = None, vpcConfig: Dict = None) -> Dict:
         """
         Creates a simulation job.
+        .. note::
+          After 90 days, simulation jobs expire and will be deleted. They will no longer be accessible. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/robomaker-2018-06-29/CreateSimulationJob>`_
         
         **Request Syntax**
@@ -1132,7 +1136,7 @@ class Client(BaseClient):
               - **s3Prefix** *(string) --* 
                 The S3 folder in the ``s3Bucket`` where output files will be placed.
             - **maxJobDurationInSeconds** *(integer) --* 
-              The maximum simulation job duration in seconds. The value must be 8 days (691,200 seconds) or less. 
+              The maximum simulation job duration in seconds. 
             - **simulationTimeMillis** *(integer) --* 
               The simulation job execution duration in milliseconds.
             - **iamRole** *(string) --* 
@@ -1453,7 +1457,7 @@ class Client(BaseClient):
                     },
                 ],
                 'failureReason': 'string',
-                'failureCode': 'ResourceNotFound'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
+                'failureCode': 'ResourceNotFound'|'EnvironmentSetupError'|'EtagMismatch'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'RobotAgentConnectionTimeout'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
                 'createdAt': datetime(2015, 1, 1),
                 'robotDeploymentSummary': [
                     {
@@ -1462,11 +1466,13 @@ class Client(BaseClient):
                         'deploymentFinishTime': datetime(2015, 1, 1),
                         'status': 'Available'|'Registered'|'PendingNewDeployment'|'Deploying'|'Failed'|'InSync'|'NoResponse',
                         'progressDetail': {
-                            'currentProgress': 'string',
+                            'currentProgress': 'Validating'|'DownloadingExtracting'|'ExecutingPreLaunch'|'Launching'|'ExecutingPostLaunch'|'Finished',
+                            'percentDone': ...,
+                            'estimatedTimeRemainingSeconds': 123,
                             'targetResource': 'string'
                         },
                         'failureReason': 'string',
-                        'failureCode': 'ResourceNotFound'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError'
+                        'failureCode': 'ResourceNotFound'|'EnvironmentSetupError'|'EtagMismatch'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'RobotAgentConnectionTimeout'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError'
                     },
                 ],
                 'tags': {
@@ -1532,6 +1538,22 @@ class Client(BaseClient):
                   Information about how the deployment is progressing.
                   - **currentProgress** *(string) --* 
                     The current progress status.
+                      Validating  
+                    Validating the deployment.
+                      Downloading/Extracting  
+                    Downloading and extracting the bundle on the robot.
+                      Executing pre-launch script(s)  
+                    Executing pre-launch script(s) if provided.
+                      Launching  
+                    Launching the robot application.
+                      Executing post-launch script(s)  
+                    Executing post-launch script(s) if provided.
+                      Finished  
+                    Deployment is complete.
+                  - **percentDone** *(float) --* 
+                    Precentage of the step that is done. This currently only applies to the ``Downloading/Extracting`` step of the deployment. It is empty for other steps.
+                  - **estimatedTimeRemainingSeconds** *(integer) --* 
+                    Estimated amount of time in seconds remaining in the step. This currently only applies to the ``Downloading/Extracting`` step of the deployment. It is empty for other steps.
                   - **targetResource** *(string) --* 
                     The Amazon Resource Name (ARN) of the deployment job.
                 - **failureReason** *(string) --* 
@@ -2117,7 +2139,8 @@ class Client(BaseClient):
 
     def list_deployment_jobs(self, filters: List = None, nextToken: str = None, maxResults: int = None) -> Dict:
         """
-        Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs.
+        Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs. 
+        .. note::
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/robomaker-2018-06-29/ListDeploymentJobs>`_
         
         **Request Syntax**
@@ -2163,7 +2186,7 @@ class Client(BaseClient):
                             'failureThresholdPercentage': 123
                         },
                         'failureReason': 'string',
-                        'failureCode': 'ResourceNotFound'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
+                        'failureCode': 'ResourceNotFound'|'EnvironmentSetupError'|'EtagMismatch'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'RobotAgentConnectionTimeout'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
                         'createdAt': datetime(2015, 1, 1)
                     },
                 ],
@@ -2221,6 +2244,7 @@ class Client(BaseClient):
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter names ``status`` and ``fleetName`` are supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters, but they must be for the same named item. For example, if you are looking for items with the status ``InProgress`` or the status ``Pending`` .
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -2243,7 +2267,7 @@ class Client(BaseClient):
 
     def list_fleets(self, nextToken: str = None, maxResults: int = None, filters: List = None) -> Dict:
         """
-        Returns a list of fleets. You can optionally provide filters to retrieve specific fleets.
+        Returns a list of fleets. You can optionally provide filters to retrieve specific fleets. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/robomaker-2018-06-29/ListFleets>`_
         
         **Request Syntax**
@@ -2308,6 +2332,7 @@ class Client(BaseClient):
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter name ``name`` is supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters.
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -2381,10 +2406,11 @@ class Client(BaseClient):
             This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
         :type maxResults: integer
         :param maxResults:
-          The maximum number of deployment job results returned by ``ListRobotApplications`` in paginated output. When this parameter is used, ``ListRobotApplications`` only returns ``maxResults`` results in a single page along with a ``nextToken`` response element. The remaining results of the initial request can be seen by sending another ``ListFleets`` request with the returned ``nextToken`` value. This value can be between 1 and 100. If this parameter is not used, then ``ListRobotApplications`` returns up to 100 results and a ``nextToken`` value if applicable.
+          The maximum number of deployment job results returned by ``ListRobotApplications`` in paginated output. When this parameter is used, ``ListRobotApplications`` only returns ``maxResults`` results in a single page along with a ``nextToken`` response element. The remaining results of the initial request can be seen by sending another ``ListRobotApplications`` request with the returned ``nextToken`` value. This value can be between 1 and 100. If this parameter is not used, then ``ListRobotApplications`` returns up to 100 results and a ``nextToken`` value if applicable.
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter name ``name`` is supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters.
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -2469,10 +2495,11 @@ class Client(BaseClient):
             This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
         :type maxResults: integer
         :param maxResults:
-          The maximum number of deployment job results returned by ``ListRobots`` in paginated output. When this parameter is used, ``ListRobots`` only returns ``maxResults`` results in a single page along with a ``nextToken`` response element. The remaining results of the initial request can be seen by sending another ``ListFleets`` request with the returned ``nextToken`` value. This value can be between 1 and 100. If this parameter is not used, then ``ListRobots`` returns up to 100 results and a ``nextToken`` value if applicable.
+          The maximum number of deployment job results returned by ``ListRobots`` in paginated output. When this parameter is used, ``ListRobots`` only returns ``maxResults`` results in a single page along with a ``nextToken`` response element. The remaining results of the initial request can be seen by sending another ``ListRobots`` request with the returned ``nextToken`` value. This value can be between 1 and 100. If this parameter is not used, then ``ListRobots`` returns up to 100 results and a ``nextToken`` value if applicable.
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter names ``status`` and ``fleetName`` are supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters, but they must be for the same named item. For example, if you are looking for items with the status ``Registered`` or the status ``Available`` .
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -2487,7 +2514,7 @@ class Client(BaseClient):
 
     def list_simulation_applications(self, versionQualifier: str = None, nextToken: str = None, maxResults: int = None, filters: List = None) -> Dict:
         """
-        Returns a list of simulation applications. You can optionally provide filters to retrieve specific simulation applications.
+        Returns a list of simulation applications. You can optionally provide filters to retrieve specific simulation applications. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/robomaker-2018-06-29/ListSimulationApplications>`_
         
         **Request Syntax**
@@ -2546,10 +2573,11 @@ class Client(BaseClient):
             This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
         :type maxResults: integer
         :param maxResults:
-          The maximum number of deployment job results returned by ``ListSimulationApplications`` in paginated output. When this parameter is used, ``ListSimulationApplications`` only returns ``maxResults`` results in a single page along with a ``nextToken`` response element. The remaining results of the initial request can be seen by sending another ``ListFleets`` request with the returned ``nextToken`` value. This value can be between 1 and 100. If this parameter is not used, then ``ListSimulationApplications`` returns up to 100 results and a ``nextToken`` value if applicable.
+          The maximum number of deployment job results returned by ``ListSimulationApplications`` in paginated output. When this parameter is used, ``ListSimulationApplications`` only returns ``maxResults`` results in a single page along with a ``nextToken`` response element. The remaining results of the initial request can be seen by sending another ``ListSimulationApplications`` request with the returned ``nextToken`` value. This value can be between 1 and 100. If this parameter is not used, then ``ListSimulationApplications`` returns up to 100 results and a ``nextToken`` value if applicable.
         :type filters: list
         :param filters:
-          Optional list of filters to limit results. The only valid filter name is ``name`` .
+          Optional list of filters to limit results.
+          The filter name ``name`` is supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters.
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -2564,7 +2592,7 @@ class Client(BaseClient):
 
     def list_simulation_jobs(self, nextToken: str = None, maxResults: int = None, filters: List = None) -> Dict:
         """
-        Returns a list of simulation jobs. You can optionally provide filters to retrieve specific simulation jobs.
+        Returns a list of simulation jobs. You can optionally provide filters to retrieve specific simulation jobs. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/robomaker-2018-06-29/ListSimulationJobs>`_
         
         **Request Syntax**
@@ -2631,10 +2659,11 @@ class Client(BaseClient):
             This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
         :type maxResults: integer
         :param maxResults:
-          The maximum number of deployment job results returned by ``ListSimulationJobs`` in paginated output. When this parameter is used, ``ListSimulationJobs`` only returns ``maxResults`` results in a single page along with a ``nextToken`` response element. The remaining results of the initial request can be seen by sending another ``ListFleets`` request with the returned ``nextToken`` value. This value can be between 1 and 100. If this parameter is not used, then ``ListSimulationJobs`` returns up to 100 results and a ``nextToken`` value if applicable.
+          The maximum number of deployment job results returned by ``ListSimulationJobs`` in paginated output. When this parameter is used, ``ListSimulationJobs`` only returns ``maxResults`` results in a single page along with a ``nextToken`` response element. The remaining results of the initial request can be seen by sending another ``ListSimulationJobs`` request with the returned ``nextToken`` value. This value can be between 1 and 100. If this parameter is not used, then ``ListSimulationJobs`` returns up to 100 results and a ``nextToken`` value if applicable.
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter names ``status`` and ``simulationApplicationName`` and ``robotApplicationName`` are supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters, but they must be for the same named item. For example, if you are looking for items with the status ``Preparing`` or the status ``Running`` .
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -2779,7 +2808,7 @@ class Client(BaseClient):
                     },
                 ],
                 'failureReason': 'string',
-                'failureCode': 'ResourceNotFound'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
+                'failureCode': 'ResourceNotFound'|'EnvironmentSetupError'|'EtagMismatch'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'RobotAgentConnectionTimeout'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
                 'createdAt': datetime(2015, 1, 1)
             }
         
@@ -2902,9 +2931,9 @@ class Client(BaseClient):
 
     def untag_resource(self, resourceArn: str, tagKeys: List) -> Dict:
         """
-        .. _https://docs.aws.amazon.com/robomaker/latest/dg//API_Reference.htmlAPI_TagResource.html: https://docs.aws.amazon.com/robomaker/latest/dg//API_Reference.htmlAPI_TagResource.html
+        .. _https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html: https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html
         Removes the specified tags from the specified AWS RoboMaker resource.
-        To remove a tag, specify the tag key. To change the tag value of an existing tag key, use ` ``TagResource`` https://docs.aws.amazon.com/robomaker/latest/dg//API_Reference.htmlAPI_TagResource.html`__ . 
+        To remove a tag, specify the tag key. To change the tag value of an existing tag key, use ` ``TagResource`` https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/robomaker-2018-06-29/UntagResource>`_
         
         **Request Syntax**

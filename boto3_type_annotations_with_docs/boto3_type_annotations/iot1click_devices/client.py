@@ -1,10 +1,11 @@
-from typing import Union
-from botocore.paginate import Paginator
 from typing import Optional
-from botocore.waiter import Waiter
-from datetime import datetime
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -71,13 +72,17 @@ class Client(BaseClient):
         ::
             {
                 'DeviceDescription': {
+                    'Arn': 'string',
                     'Attributes': {
                         'string': 'string'
                     },
                     'DeviceId': 'string',
                     'Enabled': True|False,
                     'RemainingLife': 123.0,
-                    'Type': 'string'
+                    'Type': 'string',
+                    'Tags': {
+                        'string': 'string'
+                    }
                 }
             }
         
@@ -86,6 +91,8 @@ class Client(BaseClient):
             200 response
             - **DeviceDescription** *(dict) --* 
               Device details.
+              - **Arn** *(string) --* 
+                The ARN of the device.
               - **Attributes** *(dict) --* 
                 An array of zero or more elements of DeviceAttribute objects providing user specified device attributes.
                 - *(string) --* 
@@ -98,6 +105,10 @@ class Client(BaseClient):
                 A value between 0 and 1 inclusive, representing the fraction of life remaining for the device.
               - **Type** *(string) --* 
                 The type of the device, such as "button".
+              - **Tags** *(dict) --* 
+                The tags currently associated with the AWS IoT 1-Click device.
+                - *(string) --* 
+                  - *(string) --* 
         :type DeviceId: string
         :param DeviceId: **[REQUIRED]**
           The unique identifier of the device.
@@ -106,7 +117,7 @@ class Client(BaseClient):
         """
         pass
 
-    def finalize_device_claim(self, DeviceId: str) -> Dict:
+    def finalize_device_claim(self, DeviceId: str, Tags: Dict = None) -> Dict:
         """
         Given a device ID, finalizes the claim request for the associated device.
         .. note::
@@ -116,7 +127,10 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.finalize_device_claim(
-              DeviceId='string'
+              DeviceId='string',
+              Tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -133,6 +147,11 @@ class Client(BaseClient):
         :type DeviceId: string
         :param DeviceId: **[REQUIRED]**
           The unique identifier of the device.
+        :type Tags: dict
+        :param Tags:
+          A collection of key/value pairs defining the resource tags. For example, { \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see `AWS Tagging Strategies <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/>`__ .
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -389,13 +408,17 @@ class Client(BaseClient):
             {
                 'Devices': [
                     {
+                        'Arn': 'string',
                         'Attributes': {
                             'string': 'string'
                         },
                         'DeviceId': 'string',
                         'Enabled': True|False,
                         'RemainingLife': 123.0,
-                        'Type': 'string'
+                        'Type': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -407,6 +430,8 @@ class Client(BaseClient):
             - **Devices** *(list) --* 
               A list of devices.
               - *(dict) --* 
+                - **Arn** *(string) --* 
+                  The ARN of the device.
                 - **Attributes** *(dict) --* 
                   An array of zero or more elements of DeviceAttribute objects providing user specified device attributes.
                   - *(string) --* 
@@ -419,6 +444,10 @@ class Client(BaseClient):
                   A value between 0 and 1 inclusive, representing the fraction of life remaining for the device.
                 - **Type** *(string) --* 
                   The type of the device, such as "button".
+                - **Tags** *(dict) --* 
+                  The tags currently associated with the AWS IoT 1-Click device.
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* 
               The token to retrieve the next set of results.
         :type DeviceType: string
@@ -432,6 +461,64 @@ class Client(BaseClient):
           The token to retrieve the next set of results.
         :rtype: dict
         :returns:
+        """
+        pass
+
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        """
+        Lists the tags associated with the specified resource ARN.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/devices-2018-05-14/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': {
+                    'string': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Tags** *(dict) --* 
+              A collection of key/value pairs defining the resource tags. For example, { "tags": {"key1": "value1", "key2": "value2"} }. For more information, see `AWS Tagging Strategies <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/>`__ .
+              - *(string) --* 
+                - *(string) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The ARN of the resource.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: Dict):
+        """
+        Adds or updates the tags associated with the resource ARN. See `AWS IoT 1-Click Service Limits <https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits>`__ for the maximum number of tags allowed per resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/devices-2018-05-14/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              Tags={
+                  'string': 'string'
+              }
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The ARN of the resource.
+        :type Tags: dict
+        :param Tags: **[REQUIRED]**
+          A collection of key/value pairs defining the resource tags. For example, { \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see `AWS Tagging Strategies <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/>`__ .
+          - *(string) --*
+            - *(string) --*
+        :returns: None
         """
         pass
 
@@ -462,6 +549,30 @@ class Client(BaseClient):
           The unique identifier of the device.
         :rtype: dict
         :returns:
+        """
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
+        """
+        Using tag keys, deletes the tags (key/value pairs) associated with the specified resource ARN.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/devices-2018-05-14/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The ARN of the resource.
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]**
+          A collections of tag keys. For example, {\"key1\",\"key2\"}
+          - *(string) --*
+        :returns: None
         """
         pass
 

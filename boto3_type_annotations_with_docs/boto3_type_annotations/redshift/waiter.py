@@ -1,6 +1,6 @@
-from typing import List
 from typing import Dict
 from datetime import datetime
+from typing import List
 from botocore.waiter import Waiter
 
 
@@ -209,7 +209,7 @@ class SnapshotAvailable(Waiter):
           )
         :type ClusterIdentifier: string
         :param ClusterIdentifier:
-          The identifier of the cluster for which information about snapshots is requested.
+          The identifier of the cluster which generated the requested snapshots.
         :type SnapshotIdentifier: string
         :param SnapshotIdentifier:
           The snapshot identifier of the snapshot about which to return information.
@@ -246,7 +246,11 @@ class SnapshotAvailable(Waiter):
           - *(string) --*
         :type ClusterExists: boolean
         :param ClusterExists:
-          A value that indicates whether to return snapshots only for an existing cluster. Table-level restore can be performed only using a snapshot of an existing cluster, that is, a cluster that has not been deleted. If ``ClusterExists`` is set to ``true`` , ``ClusterIdentifier`` is required.
+          A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows:
+          * If ``ClusterExists`` is set to ``true`` , ``ClusterIdentifier`` is required.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` isn\'t specified, all snapshots associated with deleted clusters (orphaned snapshots) are returned.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` is specified for a deleted cluster, snapshots associated with that cluster are returned.
+          * If ``ClusterExists`` is set to ``false`` and ``ClusterIdentifier`` is specified for an existing cluster, no snapshots are returned.
         :type SortingEntities: list
         :param SortingEntities:
           - *(dict) --*

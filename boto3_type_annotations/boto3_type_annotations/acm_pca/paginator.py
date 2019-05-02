@@ -7,6 +7,11 @@ class ListCertificateAuthorities(Paginator):
         pass
 
 
+class ListPermissions(Paginator):
+    def paginate(self, CertificateAuthorityArn: str, PaginationConfig: Dict = None) -> Dict:
+        pass
+
+
 class ListTags(Paginator):
     def paginate(self, CertificateAuthorityArn: str, PaginationConfig: Dict = None) -> Dict:
         pass

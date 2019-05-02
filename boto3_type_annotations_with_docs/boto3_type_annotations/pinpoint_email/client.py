@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from datetime import datetime
-from typing import Dict
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -24,7 +24,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_configuration_set(self, ConfigurationSetName: str = None, TrackingOptions: Dict = None, DeliveryOptions: Dict = None, ReputationOptions: Dict = None, SendingOptions: Dict = None) -> Dict:
+    def create_configuration_set(self, ConfigurationSetName: str = None, TrackingOptions: Dict = None, DeliveryOptions: Dict = None, ReputationOptions: Dict = None, SendingOptions: Dict = None, Tags: List = None) -> Dict:
         """
         Create a configuration set. *Configuration sets* are groups of rules that you can apply to the emails you send using Amazon Pinpoint. You apply a configuration set to an email by including a reference to the configuration set in the headers of the email. When you apply a configuration set to an email, all of the rules in that configuration set are applied to the email. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/pinpoint-email-2018-07-26/CreateConfigurationSet>`_
@@ -45,7 +45,13 @@ class Client(BaseClient):
               },
               SendingOptions={
                   'SendingEnabled': True|False
-              }
+              },
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -80,6 +86,21 @@ class Client(BaseClient):
           An object that defines whether or not Amazon Pinpoint can send email that you send using the configuration set.
           - **SendingEnabled** *(boolean) --*
             If ``true`` , email sending is enabled for the configuration set. If ``false`` , email sending is disabled for the configuration set.
+        :type Tags: list
+        :param Tags:
+          An object that defines the tags (keys and values) that you want to associate with the configuration set.
+          - *(dict) --*
+            An object that defines the tags that are associated with a resource. A *tag* is a label that you optionally define and associate with a resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.
+            Each tag consists of a required *tag key* and an associated *tag value* , both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. For example, if you have two versions of an Amazon Pinpoint project, one for internal testing and another for external use, you might assign a ``Stack`` tag key to both projects. The value of the ``Stack`` tag key might be ``Test`` for one project and ``Production`` for the other project.
+            A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:
+            * Tag keys and values are case sensitive.
+            * For each associated resource, each tag key must be unique and it can have only one value.
+            * The ``aws:`` prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can\'t edit or remove tag keys or values that use this prefix. Tags that use this prefix don’t count against the limit of 50 tags per resource.
+            * You can associate tags with public or shared resources, but the tags are available only for your AWS account, not any other accounts that share the resource. In addition, the tags are available only for resources that are located in the specified AWS Region for your AWS account.
+            - **Key** *(string) --* **[REQUIRED]**
+              One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.
+            - **Value** *(string) --* **[REQUIRED]**
+              The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
         :rtype: dict
         :returns:
         """
@@ -171,7 +192,7 @@ class Client(BaseClient):
           - **SnsDestination** *(dict) --*
             An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to send notification when certain email events occur.
             - **TopicArn** *(string) --* **[REQUIRED]**
-              The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to. For more information about Amazon SNS topics, see the `Amazon SNS Developer Guide <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html>`__ .
+              The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to. For more information about Amazon SNS topics, see the `Amazon SNS Developer Guide <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html>`__ .
           - **PinpointDestination** *(dict) --*
             An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments for your campaigns.
             - **ApplicationArn** *(string) --*
@@ -181,7 +202,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_dedicated_ip_pool(self, PoolName: str) -> Dict:
+    def create_dedicated_ip_pool(self, PoolName: str, Tags: List = None) -> Dict:
         """
         Create a new pool of dedicated IP addresses. A pool can include one or more dedicated IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint sends it using only the IP addresses in the associated pool.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/pinpoint-email-2018-07-26/CreateDedicatedIpPool>`_
@@ -189,7 +210,13 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.create_dedicated_ip_pool(
-              PoolName='string'
+              PoolName='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -202,12 +229,27 @@ class Client(BaseClient):
         :type PoolName: string
         :param PoolName: **[REQUIRED]**
           The name of the dedicated IP pool.
+        :type Tags: list
+        :param Tags:
+          An object that defines the tags (keys and values) that you want to associate with the pool.
+          - *(dict) --*
+            An object that defines the tags that are associated with a resource. A *tag* is a label that you optionally define and associate with a resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.
+            Each tag consists of a required *tag key* and an associated *tag value* , both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. For example, if you have two versions of an Amazon Pinpoint project, one for internal testing and another for external use, you might assign a ``Stack`` tag key to both projects. The value of the ``Stack`` tag key might be ``Test`` for one project and ``Production`` for the other project.
+            A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:
+            * Tag keys and values are case sensitive.
+            * For each associated resource, each tag key must be unique and it can have only one value.
+            * The ``aws:`` prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can\'t edit or remove tag keys or values that use this prefix. Tags that use this prefix don’t count against the limit of 50 tags per resource.
+            * You can associate tags with public or shared resources, but the tags are available only for your AWS account, not any other accounts that share the resource. In addition, the tags are available only for resources that are located in the specified AWS Region for your AWS account.
+            - **Key** *(string) --* **[REQUIRED]**
+              One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.
+            - **Value** *(string) --* **[REQUIRED]**
+              The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_deliverability_test_report(self, FromEmailAddress: str, Content: Dict, ReportName: str = None) -> Dict:
+    def create_deliverability_test_report(self, FromEmailAddress: str, Content: Dict, ReportName: str = None, Tags: List = None) -> Dict:
         """
         Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled by various email providers around the world. When you perform a predictive inbox placement test, you provide a sample message that contains the content that you plan to send to your customers. Amazon Pinpoint then sends that message to special email addresses spread across several major email providers. After about 24 hours, the test is complete, and you can use the ``GetDeliverabilityTestReport`` operation to view the results of the test.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/pinpoint-email-2018-07-26/CreateDeliverabilityTestReport>`_
@@ -237,7 +279,13 @@ class Client(BaseClient):
                   'Raw': {
                       'Data': b'bytes'
                   }
-              }
+              },
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -303,12 +351,27 @@ class Client(BaseClient):
               * The entire message must be Base64 encoded.
               * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients\' email clients render the message properly.
               * The length of any single line of text in the message can\'t exceed 1,000 characters. This restriction is defined in `RFC 5321 <https://tools.ietf.org/html/rfc5321>`__ .
+        :type Tags: list
+        :param Tags:
+          An object that defines the tags (keys and values) that you want to associate with the predictive inbox placement test.
+          - *(dict) --*
+            An object that defines the tags that are associated with a resource. A *tag* is a label that you optionally define and associate with a resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.
+            Each tag consists of a required *tag key* and an associated *tag value* , both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. For example, if you have two versions of an Amazon Pinpoint project, one for internal testing and another for external use, you might assign a ``Stack`` tag key to both projects. The value of the ``Stack`` tag key might be ``Test`` for one project and ``Production`` for the other project.
+            A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:
+            * Tag keys and values are case sensitive.
+            * For each associated resource, each tag key must be unique and it can have only one value.
+            * The ``aws:`` prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can\'t edit or remove tag keys or values that use this prefix. Tags that use this prefix don’t count against the limit of 50 tags per resource.
+            * You can associate tags with public or shared resources, but the tags are available only for your AWS account, not any other accounts that share the resource. In addition, the tags are available only for resources that are located in the specified AWS Region for your AWS account.
+            - **Key** *(string) --* **[REQUIRED]**
+              One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.
+            - **Value** *(string) --* **[REQUIRED]**
+              The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_email_identity(self, EmailIdentity: str) -> Dict:
+    def create_email_identity(self, EmailIdentity: str, Tags: List = None) -> Dict:
         """
         Verifies an email identity for use with Amazon Pinpoint. In Amazon Pinpoint, an identity is an email address or domain that you use when you send email. Before you can use an identity to send email with Amazon Pinpoint, you first have to verify it. By verifying an address, you demonstrate that you're the owner of the address, and that you've given Amazon Pinpoint permission to send email from the address.
         When you verify an email address, Amazon Pinpoint sends an email to the address. Your email address is verified as soon as you follow the link in the verification email. 
@@ -318,7 +381,13 @@ class Client(BaseClient):
         **Request Syntax**
         ::
           response = client.create_email_identity(
-              EmailIdentity='string'
+              EmailIdentity='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -342,7 +411,7 @@ class Client(BaseClient):
             - **IdentityType** *(string) --* 
               The email identity type.
             - **VerifiedForSendingStatus** *(boolean) --* 
-              Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email from verified email addresses or domains. For more information about verifying identities, see the `Amazon Pinpoint User Guide <http://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html>`__ .
+              Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email from verified email addresses or domains. For more information about verifying identities, see the `Amazon Pinpoint User Guide <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html>`__ .
             - **DkimAttributes** *(dict) --* 
               An object that contains information about the DKIM attributes for the identity. This object includes the tokens that you use to create the CNAME records that are required to complete the DKIM verification process.
               - **SigningEnabled** *(boolean) --* 
@@ -360,6 +429,21 @@ class Client(BaseClient):
         :type EmailIdentity: string
         :param EmailIdentity: **[REQUIRED]**
           The email address or domain that you want to verify.
+        :type Tags: list
+        :param Tags:
+          An object that defines the tags (keys and values) that you want to associate with the email identity.
+          - *(dict) --*
+            An object that defines the tags that are associated with a resource. A *tag* is a label that you optionally define and associate with a resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.
+            Each tag consists of a required *tag key* and an associated *tag value* , both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. For example, if you have two versions of an Amazon Pinpoint project, one for internal testing and another for external use, you might assign a ``Stack`` tag key to both projects. The value of the ``Stack`` tag key might be ``Test`` for one project and ``Production`` for the other project.
+            A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:
+            * Tag keys and values are case sensitive.
+            * For each associated resource, each tag key must be unique and it can have only one value.
+            * The ``aws:`` prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can\'t edit or remove tag keys or values that use this prefix. Tags that use this prefix don’t count against the limit of 50 tags per resource.
+            * You can associate tags with public or shared resources, but the tags are available only for your AWS account, not any other accounts that share the resource. In addition, the tags are available only for resources that are located in the specified AWS Region for your AWS account.
+            - **Key** *(string) --* **[REQUIRED]**
+              One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.
+            - **Value** *(string) --* **[REQUIRED]**
+              The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
         :rtype: dict
         :returns:
         """
@@ -746,7 +830,7 @@ class Client(BaseClient):
                 - **SnsDestination** *(dict) --* 
                   An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to send notification when certain email events occur.
                   - **TopicArn** *(string) --* 
-                    The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to. For more information about Amazon SNS topics, see the `Amazon SNS Developer Guide <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html>`__ .
+                    The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to. For more information about Amazon SNS topics, see the `Amazon SNS Developer Guide <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html>`__ .
                 - **PinpointDestination** *(dict) --* 
                   An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments for your campaigns.
                   - **ApplicationArn** *(string) --* 
@@ -1163,7 +1247,7 @@ class Client(BaseClient):
               If the value is ``true`` , Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.
               When you set this value to ``false`` , Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic or another event destination. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).
             - **VerifiedForSendingStatus** *(boolean) --* 
-              Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email from verified email addresses or domains. For more information about verifying identities, see the `Amazon Pinpoint User Guide <http://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html>`__ .
+              Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email from verified email addresses or domains. For more information about verifying identities, see the `Amazon Pinpoint User Guide <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html>`__ .
             - **DkimAttributes** *(dict) --* 
               An object that contains information about the DKIM attributes for the identity. This object includes the tokens that you use to create the CNAME records that are required to complete the DKIM verification process.
               - **SigningEnabled** *(boolean) --* 
@@ -1424,6 +1508,52 @@ class Client(BaseClient):
         :param PageSize:
           The number of results to show in a single call to ``ListEmailIdentities`` . If the number of results is larger than the number you specified in this parameter, then the response includes a ``NextToken`` element, which you can use to obtain additional results.
           The value you specify has to be at least 0, and can be no more than 1000.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        """
+        Retrieve a list of the tags (keys and values) that are associated with a specific resource. A *tag* is a label that you optionally define and associate with a resource in Amazon Pinpoint. Each tag consists of a required *tag key* and an optional associated *tag value* . A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/pinpoint-email-2018-07-26/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': [
+                    {
+                        'Key': 'string',
+                        'Value': 'string'
+                    },
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Tags** *(list) --* 
+              An array that lists all the tags that are associated with the resource. Each tag consists of a required tag key (``Key`` ) and an associated tag value (``Value`` )
+              - *(dict) --* 
+                An object that defines the tags that are associated with a resource. A *tag* is a label that you optionally define and associate with a resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.
+                Each tag consists of a required *tag key* and an associated *tag value* , both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. For example, if you have two versions of an Amazon Pinpoint project, one for internal testing and another for external use, you might assign a ``Stack`` tag key to both projects. The value of the ``Stack`` tag key might be ``Test`` for one project and ``Production`` for the other project.
+                A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:
+                * Tag keys and values are case sensitive. 
+                * For each associated resource, each tag key must be unique and it can have only one value. 
+                * The ``aws:`` prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can't edit or remove tag keys or values that use this prefix. Tags that use this prefix don’t count against the limit of 50 tags per resource. 
+                * You can associate tags with public or shared resources, but the tags are available only for your AWS account, not any other accounts that share the resource. In addition, the tags are available only for resources that are located in the specified AWS Region for your AWS account. 
+                - **Key** *(string) --* 
+                  One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.
+                - **Value** *(string) --* 
+                  The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the resource that you want to retrieve tag information for.
         :rtype: dict
         :returns:
         """
@@ -1950,6 +2080,86 @@ class Client(BaseClient):
         """
         pass
 
+    def tag_resource(self, ResourceArn: str, Tags: List) -> Dict:
+        """
+        Add one or more tags (keys and values) to one or more specified resources. A *tag* is a label that you optionally define and associate with a resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.
+        Each tag consists of a required *tag key* and an associated *tag value* , both of which you define. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/pinpoint-email-2018-07-26/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the resource that you want to add one or more tags to.
+        :type Tags: list
+        :param Tags: **[REQUIRED]**
+          A list of the tags that you want to add to the resource. A tag consists of a required tag key (``Key`` ) and an associated tag value (``Value`` ). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
+          - *(dict) --*
+            An object that defines the tags that are associated with a resource. A *tag* is a label that you optionally define and associate with a resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.
+            Each tag consists of a required *tag key* and an associated *tag value* , both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. For example, if you have two versions of an Amazon Pinpoint project, one for internal testing and another for external use, you might assign a ``Stack`` tag key to both projects. The value of the ``Stack`` tag key might be ``Test`` for one project and ``Production`` for the other project.
+            A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:
+            * Tag keys and values are case sensitive.
+            * For each associated resource, each tag key must be unique and it can have only one value.
+            * The ``aws:`` prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can\'t edit or remove tag keys or values that use this prefix. Tags that use this prefix don’t count against the limit of 50 tags per resource.
+            * You can associate tags with public or shared resources, but the tags are available only for your AWS account, not any other accounts that share the resource. In addition, the tags are available only for resources that are located in the specified AWS Region for your AWS account.
+            - **Key** *(string) --* **[REQUIRED]**
+              One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.
+            - **Value** *(string) --* **[REQUIRED]**
+              The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don’t want a resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint will set the value to an empty string.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List) -> Dict:
+        """
+        Remove one or more tags (keys and values) from a specified resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/pinpoint-email-2018-07-26/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the resource that you want to remove one or more tags from.
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]**
+          The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.
+          To remove more than one tag from the resource, append the ``TagKeys`` parameter and argument for each additional tag to remove, separated by an ampersand. For example: ``/v1/email/tags?ResourceArn=ResourceArn&TagKeys=Key1&TagKeys=Key2``
+          - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def update_configuration_set_event_destination(self, ConfigurationSetName: str, EventDestinationName: str, EventDestination: Dict) -> Dict:
         """
         Update the configuration of an event destination for a configuration set.
@@ -2036,7 +2246,7 @@ class Client(BaseClient):
           - **SnsDestination** *(dict) --*
             An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to send notification when certain email events occur.
             - **TopicArn** *(string) --* **[REQUIRED]**
-              The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to. For more information about Amazon SNS topics, see the `Amazon SNS Developer Guide <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html>`__ .
+              The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to. For more information about Amazon SNS topics, see the `Amazon SNS Developer Guide <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html>`__ .
           - **PinpointDestination** *(dict) --*
             An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments for your campaigns.
             - **ApplicationArn** *(string) --*

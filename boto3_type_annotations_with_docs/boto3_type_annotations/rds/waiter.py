@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.waiter import Waiter
 
 
@@ -148,6 +148,7 @@ class DBInstanceDeleted(Waiter):
 class DBSnapshotAvailable(Waiter):
     def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None, WaiterConfig: Dict = None):
         """
+        .. _https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html: https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html
         Polls :py:meth:`RDS.Client.describe_db_snapshots` every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBSnapshots>`_
         
@@ -193,6 +194,7 @@ class DBSnapshotAvailable(Waiter):
           * ``manual`` - Return all DB snapshots that have been taken by my AWS account.
           * ``shared`` - Return all manual DB snapshots that have been shared to my AWS account.
           * ``public`` - Return all DB snapshots that have been marked as public.
+          * ``awsbackup`` - Return the DB snapshots managed by the AWS Backup service. For information about AWS Backup, see the ` *AWS Backup Developer Guide.* https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html`__   The ``awsbackup`` type does not apply to Aurora.
           If you don\'t specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
           The ``IncludeShared`` and ``IncludePublic`` parameters don\'t apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn\'t apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn\'t apply when ``SnapshotType`` is set to ``public`` .
         :type Filters: list
@@ -247,6 +249,7 @@ class DBSnapshotAvailable(Waiter):
 class DBSnapshotCompleted(Waiter):
     def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None, WaiterConfig: Dict = None):
         """
+        .. _https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html: https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html
         Polls :py:meth:`RDS.Client.describe_db_snapshots` every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBSnapshots>`_
         
@@ -292,6 +295,7 @@ class DBSnapshotCompleted(Waiter):
           * ``manual`` - Return all DB snapshots that have been taken by my AWS account.
           * ``shared`` - Return all manual DB snapshots that have been shared to my AWS account.
           * ``public`` - Return all DB snapshots that have been marked as public.
+          * ``awsbackup`` - Return the DB snapshots managed by the AWS Backup service. For information about AWS Backup, see the ` *AWS Backup Developer Guide.* https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html`__   The ``awsbackup`` type does not apply to Aurora.
           If you don\'t specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
           The ``IncludeShared`` and ``IncludePublic`` parameters don\'t apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn\'t apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn\'t apply when ``SnapshotType`` is set to ``public`` .
         :type Filters: list
@@ -346,6 +350,7 @@ class DBSnapshotCompleted(Waiter):
 class DBSnapshotDeleted(Waiter):
     def wait(self, DBInstanceIdentifier: str = None, DBSnapshotIdentifier: str = None, SnapshotType: str = None, Filters: List = None, MaxRecords: int = None, Marker: str = None, IncludeShared: bool = None, IncludePublic: bool = None, DbiResourceId: str = None, WaiterConfig: Dict = None):
         """
+        .. _https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html: https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html
         Polls :py:meth:`RDS.Client.describe_db_snapshots` every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBSnapshots>`_
         
@@ -391,6 +396,7 @@ class DBSnapshotDeleted(Waiter):
           * ``manual`` - Return all DB snapshots that have been taken by my AWS account.
           * ``shared`` - Return all manual DB snapshots that have been shared to my AWS account.
           * ``public`` - Return all DB snapshots that have been marked as public.
+          * ``awsbackup`` - Return the DB snapshots managed by the AWS Backup service. For information about AWS Backup, see the ` *AWS Backup Developer Guide.* https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html`__   The ``awsbackup`` type does not apply to Aurora.
           If you don\'t specify a ``SnapshotType`` value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the ``IncludeShared`` parameter to ``true`` . You can include public snapshots with these results by setting the ``IncludePublic`` parameter to ``true`` .
           The ``IncludeShared`` and ``IncludePublic`` parameters don\'t apply for ``SnapshotType`` values of ``manual`` or ``automated`` . The ``IncludePublic`` parameter doesn\'t apply when ``SnapshotType`` is set to ``shared`` . The ``IncludeShared`` parameter doesn\'t apply when ``SnapshotType`` is set to ``public`` .
         :type Filters: list

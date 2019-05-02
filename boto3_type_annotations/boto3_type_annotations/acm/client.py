@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -45,6 +45,9 @@ class Client(BaseClient):
         pass
 
     def remove_tags_from_certificate(self, CertificateArn: str, Tags: List):
+        pass
+
+    def renew_certificate(self, CertificateArn: str):
         pass
 
     def request_certificate(self, DomainName: str, ValidationMethod: str = None, SubjectAlternativeNames: List = None, IdempotencyToken: str = None, DomainValidationOptions: List = None, Options: Dict = None, CertificateAuthorityArn: str = None) -> Dict:

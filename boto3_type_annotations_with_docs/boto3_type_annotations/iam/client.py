@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -32,10 +32,10 @@ class Client(BaseClient):
 
     def add_role_to_instance_profile(self, InstanceProfileName: str, RoleName: str):
         """
-        Adds the specified IAM role to the specified instance profile. An instance profile can contain only one role, and this limit cannot be increased. You can remove the existing role and then add a different role to an instance profile. You must then wait for the change to appear across all of AWS because of `eventual consistency <https://en.wikipedia.org/wiki/Eventual_consistency>`__ . To force the change, you must `disassociate the instance profile <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html>`__ and then `associate the instance profile <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html>`__ , or you can stop your instance and then restart it.
+        Adds the specified IAM role to the specified instance profile. An instance profile can contain only one role, and this limit cannot be increased. You can remove the existing role and then add a different role to an instance profile. You must then wait for the change to appear across all of AWS because of `eventual consistency <https://en.wikipedia.org/wiki/Eventual_consistency>`__ . To force the change, you must `disassociate the instance profile <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html>`__ and then `associate the instance profile <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html>`__ , or you can stop your instance and then restart it.
         .. note::
           The caller of this API must be granted the ``PassRole`` permission on the IAM role by a permissions policy.
-        For more information about roles, go to `Working with Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For more information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        For more information about roles, go to `Working with Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For more information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AddRoleToInstanceProfile>`_
         
         **Request Syntax**
@@ -83,7 +83,7 @@ class Client(BaseClient):
         """
         Attaches the specified managed policy to the specified IAM group.
         You use this API to attach a managed policy to a group. To embed an inline policy in a group, use  PutGroupPolicy .
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachGroupPolicy>`_
         
         **Request Syntax**
@@ -99,7 +99,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to attach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -109,7 +109,7 @@ class Client(BaseClient):
         Attaches the specified managed policy to the specified IAM role. When you attach a managed policy to a role, the managed policy becomes part of the role's permission (access) policy.
         .. note::
           You cannot use a managed policy as the role's trust policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy .
-        Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachRolePolicy>`_
         
         **Request Syntax**
@@ -125,7 +125,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to attach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -134,7 +134,7 @@ class Client(BaseClient):
         """
         Attaches the specified managed policy to the specified user.
         You use this API to attach a *managed* policy to a user. To embed an inline policy in a user, use  PutUserPolicy .
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachUserPolicy>`_
         
         **Request Syntax**
@@ -150,7 +150,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to attach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -173,7 +173,7 @@ class Client(BaseClient):
     def change_password(self, OldPassword: str, NewPassword: str):
         """
         Changes the password of the IAM user who is calling this operation. The AWS account root user password is not affected by this operation.
-        To change the password for a different user, see  UpdateLoginProfile . For more information about modifying passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
+        To change the password for a different user, see  UpdateLoginProfile . For more information about modifying passwords, see `Managing Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ChangePassword>`_
         
         **Request Syntax**
@@ -197,7 +197,7 @@ class Client(BaseClient):
         """
         Creates a new AWS secret access key and corresponding AWS access key ID for the specified user. The default status for new keys is ``Active`` .
         If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials. This is true even if the AWS account has no associated users.
-        For information about limits on the number of keys you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of keys you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. warning::
           To ensure the security of your AWS account, the secret access key is accessible only during key and user creation. You must save the key (for example, in a text file) if you want to be able to access it again. If a secret key is lost, you can delete the access keys for the associated user and then create new keys.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateAccessKey>`_
@@ -246,7 +246,7 @@ class Client(BaseClient):
 
     def create_account_alias(self, AccountAlias: str):
         """
-        Creates an alias for your AWS account. For information about using an AWS account alias, see `Using an Alias for Your AWS Account ID <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html>`__ in the *IAM User Guide* .
+        Creates an alias for your AWS account. For information about using an AWS account alias, see `Using an Alias for Your AWS Account ID <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateAccountAlias>`_
         
         **Request Syntax**
@@ -265,7 +265,7 @@ class Client(BaseClient):
     def create_group(self, GroupName: str, Path: str = None) -> Dict:
         """
         Creates a new group.
-        For information about the number of groups you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about the number of groups you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateGroup>`_
         
         **Request Syntax**
@@ -293,18 +293,18 @@ class Client(BaseClient):
             - **Group** *(dict) --* 
               A structure containing details about the new group.
               - **Path** *(string) --* 
-                The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **GroupName** *(string) --* 
                 The friendly name that identifies the group.
               - **GroupId** *(string) --* 
-                The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
         :type Path: string
         :param Path:
-          The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type GroupName: string
@@ -318,8 +318,8 @@ class Client(BaseClient):
 
     def create_instance_profile(self, InstanceProfileName: str, Path: str = None) -> Dict:
         """
-        Creates a new instance profile. For information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
-        For information about the number of instance profiles you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        Creates a new instance profile. For information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        For information about the number of instance profiles you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateInstanceProfile>`_
         
         **Request Syntax**
@@ -369,13 +369,13 @@ class Client(BaseClient):
             - **InstanceProfile** *(dict) --* 
               A structure containing details about the new instance profile.
               - **Path** *(string) --* 
-                The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **InstanceProfileName** *(string) --* 
                 The name identifying the instance profile.
               - **InstanceProfileId** *(string) --* 
-                The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **CreateDate** *(datetime) --* 
                 The date when the instance profile was created.
               - **Roles** *(list) --* 
@@ -383,13 +383,13 @@ class Client(BaseClient):
                 - *(dict) --* 
                   Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                   - **Path** *(string) --* 
-                    The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                    The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                   - **RoleName** *(string) --* 
                     The friendly name that identifies the role.
                   - **RoleId** *(string) --* 
-                    The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                    The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                   - **Arn** *(string) --* 
-                    The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                    The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                   - **CreateDate** *(datetime) --* 
                     The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                   - **AssumeRolePolicyDocument** *(string) --* 
@@ -400,15 +400,15 @@ class Client(BaseClient):
                     The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                   - **PermissionsBoundary** *(dict) --* 
                     The ARN of the policy used to set the permissions boundary for the role.
-                    For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                    For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                     - **PermissionsBoundaryType** *(string) --* 
                       The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                     - **PermissionsBoundaryArn** *(string) --* 
                       The ARN of the policy used to set the permissions boundary for the user or role.
                   - **Tags** *(list) --* 
-                    A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - *(dict) --* 
-                      A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                      A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                       - **Key** *(string) --* 
                         The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                       - **Value** *(string) --* 
@@ -421,7 +421,7 @@ class Client(BaseClient):
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :type Path: string
         :param Path:
-          The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :rtype: dict
@@ -431,7 +431,7 @@ class Client(BaseClient):
 
     def create_login_profile(self, UserName: str, Password: str, PasswordResetRequired: bool = None) -> Dict:
         """
-        Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
+        Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see `Managing Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateLoginProfile>`_
         
         **Request Syntax**
@@ -486,10 +486,10 @@ class Client(BaseClient):
         When you create the IAM OIDC provider, you specify the following:
         * The URL of the OIDC identity provider (IdP) to trust 
         * A list of client IDs (also known as audiences) that identify the application or applications that are allowed to authenticate using the OIDC provider 
-        * A list of thumbprints of the server certificate(s) that the IdP uses. 
+        * A list of thumbprints of the server certificate(s) that the IdP uses 
         You get all of this information from the OIDC IdP that you want to use to access AWS.
         .. note::
-          Because trust for the OIDC provider is derived from the IAM provider that this operation creates, it is best to limit access to the  CreateOpenIDConnectProvider operation to highly privileged users.
+          The trust for the OIDC provider is derived from the IAM provider that this operation creates. Therefore, it is best to limit access to the  CreateOpenIDConnectProvider operation to highly privileged users.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateOpenIDConnectProvider>`_
         
         **Request Syntax**
@@ -530,7 +530,7 @@ class Client(BaseClient):
           A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider\'s server certificates. Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.
           The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
           You must provide at least one thumbprint when creating an IAM OIDC provider. For example, assume that the OIDC provider is ``server.example.com`` and the provider stores its keys at https://keys.server.example.com/openid-connect. In that case, the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used by https://keys.server.example.com.
-          For more information about obtaining the OIDC provider\'s thumbprint, see `Obtaining the Thumbprint for an OpenID Connect Provider <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html>`__ in the *IAM User Guide* .
+          For more information about obtaining the OIDC provider\'s thumbprint, see `Obtaining the Thumbprint for an OpenID Connect Provider <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html>`__ in the *IAM User Guide* .
           - *(string) --*
             Contains a thumbprint for an identity provider\'s server certificate.
             The identity provider\'s server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
@@ -542,8 +542,8 @@ class Client(BaseClient):
     def create_policy(self, PolicyName: str, PolicyDocument: str, Path: str = None, Description: str = None) -> Dict:
         """
         Creates a new managed policy for your AWS account.
-        This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
-        For more information about managed policies in general, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        For more information about managed policies in general, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreatePolicy>`_
         
         **Request Syntax**
@@ -582,20 +582,20 @@ class Client(BaseClient):
                 The friendly name (not ARN) identifying the policy.
               - **PolicyId** *(string) --* 
                 The stable and unique string identifying the policy.
-                For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
               - **Arn** *(string) --* 
                 The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
               - **Path** *(string) --* 
                 The path to the policy.
-                For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
               - **DefaultVersionId** *(string) --* 
                 The identifier for the version of the policy that is set as the default version.
               - **AttachmentCount** *(integer) --* 
                 The number of entities (users, groups, and roles) that the policy is attached to.
               - **PermissionsBoundaryUsageCount** *(integer) --* 
                 The number of entities (users and roles) for which the policy is used to set the permissions boundary. 
-                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
               - **IsAttachable** *(boolean) --* 
                 Specifies whether the policy can be attached to an IAM user, group, or role.
               - **Description** *(string) --* 
@@ -613,7 +613,7 @@ class Client(BaseClient):
         :type Path: string
         :param Path:
           The path for the policy.
-          For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type PolicyDocument: string
@@ -637,7 +637,7 @@ class Client(BaseClient):
         """
         Creates a new version of the specified managed policy. To update a managed policy, you create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using  DeletePolicyVersion before you create a new version.
         Optionally, you can set the new version as the policy's default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
-        For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreatePolicyVersion>`_
         
         **Request Syntax**
@@ -678,7 +678,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type PolicyDocument: string
         :param PolicyDocument: **[REQUIRED]**
           The JSON policy document that you want to use as the content for this new version of the policy.
@@ -690,7 +690,7 @@ class Client(BaseClient):
         :param SetAsDefault:
           Specifies whether to set this version as the policy\'s default version.
           When this parameter is ``true`` , the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to.
-          For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+          For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         :rtype: dict
         :returns:
         """
@@ -698,7 +698,7 @@ class Client(BaseClient):
 
     def create_role(self, RoleName: str, AssumeRolePolicyDocument: str, Path: str = None, Description: str = None, MaxSessionDuration: int = None, PermissionsBoundary: str = None, Tags: List = None) -> Dict:
         """
-        Creates a new role for your AWS account. For more information about roles, go to `IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For information about limitations on role names and the number of roles you can create, go to `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        Creates a new role for your AWS account. For more information about roles, go to `IAM Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For information about limitations on role names and the number of roles you can create, go to `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateRole>`_
         
         **Request Syntax**
@@ -749,13 +749,13 @@ class Client(BaseClient):
             - **Role** *(dict) --* 
               A structure containing details about the new role.
               - **Path** *(string) --* 
-                The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **RoleName** *(string) --* 
                 The friendly name that identifies the role.
               - **RoleId** *(string) --* 
-                The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
               - **AssumeRolePolicyDocument** *(string) --* 
@@ -766,15 +766,15 @@ class Client(BaseClient):
                 The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
               - **PermissionsBoundary** *(dict) --* 
                 The ARN of the policy used to set the permissions boundary for the role.
-                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **PermissionsBoundaryType** *(string) --* 
                   The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                 - **PermissionsBoundaryArn** *(string) --* 
                   The ARN of the policy used to set the permissions boundary for the user or role.
               - **Tags** *(list) --* 
-                A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                 - *(dict) --* 
-                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - **Key** *(string) --* 
                     The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                   - **Value** *(string) --* 
@@ -783,7 +783,7 @@ class Client(BaseClient):
                       AWS always interprets the tag ``Value`` as a single string. If you need to store an array, you can store comma-separated values in the string. However, you must interpret the value in your code.
         :type Path: string
         :param Path:
-          The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type RoleName: string
@@ -804,17 +804,17 @@ class Client(BaseClient):
         :type MaxSessionDuration: integer
         :param MaxSessionDuration:
           The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
+          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
         :type PermissionsBoundary: string
         :param PermissionsBoundary:
           The ARN of the policy that is used to set the permissions boundary for the role.
         :type Tags: list
         :param Tags:
-          A list of tags that you want to attach to the newly created role. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+          A list of tags that you want to attach to the newly created role. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
           .. note::
             If any one of the tags is invalid or if you exceed the allowed number of tags per role, then the entire request fails and the role is not created.
           - *(dict) --*
-            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
             - **Key** *(string) --* **[REQUIRED]**
               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
             - **Value** *(string) --* **[REQUIRED]**
@@ -829,11 +829,11 @@ class Client(BaseClient):
     def create_saml_provider(self, SAMLMetadataDocument: str, Name: str) -> Dict:
         """
         Creates an IAM resource that describes an identity provider (IdP) that supports SAML 2.0.
-        The SAML provider resource that you create with this operation can be used as a principal in an IAM role's trust policy. Such a policy can enable federated users who sign-in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
+        The SAML provider resource that you create with this operation can be used as a principal in an IAM role's trust policy. Such a policy can enable federated users who sign in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
         When you create the SAML provider resource, you upload a SAML metadata document that you get from your IdP. That document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that the IdP sends. You must generate the metadata document using the identity management software that is used as your organization's IdP.
         .. note::
-          This operation requires `Signature Version 4 <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
-        For more information, see `Enabling SAML 2.0 Federated Users to Access the AWS Management Console <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html>`__ and `About SAML 2.0-based Federation <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide* .
+          This operation requires `Signature Version 4 <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+        For more information, see `Enabling SAML 2.0 Federated Users to Access the AWS Management Console <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html>`__ and `About SAML 2.0-based Federation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateSAMLProvider>`_
         
         **Request Syntax**
@@ -857,7 +857,7 @@ class Client(BaseClient):
         :type SAMLMetadataDocument: string
         :param SAMLMetadataDocument: **[REQUIRED]**
           An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
-          For more information, see `About SAML 2.0-based Federation <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide*
+          For more information, see `About SAML 2.0-based Federation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide*
         :type Name: string
         :param Name: **[REQUIRED]**
           The name of the provider to create.
@@ -869,7 +869,7 @@ class Client(BaseClient):
 
     def create_service_linked_role(self, AWSServiceName: str, Description: str = None, CustomSuffix: str = None) -> Dict:
         """
-        Creates an IAM role that is linked to a specific AWS service. The service controls the attached policies and when the role can be deleted. This helps ensure that the service is not broken by an unexpectedly changed or deleted role, which could put your AWS resources into an unknown state. Allowing the service to control the role helps improve service stability and proper cleanup when a service and its role are no longer needed. For more information, see `Using Service-Linked Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html>`__ in the *IAM User Guide* . 
+        Creates an IAM role that is linked to a specific AWS service. The service controls the attached policies and when the role can be deleted. This helps ensure that the service is not broken by an unexpectedly changed or deleted role, which could put your AWS resources into an unknown state. Allowing the service to control the role helps improve service stability and proper cleanup when a service and its role are no longer needed. For more information, see `Using Service-Linked Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html>`__ in the *IAM User Guide* . 
         To attach a policy to this service-linked role, you must make the request using the AWS service that depends on this role.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateServiceLinkedRole>`_
         
@@ -911,13 +911,13 @@ class Client(BaseClient):
             - **Role** *(dict) --* 
               A  Role object that contains details about the newly created role.
               - **Path** *(string) --* 
-                The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **RoleName** *(string) --* 
                 The friendly name that identifies the role.
               - **RoleId** *(string) --* 
-                The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
               - **AssumeRolePolicyDocument** *(string) --* 
@@ -928,15 +928,15 @@ class Client(BaseClient):
                 The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
               - **PermissionsBoundary** *(dict) --* 
                 The ARN of the policy used to set the permissions boundary for the role.
-                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **PermissionsBoundaryType** *(string) --* 
                   The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                 - **PermissionsBoundaryArn** *(string) --* 
                   The ARN of the policy used to set the permissions boundary for the user or role.
               - **Tags** *(list) --* 
-                A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                 - *(dict) --* 
-                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - **Key** *(string) --* 
                     The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                   - **Value** *(string) --* 
@@ -946,7 +946,7 @@ class Client(BaseClient):
         :type AWSServiceName: string
         :param AWSServiceName: **[REQUIRED]**
           The service principal for the AWS service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: ``elasticbeanstalk.amazonaws.com`` .
-          Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see `AWS Services That Work with IAM <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html>`__ in the *IAM User Guide* and look for the services that have **Yes** in the **Service-Linked Role** column. Choose the **Yes** link to view the service-linked role documentation for that service.
+          Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see `AWS Services That Work with IAM <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html>`__ in the *IAM User Guide* . Look for the services that have **Yes** in the **Service-Linked Role** column. Choose the **Yes** link to view the service-linked role documentation for that service.
         :type Description: string
         :param Description:
           The description of the role.
@@ -965,7 +965,7 @@ class Client(BaseClient):
         You can have a maximum of two sets of service-specific credentials for each supported service per user.
         The only supported service at this time is AWS CodeCommit.
         You can reset the password to a new service-generated value by calling  ResetServiceSpecificCredential .
-        For more information about service-specific credentials, see `Using IAM with AWS CodeCommit\: Git Credentials, SSH Keys, and AWS Access Keys <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html>`__ in the *IAM User Guide* .
+        For more information about service-specific credentials, see `Using IAM with AWS CodeCommit\: Git Credentials, SSH Keys, and AWS Access Keys <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateServiceSpecificCredential>`_
         
         **Request Syntax**
@@ -994,7 +994,7 @@ class Client(BaseClient):
             - **ServiceSpecificCredential** *(dict) --* 
               A structure that contains information about the newly created service-specific credential.
               .. warning::
-                This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you will have to reset the password with  ResetServiceSpecificCredential .
+                This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with  ResetServiceSpecificCredential .
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the service-specific credential were created.
               - **ServiceName** *(string) --* 
@@ -1024,7 +1024,7 @@ class Client(BaseClient):
     def create_user(self, UserName: str, Path: str = None, PermissionsBoundary: str = None, Tags: List = None) -> Dict:
         """
         Creates a new IAM user for your AWS account.
-        For information about limitations on the number of IAM users you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about limitations on the number of IAM users you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateUser>`_
         
         **Request Syntax**
@@ -1070,32 +1070,32 @@ class Client(BaseClient):
             - **User** *(dict) --* 
               A structure with details about the new IAM user.
               - **Path** *(string) --* 
-                The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
               - **UserName** *(string) --* 
                 The friendly name identifying the user.
               - **UserId** *(string) --* 
-                The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
               - **PasswordLastUsed** *(datetime) --* 
-                The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                 * The user never had a password. 
                 * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                 A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                 This value is returned only in the  GetUser and  ListUsers operations. 
               - **PermissionsBoundary** *(dict) --* 
                 The ARN of the policy used to set the permissions boundary for the user.
-                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **PermissionsBoundaryType** *(string) --* 
                   The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                 - **PermissionsBoundaryArn** *(string) --* 
                   The ARN of the policy used to set the permissions boundary for the user or role.
               - **Tags** *(list) --* 
-                A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                 - *(dict) --* 
-                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - **Key** *(string) --* 
                     The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                   - **Value** *(string) --* 
@@ -1104,7 +1104,7 @@ class Client(BaseClient):
                       AWS always interprets the tag ``Value`` as a single string. If you need to store an array, you can store comma-separated values in the string. However, you must interpret the value in your code.
         :type Path: string
         :param Path:
-          The path for the user name. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path for the user name. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type UserName: string
@@ -1116,11 +1116,11 @@ class Client(BaseClient):
           The ARN of the policy that is used to set the permissions boundary for the user.
         :type Tags: list
         :param Tags:
-          A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+          A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
           .. note::
             If any one of the tags is invalid or if you exceed the allowed number of tags per user, then the entire request fails and the user is not created.
           - *(dict) --*
-            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
             - **Key** *(string) --* **[REQUIRED]**
               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
             - **Value** *(string) --* **[REQUIRED]**
@@ -1134,10 +1134,10 @@ class Client(BaseClient):
 
     def create_virtual_mfa_device(self, VirtualMFADeviceName: str, Path: str = None) -> Dict:
         """
-        Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use  EnableMFADevice to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of MFA devices you can create, see `Limitations on Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use  EnableMFADevice to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of MFA devices you can create, see `Limitations on Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. warning::
-          The seed information contained in the QR code and the Base32 string should be treated like any other secret access information, such as your AWS access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.
+          The seed information contained in the QR code and the Base32 string should be treated like any other secret access information. In other words, protect the seed information as you would your AWS access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateVirtualMFADevice>`_
         
         **Request Syntax**
@@ -1190,32 +1190,32 @@ class Client(BaseClient):
               - **User** *(dict) --* 
                 The IAM user associated with this virtual MFA device.
                 - **Path** *(string) --* 
-                  The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **UserName** *(string) --* 
                   The friendly name identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                 - **PasswordLastUsed** *(datetime) --* 
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                   * The user never had a password. 
                   * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                   A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                   This value is returned only in the  GetUser and  ListUsers operations. 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the user.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -1226,7 +1226,7 @@ class Client(BaseClient):
                 The date and time on which the virtual MFA device was enabled.
         :type Path: string
         :param Path:
-          The path for the virtual MFA device. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path for the virtual MFA device. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type VirtualMFADeviceName: string
@@ -1241,7 +1241,7 @@ class Client(BaseClient):
     def deactivate_mfa_device(self, UserName: str, SerialNumber: str):
         """
         Deactivates the specified MFA device and removes it from association with the user name for which it was originally enabled.
-        For more information about creating and working with virtual MFA devices, go to `Enabling a Virtual Multi-factor Authentication (MFA) Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
+        For more information about creating and working with virtual MFA devices, go to `Enabling a Virtual Multi-factor Authentication (MFA) Device <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeactivateMFADevice>`_
         
         **Request Syntax**
@@ -1288,7 +1288,7 @@ class Client(BaseClient):
 
     def delete_account_alias(self, AccountAlias: str):
         """
-        Deletes the specified AWS account alias. For information about using an AWS account alias, see `Using an Alias for Your AWS Account ID <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html>`__ in the *IAM User Guide* .
+        Deletes the specified AWS account alias. For information about using an AWS account alias, see `Using an Alias for Your AWS Account ID <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteAccountAlias>`_
         
         **Request Syntax**
@@ -1337,7 +1337,7 @@ class Client(BaseClient):
     def delete_group_policy(self, GroupName: str, PolicyName: str):
         """
         Deletes the specified inline policy that is embedded in the specified IAM group.
-        A group can also have managed policies attached to it. To detach a managed policy from a group, use  DetachGroupPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A group can also have managed policies attached to it. To detach a managed policy from a group, use  DetachGroupPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteGroupPolicy>`_
         
         **Request Syntax**
@@ -1363,7 +1363,7 @@ class Client(BaseClient):
         Deletes the specified instance profile. The instance profile must not have an associated role.
         .. warning::
           Make sure that you do not have any Amazon EC2 instances running with the instance profile you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
-        For more information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        For more information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteInstanceProfile>`_
         
         **Request Syntax**
@@ -1425,7 +1425,7 @@ class Client(BaseClient):
         * Detach the policy from all users, groups, and roles that the policy is attached to, using the  DetachUserPolicy ,  DetachGroupPolicy , or  DetachRolePolicy API operations. To list all the users, groups, and roles that a policy is attached to, use  ListEntitiesForPolicy . 
         * Delete all versions of the policy using  DeletePolicyVersion . To list the policy's versions, use  ListPolicyVersions . You cannot use  DeletePolicyVersion to delete the version that is marked as the default version. You delete the policy's default version in the next step of the process. 
         * Delete the policy (this automatically deletes the policy's default version) using this API. 
-        For information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about managed policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeletePolicy>`_
         
         **Request Syntax**
@@ -1436,7 +1436,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to delete.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -1445,7 +1445,7 @@ class Client(BaseClient):
         """
         Deletes the specified version from the specified managed policy.
         You cannot delete the default version from a policy using this API. To delete the default version from a policy, use  DeletePolicy . To find out which version of a policy is marked as the default version, use  ListPolicyVersions .
-        For information about versions for managed policies, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        For information about versions for managed policies, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeletePolicyVersion>`_
         
         **Request Syntax**
@@ -1457,19 +1457,19 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type VersionId: string
         :param VersionId: **[REQUIRED]**
           The policy version to delete.
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters that consists of the lowercase letter \'v\' followed by one or two digits, and optionally followed by a period \'.\' and a string of letters and digits.
-          For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+          For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         :returns: None
         """
         pass
 
     def delete_role(self, RoleName: str):
         """
-        Deletes the specified role. The role must not have any policies attached. For more information about roles, go to `Working with Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ .
+        Deletes the specified role. The role must not have any policies attached. For more information about roles, go to `Working with Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ .
         .. warning::
           Make sure that you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRole>`_
@@ -1491,7 +1491,7 @@ class Client(BaseClient):
         """
         Deletes the permissions boundary for the specified IAM role. 
         .. warning::
-          Deleting the permissions boundary for a role might increase its permissions by allowing anyone who assumes the role to perform all the actions granted in its permissions policies. 
+          Deleting the permissions boundary for a role might increase its permissions. For example, it might allow anyone who assumes the role to perform all the actions granted in its permissions policies. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePermissionsBoundary>`_
         
         **Request Syntax**
@@ -1509,7 +1509,7 @@ class Client(BaseClient):
     def delete_role_policy(self, RoleName: str, PolicyName: str):
         """
         Deletes the specified inline policy that is embedded in the specified IAM role.
-        A role can also have managed policies attached to it. To detach a managed policy from a role, use  DetachRolePolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A role can also have managed policies attached to it. To detach a managed policy from a role, use  DetachRolePolicy . For more information about policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePolicy>`_
         
         **Request Syntax**
@@ -1535,7 +1535,7 @@ class Client(BaseClient):
         Deletes a SAML provider resource in IAM.
         Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
         .. note::
-          This operation requires `Signature Version 4 <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          This operation requires `Signature Version 4 <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteSAMLProvider>`_
         
         **Request Syntax**
@@ -1553,9 +1553,9 @@ class Client(BaseClient):
     def delete_server_certificate(self, ServerCertificateName: str):
         """
         Deletes the specified server certificate.
-        For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
+        For more information about working with server certificates, see `Working with Server Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
         .. warning::
-          If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn't detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to `DeleteLoadBalancerListeners <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>`__ in the *Elastic Load Balancing API Reference* .
+          If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn't detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to `DeleteLoadBalancerListeners <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>`__ in the *Elastic Load Balancing API Reference* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteServerCertificate>`_
         
         **Request Syntax**
@@ -1575,7 +1575,7 @@ class Client(BaseClient):
         """
         Submits a service-linked role deletion request and returns a ``DeletionTaskId`` , which you can use to check the status of the deletion. Before you call this operation, confirm that the role has no active sessions and that any resources used by the role in the linked service are deleted. If you call this operation more than once for the same service-linked role and an earlier deletion task is not complete, then the ``DeletionTaskId`` of the earlier request is returned.
         If you submit a deletion request for a service-linked role whose linked service is still accessing a resource, then the deletion task fails. If it fails, the  GetServiceLinkedRoleDeletionStatus API operation returns the reason for the failure, usually including the resources that must be deleted. To delete the service-linked role, you must first remove those resources from the linked service and then submit the deletion request again. Resources are specific to the service that is linked to the role. For more information about removing resources from a service, see the `AWS documentation <http://docs.aws.amazon.com/>`__ for your service.
-        For more information about service-linked roles, see `Roles Terms and Concepts\: AWS Service-Linked Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role>`__ in the *IAM User Guide* .
+        For more information about service-linked roles, see `Roles Terms and Concepts\: AWS Service-Linked Role <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteServiceLinkedRole>`_
         
         **Request Syntax**
@@ -1652,7 +1652,7 @@ class Client(BaseClient):
     def delete_ssh_public_key(self, UserName: str, SSHPublicKeyId: str):
         """
         Deletes the specified SSH public key.
-        The SSH public key deleted by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
+        The SSH public key deleted by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteSSHPublicKey>`_
         
         **Request Syntax**
@@ -1675,7 +1675,16 @@ class Client(BaseClient):
 
     def delete_user(self, UserName: str):
         """
-        Deletes the specified IAM user. The user must not belong to any groups or have any access keys, signing certificates, MFA devices enabled for AWS, or attached policies.
+        Deletes the specified IAM user. Unlike the AWS Management Console, when you delete a user programmatically, you must delete the items attached to the user manually, or the deletion fails. For more information, see `Deleting an IAM User <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli>`__ . Before attempting to delete a user, remove the following items:
+        * Password ( DeleteLoginProfile ) 
+        * Access keys ( DeleteAccessKey ) 
+        * Signing certificate ( DeleteSigningCertificate ) 
+        * SSH public key ( DeleteSSHPublicKey ) 
+        * Git credentials ( DeleteServiceSpecificCredential ) 
+        * Multi-factor authentication (MFA) device ( DeactivateMFADevice ,  DeleteVirtualMFADevice ) 
+        * Inline policies ( DeleteUserPolicy ) 
+        * Attached managed policies ( DetachUserPolicy ) 
+        * Group memberships ( RemoveUserFromGroup ) 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUser>`_
         
         **Request Syntax**
@@ -1713,7 +1722,7 @@ class Client(BaseClient):
     def delete_user_policy(self, UserName: str, PolicyName: str):
         """
         Deletes the specified inline policy that is embedded in the specified IAM user.
-        A user can also have managed policies attached to it. To detach a managed policy from a user, use  DetachUserPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A user can also have managed policies attached to it. To detach a managed policy from a user, use  DetachUserPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUserPolicy>`_
         
         **Request Syntax**
@@ -1757,7 +1766,7 @@ class Client(BaseClient):
     def detach_group_policy(self, GroupName: str, PolicyArn: str):
         """
         Removes the specified managed policy from the specified IAM group.
-        A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachGroupPolicy>`_
         
         **Request Syntax**
@@ -1773,7 +1782,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to detach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -1781,7 +1790,7 @@ class Client(BaseClient):
     def detach_role_policy(self, RoleName: str, PolicyArn: str):
         """
         Removes the specified managed policy from the specified role.
-        A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachRolePolicy>`_
         
         **Request Syntax**
@@ -1797,7 +1806,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to detach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -1805,7 +1814,7 @@ class Client(BaseClient):
     def detach_user_policy(self, UserName: str, PolicyArn: str):
         """
         Removes the specified managed policy from the specified user.
-        A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachUserPolicy>`_
         
         **Request Syntax**
@@ -1821,7 +1830,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to detach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -1852,20 +1861,20 @@ class Client(BaseClient):
           An authentication code emitted by the device.
           The format for this parameter is a string of six digits.
           .. warning::
-            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
+            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
         :type AuthenticationCode2: string
         :param AuthenticationCode2: **[REQUIRED]**
           A subsequent authentication code emitted by the device.
           The format for this parameter is a string of six digits.
           .. warning::
-            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
+            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
         :returns: None
         """
         pass
 
     def generate_credential_report(self) -> Dict:
         """
-        Generates a credential report for the AWS account. For more information about the credential report, see `Getting Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ in the *IAM User Guide* .
+        Generates a credential report for the AWS account. For more information about the credential report, see `Getting Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GenerateCredentialReport>`_
         
         **Request Syntax**
@@ -1911,17 +1920,17 @@ class Client(BaseClient):
 
     def generate_service_last_accessed_details(self, Arn: str) -> Dict:
         """
-        Generates a request for a report that includes details about when an IAM resource (user, group, role, or policy) was last used in an attempt to access AWS services. Recent activity usually appears within four hours. IAM reports activity for the last 365 days, or less if your region began supporting this feature within the last year. For more information, see `Regions Where Data Is Tracked <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period>`__ .
+        Generates a request for a report that includes details about when an IAM resource (user, group, role, or policy) was last used in an attempt to access AWS services. Recent activity usually appears within four hours. IAM reports activity for the last 365 days, or less if your Region began supporting this feature within the last year. For more information, see `Regions Where Data Is Tracked <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period>`__ .
         .. warning::
-          The service last accessed data includes all attempts to access an AWS API, not just the successful ones. This includes all attempts that were made using the AWS Management Console, the AWS API through any of the SDKs, or any of the command line tools. An unexpected entry in the service last accessed data does not mean that your account has been compromised, because the request might have been denied. Refer to your CloudTrail logs as the authoritative source for information about all API calls and whether they were successful or denied access. For more information, see `Logging IAM Events with CloudTrail <http://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html>`__ in the *IAM User Guide* .
+          The service last accessed data includes all attempts to access an AWS API, not just the successful ones. This includes all attempts that were made using the AWS Management Console, the AWS API through any of the SDKs, or any of the command line tools. An unexpected entry in the service last accessed data does not mean that your account has been compromised, because the request might have been denied. Refer to your CloudTrail logs as the authoritative source for information about all API calls and whether they were successful or denied access. For more information, see `Logging IAM Events with CloudTrail <https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html>`__ in the *IAM User Guide* .
         The ``GenerateServiceLastAccessedDetails`` operation returns a ``JobId`` . Use this parameter in the following operations to retrieve the following details from your report: 
         *  GetServiceLastAccessedDetails – Use this operation for users, groups, roles, or policies to list every AWS service that the resource could access using permissions policies. For each service, the response includes information about the most recent access attempt.  
         *  GetServiceLastAccessedDetailsWithEntities – Use this operation for groups and policies to list information about the associated entities (users or roles) that attempted to access a specific AWS service.  
         To check the status of the ``GenerateServiceLastAccessedDetails`` request, use the ``JobId`` parameter in the same operations and test the ``JobStatus`` response parameter.
         For additional information about the permissions policies that allow an identity (user, group, or role) to access specific services, use the  ListPoliciesGrantingServiceAccess operation.
         .. note::
-          Service last accessed data does not use other policy types when determining whether a resource could access a service. These other policy types include resource-based policies, access control lists, AWS Organizations policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic. For more about the evaluation of policy types, see `Evaluating Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics>`__ in the *IAM User Guide* .
-        For more information about service last accessed data, see `Reducing Policy Scope by Viewing User Activity <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html>`__ in the *IAM User Guide* .
+          Service last accessed data does not use other policy types when determining whether a resource could access a service. These other policy types include resource-based policies, access control lists, AWS Organizations policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic. For more about the evaluation of policy types, see `Evaluating Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics>`__ in the *IAM User Guide* .
+        For more information about service last accessed data, see `Reducing Policy Scope by Viewing User Activity <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GenerateServiceLastAccessedDetails>`_
         
         **Request Syntax**
@@ -1950,7 +1959,7 @@ class Client(BaseClient):
 
     def get_access_key_last_used(self, AccessKeyId: str) -> Dict:
         """
-        Retrieves information about when the specified access key was last used. The information includes the date and time of last use, along with the AWS service and region that were specified in the last request made with that key.
+        Retrieves information about when the specified access key was last used. The information includes the date and time of last use, along with the AWS service and Region that were specified in the last request made with that key.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetAccessKeyLastUsed>`_
         
         **Request Syntax**
@@ -1992,7 +2001,7 @@ class Client(BaseClient):
                 * The user does not have an access key. 
                 * An access key exists but has not been used since IAM began tracking this information. 
                 * There is no sign-in data associated with the user 
-                For more information about AWS regions, see `Regions and Endpoints <http://docs.aws.amazon.com/general/latest/gr/rande.html>`__ in the Amazon Web Services General Reference.
+                For more information about AWS regions, see `Regions and Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html>`__ in the Amazon Web Services General Reference.
         :type AccessKeyId: string
         :param AccessKeyId: **[REQUIRED]**
           The identifier of an access key.
@@ -2177,14 +2186,14 @@ class Client(BaseClient):
                 Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
                 - **Path** *(string) --* 
-                  The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **UserName** *(string) --* 
                   The friendly name identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                 - **UserPolicyList** *(list) --* 
@@ -2204,23 +2213,23 @@ class Client(BaseClient):
                   - *(dict) --* 
                     Contains information about an attached policy.
                     An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                    For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                    For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                     - **PolicyName** *(string) --* 
                       The friendly name of the attached policy.
                     - **PolicyArn** *(string) --* 
                       The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the user.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -2233,14 +2242,14 @@ class Client(BaseClient):
                 Contains information about an IAM group, including all of the group's policies.
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
                 - **Path** *(string) --* 
-                  The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **GroupName** *(string) --* 
                   The friendly name that identifies the group.
                 - **GroupId** *(string) --* 
-                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
                 - **GroupPolicyList** *(list) --* 
@@ -2257,26 +2266,26 @@ class Client(BaseClient):
                   - *(dict) --* 
                     Contains information about an attached policy.
                     An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                    For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                    For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                     - **PolicyName** *(string) --* 
                       The friendly name of the attached policy.
                     - **PolicyArn** *(string) --* 
                       The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
             - **RoleDetailList** *(list) --* 
               A list containing information about IAM roles.
               - *(dict) --* 
                 Contains information about an IAM role, including all of the role's policies.
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
                 - **Path** *(string) --* 
-                  The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **RoleName** *(string) --* 
                   The friendly name that identifies the role.
                 - **RoleId** *(string) --* 
-                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                 - **AssumeRolePolicyDocument** *(string) --* 
@@ -2291,13 +2300,13 @@ class Client(BaseClient):
                     *  ListInstanceProfiles   
                     *  ListInstanceProfilesForRole   
                     - **Path** *(string) --* 
-                      The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **InstanceProfileName** *(string) --* 
                       The name identifying the instance profile.
                     - **InstanceProfileId** *(string) --* 
-                      The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **Arn** *(string) --* 
-                      The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **CreateDate** *(datetime) --* 
                       The date when the instance profile was created.
                     - **Roles** *(list) --* 
@@ -2305,13 +2314,13 @@ class Client(BaseClient):
                       - *(dict) --* 
                         Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                         - **Path** *(string) --* 
-                          The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                          The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                         - **RoleName** *(string) --* 
                           The friendly name that identifies the role.
                         - **RoleId** *(string) --* 
-                          The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                          The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                         - **Arn** *(string) --* 
-                          The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                          The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                         - **CreateDate** *(datetime) --* 
                           The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                         - **AssumeRolePolicyDocument** *(string) --* 
@@ -2322,15 +2331,15 @@ class Client(BaseClient):
                           The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                         - **PermissionsBoundary** *(dict) --* 
                           The ARN of the policy used to set the permissions boundary for the role.
-                          For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                          For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                           - **PermissionsBoundaryType** *(string) --* 
                             The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                           - **PermissionsBoundaryArn** *(string) --* 
                             The ARN of the policy used to set the permissions boundary for the user or role.
                         - **Tags** *(list) --* 
-                          A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                          A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                           - *(dict) --* 
-                            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                             - **Key** *(string) --* 
                               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                             - **Value** *(string) --* 
@@ -2351,23 +2360,23 @@ class Client(BaseClient):
                   - *(dict) --* 
                     Contains information about an attached policy.
                     An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                    For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                    For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                     - **PolicyName** *(string) --* 
                       The friendly name of the attached policy.
                     - **PolicyArn** *(string) --* 
                       The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the role.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -2379,26 +2388,26 @@ class Client(BaseClient):
               - *(dict) --* 
                 Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
-                For more information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name (not ARN) identifying the policy.
                 - **PolicyId** *(string) --* 
                   The stable and unique string identifying the policy.
-                  For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **Path** *(string) --* 
                   The path to the policy.
-                  For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **DefaultVersionId** *(string) --* 
                   The identifier for the version of the policy that is set as the default (operative) version.
-                  For more information about policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *Using IAM* guide. 
+                  For more information about policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *Using IAM* guide. 
                 - **AttachmentCount** *(integer) --* 
                   The number of principal entities (users, groups, and roles) that the policy is attached to.
                 - **PermissionsBoundaryUsageCount** *(integer) --* 
                   The number of entities (users and roles) for which the policy is used as the permissions boundary. 
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **IsAttachable** *(boolean) --* 
                   Specifies whether the policy can be attached to an IAM user, group, or role.
                 - **Description** *(string) --* 
@@ -2413,7 +2422,7 @@ class Client(BaseClient):
                   - *(dict) --* 
                     Contains information about a version of a managed policy.
                     This data type is used as a response element in the  CreatePolicyVersion ,  GetPolicyVersion ,  ListPolicyVersions , and  GetAccountAuthorizationDetails operations. 
-                    For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                    For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                     - **Document** *(string) --* 
                       The policy document.
                       The policy document is returned in the response to the  GetPolicyVersion and  GetAccountAuthorizationDetails operations. It is not returned in the response to the  CreatePolicyVersion or  ListPolicyVersions operations. 
@@ -2448,7 +2457,7 @@ class Client(BaseClient):
 
     def get_account_password_policy(self) -> Dict:
         """
-        Retrieves the password policy for the AWS account. For more information about using a password policy, go to `Managing an IAM Password Policy <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ .
+        Retrieves the password policy for the AWS account. For more information about using a password policy, go to `Managing an IAM Password Policy <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetAccountPasswordPolicy>`_
         
         **Request Syntax**
@@ -2505,7 +2514,7 @@ class Client(BaseClient):
     def get_account_summary(self) -> Dict:
         """
         Retrieves information about IAM entity usage and IAM quotas in the AWS account.
-        For information about limitations on IAM entities, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about limitations on IAM entities, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetAccountSummary>`_
         
         **Request Syntax**
@@ -2607,7 +2616,7 @@ class Client(BaseClient):
         :type PolicySourceArn: string
         :param PolicySourceArn: **[REQUIRED]**
           The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type PolicyInputList: list
         :param PolicyInputList:
           An optional list of additional policies for which you want the list of context keys that are referenced.
@@ -2623,7 +2632,7 @@ class Client(BaseClient):
 
     def get_credential_report(self) -> Dict:
         """
-        Retrieves a credential report for the AWS account. For more information about the credential report, see `Getting Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ in the *IAM User Guide* .
+        Retrieves a credential report for the AWS account. For more information about the credential report, see `Getting Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetCredentialReport>`_
         
         **Request Syntax**
@@ -2705,13 +2714,13 @@ class Client(BaseClient):
             - **Group** *(dict) --* 
               A structure that contains details about the group.
               - **Path** *(string) --* 
-                The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **GroupName** *(string) --* 
                 The friendly name that identifies the group.
               - **GroupId** *(string) --* 
-                The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
             - **Users** *(list) --* 
@@ -2723,32 +2732,32 @@ class Client(BaseClient):
                 *  GetUser   
                 *  ListUsers   
                 - **Path** *(string) --* 
-                  The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **UserName** *(string) --* 
                   The friendly name identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                 - **PasswordLastUsed** *(datetime) --* 
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                   * The user never had a password. 
                   * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                   A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                   This value is returned only in the  GetUser and  ListUsers operations. 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the user.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -2781,7 +2790,7 @@ class Client(BaseClient):
         .. note::
           Policies returned by this API are URL-encoded compliant with `RFC 3986 <https://tools.ietf.org/html/rfc3986>`__ . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the ``decode`` method of the ``java.net.URLDecoder`` utility class in the Java SDK. Other languages and SDKs provide similar functionality.
         An IAM group can also have managed policies attached to it. To retrieve a managed policy document that is attached to a group, use  GetPolicy to determine the policy's default version, then use  GetPolicyVersion to retrieve the policy document.
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetGroupPolicy>`_
         
         **Request Syntax**
@@ -2823,7 +2832,7 @@ class Client(BaseClient):
 
     def get_instance_profile(self, InstanceProfileName: str) -> Dict:
         """
-        Retrieves information about the specified instance profile, including the instance profile's path, GUID, ARN, and role. For more information about instance profiles, see `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ in the *IAM User Guide* .
+        Retrieves information about the specified instance profile, including the instance profile's path, GUID, ARN, and role. For more information about instance profiles, see `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetInstanceProfile>`_
         
         **Request Syntax**
@@ -2872,13 +2881,13 @@ class Client(BaseClient):
             - **InstanceProfile** *(dict) --* 
               A structure containing details about the instance profile.
               - **Path** *(string) --* 
-                The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **InstanceProfileName** *(string) --* 
                 The name identifying the instance profile.
               - **InstanceProfileId** *(string) --* 
-                The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **CreateDate** *(datetime) --* 
                 The date when the instance profile was created.
               - **Roles** *(list) --* 
@@ -2886,13 +2895,13 @@ class Client(BaseClient):
                 - *(dict) --* 
                   Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                   - **Path** *(string) --* 
-                    The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                    The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                   - **RoleName** *(string) --* 
                     The friendly name that identifies the role.
                   - **RoleId** *(string) --* 
-                    The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                    The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                   - **Arn** *(string) --* 
-                    The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                    The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                   - **CreateDate** *(datetime) --* 
                     The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                   - **AssumeRolePolicyDocument** *(string) --* 
@@ -2903,15 +2912,15 @@ class Client(BaseClient):
                     The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                   - **PermissionsBoundary** *(dict) --* 
                     The ARN of the policy used to set the permissions boundary for the role.
-                    For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                    For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                     - **PermissionsBoundaryType** *(string) --* 
                       The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                     - **PermissionsBoundaryArn** *(string) --* 
                       The ARN of the policy used to set the permissions boundary for the user or role.
                   - **Tags** *(list) --* 
-                    A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - *(dict) --* 
-                      A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                      A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                       - **Key** *(string) --* 
                         The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                       - **Value** *(string) --* 
@@ -3010,7 +3019,7 @@ class Client(BaseClient):
         :type OpenIDConnectProviderArn: string
         :param OpenIDConnectProviderArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get information for. You can get a list of OIDC provider resource ARNs by using the  ListOpenIDConnectProviders operation.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :rtype: dict
         :returns:
         """
@@ -3038,7 +3047,7 @@ class Client(BaseClient):
         """
         Retrieves information about the specified managed policy, including the policy's default version and the total number of IAM users, groups, and roles to which the policy is attached. To retrieve the list of the specific users, groups, and roles that the policy is attached to, use the  ListEntitiesForPolicy API. This API returns metadata about the policy. To retrieve the actual policy document for a specific version of the policy, use  GetPolicyVersion .
         This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded with an IAM user, group, or role, use the  GetUserPolicy ,  GetGroupPolicy , or  GetRolePolicy API.
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetPolicy>`_
         
         **Request Syntax**
@@ -3074,20 +3083,20 @@ class Client(BaseClient):
                 The friendly name (not ARN) identifying the policy.
               - **PolicyId** *(string) --* 
                 The stable and unique string identifying the policy.
-                For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
               - **Arn** *(string) --* 
                 The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
               - **Path** *(string) --* 
                 The path to the policy.
-                For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
               - **DefaultVersionId** *(string) --* 
                 The identifier for the version of the policy that is set as the default version.
               - **AttachmentCount** *(integer) --* 
                 The number of entities (users, groups, and roles) that the policy is attached to.
               - **PermissionsBoundaryUsageCount** *(integer) --* 
                 The number of entities (users and roles) for which the policy is used to set the permissions boundary. 
-                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
               - **IsAttachable** *(boolean) --* 
                 Specifies whether the policy can be attached to an IAM user, group, or role.
               - **Description** *(string) --* 
@@ -3101,7 +3110,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the managed policy that you want information about.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :rtype: dict
         :returns:
         """
@@ -3114,8 +3123,8 @@ class Client(BaseClient):
           Policies returned by this API are URL-encoded compliant with `RFC 3986 <https://tools.ietf.org/html/rfc3986>`__ . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the ``decode`` method of the ``java.net.URLDecoder`` utility class in the Java SDK. Other languages and SDKs provide similar functionality.
         To list the available versions for a policy, use  ListPolicyVersions .
         This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded in a user, group, or role, use the  GetUserPolicy ,  GetGroupPolicy , or  GetRolePolicy API.
-        For more information about the types of policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        For more information about the types of policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetPolicyVersion>`_
         
         **Request Syntax**
@@ -3155,7 +3164,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the managed policy that you want information about.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type VersionId: string
         :param VersionId: **[REQUIRED]**
           Identifies the policy version to retrieve.
@@ -3167,7 +3176,7 @@ class Client(BaseClient):
 
     def get_role(self, RoleName: str) -> Dict:
         """
-        Retrieves information about the specified role, including the role's path, GUID, ARN, and the role's trust policy that grants permission to assume the role. For more information about roles, see `Working with Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ .
+        Retrieves information about the specified role, including the role's path, GUID, ARN, and the role's trust policy that grants permission to assume the role. For more information about roles, see `Working with Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ .
         .. note::
           Policies returned by this API are URL-encoded compliant with `RFC 3986 <https://tools.ietf.org/html/rfc3986>`__ . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the ``decode`` method of the ``java.net.URLDecoder`` utility class in the Java SDK. Other languages and SDKs provide similar functionality.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetRole>`_
@@ -3209,13 +3218,13 @@ class Client(BaseClient):
             - **Role** *(dict) --* 
               A structure containing details about the IAM role.
               - **Path** *(string) --* 
-                The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **RoleName** *(string) --* 
                 The friendly name that identifies the role.
               - **RoleId** *(string) --* 
-                The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
               - **AssumeRolePolicyDocument** *(string) --* 
@@ -3226,15 +3235,15 @@ class Client(BaseClient):
                 The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
               - **PermissionsBoundary** *(dict) --* 
                 The ARN of the policy used to set the permissions boundary for the role.
-                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **PermissionsBoundaryType** *(string) --* 
                   The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                 - **PermissionsBoundaryArn** *(string) --* 
                   The ARN of the policy used to set the permissions boundary for the user or role.
               - **Tags** *(list) --* 
-                A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                 - *(dict) --* 
-                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - **Key** *(string) --* 
                     The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                   - **Value** *(string) --* 
@@ -3256,8 +3265,8 @@ class Client(BaseClient):
         .. note::
           Policies returned by this API are URL-encoded compliant with `RFC 3986 <https://tools.ietf.org/html/rfc3986>`__ . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the ``decode`` method of the ``java.net.URLDecoder`` utility class in the Java SDK. Other languages and SDKs provide similar functionality.
         An IAM role can also have managed policies attached to it. To retrieve a managed policy document that is attached to a role, use  GetPolicy to determine the policy's default version, then use  GetPolicyVersion to retrieve the policy document.
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For more information about roles, see `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about roles, see `Using Roles to Delegate Permissions and Federate Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetRolePolicy>`_
         
         **Request Syntax**
@@ -3301,7 +3310,7 @@ class Client(BaseClient):
         """
         Returns the SAML provider metadocument that was uploaded when the IAM SAML provider resource object was created or updated.
         .. note::
-          This operation requires `Signature Version 4 <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          This operation requires `Signature Version 4 <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetSAMLProvider>`_
         
         **Request Syntax**
@@ -3330,7 +3339,7 @@ class Client(BaseClient):
         :type SAMLProviderArn: string
         :param SAMLProviderArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :rtype: dict
         :returns:
         """
@@ -3339,7 +3348,7 @@ class Client(BaseClient):
     def get_server_certificate(self, ServerCertificateName: str) -> Dict:
         """
         Retrieves information about the specified server certificate stored in IAM.
-        For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic includes a list of AWS services that can use the server certificates that you manage with IAM.
+        For more information about working with server certificates, see `Working with Server Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic includes a list of AWS services that can use the server certificates that you manage with IAM.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetServerCertificate>`_
         
         **Request Syntax**
@@ -3373,13 +3382,13 @@ class Client(BaseClient):
               - **ServerCertificateMetadata** *(dict) --* 
                 The meta information of the server certificate, such as its name, path, ID, and ARN.
                 - **Path** *(string) --* 
-                  The path to the server certificate. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the server certificate. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **ServerCertificateName** *(string) --* 
                   The name that identifies the server certificate.
                 - **ServerCertificateId** *(string) --* 
-                  The stable and unique string identifying the server certificate. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the server certificate. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **UploadDate** *(datetime) --* 
                   The date when the server certificate was uploaded.
                 - **Expiration** *(datetime) --* 
@@ -3401,9 +3410,9 @@ class Client(BaseClient):
         """
         After you generate a user, group, role, or policy report using the ``GenerateServiceLastAccessedDetails`` operation, you can use the ``JobId`` parameter in ``GetServiceLastAccessedDetails`` . This operation retrieves the status of your report job and a list of AWS services that the resource (user, group, role, or managed policy) can access.
         .. note::
-          Service last accessed data does not use other policy types when determining whether a resource could access a service. These other policy types include resource-based policies, access control lists, AWS Organizations policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic. For more about the evaluation of policy types, see `Evaluating Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics>`__ in the *IAM User Guide* .
+          Service last accessed data does not use other policy types when determining whether a resource could access a service. These other policy types include resource-based policies, access control lists, AWS Organizations policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic. For more about the evaluation of policy types, see `Evaluating Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics>`__ in the *IAM User Guide* .
         For each service that the resource could access using permissions policies, the operation returns details about the most recent access attempt. If there was no attempt, the service is listed without details about the most recent attempt to access the service. If the operation fails, the ``GetServiceLastAccessedDetails`` operation returns the reason that it failed.
-        The ``GetServiceLastAccessedDetails`` operation returns a list of services that includes the number of entities that have attempted to access the service and the date and time of the last attempt. It also returns the ARN of the following entity, depending on the resource ARN that you used to generate the report:
+        The ``GetServiceLastAccessedDetails`` operation returns a list of services. This list includes the number of entities that have attempted to access the service and the date and time of the last attempt. It also returns the ARN of the following entity, depending on the resource ARN that you used to generate the report:
         * **User** – Returns the user ARN that you used to generate the report 
         * **Group** – Returns the ARN of the group member (user) that last attempted to access the service 
         * **Role** – Returns the role ARN that you used to generate the report 
@@ -3457,16 +3466,16 @@ class Client(BaseClient):
                   The name of the service in which access was attempted.
                 - **LastAuthenticated** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when an authenticated entity most recently attempted to access the service. AWS does not report unauthenticated requests.
-                  This field is null if no IAM entities attempted to access the service within the `reporting period <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period>`__ .
+                  This field is null if no IAM entities attempted to access the service within the `reporting period <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period>`__ .
                 - **ServiceNamespace** *(string) --* 
                   The namespace of the service in which access was attempted.
-                  To learn the service namespace of a service, go to `Actions, Resources, and Condition Keys for AWS Services <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ in the *IAM User Guide* . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, ``(service prefix: a4b)`` . For more information about service namespaces, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *AWS General Reference* .
+                  To learn the service namespace of a service, go to `Actions, Resources, and Condition Keys for AWS Services <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ in the *IAM User Guide* . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, ``(service prefix: a4b)`` . For more information about service namespaces, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *AWS General Reference* .
                 - **LastAuthenticatedEntity** *(string) --* 
                   The ARN of the authenticated entity (user or role) that last attempted to access the service. AWS does not report unauthenticated requests.
-                  This field is null if no IAM entities attempted to access the service within the `reporting period <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period>`__ .
+                  This field is null if no IAM entities attempted to access the service within the `reporting period <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period>`__ .
                 - **TotalAuthenticatedEntities** *(integer) --* 
                   The total number of authenticated entities that have attempted to access the service.
-                  This field is null if no IAM entities attempted to access the service within the `reporting period <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period>`__ .
+                  This field is null if no IAM entities attempted to access the service within the `reporting period <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period>`__ .
             - **JobCompletionDate** *(datetime) --* 
               The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the generated report job was completed or failed.
               This field is null if the job is still in progress, as indicated by a ``JobStatus`` value of ``IN_PROGRESS`` .
@@ -3557,7 +3566,7 @@ class Client(BaseClient):
                   The ``EntityInfo`` object that contains details about the entity (user or role).
                   - **Arn** *(string) --* 
                     The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                    For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                    For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                   - **Name** *(string) --* 
                     The name of the entity (user or role).
                   - **Type** *(string) --* 
@@ -3565,10 +3574,10 @@ class Client(BaseClient):
                   - **Id** *(string) --* 
                     The identifier of the entity (user or role).
                   - **Path** *(string) --* 
-                    The path to the entity (user or role). For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                    The path to the entity (user or role). For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **LastAuthenticated** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests.
-                  This field is null if no IAM entities attempted to access the service within the `reporting period <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period>`__ .
+                  This field is null if no IAM entities attempted to access the service within the `reporting period <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period>`__ .
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **Marker** *(string) --* 
@@ -3585,7 +3594,7 @@ class Client(BaseClient):
         :type ServiceNamespace: string
         :param ServiceNamespace: **[REQUIRED]**
           The service namespace for an AWS service. Provide the service namespace to learn when the IAM entity last attempted to access the specified service.
-          To learn the service namespace for a service, go to `Actions, Resources, and Condition Keys for AWS Services <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ in the *IAM User Guide* and choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, ``(service prefix: a4b)`` . For more information about service namespaces, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *AWS General Reference* .
+          To learn the service namespace for a service, go to `Actions, Resources, and Condition Keys for AWS Services <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ in the *IAM User Guide* . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, ``(service prefix: a4b)`` . For more information about service namespaces, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *AWS General Reference* .
         :type MaxItems: integer
         :param MaxItems:
           Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the ``IsTruncated`` response element is ``true`` .
@@ -3645,7 +3654,7 @@ class Client(BaseClient):
                     The name of the resource that is using the service-linked role.
                     - *(string) --* 
                       The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
         :type DeletionTaskId: string
         :param DeletionTaskId: **[REQUIRED]**
           The deletion task identifier. This identifier is returned by the  DeleteServiceLinkedRole operation in the format ``task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>`` .
@@ -3657,7 +3666,7 @@ class Client(BaseClient):
     def get_ssh_public_key(self, UserName: str, SSHPublicKeyId: str, Encoding: str) -> Dict:
         """
         Retrieves the specified SSH public key, including metadata about the key.
-        The SSH public key retrieved by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
+        The SSH public key retrieved by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetSSHPublicKey>`_
         
         **Request Syntax**
@@ -3755,35 +3764,35 @@ class Client(BaseClient):
             - **User** *(dict) --* 
               A structure containing details about the IAM user.
               .. warning::
-                Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects `last sign-in <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html>`__ dates shown in the IAM console and password last used dates in the `IAM credential report <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html>`__ , and returned by this GetUser API. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.
+                Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects `last sign-in <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html>`__ dates shown in the IAM console and password last used dates in the `IAM credential report <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html>`__ , and returned by this GetUser API. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.
                 You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to AWS in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access AWS programmatically you can refer to access key last used information because it is accurate for all dates. 
               - **Path** *(string) --* 
-                The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
               - **UserName** *(string) --* 
                 The friendly name identifying the user.
               - **UserId** *(string) --* 
-                The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
               - **PasswordLastUsed** *(datetime) --* 
-                The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                 * The user never had a password. 
                 * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                 A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                 This value is returned only in the  GetUser and  ListUsers operations. 
               - **PermissionsBoundary** *(dict) --* 
                 The ARN of the policy used to set the permissions boundary for the user.
-                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **PermissionsBoundaryType** *(string) --* 
                   The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                 - **PermissionsBoundaryArn** *(string) --* 
                   The ARN of the policy used to set the permissions boundary for the user or role.
               - **Tags** *(list) --* 
-                A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                 - *(dict) --* 
-                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - **Key** *(string) --* 
                     The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                   - **Value** *(string) --* 
@@ -3804,8 +3813,8 @@ class Client(BaseClient):
         Retrieves the specified inline policy document that is embedded in the specified IAM user.
         .. note::
           Policies returned by this API are URL-encoded compliant with `RFC 3986 <https://tools.ietf.org/html/rfc3986>`__ . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the ``decode`` method of the ``java.net.URLDecoder`` utility class in the Java SDK. Other languages and SDKs provide similar functionality.
-        An IAM user can also have managed policies attached to it. To retrieve a managed policy document that is attached to a user, use  GetPolicy to determine the policy's default version, then use  GetPolicyVersion to retrieve the policy document.
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        An IAM user can also have managed policies attached to it. To retrieve a managed policy document that is attached to a user, use  GetPolicy to determine the policy's default version. Then use  GetPolicyVersion to retrieve the policy document.
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetUserPolicy>`_
         
         **Request Syntax**
@@ -3926,7 +3935,7 @@ class Client(BaseClient):
 
     def list_account_aliases(self, Marker: str = None, MaxItems: int = None) -> Dict:
         """
-        Lists the account alias associated with the AWS account (Note: you can have only one). For information about using an AWS account alias, see `Using an Alias for Your AWS Account ID <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html>`__ in the *IAM User Guide* .
+        Lists the account alias associated with the AWS account (Note: you can have only one). For information about using an AWS account alias, see `Using an Alias for Your AWS Account ID <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListAccountAliases>`_
         
         **Request Syntax**
@@ -3971,7 +3980,7 @@ class Client(BaseClient):
     def list_attached_group_policies(self, GroupName: str, PathPrefix: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         """
         Lists all managed policies that are attached to the specified IAM group.
-        An IAM group can also have inline policies embedded with it. To list the inline policies for a group, use the  ListGroupPolicies API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        An IAM group can also have inline policies embedded with it. To list the inline policies for a group, use the  ListGroupPolicies API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters. You can use the ``PathPrefix`` parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified group (or none that match the specified path prefix), the operation returns an empty list.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListAttachedGroupPolicies>`_
         
@@ -4005,12 +4014,12 @@ class Client(BaseClient):
               - *(dict) --* 
                 Contains information about an attached policy.
                 An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name of the attached policy.
                 - **PolicyArn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **Marker** *(string) --* 
@@ -4038,7 +4047,7 @@ class Client(BaseClient):
     def list_attached_role_policies(self, RoleName: str, PathPrefix: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         """
         Lists all managed policies that are attached to the specified IAM role.
-        An IAM role can also have inline policies embedded with it. To list the inline policies for a role, use the  ListRolePolicies API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        An IAM role can also have inline policies embedded with it. To list the inline policies for a role, use the  ListRolePolicies API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters. You can use the ``PathPrefix`` parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified role (or none that match the specified path prefix), the operation returns an empty list.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListAttachedRolePolicies>`_
         
@@ -4072,12 +4081,12 @@ class Client(BaseClient):
               - *(dict) --* 
                 Contains information about an attached policy.
                 An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name of the attached policy.
                 - **PolicyArn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **Marker** *(string) --* 
@@ -4105,7 +4114,7 @@ class Client(BaseClient):
     def list_attached_user_policies(self, UserName: str, PathPrefix: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         """
         Lists all managed policies that are attached to the specified IAM user.
-        An IAM user can also have inline policies embedded with it. To list the inline policies for a user, use the  ListUserPolicies API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        An IAM user can also have inline policies embedded with it. To list the inline policies for a user, use the  ListUserPolicies API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters. You can use the ``PathPrefix`` parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified group (or none that match the specified path prefix), the operation returns an empty list.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListAttachedUserPolicies>`_
         
@@ -4139,12 +4148,12 @@ class Client(BaseClient):
               - *(dict) --* 
                 Contains information about an attached policy.
                 An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name of the attached policy.
                 - **PolicyArn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **Marker** *(string) --* 
@@ -4220,31 +4229,31 @@ class Client(BaseClient):
               - *(dict) --* 
                 Contains information about a group that a managed policy is attached to.
                 This data type is used as a response element in the  ListEntitiesForPolicy operation. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **GroupName** *(string) --* 
                   The name (friendly name, not ARN) identifying the group.
                 - **GroupId** *(string) --* 
-                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
+                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
             - **PolicyUsers** *(list) --* 
               A list of IAM users that the policy is attached to.
               - *(dict) --* 
                 Contains information about a user that a managed policy is attached to.
                 This data type is used as a response element in the  ListEntitiesForPolicy operation. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **UserName** *(string) --* 
                   The name (friendly name, not ARN) identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
             - **PolicyRoles** *(list) --* 
               A list of IAM roles that the policy is attached to.
               - *(dict) --* 
                 Contains information about a role that a managed policy is attached to.
                 This data type is used as a response element in the  ListEntitiesForPolicy operation. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **RoleName** *(string) --* 
                   The name (friendly name, not ARN) identifying the role.
                 - **RoleId** *(string) --* 
-                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
+                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **Marker** *(string) --* 
@@ -4252,7 +4261,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type EntityFilter: string
         :param EntityFilter:
           The entity type to use for filtering the results.
@@ -4281,7 +4290,7 @@ class Client(BaseClient):
     def list_group_policies(self, GroupName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         """
         Lists the names of the inline policies that are embedded in the specified IAM group.
-        An IAM group can also have managed policies attached to it. To list the managed policies that are attached to a group, use  ListAttachedGroupPolicies . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        An IAM group can also have managed policies attached to it. To list the managed policies that are attached to a group, use  ListAttachedGroupPolicies . For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters. If there are no inline policies embedded with the specified group, the operation returns an empty list.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListGroupPolicies>`_
         
@@ -4372,13 +4381,13 @@ class Client(BaseClient):
                 *  GetGroup   
                 *  ListGroups   
                 - **Path** *(string) --* 
-                  The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **GroupName** *(string) --* 
                   The friendly name that identifies the group.
                 - **GroupId** *(string) --* 
-                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
             - **IsTruncated** *(boolean) --* 
@@ -4443,13 +4452,13 @@ class Client(BaseClient):
                 *  GetGroup   
                 *  ListGroups   
                 - **Path** *(string) --* 
-                  The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **GroupName** *(string) --* 
                   The friendly name that identifies the group.
                 - **GroupId** *(string) --* 
-                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
             - **IsTruncated** *(boolean) --* 
@@ -4474,7 +4483,7 @@ class Client(BaseClient):
 
     def list_instance_profiles(self, PathPrefix: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         """
-        Lists the instance profiles that have the specified path prefix. If there are none, the operation returns an empty list. For more information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        Lists the instance profiles that have the specified path prefix. If there are none, the operation returns an empty list. For more information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListInstanceProfiles>`_
         
@@ -4537,13 +4546,13 @@ class Client(BaseClient):
                 *  ListInstanceProfiles   
                 *  ListInstanceProfilesForRole   
                 - **Path** *(string) --* 
-                  The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **InstanceProfileName** *(string) --* 
                   The name identifying the instance profile.
                 - **InstanceProfileId** *(string) --* 
-                  The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date when the instance profile was created.
                 - **Roles** *(list) --* 
@@ -4551,13 +4560,13 @@ class Client(BaseClient):
                   - *(dict) --* 
                     Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                     - **Path** *(string) --* 
-                      The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **RoleName** *(string) --* 
                       The friendly name that identifies the role.
                     - **RoleId** *(string) --* 
-                      The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **Arn** *(string) --* 
-                      The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                      The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                     - **CreateDate** *(datetime) --* 
                       The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                     - **AssumeRolePolicyDocument** *(string) --* 
@@ -4568,15 +4577,15 @@ class Client(BaseClient):
                       The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                     - **PermissionsBoundary** *(dict) --* 
                       The ARN of the policy used to set the permissions boundary for the role.
-                      For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                      For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                       - **PermissionsBoundaryType** *(string) --* 
                         The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                       - **PermissionsBoundaryArn** *(string) --* 
                         The ARN of the policy used to set the permissions boundary for the user or role.
                     - **Tags** *(list) --* 
-                      A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                      A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                       - *(dict) --* 
-                        A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                        A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                         - **Key** *(string) --* 
                           The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                         - **Value** *(string) --* 
@@ -4605,7 +4614,7 @@ class Client(BaseClient):
 
     def list_instance_profiles_for_role(self, RoleName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         """
-        Lists the instance profiles that have the specified associated IAM role. If there are none, the operation returns an empty list. For more information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        Lists the instance profiles that have the specified associated IAM role. If there are none, the operation returns an empty list. For more information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListInstanceProfilesForRole>`_
         
@@ -4668,13 +4677,13 @@ class Client(BaseClient):
                 *  ListInstanceProfiles   
                 *  ListInstanceProfilesForRole   
                 - **Path** *(string) --* 
-                  The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **InstanceProfileName** *(string) --* 
                   The name identifying the instance profile.
                 - **InstanceProfileId** *(string) --* 
-                  The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date when the instance profile was created.
                 - **Roles** *(list) --* 
@@ -4682,13 +4691,13 @@ class Client(BaseClient):
                   - *(dict) --* 
                     Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                     - **Path** *(string) --* 
-                      The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **RoleName** *(string) --* 
                       The friendly name that identifies the role.
                     - **RoleId** *(string) --* 
-                      The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **Arn** *(string) --* 
-                      The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                      The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                     - **CreateDate** *(datetime) --* 
                       The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                     - **AssumeRolePolicyDocument** *(string) --* 
@@ -4699,15 +4708,15 @@ class Client(BaseClient):
                       The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                     - **PermissionsBoundary** *(dict) --* 
                       The ARN of the policy used to set the permissions boundary for the role.
-                      For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                      For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                       - **PermissionsBoundaryType** *(string) --* 
                         The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                       - **PermissionsBoundaryArn** *(string) --* 
                         The ARN of the policy used to set the permissions boundary for the user or role.
                     - **Tags** *(list) --* 
-                      A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                      A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                       - *(dict) --* 
-                        A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                        A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                         - **Key** *(string) --* 
                           The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                         - **Value** *(string) --* 
@@ -4824,7 +4833,7 @@ class Client(BaseClient):
                 Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect provider.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
         :rtype: dict
         :returns:
         """
@@ -4835,7 +4844,7 @@ class Client(BaseClient):
         Lists all the managed policies that are available in your AWS account, including your own customer-defined managed policies and all AWS managed policies.
         You can filter the list of policies that is returned using the optional ``OnlyAttached`` , ``Scope`` , and ``PathPrefix`` parameters. For example, to list only the customer managed policies in your AWS account, set ``Scope`` to ``Local`` . To list only AWS managed policies, set ``Scope`` to ``AWS`` .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters.
-        For more information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about managed policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListPolicies>`_
         
         **Request Syntax**
@@ -4879,25 +4888,25 @@ class Client(BaseClient):
               - *(dict) --* 
                 Contains information about a managed policy.
                 This data type is used as a response element in the  CreatePolicy ,  GetPolicy , and  ListPolicies operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name (not ARN) identifying the policy.
                 - **PolicyId** *(string) --* 
                   The stable and unique string identifying the policy.
-                  For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **Path** *(string) --* 
                   The path to the policy.
-                  For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **DefaultVersionId** *(string) --* 
                   The identifier for the version of the policy that is set as the default version.
                 - **AttachmentCount** *(integer) --* 
                   The number of entities (users, groups, and roles) that the policy is attached to.
                 - **PermissionsBoundaryUsageCount** *(integer) --* 
                   The number of entities (users and roles) for which the policy is used to set the permissions boundary. 
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **IsAttachable** *(boolean) --* 
                   Specifies whether the policy can be attached to an IAM user, group, or role.
                 - **Description** *(string) --* 
@@ -4945,12 +4954,12 @@ class Client(BaseClient):
         """
         Retrieves a list of policies that the IAM identity (user, group, or role) can use to access each specified service.
         .. note::
-          This operation does not use other policy types when determining whether a resource could access a service. These other policy types include resource-based policies, access control lists, AWS Organizations policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic. For more about the evaluation of policy types, see `Evaluating Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics>`__ in the *IAM User Guide* .
+          This operation does not use other policy types when determining whether a resource could access a service. These other policy types include resource-based policies, access control lists, AWS Organizations policies, IAM permissions boundaries, and AWS STS assume role policies. It only applies permissions policy logic. For more about the evaluation of policy types, see `Evaluating Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics>`__ in the *IAM User Guide* .
         The list of policies returned by the operation depends on the ARN of the identity that you provide.
         * **User** – The list of policies includes the managed and inline policies that are attached to the user directly. The list also includes any additional managed and inline policies that are attached to the group to which the user belongs.  
         * **Group** – The list of policies includes only the managed and inline policies that are attached to the group directly. Policies that are attached to the group’s user are not included. 
         * **Role** – The list of policies includes only the managed and inline policies that are attached to the role. 
-        For each managed policy, this operation returns the ARN and policy name. For each inline policy, it returns the policy name and the entity to which it is attached. Inline policies do not have an ARN. For more information about these policy types, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For each managed policy, this operation returns the ARN and policy name. For each inline policy, it returns the policy name and the entity to which it is attached. Inline policies do not have an ARN. For more information about these policy types, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html>`__ in the *IAM User Guide* .
         Policies that are attached to users and roles as permissions boundaries are not returned. To view which managed policy is currently used to set the permissions boundary for a user or role, use the  GetUser or  GetRole operations.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListPoliciesGrantingServiceAccess>`_
         
@@ -4994,7 +5003,7 @@ class Client(BaseClient):
                 This data type is used as a response element in the  ListPoliciesGrantingServiceAccess operation.
                 - **ServiceNamespace** *(string) --* 
                   The namespace of the service that was accessed.
-                  To learn the service namespace of a service, go to `Actions, Resources, and Condition Keys for AWS Services <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ in the *IAM User Guide* . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, ``(service prefix: a4b)`` . For more information about service namespaces, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *AWS General Reference* .
+                  To learn the service namespace of a service, go to `Actions, Resources, and Condition Keys for AWS Services <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ in the *IAM User Guide* . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, ``(service prefix: a4b)`` . For more information about service namespaces, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *AWS General Reference* .
                 - **Policies** *(list) --* 
                   The ``PoliciesGrantingServiceAccess`` object that contains details about the policy.
                   - *(dict) --* 
@@ -5003,16 +5012,16 @@ class Client(BaseClient):
                     - **PolicyName** *(string) --* 
                       The policy name.
                     - **PolicyType** *(string) --* 
-                      The policy type. For more information about these policy types, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html>`__ in the *IAM User Guide* .
+                      The policy type. For more information about these policy types, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html>`__ in the *IAM User Guide* .
                     - **PolicyArn** *(string) --* 
                       The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                     - **EntityType** *(string) --* 
                       The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.
-                      This field is null for managed policies. For more information about these policy types, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html>`__ in the *IAM User Guide* .
+                      This field is null for managed policies. For more information about these policy types, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html>`__ in the *IAM User Guide* .
                     - **EntityName** *(string) --* 
                       The name of the entity (user or role) to which the inline policy is attached.
-                      This field is null for managed policies. For more information about these policy types, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html>`__ in the *IAM User Guide* .
+                      This field is null for managed policies. For more information about these policy types, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html>`__ in the *IAM User Guide* .
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **Marker** *(string) --* 
@@ -5026,7 +5035,7 @@ class Client(BaseClient):
         :type ServiceNamespaces: list
         :param ServiceNamespaces: **[REQUIRED]**
           The service namespace for the AWS services whose policies you want to list.
-          To learn the service namespace for a service, go to `Actions, Resources, and Condition Keys for AWS Services <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ in the *IAM User Guide* . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, ``(service prefix: a4b)`` . For more information about service namespaces, see `AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *AWS General Reference* .
+          To learn the service namespace for a service, go to `Actions, Resources, and Condition Keys for AWS Services <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ in the *IAM User Guide* . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, ``(service prefix: a4b)`` . For more information about service namespaces, see `AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces>`__ in the *AWS General Reference* .
           - *(string) --*
         :rtype: dict
         :returns:
@@ -5036,7 +5045,7 @@ class Client(BaseClient):
     def list_policy_versions(self, PolicyArn: str, Marker: str = None, MaxItems: int = None) -> Dict:
         """
         Lists information about the versions of the specified managed policy, including the version that is currently set as the policy's default version.
-        For more information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about managed policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListPolicyVersions>`_
         
         **Request Syntax**
@@ -5067,11 +5076,11 @@ class Client(BaseClient):
             Contains the response to a successful  ListPolicyVersions request. 
             - **Versions** *(list) --* 
               A list of policy versions.
-              For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+              For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
               - *(dict) --* 
                 Contains information about a version of a managed policy.
                 This data type is used as a response element in the  CreatePolicyVersion ,  GetPolicyVersion ,  ListPolicyVersions , and  GetAccountAuthorizationDetails operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **Document** *(string) --* 
                   The policy document.
                   The policy document is returned in the response to the  GetPolicyVersion and  GetAccountAuthorizationDetails operations. It is not returned in the response to the  CreatePolicyVersion or  ListPolicyVersions operations. 
@@ -5090,7 +5099,7 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type Marker: string
         :param Marker:
           Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the ``Marker`` element in the response that you received to indicate where the next call should start.
@@ -5106,7 +5115,7 @@ class Client(BaseClient):
     def list_role_policies(self, RoleName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         """
         Lists the names of the inline policies that are embedded in the specified IAM role.
-        An IAM role can also have managed policies attached to it. To list the managed policies that are attached to a role, use  ListAttachedRolePolicies . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        An IAM role can also have managed policies attached to it. To list the managed policies that are attached to a role, use  ListAttachedRolePolicies . For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters. If there are no inline policies embedded with the specified role, the operation returns an empty list.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListRolePolicies>`_
         
@@ -5156,7 +5165,7 @@ class Client(BaseClient):
 
     def list_role_tags(self, RoleName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         """
-        Lists the tags that are attached to the specified role. The returned list of tags is sorted by tag key. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+        Lists the tags that are attached to the specified role. The returned list of tags is sorted by tag key. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListRoleTags>`_
         
         **Request Syntax**
@@ -5185,7 +5194,7 @@ class Client(BaseClient):
             - **Tags** *(list) --* 
               The list of tags currently that is attached to the role. Each tag consists of a key name and an associated value. If no tags are attached to the specified role, the response contains an empty list.
               - *(dict) --* 
-                A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                 - **Key** *(string) --* 
                   The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                 - **Value** *(string) --* 
@@ -5202,7 +5211,7 @@ class Client(BaseClient):
           This parameter accepts (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :type Marker: string
         :param Marker:
-          Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the ``Marker`` element in the response to indicate where the next call should start.
+          Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the ``Marker`` element in the response that you received to indicate where the next call should start.
         :type MaxItems: integer
         :param MaxItems:
           (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the ``IsTruncated`` response element is ``true`` .
@@ -5214,7 +5223,7 @@ class Client(BaseClient):
 
     def list_roles(self, PathPrefix: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         """
-        Lists the IAM roles that have the specified path prefix. If there are none, the operation returns an empty list. For more information about roles, go to `Working with Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ .
+        Lists the IAM roles that have the specified path prefix. If there are none, the operation returns an empty list. For more information about roles, go to `Working with Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListRoles>`_
         
@@ -5263,13 +5272,13 @@ class Client(BaseClient):
               - *(dict) --* 
                 Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                 - **Path** *(string) --* 
-                  The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **RoleName** *(string) --* 
                   The friendly name that identifies the role.
                 - **RoleId** *(string) --* 
-                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                  The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                 - **AssumeRolePolicyDocument** *(string) --* 
@@ -5280,15 +5289,15 @@ class Client(BaseClient):
                   The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the role.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -5319,7 +5328,7 @@ class Client(BaseClient):
         """
         Lists the SAML provider resource objects defined in IAM in the account.
         .. note::
-          This operation requires `Signature Version 4 <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          This operation requires `Signature Version 4 <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListSAMLProviders>`_
         
         **Request Syntax**
@@ -5360,7 +5369,7 @@ class Client(BaseClient):
         """
         Lists the server certificates stored in IAM that have the specified path prefix. If none exist, the operation returns an empty list.
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters.
-        For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
+        For more information about working with server certificates, see `Working with Server Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListServerCertificates>`_
         
         **Request Syntax**
@@ -5397,13 +5406,13 @@ class Client(BaseClient):
                 Contains information about a server certificate without its certificate body, certificate chain, and private key.
                 This data type is used as a response element in the  UploadServerCertificate and  ListServerCertificates operations. 
                 - **Path** *(string) --* 
-                  The path to the server certificate. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the server certificate. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **ServerCertificateName** *(string) --* 
                   The name that identifies the server certificate.
                 - **ServerCertificateId** *(string) --* 
-                  The stable and unique string identifying the server certificate. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the server certificate. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **UploadDate** *(datetime) --* 
                   The date when the server certificate was uploaded.
                 - **Expiration** *(datetime) --* 
@@ -5430,7 +5439,7 @@ class Client(BaseClient):
 
     def list_service_specific_credentials(self, UserName: str = None, ServiceName: str = None) -> Dict:
         """
-        Returns information about the service-specific credentials associated with the specified IAM user. If none exists, the operation returns an empty list. The service-specific credentials returned by this operation are used only for authenticating the IAM user to a specific service. For more information about using service-specific credentials to authenticate to an AWS service, see `Set Up service-specific credentials <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html>`__ in the AWS CodeCommit User Guide.
+        Returns information about the service-specific credentials associated with the specified IAM user. If none exists, the operation returns an empty list. The service-specific credentials returned by this operation are used only for authenticating the IAM user to a specific service. For more information about using service-specific credentials to authenticate to an AWS service, see `Set Up service-specific credentials <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html>`__ in the AWS CodeCommit User Guide.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListServiceSpecificCredentials>`_
         
         **Request Syntax**
@@ -5487,7 +5496,7 @@ class Client(BaseClient):
 
     def list_signing_certificates(self, UserName: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         """
-        Returns information about the signing certificates associated with the specified IAM user. If there none exists, the operation returns an empty list.
+        Returns information about the signing certificates associated with the specified IAM user. If none exists, the operation returns an empty list.
         Although each user is limited to a small number of signing certificates, you can still paginate the results using the ``MaxItems`` and ``Marker`` parameters.
         If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request for this API. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListSigningCertificates>`_
@@ -5556,8 +5565,8 @@ class Client(BaseClient):
 
     def list_ssh_public_keys(self, UserName: str = None, Marker: str = None, MaxItems: int = None) -> Dict:
         """
-        Returns information about the SSH public keys associated with the specified IAM user. If there none exists, the operation returns an empty list.
-        The SSH public keys returned by this operation are used only for authenticating the IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
+        Returns information about the SSH public keys associated with the specified IAM user. If none exists, the operation returns an empty list.
+        The SSH public keys returned by this operation are used only for authenticating the IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
         Although each user is limited to a small number of keys, you can still paginate the results using the ``MaxItems`` and ``Marker`` parameters.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListSSHPublicKeys>`_
         
@@ -5623,7 +5632,7 @@ class Client(BaseClient):
     def list_user_policies(self, UserName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         """
         Lists the names of the inline policies embedded in the specified IAM user.
-        An IAM user can also have managed policies attached to it. To list the managed policies that are attached to a user, use  ListAttachedUserPolicies . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        An IAM user can also have managed policies attached to it. To list the managed policies that are attached to a user, use  ListAttachedUserPolicies . For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         You can paginate the results using the ``MaxItems`` and ``Marker`` parameters. If there are no inline policies embedded with the specified user, the operation returns an empty list.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListUserPolicies>`_
         
@@ -5673,7 +5682,7 @@ class Client(BaseClient):
 
     def list_user_tags(self, UserName: str, Marker: str = None, MaxItems: int = None) -> Dict:
         """
-        Lists the tags that are attached to the specified user. The returned list of tags is sorted by tag key. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+        Lists the tags that are attached to the specified user. The returned list of tags is sorted by tag key. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ListUserTags>`_
         
         **Request Syntax**
@@ -5702,7 +5711,7 @@ class Client(BaseClient):
             - **Tags** *(list) --* 
               The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified user, the response contains an empty list.
               - *(dict) --* 
-                A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                 - **Key** *(string) --* 
                   The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                 - **Value** *(string) --* 
@@ -5719,7 +5728,7 @@ class Client(BaseClient):
           This parameter accepts (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
         :type Marker: string
         :param Marker:
-          Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the ``Marker`` element in the response to indicate where the next call should start.
+          Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the ``Marker`` element in the response that you received to indicate where the next call should start.
         :type MaxItems: integer
         :param MaxItems:
           (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the ``IsTruncated`` response element is ``true`` .
@@ -5782,32 +5791,32 @@ class Client(BaseClient):
                 *  GetUser   
                 *  ListUsers   
                 - **Path** *(string) --* 
-                  The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **UserName** *(string) --* 
                   The friendly name identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                 - **PasswordLastUsed** *(datetime) --* 
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                   * The user never had a password. 
                   * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                   A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                   This value is returned only in the  GetUser and  ListUsers operations. 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the user.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -5897,32 +5906,32 @@ class Client(BaseClient):
                 - **User** *(dict) --* 
                   The IAM user associated with this virtual MFA device.
                   - **Path** *(string) --* 
-                    The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                    The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                   - **UserName** *(string) --* 
                     The friendly name identifying the user.
                   - **UserId** *(string) --* 
-                    The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                    The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                   - **Arn** *(string) --* 
-                    The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                    The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                   - **CreateDate** *(datetime) --* 
                     The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                   - **PasswordLastUsed** *(datetime) --* 
-                    The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                    The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                     * The user never had a password. 
                     * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                     A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                     This value is returned only in the  GetUser and  ListUsers operations. 
                   - **PermissionsBoundary** *(dict) --* 
                     The ARN of the policy used to set the permissions boundary for the user.
-                    For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                    For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                     - **PermissionsBoundaryType** *(string) --* 
                       The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                     - **PermissionsBoundaryArn** *(string) --* 
                       The ARN of the policy used to set the permissions boundary for the user or role.
                   - **Tags** *(list) --* 
-                    A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - *(dict) --* 
-                      A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                      A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                       - **Key** *(string) --* 
                         The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                       - **Value** *(string) --* 
@@ -5953,10 +5962,10 @@ class Client(BaseClient):
     def put_group_policy(self, GroupName: str, PolicyName: str, PolicyDocument: str):
         """
         Adds or updates an inline policy document that is embedded in the specified IAM group.
-        A user can also have managed policies attached to it. To attach a managed policy to a group, use  AttachGroupPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of inline policies that you can embed in a group, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        A user can also have managed policies attached to it. To attach a managed policy to a group, use  AttachGroupPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of inline policies that you can embed in a group, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. note::
-          Because policy documents can be large, you should use POST rather than GET when calling ``PutGroupPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because policy documents can be large, you should use POST rather than GET when calling ``PutGroupPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutGroupPolicy>`_
         
         **Request Syntax**
@@ -5990,7 +5999,7 @@ class Client(BaseClient):
         Adds or updates the policy that is specified as the IAM role's permissions boundary. You can use an AWS managed policy or a customer managed policy to set the boundary for a role. Use the boundary to control the maximum permissions that the role can have. Setting a permissions boundary is an advanced feature that can affect the permissions for the role.
         You cannot set the boundary for a service-linked role. 
         .. warning::
-          Policies used as permissions boundaries do not provide permissions. You must also attach a permissions policy to the role. To learn how the effective permissions for a role are evaluated, see `IAM JSON Policy Evaluation Logic <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html>`__ in the IAM User Guide. 
+          Policies used as permissions boundaries do not provide permissions. You must also attach a permissions policy to the role. To learn how the effective permissions for a role are evaluated, see `IAM JSON Policy Evaluation Logic <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html>`__ in the IAM User Guide. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePermissionsBoundary>`_
         
         **Request Syntax**
@@ -6012,11 +6021,11 @@ class Client(BaseClient):
     def put_role_policy(self, RoleName: str, PolicyName: str, PolicyDocument: str):
         """
         Adds or updates an inline policy document that is embedded in the specified IAM role.
-        When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
-        A role can also have a managed policy attached to it. To attach a managed policy to a role, use  AttachRolePolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of inline policies that you can embed with a role, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
+        A role can also have a managed policy attached to it. To attach a managed policy to a role, use  AttachRolePolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of inline policies that you can embed with a role, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. note::
-          Because policy documents can be large, you should use POST rather than GET when calling ``PutRolePolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because policy documents can be large, you should use POST rather than GET when calling ``PutRolePolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePolicy>`_
         
         **Request Syntax**
@@ -6049,7 +6058,7 @@ class Client(BaseClient):
         """
         Adds or updates the policy that is specified as the IAM user's permissions boundary. You can use an AWS managed policy or a customer managed policy to set the boundary for a user. Use the boundary to control the maximum permissions that the user can have. Setting a permissions boundary is an advanced feature that can affect the permissions for the user.
         .. warning::
-          Policies that are used as permissions boundaries do not provide permissions. You must also attach a permissions policy to the user. To learn how the effective permissions for a user are evaluated, see `IAM JSON Policy Evaluation Logic <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html>`__ in the IAM User Guide. 
+          Policies that are used as permissions boundaries do not provide permissions. You must also attach a permissions policy to the user. To learn how the effective permissions for a user are evaluated, see `IAM JSON Policy Evaluation Logic <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html>`__ in the IAM User Guide. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutUserPermissionsBoundary>`_
         
         **Request Syntax**
@@ -6071,10 +6080,10 @@ class Client(BaseClient):
     def put_user_policy(self, UserName: str, PolicyName: str, PolicyDocument: str):
         """
         Adds or updates an inline policy document that is embedded in the specified IAM user.
-        An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use  AttachUserPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of inline policies that you can embed in a user, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use  AttachUserPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of inline policies that you can embed in a user, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. note::
-          Because policy documents can be large, you should use POST rather than GET when calling ``PutUserPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because policy documents can be large, you should use POST rather than GET when calling ``PutUserPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutUserPolicy>`_
         
         **Request Syntax**
@@ -6118,7 +6127,7 @@ class Client(BaseClient):
         :type OpenIDConnectProviderArn: string
         :param OpenIDConnectProviderArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the  ListOpenIDConnectProviders operation.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type ClientID: string
         :param ClientID: **[REQUIRED]**
           The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see  CreateOpenIDConnectProvider .
@@ -6131,7 +6140,7 @@ class Client(BaseClient):
         Removes the specified IAM role from the specified EC2 instance profile.
         .. warning::
           Make sure that you do not have any Amazon EC2 instances running with the role you are about to remove from the instance profile. Removing a role from an instance profile that is associated with a running instance might break any applications running on the instance.
-        For more information about IAM roles, go to `Working with Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For more information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        For more information about IAM roles, go to `Working with Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For more information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/RemoveRoleFromInstanceProfile>`_
         
         **Request Syntax**
@@ -6237,7 +6246,7 @@ class Client(BaseClient):
     def resync_mfa_device(self, UserName: str, SerialNumber: str, AuthenticationCode1: str, AuthenticationCode2: str):
         """
         Synchronizes the specified MFA device with its IAM resource object on the AWS servers.
-        For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
+        For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ResyncMFADevice>`_
         
         **Request Syntax**
@@ -6272,7 +6281,7 @@ class Client(BaseClient):
         """
         Sets the specified version of the specified policy as the policy's default (operative) version.
         This operation affects all users, groups, and roles that the policy is attached to. To list the users, groups, and roles that the policy is attached to, use the  ListEntitiesForPolicy API.
-        For information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about managed policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/SetDefaultPolicyVersion>`_
         
         **Request Syntax**
@@ -6284,11 +6293,32 @@ class Client(BaseClient):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type VersionId: string
         :param VersionId: **[REQUIRED]**
           The version of the policy to set as the default (operative) version.
-          For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+          For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        :returns: None
+        """
+        pass
+
+    def set_security_token_service_preferences(self, GlobalEndpointTokenVersion: str):
+        """
+        Sets the specified version of the global endpoint token as the token version used for the AWS account.
+        By default, AWS Security Token Service (STS) is available as a global service, and all STS requests go to a single endpoint at ``https://sts.amazonaws.com`` . AWS recommends using Regional STS endpoints to reduce latency, build in redundancy, and increase session token availability. For information about Regional endpoints for STS, see `AWS Regions and Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region>`__ in the *AWS General Reference* .
+        If you make an STS call to the global endpoint, the resulting session tokens might be valid in some Regions but not others. It depends on the version that is set in this operation. Version 1 tokens are valid only in AWS Regions that are available by default. These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might affect systems where you temporarily store tokens. For information, see `Activating and Deactivating STS in an AWS Region <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *IAM User Guide* .
+        To view the current session token version, see the ``GlobalEndpointTokenVersion`` entry in the response of the  GetAccountSummary operation.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/SetSecurityTokenServicePreferences>`_
+        
+        **Request Syntax**
+        ::
+          response = client.set_security_token_service_preferences(
+              GlobalEndpointTokenVersion='v1Token'|'v2Token'
+          )
+        :type GlobalEndpointTokenVersion: string
+        :param GlobalEndpointTokenVersion: **[REQUIRED]**
+          The version of the global endpoint token. Version 1 tokens are valid only in AWS Regions that are available by default. These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might affect systems where you temporarily store tokens.
+          For information, see `Activating and Deactivating STS in an AWS Region <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html>`__ in the *IAM User Guide* .
         :returns: None
         """
         pass
@@ -6437,7 +6467,7 @@ class Client(BaseClient):
                   - **AllowedByOrganizations** *(boolean) --* 
                     Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user's account.
                 - **EvalDecisionDetails** *(dict) --* 
-                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
+                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
                   - *(string) --* 
                     - *(string) --* 
                 - **ResourceSpecificResults** *(list) --* 
@@ -6483,7 +6513,7 @@ class Client(BaseClient):
               When ``IsTruncated`` is ``true`` , this element is present and contains the value to use for the ``Marker`` parameter in a subsequent pagination request.
         :type PolicyInputList: list
         :param PolicyInputList: **[REQUIRED]**
-          A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the ``ResourcePolicy`` parameter. The policies cannot be \"scope-down\" policies, such as you could include in a call to `GetFederationToken <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html>`__ or one of the `AssumeRole <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html>`__ API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.
+          A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the ``ResourcePolicy`` parameter. The policies cannot be \"scope-down\" policies, such as you could include in a call to `GetFederationToken <https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html>`__ or one of the `AssumeRole <https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html>`__ API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ used to validate this parameter is a string of characters consisting of the following:
           * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range
           * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)
@@ -6491,14 +6521,14 @@ class Client(BaseClient):
           - *(string) --*
         :type ActionNames: list
         :param ActionNames: **[REQUIRED]**
-          A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as ``iam:CreateUser`` .
+          A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as ``iam:CreateUser`` . This operation does not support using wildcards (*) in an action name.
           - *(string) --*
         :type ResourceArns: list
         :param ResourceArns:
           A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value defaults to ``*`` (all resources). Each API in the ``ActionNames`` parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response.
           The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the ``ResourcePolicy`` parameter.
           If you include a ``ResourcePolicy`` , then it must be applicable to all of the resources included in the simulation or you receive an invalid input error.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
           - *(string) --*
         :type ResourcePolicy: string
         :param ResourcePolicy:
@@ -6509,7 +6539,7 @@ class Client(BaseClient):
           * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
         :type ResourceOwner: string
         :param ResourceOwner:
-          An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN, such as an S3 bucket or object. If ``ResourceOwner`` is specified, it is also used as the account owner of any ``ResourcePolicy`` included in the simulation. If the ``ResourceOwner`` parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in ``CallerArn`` . This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user ``CallerArn`` .
+          An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If ``ResourceOwner`` is specified, it is also used as the account owner of any ``ResourcePolicy`` included in the simulation. If the ``ResourceOwner`` parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in ``CallerArn`` . This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user ``CallerArn`` .
           The ARN for an account uses the following syntax: ``arn:aws:iam::*AWS-account-ID* :root`` . For example, to represent the account with the 112233445566 ID, use the following ARN: ``arn:aws:iam::112233445566-ID:root`` .
         :type CallerArn: string
         :param CallerArn:
@@ -6517,7 +6547,7 @@ class Client(BaseClient):
           You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
         :type ContextEntries: list
         :param ContextEntries:
-          A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permission policies, the corresponding value is supplied.
+          A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.
           - *(dict) --*
             Contains information about a condition context key. It includes the name of the key and specifies the value (or values, if the context key supports multiple values) to use in the simulation. This information is used when evaluating the ``Condition`` elements of the input policies.
             This data type is used as an input parameter to ``  SimulateCustomPolicy `` and ``  SimulateCustomPolicy `` .
@@ -6531,7 +6561,7 @@ class Client(BaseClient):
         :type ResourceHandlingOption: string
         :param ResourceHandlingOption:
           Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.
-          Each of the EC2 scenarios requires that you specify instance, image, and security-group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the EC2 scenario options, see `Supported Platforms <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html>`__ in the *Amazon EC2 User Guide* .
+          Each of the EC2 scenarios requires that you specify instance, image, and security-group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the EC2 scenario options, see `Supported Platforms <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html>`__ in the *Amazon EC2 User Guide* .
           * **EC2-Classic-InstanceStore**   instance, image, security-group
           * **EC2-Classic-EBS**   instance, image, security-group, volume
           * **EC2-VPC-InstanceStore**   instance, image, security-group, network-interface
@@ -6555,7 +6585,7 @@ class Client(BaseClient):
         Simulate how a set of IAM policies attached to an IAM entity works with a list of API operations and AWS resources to determine the policies' effective permissions. The entity can be an IAM user, group, or role. If you specify a user, then the simulation also includes all of the policies that are attached to groups that the user belongs to.
         You can optionally include a list of one or more additional policies specified as strings to include in the simulation. If you want to simulate only policies specified as strings, use  SimulateCustomPolicy instead.
         You can also optionally include one resource-based policy to be evaluated with each of the resources included in the simulation.
-        The simulation does not perform the API operations, it only checks the authorization to determine if the simulated policies allow or deny the operations.
+        The simulation does not perform the API operations; it only checks the authorization to determine if the simulated policies allow or deny the operations.
          **Note:** This API discloses information about the permissions granted to other users. If you do not want users to see other user's permissions, then consider allowing them to use  SimulateCustomPolicy instead.
         Context keys are variables maintained by AWS and its services that provide details about the context of an API query request. You can use the ``Condition`` element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use  GetContextKeysForPrincipalPolicy .
         If the output is long, you can use the ``MaxItems`` and ``Marker`` parameters to paginate the results.
@@ -6697,7 +6727,7 @@ class Client(BaseClient):
                   - **AllowedByOrganizations** *(boolean) --* 
                     Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user's account.
                 - **EvalDecisionDetails** *(dict) --* 
-                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
+                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
                   - *(string) --* 
                     - *(string) --* 
                 - **ResourceSpecificResults** *(list) --* 
@@ -6744,7 +6774,7 @@ class Client(BaseClient):
         :type PolicySourceArn: string
         :param PolicySourceArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type PolicyInputList: list
         :param PolicyInputList:
           An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.
@@ -6761,7 +6791,7 @@ class Client(BaseClient):
         :param ResourceArns:
           A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value defaults to ``*`` (all resources). Each API in the ``ActionNames`` parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response.
           The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the ``ResourcePolicy`` parameter.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
           - *(string) --*
         :type ResourcePolicy: string
         :param ResourcePolicy:
@@ -6772,13 +6802,13 @@ class Client(BaseClient):
           * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
         :type ResourceOwner: string
         :param ResourceOwner:
-          An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN, such as an S3 bucket or object. If ``ResourceOwner`` is specified, it is also used as the account owner of any ``ResourcePolicy`` included in the simulation. If the ``ResourceOwner`` parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in ``CallerArn`` . This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user ``CallerArn`` .
+          An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If ``ResourceOwner`` is specified, it is also used as the account owner of any ``ResourcePolicy`` included in the simulation. If the ``ResourceOwner`` parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in ``CallerArn`` . This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user ``CallerArn`` .
         :type CallerArn: string
         :param CallerArn:
           The ARN of the IAM user that you want to specify as the simulated caller of the API operations. If you do not specify a ``CallerArn`` , it defaults to the ARN of the user that you specify in ``PolicySourceArn`` , if you specified a user. If you include both a ``PolicySourceArn`` (for example, ``arn:aws:iam::123456789012:user/David`` ) and a ``CallerArn`` (for example, ``arn:aws:iam::123456789012:user/Bob`` ), the result is that you simulate calling the API operations as Bob, as if Bob had David\'s policies.
           You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
            ``CallerArn`` is required if you include a ``ResourcePolicy`` and the ``PolicySourceArn`` is not the ARN for an IAM user. This is required so that the resource-based policy\'s ``Principal`` element has a value to use in evaluating the policy.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type ContextEntries: list
         :param ContextEntries:
           A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permission policies, the corresponding value is supplied.
@@ -6795,7 +6825,7 @@ class Client(BaseClient):
         :type ResourceHandlingOption: string
         :param ResourceHandlingOption:
           Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.
-          Each of the EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the EC2 scenario options, see `Supported Platforms <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html>`__ in the *Amazon EC2 User Guide* .
+          Each of the EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the EC2 scenario options, see `Supported Platforms <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html>`__ in the *Amazon EC2 User Guide* .
           * **EC2-Classic-InstanceStore**   instance, image, security group
           * **EC2-Classic-EBS**   instance, image, security group, volume
           * **EC2-VPC-InstanceStore**   instance, image, security group, network interface
@@ -6819,12 +6849,12 @@ class Client(BaseClient):
         Adds one or more tags to an IAM role. The role can be a regular role or a service-linked role. If a tag with the same key name already exists, then that tag is overwritten with the new value.
         A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the following:
         * **Administrative grouping and discovery** - Attach tags to resources to aid in organization and search. For example, you could search for all resources with the key name *Project* and the value *MyImportantProject* . Or search for all resources with the key name *Cost Center* and the value *41200* .  
-        * **Access control** - Reference tags in IAM user-based and resource-based policies. You can use tags to restrict access to only an IAM user or role that has a specified tag attached. You can also restrict access to only those resources that have a certain tag attached. For examples of policies that show how to use tags to control access, see `Control Access Using IAM Tags <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html>`__ in the *IAM User Guide* . 
+        * **Access control** - Reference tags in IAM user-based and resource-based policies. You can use tags to restrict access to only an IAM user or role that has a specified tag attached. You can also restrict access to only those resources that have a certain tag attached. For examples of policies that show how to use tags to control access, see `Control Access Using IAM Tags <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html>`__ in the *IAM User Guide* . 
         * **Cost allocation** - Use tags to help track which individuals and teams are using which AWS resources. 
         .. note::
           * Make sure that you have no invalid tags and that you do not exceed the allowed number of tags per role. In either case, the entire request fails and *no* tags are added to the role. 
           * AWS always interprets the tag ``Value`` as a single string. If you need to store an array, you can store comma-separated values in the string. However, you must interpret the value in your code. 
-        For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+        For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/TagRole>`_
         
         **Request Syntax**
@@ -6846,7 +6876,7 @@ class Client(BaseClient):
         :param Tags: **[REQUIRED]**
           The list of tags that you want to attach to the role. Each tag consists of a key name and an associated value. You can specify this with a JSON string.
           - *(dict) --*
-            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
             - **Key** *(string) --* **[REQUIRED]**
               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
             - **Value** *(string) --* **[REQUIRED]**
@@ -6862,12 +6892,12 @@ class Client(BaseClient):
         Adds one or more tags to an IAM user. If a tag with the same key name already exists, then that tag is overwritten with the new value.
         A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the following:
         * **Administrative grouping and discovery** - Attach tags to resources to aid in organization and search. For example, you could search for all resources with the key name *Project* and the value *MyImportantProject* . Or search for all resources with the key name *Cost Center* and the value *41200* .  
-        * **Access control** - Reference tags in IAM user-based and resource-based policies. You can use tags to restrict access to only an IAM requesting user or to a role that has a specified tag attached. You can also restrict access to only those resources that have a certain tag attached. For examples of policies that show how to use tags to control access, see `Control Access Using IAM Tags <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html>`__ in the *IAM User Guide* . 
+        * **Access control** - Reference tags in IAM user-based and resource-based policies. You can use tags to restrict access to only an IAM requesting user or to a role that has a specified tag attached. You can also restrict access to only those resources that have a certain tag attached. For examples of policies that show how to use tags to control access, see `Control Access Using IAM Tags <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html>`__ in the *IAM User Guide* . 
         * **Cost allocation** - Use tags to help track which individuals and teams are using which AWS resources. 
         .. note::
           * Make sure that you have no invalid tags and that you do not exceed the allowed number of tags per role. In either case, the entire request fails and *no* tags are added to the role. 
           * AWS always interprets the tag ``Value`` as a single string. If you need to store an array, you can store comma-separated values in the string. However, you must interpret the value in your code. 
-        For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+        For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/TagUser>`_
         
         **Request Syntax**
@@ -6889,7 +6919,7 @@ class Client(BaseClient):
         :param Tags: **[REQUIRED]**
           The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
           - *(dict) --*
-            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
             - **Key** *(string) --* **[REQUIRED]**
               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
             - **Value** *(string) --* **[REQUIRED]**
@@ -6902,7 +6932,7 @@ class Client(BaseClient):
 
     def untag_role(self, RoleName: str, TagKeys: List):
         """
-        Removes the specified tags from the role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+        Removes the specified tags from the role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UntagRole>`_
         
         **Request Syntax**
@@ -6927,7 +6957,7 @@ class Client(BaseClient):
 
     def untag_user(self, UserName: str, TagKeys: List):
         """
-        Removes the specified tags from the user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+        Removes the specified tags from the user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UntagUser>`_
         
         **Request Syntax**
@@ -6953,8 +6983,8 @@ class Client(BaseClient):
     def update_access_key(self, AccessKeyId: str, Status: str, UserName: str = None):
         """
         Changes the status of the specified access key from Active to Inactive, or vice versa. This operation can be used to disable a user's key as part of a key rotation workflow.
-        If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
-        For information about rotating keys, see `Managing Keys and Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
+        If the ``UserName`` is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+        For information about rotating keys, see `Managing Keys and Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAccessKey>`_
         
         **Request Syntax**
@@ -6984,7 +7014,7 @@ class Client(BaseClient):
         Updates the password policy settings for the AWS account.
         .. note::
           * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter's value reverts to its default value. See the **Request Parameters** section for each parameter's default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
-        For more information about using a password policy, see `Managing an IAM Password Policy <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
+        For more information about using a password policy, see `Managing an IAM Password Policy <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAccountPasswordPolicy>`_
         
         **Request Syntax**
@@ -7023,7 +7053,7 @@ class Client(BaseClient):
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that passwords do not require at least one lowercase character.
         :type AllowUsersToChangePassword: boolean
         :param AllowUsersToChangePassword:
-          Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see `Letting IAM Users Change Their Own Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html>`__ in the *IAM User Guide* .
+          Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see `Letting IAM Users Change Their Own Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html>`__ in the *IAM User Guide* .
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that IAM users in the account do not automatically have permissions to change their own password.
         :type MaxPasswordAge: integer
         :param MaxPasswordAge:
@@ -7043,7 +7073,7 @@ class Client(BaseClient):
 
     def update_assume_role_policy(self, RoleName: str, PolicyDocument: str):
         """
-        Updates the policy that grants an IAM entity permission to assume a role. This is typically referred to as the "role trust policy". For more information about roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
+        Updates the policy that grants an IAM entity permission to assume a role. This is typically referred to as the "role trust policy". For more information about roles, go to `Using Roles to Delegate Permissions and Federate Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAssumeRolePolicy>`_
         
         **Request Syntax**
@@ -7071,9 +7101,9 @@ class Client(BaseClient):
         """
         Updates the name and/or the path of the specified IAM group.
         .. warning::
-          You should understand the implications of changing a group's path or name. For more information, see `Renaming Users and Groups <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html>`__ in the *IAM User Guide* .
+          You should understand the implications of changing a group's path or name. For more information, see `Renaming Users and Groups <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html>`__ in the *IAM User Guide* .
         .. note::
-          The person making the request (the principal), must have permission to change the role group with the old name and the new name. For example, to change the group named ``Managers`` to ``MGRs`` , the principal must have a policy that allows them to update both groups. If the principal has permission to update the ``Managers`` group, but not the ``MGRs`` group, then the update fails. For more information about permissions, see `Access Management <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html>`__ . 
+          The person making the request (the principal), must have permission to change the role group with the old name and the new name. For example, to change the group named ``Managers`` to ``MGRs`` , the principal must have a policy that allows them to update both groups. If the principal has permission to update the ``Managers`` group, but not the ``MGRs`` group, then the update fails. For more information about permissions, see `Access Management <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateGroup>`_
         
         **Request Syntax**
@@ -7102,7 +7132,7 @@ class Client(BaseClient):
     def update_login_profile(self, UserName: str, Password: str = None, PasswordResetRequired: bool = None):
         """
         Changes the password for the specified IAM user.
-        IAM users can change their own passwords by calling  ChangePassword . For more information about modifying passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
+        IAM users can change their own passwords by calling  ChangePassword . For more information about modifying passwords, see `Managing Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateLoginProfile>`_
         
         **Request Syntax**
@@ -7151,7 +7181,7 @@ class Client(BaseClient):
         :type OpenIDConnectProviderArn: string
         :param OpenIDConnectProviderArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the  ListOpenIDConnectProviders operation.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type ThumbprintList: list
         :param ThumbprintList: **[REQUIRED]**
           A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see  CreateOpenIDConnectProvider .
@@ -7190,7 +7220,7 @@ class Client(BaseClient):
         :type MaxSessionDuration: integer
         :param MaxSessionDuration:
           The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
+          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
         :rtype: dict
         :returns:
         """
@@ -7239,13 +7269,13 @@ class Client(BaseClient):
             - **Role** *(dict) --* 
               A structure that contains details about the modified role.
               - **Path** *(string) --* 
-                The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **RoleName** *(string) --* 
                 The friendly name that identifies the role.
               - **RoleId** *(string) --* 
-                The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
               - **AssumeRolePolicyDocument** *(string) --* 
@@ -7256,15 +7286,15 @@ class Client(BaseClient):
                 The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
               - **PermissionsBoundary** *(dict) --* 
                 The ARN of the policy used to set the permissions boundary for the role.
-                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **PermissionsBoundaryType** *(string) --* 
                   The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                 - **PermissionsBoundaryArn** *(string) --* 
                   The ARN of the policy used to set the permissions boundary for the user or role.
               - **Tags** *(list) --* 
-                A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                 - *(dict) --* 
-                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - **Key** *(string) --* 
                     The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                   - **Value** *(string) --* 
@@ -7286,7 +7316,7 @@ class Client(BaseClient):
         """
         Updates the metadata document for an existing SAML provider resource object.
         .. note::
-          This operation requires `Signature Version 4 <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          This operation requires `Signature Version 4 <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateSAMLProvider>`_
         
         **Request Syntax**
@@ -7313,7 +7343,7 @@ class Client(BaseClient):
         :type SAMLProviderArn: string
         :param SAMLProviderArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the SAML provider to update.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :rtype: dict
         :returns:
         """
@@ -7322,11 +7352,11 @@ class Client(BaseClient):
     def update_server_certificate(self, ServerCertificateName: str, NewPath: str = None, NewServerCertificateName: str = None):
         """
         Updates the name and/or the path of the specified server certificate stored in IAM.
-        For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
+        For more information about working with server certificates, see `Working with Server Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
         .. warning::
-          You should understand the implications of changing a server certificate's path or name. For more information, see `Renaming a Server Certificate <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts>`__ in the *IAM User Guide* .
+          You should understand the implications of changing a server certificate's path or name. For more information, see `Renaming a Server Certificate <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts>`__ in the *IAM User Guide* .
         .. note::
-          The person making the request (the principal), must have permission to change the server certificate with the old name and the new name. For example, to change the certificate named ``ProductionCert`` to ``ProdCert`` , the principal must have a policy that allows them to update both certificates. If the principal has permission to update the ``ProductionCert`` group, but not the ``ProdCert`` certificate, then the update fails. For more information about permissions, see `Access Management <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html>`__ in the *IAM User Guide* .
+          The person making the request (the principal), must have permission to change the server certificate with the old name and the new name. For example, to change the certificate named ``ProductionCert`` to ``ProdCert`` , the principal must have a policy that allows them to update both certificates. If the principal has permission to update the ``ProductionCert`` group, but not the ``ProdCert`` certificate, then the update fails. For more information about permissions, see `Access Management <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateServerCertificate>`_
         
         **Request Syntax**
@@ -7410,7 +7440,7 @@ class Client(BaseClient):
     def update_ssh_public_key(self, UserName: str, SSHPublicKeyId: str, Status: str):
         """
         Sets the status of an IAM user's SSH public key to active or inactive. SSH public keys that are inactive cannot be used for authentication. This operation can be used to disable a user's SSH public key as part of a key rotation work flow.
-        The SSH public key affected by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
+        The SSH public key affected by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateSSHPublicKey>`_
         
         **Request Syntax**
@@ -7439,9 +7469,9 @@ class Client(BaseClient):
         """
         Updates the name and/or the path of the specified IAM user.
         .. warning::
-          You should understand the implications of changing an IAM user's path or name. For more information, see `Renaming an IAM User <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming>`__ and `Renaming an IAM Group <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html>`__ in the *IAM User Guide* .
+          You should understand the implications of changing an IAM user's path or name. For more information, see `Renaming an IAM User <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming>`__ and `Renaming an IAM Group <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html>`__ in the *IAM User Guide* .
         .. note::
-          To change a user name, the requester must have appropriate permissions on both the source object and the target object. For example, to change Bob to Robert, the entity making the request must have permission on Bob and Robert, or must have permission on all (*). For more information about permissions, see `Permissions and Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html>`__ . 
+          To change a user name, the requester must have appropriate permissions on both the source object and the target object. For example, to change Bob to Robert, the entity making the request must have permission on Bob and Robert, or must have permission on all (*). For more information about permissions, see `Permissions and Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateUser>`_
         
         **Request Syntax**
@@ -7470,11 +7500,11 @@ class Client(BaseClient):
     def upload_server_certificate(self, ServerCertificateName: str, CertificateBody: str, PrivateKey: str, Path: str = None, CertificateChain: str = None) -> Dict:
         """
         Uploads a server certificate entity for the AWS account. The server certificate entity includes a public key certificate, a private key, and an optional certificate chain, which should all be PEM-encoded.
-        We recommend that you use `AWS Certificate Manager <http://docs.aws.amazon.com/certificate-manager/>`__ to provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to AWS resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more information about using ACM, see the `AWS Certificate Manager User Guide <http://docs.aws.amazon.com/acm/latest/userguide/>`__ .
-        For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic includes a list of AWS services that can use the server certificates that you manage with IAM.
-        For information about the number of server certificates you can upload, see `Limitations on IAM Entities and Objects <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html>`__ in the *IAM User Guide* .
+        We recommend that you use `AWS Certificate Manager <https://docs.aws.amazon.com/acm/>`__ to provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to AWS resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more information about using ACM, see the `AWS Certificate Manager User Guide <https://docs.aws.amazon.com/acm/latest/userguide/>`__ .
+        For more information about working with server certificates, see `Working with Server Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic includes a list of AWS services that can use the server certificates that you manage with IAM.
+        For information about the number of server certificates you can upload, see `Limitations on IAM Entities and Objects <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html>`__ in the *IAM User Guide* .
         .. note::
-          Because the body of the public key certificate, private key, and the certificate chain can be large, you should use POST rather than GET when calling ``UploadServerCertificate`` . For information about setting up signatures and authorization through the API, go to `Signing AWS API Requests <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html>`__ in the *AWS General Reference* . For general information about using the Query API with IAM, go to `Calling the API by Making HTTP Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html>`__ in the *IAM User Guide* .
+          Because the body of the public key certificate, private key, and the certificate chain can be large, you should use POST rather than GET when calling ``UploadServerCertificate`` . For information about setting up signatures and authorization through the API, go to `Signing AWS API Requests <https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html>`__ in the *AWS General Reference* . For general information about using the Query API with IAM, go to `Calling the API by Making HTTP Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UploadServerCertificate>`_
         
         **Request Syntax**
@@ -7506,20 +7536,20 @@ class Client(BaseClient):
             - **ServerCertificateMetadata** *(dict) --* 
               The meta information of the uploaded server certificate without its certificate body, certificate chain, and private key.
               - **Path** *(string) --* 
-                The path to the server certificate. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the server certificate. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **ServerCertificateName** *(string) --* 
                 The name that identifies the server certificate.
               - **ServerCertificateId** *(string) --* 
-                The stable and unique string identifying the server certificate. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the server certificate. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **UploadDate** *(datetime) --* 
                 The date when the server certificate was uploaded.
               - **Expiration** *(datetime) --* 
                 The date on which the certificate is set to expire.
         :type Path: string
         :param Path:
-          The path for the server certificate. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path for the server certificate. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
           .. note::
             If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the ``path`` parameter. The path must begin with ``/cloudfront`` and must include a trailing slash (for example, ``/cloudfront/test/`` ).
@@ -7556,9 +7586,9 @@ class Client(BaseClient):
     def upload_signing_certificate(self, CertificateBody: str, UserName: str = None) -> Dict:
         """
         Uploads an X.509 signing certificate and associates it with the specified IAM user. Some AWS services use X.509 signing certificates to validate requests that are signed with a corresponding private key. When you upload the certificate, its default status is ``Active`` .
-        If the ``UserName`` field is not specified, the IAM user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+        If the ``UserName`` is not specified, the IAM user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
         .. note::
-          Because the body of an X.509 certificate can be large, you should use POST rather than GET when calling ``UploadSigningCertificate`` . For information about setting up signatures and authorization through the API, go to `Signing AWS API Requests <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html>`__ in the *AWS General Reference* . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because the body of an X.509 certificate can be large, you should use POST rather than GET when calling ``UploadSigningCertificate`` . For information about setting up signatures and authorization through the API, go to `Signing AWS API Requests <https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html>`__ in the *AWS General Reference* . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UploadSigningCertificate>`_
         
         **Request Syntax**
@@ -7614,7 +7644,7 @@ class Client(BaseClient):
     def upload_ssh_public_key(self, UserName: str, SSHPublicKeyBody: str) -> Dict:
         """
         Uploads an SSH public key and associates it with the specified IAM user.
-        The SSH public key uploaded by this operation can be used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
+        The SSH public key uploaded by this operation can be used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see `Set up AWS CodeCommit for SSH Connections <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html>`__ in the *AWS CodeCommit User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UploadSSHPublicKey>`_
         
         **Request Syntax**

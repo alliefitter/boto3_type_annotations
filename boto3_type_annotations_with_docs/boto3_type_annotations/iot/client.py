@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -891,7 +891,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_ota_update(self, otaUpdateId: str, targets: List, files: List, roleArn: str, description: str = None, targetSelection: str = None, awsJobExecutionsRolloutConfig: Dict = None, additionalParameters: Dict = None) -> Dict:
+    def create_ota_update(self, otaUpdateId: str, targets: List, files: List, roleArn: str, description: str = None, targetSelection: str = None, awsJobExecutionsRolloutConfig: Dict = None, additionalParameters: Dict = None, tags: List = None) -> Dict:
         """
         Creates an AWS IoT OTAUpdate on a target group of things or groups.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateOTAUpdate>`_
@@ -959,7 +959,13 @@ class Client(BaseClient):
               roleArn='string',
               additionalParameters={
                   'string': 'string'
-              }
+              },
+              tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -1079,6 +1085,15 @@ class Client(BaseClient):
           A list of additional OTA update parameters which are name-value pairs.
           - *(string) --*
             - *(string) --*
+        :type tags: list
+        :param tags:
+          Metadata which can be used to manage updates.
+          - *(dict) --*
+            A set of key/value pairs that are used to manage the resource.
+            - **Key** *(string) --*
+              The tag\'s key.
+            - **Value** *(string) --*
+              The tag\'s value.
         :rtype: dict
         :returns:
         """
@@ -1412,7 +1427,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_stream(self, streamId: str, files: List, roleArn: str, description: str = None) -> Dict:
+    def create_stream(self, streamId: str, files: List, roleArn: str, description: str = None, tags: List = None) -> Dict:
         """
         Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream. The total size of a file associated with the stream cannot exceed more than 2 MB. The stream will be created with version 0. If a stream is created with the same streamID as a stream that existed and was deleted within last 90 days, we will resurrect that old stream by incrementing the version by 1.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateStream>`_
@@ -1432,7 +1447,13 @@ class Client(BaseClient):
                       }
                   },
               ],
-              roleArn='string'
+              roleArn='string',
+              tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -1478,6 +1499,15 @@ class Client(BaseClient):
         :type roleArn: string
         :param roleArn: **[REQUIRED]**
           An IAM role that allows the IoT service principal assumes to access your S3 files.
+        :type tags: list
+        :param tags:
+          Metadata which can be used to manage streams.
+          - *(dict) --*
+            A set of key/value pairs that are used to manage the resource.
+            - **Key** *(string) --*
+              The tag\'s key.
+            - **Value** *(string) --*
+              The tag\'s value.
         :rtype: dict
         :returns:
         """
@@ -1485,7 +1515,7 @@ class Client(BaseClient):
 
     def create_thing(self, thingName: str, thingTypeName: str = None, attributePayload: Dict = None, billingGroupName: str = None) -> Dict:
         """
-        Creates a thing record in the registry.
+        Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a ``ResourceAlreadyExistsException`` is thrown.
         .. note::
           This is a control plane operation. See `Authorization <https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html>`__ for information about authorizing control plane actions.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateThing>`_
@@ -3382,10 +3412,10 @@ class Client(BaseClient):
               The index status.
             - **schema** *(string) --* 
               Contains a value that specifies the type of indexing performed. Valid values are:
-              * REGISTRY – Your thing index will contain only registry data. 
-              * REGISTRY_AND_SHADOW - Your thing index will contain registry data and shadow data. 
-              * REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index will contain registry data and thing connectivity status data. 
-              * REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index will contain registry data, shadow data, and thing connectivity status data. 
+              * REGISTRY – Your thing index contains only registry data. 
+              * REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data. 
+              * REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and thing connectivity status data. 
+              * REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data. 
         :type indexName: string
         :param indexName: **[REQUIRED]**
           The index name.
@@ -4462,12 +4492,12 @@ class Client(BaseClient):
               Thing indexing configuration.
               - **thingIndexingMode** *(string) --* 
                 Thing indexing mode. Valid values are:
-                * REGISTRY – Your thing index will contain only registry data. 
-                * REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data. 
+                * REGISTRY – Your thing index contains registry data only. 
+                * REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data. 
                 * OFF - Thing indexing is disabled. 
               - **thingConnectivityIndexingMode** *(string) --* 
                 Thing connectivity indexing mode. Valid values are: 
-                * STATUS – Your thing index will contain connectivity status. In order to enable thing connectivity indexing, thingIndexMode must not be set to OFF. 
+                * STATUS – Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF. 
                 * OFF - Thing connectivity status indexing is disabled. 
             - **thingGroupIndexingConfiguration** *(dict) --* 
               The index configuration.
@@ -4880,6 +4910,51 @@ class Client(BaseClient):
             The output from the GetRegistrationCode operation.
             - **registrationCode** *(string) --* 
               The CA certificate registration code.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def get_statistics(self, queryString: str, indexName: str = None, aggregationField: str = None, queryVersion: str = None) -> Dict:
+        """
+        Gets statistics about things that match the specified query.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/GetStatistics>`_
+        
+        **Request Syntax**
+        ::
+          response = client.get_statistics(
+              indexName='string',
+              queryString='string',
+              aggregationField='string',
+              queryVersion='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'statistics': {
+                    'count': 123
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **statistics** *(dict) --* 
+              The statistics returned by the Fleet Indexing service based on the query and aggregation field.
+              - **count** *(integer) --* 
+                The count of things that match the query.
+        :type indexName: string
+        :param indexName:
+          The name of the index to search. The default value is ``AWS_Things`` .
+        :type queryString: string
+        :param queryString: **[REQUIRED]**
+          The query used to search. You can specify \"*\" for the query string to get the count of all indexed things in your AWS account.
+        :type aggregationField: string
+        :param aggregationField:
+          The aggregation field name. Currently not supported.
+        :type queryVersion: string
+        :param queryVersion:
+          The version of the query used to search.
         :rtype: dict
         :returns:
         """
@@ -6242,10 +6317,10 @@ class Client(BaseClient):
               The index names.
               - *(string) --* 
             - **nextToken** *(string) --* 
-              The token used to get the next set of results, or **null** if there are no additional results.
+              The token used to get the next set of results, or null if there are no additional results.
         :type nextToken: string
         :param nextToken:
-          The token used to get the next set of results, or **null** if there are no additional results.
+          The token used to get the next set of results, or null if there are no additional results.
         :type maxResults: integer
         :param maxResults:
           The maximum number of results to return at one time.
@@ -8087,7 +8162,7 @@ class Client(BaseClient):
           The CA certificate used to sign the device certificate being registered.
         :type setAsActive: boolean
         :param setAsActive:
-          A boolean value that specifies if the CA certificate is set to active.
+          A boolean value that specifies if the certificate is set to active.
         :type status: string
         :param status:
           The status of the register certificate request.
@@ -8820,7 +8895,7 @@ class Client(BaseClient):
         **Response Structure**
           - *(dict) --* 
             - **nextToken** *(string) --* 
-              The token used to get the next set of results, or **null** if there are no additional results.
+              The token used to get the next set of results, or null if there are no additional results.
             - **things** *(list) --* 
               The things that match the search query.
               - *(dict) --* 
@@ -8841,11 +8916,11 @@ class Client(BaseClient):
                 - **shadow** *(string) --* 
                   The shadow.
                 - **connectivity** *(dict) --* 
-                  Indicates whether or not the thing is connected to the AWS IoT service.
+                  Indicates whether the thing is connected to the AWS IoT service.
                   - **connected** *(boolean) --* 
-                    True if the thing is connected to the AWS IoT service, false if it is not connected.
+                    True if the thing is connected to the AWS IoT service; false if it is not connected.
                   - **timestamp** *(integer) --* 
-                    The epoch time (in milliseconds) when the thing last connected or disconnected. Note that if the thing has been disconnected for more than a few weeks, the time value can be missing.
+                    The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for more than a few weeks, the time value might be missing.
             - **thingGroups** *(list) --* 
               The thing groups that match the search query.
               - *(dict) --* 
@@ -8871,7 +8946,7 @@ class Client(BaseClient):
           The search query string.
         :type nextToken: string
         :param nextToken:
-          The token used to get the next set of results, or **null** if there are no additional results.
+          The token used to get the next set of results, or null if there are no additional results.
         :type maxResults: integer
         :param maxResults:
           The maximum number of results to return at one time.
@@ -9790,12 +9865,12 @@ class Client(BaseClient):
           Thing indexing configuration.
           - **thingIndexingMode** *(string) --* **[REQUIRED]**
             Thing indexing mode. Valid values are:
-            * REGISTRY – Your thing index will contain only registry data.
-            * REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.
+            * REGISTRY – Your thing index contains registry data only.
+            * REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.
             * OFF - Thing indexing is disabled.
           - **thingConnectivityIndexingMode** *(string) --*
             Thing connectivity indexing mode. Valid values are:
-            * STATUS – Your thing index will contain connectivity status. In order to enable thing connectivity indexing, thingIndexMode must not be set to OFF.
+            * STATUS – Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF.
             * OFF - Thing connectivity status indexing is disabled.
         :type thingGroupIndexingConfiguration: dict
         :param thingGroupIndexingConfiguration:

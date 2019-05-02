@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -23,7 +23,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_channel(self, Id: str, Description: str = None) -> Dict:
+    def create_channel(self, Id: str, Description: str = None, Tags: Dict = None) -> Dict:
         """
         Creates a new Channel.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediapackage-2017-10-12/CreateChannel>`_
@@ -32,7 +32,10 @@ class Client(BaseClient):
         ::
           response = client.create_channel(
               Description='string',
-              Id='string'
+              Id='string',
+              Tags={
+                  'string': 'string'
+              }
           )
         
         **Response Syntax**
@@ -50,7 +53,10 @@ class Client(BaseClient):
                         },
                     ]
                 },
-                'Id': 'string'
+                'Id': 'string',
+                'Tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -65,16 +71,23 @@ class Client(BaseClient):
                   - **Url** *(string) --* The ingest URL to which the source stream should be sent.
                   - **Username** *(string) --* The system generated username for ingest authentication.
             - **Id** *(string) --* The ID of the Channel.
+            - **Tags** *(dict) --* A collection of tags associated with a resource
+              - *(string) --* 
+                - *(string) --* 
         :type Description: string
         :param Description: A short text description of the Channel.
         :type Id: string
         :param Id: **[REQUIRED]** The ID of the Channel. The ID must be unique within the region and it cannot be changed after a Channel is created.
+        :type Tags: dict
+        :param Tags: A collection of tags associated with a resource
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
         pass
 
-    def create_origin_endpoint(self, ChannelId: str, Id: str, CmafPackage: Dict = None, DashPackage: Dict = None, Description: str = None, HlsPackage: Dict = None, ManifestName: str = None, MssPackage: Dict = None, StartoverWindowSeconds: int = None, TimeDelaySeconds: int = None, Whitelist: List = None) -> Dict:
+    def create_origin_endpoint(self, ChannelId: str, Id: str, CmafPackage: Dict = None, DashPackage: Dict = None, Description: str = None, HlsPackage: Dict = None, ManifestName: str = None, MssPackage: Dict = None, StartoverWindowSeconds: int = None, Tags: Dict = None, TimeDelaySeconds: int = None, Whitelist: List = None) -> Dict:
         """
         Creates a new OriginEndpoint record.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediapackage-2017-10-12/CreateOriginEndpoint>`_
@@ -198,6 +211,9 @@ class Client(BaseClient):
                   }
               },
               StartoverWindowSeconds=123,
+              Tags={
+                  'string': 'string'
+              },
               TimeDelaySeconds=123,
               Whitelist=[
                   'string',
@@ -325,6 +341,9 @@ class Client(BaseClient):
                     }
                 },
                 'StartoverWindowSeconds': 123,
+                'Tags': {
+                    'string': 'string'
+                },
                 'TimeDelaySeconds': 123,
                 'Url': 'string',
                 'Whitelist': [
@@ -429,6 +448,9 @@ class Client(BaseClient):
                 - **MinVideoBitsPerSecond** *(integer) --* The minimum video bitrate (bps) to include in output.
                 - **StreamOrder** *(string) --* A directive that determines the order of streams in the output.
             - **StartoverWindowSeconds** *(integer) --* Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint. 
+            - **Tags** *(dict) --* A collection of tags associated with a resource
+              - *(string) --* 
+                - *(string) --* 
             - **TimeDelaySeconds** *(integer) --* Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint. 
             - **Url** *(string) --* The URL of the packaged OriginEndpoint for consumption.
             - **Whitelist** *(list) --* A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
@@ -535,6 +557,10 @@ class Client(BaseClient):
             - **StreamOrder** *(string) --* A directive that determines the order of streams in the output.
         :type StartoverWindowSeconds: integer
         :param StartoverWindowSeconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
+        :type Tags: dict
+        :param Tags: A collection of tags associated with a resource
+          - *(string) --*
+            - *(string) --*
         :type TimeDelaySeconds: integer
         :param TimeDelaySeconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
         :type Whitelist: list
@@ -619,7 +645,10 @@ class Client(BaseClient):
                         },
                     ]
                 },
-                'Id': 'string'
+                'Id': 'string',
+                'Tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -634,6 +663,9 @@ class Client(BaseClient):
                   - **Url** *(string) --* The ingest URL to which the source stream should be sent.
                   - **Username** *(string) --* The system generated username for ingest authentication.
             - **Id** *(string) --* The ID of the Channel.
+            - **Tags** *(dict) --* A collection of tags associated with a resource
+              - *(string) --* 
+                - *(string) --* 
         :type Id: string
         :param Id: **[REQUIRED]** The ID of a Channel.
         :rtype: dict
@@ -773,6 +805,9 @@ class Client(BaseClient):
                     }
                 },
                 'StartoverWindowSeconds': 123,
+                'Tags': {
+                    'string': 'string'
+                },
                 'TimeDelaySeconds': 123,
                 'Url': 'string',
                 'Whitelist': [
@@ -877,6 +912,9 @@ class Client(BaseClient):
                 - **MinVideoBitsPerSecond** *(integer) --* The minimum video bitrate (bps) to include in output.
                 - **StreamOrder** *(string) --* A directive that determines the order of streams in the output.
             - **StartoverWindowSeconds** *(integer) --* Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint. 
+            - **Tags** *(dict) --* A collection of tags associated with a resource
+              - *(string) --* 
+                - *(string) --* 
             - **TimeDelaySeconds** *(integer) --* Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint. 
             - **Url** *(string) --* The URL of the packaged OriginEndpoint for consumption.
             - **Whitelist** *(list) --* A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
@@ -964,7 +1002,10 @@ class Client(BaseClient):
                                 },
                             ]
                         },
-                        'Id': 'string'
+                        'Id': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'NextToken': 'string'
@@ -984,6 +1025,9 @@ class Client(BaseClient):
                       - **Url** *(string) --* The ingest URL to which the source stream should be sent.
                       - **Username** *(string) --* The system generated username for ingest authentication.
                 - **Id** *(string) --* The ID of the Channel.
+                - **Tags** *(dict) --* A collection of tags associated with a resource
+                  - *(string) --* 
+                    - *(string) --* 
             - **NextToken** *(string) --* A token that can be used to resume pagination from the end of the collection.
         :type MaxResults: integer
         :param MaxResults: Upper bound on number of records to return.
@@ -1131,6 +1175,9 @@ class Client(BaseClient):
                             }
                         },
                         'StartoverWindowSeconds': 123,
+                        'Tags': {
+                            'string': 'string'
+                        },
                         'TimeDelaySeconds': 123,
                         'Url': 'string',
                         'Whitelist': [
@@ -1240,6 +1287,9 @@ class Client(BaseClient):
                     - **MinVideoBitsPerSecond** *(integer) --* The minimum video bitrate (bps) to include in output.
                     - **StreamOrder** *(string) --* A directive that determines the order of streams in the output.
                 - **StartoverWindowSeconds** *(integer) --* Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint. 
+                - **Tags** *(dict) --* A collection of tags associated with a resource
+                  - *(string) --* 
+                    - *(string) --* 
                 - **TimeDelaySeconds** *(integer) --* Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint. 
                 - **Url** *(string) --* The URL of the packaged OriginEndpoint for consumption.
                 - **Whitelist** *(list) --* A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
@@ -1250,6 +1300,36 @@ class Client(BaseClient):
         :param MaxResults: The upper bound on the number of records to return.
         :type NextToken: string
         :param NextToken: A token used to resume pagination from the end of a previous request.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediapackage-2017-10-12/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': {
+                    'string': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 200 response
+            - **Tags** *(dict) --* 
+              - *(string) --* 
+                - *(string) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
         :rtype: dict
         :returns:
         """
@@ -1283,7 +1363,10 @@ class Client(BaseClient):
                         },
                     ]
                 },
-                'Id': 'string'
+                'Id': 'string',
+                'Tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1298,6 +1381,9 @@ class Client(BaseClient):
                   - **Url** *(string) --* The ingest URL to which the source stream should be sent.
                   - **Username** *(string) --* The system generated username for ingest authentication.
             - **Id** *(string) --* The ID of the Channel.
+            - **Tags** *(dict) --* A collection of tags associated with a resource
+              - *(string) --* 
+                - *(string) --* 
         :type Id: string
         :param Id: **[REQUIRED]** The ID of the channel to update.
         :rtype: dict
@@ -1332,7 +1418,10 @@ class Client(BaseClient):
                         },
                     ]
                 },
-                'Id': 'string'
+                'Id': 'string',
+                'Tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1347,12 +1436,58 @@ class Client(BaseClient):
                   - **Url** *(string) --* The ingest URL to which the source stream should be sent.
                   - **Username** *(string) --* The system generated username for ingest authentication.
             - **Id** *(string) --* The ID of the Channel.
+            - **Tags** *(dict) --* A collection of tags associated with a resource
+              - *(string) --* 
+                - *(string) --* 
         :type Id: string
         :param Id: **[REQUIRED]** The ID of the channel the IngestEndpoint is on.
         :type IngestEndpointId: string
         :param IngestEndpointId: **[REQUIRED]** The id of the IngestEndpoint whose credentials should be rotated
         :rtype: dict
         :returns:
+        """
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: Dict):
+        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediapackage-2017-10-12/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              Tags={
+                  'string': 'string'
+              }
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+        :type Tags: dict
+        :param Tags: **[REQUIRED]**
+          - *(string) --*
+            - *(string) --*
+        :returns: None
+        """
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
+        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediapackage-2017-10-12/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]** The key(s) of tag to be deleted
+          - *(string) --*
+        :returns: None
         """
         pass
 
@@ -1383,7 +1518,10 @@ class Client(BaseClient):
                         },
                     ]
                 },
-                'Id': 'string'
+                'Id': 'string',
+                'Tags': {
+                    'string': 'string'
+                }
             }
         
         **Response Structure**
@@ -1398,6 +1536,9 @@ class Client(BaseClient):
                   - **Url** *(string) --* The ingest URL to which the source stream should be sent.
                   - **Username** *(string) --* The system generated username for ingest authentication.
             - **Id** *(string) --* The ID of the Channel.
+            - **Tags** *(dict) --* A collection of tags associated with a resource
+              - *(string) --* 
+                - *(string) --* 
         :type Description: string
         :param Description: A short text description of the Channel.
         :type Id: string
@@ -1657,6 +1798,9 @@ class Client(BaseClient):
                     }
                 },
                 'StartoverWindowSeconds': 123,
+                'Tags': {
+                    'string': 'string'
+                },
                 'TimeDelaySeconds': 123,
                 'Url': 'string',
                 'Whitelist': [
@@ -1761,6 +1905,9 @@ class Client(BaseClient):
                 - **MinVideoBitsPerSecond** *(integer) --* The minimum video bitrate (bps) to include in output.
                 - **StreamOrder** *(string) --* A directive that determines the order of streams in the output.
             - **StartoverWindowSeconds** *(integer) --* Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint. 
+            - **Tags** *(dict) --* A collection of tags associated with a resource
+              - *(string) --* 
+                - *(string) --* 
             - **TimeDelaySeconds** *(integer) --* Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint. 
             - **Url** *(string) --* The URL of the packaged OriginEndpoint for consumption.
             - **Whitelist** *(list) --* A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.

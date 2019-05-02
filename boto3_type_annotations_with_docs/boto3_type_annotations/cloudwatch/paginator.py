@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from datetime import datetime
 from botocore.paginate import Paginator
 
@@ -368,6 +368,12 @@ class GetMetricData(Paginator):
                         ]
                     },
                 ],
+                'Messages': [
+                    {
+                        'Code': 'string',
+                        'Value': 'string'
+                    },
+                ]
             }
         
         **Response Structure**
@@ -396,6 +402,15 @@ class GetMetricData(Paginator):
                       The error code or status code associated with the message.
                     - **Value** *(string) --* 
                       The message text.
+            - **Messages** *(list) --* 
+              Contains a message about this ``GetMetricData`` operation, if the operation results in such a message. An example of a message that may be returned is ``Maximum number of allowed metrics exceeded`` . If there is a message, as much of the operation as possible is still executed.
+              A message appears here only if it is related to the global ``GetMetricData`` operation. Any message about a specific metric returned by the operation appears in the ``MetricDataResult`` object returned for that metric.
+              - *(dict) --* 
+                A message returned by the ``GetMetricData`` API, including a code and a description.
+                - **Code** *(string) --* 
+                  The error code or status code associated with the message.
+                - **Value** *(string) --* 
+                  The message text.
         :type MetricDataQueries: list
         :param MetricDataQueries: **[REQUIRED]**
           The metric queries to be returned. A single ``GetMetricData`` call can include as many as 100 ``MetricDataQuery`` structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data.

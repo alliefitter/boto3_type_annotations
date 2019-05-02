@@ -1,8 +1,8 @@
-from typing import List
-from typing import Dict
-from typing import Union
-from typing import Optional
 from boto3.resources.collection import ResourceCollection
+from typing import List
+from typing import Optional
+from typing import Union
+from typing import Dict
 from datetime import datetime
 from boto3.resources import base
 
@@ -263,7 +263,7 @@ class ServiceResource(base.ServiceResource):
     def change_password(self, OldPassword: str, NewPassword: str):
         """
         Changes the password of the IAM user who is calling this operation. The AWS account root user password is not affected by this operation.
-        To change the password for a different user, see  UpdateLoginProfile . For more information about modifying passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
+        To change the password for a different user, see  UpdateLoginProfile . For more information about modifying passwords, see `Managing Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ChangePassword>`_
         
         **Request Syntax**
@@ -285,7 +285,7 @@ class ServiceResource(base.ServiceResource):
 
     def create_account_alias(self, AccountAlias: str):
         """
-        Creates an alias for your AWS account. For information about using an AWS account alias, see `Using an Alias for Your AWS Account ID <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html>`__ in the *IAM User Guide* .
+        Creates an alias for your AWS account. For information about using an AWS account alias, see `Using an Alias for Your AWS Account ID <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateAccountAlias>`_
         
         **Request Syntax**
@@ -306,7 +306,7 @@ class ServiceResource(base.ServiceResource):
         Updates the password policy settings for the AWS account.
         .. note::
           * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter's value reverts to its default value. See the **Request Parameters** section for each parameter's default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
-        For more information about using a password policy, see `Managing an IAM Password Policy <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
+        For more information about using a password policy, see `Managing an IAM Password Policy <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAccountPasswordPolicy>`_
         
         **Request Syntax**
@@ -345,7 +345,7 @@ class ServiceResource(base.ServiceResource):
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that passwords do not require at least one lowercase character.
         :type AllowUsersToChangePassword: boolean
         :param AllowUsersToChangePassword:
-          Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see `Letting IAM Users Change Their Own Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html>`__ in the *IAM User Guide* .
+          Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see `Letting IAM Users Change Their Own Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html>`__ in the *IAM User Guide* .
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that IAM users in the account do not automatically have permissions to change their own password.
         :type MaxPasswordAge: integer
         :param MaxPasswordAge:
@@ -367,7 +367,7 @@ class ServiceResource(base.ServiceResource):
     def create_group(self, GroupName: str, Path: str = None) -> List['Group']:
         """
         Creates a new group.
-        For information about the number of groups you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about the number of groups you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateGroup>`_
         
         **Request Syntax**
@@ -378,7 +378,7 @@ class ServiceResource(base.ServiceResource):
           )
         :type Path: string
         :param Path:
-          The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type GroupName: string
@@ -392,8 +392,8 @@ class ServiceResource(base.ServiceResource):
 
     def create_instance_profile(self, InstanceProfileName: str, Path: str = None) -> 'InstanceProfile':
         """
-        Creates a new instance profile. For information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
-        For information about the number of instance profiles you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        Creates a new instance profile. For information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        For information about the number of instance profiles you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateInstanceProfile>`_
         
         **Request Syntax**
@@ -408,7 +408,7 @@ class ServiceResource(base.ServiceResource):
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :type Path: string
         :param Path:
-          The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :rtype: :py:class:`iam.InstanceProfile`
@@ -419,8 +419,8 @@ class ServiceResource(base.ServiceResource):
     def create_policy(self, PolicyName: str, PolicyDocument: str, Path: str = None, Description: str = None) -> 'Policy':
         """
         Creates a new managed policy for your AWS account.
-        This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
-        For more information about managed policies in general, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        For more information about managed policies in general, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreatePolicy>`_
         
         **Request Syntax**
@@ -438,7 +438,7 @@ class ServiceResource(base.ServiceResource):
         :type Path: string
         :param Path:
           The path for the policy.
-          For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type PolicyDocument: string
@@ -460,7 +460,7 @@ class ServiceResource(base.ServiceResource):
 
     def create_role(self, RoleName: str, AssumeRolePolicyDocument: str, Path: str = None, Description: str = None, MaxSessionDuration: int = None, PermissionsBoundary: str = None, Tags: List = None) -> 'Role':
         """
-        Creates a new role for your AWS account. For more information about roles, go to `IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For information about limitations on role names and the number of roles you can create, go to `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        Creates a new role for your AWS account. For more information about roles, go to `IAM Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For information about limitations on role names and the number of roles you can create, go to `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateRole>`_
         
         **Request Syntax**
@@ -481,7 +481,7 @@ class ServiceResource(base.ServiceResource):
           )
         :type Path: string
         :param Path:
-          The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type RoleName: string
@@ -502,17 +502,17 @@ class ServiceResource(base.ServiceResource):
         :type MaxSessionDuration: integer
         :param MaxSessionDuration:
           The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
+          Anyone who assumes the role from the AWS CLI or API can use the ``DurationSeconds`` API parameter or the ``duration-seconds`` CLI parameter to request a longer session. The ``MaxSessionDuration`` setting determines the maximum duration that can be requested using the ``DurationSeconds`` parameter. If users don\'t specify a value for the ``DurationSeconds`` parameter, their security credentials are valid for one hour by default. This applies when you use the ``AssumeRole*`` API operations or the ``assume-role*`` CLI operations but does not apply when you use those operations to create a console URL. For more information, see `Using IAM Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html>`__ in the *IAM User Guide* .
         :type PermissionsBoundary: string
         :param PermissionsBoundary:
           The ARN of the policy that is used to set the permissions boundary for the role.
         :type Tags: list
         :param Tags:
-          A list of tags that you want to attach to the newly created role. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+          A list of tags that you want to attach to the newly created role. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
           .. note::
             If any one of the tags is invalid or if you exceed the allowed number of tags per role, then the entire request fails and the role is not created.
           - *(dict) --*
-            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
             - **Key** *(string) --* **[REQUIRED]**
               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
             - **Value** *(string) --* **[REQUIRED]**
@@ -527,11 +527,11 @@ class ServiceResource(base.ServiceResource):
     def create_saml_provider(self, SAMLMetadataDocument: str, Name: str) -> 'SamlProvider':
         """
         Creates an IAM resource that describes an identity provider (IdP) that supports SAML 2.0.
-        The SAML provider resource that you create with this operation can be used as a principal in an IAM role's trust policy. Such a policy can enable federated users who sign-in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
+        The SAML provider resource that you create with this operation can be used as a principal in an IAM role's trust policy. Such a policy can enable federated users who sign in using the SAML IdP to assume the role. You can create an IAM role that supports Web-based single sign-on (SSO) to the AWS Management Console or one that supports API access to AWS.
         When you create the SAML provider resource, you upload a SAML metadata document that you get from your IdP. That document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that the IdP sends. You must generate the metadata document using the identity management software that is used as your organization's IdP.
         .. note::
-          This operation requires `Signature Version 4 <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
-        For more information, see `Enabling SAML 2.0 Federated Users to Access the AWS Management Console <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html>`__ and `About SAML 2.0-based Federation <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide* .
+          This operation requires `Signature Version 4 <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+        For more information, see `Enabling SAML 2.0 Federated Users to Access the AWS Management Console <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html>`__ and `About SAML 2.0-based Federation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateSAMLProvider>`_
         
         **Request Syntax**
@@ -543,7 +543,7 @@ class ServiceResource(base.ServiceResource):
         :type SAMLMetadataDocument: string
         :param SAMLMetadataDocument: **[REQUIRED]**
           An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer\'s name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization\'s IdP.
-          For more information, see `About SAML 2.0-based Federation <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide*
+          For more information, see `About SAML 2.0-based Federation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html>`__ in the *IAM User Guide*
         :type Name: string
         :param Name: **[REQUIRED]**
           The name of the provider to create.
@@ -556,11 +556,11 @@ class ServiceResource(base.ServiceResource):
     def create_server_certificate(self, ServerCertificateName: str, CertificateBody: str, PrivateKey: str, Path: str = None, CertificateChain: str = None) -> 'ServerCertificate':
         """
         Uploads a server certificate entity for the AWS account. The server certificate entity includes a public key certificate, a private key, and an optional certificate chain, which should all be PEM-encoded.
-        We recommend that you use `AWS Certificate Manager <http://docs.aws.amazon.com/certificate-manager/>`__ to provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to AWS resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more information about using ACM, see the `AWS Certificate Manager User Guide <http://docs.aws.amazon.com/acm/latest/userguide/>`__ .
-        For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic includes a list of AWS services that can use the server certificates that you manage with IAM.
-        For information about the number of server certificates you can upload, see `Limitations on IAM Entities and Objects <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html>`__ in the *IAM User Guide* .
+        We recommend that you use `AWS Certificate Manager <https://docs.aws.amazon.com/acm/>`__ to provision, manage, and deploy your server certificates. With ACM you can request a certificate, deploy it to AWS resources, and let ACM handle certificate renewals for you. Certificates provided by ACM are free. For more information about using ACM, see the `AWS Certificate Manager User Guide <https://docs.aws.amazon.com/acm/latest/userguide/>`__ .
+        For more information about working with server certificates, see `Working with Server Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic includes a list of AWS services that can use the server certificates that you manage with IAM.
+        For information about the number of server certificates you can upload, see `Limitations on IAM Entities and Objects <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html>`__ in the *IAM User Guide* .
         .. note::
-          Because the body of the public key certificate, private key, and the certificate chain can be large, you should use POST rather than GET when calling ``UploadServerCertificate`` . For information about setting up signatures and authorization through the API, go to `Signing AWS API Requests <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html>`__ in the *AWS General Reference* . For general information about using the Query API with IAM, go to `Calling the API by Making HTTP Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html>`__ in the *IAM User Guide* .
+          Because the body of the public key certificate, private key, and the certificate chain can be large, you should use POST rather than GET when calling ``UploadServerCertificate`` . For information about setting up signatures and authorization through the API, go to `Signing AWS API Requests <https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html>`__ in the *AWS General Reference* . For general information about using the Query API with IAM, go to `Calling the API by Making HTTP Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UploadServerCertificate>`_
         
         **Request Syntax**
@@ -574,7 +574,7 @@ class ServiceResource(base.ServiceResource):
           )
         :type Path: string
         :param Path:
-          The path for the server certificate. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path for the server certificate. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
           .. note::
             If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the ``path`` parameter. The path must begin with ``/cloudfront`` and must include a trailing slash (for example, ``/cloudfront/test/`` ).
@@ -611,9 +611,9 @@ class ServiceResource(base.ServiceResource):
     def create_signing_certificate(self, CertificateBody: str, UserName: str = None) -> 'SigningCertificate':
         """
         Uploads an X.509 signing certificate and associates it with the specified IAM user. Some AWS services use X.509 signing certificates to validate requests that are signed with a corresponding private key. When you upload the certificate, its default status is ``Active`` .
-        If the ``UserName`` field is not specified, the IAM user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+        If the ``UserName`` is not specified, the IAM user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
         .. note::
-          Because the body of an X.509 certificate can be large, you should use POST rather than GET when calling ``UploadSigningCertificate`` . For information about setting up signatures and authorization through the API, go to `Signing AWS API Requests <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html>`__ in the *AWS General Reference* . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because the body of an X.509 certificate can be large, you should use POST rather than GET when calling ``UploadSigningCertificate`` . For information about setting up signatures and authorization through the API, go to `Signing AWS API Requests <https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html>`__ in the *AWS General Reference* . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UploadSigningCertificate>`_
         
         **Request Syntax**
@@ -641,7 +641,7 @@ class ServiceResource(base.ServiceResource):
     def create_user(self, UserName: str, Path: str = None, PermissionsBoundary: str = None, Tags: List = None) -> 'User':
         """
         Creates a new IAM user for your AWS account.
-        For information about limitations on the number of IAM users you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about limitations on the number of IAM users you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateUser>`_
         
         **Request Syntax**
@@ -659,7 +659,7 @@ class ServiceResource(base.ServiceResource):
           )
         :type Path: string
         :param Path:
-          The path for the user name. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path for the user name. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type UserName: string
@@ -671,11 +671,11 @@ class ServiceResource(base.ServiceResource):
           The ARN of the policy that is used to set the permissions boundary for the user.
         :type Tags: list
         :param Tags:
-          A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+          A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
           .. note::
             If any one of the tags is invalid or if you exceed the allowed number of tags per user, then the entire request fails and the user is not created.
           - *(dict) --*
-            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
             - **Key** *(string) --* **[REQUIRED]**
               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
             - **Value** *(string) --* **[REQUIRED]**
@@ -689,10 +689,10 @@ class ServiceResource(base.ServiceResource):
 
     def create_virtual_mfa_device(self, VirtualMFADeviceName: str, Path: str = None) -> 'VirtualMfaDevice':
         """
-        Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use  EnableMFADevice to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of MFA devices you can create, see `Limitations on Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        Creates a new virtual MFA device for the AWS account. After creating the virtual MFA, use  EnableMFADevice to attach the MFA device to an IAM user. For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of MFA devices you can create, see `Limitations on Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. warning::
-          The seed information contained in the QR code and the Base32 string should be treated like any other secret access information, such as your AWS access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.
+          The seed information contained in the QR code and the Base32 string should be treated like any other secret access information. In other words, protect the seed information as you would your AWS access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateVirtualMFADevice>`_
         
         **Request Syntax**
@@ -703,7 +703,7 @@ class ServiceResource(base.ServiceResource):
           )
         :type Path: string
         :param Path:
-          The path for the virtual MFA device. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path for the virtual MFA device. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type VirtualMFADeviceName: string
@@ -736,8 +736,8 @@ class AccessKey(base.ServiceResource):
     def activate(self):
         """
         Changes the status of the specified access key from Active to Inactive, or vice versa. This operation can be used to disable a user's key as part of a key rotation workflow.
-        If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
-        For information about rotating keys, see `Managing Keys and Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
+        If the ``UserName`` is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+        For information about rotating keys, see `Managing Keys and Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAccessKey>`_
         
         **Request Syntax**
@@ -750,8 +750,8 @@ class AccessKey(base.ServiceResource):
     def deactivate(self):
         """
         Changes the status of the specified access key from Active to Inactive, or vice versa. This operation can be used to disable a user's key as part of a key rotation workflow.
-        If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
-        For information about rotating keys, see `Managing Keys and Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
+        If the ``UserName`` is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+        For information about rotating keys, see `Managing Keys and Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAccessKey>`_
         
         **Request Syntax**
@@ -797,8 +797,8 @@ class AccessKeyPair(base.ServiceResource):
     def activate(self):
         """
         Changes the status of the specified access key from Active to Inactive, or vice versa. This operation can be used to disable a user's key as part of a key rotation workflow.
-        If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
-        For information about rotating keys, see `Managing Keys and Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
+        If the ``UserName`` is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+        For information about rotating keys, see `Managing Keys and Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAccessKey>`_
         
         **Request Syntax**
@@ -811,8 +811,8 @@ class AccessKeyPair(base.ServiceResource):
     def deactivate(self):
         """
         Changes the status of the specified access key from Active to Inactive, or vice versa. This operation can be used to disable a user's key as part of a key rotation workflow.
-        If the ``UserName`` field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
-        For information about rotating keys, see `Managing Keys and Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
+        If the ``UserName`` is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+        For information about rotating keys, see `Managing Keys and Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAccessKey>`_
         
         **Request Syntax**
@@ -909,7 +909,7 @@ class AccountPasswordPolicy(base.ServiceResource):
         Updates the password policy settings for the AWS account.
         .. note::
           * This operation does not support partial updates. No parameters are required, but if you do not specify a parameter, that parameter's value reverts to its default value. See the **Request Parameters** section for each parameter's default value. Also note that some parameters do not allow the default parameter to be explicitly set. Instead, to invoke the default value, do not include that parameter when you invoke the operation. 
-        For more information about using a password policy, see `Managing an IAM Password Policy <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
+        For more information about using a password policy, see `Managing an IAM Password Policy <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAccountPasswordPolicy>`_
         
         **Request Syntax**
@@ -948,7 +948,7 @@ class AccountPasswordPolicy(base.ServiceResource):
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that passwords do not require at least one lowercase character.
         :type AllowUsersToChangePassword: boolean
         :param AllowUsersToChangePassword:
-          Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see `Letting IAM Users Change Their Own Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html>`__ in the *IAM User Guide* .
+          Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see `Letting IAM Users Change Their Own Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html>`__ in the *IAM User Guide* .
           If you do not specify a value for this parameter, then the operation uses the default value of ``false`` . The result is that IAM users in the account do not automatically have permissions to change their own password.
         :type MaxPasswordAge: integer
         :param MaxPasswordAge:
@@ -1020,7 +1020,7 @@ class AssumeRolePolicy(base.ServiceResource):
 
     def update(self, PolicyDocument: str):
         """
-        Updates the policy that grants an IAM entity permission to assume a role. This is typically referred to as the "role trust policy". For more information about roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
+        Updates the policy that grants an IAM entity permission to assume a role. This is typically referred to as the "role trust policy". For more information about roles, go to `Using Roles to Delegate Permissions and Federate Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAssumeRolePolicy>`_
         
         **Request Syntax**
@@ -1121,7 +1121,7 @@ class Group(base.ServiceResource):
         """
         Attaches the specified managed policy to the specified IAM group.
         You use this API to attach a managed policy to a group. To embed an inline policy in a group, use  PutGroupPolicy .
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachGroupPolicy>`_
         
         **Request Syntax**
@@ -1132,7 +1132,7 @@ class Group(base.ServiceResource):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to attach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -1140,7 +1140,7 @@ class Group(base.ServiceResource):
     def create(self, Path: str = None) -> List['Group']:
         """
         Creates a new group.
-        For information about the number of groups you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about the number of groups you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateGroup>`_
         
         **Request Syntax**
@@ -1150,7 +1150,7 @@ class Group(base.ServiceResource):
           )
         :type Path: string
         :param Path:
-          The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :rtype: :py:class:`iam.Group`
@@ -1161,10 +1161,10 @@ class Group(base.ServiceResource):
     def create_policy(self, PolicyName: str, PolicyDocument: str) -> 'GroupPolicy':
         """
         Adds or updates an inline policy document that is embedded in the specified IAM group.
-        A user can also have managed policies attached to it. To attach a managed policy to a group, use  AttachGroupPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of inline policies that you can embed in a group, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        A user can also have managed policies attached to it. To attach a managed policy to a group, use  AttachGroupPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of inline policies that you can embed in a group, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. note::
-          Because policy documents can be large, you should use POST rather than GET when calling ``PutGroupPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because policy documents can be large, you should use POST rather than GET when calling ``PutGroupPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutGroupPolicy>`_
         
         **Request Syntax**
@@ -1204,7 +1204,7 @@ class Group(base.ServiceResource):
     def detach_policy(self, PolicyArn: str):
         """
         Removes the specified managed policy from the specified IAM group.
-        A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachGroupPolicy>`_
         
         **Request Syntax**
@@ -1215,7 +1215,7 @@ class Group(base.ServiceResource):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to detach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -1276,9 +1276,9 @@ class Group(base.ServiceResource):
         """
         Updates the name and/or the path of the specified IAM group.
         .. warning::
-          You should understand the implications of changing a group's path or name. For more information, see `Renaming Users and Groups <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html>`__ in the *IAM User Guide* .
+          You should understand the implications of changing a group's path or name. For more information, see `Renaming Users and Groups <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html>`__ in the *IAM User Guide* .
         .. note::
-          The person making the request (the principal), must have permission to change the role group with the old name and the new name. For example, to change the group named ``Managers`` to ``MGRs`` , the principal must have a policy that allows them to update both groups. If the principal has permission to update the ``Managers`` group, but not the ``MGRs`` group, then the update fails. For more information about permissions, see `Access Management <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html>`__ . 
+          The person making the request (the principal), must have permission to change the role group with the old name and the new name. For example, to change the group named ``Managers`` to ``MGRs`` , the principal must have a policy that allows them to update both groups. If the principal has permission to update the ``Managers`` group, but not the ``MGRs`` group, then the update fails. For more information about permissions, see `Access Management <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateGroup>`_
         
         **Request Syntax**
@@ -1310,7 +1310,7 @@ class GroupPolicy(base.ServiceResource):
     def delete(self):
         """
         Deletes the specified inline policy that is embedded in the specified IAM group.
-        A group can also have managed policies attached to it. To detach a managed policy from a group, use  DetachGroupPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A group can also have managed policies attached to it. To detach a managed policy from a group, use  DetachGroupPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteGroupPolicy>`_
         
         **Request Syntax**
@@ -1345,10 +1345,10 @@ class GroupPolicy(base.ServiceResource):
     def put(self, PolicyDocument: str):
         """
         Adds or updates an inline policy document that is embedded in the specified IAM group.
-        A user can also have managed policies attached to it. To attach a managed policy to a group, use  AttachGroupPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of inline policies that you can embed in a group, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        A user can also have managed policies attached to it. To attach a managed policy to a group, use  AttachGroupPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of inline policies that you can embed in a group, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. note::
-          Because policy documents can be large, you should use POST rather than GET when calling ``PutGroupPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because policy documents can be large, you should use POST rather than GET when calling ``PutGroupPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutGroupPolicy>`_
         
         **Request Syntax**
@@ -1391,10 +1391,10 @@ class InstanceProfile(base.ServiceResource):
 
     def add_role(self, RoleName: str):
         """
-        Adds the specified IAM role to the specified instance profile. An instance profile can contain only one role, and this limit cannot be increased. You can remove the existing role and then add a different role to an instance profile. You must then wait for the change to appear across all of AWS because of `eventual consistency <https://en.wikipedia.org/wiki/Eventual_consistency>`__ . To force the change, you must `disassociate the instance profile <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html>`__ and then `associate the instance profile <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html>`__ , or you can stop your instance and then restart it.
+        Adds the specified IAM role to the specified instance profile. An instance profile can contain only one role, and this limit cannot be increased. You can remove the existing role and then add a different role to an instance profile. You must then wait for the change to appear across all of AWS because of `eventual consistency <https://en.wikipedia.org/wiki/Eventual_consistency>`__ . To force the change, you must `disassociate the instance profile <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html>`__ and then `associate the instance profile <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html>`__ , or you can stop your instance and then restart it.
         .. note::
           The caller of this API must be granted the ``PassRole`` permission on the IAM role by a permissions policy.
-        For more information about roles, go to `Working with Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For more information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        For more information about roles, go to `Working with Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For more information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AddRoleToInstanceProfile>`_
         
         **Request Syntax**
@@ -1415,7 +1415,7 @@ class InstanceProfile(base.ServiceResource):
         Deletes the specified instance profile. The instance profile must not have an associated role.
         .. warning::
           Make sure that you do not have any Amazon EC2 instances running with the instance profile you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
-        For more information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        For more information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteInstanceProfile>`_
         
         **Request Syntax**
@@ -1464,7 +1464,7 @@ class InstanceProfile(base.ServiceResource):
         Removes the specified IAM role from the specified EC2 instance profile.
         .. warning::
           Make sure that you do not have any Amazon EC2 instances running with the role you are about to remove from the instance profile. Removing a role from an instance profile that is associated with a running instance might break any applications running on the instance.
-        For more information about IAM roles, go to `Working with Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For more information about instance profiles, go to `About Instance Profiles <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
+        For more information about IAM roles, go to `Working with Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ . For more information about instance profiles, go to `About Instance Profiles <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/RemoveRoleFromInstanceProfile>`_
         
         **Request Syntax**
@@ -1488,7 +1488,7 @@ class LoginProfile(base.ServiceResource):
 
     def create(self, Password: str, PasswordResetRequired: bool = None) -> 'LoginProfile':
         """
-        Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
+        Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see `Managing Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateLoginProfile>`_
         
         **Request Syntax**
@@ -1560,7 +1560,7 @@ class LoginProfile(base.ServiceResource):
     def update(self, Password: str = None, PasswordResetRequired: bool = None):
         """
         Changes the password for the specified IAM user.
-        IAM users can change their own passwords by calling  ChangePassword . For more information about modifying passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
+        IAM users can change their own passwords by calling  ChangePassword . For more information about modifying passwords, see `Managing Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateLoginProfile>`_
         
         **Request Syntax**
@@ -1606,13 +1606,13 @@ class MfaDevice(base.ServiceResource):
           An authentication code emitted by the device. 
           The format for this parameter is a string of six digits.
           .. warning::
-            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
+            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
         :type AuthenticationCode2: string
         :param AuthenticationCode2: **[REQUIRED]** 
           A subsequent authentication code emitted by the device.
           The format for this parameter is a string of six digits.
           .. warning::
-            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
+            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
         :returns: None
         """
         pass
@@ -1620,7 +1620,7 @@ class MfaDevice(base.ServiceResource):
     def disassociate(self):
         """
         Deactivates the specified MFA device and removes it from association with the user name for which it was originally enabled.
-        For more information about creating and working with virtual MFA devices, go to `Enabling a Virtual Multi-factor Authentication (MFA) Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
+        For more information about creating and working with virtual MFA devices, go to `Enabling a Virtual Multi-factor Authentication (MFA) Device <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeactivateMFADevice>`_
         
         **Request Syntax**
@@ -1643,7 +1643,7 @@ class MfaDevice(base.ServiceResource):
     def resync(self, AuthenticationCode1: str, AuthenticationCode2: str):
         """
         Synchronizes the specified MFA device with its IAM resource object on the AWS servers.
-        For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
+        For more information about creating and working with virtual MFA devices, go to `Using a Virtual MFA Device <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/ResyncMFADevice>`_
         
         **Request Syntax**
@@ -1686,7 +1686,7 @@ class Policy(base.ServiceResource):
         """
         Attaches the specified managed policy to the specified IAM group.
         You use this API to attach a managed policy to a group. To embed an inline policy in a group, use  PutGroupPolicy .
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachGroupPolicy>`_
         
         **Request Syntax**
@@ -1707,7 +1707,7 @@ class Policy(base.ServiceResource):
         Attaches the specified managed policy to the specified IAM role. When you attach a managed policy to a role, the managed policy becomes part of the role's permission (access) policy.
         .. note::
           You cannot use a managed policy as the role's trust policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy .
-        Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachRolePolicy>`_
         
         **Request Syntax**
@@ -1727,7 +1727,7 @@ class Policy(base.ServiceResource):
         """
         Attaches the specified managed policy to the specified user.
         You use this API to attach a *managed* policy to a user. To embed an inline policy in a user, use  PutUserPolicy .
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachUserPolicy>`_
         
         **Request Syntax**
@@ -1747,7 +1747,7 @@ class Policy(base.ServiceResource):
         """
         Creates a new version of the specified managed policy. To update a managed policy, you create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using  DeletePolicyVersion before you create a new version.
         Optionally, you can set the new version as the policy's default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
-        For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreatePolicyVersion>`_
         
         **Request Syntax**
@@ -1767,7 +1767,7 @@ class Policy(base.ServiceResource):
         :param SetAsDefault:
           Specifies whether to set this version as the policy\'s default version.
           When this parameter is ``true`` , the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to.
-          For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+          For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         :rtype: :py:class:`iam.PolicyVersion`
         :returns: PolicyVersion resource
         """
@@ -1780,7 +1780,7 @@ class Policy(base.ServiceResource):
         * Detach the policy from all users, groups, and roles that the policy is attached to, using the  DetachUserPolicy ,  DetachGroupPolicy , or  DetachRolePolicy API operations. To list all the users, groups, and roles that a policy is attached to, use  ListEntitiesForPolicy . 
         * Delete all versions of the policy using  DeletePolicyVersion . To list the policy's versions, use  ListPolicyVersions . You cannot use  DeletePolicyVersion to delete the version that is marked as the default version. You delete the policy's default version in the next step of the process. 
         * Delete the policy (this automatically deletes the policy's default version) using this API. 
-        For information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about managed policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeletePolicy>`_
         
         **Request Syntax**
@@ -1793,7 +1793,7 @@ class Policy(base.ServiceResource):
     def detach_group(self, GroupName: str):
         """
         Removes the specified managed policy from the specified IAM group.
-        A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A group can also have inline policies embedded with it. To delete an inline policy, use the  DeleteGroupPolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachGroupPolicy>`_
         
         **Request Syntax**
@@ -1812,7 +1812,7 @@ class Policy(base.ServiceResource):
     def detach_role(self, RoleName: str):
         """
         Removes the specified managed policy from the specified role.
-        A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachRolePolicy>`_
         
         **Request Syntax**
@@ -1831,7 +1831,7 @@ class Policy(base.ServiceResource):
     def detach_user(self, UserName: str):
         """
         Removes the specified managed policy from the specified user.
-        A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachUserPolicy>`_
         
         **Request Syntax**
@@ -1893,7 +1893,7 @@ class PolicyVersion(base.ServiceResource):
         """
         Deletes the specified version from the specified managed policy.
         You cannot delete the default version from a policy using this API. To delete the default version from a policy, use  DeletePolicy . To find out which version of a policy is marked as the default version, use  ListPolicyVersions .
-        For information about versions for managed policies, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+        For information about versions for managed policies, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeletePolicyVersion>`_
         
         **Request Syntax**
@@ -1941,7 +1941,7 @@ class PolicyVersion(base.ServiceResource):
         """
         Sets the specified version of the specified policy as the policy's default (operative) version.
         This operation affects all users, groups, and roles that the policy is attached to. To list the users, groups, and roles that the policy is attached to, use the  ListEntitiesForPolicy API.
-        For information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about managed policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/SetDefaultPolicyVersion>`_
         
         **Request Syntax**
@@ -1973,7 +1973,7 @@ class Role(base.ServiceResource):
         Attaches the specified managed policy to the specified IAM role. When you attach a managed policy to a role, the managed policy becomes part of the role's permission (access) policy.
         .. note::
           You cannot use a managed policy as the role's trust policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy .
-        Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        Use this API to attach a *managed* policy to a role. To embed an inline policy in a role, use  PutRolePolicy . For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachRolePolicy>`_
         
         **Request Syntax**
@@ -1984,14 +1984,14 @@ class Role(base.ServiceResource):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to attach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
 
     def delete(self):
         """
-        Deletes the specified role. The role must not have any policies attached. For more information about roles, go to `Working with Roles <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ .
+        Deletes the specified role. The role must not have any policies attached. For more information about roles, go to `Working with Roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html>`__ .
         .. warning::
           Make sure that you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRole>`_
@@ -2006,7 +2006,7 @@ class Role(base.ServiceResource):
     def detach_policy(self, PolicyArn: str):
         """
         Removes the specified managed policy from the specified role.
-        A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A role can also have inline policies embedded with it. To delete an inline policy, use the  DeleteRolePolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachRolePolicy>`_
         
         **Request Syntax**
@@ -2017,7 +2017,7 @@ class Role(base.ServiceResource):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to detach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -2066,7 +2066,7 @@ class RolePolicy(base.ServiceResource):
     def delete(self):
         """
         Deletes the specified inline policy that is embedded in the specified IAM role.
-        A role can also have managed policies attached to it. To detach a managed policy from a role, use  DetachRolePolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A role can also have managed policies attached to it. To detach a managed policy from a role, use  DetachRolePolicy . For more information about policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePolicy>`_
         
         **Request Syntax**
@@ -2101,11 +2101,11 @@ class RolePolicy(base.ServiceResource):
     def put(self, PolicyDocument: str):
         """
         Adds or updates an inline policy document that is embedded in the specified IAM role.
-        When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
-        A role can also have a managed policy attached to it. To attach a managed policy to a role, use  AttachRolePolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of inline policies that you can embed with a role, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using  CreateRole . You can update a role's trust policy using  UpdateAssumeRolePolicy . For more information about IAM roles, go to `Using Roles to Delegate Permissions and Federate Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html>`__ .
+        A role can also have a managed policy attached to it. To attach a managed policy to a role, use  AttachRolePolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of inline policies that you can embed with a role, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. note::
-          Because policy documents can be large, you should use POST rather than GET when calling ``PutRolePolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because policy documents can be large, you should use POST rather than GET when calling ``PutRolePolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePolicy>`_
         
         **Request Syntax**
@@ -2148,7 +2148,7 @@ class SamlProvider(base.ServiceResource):
         Deletes a SAML provider resource in IAM.
         Deleting the provider resource from IAM does not update any roles that reference the SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume a role that references a non-existent provider resource ARN fails.
         .. note::
-          This operation requires `Signature Version 4 <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          This operation requires `Signature Version 4 <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteSAMLProvider>`_
         
         **Request Syntax**
@@ -2196,7 +2196,7 @@ class SamlProvider(base.ServiceResource):
         """
         Updates the metadata document for an existing SAML provider resource object.
         .. note::
-          This operation requires `Signature Version 4 <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
+          This operation requires `Signature Version 4 <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateSAMLProvider>`_
         
         **Request Syntax**
@@ -2234,9 +2234,9 @@ class ServerCertificate(base.ServiceResource):
     def delete(self):
         """
         Deletes the specified server certificate.
-        For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
+        For more information about working with server certificates, see `Working with Server Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
         .. warning::
-          If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn't detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to `DeleteLoadBalancerListeners <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>`__ in the *Elastic Load Balancing API Reference* .
+          If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn't detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to `DeleteLoadBalancerListeners <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>`__ in the *Elastic Load Balancing API Reference* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteServerCertificate>`_
         
         **Request Syntax**
@@ -2283,11 +2283,11 @@ class ServerCertificate(base.ServiceResource):
     def update(self, NewPath: str = None, NewServerCertificateName: str = None) -> 'ServerCertificate':
         """
         Updates the name and/or the path of the specified server certificate stored in IAM.
-        For more information about working with server certificates, see `Working with Server Certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
+        For more information about working with server certificates, see `Working with Server Certificates <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html>`__ in the *IAM User Guide* . This topic also includes a list of AWS services that can use the server certificates that you manage with IAM.
         .. warning::
-          You should understand the implications of changing a server certificate's path or name. For more information, see `Renaming a Server Certificate <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts>`__ in the *IAM User Guide* .
+          You should understand the implications of changing a server certificate's path or name. For more information, see `Renaming a Server Certificate <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts>`__ in the *IAM User Guide* .
         .. note::
-          The person making the request (the principal), must have permission to change the server certificate with the old name and the new name. For example, to change the certificate named ``ProductionCert`` to ``ProdCert`` , the principal must have a policy that allows them to update both certificates. If the principal has permission to update the ``ProductionCert`` group, but not the ``ProdCert`` certificate, then the update fails. For more information about permissions, see `Access Management <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html>`__ in the *IAM User Guide* .
+          The person making the request (the principal), must have permission to change the server certificate with the old name and the new name. For example, to change the certificate named ``ProductionCert`` to ``ProdCert`` , the principal must have a policy that allows them to update both certificates. If the principal has permission to update the ``ProductionCert`` group, but not the ``ProdCert`` certificate, then the update fails. For more information about permissions, see `Access Management <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateServerCertificate>`_
         
         **Request Syntax**
@@ -2407,7 +2407,7 @@ class User(base.ServiceResource):
         """
         Attaches the specified managed policy to the specified user.
         You use this API to attach a *managed* policy to a user. To embed an inline policy in a user, use  PutUserPolicy .
-        For more information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For more information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachUserPolicy>`_
         
         **Request Syntax**
@@ -2418,7 +2418,7 @@ class User(base.ServiceResource):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to attach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -2426,7 +2426,7 @@ class User(base.ServiceResource):
     def create(self, Path: str = None, PermissionsBoundary: str = None, Tags: List = None) -> 'User':
         """
         Creates a new IAM user for your AWS account.
-        For information about limitations on the number of IAM users you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about limitations on the number of IAM users you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateUser>`_
         
         **Request Syntax**
@@ -2443,7 +2443,7 @@ class User(base.ServiceResource):
           )
         :type Path: string
         :param Path:
-          The path for the user name. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
+          The path for the user name. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* .
           This parameter is optional. If it is not included, it defaults to a slash (/).
           This parameter allows (through its `regex pattern <http://wikipedia.org/wiki/regex>`__ ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
         :type PermissionsBoundary: string
@@ -2451,11 +2451,11 @@ class User(base.ServiceResource):
           The ARN of the policy that is used to set the permissions boundary for the user.
         :type Tags: list
         :param Tags:
-          A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+          A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
           .. note::
             If any one of the tags is invalid or if you exceed the allowed number of tags per user, then the entire request fails and the user is not created.
           - *(dict) --*
-            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
             - **Key** *(string) --* **[REQUIRED]**
               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
             - **Value** *(string) --* **[REQUIRED]**
@@ -2471,7 +2471,7 @@ class User(base.ServiceResource):
         """
         Creates a new AWS secret access key and corresponding AWS access key ID for the specified user. The default status for new keys is ``Active`` .
         If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials. This is true even if the AWS account has no associated users.
-        For information about limits on the number of keys you can create, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of keys you can create, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. warning::
           To ensure the security of your AWS account, the secret access key is accessible only during key and user creation. You must save the key (for example, in a text file) if you want to be able to access it again. If a secret key is lost, you can delete the access keys for the associated user and then create new keys.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateAccessKey>`_
@@ -2486,7 +2486,7 @@ class User(base.ServiceResource):
 
     def create_login_profile(self, Password: str, PasswordResetRequired: bool = None) -> 'LoginProfile':
         """
-        Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see `Managing Passwords <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
+        Creates a password for the specified user, giving the user the ability to access AWS services through the AWS Management Console. For more information about managing passwords, see `Managing Passwords <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/CreateLoginProfile>`_
         
         **Request Syntax**
@@ -2510,10 +2510,10 @@ class User(base.ServiceResource):
     def create_policy(self, PolicyName: str, PolicyDocument: str) -> 'UserPolicy':
         """
         Adds or updates an inline policy document that is embedded in the specified IAM user.
-        An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use  AttachUserPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of inline policies that you can embed in a user, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use  AttachUserPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of inline policies that you can embed in a user, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. note::
-          Because policy documents can be large, you should use POST rather than GET when calling ``PutUserPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because policy documents can be large, you should use POST rather than GET when calling ``PutUserPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutUserPolicy>`_
         
         **Request Syntax**
@@ -2540,7 +2540,16 @@ class User(base.ServiceResource):
 
     def delete(self):
         """
-        Deletes the specified IAM user. The user must not belong to any groups or have any access keys, signing certificates, MFA devices enabled for AWS, or attached policies.
+        Deletes the specified IAM user. Unlike the AWS Management Console, when you delete a user programmatically, you must delete the items attached to the user manually, or the deletion fails. For more information, see `Deleting an IAM User <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli>`__ . Before attempting to delete a user, remove the following items:
+        * Password ( DeleteLoginProfile ) 
+        * Access keys ( DeleteAccessKey ) 
+        * Signing certificate ( DeleteSigningCertificate ) 
+        * SSH public key ( DeleteSSHPublicKey ) 
+        * Git credentials ( DeleteServiceSpecificCredential ) 
+        * Multi-factor authentication (MFA) device ( DeactivateMFADevice ,  DeleteVirtualMFADevice ) 
+        * Inline policies ( DeleteUserPolicy ) 
+        * Attached managed policies ( DetachUserPolicy ) 
+        * Group memberships ( RemoveUserFromGroup ) 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUser>`_
         
         **Request Syntax**
@@ -2553,7 +2562,7 @@ class User(base.ServiceResource):
     def detach_policy(self, PolicyArn: str):
         """
         Removes the specified managed policy from the specified user.
-        A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A user can also have inline policies embedded with it. To delete an inline policy, use the  DeleteUserPolicy API. For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachUserPolicy>`_
         
         **Request Syntax**
@@ -2564,7 +2573,7 @@ class User(base.ServiceResource):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy you want to detach.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :returns: None
         """
         pass
@@ -2590,13 +2599,13 @@ class User(base.ServiceResource):
           An authentication code emitted by the device.
           The format for this parameter is a string of six digits.
           .. warning::
-            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
+            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
         :type AuthenticationCode2: string
         :param AuthenticationCode2: **[REQUIRED]**
           A subsequent authentication code emitted by the device.
           The format for this parameter is a string of six digits.
           .. warning::
-            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
+            Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can `resync the device <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html>`__ .
         :rtype: :py:class:`iam.MfaDevice`
         :returns: MfaDevice resource
         """
@@ -2658,9 +2667,9 @@ class User(base.ServiceResource):
         """
         Updates the name and/or the path of the specified IAM user.
         .. warning::
-          You should understand the implications of changing an IAM user's path or name. For more information, see `Renaming an IAM User <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming>`__ and `Renaming an IAM Group <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html>`__ in the *IAM User Guide* .
+          You should understand the implications of changing an IAM user's path or name. For more information, see `Renaming an IAM User <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming>`__ and `Renaming an IAM Group <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html>`__ in the *IAM User Guide* .
         .. note::
-          To change a user name, the requester must have appropriate permissions on both the source object and the target object. For example, to change Bob to Robert, the entity making the request must have permission on Bob and Robert, or must have permission on all (*). For more information about permissions, see `Permissions and Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html>`__ . 
+          To change a user name, the requester must have appropriate permissions on both the source object and the target object. For example, to change Bob to Robert, the entity making the request must have permission on Bob and Robert, or must have permission on all (*). For more information about permissions, see `Permissions and Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateUser>`_
         
         **Request Syntax**
@@ -2692,7 +2701,7 @@ class UserPolicy(base.ServiceResource):
     def delete(self):
         """
         Deletes the specified inline policy that is embedded in the specified IAM user.
-        A user can also have managed policies attached to it. To detach a managed policy from a user, use  DetachUserPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        A user can also have managed policies attached to it. To detach a managed policy from a user, use  DetachUserPolicy . For more information about policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteUserPolicy>`_
         
         **Request Syntax**
@@ -2727,10 +2736,10 @@ class UserPolicy(base.ServiceResource):
     def put(self, PolicyDocument: str):
         """
         Adds or updates an inline policy document that is embedded in the specified IAM user.
-        An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use  AttachUserPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
-        For information about limits on the number of inline policies that you can embed in a user, see `Limitations on IAM Entities <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
+        An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use  AttachUserPolicy . To create a new managed policy, use  CreatePolicy . For information about policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *IAM User Guide* .
+        For information about limits on the number of inline policies that you can embed in a user, see `Limitations on IAM Entities <https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html>`__ in the *IAM User Guide* .
         .. note::
-          Because policy documents can be large, you should use POST rather than GET when calling ``PutUserPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
+          Because policy documents can be large, you should use POST rather than GET when calling ``PutUserPolicy`` . For general information about using the Query API with IAM, go to `Making Query Requests <https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html>`__ in the *IAM User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutUserPolicy>`_
         
         **Request Syntax**

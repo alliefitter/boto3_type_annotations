@@ -1,6 +1,6 @@
 from typing import List
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
 from botocore.paginate import Paginator
 
 

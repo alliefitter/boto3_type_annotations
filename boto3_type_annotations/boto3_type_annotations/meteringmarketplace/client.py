@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
-from datetime import datetime
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -24,7 +24,7 @@ class Client(BaseClient):
     def get_waiter(self, waiter_name: str = None) -> Waiter:
         pass
 
-    def meter_usage(self, ProductCode: str, Timestamp: datetime, UsageDimension: str, UsageQuantity: int, DryRun: bool) -> Dict:
+    def meter_usage(self, ProductCode: str, Timestamp: datetime, UsageDimension: str, UsageQuantity: int = None, DryRun: bool = None) -> Dict:
         pass
 
     def register_usage(self, ProductCode: str, PublicKeyVersion: int, Nonce: str = None) -> Dict:

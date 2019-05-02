@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -96,7 +96,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_ip_group(self, GroupName: str, GroupDesc: str = None, UserRules: List = None) -> Dict:
+    def create_ip_group(self, GroupName: str, GroupDesc: str = None, UserRules: List = None, Tags: List = None) -> Dict:
         """
         Creates an IP access control group.
         An IP access control group provides you with the ability to control the IP addresses from which users are allowed to access their WorkSpaces. To specify the CIDR address ranges, add rules to your IP access control group and then associate the group with your directory. You can add rules when you create the group or at any time using  AuthorizeIpRules .
@@ -112,6 +112,12 @@ class Client(BaseClient):
                   {
                       'ipRule': 'string',
                       'ruleDesc': 'string'
+                  },
+              ],
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
                   },
               ]
           )
@@ -141,6 +147,15 @@ class Client(BaseClient):
               The IP address range, in CIDR notation.
             - **ruleDesc** *(string) --*
               The description.
+        :type Tags: list
+        :param Tags:
+          The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+          - *(dict) --*
+            Describes a tag.
+            - **Key** *(string) --* **[REQUIRED]**
+              The key of the tag.
+            - **Value** *(string) --*
+              The value of the tag.
         :rtype: dict
         :returns:
         """
@@ -148,7 +163,7 @@ class Client(BaseClient):
 
     def create_tags(self, ResourceId: str, Tags: List) -> Dict:
         """
-        Creates the specified tags for the specified WorkSpace.
+        Creates the specified tags for the specified WorkSpaces resource.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateTags>`_
         
         **Request Syntax**
@@ -171,10 +186,10 @@ class Client(BaseClient):
           - *(dict) --* 
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
-          The identifier of the WorkSpace. To find this ID, use  DescribeWorkspaces .
+          The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, and IP access control groups.
         :type Tags: list
         :param Tags: **[REQUIRED]**
-          The tags. Each WorkSpace can have a maximum of 50 tags.
+          The tags. Each WorkSpaces resource can have a maximum of 50 tags.
           - *(dict) --*
             Describes a tag.
             - **Key** *(string) --* **[REQUIRED]**
@@ -305,7 +320,7 @@ class Client(BaseClient):
                   - **WorkspaceProperties** *(dict) --* 
                     The WorkSpace properties.
                     - **RunningMode** *(string) --* 
-                      The running mode. For more information, see `Manage the WorkSpace Running Mode <http://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
+                      The running mode. For more information, see `Manage the WorkSpace Running Mode <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
                     - **RunningModeAutoStopTimeoutInMinutes** *(integer) --* 
                       The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals.
                     - **RootVolumeSizeGib** *(integer) --* 
@@ -360,7 +375,7 @@ class Client(BaseClient):
                 - **WorkspaceProperties** *(dict) --* 
                   The properties of the WorkSpace.
                   - **RunningMode** *(string) --* 
-                    The running mode. For more information, see `Manage the WorkSpace Running Mode <http://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
+                    The running mode. For more information, see `Manage the WorkSpace Running Mode <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
                   - **RunningModeAutoStopTimeoutInMinutes** *(integer) --* 
                     The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals.
                   - **RootVolumeSizeGib** *(integer) --* 
@@ -397,7 +412,7 @@ class Client(BaseClient):
             - **WorkspaceProperties** *(dict) --*
               The WorkSpace properties.
               - **RunningMode** *(string) --*
-                The running mode. For more information, see `Manage the WorkSpace Running Mode <http://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
+                The running mode. For more information, see `Manage the WorkSpace Running Mode <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
               - **RunningModeAutoStopTimeoutInMinutes** *(integer) --*
                 The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals.
               - **RootVolumeSizeGib** *(integer) --*
@@ -447,7 +462,7 @@ class Client(BaseClient):
 
     def delete_tags(self, ResourceId: str, TagKeys: List) -> Dict:
         """
-        Deletes the specified tags from the specified WorkSpace.
+        Deletes the specified tags from the specified WorkSpaces resource.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteTags>`_
         
         **Request Syntax**
@@ -467,7 +482,7 @@ class Client(BaseClient):
           - *(dict) --* 
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
-          The identifier of the WorkSpace. To find this ID, use  DescribeWorkspaces .
+          The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, and IP access control groups.
         :type TagKeys: list
         :param TagKeys: **[REQUIRED]**
           The tag keys.
@@ -625,7 +640,7 @@ class Client(BaseClient):
                     Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials. 
         :type ResourceIds: list
         :param ResourceIds: **[REQUIRED]**
-          The resource identifiers, in the form of directory IDs.
+          The resource identifier, in the form of directory IDs.
           - *(string) --*
         :rtype: dict
         :returns:
@@ -705,7 +720,7 @@ class Client(BaseClient):
 
     def describe_tags(self, ResourceId: str) -> Dict:
         """
-        Describes the specified tags for the specified WorkSpace.
+        Describes the specified tags for the specified WorkSpaces resource.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeTags>`_
         
         **Request Syntax**
@@ -737,7 +752,7 @@ class Client(BaseClient):
                   The value of the tag.
         :type ResourceId: string
         :param ResourceId: **[REQUIRED]**
-          The identifier of the WorkSpace. To find this ID, use  DescribeWorkspaces .
+          The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, and IP access control groups.
         :rtype: dict
         :returns:
         """
@@ -1101,7 +1116,7 @@ class Client(BaseClient):
                 - **WorkspaceProperties** *(dict) --* 
                   The properties of the WorkSpace.
                   - **RunningMode** *(string) --* 
-                    The running mode. For more information, see `Manage the WorkSpace Running Mode <http://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
+                    The running mode. For more information, see `Manage the WorkSpace Running Mode <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
                   - **RunningModeAutoStopTimeoutInMinutes** *(integer) --* 
                     The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals.
                   - **RootVolumeSizeGib** *(integer) --* 
@@ -1280,7 +1295,7 @@ class Client(BaseClient):
         """
         pass
 
-    def import_workspace_image(self, Ec2ImageId: str, IngestionProcess: str, ImageName: str, ImageDescription: str) -> Dict:
+    def import_workspace_image(self, Ec2ImageId: str, IngestionProcess: str, ImageName: str, ImageDescription: str, Tags: List = None) -> Dict:
         """
         Imports the specified Windows 7 or Windows 10 bring your own license (BYOL) image into Amazon WorkSpaces. The image must be an already licensed EC2 image that is in your AWS account, and you must own the image. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ImportWorkspaceImage>`_
@@ -1291,7 +1306,13 @@ class Client(BaseClient):
               Ec2ImageId='string',
               IngestionProcess='BYOL_REGULAR'|'BYOL_GRAPHICS'|'BYOL_GRAPHICSPRO',
               ImageName='string',
-              ImageDescription='string'
+              ImageDescription='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         
         **Response Syntax**
@@ -1316,6 +1337,15 @@ class Client(BaseClient):
         :type ImageDescription: string
         :param ImageDescription: **[REQUIRED]**
           The description of the WorkSpace image.
+        :type Tags: list
+        :param Tags:
+          The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+          - *(dict) --*
+            Describes a tag.
+            - **Key** *(string) --* **[REQUIRED]**
+              The key of the tag.
+            - **Value** *(string) --*
+              The value of the tag.
         :rtype: dict
         :returns:
         """
@@ -1396,7 +1426,7 @@ class Client(BaseClient):
 
     def modify_client_properties(self, ResourceId: str, ClientProperties: Dict) -> Dict:
         """
-        Modifies the properties of the specified Amazon WorkSpaces client.
+        Modifies the properties of the specified Amazon WorkSpaces clients.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ModifyClientProperties>`_
         
         **Request Syntax**
@@ -1458,7 +1488,7 @@ class Client(BaseClient):
         :param WorkspaceProperties: **[REQUIRED]**
           The properties of the WorkSpace.
           - **RunningMode** *(string) --*
-            The running mode. For more information, see `Manage the WorkSpace Running Mode <http://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
+            The running mode. For more information, see `Manage the WorkSpace Running Mode <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>`__ .
           - **RunningModeAutoStopTimeoutInMinutes** *(integer) --*
             The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals.
           - **RootVolumeSizeGib** *(integer) --*
@@ -1555,11 +1585,11 @@ class Client(BaseClient):
         """
         pass
 
-    def rebuild_workspaces(self, RebuildWorkspaceRequests: List) -> Dict:
+    def rebuild_workspaces(self, RebuildWorkspaceRequests: List, AdditionalInfo: str = None) -> Dict:
         """
         Rebuilds the specified WorkSpace.
         You cannot rebuild a WorkSpace unless its state is ``AVAILABLE`` , ``ERROR`` , or ``UNHEALTHY`` .
-        Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see `Rebuild a WorkSpace <http://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html>`__ .
+        Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see `Rebuild a WorkSpace <https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html>`__ .
         This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/RebuildWorkspaces>`_
         
@@ -1570,7 +1600,8 @@ class Client(BaseClient):
                   {
                       'WorkspaceId': 'string'
                   },
-              ]
+              ],
+              AdditionalInfo='string'
           )
         
         **Response Syntax**
@@ -1604,6 +1635,9 @@ class Client(BaseClient):
             Describes the information used to rebuild a WorkSpace.
             - **WorkspaceId** *(string) --* **[REQUIRED]**
               The identifier of the WorkSpace.
+        :type AdditionalInfo: string
+        :param AdditionalInfo:
+          Reserved.
         :rtype: dict
         :returns:
         """

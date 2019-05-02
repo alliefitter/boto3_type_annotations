@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -47,6 +47,20 @@ class GetClassifiers(Paginator):
                             'LastUpdated': datetime(2015, 1, 1),
                             'Version': 123,
                             'JsonPath': 'string'
+                        },
+                        'CsvClassifier': {
+                            'Name': 'string',
+                            'CreationTime': datetime(2015, 1, 1),
+                            'LastUpdated': datetime(2015, 1, 1),
+                            'Version': 123,
+                            'Delimiter': 'string',
+                            'QuoteSymbol': 'string',
+                            'ContainsHeader': 'UNKNOWN'|'PRESENT'|'ABSENT',
+                            'Header': [
+                                'string',
+                            ],
+                            'DisableValueTrimming': True|False,
+                            'AllowSingleColumn': True|False
                         }
                     },
                 ],
@@ -58,7 +72,7 @@ class GetClassifiers(Paginator):
               The requested list of classifier objects.
               - *(dict) --* 
                 Classifiers are triggered during a crawl task. A classifier checks whether a given file is in a format it can handle, and if it is, the classifier creates a schema in the form of a ``StructType`` object that matches that data format.
-                You can use the standard classifiers that AWS Glue supplies, or you can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier can be a ``grok`` classifier, an ``XML`` classifier, or a ``JSON`` classifier, as specified in one of the fields in the ``Classifier`` object.
+                You can use the standard classifiers that AWS Glue supplies, or you can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier can be a ``grok`` classifier, an ``XML`` classifier, a ``JSON`` classifier, or a custom ``CSV`` classifier as specified in one of the fields in the ``Classifier`` object.
                 - **GrokClassifier** *(dict) --* 
                   A ``GrokClassifier`` object.
                   - **Name** *(string) --* 
@@ -101,6 +115,29 @@ class GetClassifiers(Paginator):
                     The version of this classifier.
                   - **JsonPath** *(string) --* 
                     A ``JsonPath`` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in `Writing JsonPath Custom Classifiers <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json>`__ .
+                - **CsvClassifier** *(dict) --* 
+                  A ``CSVClassifier`` object.
+                  - **Name** *(string) --* 
+                    The name of the classifier.
+                  - **CreationTime** *(datetime) --* 
+                    The time this classifier was registered.
+                  - **LastUpdated** *(datetime) --* 
+                    The time this classifier was last updated.
+                  - **Version** *(integer) --* 
+                    The version of this classifier.
+                  - **Delimiter** *(string) --* 
+                    A custom symbol to denote what separates each column entry in the row.
+                  - **QuoteSymbol** *(string) --* 
+                    A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
+                  - **ContainsHeader** *(string) --* 
+                    Indicates whether the CSV file contains a header.
+                  - **Header** *(list) --* 
+                    A list of strings representing column names.
+                    - *(string) --* 
+                  - **DisableValueTrimming** *(boolean) --* 
+                    Specifies not to trim values before identifying the type of column values. The default value is true.
+                  - **AllowSingleColumn** *(boolean) --* 
+                    Enables the processing of files that contain only one column.
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -617,7 +654,10 @@ class GetDevEndpoints(Paginator):
                         'PublicKeys': [
                             'string',
                         ],
-                        'SecurityConfiguration': 'string'
+                        'SecurityConfiguration': 'string',
+                        'Arguments': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -676,6 +716,11 @@ class GetDevEndpoints(Paginator):
                   - *(string) --* 
                 - **SecurityConfiguration** *(string) --* 
                   The name of the SecurityConfiguration structure to be used with this DevEndpoint.
+                - **Arguments** *(dict) --* 
+                  A map of arguments used to configure the DevEndpoint.
+                  Note that currently, we only support "--enable-glue-datacatalog": "" as a valid argument.
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -739,6 +784,8 @@ class GetJobRuns(Paginator):
                         'NotificationProperty': {
                             'NotifyDelayAfter': 123
                         },
+                        'WorkerType': 'Standard'|'G.1X'|'G.2X',
+                        'NumberOfWorkers': 123,
                         'SecurityConfiguration': 'string',
                         'LogGroupName': 'string'
                     },
@@ -795,6 +842,7 @@ class GetJobRuns(Paginator):
                   The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters ``TIMEOUT`` status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
                 - **MaxCapacity** *(float) --* 
                   The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+                  Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
                   The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
                   * When you specify a python shell job (``JobCommand.Name`` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU. 
                   * When you specify an Apache Spark ETL job (``JobCommand.Name`` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation. 
@@ -802,6 +850,14 @@ class GetJobRuns(Paginator):
                   Specifies configuration properties of a job run notification.
                   - **NotifyDelayAfter** *(integer) --* 
                     After a job run starts, the number of minutes to wait before sending a job run delay notification.
+                - **WorkerType** *(string) --* 
+                  The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+                  * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker. 
+                  * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker. 
+                  * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. 
+                - **NumberOfWorkers** *(integer) --* 
+                  The number of workers of a defined ``workerType`` that are allocated when a job runs.
+                  The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` . 
                 - **SecurityConfiguration** *(string) --* 
                   The name of the SecurityConfiguration structure to be used with this job run.
                 - **LogGroupName** *(string) --* 
@@ -870,10 +926,12 @@ class GetJobs(Paginator):
                         'AllocatedCapacity': 123,
                         'Timeout': 123,
                         'MaxCapacity': 123.0,
+                        'WorkerType': 'Standard'|'G.1X'|'G.2X',
+                        'NumberOfWorkers': 123,
+                        'SecurityConfiguration': 'string',
                         'NotificationProperty': {
                             'NotifyDelayAfter': 123
-                        },
-                        'SecurityConfiguration': 'string'
+                        }
                     },
                 ],
             }
@@ -927,15 +985,24 @@ class GetJobs(Paginator):
                   The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters ``TIMEOUT`` status. The default is 2,880 minutes (48 hours).
                 - **MaxCapacity** *(float) --* 
                   The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the `AWS Glue pricing page <https://aws.amazon.com/glue/pricing/>`__ .
+                  Do not set ``Max Capacity`` if using ``WorkerType`` and ``NumberOfWorkers`` .
                   The value that can be allocated for ``MaxCapacity`` depends on whether you are running a python shell job, or an Apache Spark ETL job:
                   * When you specify a python shell job (``JobCommand.Name`` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU. 
                   * When you specify an Apache Spark ETL job (``JobCommand.Name`` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation. 
+                - **WorkerType** *(string) --* 
+                  The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+                  * For the ``Standard`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker. 
+                  * For the ``G.1X`` worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker. 
+                  * For the ``G.2X`` worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. 
+                - **NumberOfWorkers** *(integer) --* 
+                  The number of workers of a defined ``workerType`` that are allocated when a job runs.
+                  The maximum number of workers you can define are 299 for ``G.1X`` , and 149 for ``G.2X`` . 
+                - **SecurityConfiguration** *(string) --* 
+                  The name of the SecurityConfiguration structure to be used with this job.
                 - **NotificationProperty** *(dict) --* 
                   Specifies configuration properties of a job notification.
                   - **NotifyDelayAfter** *(integer) --* 
                     After a job run starts, the number of minutes to wait before sending a job run delay notification.
-                - **SecurityConfiguration** *(string) --* 
-                  The name of the SecurityConfiguration structure to be used with this job.
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.

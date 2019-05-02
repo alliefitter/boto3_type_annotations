@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -55,7 +55,7 @@ class ListDeploymentJobs(Paginator):
                             'failureThresholdPercentage': 123
                         },
                         'failureReason': 'string',
-                        'failureCode': 'ResourceNotFound'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
+                        'failureCode': 'ResourceNotFound'|'EnvironmentSetupError'|'EtagMismatch'|'FailureThresholdBreached'|'RobotDeploymentNoResponse'|'RobotAgentConnectionTimeout'|'GreengrassDeploymentFailed'|'MissingRobotArchitecture'|'MissingRobotApplicationArchitecture'|'MissingRobotDeploymentResource'|'GreengrassGroupVersionDoesNotExist'|'ExtractingBundleFailure'|'PreLaunchFileFailure'|'PostLaunchFileFailure'|'BadPermissionError'|'InternalServerError',
                         'createdAt': datetime(2015, 1, 1)
                     },
                 ],
@@ -113,6 +113,7 @@ class ListDeploymentJobs(Paginator):
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter names ``status`` and ``fleetName`` are supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters, but they must be for the same named item. For example, if you are looking for items with the status ``InProgress`` or the status ``Pending`` .
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -198,6 +199,7 @@ class ListFleets(Paginator):
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter name ``name`` is supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters.
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -281,6 +283,7 @@ class ListRobotApplications(Paginator):
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter name ``name`` is supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters.
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -375,6 +378,7 @@ class ListRobots(Paginator):
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter names ``status`` and ``fleetName`` are supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters, but they must be for the same named item. For example, if you are looking for items with the status ``Registered`` or the status ``Available`` .
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -457,7 +461,8 @@ class ListSimulationApplications(Paginator):
           The version qualifier of the simulation application.
         :type filters: list
         :param filters:
-          Optional list of filters to limit results. The only valid filter name is ``name`` .
+          Optional list of filters to limit results.
+          The filter name ``name`` is supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters.
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*
@@ -549,6 +554,7 @@ class ListSimulationJobs(Paginator):
         :type filters: list
         :param filters:
           Optional filters to limit results.
+          The filter names ``status`` and ``simulationApplicationName`` and ``robotApplicationName`` are supported. When filtering, you must use the complete value of the filtered item. You can use up to three filters, but they must be for the same named item. For example, if you are looking for items with the status ``Preparing`` or the status ``Running`` .
           - *(dict) --*
             Information about a filter.
             - **name** *(string) --*

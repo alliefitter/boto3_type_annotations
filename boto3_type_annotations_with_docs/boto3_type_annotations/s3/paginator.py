@@ -37,7 +37,7 @@ class ListMultipartUploads(Paginator):
                         'UploadId': 'string',
                         'Key': 'string',
                         'Initiated': datetime(2015, 1, 1),
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
                         'Owner': {
                             'DisplayName': 'string',
                             'ID': 'string'
@@ -298,7 +298,7 @@ class ListObjects(Paginator):
                         'LastModified': datetime(2015, 1, 1),
                         'ETag': 'string',
                         'Size': 123,
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING',
+                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE',
                         'Owner': {
                             'DisplayName': 'string',
                             'ID': 'string'
@@ -409,7 +409,7 @@ class ListObjectsV2(Paginator):
                         'LastModified': datetime(2015, 1, 1),
                         'ETag': 'string',
                         'Size': 123,
-                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING',
+                        'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE',
                         'Owner': {
                             'DisplayName': 'string',
                             'ID': 'string'
@@ -553,7 +553,7 @@ class ListParts(Paginator):
                     'DisplayName': 'string',
                     'ID': 'string'
                 },
-                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER',
+                'StorageClass': 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
                 'RequestCharged': 'requester',
                 'NextToken': 'string'
             }

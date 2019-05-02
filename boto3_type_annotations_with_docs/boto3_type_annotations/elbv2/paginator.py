@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -519,7 +519,41 @@ class DescribeRules(Paginator):
                                 'Field': 'string',
                                 'Values': [
                                     'string',
-                                ]
+                                ],
+                                'HostHeaderConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'PathPatternConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'HttpHeaderConfig': {
+                                    'HttpHeaderName': 'string',
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'QueryStringConfig': {
+                                    'Values': [
+                                        {
+                                            'Key': 'string',
+                                            'Value': 'string'
+                                        },
+                                    ]
+                                },
+                                'HttpRequestMethodConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                },
+                                'SourceIpConfig': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                }
                             },
                         ],
                         'Actions': [
@@ -606,6 +640,27 @@ class DescribeRules(Paginator):
                       * * (matches 0 or more characters) 
                       * ? (matches exactly 1 character) 
                       - *(string) --* 
+                    - **HostHeaderConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **PathPatternConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **HttpHeaderConfig** *(dict) --* 
+                      - **HttpHeaderName** *(string) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **QueryStringConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(dict) --* 
+                          - **Key** *(string) --* 
+                          - **Value** *(string) --* 
+                    - **HttpRequestMethodConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
+                    - **SourceIpConfig** *(dict) --* 
+                      - **Values** *(list) --* 
+                        - *(string) --* 
                 - **Actions** *(list) --* 
                   The actions.
                   - *(dict) --* 

@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from datetime import datetime
-from typing import Dict
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -751,7 +751,13 @@ class Client(BaseClient):
                         ]
                     },
                 ],
-                'NextToken': 'string'
+                'NextToken': 'string',
+                'Messages': [
+                    {
+                        'Code': 'string',
+                        'Value': 'string'
+                    },
+                ]
             }
         
         **Response Structure**
@@ -782,6 +788,15 @@ class Client(BaseClient):
                       The message text.
             - **NextToken** *(string) --* 
               A token that marks the next batch of returned results.
+            - **Messages** *(list) --* 
+              Contains a message about this ``GetMetricData`` operation, if the operation results in such a message. An example of a message that may be returned is ``Maximum number of allowed metrics exceeded`` . If there is a message, as much of the operation as possible is still executed.
+              A message appears here only if it is related to the global ``GetMetricData`` operation. Any message about a specific metric returned by the operation appears in the ``MetricDataResult`` object returned for that metric.
+              - *(dict) --* 
+                A message returned by the ``GetMetricData`` API, including a code and a description.
+                - **Code** *(string) --* 
+                  The error code or status code associated with the message.
+                - **Value** *(string) --* 
+                  The message text.
         :type MetricDataQueries: list
         :param MetricDataQueries: **[REQUIRED]**
           The metric queries to be returned. A single ``GetMetricData`` call can include as many as 100 ``MetricDataQuery`` structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data.
@@ -1201,6 +1216,46 @@ class Client(BaseClient):
         """
         pass
 
+    def list_tags_for_resource(self, ResourceARN: str) -> Dict:
+        """
+        Displays the tags associated with a CloudWatch resource. Alarms support tagging.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceARN='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': [
+                    {
+                        'Key': 'string',
+                        'Value': 'string'
+                    },
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Tags** *(list) --* 
+              The list of tag keys and values associated with the resource you specified.
+              - *(dict) --* 
+                A key-value pair associated with a CloudWatch resource.
+                - **Key** *(string) --* 
+                  A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+                - **Value** *(string) --* 
+                  The value for the specified tag key.
+        :type ResourceARN: string
+        :param ResourceARN: **[REQUIRED]**
+          The ARN of the CloudWatch resource that you want to view tags for. For more information on ARN format, see `Example ARNs <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-cloudwatch>`__ in the *Amazon Web Services General Reference* .
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def put_dashboard(self, DashboardName: str, DashboardBody: str) -> Dict:
         """
         Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard, the entire contents are replaced with what you specify here.
@@ -1251,7 +1306,7 @@ class Client(BaseClient):
         """
         pass
 
-    def put_metric_alarm(self, AlarmName: str, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, MetricName: str = None, Namespace: str = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Period: int = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None, Metrics: List = None):
+    def put_metric_alarm(self, AlarmName: str, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, MetricName: str = None, Namespace: str = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Period: int = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None, Metrics: List = None, Tags: List = None):
         """
         Creates or updates an alarm and associates it with the specified metric or metric math expression.
         When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA`` . The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
@@ -1261,7 +1316,7 @@ class Client(BaseClient):
         * ``ec2:DescribeInstanceStatus`` and ``ec2:DescribeInstances`` for all alarms on EC2 instance status metrics 
         * ``ec2:StopInstances`` for alarms with stop actions 
         * ``ec2:TerminateInstances`` for alarms with terminate actions 
-        * ``ec2:DescribeInstanceRecoveryAttribute`` and ``ec2:RecoverInstances`` for alarms with recover actions 
+        * No specific permissions are needed for alarms with recover actions 
         If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2, you can still create an alarm, but the stop or terminate actions are not performed. However, if you are later granted the required permissions, the alarm actions that you created earlier are performed.
         If you are using an IAM role (for example, an EC2 instance profile), you cannot stop or terminate the instance using alarm actions. However, you can still see the alarm state and perform any other actions such as Amazon SNS notifications or Auto Scaling policies.
         If you are using temporary security credentials granted using AWS STS, you cannot stop or terminate an EC2 instance using alarm actions.
@@ -1322,6 +1377,12 @@ class Client(BaseClient):
                       'Expression': 'string',
                       'Label': 'string',
                       'ReturnData': True|False
+                  },
+              ],
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
                   },
               ]
           )
@@ -1448,6 +1509,16 @@ class Client(BaseClient):
             - **ReturnData** *(boolean) --*
               When used in ``GetMetricData`` , this option indicates whether to return the timestamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify ``False`` . If you omit this, the default of ``True`` is used.
               When used in ``PutMetricAlarm`` , specify ``True`` for the one expression result to use as the alarm. For all other metrics and expressions in the same ``PutMetricAlarm`` operation, specify ``ReturnData`` as False.
+        :type Tags: list
+        :param Tags:
+          A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.
+          Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.
+          - *(dict) --*
+            A key-value pair associated with a CloudWatch resource.
+            - **Key** *(string) --* **[REQUIRED]**
+              A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+            - **Value** *(string) --* **[REQUIRED]**
+              The value for the specified tag key.
         :returns: None
         """
         pass
@@ -1574,5 +1645,80 @@ class Client(BaseClient):
         :param StateReasonData:
           The reason that this alarm is set to this specific state, in JSON format.
         :returns: None
+        """
+        pass
+
+    def tag_resource(self, ResourceARN: str, Tags: List) -> Dict:
+        """
+        Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values. In CloudWatch, alarms can be tagged.
+        Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+        You can use the ``TagResource`` action with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.
+        You can associate as many as 50 tags with a resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceARN='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceARN: string
+        :param ResourceARN: **[REQUIRED]**
+          The ARN of the CloudWatch resource that you\'re adding tags to. For more information on ARN format, see `Example ARNs <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-cloudwatch>`__ in the *Amazon Web Services General Reference* .
+        :type Tags: list
+        :param Tags: **[REQUIRED]**
+          The list of key-value pairs to associate with the resource.
+          - *(dict) --*
+            A key-value pair associated with a CloudWatch resource.
+            - **Key** *(string) --* **[REQUIRED]**
+              A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+            - **Value** *(string) --* **[REQUIRED]**
+              The value for the specified tag key.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def untag_resource(self, ResourceARN: str, TagKeys: List) -> Dict:
+        """
+        Removes one or more tags from the specified resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceARN='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceARN: string
+        :param ResourceARN: **[REQUIRED]**
+          The ARN of the CloudWatch resource that you\'re removing tags from. For more information on ARN format, see `Example ARNs <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-cloudwatch>`__ in the *Amazon Web Services General Reference* .
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]**
+          The list of tag keys to remove from the resource.
+          - *(string) --*
+        :rtype: dict
+        :returns:
         """
         pass

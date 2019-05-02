@@ -35,7 +35,10 @@ class ListChannels(Paginator):
                                 },
                             ]
                         },
-                        'Id': 'string'
+                        'Id': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -54,6 +57,9 @@ class ListChannels(Paginator):
                       - **Url** *(string) --* The ingest URL to which the source stream should be sent.
                       - **Username** *(string) --* The system generated username for ingest authentication.
                 - **Id** *(string) --* The ID of the Channel.
+                - **Tags** *(dict) --* A collection of tags associated with a resource
+                  - *(string) --* 
+                    - *(string) --* 
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -209,6 +215,9 @@ class ListOriginEndpoints(Paginator):
                             }
                         },
                         'StartoverWindowSeconds': 123,
+                        'Tags': {
+                            'string': 'string'
+                        },
                         'TimeDelaySeconds': 123,
                         'Url': 'string',
                         'Whitelist': [
@@ -317,6 +326,9 @@ class ListOriginEndpoints(Paginator):
                     - **MinVideoBitsPerSecond** *(integer) --* The minimum video bitrate (bps) to include in output.
                     - **StreamOrder** *(string) --* A directive that determines the order of streams in the output.
                 - **StartoverWindowSeconds** *(integer) --* Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint. 
+                - **Tags** *(dict) --* A collection of tags associated with a resource
+                  - *(string) --* 
+                    - *(string) --* 
                 - **TimeDelaySeconds** *(integer) --* Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint. 
                 - **Url** *(string) --* The URL of the packaged OriginEndpoint for consumption.
                 - **Whitelist** *(list) --* A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.

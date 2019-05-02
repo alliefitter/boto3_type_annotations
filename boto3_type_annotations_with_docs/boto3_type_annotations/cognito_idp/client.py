@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -59,7 +59,7 @@ class Client(BaseClient):
               Specifies whether the attribute type is developer only.
             - **Mutable** *(boolean) --*
               Specifies whether the value of the attribute can be changed.
-              For any user pool attribute that\'s mapped to an identity provider attribute, you must set this parameter to ``true`` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
+              For any user pool attribute that\'s mapped to an identity provider attribute, you must set this parameter to ``true`` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
             - **Required** *(boolean) --*
               Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
             - **NumberAttributeConstraints** *(dict) --*
@@ -224,6 +224,8 @@ class Client(BaseClient):
                 * ARCHIVED - User is no longer active. 
                 * COMPROMISED - User is disabled due to a potential security threat. 
                 * UNKNOWN - User status is not known. 
+                * RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in. 
+                * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.  
               - **MFAOptions** *(list) --* 
                 The MFA options for the user.
                 - *(dict) --* 
@@ -610,6 +612,8 @@ class Client(BaseClient):
               * ARCHIVED - User is no longer active. 
               * COMPROMISED - User is disabled due to a potential security threat. 
               * UNKNOWN - User status is not known. 
+              * RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in. 
+              * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.  
             - **MFAOptions** *(list) --* 
               Specifies the options for MFA (e.g., email or phone number).
               - *(dict) --* 
@@ -2204,7 +2208,8 @@ class Client(BaseClient):
               },
               EmailConfiguration={
                   'SourceArn': 'string',
-                  'ReplyToEmailAddress': 'string'
+                  'ReplyToEmailAddress': 'string',
+                  'EmailSendingAccount': 'COGNITO_DEFAULT'|'DEVELOPER'
               },
               SmsConfiguration={
                   'SnsCallerArn': 'string',
@@ -2320,7 +2325,8 @@ class Client(BaseClient):
                     'EstimatedNumberOfUsers': 123,
                     'EmailConfiguration': {
                         'SourceArn': 'string',
-                        'ReplyToEmailAddress': 'string'
+                        'ReplyToEmailAddress': 'string',
+                        'EmailSendingAccount': 'COGNITO_DEFAULT'|'DEVELOPER'
                     },
                     'SmsConfiguration': {
                         'SnsCallerArn': 'string',
@@ -2412,7 +2418,7 @@ class Client(BaseClient):
                     Specifies whether the attribute type is developer only.
                   - **Mutable** *(boolean) --* 
                     Specifies whether the value of the attribute can be changed.
-                    For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to ``true`` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
+                    For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to ``true`` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
                   - **Required** *(boolean) --* 
                     Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
                   - **NumberAttributeConstraints** *(dict) --* 
@@ -2474,9 +2480,21 @@ class Client(BaseClient):
               - **EmailConfiguration** *(dict) --* 
                 The email configuration.
                 - **SourceArn** *(string) --* 
-                  The Amazon Resource Name (ARN) of the email source.
+                  The Amazon Resource Name (ARN) of a verified email address in Amazon SES. This email address is used in one of the following ways, depending on the value that you specify for the ``EmailSendingAccount`` parameter:
+                  * If you specify ``COGNITO_DEFAULT`` , Amazon Cognito uses this address as the custom FROM address when it emails your users by using its built-in email account. 
+                  * If you specify ``DEVELOPER`` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf. 
                 - **ReplyToEmailAddress** *(string) --* 
                   The destination to which the receiver of the email should reply to.
+                - **EmailSendingAccount** *(string) --* 
+                  Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:
+                    COGNITO_DEFAULT  
+                  When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+                  To look up the email delivery limit for the default option, see `Limits in Amazon Cognito <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html>`__ in the *Amazon Cognito Developer Guide* .
+                  The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the ``SourceArn`` parameter.
+                    DEVELOPER  
+                  When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.
+                  If you use this option, you must provide the ARN of an Amazon SES verified email address for the ``SourceArn`` parameter.
+                  Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see `Using Service-Linked Roles for Amazon Cognito <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html>`__ in the *Amazon Cognito Developer Guide* .
               - **SmsConfiguration** *(dict) --* 
                 The SMS configuration.
                 - **SnsCallerArn** *(string) --* 
@@ -2484,7 +2502,7 @@ class Client(BaseClient):
                 - **ExternalId** *(string) --* 
                   The external ID.
               - **UserPoolTags** *(dict) --* 
-                The cost allocation tags for the user pool. For more information, see `Adding Cost Allocation Tags to Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html>`__  
+                The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
                 - *(string) --* 
                   - *(string) --* 
               - **SmsConfigurationFailure** *(string) --* 
@@ -2494,12 +2512,16 @@ class Client(BaseClient):
               - **Domain** *(string) --* 
                 Holds the domain prefix if the user pool has a domain associated with it.
               - **CustomDomain** *(string) --* 
+                A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: ``auth.example.com`` .
+                For more information about adding a custom domain to your user pool, see `Using Your Own Domain for the Hosted UI <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html>`__ .
               - **AdminCreateUserConfig** *(dict) --* 
                 The configuration for ``AdminCreateUser`` requests.
                 - **AllowAdminCreateUserOnly** *(boolean) --* 
                   Set to ``True`` if only the administrator is allowed to create user profiles. Set to ``False`` if users can sign themselves up via an app.
                 - **UnusedAccountValidityDays** *(integer) --* 
-                  The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
+                  The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter. The default value for this parameter is 7. 
+                  .. note::
+                    If you set a value for ``TemporaryPasswordValidityDays`` in ``PasswordPolicy`` , that value will be used and ``UnusedAccountValidityDays`` will be deprecated for that user pool. 
                 - **InviteMessageTemplate** *(dict) --* 
                   The message template to be used for the welcome message to new users.
                   See also `Customizing User Invitation Messages <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization>`__ .
@@ -2613,9 +2635,21 @@ class Client(BaseClient):
         :param EmailConfiguration:
           The email configuration.
           - **SourceArn** *(string) --*
-            The Amazon Resource Name (ARN) of the email source.
+            The Amazon Resource Name (ARN) of a verified email address in Amazon SES. This email address is used in one of the following ways, depending on the value that you specify for the ``EmailSendingAccount`` parameter:
+            * If you specify ``COGNITO_DEFAULT`` , Amazon Cognito uses this address as the custom FROM address when it emails your users by using its built-in email account.
+            * If you specify ``DEVELOPER`` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
           - **ReplyToEmailAddress** *(string) --*
             The destination to which the receiver of the email should reply to.
+          - **EmailSendingAccount** *(string) --*
+            Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:
+              COGNITO_DEFAULT
+            When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+            To look up the email delivery limit for the default option, see `Limits in Amazon Cognito <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html>`__ in the *Amazon Cognito Developer Guide* .
+            The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the ``SourceArn`` parameter.
+              DEVELOPER
+            When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.
+            If you use this option, you must provide the ARN of an Amazon SES verified email address for the ``SourceArn`` parameter.
+            Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see `Using Service-Linked Roles for Amazon Cognito <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html>`__ in the *Amazon Cognito Developer Guide* .
         :type SmsConfiguration: dict
         :param SmsConfiguration:
           The SMS configuration.
@@ -2625,7 +2659,7 @@ class Client(BaseClient):
             The external ID.
         :type UserPoolTags: dict
         :param UserPoolTags:
-          The cost allocation tags for the user pool. For more information, see `Adding Cost Allocation Tags to Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html>`__
+          The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
           - *(string) --*
             - *(string) --*
         :type AdminCreateUserConfig: dict
@@ -2635,6 +2669,8 @@ class Client(BaseClient):
             Set to ``True`` if only the administrator is allowed to create user profiles. Set to ``False`` if users can sign themselves up via an app.
           - **UnusedAccountValidityDays** *(integer) --*
             The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``\"RESEND\"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
+            .. note::
+              If you set a value for ``TemporaryPasswordValidityDays`` in ``PasswordPolicy`` , that value will be used and ``UnusedAccountValidityDays`` will be deprecated for that user pool.
           - **InviteMessageTemplate** *(dict) --*
             The message template to be used for the welcome message to new users.
             See also `Customizing User Invitation Messages <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization>`__ .
@@ -2657,7 +2693,7 @@ class Client(BaseClient):
               Specifies whether the attribute type is developer only.
             - **Mutable** *(boolean) --*
               Specifies whether the value of the attribute can be changed.
-              For any user pool attribute that\'s mapped to an identity provider attribute, you must set this parameter to ``true`` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
+              For any user pool attribute that\'s mapped to an identity provider attribute, you must set this parameter to ``true`` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
             - **Required** *(boolean) --*
               Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
             - **NumberAttributeConstraints** *(dict) --*
@@ -2865,7 +2901,7 @@ class Client(BaseClient):
         :type WriteAttributes: list
         :param WriteAttributes:
           The user pool attributes that the app client can write to.
-          If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
+          If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
           - *(string) --*
         :type ExplicitAuthFlows: list
         :param ExplicitAuthFlows:
@@ -2873,7 +2909,7 @@ class Client(BaseClient):
           - *(string) --*
         :type SupportedIdentityProviders: list
         :param SupportedIdentityProviders:
-          A list of provider names for the identity providers that are supported on this client.
+          A list of provider names for the identity providers that are supported on this client. The following are supported: ``COGNITO`` , ``Facebook`` , ``Google`` and ``LoginWithAmazon`` .
           - *(string) --*
         :type CallbackURLs: list
         :param CallbackURLs:
@@ -2963,7 +2999,7 @@ class Client(BaseClient):
         :param CustomDomainConfig:
           The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
           Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead.
-          For more information about the hosted domain and custom domains, see `Configuring a User Pool Domain <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html>`__ .
+          For more information about the hosted domain and custom domains, see `Configuring a User Pool Domain <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html>`__ .
           - **CertificateArn** *(string) --* **[REQUIRED]**
             The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         :rtype: dict
@@ -3626,7 +3662,8 @@ class Client(BaseClient):
                     'EstimatedNumberOfUsers': 123,
                     'EmailConfiguration': {
                         'SourceArn': 'string',
-                        'ReplyToEmailAddress': 'string'
+                        'ReplyToEmailAddress': 'string',
+                        'EmailSendingAccount': 'COGNITO_DEFAULT'|'DEVELOPER'
                     },
                     'SmsConfiguration': {
                         'SnsCallerArn': 'string',
@@ -3718,7 +3755,7 @@ class Client(BaseClient):
                     Specifies whether the attribute type is developer only.
                   - **Mutable** *(boolean) --* 
                     Specifies whether the value of the attribute can be changed.
-                    For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to ``true`` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
+                    For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to ``true`` . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see `Specifying Identity Provider Attribute Mappings for Your User Pool <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html>`__ .
                   - **Required** *(boolean) --* 
                     Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
                   - **NumberAttributeConstraints** *(dict) --* 
@@ -3780,9 +3817,21 @@ class Client(BaseClient):
               - **EmailConfiguration** *(dict) --* 
                 The email configuration.
                 - **SourceArn** *(string) --* 
-                  The Amazon Resource Name (ARN) of the email source.
+                  The Amazon Resource Name (ARN) of a verified email address in Amazon SES. This email address is used in one of the following ways, depending on the value that you specify for the ``EmailSendingAccount`` parameter:
+                  * If you specify ``COGNITO_DEFAULT`` , Amazon Cognito uses this address as the custom FROM address when it emails your users by using its built-in email account. 
+                  * If you specify ``DEVELOPER`` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf. 
                 - **ReplyToEmailAddress** *(string) --* 
                   The destination to which the receiver of the email should reply to.
+                - **EmailSendingAccount** *(string) --* 
+                  Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:
+                    COGNITO_DEFAULT  
+                  When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+                  To look up the email delivery limit for the default option, see `Limits in Amazon Cognito <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html>`__ in the *Amazon Cognito Developer Guide* .
+                  The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the ``SourceArn`` parameter.
+                    DEVELOPER  
+                  When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.
+                  If you use this option, you must provide the ARN of an Amazon SES verified email address for the ``SourceArn`` parameter.
+                  Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see `Using Service-Linked Roles for Amazon Cognito <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html>`__ in the *Amazon Cognito Developer Guide* .
               - **SmsConfiguration** *(dict) --* 
                 The SMS configuration.
                 - **SnsCallerArn** *(string) --* 
@@ -3790,7 +3839,7 @@ class Client(BaseClient):
                 - **ExternalId** *(string) --* 
                   The external ID.
               - **UserPoolTags** *(dict) --* 
-                The cost allocation tags for the user pool. For more information, see `Adding Cost Allocation Tags to Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html>`__  
+                The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
                 - *(string) --* 
                   - *(string) --* 
               - **SmsConfigurationFailure** *(string) --* 
@@ -3800,12 +3849,16 @@ class Client(BaseClient):
               - **Domain** *(string) --* 
                 Holds the domain prefix if the user pool has a domain associated with it.
               - **CustomDomain** *(string) --* 
+                A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: ``auth.example.com`` .
+                For more information about adding a custom domain to your user pool, see `Using Your Own Domain for the Hosted UI <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html>`__ .
               - **AdminCreateUserConfig** *(dict) --* 
                 The configuration for ``AdminCreateUser`` requests.
                 - **AllowAdminCreateUserOnly** *(boolean) --* 
                   Set to ``True`` if only the administrator is allowed to create user profiles. Set to ``False`` if users can sign themselves up via an app.
                 - **UnusedAccountValidityDays** *(integer) --* 
-                  The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
+                  The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``"RESEND"`` for the ``MessageAction`` parameter. The default value for this parameter is 7. 
+                  .. note::
+                    If you set a value for ``TemporaryPasswordValidityDays`` in ``PasswordPolicy`` , that value will be used and ``UnusedAccountValidityDays`` will be deprecated for that user pool. 
                 - **InviteMessageTemplate** *(dict) --* 
                   The message template to be used for the welcome message to new users.
                   See also `Customizing User Invitation Messages <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization>`__ .
@@ -5051,6 +5104,41 @@ class Client(BaseClient):
         """
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        """
+        Lists the tags that are assigned to an Amazon Cognito user pool.
+        A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+        You can use this action up to 10 times per second, per account.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': {
+                    'string': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Tags** *(dict) --* 
+              The tags that are assigned to the user pool.
+              - *(string) --* 
+                - *(string) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def list_user_import_jobs(self, UserPoolId: str, MaxResults: int, PaginationToken: str = None) -> Dict:
         """
         Lists the user import jobs.
@@ -5364,6 +5452,8 @@ class Client(BaseClient):
                   * ARCHIVED - User is no longer active. 
                   * COMPROMISED - User is disabled due to a potential security threat. 
                   * UNKNOWN - User status is not known. 
+                  * RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in. 
+                  * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.  
                 - **MFAOptions** *(list) --* 
                   The MFA options for the user.
                   - *(dict) --* 
@@ -5483,6 +5573,8 @@ class Client(BaseClient):
                   * ARCHIVED - User is no longer active. 
                   * COMPROMISED - User is disabled due to a potential security threat. 
                   * UNKNOWN - User status is not known. 
+                  * RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in. 
+                  * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.  
                 - **MFAOptions** *(list) --* 
                   The MFA options for the user.
                   - *(dict) --* 
@@ -6504,6 +6596,74 @@ class Client(BaseClient):
         """
         pass
 
+    def tag_resource(self, ResourceArn: str, Tags: Dict = None) -> Dict:
+        """
+        Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+        Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of a user pool, one for testing and another for production, you might assign an ``Environment`` tag key to both user pools. The value of this key might be ``Test`` for one user pool and ``Production`` for the other.
+        Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your user pools. In an IAM policy, you can constrain permissions for user pools based on specific tags or tag values.
+        You can use this action up to 5 times per second, per account. A user pool can have as many as 50 tags.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              Tags={
+                  'string': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the user pool to assign the tags to.
+        :type Tags: dict
+        :param Tags:
+          The tags to assign to the user pool.
+          - *(string) --*
+            - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List = None) -> Dict:
+        """
+        Removes the specified tags from an Amazon Cognito user pool. You can use this action up to 5 times per second, per account
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.
+        :type TagKeys: list
+        :param TagKeys:
+          The keys of the tags to remove from the user pool.
+          - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def update_auth_event_feedback(self, UserPoolId: str, Username: str, EventId: str, FeedbackToken: str, FeedbackValue: str) -> Dict:
         """
         Provides the feedback for an authentication event whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.
@@ -6929,7 +7089,8 @@ class Client(BaseClient):
               },
               EmailConfiguration={
                   'SourceArn': 'string',
-                  'ReplyToEmailAddress': 'string'
+                  'ReplyToEmailAddress': 'string',
+                  'EmailSendingAccount': 'COGNITO_DEFAULT'|'DEVELOPER'
               },
               SmsConfiguration={
                   'SnsCallerArn': 'string',
@@ -7048,9 +7209,21 @@ class Client(BaseClient):
         :param EmailConfiguration:
           Email configuration.
           - **SourceArn** *(string) --*
-            The Amazon Resource Name (ARN) of the email source.
+            The Amazon Resource Name (ARN) of a verified email address in Amazon SES. This email address is used in one of the following ways, depending on the value that you specify for the ``EmailSendingAccount`` parameter:
+            * If you specify ``COGNITO_DEFAULT`` , Amazon Cognito uses this address as the custom FROM address when it emails your users by using its built-in email account.
+            * If you specify ``DEVELOPER`` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
           - **ReplyToEmailAddress** *(string) --*
             The destination to which the receiver of the email should reply to.
+          - **EmailSendingAccount** *(string) --*
+            Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:
+              COGNITO_DEFAULT
+            When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+            To look up the email delivery limit for the default option, see `Limits in Amazon Cognito <https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html>`__ in the *Amazon Cognito Developer Guide* .
+            The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the ``SourceArn`` parameter.
+              DEVELOPER
+            When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.
+            If you use this option, you must provide the ARN of an Amazon SES verified email address for the ``SourceArn`` parameter.
+            Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see `Using Service-Linked Roles for Amazon Cognito <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html>`__ in the *Amazon Cognito Developer Guide* .
         :type SmsConfiguration: dict
         :param SmsConfiguration:
           SMS configuration.
@@ -7060,7 +7233,7 @@ class Client(BaseClient):
             The external ID.
         :type UserPoolTags: dict
         :param UserPoolTags:
-          The cost allocation tags for the user pool. For more information, see `Adding Cost Allocation Tags to Your User Pool <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html>`__
+          The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
           - *(string) --*
             - *(string) --*
         :type AdminCreateUserConfig: dict
@@ -7070,6 +7243,8 @@ class Client(BaseClient):
             Set to ``True`` if only the administrator is allowed to create user profiles. Set to ``False`` if users can sign themselves up via an app.
           - **UnusedAccountValidityDays** *(integer) --*
             The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call ``AdminCreateUser`` again, specifying ``\"RESEND\"`` for the ``MessageAction`` parameter. The default value for this parameter is 7.
+            .. note::
+              If you set a value for ``TemporaryPasswordValidityDays`` in ``PasswordPolicy`` , that value will be used and ``UnusedAccountValidityDays`` will be deprecated for that user pool.
           - **InviteMessageTemplate** *(dict) --*
             The message template to be used for the welcome message to new users.
             See also `Customizing User Invitation Messages <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization>`__ .
@@ -7309,7 +7484,6 @@ class Client(BaseClient):
         :type AllowedOAuthFlows: list
         :param AllowedOAuthFlows:
           Set to ``code`` to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.
-          Set to ``token`` to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
           - *(string) --*
         :type AllowedOAuthScopes: list
         :param AllowedOAuthScopes:
@@ -7343,7 +7517,7 @@ class Client(BaseClient):
         However, if you replace your existing certificate with a new one, ACM gives the new certificate a new ARN. To apply the new certificate to your custom domain, you must provide this ARN to Amazon Cognito.
         When you add your new certificate in ACM, you must choose US East (N. Virginia) as the AWS Region.
         After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.
-        For more information about adding a custom domain to your user pool, see `Using Your Own Domain for the Hosted UI <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html>`__ .
+        For more information about adding a custom domain to your user pool, see `Using Your Own Domain for the Hosted UI <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html>`__ .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UpdateUserPoolDomain>`_
         
         **Request Syntax**

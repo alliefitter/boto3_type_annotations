@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
-from datetime import datetime
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -24,7 +24,7 @@ class Client(BaseClient):
     def create_global_table(self, GlobalTableName: str, ReplicationGroup: List) -> Dict:
         pass
 
-    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> Dict:
+    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, StreamSpecification: Dict = None, SSESpecification: Dict = None, Tags: List = None) -> Dict:
         pass
 
     def delete_backup(self, BackupArn: str) -> Dict:

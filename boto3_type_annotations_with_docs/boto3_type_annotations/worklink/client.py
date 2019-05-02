@@ -1,13 +1,50 @@
-from typing import Union
-from botocore.paginate import Paginator
-from typing import List
-from botocore.waiter import Waiter
 from typing import Optional
-from typing import Dict
 from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
+    def associate_domain(self, FleetArn: str, DomainName: str, AcmCertificateArn: str, DisplayName: str = None) -> Dict:
+        """
+        Specifies a domain to be associated to Amazon WorkLink.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/AssociateDomain>`_
+        
+        **Request Syntax**
+        ::
+          response = client.associate_domain(
+              FleetArn='string',
+              DomainName='string',
+              AcmCertificateArn='string',
+              DisplayName='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type FleetArn: string
+        :param FleetArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the fleet.
+        :type DomainName: string
+        :param DomainName: **[REQUIRED]**
+          The fully qualified domain name (FQDN).
+        :type AcmCertificateArn: string
+        :param AcmCertificateArn: **[REQUIRED]**
+          The ARN of an issued ACM certificate that is valid for the domain being associated.
+        :type DisplayName: string
+        :param DisplayName:
+          The name to display.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def associate_website_certificate_authority(self, FleetArn: str, Certificate: str, DisplayName: str = None) -> Dict:
         """
         Imports the root certificate of a certificate authority (CA) used to obtain TLS certificates used by associated websites within the company network.
@@ -278,6 +315,45 @@ class Client(BaseClient):
         """
         pass
 
+    def describe_domain(self, FleetArn: str, DomainName: str) -> Dict:
+        """
+        Provides information about the domain.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/DescribeDomain>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_domain(
+              FleetArn='string',
+              DomainName='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'DisplayName': 'string',
+                'CreatedTime': datetime(2015, 1, 1),
+                'DomainStatus': 'PENDING_VALIDATION'|'ASSOCIATING'|'ACTIVE'|'INACTIVE'|'DISASSOCIATING'|'DISASSOCIATED'|'FAILED_TO_ASSOCIATE'|'FAILED_TO_DISASSOCIATE'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **DisplayName** *(string) --* 
+              The name to display.
+            - **CreatedTime** *(datetime) --* 
+              The time that the domain was added.
+            - **DomainStatus** *(string) --* 
+              The current state for the domain.
+        :type FleetArn: string
+        :param FleetArn: **[REQUIRED]**
+          The ARN of the fleet.
+        :type DomainName: string
+        :param DomainName: **[REQUIRED]**
+          The name of the domain.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def describe_fleet_metadata(self, FleetArn: str) -> Dict:
         """
         Provides basic information for the specified fleet, excluding identity provider, networking, and device configuration details.
@@ -394,6 +470,35 @@ class Client(BaseClient):
         :type WebsiteCaId: string
         :param WebsiteCaId: **[REQUIRED]**
           A unique identifier for the certificate authority.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def disassociate_domain(self, FleetArn: str, DomainName: str) -> Dict:
+        """
+        Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. 
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/DisassociateDomain>`_
+        
+        **Request Syntax**
+        ::
+          response = client.disassociate_domain(
+              FleetArn='string',
+              DomainName='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type FleetArn: string
+        :param FleetArn: **[REQUIRED]**
+          The ARN of the fleet.
+        :type DomainName: string
+        :param DomainName: **[REQUIRED]**
+          The name of the domain.
         :rtype: dict
         :returns:
         """
@@ -526,6 +631,63 @@ class Client(BaseClient):
         """
         pass
 
+    def list_domains(self, FleetArn: str, NextToken: str = None, MaxResults: int = None) -> Dict:
+        """
+        Retrieves a list of domains associated to a specified fleet.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/ListDomains>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_domains(
+              FleetArn='string',
+              NextToken='string',
+              MaxResults=123
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Domains': [
+                    {
+                        'DomainName': 'string',
+                        'CreatedTime': datetime(2015, 1, 1),
+                        'DomainStatus': 'PENDING_VALIDATION'|'ASSOCIATING'|'ACTIVE'|'INACTIVE'|'DISASSOCIATING'|'DISASSOCIATED'|'FAILED_TO_ASSOCIATE'|'FAILED_TO_DISASSOCIATE',
+                        'DisplayName': 'string'
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Domains** *(list) --* 
+              Information about the domains.
+              - *(dict) --* 
+                The summary of the domain.
+                - **DomainName** *(string) --* 
+                  The name of the domain.
+                - **CreatedTime** *(datetime) --* 
+                  The time that the domain was created.
+                - **DomainStatus** *(string) --* 
+                  The status of the domain.
+                - **DisplayName** *(string) --* 
+                  The name to display.
+            - **NextToken** *(string) --* 
+              The pagination token used to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+        :type FleetArn: string
+        :param FleetArn: **[REQUIRED]**
+          The ARN of the fleet.
+        :type NextToken: string
+        :param NextToken:
+          The pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+        :type MaxResults: integer
+        :param MaxResults:
+          The maximum number of results to be included in the next page.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def list_fleets(self, NextToken: str = None, MaxResults: int = None) -> Dict:
         """
         Retrieves a list of fleets for the current account and Region.
@@ -637,6 +799,64 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken:
           The pagination token used to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def restore_domain_access(self, FleetArn: str, DomainName: str) -> Dict:
+        """
+        Moves a domain to ACTIVE status if it was in the INACTIVE status.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/RestoreDomainAccess>`_
+        
+        **Request Syntax**
+        ::
+          response = client.restore_domain_access(
+              FleetArn='string',
+              DomainName='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type FleetArn: string
+        :param FleetArn: **[REQUIRED]**
+          The ARN of the fleet.
+        :type DomainName: string
+        :param DomainName: **[REQUIRED]**
+          The name of the domain.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def revoke_domain_access(self, FleetArn: str, DomainName: str) -> Dict:
+        """
+        Moves a domain to INACTIVE status if it was in the ACTIVE status.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/RevokeDomainAccess>`_
+        
+        **Request Syntax**
+        ::
+          response = client.revoke_domain_access(
+              FleetArn='string',
+              DomainName='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type FleetArn: string
+        :param FleetArn: **[REQUIRED]**
+          The ARN of the fleet.
+        :type DomainName: string
+        :param DomainName: **[REQUIRED]**
+          The name of the domain.
         :rtype: dict
         :returns:
         """
@@ -767,6 +987,39 @@ class Client(BaseClient):
         :type DeviceCaCertificate: string
         :param DeviceCaCertificate:
           The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def update_domain_metadata(self, FleetArn: str, DomainName: str, DisplayName: str = None) -> Dict:
+        """
+        Updates domain metadata, such as DisplayName.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/UpdateDomainMetadata>`_
+        
+        **Request Syntax**
+        ::
+          response = client.update_domain_metadata(
+              FleetArn='string',
+              DomainName='string',
+              DisplayName='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type FleetArn: string
+        :param FleetArn: **[REQUIRED]**
+          The ARN of the fleet.
+        :type DomainName: string
+        :param DomainName: **[REQUIRED]**
+          The name of the domain.
+        :type DisplayName: string
+        :param DisplayName:
+          The name to display.
         :rtype: dict
         :returns:
         """

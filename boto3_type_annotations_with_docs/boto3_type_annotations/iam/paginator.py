@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -179,14 +179,14 @@ class GetAccountAuthorizationDetails(Paginator):
                 Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
                 - **Path** *(string) --* 
-                  The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **UserName** *(string) --* 
                   The friendly name identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                 - **UserPolicyList** *(list) --* 
@@ -206,23 +206,23 @@ class GetAccountAuthorizationDetails(Paginator):
                   - *(dict) --* 
                     Contains information about an attached policy.
                     An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                    For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                    For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                     - **PolicyName** *(string) --* 
                       The friendly name of the attached policy.
                     - **PolicyArn** *(string) --* 
                       The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the user.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -235,14 +235,14 @@ class GetAccountAuthorizationDetails(Paginator):
                 Contains information about an IAM group, including all of the group's policies.
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
                 - **Path** *(string) --* 
-                  The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **GroupName** *(string) --* 
                   The friendly name that identifies the group.
                 - **GroupId** *(string) --* 
-                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
                 - **GroupPolicyList** *(list) --* 
@@ -259,26 +259,26 @@ class GetAccountAuthorizationDetails(Paginator):
                   - *(dict) --* 
                     Contains information about an attached policy.
                     An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                    For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                    For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                     - **PolicyName** *(string) --* 
                       The friendly name of the attached policy.
                     - **PolicyArn** *(string) --* 
                       The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
             - **RoleDetailList** *(list) --* 
               A list containing information about IAM roles.
               - *(dict) --* 
                 Contains information about an IAM role, including all of the role's policies.
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
                 - **Path** *(string) --* 
-                  The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **RoleName** *(string) --* 
                   The friendly name that identifies the role.
                 - **RoleId** *(string) --* 
-                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                 - **AssumeRolePolicyDocument** *(string) --* 
@@ -293,13 +293,13 @@ class GetAccountAuthorizationDetails(Paginator):
                     *  ListInstanceProfiles   
                     *  ListInstanceProfilesForRole   
                     - **Path** *(string) --* 
-                      The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **InstanceProfileName** *(string) --* 
                       The name identifying the instance profile.
                     - **InstanceProfileId** *(string) --* 
-                      The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **Arn** *(string) --* 
-                      The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **CreateDate** *(datetime) --* 
                       The date when the instance profile was created.
                     - **Roles** *(list) --* 
@@ -307,13 +307,13 @@ class GetAccountAuthorizationDetails(Paginator):
                       - *(dict) --* 
                         Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                         - **Path** *(string) --* 
-                          The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                          The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                         - **RoleName** *(string) --* 
                           The friendly name that identifies the role.
                         - **RoleId** *(string) --* 
-                          The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                          The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                         - **Arn** *(string) --* 
-                          The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                          The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                         - **CreateDate** *(datetime) --* 
                           The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                         - **AssumeRolePolicyDocument** *(string) --* 
@@ -324,15 +324,15 @@ class GetAccountAuthorizationDetails(Paginator):
                           The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                         - **PermissionsBoundary** *(dict) --* 
                           The ARN of the policy used to set the permissions boundary for the role.
-                          For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                          For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                           - **PermissionsBoundaryType** *(string) --* 
                             The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                           - **PermissionsBoundaryArn** *(string) --* 
                             The ARN of the policy used to set the permissions boundary for the user or role.
                         - **Tags** *(list) --* 
-                          A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                          A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                           - *(dict) --* 
-                            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                            A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                             - **Key** *(string) --* 
                               The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                             - **Value** *(string) --* 
@@ -353,23 +353,23 @@ class GetAccountAuthorizationDetails(Paginator):
                   - *(dict) --* 
                     Contains information about an attached policy.
                     An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                    For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                    For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                     - **PolicyName** *(string) --* 
                       The friendly name of the attached policy.
                     - **PolicyArn** *(string) --* 
                       The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                      For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the role.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -381,26 +381,26 @@ class GetAccountAuthorizationDetails(Paginator):
               - *(dict) --* 
                 Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
                 This data type is used as a response element in the  GetAccountAuthorizationDetails operation.
-                For more information about managed policies, see `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, see `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name (not ARN) identifying the policy.
                 - **PolicyId** *(string) --* 
                   The stable and unique string identifying the policy.
-                  For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **Path** *(string) --* 
                   The path to the policy.
-                  For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **DefaultVersionId** *(string) --* 
                   The identifier for the version of the policy that is set as the default (operative) version.
-                  For more information about policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *Using IAM* guide. 
+                  For more information about policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *Using IAM* guide. 
                 - **AttachmentCount** *(integer) --* 
                   The number of principal entities (users, groups, and roles) that the policy is attached to.
                 - **PermissionsBoundaryUsageCount** *(integer) --* 
                   The number of entities (users and roles) for which the policy is used as the permissions boundary. 
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **IsAttachable** *(boolean) --* 
                   Specifies whether the policy can be attached to an IAM user, group, or role.
                 - **Description** *(string) --* 
@@ -415,7 +415,7 @@ class GetAccountAuthorizationDetails(Paginator):
                   - *(dict) --* 
                     Contains information about a version of a managed policy.
                     This data type is used as a response element in the  CreatePolicyVersion ,  GetPolicyVersion ,  ListPolicyVersions , and  GetAccountAuthorizationDetails operations. 
-                    For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                    For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                     - **Document** *(string) --* 
                       The policy document.
                       The policy document is returned in the response to the  GetPolicyVersion and  GetAccountAuthorizationDetails operations. It is not returned in the response to the  CreatePolicyVersion or  ListPolicyVersions operations. 
@@ -508,13 +508,13 @@ class GetGroup(Paginator):
             - **Group** *(dict) --* 
               A structure that contains details about the group.
               - **Path** *(string) --* 
-                The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **GroupName** *(string) --* 
                 The friendly name that identifies the group.
               - **GroupId** *(string) --* 
-                The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **Arn** *(string) --* 
-                The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
               - **CreateDate** *(datetime) --* 
                 The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
             - **Users** *(list) --* 
@@ -526,32 +526,32 @@ class GetGroup(Paginator):
                 *  GetUser   
                 *  ListUsers   
                 - **Path** *(string) --* 
-                  The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **UserName** *(string) --* 
                   The friendly name identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                 - **PasswordLastUsed** *(datetime) --* 
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                   * The user never had a password. 
                   * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                   A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                   This value is returned only in the  GetUser and  ListUsers operations. 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the user.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -742,12 +742,12 @@ class ListAttachedGroupPolicies(Paginator):
               - *(dict) --* 
                 Contains information about an attached policy.
                 An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name of the attached policy.
                 - **PolicyArn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **NextToken** *(string) --* 
@@ -814,12 +814,12 @@ class ListAttachedRolePolicies(Paginator):
               - *(dict) --* 
                 Contains information about an attached policy.
                 An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name of the attached policy.
                 - **PolicyArn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **NextToken** *(string) --* 
@@ -886,12 +886,12 @@ class ListAttachedUserPolicies(Paginator):
               - *(dict) --* 
                 Contains information about an attached policy.
                 An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the  ListAttachedGroupPolicies ,  ListAttachedRolePolicies ,  ListAttachedUserPolicies , and  GetAccountAuthorizationDetails operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name of the attached policy.
                 - **PolicyArn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **NextToken** *(string) --* 
@@ -972,31 +972,31 @@ class ListEntitiesForPolicy(Paginator):
               - *(dict) --* 
                 Contains information about a group that a managed policy is attached to.
                 This data type is used as a response element in the  ListEntitiesForPolicy operation. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **GroupName** *(string) --* 
                   The name (friendly name, not ARN) identifying the group.
                 - **GroupId** *(string) --* 
-                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
+                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
             - **PolicyUsers** *(list) --* 
               A list of IAM users that the policy is attached to.
               - *(dict) --* 
                 Contains information about a user that a managed policy is attached to.
                 This data type is used as a response element in the  ListEntitiesForPolicy operation. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **UserName** *(string) --* 
                   The name (friendly name, not ARN) identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
             - **PolicyRoles** *(list) --* 
               A list of IAM roles that the policy is attached to.
               - *(dict) --* 
                 Contains information about a role that a managed policy is attached to.
                 This data type is used as a response element in the  ListEntitiesForPolicy operation. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **RoleName** *(string) --* 
                   The name (friendly name, not ARN) identifying the role.
                 - **RoleId** *(string) --* 
-                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
+                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html>`__ in the *IAM User Guide* .
             - **IsTruncated** *(boolean) --* 
               A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the ``Marker`` request parameter to retrieve more items. Note that IAM might return fewer than the ``MaxItems`` number of results even when there are more results available. We recommend that you check ``IsTruncated`` after every call to ensure that you receive all your results.
             - **NextToken** *(string) --* 
@@ -1004,7 +1004,7 @@ class ListEntitiesForPolicy(Paginator):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type EntityFilter: string
         :param EntityFilter:
           The entity type to use for filtering the results.
@@ -1135,13 +1135,13 @@ class ListGroups(Paginator):
                 *  GetGroup   
                 *  ListGroups   
                 - **Path** *(string) --* 
-                  The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **GroupName** *(string) --* 
                   The friendly name that identifies the group.
                 - **GroupId** *(string) --* 
-                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
             - **IsTruncated** *(boolean) --* 
@@ -1212,13 +1212,13 @@ class ListGroupsForUser(Paginator):
                 *  GetGroup   
                 *  ListGroups   
                 - **Path** *(string) --* 
-                  The path to the group. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the group. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **GroupName** *(string) --* 
                   The friendly name that identifies the group.
                 - **GroupId** *(string) --* 
-                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the group. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the group was created.
             - **IsTruncated** *(boolean) --* 
@@ -1312,13 +1312,13 @@ class ListInstanceProfiles(Paginator):
                 *  ListInstanceProfiles   
                 *  ListInstanceProfilesForRole   
                 - **Path** *(string) --* 
-                  The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **InstanceProfileName** *(string) --* 
                   The name identifying the instance profile.
                 - **InstanceProfileId** *(string) --* 
-                  The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date when the instance profile was created.
                 - **Roles** *(list) --* 
@@ -1326,13 +1326,13 @@ class ListInstanceProfiles(Paginator):
                   - *(dict) --* 
                     Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                     - **Path** *(string) --* 
-                      The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **RoleName** *(string) --* 
                       The friendly name that identifies the role.
                     - **RoleId** *(string) --* 
-                      The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **Arn** *(string) --* 
-                      The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                      The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                     - **CreateDate** *(datetime) --* 
                       The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                     - **AssumeRolePolicyDocument** *(string) --* 
@@ -1343,15 +1343,15 @@ class ListInstanceProfiles(Paginator):
                       The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                     - **PermissionsBoundary** *(dict) --* 
                       The ARN of the policy used to set the permissions boundary for the role.
-                      For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                      For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                       - **PermissionsBoundaryType** *(string) --* 
                         The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                       - **PermissionsBoundaryArn** *(string) --* 
                         The ARN of the policy used to set the permissions boundary for the user or role.
                     - **Tags** *(list) --* 
-                      A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                      A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                       - *(dict) --* 
-                        A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                        A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                         - **Key** *(string) --* 
                           The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                         - **Value** *(string) --* 
@@ -1449,13 +1449,13 @@ class ListInstanceProfilesForRole(Paginator):
                 *  ListInstanceProfiles   
                 *  ListInstanceProfilesForRole   
                 - **Path** *(string) --* 
-                  The path to the instance profile. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the instance profile. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **InstanceProfileName** *(string) --* 
                   The name identifying the instance profile.
                 - **InstanceProfileId** *(string) --* 
-                  The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the instance profile. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date when the instance profile was created.
                 - **Roles** *(list) --* 
@@ -1463,13 +1463,13 @@ class ListInstanceProfilesForRole(Paginator):
                   - *(dict) --* 
                     Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                     - **Path** *(string) --* 
-                      The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **RoleName** *(string) --* 
                       The friendly name that identifies the role.
                     - **RoleId** *(string) --* 
-                      The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                      The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                     - **Arn** *(string) --* 
-                      The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                      The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                     - **CreateDate** *(datetime) --* 
                       The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                     - **AssumeRolePolicyDocument** *(string) --* 
@@ -1480,15 +1480,15 @@ class ListInstanceProfilesForRole(Paginator):
                       The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                     - **PermissionsBoundary** *(dict) --* 
                       The ARN of the policy used to set the permissions boundary for the role.
-                      For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                      For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                       - **PermissionsBoundaryType** *(string) --* 
                         The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                       - **PermissionsBoundaryArn** *(string) --* 
                         The ARN of the policy used to set the permissions boundary for the user or role.
                     - **Tags** *(list) --* 
-                      A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                      A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                       - *(dict) --* 
-                        A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                        A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                         - **Key** *(string) --* 
                           The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                         - **Value** *(string) --* 
@@ -1636,25 +1636,25 @@ class ListPolicies(Paginator):
               - *(dict) --* 
                 Contains information about a managed policy.
                 This data type is used as a response element in the  CreatePolicy ,  GetPolicy , and  ListPolicies operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **PolicyName** *(string) --* 
                   The friendly name (not ARN) identifying the policy.
                 - **PolicyId** *(string) --* 
                   The stable and unique string identifying the policy.
-                  For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
                   The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
-                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
+                  For more information about ARNs, go to `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* . 
                 - **Path** *(string) --* 
                   The path to the policy.
-                  For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **DefaultVersionId** *(string) --* 
                   The identifier for the version of the policy that is set as the default version.
                 - **AttachmentCount** *(integer) --* 
                   The number of entities (users, groups, and roles) that the policy is attached to.
                 - **PermissionsBoundaryUsageCount** *(integer) --* 
                   The number of entities (users and roles) for which the policy is used to set the permissions boundary. 
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                 - **IsAttachable** *(boolean) --* 
                   Specifies whether the policy can be attached to an IAM user, group, or role.
                 - **Description** *(string) --* 
@@ -1738,11 +1738,11 @@ class ListPolicyVersions(Paginator):
             Contains the response to a successful  ListPolicyVersions request. 
             - **Versions** *(list) --* 
               A list of policy versions.
-              For more information about managed policy versions, see `Versioning for Managed Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
+              For more information about managed policy versions, see `Versioning for Managed Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html>`__ in the *IAM User Guide* .
               - *(dict) --* 
                 Contains information about a version of a managed policy.
                 This data type is used as a response element in the  CreatePolicyVersion ,  GetPolicyVersion ,  ListPolicyVersions , and  GetAccountAuthorizationDetails operations. 
-                For more information about managed policies, refer to `Managed Policies and Inline Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
+                For more information about managed policies, refer to `Managed Policies and Inline Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html>`__ in the *Using IAM* guide. 
                 - **Document** *(string) --* 
                   The policy document.
                   The policy document is returned in the response to the  GetPolicyVersion and  GetAccountAuthorizationDetails operations. It is not returned in the response to the  CreatePolicyVersion or  ListPolicyVersions operations. 
@@ -1761,7 +1761,7 @@ class ListPolicyVersions(Paginator):
         :type PolicyArn: string
         :param PolicyArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -1887,13 +1887,13 @@ class ListRoles(Paginator):
               - *(dict) --* 
                 Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
                 - **Path** *(string) --* 
-                  The path to the role. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the role. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **RoleName** *(string) --* 
                   The friendly name that identifies the role.
                 - **RoleId** *(string) --* 
-                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the role. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
+                  The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *IAM User Guide* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the role was created.
                 - **AssumeRolePolicyDocument** *(string) --* 
@@ -1904,15 +1904,15 @@ class ListRoles(Paginator):
                   The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional ``DurationSeconds`` API parameter or ``duration-seconds`` CLI parameter.
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the role.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are attached to the specified role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -2056,13 +2056,13 @@ class ListServerCertificates(Paginator):
                 Contains information about a server certificate without its certificate body, certificate chain, and private key.
                 This data type is used as a response element in the  UploadServerCertificate and  ListServerCertificates operations. 
                 - **Path** *(string) --* 
-                  The path to the server certificate. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The path to the server certificate. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **ServerCertificateName** *(string) --* 
                   The name that identifies the server certificate.
                 - **ServerCertificateId** *(string) --* 
-                  The stable and unique string identifying the server certificate. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The stable and unique string identifying the server certificate. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **UploadDate** *(datetime) --* 
                   The date when the server certificate was uploaded.
                 - **Expiration** *(datetime) --* 
@@ -2276,32 +2276,32 @@ class ListUsers(Paginator):
                 *  GetUser   
                 *  ListUsers   
                 - **Path** *(string) --* 
-                  The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **UserName** *(string) --* 
                   The friendly name identifying the user.
                 - **UserId** *(string) --* 
-                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                  The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                 - **Arn** *(string) --* 
-                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                 - **CreateDate** *(datetime) --* 
                   The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                 - **PasswordLastUsed** *(datetime) --* 
-                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                  The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                   * The user never had a password. 
                   * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                   A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                   This value is returned only in the  GetUser and  ListUsers operations. 
                 - **PermissionsBoundary** *(dict) --* 
                   The ARN of the policy used to set the permissions boundary for the user.
-                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                  For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                   - **PermissionsBoundaryType** *(string) --* 
                     The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                   - **PermissionsBoundaryArn** *(string) --* 
                     The ARN of the policy used to set the permissions boundary for the user or role.
                 - **Tags** *(list) --* 
-                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                  A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                   - *(dict) --* 
-                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - **Key** *(string) --* 
                       The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                     - **Value** *(string) --* 
@@ -2397,32 +2397,32 @@ class ListVirtualMFADevices(Paginator):
                 - **User** *(dict) --* 
                   The IAM user associated with this virtual MFA device.
                   - **Path** *(string) --* 
-                    The path to the user. For more information about paths, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                    The path to the user. For more information about paths, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                   - **UserName** *(string) --* 
                     The friendly name identifying the user.
                   - **UserId** *(string) --* 
-                    The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
+                    The stable and unique string identifying the user. For more information about IDs, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide.
                   - **Arn** *(string) --* 
-                    The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
+                    The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see `IAM Identifiers <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html>`__ in the *Using IAM* guide. 
                   - **CreateDate** *(datetime) --* 
                     The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user was created.
                   - **PasswordLastUsed** *(datetime) --* 
-                    The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
+                    The date and time, in `ISO 8601 date-time format <http://www.iso.org/iso/iso8601>`__ , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the `Credential Reports <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html>`__ topic in the *Using IAM* guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:
                     * The user never had a password. 
                     * A password exists but has not been used since IAM started tracking this information on October 20, 2014. 
                     A null valuedoes not mean that the user *never* had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.
                     This value is returned only in the  GetUser and  ListUsers operations. 
                   - **PermissionsBoundary** *(dict) --* 
                     The ARN of the policy used to set the permissions boundary for the user.
-                    For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
+                    For more information about permissions boundaries, see `Permissions Boundaries for IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html>`__ in the *IAM User Guide* .
                     - **PermissionsBoundaryType** *(string) --* 
                       The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of ``Policy`` .
                     - **PermissionsBoundaryArn** *(string) --* 
                       The ARN of the policy used to set the permissions boundary for the user or role.
                   - **Tags** *(list) --* 
-                    A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                    A list of tags that are associated with the specified user. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                     - *(dict) --* 
-                      A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
+                      A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see `Tagging IAM Identities <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html>`__ in the *IAM User Guide* .
                       - **Key** *(string) --* 
                         The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
                       - **Value** *(string) --* 
@@ -2597,7 +2597,7 @@ class SimulateCustomPolicy(Paginator):
                   - **AllowedByOrganizations** *(boolean) --* 
                     Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user's account.
                 - **EvalDecisionDetails** *(dict) --* 
-                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
+                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
                   - *(string) --* 
                     - *(string) --* 
                 - **ResourceSpecificResults** *(list) --* 
@@ -2643,7 +2643,7 @@ class SimulateCustomPolicy(Paginator):
               A token to resume pagination.
         :type PolicyInputList: list
         :param PolicyInputList: **[REQUIRED]**
-          A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the ``ResourcePolicy`` parameter. The policies cannot be \"scope-down\" policies, such as you could include in a call to `GetFederationToken <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html>`__ or one of the `AssumeRole <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html>`__ API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.
+          A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the ``ResourcePolicy`` parameter. The policies cannot be \"scope-down\" policies, such as you could include in a call to `GetFederationToken <https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html>`__ or one of the `AssumeRole <https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html>`__ API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.
           The `regex pattern <http://wikipedia.org/wiki/regex>`__ used to validate this parameter is a string of characters consisting of the following:
           * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range
           * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)
@@ -2651,14 +2651,14 @@ class SimulateCustomPolicy(Paginator):
           - *(string) --*
         :type ActionNames: list
         :param ActionNames: **[REQUIRED]**
-          A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as ``iam:CreateUser`` .
+          A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as ``iam:CreateUser`` . This operation does not support using wildcards (*) in an action name.
           - *(string) --*
         :type ResourceArns: list
         :param ResourceArns:
           A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value defaults to ``*`` (all resources). Each API in the ``ActionNames`` parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response.
           The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the ``ResourcePolicy`` parameter.
           If you include a ``ResourcePolicy`` , then it must be applicable to all of the resources included in the simulation or you receive an invalid input error.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
           - *(string) --*
         :type ResourcePolicy: string
         :param ResourcePolicy:
@@ -2669,7 +2669,7 @@ class SimulateCustomPolicy(Paginator):
           * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
         :type ResourceOwner: string
         :param ResourceOwner:
-          An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN, such as an S3 bucket or object. If ``ResourceOwner`` is specified, it is also used as the account owner of any ``ResourcePolicy`` included in the simulation. If the ``ResourceOwner`` parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in ``CallerArn`` . This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user ``CallerArn`` .
+          An ARN representing the AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If ``ResourceOwner`` is specified, it is also used as the account owner of any ``ResourcePolicy`` included in the simulation. If the ``ResourceOwner`` parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in ``CallerArn`` . This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user ``CallerArn`` .
           The ARN for an account uses the following syntax: ``arn:aws:iam::*AWS-account-ID* :root`` . For example, to represent the account with the 112233445566 ID, use the following ARN: ``arn:aws:iam::112233445566-ID:root`` .
         :type CallerArn: string
         :param CallerArn:
@@ -2677,7 +2677,7 @@ class SimulateCustomPolicy(Paginator):
           You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
         :type ContextEntries: list
         :param ContextEntries:
-          A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permission policies, the corresponding value is supplied.
+          A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.
           - *(dict) --*
             Contains information about a condition context key. It includes the name of the key and specifies the value (or values, if the context key supports multiple values) to use in the simulation. This information is used when evaluating the ``Condition`` elements of the input policies.
             This data type is used as an input parameter to ``  SimulateCustomPolicy `` and ``  SimulateCustomPolicy `` .
@@ -2691,7 +2691,7 @@ class SimulateCustomPolicy(Paginator):
         :type ResourceHandlingOption: string
         :param ResourceHandlingOption:
           Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.
-          Each of the EC2 scenarios requires that you specify instance, image, and security-group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the EC2 scenario options, see `Supported Platforms <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html>`__ in the *Amazon EC2 User Guide* .
+          Each of the EC2 scenarios requires that you specify instance, image, and security-group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the EC2 scenario options, see `Supported Platforms <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html>`__ in the *Amazon EC2 User Guide* .
           * **EC2-Classic-InstanceStore**   instance, image, security-group
           * **EC2-Classic-EBS**   instance, image, security-group, volume
           * **EC2-VPC-InstanceStore**   instance, image, security-group, network-interface
@@ -2858,7 +2858,7 @@ class SimulatePrincipalPolicy(Paginator):
                   - **AllowedByOrganizations** *(boolean) --* 
                     Specifies whether the simulated operation is allowed by the AWS Organizations service control policies that impact the simulated user's account.
                 - **EvalDecisionDetails** *(dict) --* 
-                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
+                  Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See `How IAM Roles Differ from Resource-based Policies <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html>`__  
                   - *(string) --* 
                     - *(string) --* 
                 - **ResourceSpecificResults** *(list) --* 
@@ -2905,7 +2905,7 @@ class SimulatePrincipalPolicy(Paginator):
         :type PolicySourceArn: string
         :param PolicySourceArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type PolicyInputList: list
         :param PolicyInputList:
           An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.
@@ -2922,7 +2922,7 @@ class SimulatePrincipalPolicy(Paginator):
         :param ResourceArns:
           A list of ARNs of AWS resources to include in the simulation. If this parameter is not provided, then the value defaults to ``*`` (all resources). Each API in the ``ActionNames`` parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response.
           The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the ``ResourcePolicy`` parameter.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
           - *(string) --*
         :type ResourcePolicy: string
         :param ResourcePolicy:
@@ -2933,13 +2933,13 @@ class SimulatePrincipalPolicy(Paginator):
           * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
         :type ResourceOwner: string
         :param ResourceOwner:
-          An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN, such as an S3 bucket or object. If ``ResourceOwner`` is specified, it is also used as the account owner of any ``ResourcePolicy`` included in the simulation. If the ``ResourceOwner`` parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in ``CallerArn`` . This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user ``CallerArn`` .
+          An AWS account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If ``ResourceOwner`` is specified, it is also used as the account owner of any ``ResourcePolicy`` included in the simulation. If the ``ResourceOwner`` parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in ``CallerArn`` . This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user ``CallerArn`` .
         :type CallerArn: string
         :param CallerArn:
           The ARN of the IAM user that you want to specify as the simulated caller of the API operations. If you do not specify a ``CallerArn`` , it defaults to the ARN of the user that you specify in ``PolicySourceArn`` , if you specified a user. If you include both a ``PolicySourceArn`` (for example, ``arn:aws:iam::123456789012:user/David`` ) and a ``CallerArn`` (for example, ``arn:aws:iam::123456789012:user/Bob`` ), the result is that you simulate calling the API operations as Bob, as if Bob had David\'s policies.
           You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.
            ``CallerArn`` is required if you include a ``ResourcePolicy`` and the ``PolicySourceArn`` is not the ARN for an IAM user. This is required so that the resource-based policy\'s ``Principal`` element has a value to use in evaluating the policy.
-          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
+          For more information about ARNs, see `Amazon Resource Names (ARNs) and AWS Service Namespaces <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ in the *AWS General Reference* .
         :type ContextEntries: list
         :param ContextEntries:
           A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permission policies, the corresponding value is supplied.
@@ -2956,7 +2956,7 @@ class SimulatePrincipalPolicy(Paginator):
         :type ResourceHandlingOption: string
         :param ResourceHandlingOption:
           Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.
-          Each of the EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the EC2 scenario options, see `Supported Platforms <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html>`__ in the *Amazon EC2 User Guide* .
+          Each of the EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the EC2 scenario options, see `Supported Platforms <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html>`__ in the *Amazon EC2 User Guide* .
           * **EC2-Classic-InstanceStore**   instance, image, security group
           * **EC2-Classic-EBS**   instance, image, security group, volume
           * **EC2-VPC-InstanceStore**   instance, image, security group, network interface

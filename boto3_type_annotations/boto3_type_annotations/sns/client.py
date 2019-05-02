@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -26,7 +26,7 @@ class Client(BaseClient):
     def create_platform_endpoint(self, PlatformApplicationArn: str, Token: str, CustomUserData: str = None, Attributes: Dict = None) -> Dict:
         pass
 
-    def create_topic(self, Name: str, Attributes: Dict = None) -> Dict:
+    def create_topic(self, Name: str, Attributes: Dict = None, Tags: List = None) -> Dict:
         pass
 
     def delete_endpoint(self, EndpointArn: str):
@@ -77,6 +77,9 @@ class Client(BaseClient):
     def list_subscriptions_by_topic(self, TopicArn: str, NextToken: str = None) -> Dict:
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str) -> Dict:
+        pass
+
     def list_topics(self, NextToken: str = None) -> Dict:
         pass
 
@@ -107,5 +110,11 @@ class Client(BaseClient):
     def subscribe(self, TopicArn: str, Protocol: str, Endpoint: str = None, Attributes: Dict = None, ReturnSubscriptionArn: bool = None) -> Dict:
         pass
 
+    def tag_resource(self, ResourceArn: str, Tags: List) -> Dict:
+        pass
+
     def unsubscribe(self, SubscriptionArn: str):
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List) -> Dict:
         pass

@@ -1,8 +1,9 @@
 from typing import Optional
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
 
 
@@ -38,6 +39,9 @@ class Client(BaseClient):
         pass
 
     def get_policy(self, PolicyId: str) -> Dict:
+        pass
+
+    def get_protection_status(self, PolicyId: str, MemberAccountId: str = None, StartTime: datetime = None, EndTime: datetime = None, NextToken: str = None, MaxResults: int = None) -> Dict:
         pass
 
     def get_waiter(self, waiter_name: str = None) -> Waiter:

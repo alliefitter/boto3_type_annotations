@@ -1,5 +1,5 @@
-from datetime import datetime
 from typing import Dict
+from datetime import datetime
 from botocore.paginate import Paginator
 
 
@@ -99,13 +99,17 @@ class ListDevices(Paginator):
             {
                 'Devices': [
                     {
+                        'Arn': 'string',
                         'Attributes': {
                             'string': 'string'
                         },
                         'DeviceId': 'string',
                         'Enabled': True|False,
                         'RemainingLife': 123.0,
-                        'Type': 'string'
+                        'Type': 'string',
+                        'Tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
             }
@@ -116,6 +120,8 @@ class ListDevices(Paginator):
             - **Devices** *(list) --* 
               A list of devices.
               - *(dict) --* 
+                - **Arn** *(string) --* 
+                  The ARN of the device.
                 - **Attributes** *(dict) --* 
                   An array of zero or more elements of DeviceAttribute objects providing user specified device attributes.
                   - *(string) --* 
@@ -128,6 +134,10 @@ class ListDevices(Paginator):
                   A value between 0 and 1 inclusive, representing the fraction of life remaining for the device.
                 - **Type** *(string) --* 
                   The type of the device, such as "button".
+                - **Tags** *(dict) --* 
+                  The tags currently associated with the AWS IoT 1-Click device.
+                  - *(string) --* 
+                    - *(string) --* 
         :type DeviceType: string
         :param DeviceType:
           The type of the device, such as \"button\".

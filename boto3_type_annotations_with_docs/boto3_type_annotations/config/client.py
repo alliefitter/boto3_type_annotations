@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -403,6 +403,35 @@ class Client(BaseClient):
         """
         pass
 
+    def delete_remediation_configuration(self, ConfigRuleName: str, ResourceType: str = None) -> Dict:
+        """
+        Deletes the remediation configuration.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DeleteRemediationConfiguration>`_
+        
+        **Request Syntax**
+        ::
+          response = client.delete_remediation_configuration(
+              ConfigRuleName='string',
+              ResourceType='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type ConfigRuleName: string
+        :param ConfigRuleName: **[REQUIRED]**
+          The name of the AWS Config rule for which you want to delete remediation configuration.
+        :type ResourceType: string
+        :param ResourceType:
+          The type of a resource.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def delete_retention_configuration(self, RetentionConfigurationName: str):
         """
         Deletes the retention configuration.
@@ -673,7 +702,7 @@ class Client(BaseClient):
         :type ComplianceTypes: list
         :param ComplianceTypes:
           Filters the results by compliance.
-          The allowed values are ``COMPLIANT`` , ``NON_COMPLIANT`` , and ``INSUFFICIENT_DATA`` .
+          The allowed values are ``COMPLIANT`` and ``NON_COMPLIANT`` .
           - *(string) --*
         :type NextToken: string
         :param NextToken:
@@ -759,7 +788,7 @@ class Client(BaseClient):
         :type ComplianceTypes: list
         :param ComplianceTypes:
           Filters the results by compliance.
-          The allowed values are ``COMPLIANT`` and ``NON_COMPLIANT`` .
+          The allowed values are ``COMPLIANT`` , ``NON_COMPLIANT`` , and ``INSUFFICIENT_DATA`` .
           - *(string) --*
         :type Limit: integer
         :param Limit:
@@ -917,7 +946,7 @@ class Client(BaseClient):
                 An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).
                 .. note::
                   You can use the AWS CLI and AWS SDKs if you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot. For more information, see  ConfigSnapshotDeliveryProperties .
-                For more information about developing and using AWS Config rules, see `Evaluating AWS Resource Configurations with AWS Config <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html>`__ in the *AWS Config Developer Guide* .
+                For more information about developing and using AWS Config rules, see `Evaluating AWS Resource Configurations with AWS Config <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html>`__ in the *AWS Config Developer Guide* .
                 - **ConfigRuleName** *(string) --* 
                   The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
                 - **ConfigRuleArn** *(string) --* 
@@ -942,7 +971,7 @@ class Client(BaseClient):
                   - **Owner** *(string) --* 
                     Indicates whether AWS or the customer owns and manages the AWS Config rule.
                   - **SourceIdentifier** *(string) --* 
-                    For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
+                    For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
                     For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
                   - **SourceDetails** *(list) --* 
                     Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
@@ -995,7 +1024,7 @@ class Client(BaseClient):
 
     def describe_configuration_aggregator_sources_status(self, ConfigurationAggregatorName: str, UpdateStatus: List = None, NextToken: str = None, Limit: int = None) -> Dict:
         """
-        Returns status information for sources within an aggregator. The status includes information about the last time AWS Config aggregated data from source accounts or AWS Config failed to aggregate data from source accounts with the related error code or message. 
+        Returns status information for sources within an aggregator. The status includes information about the last time AWS Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeConfigurationAggregatorSourcesStatus>`_
         
         **Request Syntax**
@@ -1294,7 +1323,7 @@ class Client(BaseClient):
                     A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, ``AWS::EC2::Instance`` or ``AWS::CloudTrail::Trail`` ).
                     Before you can set this option to ``true`` , you must set the ``allSupported`` option to ``false`` .
                     If you set this option to ``true`` , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group.
-                    For a list of valid ``resourceTypes`` values, see the **resourceType Value** column in `Supported AWS Resource Types <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources>`__ .
+                    For a list of valid ``resourceTypes`` values, see the **resourceType Value** column in `Supported AWS Resource Types <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources>`__ .
                     - *(string) --* 
         :type ConfigurationRecorderNames: list
         :param ConfigurationRecorderNames:
@@ -1394,7 +1423,7 @@ class Client(BaseClient):
                   A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.
                   - **lastStatus** *(string) --* 
                     Status of the last attempted delivery.
-                     **Note** Providing an SNS topic on a `DeliveryChannel <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html>`__ for AWS Config is optional. If the SNS delivery is turned off, the last status will be **Not_Applicable** .
+                     **Note** Providing an SNS topic on a `DeliveryChannel <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html>`__ for AWS Config is optional. If the SNS delivery is turned off, the last status will be **Not_Applicable** .
                   - **lastErrorCode** *(string) --* 
                     The error code from the last attempted delivery.
                   - **lastErrorMessage** *(string) --* 
@@ -1452,12 +1481,12 @@ class Client(BaseClient):
                   The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
                 - **s3BucketName** *(string) --* 
                   The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
-                  If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see `Permissions for the Amazon S3 Bucket <http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html>`__ in the AWS Config Developer Guide.
+                  If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see `Permissions for the Amazon S3 Bucket <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html>`__ in the AWS Config Developer Guide.
                 - **s3KeyPrefix** *(string) --* 
                   The prefix for the specified Amazon S3 bucket.
                 - **snsTopicARN** *(string) --* 
                   The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
-                  If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see `Permissions for the Amazon SNS Topic <http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html>`__ in the AWS Config Developer Guide.
+                  If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see `Permissions for the Amazon SNS Topic <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html>`__ in the AWS Config Developer Guide.
                 - **configSnapshotDeliveryProperties** *(dict) --* 
                   The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
                   - **deliveryFrequency** *(string) --* 
@@ -1513,6 +1542,186 @@ class Client(BaseClient):
         :type NextToken: string
         :param NextToken:
           The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def describe_remediation_configurations(self, ConfigRuleNames: List) -> Dict:
+        """
+        Returns the details of one or more remediation configurations.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeRemediationConfigurations>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_remediation_configurations(
+              ConfigRuleNames=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'RemediationConfigurations': [
+                    {
+                        'ConfigRuleName': 'string',
+                        'TargetType': 'SSM_DOCUMENT',
+                        'TargetId': 'string',
+                        'TargetVersion': 'string',
+                        'Parameters': {
+                            'string': {
+                                'ResourceValue': {
+                                    'Value': 'RESOURCE_ID'
+                                },
+                                'StaticValue': {
+                                    'Values': [
+                                        'string',
+                                    ]
+                                }
+                            }
+                        },
+                        'ResourceType': 'string'
+                    },
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **RemediationConfigurations** *(list) --* 
+              Returns a remediation configuration object.
+              - *(dict) --* 
+                An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
+                - **ConfigRuleName** *(string) --* 
+                  The name of the AWS Config rule.
+                - **TargetType** *(string) --* 
+                  The type of the target. Target executes remediation. For example, SSM document.
+                - **TargetId** *(string) --* 
+                  Target ID is the name of the public document.
+                - **TargetVersion** *(string) --* 
+                  Version of the target. For example, version of the SSM document.
+                - **Parameters** *(dict) --* 
+                  An object of the RemediationParameterValue.
+                  - *(string) --* 
+                    - *(dict) --* 
+                      The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
+                      - **ResourceValue** *(dict) --* 
+                        The value is dynamic and changes at run-time.
+                        - **Value** *(string) --* 
+                          The value is a resource ID.
+                      - **StaticValue** *(dict) --* 
+                        The value is static and does not change at run-time.
+                        - **Values** *(list) --* 
+                          A list of values. For example, the ARN of the assumed role. 
+                          - *(string) --* 
+                - **ResourceType** *(string) --* 
+                  The type of a resource. 
+        :type ConfigRuleNames: list
+        :param ConfigRuleNames: **[REQUIRED]**
+          A list of AWS Config rule names of remediation configurations for which you want details.
+          - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def describe_remediation_execution_status(self, ConfigRuleName: str, ResourceKeys: List = None, Limit: int = None, NextToken: str = None) -> Dict:
+        """
+        Provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed. When you specify the limit and the next token, you receive a paginated response.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/DescribeRemediationExecutionStatus>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_remediation_execution_status(
+              ConfigRuleName='string',
+              ResourceKeys=[
+                  {
+                      'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+                      'resourceId': 'string'
+                  },
+              ],
+              Limit=123,
+              NextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'RemediationExecutionStatuses': [
+                    {
+                        'ResourceKey': {
+                            'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+                            'resourceId': 'string'
+                        },
+                        'State': 'QUEUED'|'IN_PROGRESS'|'SUCCEEDED'|'FAILED',
+                        'StepDetails': [
+                            {
+                                'Name': 'string',
+                                'State': 'SUCCEEDED'|'PENDING'|'FAILED',
+                                'ErrorMessage': 'string',
+                                'StartTime': datetime(2015, 1, 1),
+                                'StopTime': datetime(2015, 1, 1)
+                            },
+                        ],
+                        'InvocationTime': datetime(2015, 1, 1),
+                        'LastUpdatedTime': datetime(2015, 1, 1)
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **RemediationExecutionStatuses** *(list) --* 
+              Returns a list of remediation execution statuses objects.
+              - *(dict) --* 
+                Provides details of the current status of the invoked remediation action for that resource.
+                - **ResourceKey** *(dict) --* 
+                  The details that identify a resource within AWS Config, including the resource type and resource ID.
+                  - **resourceType** *(string) --* 
+                    The resource type.
+                  - **resourceId** *(string) --* 
+                    The ID of the resource (for example., sg-xxxxxx). 
+                - **State** *(string) --* 
+                  ENUM of the values.
+                - **StepDetails** *(list) --* 
+                  Details of every step.
+                  - *(dict) --* 
+                    Name of the step from the SSM document.
+                    - **Name** *(string) --* 
+                      The details of the step.
+                    - **State** *(string) --* 
+                      The valid status of the step.
+                    - **ErrorMessage** *(string) --* 
+                      An error message if the step was interrupted during execution.
+                    - **StartTime** *(datetime) --* 
+                      The time when the step started.
+                    - **StopTime** *(datetime) --* 
+                      The time when the step stopped.
+                - **InvocationTime** *(datetime) --* 
+                  Start time when the remediation was executed.
+                - **LastUpdatedTime** *(datetime) --* 
+                  The time when the remediation execution was last updated.
+            - **NextToken** *(string) --* 
+              The ``nextToken`` string returned on a previous page that you use to get the next page of results in a paginated response.
+        :type ConfigRuleName: string
+        :param ConfigRuleName: **[REQUIRED]**
+          A list of AWS Config rule names.
+        :type ResourceKeys: list
+        :param ResourceKeys:
+          A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+          - *(dict) --*
+            The details that identify a resource within AWS Config, including the resource type and resource ID.
+            - **resourceType** *(string) --* **[REQUIRED]**
+              The resource type.
+            - **resourceId** *(string) --* **[REQUIRED]**
+              The ID of the resource (for example., sg-xxxxxx).
+        :type Limit: integer
+        :param Limit:
+          The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+        :type NextToken: string
+        :param NextToken:
+          The ``nextToken`` string returned on a previous page that you use to get the next page of results in a paginated response.
         :rtype: dict
         :returns:
         """
@@ -1941,7 +2150,7 @@ class Client(BaseClient):
                 Unique MD5 hash that represents the configuration item's state.
                 You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
               - **arn** *(string) --* 
-                The Amazon Resource Name (ARN) of the resource.
+                accoun
               - **resourceType** *(string) --* 
                 The type of AWS resource.
               - **resourceId** *(string) --* 
@@ -1960,7 +2169,7 @@ class Client(BaseClient):
                   - *(string) --* 
               - **relatedEvents** *(list) --* 
                 A list of CloudTrail event IDs.
-                A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see `What Is AWS CloudTrail <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html>`__ .
+                A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see `What Is AWS CloudTrail <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html>`__ .
                 An empty field indicates that the current configuration was not initiated by any event.
                 - *(string) --* 
               - **relationships** *(list) --* 
@@ -2475,7 +2684,7 @@ class Client(BaseClient):
                   Unique MD5 hash that represents the configuration item's state.
                   You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
                 - **arn** *(string) --* 
-                  The Amazon Resource Name (ARN) of the resource.
+                  accoun
                 - **resourceType** *(string) --* 
                   The type of AWS resource.
                 - **resourceId** *(string) --* 
@@ -2494,7 +2703,7 @@ class Client(BaseClient):
                     - *(string) --* 
                 - **relatedEvents** *(list) --* 
                   A list of CloudTrail event IDs.
-                  A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see `What Is AWS CloudTrail <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html>`__ .
+                  A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see `What Is AWS CloudTrail <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html>`__ .
                   An empty field indicates that the current configuration was not initiated by any event.
                   - *(string) --* 
                 - **relationships** *(list) --* 
@@ -2711,6 +2920,57 @@ class Client(BaseClient):
         """
         pass
 
+    def list_tags_for_resource(self, ResourceArn: str, Limit: int = None, NextToken: str = None) -> Dict:
+        """
+        List the tags for AWS Config resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              ResourceArn='string',
+              Limit=123,
+              NextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Tags': [
+                    {
+                        'Key': 'string',
+                        'Value': 'string'
+                    },
+                ],
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Tags** *(list) --* 
+              The tags for the resource.
+              - *(dict) --* 
+                The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+                - **Key** *(string) --* 
+                  One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+                - **Value** *(string) --* 
+                  The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+            - **NextToken** *(string) --* 
+              The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. 
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are ``ConfigRule`` , ``ConfigurationAggregator`` and ``AggregatorAuthorization`` .
+        :type Limit: integer
+        :param Limit:
+          The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default.
+        :type NextToken: string
+        :param NextToken:
+          The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def put_aggregation_authorization(self, AuthorizedAccountId: str, AuthorizedAwsRegion: str) -> Dict:
         """
         Authorizes the aggregator account and region to collect data from the source account and region. 
@@ -2762,12 +3022,12 @@ class Client(BaseClient):
         Adds or updates an AWS Config rule for evaluating whether your AWS resources comply with your desired configurations.
         You can use this action for custom AWS Config rules and AWS managed Config rules. A custom AWS Config rule is a rule that you develop and maintain. An AWS managed Config rule is a customizable, predefined rule that AWS Config provides.
         If you are adding a new custom AWS Config rule, you must first create the AWS Lambda function that the rule invokes to evaluate your resources. When you use the ``PutConfigRule`` action to add the rule to AWS Config, you must specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the function. Specify the ARN for the ``SourceIdentifier`` key. This key is part of the ``Source`` object, which is part of the ``ConfigRule`` object. 
-        If you are adding an AWS managed Config rule, specify the rule's identifier for the ``SourceIdentifier`` key. To reference AWS managed Config rule identifiers, see `About AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
+        If you are adding an AWS managed Config rule, specify the rule's identifier for the ``SourceIdentifier`` key. To reference AWS managed Config rule identifiers, see `About AWS Managed Config Rules <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
         For any new rule that you add, specify the ``ConfigRuleName`` in the ``ConfigRule`` object. Do not specify the ``ConfigRuleArn`` or the ``ConfigRuleId`` . These values are generated by AWS Config for new rules.
         If you are updating a rule that you added previously, you can specify the rule by ``ConfigRuleName`` , ``ConfigRuleId`` , or ``ConfigRuleArn`` in the ``ConfigRule`` data type that you use in this request.
-        The maximum number of rules that AWS Config supports is 50.
+        The maximum number of rules that AWS Config supports is 150.
         For information about requesting a rule limit increase, see `AWS Config Limits <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config>`__ in the *AWS General Reference Guide* .
-        For more information about developing and using AWS Config rules, see `Evaluating AWS Resource Configurations with AWS Config <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html>`__ in the *AWS Config Developer Guide* .
+        For more information about developing and using AWS Config rules, see `Evaluating AWS Resource Configurations with AWS Config <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html>`__ in the *AWS Config Developer Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/PutConfigRule>`_
         
         **Request Syntax**
@@ -2830,7 +3090,7 @@ class Client(BaseClient):
             - **Owner** *(string) --* **[REQUIRED]**
               Indicates whether AWS or the customer owns and manages the AWS Config rule.
             - **SourceIdentifier** *(string) --* **[REQUIRED]**
-              For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
+              For AWS Config managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see `Using AWS Managed Config Rules <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html>`__ .
               For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule\'s AWS Lambda function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name`` .
             - **SourceDetails** *(list) --*
               Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
@@ -3042,7 +3302,7 @@ class Client(BaseClient):
               A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, ``AWS::EC2::Instance`` or ``AWS::CloudTrail::Trail`` ).
               Before you can set this option to ``true`` , you must set the ``allSupported`` option to ``false`` .
               If you set this option to ``true`` , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group.
-              For a list of valid ``resourceTypes`` values, see the **resourceType Value** column in `Supported AWS Resource Types <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources>`__ .
+              For a list of valid ``resourceTypes`` values, see the **resourceType Value** column in `Supported AWS Resource Types <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources>`__ .
               - *(string) --*
         :returns: None
         """
@@ -3077,12 +3337,12 @@ class Client(BaseClient):
             The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
           - **s3BucketName** *(string) --*
             The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
-            If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see `Permissions for the Amazon S3 Bucket <http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html>`__ in the AWS Config Developer Guide.
+            If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see `Permissions for the Amazon S3 Bucket <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html>`__ in the AWS Config Developer Guide.
           - **s3KeyPrefix** *(string) --*
             The prefix for the specified Amazon S3 bucket.
           - **snsTopicARN** *(string) --*
             The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
-            If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see `Permissions for the Amazon SNS Topic <http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html>`__ in the AWS Config Developer Guide.
+            If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see `Permissions for the Amazon SNS Topic <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html>`__ in the AWS Config Developer Guide.
           - **configSnapshotDeliveryProperties** *(dict) --*
             The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
             - **deliveryFrequency** *(string) --*
@@ -3174,6 +3434,138 @@ class Client(BaseClient):
         """
         pass
 
+    def put_remediation_configurations(self, RemediationConfigurations: List) -> Dict:
+        """
+        Adds or updates the remediation configuration with a specific AWS Config rule with the selected target or action. The API creates the ``RemediationConfiguration`` object for the AWS Config rule. The AWS Config rule must already exist for you to add a remediation configuration. The target (SSM document) must exist and have permissions to use the target. 
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/PutRemediationConfigurations>`_
+        
+        **Request Syntax**
+        ::
+          response = client.put_remediation_configurations(
+              RemediationConfigurations=[
+                  {
+                      'ConfigRuleName': 'string',
+                      'TargetType': 'SSM_DOCUMENT',
+                      'TargetId': 'string',
+                      'TargetVersion': 'string',
+                      'Parameters': {
+                          'string': {
+                              'ResourceValue': {
+                                  'Value': 'RESOURCE_ID'
+                              },
+                              'StaticValue': {
+                                  'Values': [
+                                      'string',
+                                  ]
+                              }
+                          }
+                      },
+                      'ResourceType': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'FailedBatches': [
+                    {
+                        'FailureMessage': 'string',
+                        'FailedItems': [
+                            {
+                                'ConfigRuleName': 'string',
+                                'TargetType': 'SSM_DOCUMENT',
+                                'TargetId': 'string',
+                                'TargetVersion': 'string',
+                                'Parameters': {
+                                    'string': {
+                                        'ResourceValue': {
+                                            'Value': 'RESOURCE_ID'
+                                        },
+                                        'StaticValue': {
+                                            'Values': [
+                                                'string',
+                                            ]
+                                        }
+                                    }
+                                },
+                                'ResourceType': 'string'
+                            },
+                        ]
+                    },
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **FailedBatches** *(list) --* 
+              Returns a list of failed remediation batch objects.
+              - *(dict) --* 
+                List of each of the failed remediations with specific reasons.
+                - **FailureMessage** *(string) --* 
+                  Returns a failure message. For example, the resource is already compliant.
+                - **FailedItems** *(list) --* 
+                  Returns remediation configurations of the failed items.
+                  - *(dict) --* 
+                    An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
+                    - **ConfigRuleName** *(string) --* 
+                      The name of the AWS Config rule.
+                    - **TargetType** *(string) --* 
+                      The type of the target. Target executes remediation. For example, SSM document.
+                    - **TargetId** *(string) --* 
+                      Target ID is the name of the public document.
+                    - **TargetVersion** *(string) --* 
+                      Version of the target. For example, version of the SSM document.
+                    - **Parameters** *(dict) --* 
+                      An object of the RemediationParameterValue.
+                      - *(string) --* 
+                        - *(dict) --* 
+                          The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
+                          - **ResourceValue** *(dict) --* 
+                            The value is dynamic and changes at run-time.
+                            - **Value** *(string) --* 
+                              The value is a resource ID.
+                          - **StaticValue** *(dict) --* 
+                            The value is static and does not change at run-time.
+                            - **Values** *(list) --* 
+                              A list of values. For example, the ARN of the assumed role. 
+                              - *(string) --* 
+                    - **ResourceType** *(string) --* 
+                      The type of a resource. 
+        :type RemediationConfigurations: list
+        :param RemediationConfigurations: **[REQUIRED]**
+          A list of remediation configuration objects.
+          - *(dict) --*
+            An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
+            - **ConfigRuleName** *(string) --* **[REQUIRED]**
+              The name of the AWS Config rule.
+            - **TargetType** *(string) --* **[REQUIRED]**
+              The type of the target. Target executes remediation. For example, SSM document.
+            - **TargetId** *(string) --* **[REQUIRED]**
+              Target ID is the name of the public document.
+            - **TargetVersion** *(string) --*
+              Version of the target. For example, version of the SSM document.
+            - **Parameters** *(dict) --*
+              An object of the RemediationParameterValue.
+              - *(string) --*
+                - *(dict) --*
+                  The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
+                  - **ResourceValue** *(dict) --*
+                    The value is dynamic and changes at run-time.
+                    - **Value** *(string) --*
+                      The value is a resource ID.
+                  - **StaticValue** *(dict) --*
+                    The value is static and does not change at run-time.
+                    - **Values** *(list) --*
+                      A list of values. For example, the ARN of the assumed role.
+                      - *(string) --*
+            - **ResourceType** *(string) --*
+              The type of a resource.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def put_retention_configuration(self, RetentionPeriodInDays: int) -> Dict:
         """
         Creates and updates the retention configuration with details about retention period (number of days) that AWS Config stores your historical information. The API creates the ``RetentionConfiguration`` object and names the object as **default** . When you have a ``RetentionConfiguration`` object named **default** , calling the API modifies the default object. 
@@ -3211,6 +3603,66 @@ class Client(BaseClient):
           Number of days AWS Config stores your historical information.
           .. note::
             Currently, only applicable to the configuration item history.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def select_resource_config(self, Expression: str, Limit: int = None, NextToken: str = None) -> Dict:
+        """
+        .. _https://docs.aws.amazon.com/config/latest/developerguide/query-components.html: https://docs.aws.amazon.com/config/latest/developerguide/query-components.html
+        Accepts a structured query language (SQL) ``SELECT`` command, performs the corresponding search, and returns resource configurations matching the properties.
+        For more information about query components, see the ` **Query Components** https://docs.aws.amazon.com/config/latest/developerguide/query-components.html`__ section in the AWS Config Developer Guide.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/SelectResourceConfig>`_
+        
+        **Request Syntax**
+        ::
+          response = client.select_resource_config(
+              Expression='string',
+              Limit=123,
+              NextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Results': [
+                    'string',
+                ],
+                'QueryInfo': {
+                    'SelectFields': [
+                        {
+                            'Name': 'string'
+                        },
+                    ]
+                },
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Results** *(list) --* 
+              Returns the results for the SQL query.
+              - *(string) --* 
+            - **QueryInfo** *(dict) --* 
+              Returns the ``QueryInfo`` object.
+              - **SelectFields** *(list) --* 
+                Returns a ``FieldInfo`` object.
+                - *(dict) --* 
+                  Details about the fields such as name of the field.
+                  - **Name** *(string) --* 
+                    Name of the field.
+            - **NextToken** *(string) --* 
+              The ``nextToken`` string returned in a previous request that you use to request the next page of results in a paginated response. 
+        :type Expression: string
+        :param Expression: **[REQUIRED]**
+          The SQL query ``SELECT`` command.
+        :type Limit: integer
+        :param Limit:
+          The maximum number of query results returned on each page.
+        :type NextToken: string
+        :param NextToken:
+          The ``nextToken`` string returned in a previous request that you use to request the next page of results in a paginated response.
         :rtype: dict
         :returns:
         """
@@ -3273,6 +3725,65 @@ class Client(BaseClient):
         """
         pass
 
+    def start_remediation_execution(self, ConfigRuleName: str, ResourceKeys: List) -> Dict:
+        """
+        Runs an on-demand remediation for the specified AWS Config rules against the last known remediation configuration. It runs an execution against the current state of your resources. Remediation execution is asynchronous.
+        You can specify up to 100 resource keys per request. An existing StartRemediationExecution call for the specified resource keys must complete before you can call the API again.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/StartRemediationExecution>`_
+        
+        **Request Syntax**
+        ::
+          response = client.start_remediation_execution(
+              ConfigRuleName='string',
+              ResourceKeys=[
+                  {
+                      'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+                      'resourceId': 'string'
+                  },
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'FailureMessage': 'string',
+                'FailedItems': [
+                    {
+                        'resourceType': 'AWS::EC2::CustomerGateway'|'AWS::EC2::EIP'|'AWS::EC2::Host'|'AWS::EC2::Instance'|'AWS::EC2::InternetGateway'|'AWS::EC2::NetworkAcl'|'AWS::EC2::NetworkInterface'|'AWS::EC2::RouteTable'|'AWS::EC2::SecurityGroup'|'AWS::EC2::Subnet'|'AWS::CloudTrail::Trail'|'AWS::EC2::Volume'|'AWS::EC2::VPC'|'AWS::EC2::VPNConnection'|'AWS::EC2::VPNGateway'|'AWS::IAM::Group'|'AWS::IAM::Policy'|'AWS::IAM::Role'|'AWS::IAM::User'|'AWS::ACM::Certificate'|'AWS::RDS::DBInstance'|'AWS::RDS::DBSubnetGroup'|'AWS::RDS::DBSecurityGroup'|'AWS::RDS::DBSnapshot'|'AWS::RDS::EventSubscription'|'AWS::ElasticLoadBalancingV2::LoadBalancer'|'AWS::S3::Bucket'|'AWS::SSM::ManagedInstanceInventory'|'AWS::Redshift::Cluster'|'AWS::Redshift::ClusterSnapshot'|'AWS::Redshift::ClusterParameterGroup'|'AWS::Redshift::ClusterSecurityGroup'|'AWS::Redshift::ClusterSubnetGroup'|'AWS::Redshift::EventSubscription'|'AWS::CloudWatch::Alarm'|'AWS::CloudFormation::Stack'|'AWS::DynamoDB::Table'|'AWS::AutoScaling::AutoScalingGroup'|'AWS::AutoScaling::LaunchConfiguration'|'AWS::AutoScaling::ScalingPolicy'|'AWS::AutoScaling::ScheduledAction'|'AWS::CodeBuild::Project'|'AWS::WAF::RateBasedRule'|'AWS::WAF::Rule'|'AWS::WAF::WebACL'|'AWS::WAFRegional::RateBasedRule'|'AWS::WAFRegional::Rule'|'AWS::WAFRegional::WebACL'|'AWS::CloudFront::Distribution'|'AWS::CloudFront::StreamingDistribution'|'AWS::WAF::RuleGroup'|'AWS::WAFRegional::RuleGroup'|'AWS::Lambda::Function'|'AWS::ElasticBeanstalk::Application'|'AWS::ElasticBeanstalk::ApplicationVersion'|'AWS::ElasticBeanstalk::Environment'|'AWS::ElasticLoadBalancing::LoadBalancer'|'AWS::XRay::EncryptionConfig'|'AWS::SSM::AssociationCompliance'|'AWS::SSM::PatchCompliance'|'AWS::Shield::Protection'|'AWS::ShieldRegional::Protection'|'AWS::Config::ResourceCompliance'|'AWS::CodePipeline::Pipeline',
+                        'resourceId': 'string'
+                    },
+                ]
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **FailureMessage** *(string) --* 
+              Returns a failure message. For example, the resource is already compliant.
+            - **FailedItems** *(list) --* 
+              For resources that have failed to start execution, the API returns a resource key object.
+              - *(dict) --* 
+                The details that identify a resource within AWS Config, including the resource type and resource ID.
+                - **resourceType** *(string) --* 
+                  The resource type.
+                - **resourceId** *(string) --* 
+                  The ID of the resource (for example., sg-xxxxxx). 
+        :type ConfigRuleName: string
+        :param ConfigRuleName: **[REQUIRED]**
+          The list of names of AWS Config rules that you want to run remediation execution for.
+        :type ResourceKeys: list
+        :param ResourceKeys: **[REQUIRED]**
+          A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+          - *(dict) --*
+            The details that identify a resource within AWS Config, including the resource type and resource ID.
+            - **resourceType** *(string) --* **[REQUIRED]**
+              The resource type.
+            - **resourceId** *(string) --* **[REQUIRED]**
+              The ID of the resource (for example., sg-xxxxxx).
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def stop_configuration_recorder(self, ConfigurationRecorderName: str):
         """
         Stops recording configurations of the AWS resources you have selected to record in your AWS account.
@@ -3286,6 +3797,62 @@ class Client(BaseClient):
         :type ConfigurationRecorderName: string
         :param ConfigurationRecorderName: **[REQUIRED]**
           The name of the recorder object that records each configuration change made to the resources.
+        :returns: None
+        """
+        pass
+
+    def tag_resource(self, ResourceArn: str, Tags: List):
+        """
+        Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are deleted as well.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              ResourceArn='string',
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are ``ConfigRule`` , ``ConfigurationAggregator`` and ``AggregatorAuthorization`` .
+        :type Tags: list
+        :param Tags: **[REQUIRED]**
+          An array of tag object.
+          - *(dict) --*
+            The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+            - **Key** *(string) --*
+              One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+            - **Value** *(string) --*
+              The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+        :returns: None
+        """
+        pass
+
+    def untag_resource(self, ResourceArn: str, TagKeys: List):
+        """
+        Deletes specified tags from a resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/config-2014-11-12/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              ResourceArn='string',
+              TagKeys=[
+                  'string',
+              ]
+          )
+        :type ResourceArn: string
+        :param ResourceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are ``ConfigRule`` , ``ConfigurationAggregator`` and ``AggregatorAuthorization`` .
+        :type TagKeys: list
+        :param TagKeys: **[REQUIRED]**
+          The keys of the tags to be removed.
+          - *(string) --*
         :returns: None
         """
         pass

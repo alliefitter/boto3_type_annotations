@@ -1,6 +1,6 @@
+from typing import Dict
 from typing import List
 from datetime import datetime
-from typing import Dict
 from botocore.paginate import Paginator
 
 
@@ -38,6 +38,7 @@ class DescribeFleetAttributes(Paginator):
                         'TerminationTime': datetime(2015, 1, 1),
                         'Status': 'NEW'|'DOWNLOADING'|'VALIDATING'|'BUILDING'|'ACTIVATING'|'ACTIVE'|'DELETING'|'ERROR'|'TERMINATED',
                         'BuildId': 'string',
+                        'ScriptId': 'string',
                         'ServerLaunchPath': 'string',
                         'ServerLaunchParameters': 'string',
                         'LogPaths': [
@@ -54,7 +55,8 @@ class DescribeFleetAttributes(Paginator):
                         ],
                         'StoppedActions': [
                             'AUTO_SCALING',
-                        ]
+                        ],
+                        'InstanceRoleArn': 'string'
                     },
                 ],
             }
@@ -105,13 +107,15 @@ class DescribeFleetAttributes(Paginator):
                   Current status of the fleet.
                   Possible fleet statuses include the following:
                   * **NEW** -- A new fleet has been defined and desired instances is set to 1.  
-                  * **DOWNLOADING/VALIDATING/BUILDING/ACTIVATING** -- Amazon GameLift is setting up the new fleet, creating new instances with the game build and starting server processes. 
+                  * **DOWNLOADING/VALIDATING/BUILDING/ACTIVATING** -- Amazon GameLift is setting up the new fleet, creating new instances with the game build or Realtime script and starting server processes. 
                   * **ACTIVE** -- Hosts can now accept game sessions. 
                   * **ERROR** -- An error occurred when downloading, validating, building, or activating the fleet. 
                   * **DELETING** -- Hosts are responding to a delete fleet request. 
                   * **TERMINATED** -- The fleet no longer exists. 
                 - **BuildId** *(string) --* 
                   Unique identifier for a build.
+                - **ScriptId** *(string) --* 
+                  Unique identifier for a Realtime script.
                 - **ServerLaunchPath** *(string) --* 
                   Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's  RuntimeConfiguration .
                 - **ServerLaunchParameters** *(string) --* 
@@ -137,6 +141,8 @@ class DescribeFleetAttributes(Paginator):
                 - **StoppedActions** *(list) --* 
                   List of fleet actions that have been suspended using  StopFleetActions . This includes auto-scaling.
                   - *(string) --* 
+                - **InstanceRoleArn** *(string) --* 
+                  Unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, daemons (background processes). Create a role or look up a role's ARN using the `IAM dashboard <https://console.aws.amazon.com/iam/>`__ in the AWS Management Console. Learn more about using on-box credentials for your game servers at `Access external resources from a game server <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html>`__ .
         :type FleetIds: list
         :param FleetIds:
           Unique identifier for a fleet(s) to retrieve attributes for. To request attributes for all fleets, leave this parameter empty.
@@ -1458,7 +1464,9 @@ class ListBuilds(Paginator):
             - **Builds** *(list) --* 
               Collection of build records that match the request.
               - *(dict) --* 
-                Properties describing a game build.
+                Properties describing a custom game build.
+        
+        **Related operations**
                 *  CreateBuild   
                 *  ListBuilds   
                 *  DescribeBuild   
@@ -1469,7 +1477,7 @@ class ListBuilds(Paginator):
                 - **Name** *(string) --* 
                   Descriptive label that is associated with a build. Build names do not need to be unique. It can be set using  CreateBuild or  UpdateBuild .
                 - **Version** *(string) --* 
-                  Version that is associated with this build. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
+                  Version that is associated with a build or script. Version strings do not need to be unique. This value can be set using  CreateBuild or  UpdateBuild .
                 - **Status** *(string) --* 
                   Current status of the build.
                   Possible build statuses include the following:
@@ -1505,7 +1513,7 @@ class ListBuilds(Paginator):
 
 
 class ListFleets(Paginator):
-    def paginate(self, BuildId: str = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, BuildId: str = None, ScriptId: str = None, PaginationConfig: Dict = None) -> Dict:
         """
         Creates an iterator that will paginate through responses from :py:meth:`GameLift.Client.list_fleets`.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/gamelift-2015-10-01/ListFleets>`_
@@ -1514,6 +1522,7 @@ class ListFleets(Paginator):
         ::
           response_iterator = paginator.paginate(
               BuildId='string',
+              ScriptId='string',
               PaginationConfig={
                   'MaxItems': 123,
                   'PageSize': 123,
@@ -1538,6 +1547,9 @@ class ListFleets(Paginator):
         :type BuildId: string
         :param BuildId:
           Unique identifier for a build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
+        :type ScriptId: string
+        :param ScriptId:
+          Unique identifier for a Realtime script to return fleets for. Use this parameter to return only fleets using the specified script. To retrieve all fleets, leave this parameter empty.
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.

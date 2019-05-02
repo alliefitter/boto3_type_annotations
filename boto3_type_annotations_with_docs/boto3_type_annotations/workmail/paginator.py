@@ -92,7 +92,7 @@ class ListGroupMembers(Paginator):
             - **Members** *(list) --* 
               The members associated to the group.
               - *(dict) --* 
-                The representation of a group member (user or group).
+                The representation of a user or group.
                 - **Id** *(string) --* 
                   The identifier of the member.
                 - **Name** *(string) --* 
@@ -110,7 +110,7 @@ class ListGroupMembers(Paginator):
           The identifier for the organization under which the group exists.
         :type GroupId: string
         :param GroupId: **[REQUIRED]**
-          The identifier for the group to which the members are associated.
+          The identifier for the group to which the members (users or groups) are associated.
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -229,22 +229,22 @@ class ListMailboxPermissions(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **Permissions** *(list) --* 
-              One page of the entity's mailbox permissions.
+              One page of the user, group, or resource mailbox permissions.
               - *(dict) --* 
-                Permission granted to an entity (user, group) to access a certain aspect of another entity's mailbox.
+                Permission granted to a user, group, or resource to access a certain aspect of another user, group, or resource mailbox.
                 - **GranteeId** *(string) --* 
-                  The identifier of the entity (user or group) to which the permissions are granted.
+                  The identifier of the user, group, or resource to which the permissions are granted.
                 - **GranteeType** *(string) --* 
-                  The type of entity (user, group) of the entity referred to in GranteeId.
+                  The type of user, group, or resource referred to in GranteeId.
                 - **PermissionValues** *(list) --* 
                   The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
                   - *(string) --* 
         :type OrganizationId: string
         :param OrganizationId: **[REQUIRED]**
-          The identifier of the organization under which the entity (user or group) exists.
+          The identifier of the organization under which the user, group, or resource exists.
         :type EntityId: string
         :param EntityId: **[REQUIRED]**
-          The identifier of the entity (user or group) for which to list mailbox permissions.
+          The identifier of the user, group, or resource for which to list mailbox permissions.
         :type PaginationConfig: dict
         :param PaginationConfig:
           A dictionary that provides parameters to control pagination.
@@ -294,7 +294,7 @@ class ListOrganizations(Paginator):
             - **OrganizationSummaries** *(list) --* 
               The overview of owned organizations presented as a list of organization summaries.
               - *(dict) --* 
-                The brief overview associated with an organization.
+                The representation of an organization.
                 - **OrganizationId** *(string) --* 
                   The identifier associated with the organization.
                 - **Alias** *(string) --* 
@@ -354,7 +354,7 @@ class ListResourceDelegates(Paginator):
               - *(dict) --* 
                 The name of the attribute, which is one of the values defined in the UserAttribute enumeration.
                 - **Id** *(string) --* 
-                  The identifier for the user or group is associated as the resource's delegate.
+                  The identifier for the user or group associated as the resource's delegate.
                 - **Type** *(string) --* 
                   The type of the delegate: user or group.
         :type OrganizationId: string
@@ -416,7 +416,7 @@ class ListResources(Paginator):
             - **Resources** *(list) --* 
               One page of the organization's resource representation.
               - *(dict) --* 
-                The overview for a resource containing relevant data regarding it.
+                The representation of a resource.
                 - **Id** *(string) --* 
                   The identifier of the resource.
                 - **Email** *(string) --* 

@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from datetime import datetime
-from typing import Dict
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -133,7 +133,7 @@ class Client(BaseClient):
                 - *(dict) --*
                   .. note::
                     Amazon EMR releases 4.x or later.
-                  An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                  An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                   - **Classification** *(string) --*
                     The classification within a configuration.
                   - **Configurations** *(list) --*
@@ -280,7 +280,7 @@ class Client(BaseClient):
               - *(dict) --*
                 .. note::
                   Amazon EMR releases 4.x or later.
-                An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                 - **Classification** *(string) --*
                   The classification within a configuration.
                 - **Configurations** *(list) --*
@@ -374,7 +374,7 @@ class Client(BaseClient):
     def add_job_flow_steps(self, JobFlowId: str, Steps: List) -> Dict:
         """
         AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed in each job flow.
-        If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using SSH to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see `Add More than 256 Steps to a Cluster <http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html>`__ in the *Amazon EMR Management Guide* .
+        If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using SSH to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see `Add More than 256 Steps to a Cluster <https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html>`__ in the *Amazon EMR Management Guide* .
         A step specifies the location of a JAR file stored either on the master node of the cluster or in Amazon S3. Each step is performed by the main function of the main class of the JAR file. The main class can be specified either in the manifest of the JAR or by using the MainFunction parameter of the step.
         Amazon EMR executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully.
         You can only add steps to a cluster that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
@@ -455,7 +455,7 @@ class Client(BaseClient):
 
     def add_tags(self, ResourceId: str, Tags: List) -> Dict:
         """
-        Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
+        Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/AddTags>`_
         
         **Request Syntax**
@@ -484,11 +484,11 @@ class Client(BaseClient):
         :param Tags: **[REQUIRED]**
           A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
           - *(dict) --*
-            A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
+            A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
             - **Key** *(string) --*
-              A user-defined key, which is the minimum required information for a valid tag. For more information, see `Tag <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
+              A user-defined key, which is the minimum required information for a valid tag. For more information, see `Tag <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
             - **Value** *(string) --*
-              A user-defined value, which is optional in a tag. For more information, see `Tag Clusters <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
+              A user-defined value, which is optional in a tag. For more information, see `Tag Clusters <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
         :rtype: dict
         :returns:
         """
@@ -590,7 +590,7 @@ class Client(BaseClient):
           The name of the security configuration.
         :type SecurityConfiguration: string
         :param SecurityConfiguration: **[REQUIRED]**
-          The security configuration details in JSON format. For JSON parameters and examples, see `Use Security Configurations to Set Up Cluster Security <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html>`__ in the *Amazon EMR Management Guide* .
+          The security configuration details in JSON format. For JSON parameters and examples, see `Use Security Configurations to Set Up Cluster Security <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html>`__ in the *Amazon EMR Management Guide* .
         :rtype: dict
         :returns:
         """
@@ -792,7 +792,7 @@ class Client(BaseClient):
               - **RunningAmiVersion** *(string) --* 
                 The AMI version running on this cluster.
               - **ReleaseLabel** *(string) --* 
-                The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form ``emr-x.x.x`` , where x.x.x is an Amazon EMR release version, for example, ``emr-5.14.0`` . For more information about Amazon EMR release versions and included application versions and features, see `http\://docs.aws.amazon.com/emr/latest/ReleaseGuide/ <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/>`__ . The release label applies only to Amazon EMR releases versions 4.x and later. Earlier versions use ``AmiVersion`` .
+                The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form ``emr-x.x.x`` , where x.x.x is an Amazon EMR release version, for example, ``emr-5.14.0`` . For more information about Amazon EMR release versions and included application versions and features, see `https\://docs.aws.amazon.com/emr/latest/ReleaseGuide/ <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/>`__ . The release label applies only to Amazon EMR releases versions 4.x and later. Earlier versions use ``AmiVersion`` .
               - **AutoTerminate** *(boolean) --* 
                 Specifies whether the cluster should terminate after completing all steps.
               - **TerminationProtected** *(boolean) --* 
@@ -802,7 +802,7 @@ class Client(BaseClient):
               - **Applications** *(list) --* 
                 The applications installed on this cluster.
                 - *(dict) --* 
-                  With Amazon EMR release version 4.0 and later, the only accepted parameter is the application name. To pass arguments to applications, you use configuration classifications specified using configuration JSON objects. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                  With Amazon EMR release version 4.0 and later, the only accepted parameter is the application name. To pass arguments to applications, you use configuration classifications specified using configuration JSON objects. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                   With earlier Amazon EMR releases, the application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument.
                   - **Name** *(string) --* 
                     The name of the application.
@@ -818,11 +818,11 @@ class Client(BaseClient):
               - **Tags** *(list) --* 
                 A list of tags associated with a cluster.
                 - *(dict) --* 
-                  A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
+                  A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
                   - **Key** *(string) --* 
-                    A user-defined key, which is the minimum required information for a valid tag. For more information, see `Tag <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
+                    A user-defined key, which is the minimum required information for a valid tag. For more information, see `Tag <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
                   - **Value** *(string) --* 
-                    A user-defined value, which is optional in a tag. For more information, see `Tag Clusters <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
+                    A user-defined value, which is optional in a tag. For more information, see `Tag Clusters <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
               - **ServiceRole** *(string) --* 
                 The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
               - **NormalizedInstanceHours** *(integer) --* 
@@ -834,7 +834,7 @@ class Client(BaseClient):
                 - *(dict) --* 
                   .. note::
                     Amazon EMR releases 4.x or later.
-                  An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                  An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                   - **Classification** *(string) --* 
                     The classification within a configuration.
                   - **Configurations** *(list) --* 
@@ -856,7 +856,7 @@ class Client(BaseClient):
               - **RepoUpgradeOnBoot** *(string) --* 
                 Applies only when ``CustomAmiID`` is used. Specifies the type of updates that are applied from the Amazon Linux AMI package repositories when an instance boots using the AMI.
               - **KerberosAttributes** *(dict) --* 
-                Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see `Use Kerberos Authentication <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html>`__ in the *EMR Management Guide* .
+                Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see `Use Kerberos Authentication <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html>`__ in the *EMR Management Guide* .
                 - **Realm** *(string) --* 
                   The name of the Kerberos realm to which all nodes in a cluster belong. For example, ``EC2.INTERNAL`` . 
                 - **KdcAdminPassword** *(string) --* 
@@ -934,7 +934,7 @@ class Client(BaseClient):
                                     'InstanceType': 'string',
                                     'InstanceRequestCount': 123,
                                     'InstanceRunningCount': 123,
-                                    'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
+                                    'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RECONFIGURING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
                                     'LastStateChangeReason': 'string',
                                     'CreationDateTime': datetime(2015, 1, 1),
                                     'StartDateTime': datetime(2015, 1, 1),
@@ -1676,7 +1676,7 @@ class Client(BaseClient):
                       - *(dict) --* 
                         .. note::
                           Amazon EMR releases 4.x or later.
-                        An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                        An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                         - **Classification** *(string) --* 
                           The classification within a configuration.
                         - **Configurations** *(list) --* 
@@ -1750,7 +1750,7 @@ class Client(BaseClient):
                         'RequestedInstanceCount': 123,
                         'RunningInstanceCount': 123,
                         'Status': {
-                            'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
+                            'State': 'PROVISIONING'|'BOOTSTRAPPING'|'RUNNING'|'RECONFIGURING'|'RESIZING'|'SUSPENDED'|'TERMINATING'|'TERMINATED'|'ARRESTED'|'SHUTTING_DOWN'|'ENDED',
                             'StateChangeReason': {
                                 'Code': 'INTERNAL_ERROR'|'VALIDATION_ERROR'|'INSTANCE_FAILURE'|'CLUSTER_TERMINATED',
                                 'Message': 'string'
@@ -1770,6 +1770,17 @@ class Client(BaseClient):
                                 }
                             },
                         ],
+                        'ConfigurationsVersion': 123,
+                        'LastSuccessfullyAppliedConfigurations': [
+                            {
+                                'Classification': 'string',
+                                'Configurations': {'... recursive ...'},
+                                'Properties': {
+                                    'string': 'string'
+                                }
+                            },
+                        ],
+                        'LastSuccessfullyAppliedConfigurationsVersion': 123,
                         'EbsBlockDevices': [
                             {
                                 'VolumeSpecification': {
@@ -1892,7 +1903,7 @@ class Client(BaseClient):
                   - *(dict) --* 
                     .. note::
                       Amazon EMR releases 4.x or later.
-                    An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                    An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                     - **Classification** *(string) --* 
                       The classification within a configuration.
                     - **Configurations** *(list) --* 
@@ -1901,6 +1912,24 @@ class Client(BaseClient):
                       A set of properties specified within a configuration classification.
                       - *(string) --* 
                         - *(string) --* 
+                - **ConfigurationsVersion** *(integer) --* 
+                  The version number of the requested configuration specification for this instance group.
+                - **LastSuccessfullyAppliedConfigurations** *(list) --* 
+                  A list of configurations that were successfully applied for an instance group last time.
+                  - *(dict) --* 
+                    .. note::
+                      Amazon EMR releases 4.x or later.
+                    An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                    - **Classification** *(string) --* 
+                      The classification within a configuration.
+                    - **Configurations** *(list) --* 
+                      A list of additional configurations to apply within a configuration object.
+                    - **Properties** *(dict) --* 
+                      A set of properties specified within a configuration classification.
+                      - *(string) --* 
+                        - *(string) --* 
+                - **LastSuccessfullyAppliedConfigurationsVersion** *(integer) --* 
+                  The version number of a configuration specification that was successfully applied for an instance group last time. 
                 - **EbsBlockDevices** *(list) --* 
                   The EBS block devices that are mapped to this instance group.
                   - *(dict) --* 
@@ -2386,7 +2415,16 @@ class Client(BaseClient):
                               ],
                               'InstanceTerminationTimeout': 123
                           }
-                      }
+                      },
+                      'Configurations': [
+                          {
+                              'Classification': 'string',
+                              'Configurations': {'... recursive ...'},
+                              'Properties': {
+                                  'string': 'string'
+                              }
+                          },
+                      ]
                   },
               ]
           )
@@ -2397,7 +2435,7 @@ class Client(BaseClient):
         :param InstanceGroups:
           Instance groups to change.
           - *(dict) --*
-            Modify an instance group size.
+            Modify the size or configurations of an instance group.
             - **InstanceGroupId** *(string) --* **[REQUIRED]**
               Unique ID of the instance group to expand or shrink.
             - **InstanceCount** *(integer) --*
@@ -2419,6 +2457,20 @@ class Client(BaseClient):
                   - *(string) --*
                 - **InstanceTerminationTimeout** *(integer) --*
                   Decommissioning timeout override for the specific list of instances to be terminated.
+            - **Configurations** *(list) --*
+              A list of new or modified configurations to apply for an instance group.
+              - *(dict) --*
+                .. note::
+                  Amazon EMR releases 4.x or later.
+                An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                - **Classification** *(string) --*
+                  The classification within a configuration.
+                - **Configurations** *(list) --*
+                  A list of additional configurations to apply within a configuration object.
+                - **Properties** *(dict) --*
+                  A set of properties specified within a configuration classification.
+                  - *(string) --*
+                    - *(string) --*
         :returns: None
         """
         pass
@@ -2696,7 +2748,7 @@ class Client(BaseClient):
 
     def remove_tags(self, ResourceId: str, TagKeys: List) -> Dict:
         """
-        Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
+        Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ . 
         The following example removes the stack tag with value Prod from a cluster:
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/RemoveTags>`_
         
@@ -2733,7 +2785,7 @@ class Client(BaseClient):
         RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the steps specified. After the steps complete, the cluster stops and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the  JobFlowInstancesConfig  ``KeepJobFlowAliveWhenNoSteps`` parameter is set to ``TRUE`` , the cluster transitions to the WAITING state rather than shutting down after the steps have completed. 
         For additional protection, you can set the  JobFlowInstancesConfig  ``TerminationProtected`` parameter to ``TRUE`` to lock the cluster and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.
         A maximum of 256 steps are allowed in each job flow.
-        If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see `Add More than 256 Steps to a Cluster <http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html>`__ in the *Amazon EMR Management Guide* .
+        If your cluster is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see `Add More than 256 Steps to a Cluster <https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html>`__ in the *Amazon EMR Management Guide* .
         For long running clusters, we recommend that you periodically store your results.
         .. note::
           The instance fleets configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets parameters or InstanceGroups parameters, but not both.
@@ -3001,7 +3053,7 @@ class Client(BaseClient):
           Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, ``ReleaseLabel`` is used. To specify a custom AMI, use ``CustomAmiID`` .
         :type ReleaseLabel: string
         :param ReleaseLabel:
-          The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form ``emr-x.x.x`` , where x.x.x is an Amazon EMR release version, for example, ``emr-5.14.0`` . For more information about Amazon EMR release versions and included application versions and features, see `http\://docs.aws.amazon.com/emr/latest/ReleaseGuide/ <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/>`__ . The release label applies only to Amazon EMR releases versions 4.x and later. Earlier versions use ``AmiVersion`` .
+          The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form ``emr-x.x.x`` , where x.x.x is an Amazon EMR release version, for example, ``emr-5.14.0`` . For more information about Amazon EMR release versions and included application versions and features, see `https\://docs.aws.amazon.com/emr/latest/ReleaseGuide/ <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/>`__ . The release label applies only to Amazon EMR releases versions 4.x and later. Earlier versions use ``AmiVersion`` .
         :type Instances: dict
         :param Instances: **[REQUIRED]**
           A specification of the number and type of Amazon EC2 instances.
@@ -3035,7 +3087,7 @@ class Client(BaseClient):
                 - *(dict) --*
                   .. note::
                     Amazon EMR releases 4.x or later.
-                  An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                  An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                   - **Classification** *(string) --*
                     The classification within a configuration.
                   - **Configurations** *(list) --*
@@ -3175,7 +3227,7 @@ class Client(BaseClient):
                     - *(dict) --*
                       .. note::
                         Amazon EMR releases 4.x or later.
-                      An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+                      An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
                       - **Classification** *(string) --*
                         The classification within a configuration.
                       - **Configurations** *(list) --*
@@ -3275,7 +3327,7 @@ class Client(BaseClient):
         :param SupportedProducts:
           .. note::
             For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.
-          A list of strings that indicates third-party software to use. For more information, see the `Amazon EMR Developer Guide <http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf>`__ . Currently supported values are:
+          A list of strings that indicates third-party software to use. For more information, see the `Amazon EMR Developer Guide <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf>`__ . Currently supported values are:
           * \"mapr-m3\" - launch the job flow using MapR M3 Edition.
           * \"mapr-m5\" - launch the job flow using MapR M5 Edition.
           - *(string) --*
@@ -3283,7 +3335,7 @@ class Client(BaseClient):
         :param NewSupportedProducts:
           .. note::
             For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.
-          A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see \"Launch a Job Flow on the MapR Distribution for Hadoop\" in the `Amazon EMR Developer Guide <http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf>`__ . Supported values are:
+          A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see \"Launch a Job Flow on the MapR Distribution for Hadoop\" in the `Amazon EMR Developer Guide <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf>`__ . Supported values are:
           * \"mapr-m3\" - launch the cluster using MapR M3 Edition.
           * \"mapr-m5\" - launch the cluster using MapR M5 Edition.
           * \"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition respectively.
@@ -3301,9 +3353,9 @@ class Client(BaseClient):
               - *(string) --*
         :type Applications: list
         :param Applications:
-          Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the `Amazon EMR Release Guide <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/>`__ .
+          Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the `Amazon EMR Release Guide <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/>`__ .
           - *(dict) --*
-            With Amazon EMR release version 4.0 and later, the only accepted parameter is the application name. To pass arguments to applications, you use configuration classifications specified using configuration JSON objects. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+            With Amazon EMR release version 4.0 and later, the only accepted parameter is the application name. To pass arguments to applications, you use configuration classifications specified using configuration JSON objects. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
             With earlier Amazon EMR releases, the application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument.
             - **Name** *(string) --*
               The name of the application.
@@ -3322,7 +3374,7 @@ class Client(BaseClient):
           - *(dict) --*
             .. note::
               Amazon EMR releases 4.x or later.
-            An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
+            An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see `Configuring Applications <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html>`__ .
             - **Classification** *(string) --*
               The classification within a configuration.
             - **Configurations** *(list) --*
@@ -3344,11 +3396,11 @@ class Client(BaseClient):
         :param Tags:
           A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
           - *(dict) --*
-            A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
+            A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see `Tag Clusters <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
             - **Key** *(string) --*
-              A user-defined key, which is the minimum required information for a valid tag. For more information, see `Tag <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
+              A user-defined key, which is the minimum required information for a valid tag. For more information, see `Tag <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
             - **Value** *(string) --*
-              A user-defined value, which is optional in a tag. For more information, see `Tag Clusters <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
+              A user-defined value, which is optional in a tag. For more information, see `Tag Clusters <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html>`__ .
         :type SecurityConfiguration: string
         :param SecurityConfiguration:
           The name of a security configuration to apply to the cluster.
@@ -3360,8 +3412,8 @@ class Client(BaseClient):
           Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. ``TERMINATE_AT_INSTANCE_HOUR`` indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. ``TERMINATE_AT_TASK_COMPLETION`` indicates that Amazon EMR blacklists and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. ``TERMINATE_AT_TASK_COMPLETION`` available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
         :type CustomAmiId: string
         :param CustomAmiId:
-          Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances. For more information about custom AMIs in Amazon EMR, see `Using a Custom AMI <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html>`__ in the *Amazon EMR Management Guide* . If omitted, the cluster uses the base Linux AMI for the ``ReleaseLabel`` specified. For Amazon EMR versions 2.x and 3.x, use ``AmiVersion`` instead.
-          For information about creating a custom AMI, see `Creating an Amazon EBS-Backed Linux AMI <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html>`__ in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For information about finding an AMI ID, see `Finding a Linux AMI <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html>`__ .
+          Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances. For more information about custom AMIs in Amazon EMR, see `Using a Custom AMI <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html>`__ in the *Amazon EMR Management Guide* . If omitted, the cluster uses the base Linux AMI for the ``ReleaseLabel`` specified. For Amazon EMR versions 2.x and 3.x, use ``AmiVersion`` instead.
+          For information about creating a custom AMI, see `Creating an Amazon EBS-Backed Linux AMI <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html>`__ in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For information about finding an AMI ID, see `Finding a Linux AMI <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html>`__ .
         :type EbsRootVolumeSize: integer
         :param EbsRootVolumeSize:
           The size, in GiB, of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
@@ -3370,7 +3422,7 @@ class Client(BaseClient):
           Applies only when ``CustomAmiID`` is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is ``SECURITY`` , which indicates that only security updates are applied. If ``NONE`` is specified, no updates are applied, and all updates must be applied manually.
         :type KerberosAttributes: dict
         :param KerberosAttributes:
-          Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see `Use Kerberos Authentication <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html>`__ in the *EMR Management Guide* .
+          Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see `Use Kerberos Authentication <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html>`__ in the *EMR Management Guide* .
           - **Realm** *(string) --* **[REQUIRED]**
             The name of the Kerberos realm to which all nodes in a cluster belong. For example, ``EC2.INTERNAL`` .
           - **KdcAdminPassword** *(string) --* **[REQUIRED]**
@@ -3391,7 +3443,7 @@ class Client(BaseClient):
         SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling ``SetTerminationProtection`` on a cluster is similar to calling the Amazon EC2 ``DisableAPITermination`` API on all EC2 instances in a cluster.
          ``SetTerminationProtection`` is used to prevent accidental termination of a cluster and to ensure that in the event of an error, the instances persist so that you can recover any data stored in their ephemeral instance storage.
         To terminate a cluster that has been locked by setting ``SetTerminationProtection`` to ``true`` , you must first unlock the job flow by a subsequent call to ``SetTerminationProtection`` in which you set the value to ``false`` . 
-        For more information, see`Managing Cluster Termination <http://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html>`__ in the *Amazon EMR Management Guide* . 
+        For more information, see`Managing Cluster Termination <https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html>`__ in the *Amazon EMR Management Guide* . 
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31/SetTerminationProtection>`_
         
         **Request Syntax**

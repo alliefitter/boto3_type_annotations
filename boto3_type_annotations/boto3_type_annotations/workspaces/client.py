@@ -1,10 +1,10 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -17,7 +17,7 @@ class Client(BaseClient):
     def can_paginate(self, operation_name: str = None):
         pass
 
-    def create_ip_group(self, GroupName: str, GroupDesc: str = None, UserRules: List = None) -> Dict:
+    def create_ip_group(self, GroupName: str, GroupDesc: str = None, UserRules: List = None, Tags: List = None) -> Dict:
         pass
 
     def create_tags(self, ResourceId: str, Tags: List) -> Dict:
@@ -77,7 +77,7 @@ class Client(BaseClient):
     def get_waiter(self, waiter_name: str = None) -> Waiter:
         pass
 
-    def import_workspace_image(self, Ec2ImageId: str, IngestionProcess: str, ImageName: str, ImageDescription: str) -> Dict:
+    def import_workspace_image(self, Ec2ImageId: str, IngestionProcess: str, ImageName: str, ImageDescription: str, Tags: List = None) -> Dict:
         pass
 
     def list_available_management_cidr_ranges(self, ManagementCidrRangeConstraint: str, MaxResults: int = None, NextToken: str = None) -> Dict:
@@ -98,7 +98,7 @@ class Client(BaseClient):
     def reboot_workspaces(self, RebootWorkspaceRequests: List) -> Dict:
         pass
 
-    def rebuild_workspaces(self, RebuildWorkspaceRequests: List) -> Dict:
+    def rebuild_workspaces(self, RebuildWorkspaceRequests: List, AdditionalInfo: str = None) -> Dict:
         pass
 
     def revoke_ip_rules(self, GroupId: str, UserRules: List) -> Dict:

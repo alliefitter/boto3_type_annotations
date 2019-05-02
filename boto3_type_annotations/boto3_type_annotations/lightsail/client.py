@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
-from datetime import datetime
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -97,6 +97,9 @@ class Client(BaseClient):
         pass
 
     def delete_key_pair(self, keyPairName: str) -> Dict:
+        pass
+
+    def delete_known_host_keys(self, instanceName: str) -> Dict:
         pass
 
     def delete_load_balancer(self, loadBalancerName: str) -> Dict:

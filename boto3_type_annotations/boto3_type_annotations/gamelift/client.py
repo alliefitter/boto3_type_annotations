@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from datetime import datetime
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -21,7 +21,7 @@ class Client(BaseClient):
     def create_build(self, Name: str = None, Version: str = None, StorageLocation: Dict = None, OperatingSystem: str = None) -> Dict:
         pass
 
-    def create_fleet(self, Name: str, BuildId: str, EC2InstanceType: str, Description: str = None, ServerLaunchPath: str = None, ServerLaunchParameters: str = None, LogPaths: List = None, EC2InboundPermissions: List = None, NewGameSessionProtectionPolicy: str = None, RuntimeConfiguration: Dict = None, ResourceCreationLimitPolicy: Dict = None, MetricGroups: List = None, PeerVpcAwsAccountId: str = None, PeerVpcId: str = None, FleetType: str = None) -> Dict:
+    def create_fleet(self, Name: str, EC2InstanceType: str, Description: str = None, BuildId: str = None, ScriptId: str = None, ServerLaunchPath: str = None, ServerLaunchParameters: str = None, LogPaths: List = None, EC2InboundPermissions: List = None, NewGameSessionProtectionPolicy: str = None, RuntimeConfiguration: Dict = None, ResourceCreationLimitPolicy: Dict = None, MetricGroups: List = None, PeerVpcAwsAccountId: str = None, PeerVpcId: str = None, FleetType: str = None, InstanceRoleArn: str = None) -> Dict:
         pass
 
     def create_game_session(self, MaximumPlayerSessionCount: int, FleetId: str = None, AliasId: str = None, Name: str = None, GameProperties: List = None, CreatorId: str = None, GameSessionId: str = None, IdempotencyToken: str = None, GameSessionData: str = None) -> Dict:
@@ -40,6 +40,9 @@ class Client(BaseClient):
         pass
 
     def create_player_sessions(self, GameSessionId: str, PlayerIds: List, PlayerDataMap: Dict = None) -> Dict:
+        pass
+
+    def create_script(self, Name: str = None, Version: str = None, StorageLocation: Dict = None, ZipFile: bytes = None) -> Dict:
         pass
 
     def create_vpc_peering_authorization(self, GameLiftAwsAccountId: str, PeerVpcId: str) -> Dict:
@@ -67,6 +70,9 @@ class Client(BaseClient):
         pass
 
     def delete_scaling_policy(self, Name: str, FleetId: str):
+        pass
+
+    def delete_script(self, ScriptId: str):
         pass
 
     def delete_vpc_peering_authorization(self, GameLiftAwsAccountId: str, PeerVpcId: str) -> Dict:
@@ -132,6 +138,9 @@ class Client(BaseClient):
     def describe_scaling_policies(self, FleetId: str, StatusFilter: str = None, Limit: int = None, NextToken: str = None) -> Dict:
         pass
 
+    def describe_script(self, ScriptId: str) -> Dict:
+        pass
+
     def describe_vpc_peering_authorizations(self) -> Dict:
         pass
 
@@ -159,7 +168,10 @@ class Client(BaseClient):
     def list_builds(self, Status: str = None, Limit: int = None, NextToken: str = None) -> Dict:
         pass
 
-    def list_fleets(self, BuildId: str = None, Limit: int = None, NextToken: str = None) -> Dict:
+    def list_fleets(self, BuildId: str = None, ScriptId: str = None, Limit: int = None, NextToken: str = None) -> Dict:
+        pass
+
+    def list_scripts(self, Limit: int = None, NextToken: str = None) -> Dict:
         pass
 
     def put_scaling_policy(self, Name: str, FleetId: str, MetricName: str, ScalingAdjustment: int = None, ScalingAdjustmentType: str = None, Threshold: float = None, ComparisonOperator: str = None, EvaluationPeriods: int = None, PolicyType: str = None, TargetConfiguration: Dict = None) -> Dict:
@@ -220,6 +232,9 @@ class Client(BaseClient):
         pass
 
     def update_runtime_configuration(self, FleetId: str, RuntimeConfiguration: Dict) -> Dict:
+        pass
+
+    def update_script(self, ScriptId: str, Name: str = None, Version: str = None, StorageLocation: Dict = None, ZipFile: bytes = None) -> Dict:
         pass
 
     def validate_matchmaking_rule_set(self, RuleSetBody: str) -> Dict:

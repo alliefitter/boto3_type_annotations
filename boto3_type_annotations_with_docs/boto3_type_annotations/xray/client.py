@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from datetime import datetime
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -1021,6 +1021,159 @@ class Client(BaseClient):
         """
         pass
 
+    def get_time_series_service_statistics(self, StartTime: datetime, EndTime: datetime, GroupName: str = None, GroupARN: str = None, EntitySelectorExpression: str = None, Period: int = None, NextToken: str = None) -> Dict:
+        """
+        Get an aggregation of service statistics defined by a specific time range.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTimeSeriesServiceStatistics>`_
+        
+        **Request Syntax**
+        ::
+          response = client.get_time_series_service_statistics(
+              StartTime=datetime(2015, 1, 1),
+              EndTime=datetime(2015, 1, 1),
+              GroupName='string',
+              GroupARN='string',
+              EntitySelectorExpression='string',
+              Period=123,
+              NextToken='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'TimeSeriesServiceStatistics': [
+                    {
+                        'Timestamp': datetime(2015, 1, 1),
+                        'EdgeSummaryStatistics': {
+                            'OkCount': 123,
+                            'ErrorStatistics': {
+                                'ThrottleCount': 123,
+                                'OtherCount': 123,
+                                'TotalCount': 123
+                            },
+                            'FaultStatistics': {
+                                'OtherCount': 123,
+                                'TotalCount': 123
+                            },
+                            'TotalCount': 123,
+                            'TotalResponseTime': 123.0
+                        },
+                        'ServiceSummaryStatistics': {
+                            'OkCount': 123,
+                            'ErrorStatistics': {
+                                'ThrottleCount': 123,
+                                'OtherCount': 123,
+                                'TotalCount': 123
+                            },
+                            'FaultStatistics': {
+                                'OtherCount': 123,
+                                'TotalCount': 123
+                            },
+                            'TotalCount': 123,
+                            'TotalResponseTime': 123.0
+                        },
+                        'ResponseTimeHistogram': [
+                            {
+                                'Value': 123.0,
+                                'Count': 123
+                            },
+                        ]
+                    },
+                ],
+                'ContainsOldGroupVersions': True|False,
+                'NextToken': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **TimeSeriesServiceStatistics** *(list) --* 
+              The collection of statistics.
+              - *(dict) --* 
+                A list of TimeSeriesStatistic structures.
+                - **Timestamp** *(datetime) --* 
+                  Timestamp of the window for which statistics are aggregated.
+                - **EdgeSummaryStatistics** *(dict) --* 
+                  Response statistics for an edge.
+                  - **OkCount** *(integer) --* 
+                    The number of requests that completed with a 2xx Success status code.
+                  - **ErrorStatistics** *(dict) --* 
+                    Information about requests that failed with a 4xx Client Error status code.
+                    - **ThrottleCount** *(integer) --* 
+                      The number of requests that failed with a 419 throttling status code.
+                    - **OtherCount** *(integer) --* 
+                      The number of requests that failed with untracked 4xx Client Error status codes.
+                    - **TotalCount** *(integer) --* 
+                      The total number of requests that failed with a 4xx Client Error status code.
+                  - **FaultStatistics** *(dict) --* 
+                    Information about requests that failed with a 5xx Server Error status code.
+                    - **OtherCount** *(integer) --* 
+                      The number of requests that failed with untracked 5xx Server Error status codes.
+                    - **TotalCount** *(integer) --* 
+                      The total number of requests that failed with a 5xx Server Error status code.
+                  - **TotalCount** *(integer) --* 
+                    The total number of completed requests.
+                  - **TotalResponseTime** *(float) --* 
+                    The aggregate response time of completed requests.
+                - **ServiceSummaryStatistics** *(dict) --* 
+                  Response statistics for a service.
+                  - **OkCount** *(integer) --* 
+                    The number of requests that completed with a 2xx Success status code.
+                  - **ErrorStatistics** *(dict) --* 
+                    Information about requests that failed with a 4xx Client Error status code.
+                    - **ThrottleCount** *(integer) --* 
+                      The number of requests that failed with a 419 throttling status code.
+                    - **OtherCount** *(integer) --* 
+                      The number of requests that failed with untracked 4xx Client Error status codes.
+                    - **TotalCount** *(integer) --* 
+                      The total number of requests that failed with a 4xx Client Error status code.
+                  - **FaultStatistics** *(dict) --* 
+                    Information about requests that failed with a 5xx Server Error status code.
+                    - **OtherCount** *(integer) --* 
+                      The number of requests that failed with untracked 5xx Server Error status codes.
+                    - **TotalCount** *(integer) --* 
+                      The total number of requests that failed with a 5xx Server Error status code.
+                  - **TotalCount** *(integer) --* 
+                    The total number of completed requests.
+                  - **TotalResponseTime** *(float) --* 
+                    The aggregate response time of completed requests.
+                - **ResponseTimeHistogram** *(list) --* 
+                  The response time histogram for the selected entities.
+                  - *(dict) --* 
+                    An entry in a histogram for a statistic. A histogram maps the range of observed values on the X axis, and the prevalence of each value on the Y axis.
+                    - **Value** *(float) --* 
+                      The value of the entry.
+                    - **Count** *(integer) --* 
+                      The prevalence of the entry.
+            - **ContainsOldGroupVersions** *(boolean) --* 
+              A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation may show statistics from an older version of the group's filter expression.
+            - **NextToken** *(string) --* 
+              Pagination token. Not used.
+        :type StartTime: datetime
+        :param StartTime: **[REQUIRED]**
+          The start of the time frame for which to aggregate statistics.
+        :type EndTime: datetime
+        :param EndTime: **[REQUIRED]**
+          The end of the time frame for which to aggregate statistics.
+        :type GroupName: string
+        :param GroupName:
+          The case-sensitive name of the group for which to pull statistics from.
+        :type GroupARN: string
+        :param GroupARN:
+          The ARN of the group for which to pull statistics from.
+        :type EntitySelectorExpression: string
+        :param EntitySelectorExpression:
+          A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned.
+        :type Period: integer
+        :param Period:
+          Aggregation period in seconds.
+        :type NextToken: string
+        :param NextToken:
+          Pagination token. Not used.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def get_trace_graph(self, TraceIds: List, NextToken: str = None) -> Dict:
         """
         Retrieves a service graph for one or more specific trace IDs.
@@ -1250,14 +1403,14 @@ class Client(BaseClient):
         """
         pass
 
-    def get_trace_summaries(self, StartTime: datetime, EndTime: datetime, Sampling: bool = None, FilterExpression: str = None, NextToken: str = None) -> Dict:
+    def get_trace_summaries(self, StartTime: datetime, EndTime: datetime, TimeRangeType: str = None, Sampling: bool = None, SamplingStrategy: Dict = None, FilterExpression: str = None, NextToken: str = None) -> Dict:
         """
         Retrieves IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to ``BatchGetTraces`` .
         A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through ``api.example.com`` :
          ``service("api.example.com")``  
         This filter expression finds traces that have an annotation named ``account`` with the value ``12345`` :
          ``annotation.account = "12345"``  
-        For a full list of indexed fields and keywords that you can use in filter expressions, see `Using Filter Expressions <http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html>`__ in the *AWS X-Ray Developer Guide* .
+        For a full list of indexed fields and keywords that you can use in filter expressions, see `Using Filter Expressions <https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html>`__ in the *AWS X-Ray Developer Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/xray-2016-04-12/GetTraceSummaries>`_
         
         **Request Syntax**
@@ -1265,7 +1418,12 @@ class Client(BaseClient):
           response = client.get_trace_summaries(
               StartTime=datetime(2015, 1, 1),
               EndTime=datetime(2015, 1, 1),
+              TimeRangeType='TraceId'|'Event',
               Sampling=True|False,
+              SamplingStrategy={
+                  'Name': 'PartialScan'|'FixedRate',
+                  'Value': 123.0
+              },
               FilterExpression='string',
               NextToken='string'
           )
@@ -1434,7 +1592,8 @@ class Client(BaseClient):
                                 ]
                             },
                         ],
-                        'Revision': 123
+                        'Revision': 123,
+                        'MatchedEventTime': datetime(2015, 1, 1)
                     },
                 ],
                 'ApproximateTime': datetime(2015, 1, 1),
@@ -1644,6 +1803,8 @@ class Client(BaseClient):
                           A Boolean value indicating if the service is inferred from the trace.
                 - **Revision** *(integer) --* 
                   The revision number of a trace.
+                - **MatchedEventTime** *(datetime) --* 
+                  The matched time stamp of a defined event.
             - **ApproximateTime** *(datetime) --* 
               The start time of this page of results.
             - **TracesProcessedCount** *(integer) --* 
@@ -1656,9 +1817,19 @@ class Client(BaseClient):
         :type EndTime: datetime
         :param EndTime: **[REQUIRED]**
           The end of the time frame for which to retrieve traces.
+        :type TimeRangeType: string
+        :param TimeRangeType:
+          A parameter to indicate whether to query trace summaries by TraceId or Event time.
         :type Sampling: boolean
         :param Sampling:
           Set to ``true`` to get summaries for only a subset of available traces.
+        :type SamplingStrategy: dict
+        :param SamplingStrategy:
+          A paramater to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.
+          - **Name** *(string) --*
+            The name of a sampling rule.
+          - **Value** *(float) --*
+            The value of a sampling rule.
         :type FilterExpression: string
         :param FilterExpression:
           Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.

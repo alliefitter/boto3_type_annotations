@@ -50,7 +50,7 @@ class ListHealthChecks(Paginator):
                                 'us-east-1'|'us-west-1'|'us-west-2'|'eu-west-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1',
                             ],
                             'AlarmIdentifier': {
-                                'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'eu-north-1'|'sa-east-1',
+                                'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'ap-east-1'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'eu-north-1'|'sa-east-1'|'cn-northwest-1'|'cn-north-1',
                                 'Name': 'string'
                             },
                             'InsufficientDataHealthStatus': 'Healthy'|'Unhealthy'|'LastKnownStatus'
@@ -104,7 +104,7 @@ class ListHealthChecks(Paginator):
                     * **IPv4 address** : four values between 0 and 255, separated by periods (.), for example, ``192.0.2.44`` . 
                     * **IPv6 address** : eight groups of four hexadecimal values, separated by colons (:), for example, ``2001:0db8:85a3:0000:0000:abcd:0001:2345`` . You can also shorten IPv6 addresses as described in RFC 5952, for example, ``2001:db8:85a3::abcd:1:2345`` . 
                     If the endpoint is an EC2 instance, we recommend that you create an Elastic IP address, associate it with your EC2 instance, and specify the Elastic IP address for ``IPAddress`` . This ensures that the IP address of your instance will never change.
-                    For more information, see  HealthCheckConfig$FullyQualifiedDomainName .
+                    For more information, see `FullyQualifiedDomainName <https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName>`__ . 
                     Constraints: Route 53 can't check the health of endpoints for which the IP address is in local, private, non-routable, or multicast ranges. For more information about IP addresses for which you can't create health checks, see the following documents:
                     * `RFC 5735, Special Use IPv4 Addresses <https://tools.ietf.org/html/rfc5735>`__   
                     * `RFC 6598, IANA-Reserved IPv4 Prefix for Shared Address Space <https://tools.ietf.org/html/rfc6598>`__   
@@ -126,7 +126,7 @@ class ListHealthChecks(Paginator):
                     * **TCP** : Route 53 tries to establish a TCP connection. 
                     * **CLOUDWATCH_METRIC** : The health check is associated with a CloudWatch alarm. If the state of the alarm is ``OK`` , the health check is considered healthy. If the state is ``ALARM`` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is ``OK`` or ``ALARM`` , the health check status depends on the setting for ``InsufficientDataHealthStatus`` : ``Healthy`` , ``Unhealthy`` , or ``LastKnownStatus`` .  
                     * **CALCULATED** : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of ``HealthThreshold`` .  
-                    For more information, see `How Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
+                    For more information, see `How Route 53 Determines Whether an Endpoint Is Healthy <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__ in the *Amazon Route 53 Developer Guide* .
                   - **ResourcePath** *(string) --* 
                     The path, if any, that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example, the file /docs/route53-health-check.html. You can also include query string parameters, for example, ``/welcome.html?language=jp&login=y`` . 
                   - **FullyQualifiedDomainName** *(string) --* 
@@ -168,10 +168,10 @@ class ListHealthChecks(Paginator):
                     * **Health checks that check the health of endpoints:** Route 53 stops submitting requests to your application, server, or other resource. 
                     * **Calculated health checks:** Route 53 stops aggregating the status of the referenced health checks. 
                     * **Health checks that monitor CloudWatch alarms:** Route 53 stops monitoring the corresponding CloudWatch metrics. 
-                    After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of  UpdateHealthCheckRequest$Inverted .
+                    After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `Inverted <https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-Inverted>`__ . 
                     Charges for a health check still apply when the health check is disabled. For more information, see `Amazon Route 53 Pricing <http://aws.amazon.com/route53/pricing/>`__ .
                   - **HealthThreshold** *(integer) --* 
-                    The number of child health checks that are associated with a ``CALCULATED`` health that Amazon Route 53 must consider healthy for the ``CALCULATED`` health check to be considered healthy. To specify the child health checks that you want to associate with a ``CALCULATED`` health check, use the  HealthCheckConfig$ChildHealthChecks and  HealthCheckConfig$ChildHealthChecks elements.
+                    The number of child health checks that are associated with a ``CALCULATED`` health check that Amazon Route 53 must consider healthy for the ``CALCULATED`` health check to be considered healthy. To specify the child health checks that you want to associate with a ``CALCULATED`` health check, use the `ChildHealthChecks <https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks>`__ element.
                     Note the following:
                     * If you specify a number greater than the number of child health checks, Route 53 always considers this health check to be unhealthy. 
                     * If you specify ``0`` , Route 53 always considers this health check to be healthy. 
@@ -304,7 +304,7 @@ class ListHostedZones(Paginator):
                   The ID that Amazon Route 53 assigned to the hosted zone when you created it.
                 - **Name** *(string) --* 
                   The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.
-                  For information about how to specify characters other than ``a-z`` , ``0-9`` , and ``-`` (hyphen) and how to specify internationalized domain names, see  CreateHostedZone .
+                  For information about how to specify characters other than ``a-z`` , ``0-9`` , and ``-`` (hyphen) and how to specify internationalized domain names, see `CreateHostedZone <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html>`__ .
                 - **CallerReference** *(string) --* 
                   The value that you specified for ``CallerReference`` when you created the hosted zone.
                 - **Config** *(dict) --* 
@@ -379,7 +379,7 @@ class ListQueryLoggingConfigs(Paginator):
         **Response Structure**
           - *(dict) --* 
             - **QueryLoggingConfigs** *(list) --* 
-              An array that contains one  QueryLoggingConfig element for each configuration for DNS query logging that is associated with the current AWS account.
+              An array that contains one `QueryLoggingConfig <https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html>`__ element for each configuration for DNS query logging that is associated with the current AWS account.
               - *(dict) --* 
                 A complex type that contains information about a configuration for DNS query logging.
                 - **Id** *(string) --* 
@@ -433,7 +433,7 @@ class ListResourceRecordSets(Paginator):
                         'Type': 'SOA'|'A'|'TXT'|'NS'|'CNAME'|'MX'|'NAPTR'|'PTR'|'SRV'|'SPF'|'AAAA'|'CAA',
                         'SetIdentifier': 'string',
                         'Weight': 123,
-                        'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'eu-north-1'|'sa-east-1'|'cn-north-1'|'cn-northwest-1'|'ap-south-1',
+                        'Region': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'ca-central-1'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'eu-north-1'|'sa-east-1'|'cn-north-1'|'cn-northwest-1'|'ap-east-1'|'ap-south-1',
                         'GeoLocation': {
                             'ContinentCode': 'string',
                             'CountryCode': 'string',
@@ -489,16 +489,18 @@ class ListResourceRecordSets(Paginator):
                   .. note::
                     SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create resource record sets for which the value of ``Type`` is ``SPF`` . RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1* , has been updated to say, "...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1, `The SPF DNS Record Type <http://tools.ietf.org/html/rfc7208#section-14.1>`__ .
                   Values for alias resource record sets:
+                  * **Amazon API Gateway custom regional APIs and edge-optimized APIs:**  ``A``   
                   * **CloudFront distributions:**  ``A``   If IPv6 is enabled for the distribution, create two resource record sets to route traffic to your distribution, one with a value of ``A`` and one with a value of ``AAAA`` .  
                   * **AWS Elastic Beanstalk environment that has a regionalized subdomain** : ``A``   
                   * **ELB load balancers:**  ``A`` | ``AAAA``   
                   * **Amazon S3 buckets:**  ``A``   
+                  * **Amazon Virtual Private Cloud interface VPC endpoints**  ``A``   
                   * **Another resource record set in this hosted zone:** Specify the type of the resource record set that you're creating the alias for. All values are supported except ``NS`` and ``SOA`` . 
                   .. note::
                      If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't route traffic to a record for which the value of ``Type`` is ``CNAME`` . This is because the alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record. 
                 - **SetIdentifier** *(string) --* 
                    *Resource record sets that have a routing policy other than simple:* An identifier that differentiates among multiple resource record sets that have the same combination of name and type, such as multiple weighted resource record sets named acme.example.com that have a type of A. In a group of resource record sets that have the same name and type, the value of ``SetIdentifier`` must be unique for each resource record set. 
-                  For information about routing policies, see `Choosing a Routing Policy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html>`__ in the *Amazon Route 53 Developer Guide* .
+                  For information about routing policies, see `Choosing a Routing Policy <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html>`__ in the *Amazon Route 53 Developer Guide* .
                 - **Weight** *(integer) --* 
                    *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set. Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:
                   * You must specify a value for the ``Weight`` element for every weighted resource record set. 
@@ -570,18 +572,24 @@ class ListResourceRecordSets(Paginator):
                     .. note::
                       If you're creating an alias resource record set, omit ``ResourceRecord`` .
                     - **Value** *(string) --* 
-                      The current or new DNS record value, not to exceed 4,000 characters. In the case of a ``DELETE`` action, if the current value does not match the actual value, an error is returned. For descriptions about how to format ``Value`` for different record types, see `Supported DNS Resource Record Types <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html>`__ in the *Amazon Route 53 Developer Guide* .
+                      The current or new DNS record value, not to exceed 4,000 characters. In the case of a ``DELETE`` action, if the current value does not match the actual value, an error is returned. For descriptions about how to format ``Value`` for different record types, see `Supported DNS Resource Record Types <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html>`__ in the *Amazon Route 53 Developer Guide* .
                       You can specify more than one value for all record types except ``CNAME`` and ``SOA`` . 
                       .. note::
                         If you're creating an alias resource record set, omit ``Value`` .
                 - **AliasTarget** *(dict) --* 
-                   *Alias resource record sets only:* Information about the CloudFront distribution, AWS Elastic Beanstalk environment, ELB load balancer, Amazon S3 bucket, or Amazon Route 53 resource record set to which you're redirecting queries. The AWS Elastic Beanstalk environment must have a regionalized subdomain.
+                   *Alias resource record sets only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to. 
                   If you're creating resource records sets for a private hosted zone, note the following:
-                  * You can't create alias resource record sets for CloudFront distributions in a private hosted zone. 
+                  * You can't create an alias resource record set in a private hosted zone to route traffic to a CloudFront distribution. 
                   * Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported. 
                   * For information about creating failover resource record sets in a private hosted zone, see `Configuring Failover in a Private Hosted Zone <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html>`__ in the *Amazon Route 53 Developer Guide* . 
                   - **HostedZoneId** *(string) --* 
                      *Alias resource records sets only* : The value used depends on where you want to route traffic:
+                      Amazon API Gateway custom regional APIs and edge-optimized APIs  
+                    Specify the hosted zone ID for your API. You can get the applicable value using the AWS CLI command `get-domain-names <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html>`__ :
+                    * For regional APIs, specify the value of ``regionalHostedZoneId`` . 
+                    * For edge-optimized APIs, specify the value of ``distributionHostedZoneId`` . 
+                      Amazon Virtual Private Cloud interface VPC endpoint  
+                    Specify the hosted zone ID for your interface endpoint. You can get the value of ``HostedZoneId`` using the AWS CLI command `describe-vpc-endpoints <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html>`__ .
                       CloudFront distribution  
                     Specify ``Z2FDTNDATAQYW2`` .
                     .. note::
@@ -590,7 +598,7 @@ class ListResourceRecordSets(Paginator):
                     Specify the hosted zone ID for the region that you created the environment in. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see `AWS Elastic Beanstalk <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region>`__ in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* .
                       ELB load balancer  
                     Specify the value of the hosted zone ID for the load balancer. Use the following methods to get the hosted zone ID:
-                    * `Elastic Load Balancing <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region>`__ table in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers. 
+                    * `Elastic Load Balancing <https://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region>`__ table in the "AWS Regions and Endpoints" chapter of the *Amazon Web Services General Reference* : Use the value that corresponds with the region that you created your load balancer in. Note that there are separate columns for Application and Classic Load Balancers and for Network Load Balancers. 
                     * **AWS Management Console** : Go to the Amazon EC2 page, choose **Load Balancers** in the navigation pane, select the load balancer, and get the value of the **Hosted zone** field on the **Description** tab. 
                     * **Elastic Load Balancing API** : Use ``DescribeLoadBalancers`` to get the applicable value. For more information, see the applicable guide: 
                       * Classic Load Balancers: Use `DescribeLoadBalancers <http://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html>`__ to get the value of ``CanonicalHostedZoneNameId`` . 
@@ -604,9 +612,18 @@ class ListResourceRecordSets(Paginator):
                     Specify the hosted zone ID of your hosted zone. (An alias resource record set can't reference a resource record set in a different hosted zone.)
                   - **DNSName** *(string) --* 
                      *Alias resource record sets only:* The value that you specify depends on where you want to route queries:
+                      Amazon API Gateway custom regional APIs and edge-optimized APIs  
+                    Specify the applicable domain name for your API. You can get the applicable value using the AWS CLI command `get-domain-names <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html>`__ :
+                    * For regional APIs, specify the value of ``regionalDomainName`` . 
+                    * For edge-optimized APIs, specify the value of ``distributionDomainName`` . This is the name of the associated CloudFront distribution, such as ``da1b2c3d4e5.cloudfront.net`` . 
+                    .. note::
+                      The name of the record that you're creating must match a custom domain name for your API, such as ``api.example.com`` .
+                      Amazon Virtual Private Cloud interface VPC endpoint  
+                    Enter the API endpoint for the interface endpoint, such as ``vpce-123456789abcdef01-example-us-east-1a.elasticloadbalancing.us-east-1.vpce.amazonaws.com`` . For edge-optimized APIs, this is the domain name for the corresponding CloudFront distribution. You can get the value of ``DnsName`` using the AWS CLI command `describe-vpc-endpoints <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html>`__ .
                       CloudFront distribution  
                     Specify the domain name that CloudFront assigned when you created your distribution.
                     Your CloudFront distribution must include an alternate domain name that matches the name of the resource record set. For example, if the name of the resource record set is *acme.example.com* , your CloudFront distribution must include *acme.example.com* as one of the alternate domain names. For more information, see `Using Alternate Domain Names (CNAMEs) <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html>`__ in the *Amazon CloudFront Developer Guide* .
+                    You can't create a resource record set in a private hosted zone to route traffic to a CloudFront distribution.
                     .. note::
                       For failover alias records, you can't specify a CloudFront distribution for both the primary and secondary records. A distribution must include an alternate domain name that matches the name of the record. However, the primary and secondary records have the same name, and you can't include the same alternate domain name in more than one distribution. 
                       Elastic Beanstalk environment  
@@ -645,7 +662,7 @@ class ListResourceRecordSets(Paginator):
                     * **Classic Load Balancers** : If you specify an ELB Classic Load Balancer in ``DNSName`` , Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load balancer. If you set ``EvaluateTargetHealth`` to ``true`` and either no EC2 instances are healthy or the load balancer itself is unhealthy, Route 53 routes queries to other resources. 
                     * **Application and Network Load Balancers** : If you specify an ELB Application or Network Load Balancer and you set ``EvaluateTargetHealth`` to ``true`` , Route 53 routes queries to the load balancer based on the health of the target groups that are associated with the load balancer: 
                       * For an Application or Network Load Balancer to be considered healthy, every target group that contains targets must contain at least one healthy target. If any target group contains only unhealthy targets, the load balancer is considered unhealthy, and Route 53 routes queries to other resources. 
-                      * A target group that has no registered targets is considered healthy. 
+                      * A target group that has no registered targets is considered unhealthy. 
                     .. note::
                       When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they're not Route 53 health checks, but they perform a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer. 
                       S3 buckets  
@@ -662,7 +679,7 @@ class ListResourceRecordSets(Paginator):
                   .. warning::
                     Route 53 doesn't check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the ``Value`` element. When you add a ``HealthCheckId`` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check. 
                   For more information, see the following topics in the *Amazon Route 53 Developer Guide* :
-                  * `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__   
+                  * `How Amazon Route 53 Determines Whether an Endpoint Is Healthy <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html>`__   
                   * `Route 53 Health Checks and DNS Failover <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html>`__   
                   * `Configuring Failover in a Private Hosted Zone <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html>`__   
         
@@ -742,7 +759,7 @@ class ListVPCAssociationAuthorizations(Paginator):
                 'HostedZoneId': 'string',
                 'VPCs': [
                     {
-                        'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'eu-north-1'|'sa-east-1'|'ca-central-1'|'cn-north-1',
+                        'VPCRegion': 'us-east-1'|'us-east-2'|'us-west-1'|'us-west-2'|'eu-west-1'|'eu-west-2'|'eu-west-3'|'eu-central-1'|'ap-east-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-south-1'|'ap-northeast-1'|'ap-northeast-2'|'ap-northeast-3'|'eu-north-1'|'sa-east-1'|'ca-central-1'|'cn-north-1',
                         'VPCId': 'string'
                     },
                 ]

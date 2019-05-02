@@ -1,9 +1,9 @@
-from typing import Union
-from typing import List
 from typing import Optional
 from typing import Dict
 from datetime import datetime
 from boto3.resources.collection import ResourceCollection
+from typing import Union
+from typing import List
 from boto3.resources import base
 
 
@@ -400,7 +400,7 @@ class Metric(base.ServiceResource):
         """
         pass
 
-    def put_alarm(self, AlarmName: str, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Period: int = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None, Metrics: List = None) -> 'Alarm':
+    def put_alarm(self, AlarmName: str, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Period: int = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None, Metrics: List = None, Tags: List = None) -> 'Alarm':
         """
         Creates or updates an alarm and associates it with the specified metric or metric math expression.
         When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA`` . The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
@@ -410,7 +410,7 @@ class Metric(base.ServiceResource):
         * ``ec2:DescribeInstanceStatus`` and ``ec2:DescribeInstances`` for all alarms on EC2 instance status metrics 
         * ``ec2:StopInstances`` for alarms with stop actions 
         * ``ec2:TerminateInstances`` for alarms with terminate actions 
-        * ``ec2:DescribeInstanceRecoveryAttribute`` and ``ec2:RecoverInstances`` for alarms with recover actions 
+        * No specific permissions are needed for alarms with recover actions 
         If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2, you can still create an alarm, but the stop or terminate actions are not performed. However, if you are later granted the required permissions, the alarm actions that you created earlier are performed.
         If you are using an IAM role (for example, an EC2 instance profile), you cannot stop or terminate the instance using alarm actions. However, you can still see the alarm state and perform any other actions such as Amazon SNS notifications or Auto Scaling policies.
         If you are using temporary security credentials granted using AWS STS, you cannot stop or terminate an EC2 instance using alarm actions.
@@ -469,6 +469,12 @@ class Metric(base.ServiceResource):
                       'Expression': 'string',
                       'Label': 'string',
                       'ReturnData': True|False
+                  },
+              ],
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
                   },
               ]
           )
@@ -588,6 +594,16 @@ class Metric(base.ServiceResource):
             - **ReturnData** *(boolean) --*
               When used in ``GetMetricData`` , this option indicates whether to return the timestamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify ``False`` . If you omit this, the default of ``True`` is used.
               When used in ``PutMetricAlarm`` , specify ``True`` for the one expression result to use as the alarm. For all other metrics and expressions in the same ``PutMetricAlarm`` operation, specify ``ReturnData`` as False.
+        :type Tags: list
+        :param Tags:
+          A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.
+          Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.
+          - *(dict) --*
+            A key-value pair associated with a CloudWatch resource.
+            - **Key** *(string) --* **[REQUIRED]**
+              A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+            - **Value** *(string) --* **[REQUIRED]**
+              The value for the specified tag key.
         :rtype: :py:class:`cloudwatch.Alarm`
         :returns: Alarm resource
         """

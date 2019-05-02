@@ -1,12 +1,12 @@
 from typing import Optional
-from typing import List
-from botocore.client import BaseClient
 from typing import IO
-from botocore.paginate import Paginator
-from datetime import datetime
+from botocore.client import BaseClient
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -62,6 +62,9 @@ class Client(BaseClient):
         pass
 
     def get_layer_version(self, LayerName: str, VersionNumber: int) -> Dict:
+        pass
+
+    def get_layer_version_by_arn(self, Arn: str) -> Dict:
         pass
 
     def get_layer_version_policy(self, LayerName: str, VersionNumber: int) -> Dict:

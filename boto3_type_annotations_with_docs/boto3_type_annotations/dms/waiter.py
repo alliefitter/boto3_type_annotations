@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.waiter import Waiter
 
 
@@ -166,7 +166,7 @@ class ReplicationInstanceDeleted(Waiter):
 
 
 class ReplicationTaskDeleted(Waiter):
-    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None, WaiterConfig: Dict = None):
         """
         Polls :py:meth:`DatabaseMigrationService.Client.describe_replication_tasks` every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribeReplicationTasks>`_
@@ -184,6 +184,7 @@ class ReplicationTaskDeleted(Waiter):
               ],
               MaxRecords=123,
               Marker='string',
+              WithoutSettings=True|False,
               WaiterConfig={
                   'Delay': 123,
                   'MaxAttempts': 123
@@ -207,6 +208,9 @@ class ReplicationTaskDeleted(Waiter):
         :type Marker: string
         :param Marker:
           An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
+        :type WithoutSettings: boolean
+        :param WithoutSettings:
+          Set this flag to avoid returning setting information. Use this to reduce overhead when settings are too large. Choose TRUE to use this flag, otherwise choose FALSE (default).
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
@@ -220,7 +224,7 @@ class ReplicationTaskDeleted(Waiter):
 
 
 class ReplicationTaskReady(Waiter):
-    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None, WaiterConfig: Dict = None):
         """
         Polls :py:meth:`DatabaseMigrationService.Client.describe_replication_tasks` every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribeReplicationTasks>`_
@@ -238,6 +242,7 @@ class ReplicationTaskReady(Waiter):
               ],
               MaxRecords=123,
               Marker='string',
+              WithoutSettings=True|False,
               WaiterConfig={
                   'Delay': 123,
                   'MaxAttempts': 123
@@ -261,6 +266,9 @@ class ReplicationTaskReady(Waiter):
         :type Marker: string
         :param Marker:
           An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
+        :type WithoutSettings: boolean
+        :param WithoutSettings:
+          Set this flag to avoid returning setting information. Use this to reduce overhead when settings are too large. Choose TRUE to use this flag, otherwise choose FALSE (default).
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
@@ -274,7 +282,7 @@ class ReplicationTaskReady(Waiter):
 
 
 class ReplicationTaskRunning(Waiter):
-    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None, WaiterConfig: Dict = None):
         """
         Polls :py:meth:`DatabaseMigrationService.Client.describe_replication_tasks` every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribeReplicationTasks>`_
@@ -292,6 +300,7 @@ class ReplicationTaskRunning(Waiter):
               ],
               MaxRecords=123,
               Marker='string',
+              WithoutSettings=True|False,
               WaiterConfig={
                   'Delay': 123,
                   'MaxAttempts': 123
@@ -315,6 +324,9 @@ class ReplicationTaskRunning(Waiter):
         :type Marker: string
         :param Marker:
           An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
+        :type WithoutSettings: boolean
+        :param WithoutSettings:
+          Set this flag to avoid returning setting information. Use this to reduce overhead when settings are too large. Choose TRUE to use this flag, otherwise choose FALSE (default).
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.
@@ -328,7 +340,7 @@ class ReplicationTaskRunning(Waiter):
 
 
 class ReplicationTaskStopped(Waiter):
-    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None, WaiterConfig: Dict = None):
         """
         Polls :py:meth:`DatabaseMigrationService.Client.describe_replication_tasks` every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribeReplicationTasks>`_
@@ -346,6 +358,7 @@ class ReplicationTaskStopped(Waiter):
               ],
               MaxRecords=123,
               Marker='string',
+              WithoutSettings=True|False,
               WaiterConfig={
                   'Delay': 123,
                   'MaxAttempts': 123
@@ -369,6 +382,9 @@ class ReplicationTaskStopped(Waiter):
         :type Marker: string
         :param Marker:
           An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
+        :type WithoutSettings: boolean
+        :param WithoutSettings:
+          Set this flag to avoid returning setting information. Use this to reduce overhead when settings are too large. Choose TRUE to use this flag, otherwise choose FALSE (default).
         :type WaiterConfig: dict
         :param WaiterConfig:
           A dictionary that provides parameters to control waiting behavior.

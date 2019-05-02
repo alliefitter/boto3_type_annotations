@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -95,7 +95,7 @@ class DescribeScalingPlanResources(Paginator):
                   * ``dynamodb:table:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB table. 
                   * ``dynamodb:index:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB global secondary index. 
                   * ``dynamodb:index:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB global secondary index. 
-                  * ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition. 
+                  * ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition. 
                 - **ScalingPolicies** *(list) --* 
                   The scaling policies.
                   - *(dict) --* 
@@ -105,9 +105,9 @@ class DescribeScalingPlanResources(Paginator):
                     - **PolicyType** *(string) --* 
                       The type of scaling policy.
                     - **TargetTrackingConfiguration** *(dict) --* 
-                      The target tracking scaling policy. 
+                      The target tracking scaling policy. Includes support for predefined or customized metrics.
                       - **PredefinedScalingMetricSpecification** *(dict) --* 
-                        A predefined metric.
+                        A predefined metric. You can specify either a predefined metric or a customized metric.
                         - **PredefinedScalingMetricType** *(string) --* 
                           The metric type. The ``ALBRequestCountPerTarget`` metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
                         - **ResourceLabel** *(string) --* 
@@ -116,13 +116,14 @@ class DescribeScalingPlanResources(Paginator):
                           * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN. 
                           * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN. 
                       - **CustomizedScalingMetricSpecification** *(dict) --* 
-                        A customized metric.
+                        A customized metric. You can specify either a predefined metric or a customized metric. 
                         - **MetricName** *(string) --* 
                           The name of the metric.
                         - **Namespace** *(string) --* 
                           The namespace of the metric.
                         - **Dimensions** *(list) --* 
                           The dimensions of the metric.
+                          Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized scaling metric specification.
                           - *(dict) --* 
                             Represents a dimension for a customized metric.
                             - **Name** *(string) --* 
@@ -319,7 +320,8 @@ class DescribeScalingPlans(Paginator):
                     The scaling instruction is used in combination with a scaling plan, which is a set of instructions for configuring dynamic scaling and predictive scaling for the scalable resources in your application. Each scaling instruction applies to one resource.
                     AWS Auto Scaling creates target tracking scaling policies based on the scaling instructions. Target tracking scaling policies adjust the capacity of your scalable resource as required to maintain resource utilization at the target value that you specified. 
                     AWS Auto Scaling also configures predictive scaling for your Amazon EC2 Auto Scaling groups using a subset of parameters, including the load metric, the scaling metric, the target value for the scaling metric, the predictive scaling mode (forecast and scale or forecast only), and the desired behavior when the forecast capacity exceeds the maximum capacity of the resource. With predictive scaling, AWS Auto Scaling generates forecasts with traffic predictions for the two days ahead and schedules scaling actions that proactively add and remove resource capacity to match the forecast. 
-                    For more information, see the `AWS Auto Scaling User Guide <http://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html>`__ .
+                    We recommend waiting a minimum of 24 hours after creating an Auto Scaling group to configure predictive scaling. At minimum, there must be 24 hours of historical data to generate a forecast.
+                    For more information, see `Getting Started with AWS Auto Scaling <https://docs.aws.amazon.com/autoscaling/plans/userguide/auto-scaling-getting-started.html>`__ .
                     - **ServiceNamespace** *(string) --* 
                       The namespace of the AWS service.
                     - **ResourceId** *(string) --* 
@@ -339,7 +341,7 @@ class DescribeScalingPlans(Paginator):
                       * ``dynamodb:table:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB table. 
                       * ``dynamodb:index:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB global secondary index. 
                       * ``dynamodb:index:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB global secondary index. 
-                      * ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition. 
+                      * ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition. 
                     - **MinCapacity** *(integer) --* 
                       The minimum capacity of the resource. 
                     - **MaxCapacity** *(integer) --* 
@@ -349,9 +351,9 @@ class DescribeScalingPlans(Paginator):
                       With predictive scaling and dynamic scaling, the resource scales based on the target tracking configuration that provides the largest capacity for both scale in and scale out. 
                       Condition: The scaling metric must be unique across target tracking configurations.
                       - *(dict) --* 
-                        Describes a target tracking configuration. Used with  ScalingInstruction and  ScalingPolicy .
+                        Describes a target tracking configuration to use with AWS Auto Scaling. Used with  ScalingInstruction and  ScalingPolicy .
                         - **PredefinedScalingMetricSpecification** *(dict) --* 
-                          A predefined metric.
+                          A predefined metric. You can specify either a predefined metric or a customized metric.
                           - **PredefinedScalingMetricType** *(string) --* 
                             The metric type. The ``ALBRequestCountPerTarget`` metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
                           - **ResourceLabel** *(string) --* 
@@ -360,13 +362,14 @@ class DescribeScalingPlans(Paginator):
                             * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN. 
                             * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN. 
                         - **CustomizedScalingMetricSpecification** *(dict) --* 
-                          A customized metric.
+                          A customized metric. You can specify either a predefined metric or a customized metric. 
                           - **MetricName** *(string) --* 
                             The name of the metric.
                           - **Namespace** *(string) --* 
                             The namespace of the metric.
                           - **Dimensions** *(list) --* 
                             The dimensions of the metric.
+                            Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized scaling metric specification.
                             - *(dict) --* 
                               Represents a dimension for a customized metric.
                               - **Name** *(string) --* 
@@ -407,6 +410,7 @@ class DescribeScalingPlans(Paginator):
                         The namespace of the metric.
                       - **Dimensions** *(list) --* 
                         The dimensions of the metric.
+                        Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized load metric specification.
                         - *(dict) --* 
                           Represents a dimension for a customized metric.
                           - **Name** *(string) --* 

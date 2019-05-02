@@ -154,6 +154,77 @@ class ListCertificateAuthorities(Paginator):
         pass
 
 
+class ListPermissions(Paginator):
+    def paginate(self, CertificateAuthorityArn: str, PaginationConfig: Dict = None) -> Dict:
+        """
+        Creates an iterator that will paginate through responses from :py:meth:`ACMPCA.Client.list_permissions`.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/acm-pca-2017-08-22/ListPermissions>`_
+        
+        **Request Syntax**
+        ::
+          response_iterator = paginator.paginate(
+              CertificateAuthorityArn='string',
+              PaginationConfig={
+                  'MaxItems': 123,
+                  'PageSize': 123,
+                  'StartingToken': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'Permissions': [
+                    {
+                        'CertificateAuthorityArn': 'string',
+                        'CreatedAt': datetime(2015, 1, 1),
+                        'Principal': 'string',
+                        'SourceAccount': 'string',
+                        'Actions': [
+                            'IssueCertificate'|'GetCertificate'|'ListPermissions',
+                        ],
+                        'Policy': 'string'
+                    },
+                ],
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **Permissions** *(list) --* 
+              Summary information about each permission assigned by the specified private CA, including the action enabled, the policy provided, and the time of creation.
+              - *(dict) --* 
+                Permissions designate which private CA operations can be performed by an AWS service or entity. In order for ACM to automatically renew private certificates, you must give the ACM service principal all available permissions (``IssueCertificate`` , ``GetCertificate`` , and ``ListPermissions`` ). Permissions can be assigned with the  CreatePermission operation, removed with the  DeletePermission operation, and listed with the  ListPermissions operation.
+                - **CertificateAuthorityArn** *(string) --* 
+                  The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
+                - **CreatedAt** *(datetime) --* 
+                  The time at which the permission was created.
+                - **Principal** *(string) --* 
+                  The AWS service or entity that holds the permission. At this time, the only valid principal is ``acm.amazonaws.com`` .
+                - **SourceAccount** *(string) --* 
+                  The ID of the account that assigned the permission.
+                - **Actions** *(list) --* 
+                  The private CA operations that can be performed by the designated AWS service.
+                  - *(string) --* 
+                - **Policy** *(string) --* 
+                  The name of the policy that is associated with the permission.
+        :type CertificateAuthorityArn: string
+        :param CertificateAuthorityArn: **[REQUIRED]**
+          The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the  ListCertificateAuthorities operation. This must be of the form: ``arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`` You can get a private CA\'s ARN by running the  ListCertificateAuthorities operation.
+        :type PaginationConfig: dict
+        :param PaginationConfig:
+          A dictionary that provides parameters to control pagination.
+          - **MaxItems** *(integer) --*
+            The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+          - **PageSize** *(integer) --*
+            The size of each page.
+          - **StartingToken** *(string) --*
+            A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+
 class ListTags(Paginator):
     def paginate(self, CertificateAuthorityArn: str, PaginationConfig: Dict = None) -> Dict:
         """

@@ -1,9 +1,9 @@
-from typing import Union
-from typing import List
 from typing import Optional
 from typing import Dict
 from datetime import datetime
 from boto3.resources.collection import ResourceCollection
+from typing import Union
+from typing import List
 from boto3.resources import base
 
 
@@ -31,11 +31,11 @@ class ServiceResource(base.ServiceResource):
         If *none* of the items can be processed due to insufficient provisioned throughput on all of the tables in the request, then ``BatchGetItem`` will return a ``ProvisionedThroughputExceededException`` . If *at least one* of the items is successfully processed, then ``BatchGetItem`` completes successfully, while returning the keys of the unread items in ``UnprocessedKeys`` .
         .. warning::
           If DynamoDB returns any unprocessed items, you should retry the batch operation on those items. However, *we strongly recommend that you use an exponential backoff algorithm* . If you retry the batch operation immediately, the underlying read or write requests can still fail due to throttling on the individual tables. If you delay the batch operation using exponential backoff, the individual requests in the batch are much more likely to succeed.
-          For more information, see `Batch Operations and Error Handling <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Batch Operations and Error Handling <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations>`__ in the *Amazon DynamoDB Developer Guide* .
         By default, ``BatchGetItem`` performs eventually consistent reads on every table in the request. If you want strongly consistent reads instead, you can set ``ConsistentRead`` to ``true`` for any or all tables.
         In order to minimize response latency, ``BatchGetItem`` retrieves items in parallel.
         When designing your application, keep in mind that DynamoDB does not return items in any particular order. To help parse the response by item, include the primary key values for the items in your request in the ``ProjectionExpression`` parameter.
-        If a requested item does not exist, it is not returned in the result. Requests for nonexistent items consume the minimum read capacity units according to the type of read. For more information, see `Capacity Units Calculations <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations>`__ in the *Amazon DynamoDB Developer Guide* .
+        If a requested item does not exist, it is not returned in the result. Requests for nonexistent items consume the minimum read capacity units according to the type of read. For more information, see `Capacity Units Calculations <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations>`__ in the *Amazon DynamoDB Developer Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/BatchGetItem>`_
         
         **Request Syntax**
@@ -192,7 +192,7 @@ class ServiceResource(base.ServiceResource):
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **S** *(string) --* 
                           An attribute of type String. For example:
                            ``"S": "Hello"``  
@@ -223,14 +223,14 @@ class ServiceResource(base.ServiceResource):
                             - *(dict) --* 
                               Represents the data for an attribute.
                               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **L** *(list) --* 
                           An attribute of type List. For example:
                            ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                           - *(dict) --* 
                             Represents the data for an attribute.
                             Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                            For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                            For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **NULL** *(boolean) --* 
                           An attribute of type Null. For example:
                            ``"NULL": true``  
@@ -255,7 +255,7 @@ class ServiceResource(base.ServiceResource):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                           - **S** *(string) --* 
                             An attribute of type String. For example:
                              ``"S": "Hello"``  
@@ -286,14 +286,14 @@ class ServiceResource(base.ServiceResource):
                               - *(dict) --* 
                                 Represents the data for an attribute.
                                 Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                                For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                                For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                           - **L** *(list) --* 
                             An attribute of type List. For example:
                              ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                             - *(dict) --* 
                               Represents the data for an attribute.
                               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                           - **NULL** *(boolean) --* 
                             An attribute of type Null. For example:
                              ``"NULL": true``  
@@ -301,14 +301,14 @@ class ServiceResource(base.ServiceResource):
                             An attribute of type Boolean. For example:
                              ``"BOOL": true``  
                   - **AttributesToGet** *(list) --* 
-                    This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                    This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `Legacy Conditional Parameters <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
                     - *(string) --* 
                   - **ConsistentRead** *(boolean) --* 
                     The consistency of a read operation. If set to ``true`` , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
                   - **ProjectionExpression** *(string) --* 
                     A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the ``ProjectionExpression`` must be separated by commas.
                     If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
-                    For more information, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **ExpressionAttributeNames** *(dict) --* 
                     One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
                     * To access an attribute whose name conflicts with a DynamoDB reserved word. 
@@ -316,13 +316,13 @@ class ServiceResource(base.ServiceResource):
                     * To prevent special characters in an attribute name from being misinterpreted in an expression. 
                     Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
                     * ``Percentile``   
-                    The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+                    The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
                     * ``{"#P":"Percentile"}``   
                     You could then use this substitution in an expression, as in this example:
                     * ``#P = :val``   
                     .. note::
                       Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-                    For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
                     - *(string) --* 
                       - *(string) --* 
             - **ConsumedCapacity** *(list) --* 
@@ -331,7 +331,7 @@ class ServiceResource(base.ServiceResource):
               * ``TableName`` - The table that consumed the provisioned throughput. 
               * ``CapacityUnits`` - The total number of capacity units consumed. 
               - *(dict) --* 
-                The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the request asked for it. For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the request asked for it. For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **TableName** *(string) --* 
                   The name of the table that was affected by the operation.
                 - **CapacityUnits** *(float) --* 
@@ -381,16 +381,16 @@ class ServiceResource(base.ServiceResource):
             * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
             * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
             * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
             * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           * ``Keys`` - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide *all* of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide *both* the partition key value and the sort key value.
-          * ``ProjectionExpression`` - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result. For more information, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
-          * ``AttributesToGet`` - This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          * ``ProjectionExpression`` - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result. For more information, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          * ``AttributesToGet`` - This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents a set of primary keys and, for each key, the attributes to retrieve from the table.
@@ -402,7 +402,7 @@ class ServiceResource(base.ServiceResource):
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                       - **S** *(string) --*
                         An attribute of type String. For example:
                          ``\"S\": \"Hello\"``
@@ -433,14 +433,14 @@ class ServiceResource(base.ServiceResource):
                           - *(dict) --*
                             Represents the data for an attribute.
                             Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                            For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                            For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                       - **L** *(list) --*
                         An attribute of type List. For example:
                          ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                         - *(dict) --*
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                       - **NULL** *(boolean) --*
                         An attribute of type Null. For example:
                          ``\"NULL\": true``
@@ -448,14 +448,14 @@ class ServiceResource(base.ServiceResource):
                         An attribute of type Boolean. For example:
                          ``\"BOOL\": true``
               - **AttributesToGet** *(list) --*
-                This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `Legacy Conditional Parameters <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - *(string) --*
               - **ConsistentRead** *(boolean) --*
                 The consistency of a read operation. If set to ``true`` , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
               - **ProjectionExpression** *(string) --*
                 A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the ``ProjectionExpression`` must be separated by commas.
                 If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
-                For more information, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For more information, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **ExpressionAttributeNames** *(dict) --*
                 One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
                 * To access an attribute whose name conflicts with a DynamoDB reserved word.
@@ -463,13 +463,13 @@ class ServiceResource(base.ServiceResource):
                 * To prevent special characters in an attribute name from being misinterpreted in an expression.
                 Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
                 * ``Percentile``
-                The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+                The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
                 * ``{\"#P\":\"Percentile\"}``
                 You could then use this substitution in an expression, as in this example:
                 * ``#P = :val``
                 .. note::
                   Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-                For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - *(string) --*
                   - *(string) --*
         :type ReturnConsumedCapacity: string
@@ -492,7 +492,7 @@ class ServiceResource(base.ServiceResource):
         Note that if *none* of the items can be processed due to insufficient provisioned throughput on all of the tables in the request, then ``BatchWriteItem`` will return a ``ProvisionedThroughputExceededException`` .
         .. warning::
           If DynamoDB returns any unprocessed items, you should retry the batch operation on those items. However, *we strongly recommend that you use an exponential backoff algorithm* . If you retry the batch operation immediately, the underlying read or write requests can still fail due to throttling on the individual tables. If you delay the batch operation using exponential backoff, the individual requests in the batch are much more likely to succeed.
-          For more information, see `Batch Operations and Error Handling <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Batch Operations and Error Handling <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations>`__ in the *Amazon DynamoDB Developer Guide* .
         With ``BatchWriteItem`` , you can efficiently write or delete large amounts of data, such as from Amazon Elastic MapReduce (EMR), or copy data from another database into DynamoDB. In order to improve performance with these large-scale operations, ``BatchWriteItem`` does not behave in the same way as individual ``PutItem`` and ``DeleteItem`` calls would. For example, you cannot specify conditions on individual put and delete requests, and ``BatchWriteItem`` does not return deleted items in the response.
         If you use a programming language that supports concurrency, you can use threads to write items in parallel. Your application must include the necessary logic to manage the threads. With languages that don't support threading, you must update or delete the specified items one at a time. In both situations, ``BatchWriteItem`` performs the specified put and delete operations in parallel, giving you the power of the thread pool approach without having to introduce complexity into your application.
         Parallel processing reduces latency, but each specified put and delete request consumes the same number of write capacity units whether it is processed in parallel or not. Delete operations on nonexistent items consume one write capacity unit.
@@ -717,7 +717,7 @@ class ServiceResource(base.ServiceResource):
                           - *(dict) --* 
                             Represents the data for an attribute.
                             Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                            For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                            For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                             - **S** *(string) --* 
                               An attribute of type String. For example:
                                ``"S": "Hello"``  
@@ -748,14 +748,14 @@ class ServiceResource(base.ServiceResource):
                                 - *(dict) --* 
                                   Represents the data for an attribute.
                                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                             - **L** *(list) --* 
                               An attribute of type List. For example:
                                ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                               - *(dict) --* 
                                 Represents the data for an attribute.
                                 Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                                For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                                For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                             - **NULL** *(boolean) --* 
                               An attribute of type Null. For example:
                                ``"NULL": true``  
@@ -770,7 +770,7 @@ class ServiceResource(base.ServiceResource):
                           - *(dict) --* 
                             Represents the data for an attribute.
                             Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                            For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                            For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                             - **S** *(string) --* 
                               An attribute of type String. For example:
                                ``"S": "Hello"``  
@@ -801,14 +801,14 @@ class ServiceResource(base.ServiceResource):
                                 - *(dict) --* 
                                   Represents the data for an attribute.
                                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                             - **L** *(list) --* 
                               An attribute of type List. For example:
                                ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                               - *(dict) --* 
                                 Represents the data for an attribute.
                                 Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                                For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                                For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                             - **NULL** *(boolean) --* 
                               An attribute of type Null. For example:
                                ``"NULL": true``  
@@ -830,7 +830,7 @@ class ServiceResource(base.ServiceResource):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                           - **S** *(string) --* 
                             An attribute of type String. For example:
                              ``"S": "Hello"``  
@@ -861,14 +861,14 @@ class ServiceResource(base.ServiceResource):
                               - *(dict) --* 
                                 Represents the data for an attribute.
                                 Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                                For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                                For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                           - **L** *(list) --* 
                             An attribute of type List. For example:
                              ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                             - *(dict) --* 
                               Represents the data for an attribute.
                               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                           - **NULL** *(boolean) --* 
                             An attribute of type Null. For example:
                              ``"NULL": true``  
@@ -885,7 +885,7 @@ class ServiceResource(base.ServiceResource):
               * ``TableName`` - The table that consumed the provisioned throughput. 
               * ``CapacityUnits`` - The total number of capacity units consumed. 
               - *(dict) --* 
-                The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the request asked for it. For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the request asked for it. For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **TableName** *(string) --* 
                   The name of the table that was affected by the operation.
                 - **CapacityUnits** *(float) --* 
@@ -943,7 +943,7 @@ class ServiceResource(base.ServiceResource):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **S** *(string) --*
                           An attribute of type String. For example:
                            ``\"S\": \"Hello\"``
@@ -974,14 +974,14 @@ class ServiceResource(base.ServiceResource):
                             - *(dict) --*
                               Represents the data for an attribute.
                               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **L** *(list) --*
                           An attribute of type List. For example:
                            ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                           - *(dict) --*
                             Represents the data for an attribute.
                             Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                            For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                            For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **NULL** *(boolean) --*
                           An attribute of type Null. For example:
                            ``\"NULL\": true``
@@ -996,7 +996,7 @@ class ServiceResource(base.ServiceResource):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **S** *(string) --*
                           An attribute of type String. For example:
                            ``\"S\": \"Hello\"``
@@ -1027,14 +1027,14 @@ class ServiceResource(base.ServiceResource):
                             - *(dict) --*
                               Represents the data for an attribute.
                               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **L** *(list) --*
                           An attribute of type List. For example:
                            ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                           - *(dict) --*
                             Represents the data for an attribute.
                             Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                            For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                            For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                         - **NULL** *(boolean) --*
                           An attribute of type Null. For example:
                            ``\"NULL\": true``
@@ -1055,7 +1055,7 @@ class ServiceResource(base.ServiceResource):
         """
         pass
 
-    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, StreamSpecification: Dict = None, SSESpecification: Dict = None) -> 'Table':
+    def create_table(self, AttributeDefinitions: List, TableName: str, KeySchema: List, LocalSecondaryIndexes: List = None, GlobalSecondaryIndexes: List = None, BillingMode: str = None, ProvisionedThroughput: Dict = None, StreamSpecification: Dict = None, SSESpecification: Dict = None, Tags: List = None) -> 'Table':
         """
         The ``CreateTable`` operation adds a new table to your account. In an AWS account, table names must be unique within each region. That is, you can have two tables with same name if you create the tables in different regions.
          ``CreateTable`` is an asynchronous operation. Upon receiving a ``CreateTable`` request, DynamoDB immediately returns a response with a ``TableStatus`` of ``CREATING`` . After the table is created, DynamoDB sets the ``TableStatus`` to ``ACTIVE`` . You can perform read and write operations only on an ``ACTIVE`` table. 
@@ -1130,7 +1130,13 @@ class ServiceResource(base.ServiceResource):
                   'Enabled': True|False,
                   'SSEType': 'AES256'|'KMS',
                   'KMSMasterKeyId': 'string'
-              }
+              },
+              Tags=[
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
           )
         :type AttributeDefinitions: list
         :param AttributeDefinitions: **[REQUIRED]**
@@ -1149,7 +1155,7 @@ class ServiceResource(base.ServiceResource):
           The name of the table to create.
         :type KeySchema: list
         :param KeySchema: **[REQUIRED]**
-          Specifies the attributes that make up the primary key for a table or an index. The attributes in ``KeySchema`` must also be defined in the ``AttributeDefinitions`` array. For more information, see `Data Model <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          Specifies the attributes that make up the primary key for a table or an index. The attributes in ``KeySchema`` must also be defined in the ``AttributeDefinitions`` array. For more information, see `Data Model <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html>`__ in the *Amazon DynamoDB Developer Guide* .
           Each ``KeySchemaElement`` in the array is composed of:
           * ``AttributeName`` - The name of this key attribute.
           * ``KeyType`` - The role that the key attribute will assume:
@@ -1160,7 +1166,7 @@ class ServiceResource(base.ServiceResource):
             The sort key of an item is also known as its *range attribute* . The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
           For a simple primary key (partition key), you must provide exactly one element with a ``KeyType`` of ``HASH`` .
           For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a ``KeyType`` of ``HASH`` , and the second element must have a ``KeyType`` of ``RANGE`` .
-          For more information, see `Specifying the Primary Key <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Specifying the Primary Key <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(dict) --*
             Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
             A ``KeySchemaElement`` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one ``KeySchemaElement`` (for the partition key). A composite primary key would require one ``KeySchemaElement`` for the partition key, and another ``KeySchemaElement`` for the sort key.
@@ -1270,12 +1276,12 @@ class ServiceResource(base.ServiceResource):
                 - *(string) --*
             - **ProvisionedThroughput** *(dict) --*
               Represents the provisioned throughput settings for the specified global secondary index.
-              For current minimum and maximum provisioned throughput values, see `Limits <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              For current minimum and maximum provisioned throughput values, see `Limits <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **ReadCapacityUnits** *(integer) --* **[REQUIRED]**
-                The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+                The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
                 If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
               - **WriteCapacityUnits** *(integer) --* **[REQUIRED]**
-                The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+                The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
                 If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
         :type BillingMode: string
         :param BillingMode:
@@ -1286,12 +1292,12 @@ class ServiceResource(base.ServiceResource):
         :param ProvisionedThroughput:
           Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the ``UpdateTable`` operation.
           If you set BillingMode as ``PROVISIONED`` , you must specify this property. If you set BillingMode as ``PAY_PER_REQUEST`` , you cannot specify this property.
-          For current minimum and maximum provisioned throughput values, see `Limits <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For current minimum and maximum provisioned throughput values, see `Limits <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - **ReadCapacityUnits** *(integer) --* **[REQUIRED]**
-            The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+            The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
             If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
           - **WriteCapacityUnits** *(integer) --* **[REQUIRED]**
-            The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+            The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
             If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
         :type StreamSpecification: dict
         :param StreamSpecification:
@@ -1321,6 +1327,17 @@ class ServiceResource(base.ServiceResource):
             * ``KMS`` - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).
           - **KMSMasterKeyId** *(string) --*
             The KMS Master Key (CMK) which should be used for the KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS Master Key alias/aws/dynamodb.
+        :type Tags: list
+        :param Tags:
+          A list of key-value pairs to label the table. For more information, see `Tagging for DynamoDB <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ .
+          - *(dict) --*
+            Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+            AWS-assigned tag names and values are automatically assigned the aws: prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix user: in the Cost Allocation Report. You cannot backdate the application of a tag.
+            For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the *Amazon DynamoDB Developer Guide* .
+            - **Key** *(string) --* **[REQUIRED]**
+              The key of the tag.Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+            - **Value** *(string) --* **[REQUIRED]**
+              The value of the tag. Tag values are case-sensitive and can be null.
         :rtype: :py:class:`dynamodb.Table`
         :returns: Table resource
         """
@@ -1529,7 +1546,7 @@ class Table(base.ServiceResource):
                 .. note::
                   The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
                   The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
-                For more information about primary keys, see `Primary Key <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey>`__ in the *Amazon DynamoDB Developer Guide* .
+                For more information about primary keys, see `Primary Key <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey>`__ in the *Amazon DynamoDB Developer Guide* .
                 - *(dict) --* 
                   Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
                   A ``KeySchemaElement`` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one ``KeySchemaElement`` (for the partition key). A composite primary key would require one ``KeySchemaElement`` for the partition key, and another ``KeySchemaElement`` for the sort key.
@@ -1558,7 +1575,7 @@ class Table(base.ServiceResource):
                 - **LastDecreaseDateTime** *(datetime) --* 
                   The date and time of the last provisioned throughput decrease for this table.
                 - **NumberOfDecreasesToday** *(integer) --* 
-                  The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see `Limits <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                  The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see `Limits <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **ReadCapacityUnits** *(integer) --* 
                   The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 ``ReadCapacityUnits`` per second provides 100 eventually consistent ``ReadCapacityUnits`` per second.
                 - **WriteCapacityUnits** *(integer) --* 
@@ -1700,13 +1717,13 @@ class Table(base.ServiceResource):
                       For indexes that were created during a ``CreateTable`` operation, the ``Backfilling`` attribute does not appear in the ``DescribeTable`` output.
                   - **ProvisionedThroughput** *(dict) --* 
                     Represents the provisioned throughput settings for the specified global secondary index.
-                    For current minimum and maximum provisioned throughput values, see `Limits <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For current minimum and maximum provisioned throughput values, see `Limits <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **LastIncreaseDateTime** *(datetime) --* 
                       The date and time of the last provisioned throughput increase for this table.
                     - **LastDecreaseDateTime** *(datetime) --* 
                       The date and time of the last provisioned throughput decrease for this table.
                     - **NumberOfDecreasesToday** *(integer) --* 
-                      The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see `Limits <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                      The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see `Limits <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **ReadCapacityUnits** *(integer) --* 
                       The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 ``ReadCapacityUnits`` per second provides 100 eventually consistent ``ReadCapacityUnits`` per second.
                     - **WriteCapacityUnits** *(integer) --* 
@@ -1978,7 +1995,7 @@ class Table(base.ServiceResource):
                 - *(dict) --* 
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --* 
                     An attribute of type String. For example:
                      ``"S": "Hello"``  
@@ -2009,14 +2026,14 @@ class Table(base.ServiceResource):
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --* 
                     An attribute of type List. For example:
                      ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                     - *(dict) --* 
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --* 
                     An attribute of type Null. For example:
                      ``"NULL": true``  
@@ -2024,7 +2041,7 @@ class Table(base.ServiceResource):
                     An attribute of type Boolean. For example:
                      ``"BOOL": true``  
             - **ConsumedCapacity** *(dict) --* 
-              The capacity units consumed by the ``DeleteItem`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              The capacity units consumed by the ``DeleteItem`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **TableName** *(string) --* 
                 The name of the table that was affected by the operation.
               - **CapacityUnits** *(float) --* 
@@ -2074,7 +2091,7 @@ class Table(base.ServiceResource):
                   - *(dict) --* 
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **S** *(string) --* 
                       An attribute of type String. For example:
                        ``"S": "Hello"``  
@@ -2105,14 +2122,14 @@ class Table(base.ServiceResource):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **L** *(list) --* 
                       An attribute of type List. For example:
                        ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **NULL** *(boolean) --* 
                       An attribute of type Null. For example:
                        ``"NULL": true``  
@@ -2131,7 +2148,7 @@ class Table(base.ServiceResource):
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -2162,14 +2179,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -2178,7 +2195,7 @@ class Table(base.ServiceResource):
                  ``\"BOOL\": true``
         :type Expected: dict
         :param Expected:
-          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `Expected <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `Expected <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents a condition to be compared with an attribute value. This condition can be used with ``DeleteItem`` , ``PutItem`` or ``UpdateItem`` operations; if the comparison evaluates to true, the operation succeeds; if not, the operation fails. You can use ``ExpectedAttributeValue`` in one of two different ways:
@@ -2188,7 +2205,7 @@ class Table(base.ServiceResource):
               - **Value** *(dict) --*
                 Represents the data for the expected attribute.
                 Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **S** *(string) --*
                   An attribute of type String. For example:
                    ``\"S\": \"Hello\"``
@@ -2219,14 +2236,14 @@ class Table(base.ServiceResource):
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **L** *(list) --*
                   An attribute of type List. For example:
                    ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **NULL** *(boolean) --*
                   An attribute of type Null. For example:
                    ``\"NULL\": true``
@@ -2268,11 +2285,11 @@ class Table(base.ServiceResource):
                 For type Number, value comparisons are numeric.
                 String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, ``a`` is greater than ``A`` , and ``a`` is greater than ``B`` . For a list of code values, see `http\://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>`__ .
                 For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.
-                For information on specifying data types in JSON, see `JSON Data Format <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For information on specifying data types in JSON, see `JSON Data Format <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -2303,14 +2320,14 @@ class Table(base.ServiceResource):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -2319,7 +2336,7 @@ class Table(base.ServiceResource):
                      ``\"BOOL\": true``
         :type ConditionalOperator: string
         :param ConditionalOperator:
-          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `ConditionalOperator <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `ConditionalOperator <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ReturnValues: string
         :param ReturnValues:
           Use ``ReturnValues`` if you want to get the item attributes as they appeared before they were deleted. For ``DeleteItem`` , the valid values are:
@@ -2343,7 +2360,7 @@ class Table(base.ServiceResource):
           * Functions: ``attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size``   These function names are case-sensitive.
           * Comparison operators: ``= | <> | < | > | <= | >= | BETWEEN | IN``
           * Logical operators: ``AND | OR | NOT``
-          For more information on condition expressions, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on condition expressions, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExpressionAttributeNames: dict
         :param ExpressionAttributeNames:
           One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
@@ -2352,13 +2369,13 @@ class Table(base.ServiceResource):
           * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
           * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
           * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
           * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(string) --*
         :type ExpressionAttributeValues: dict
@@ -2370,12 +2387,12 @@ class Table(base.ServiceResource):
            ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``
           You could then use these values in an expression, such as this:
            ``ProductStatus IN (:avail, :back, :disc)``
-          For more information on expression attribute values, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute values, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -2406,14 +2423,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -2542,7 +2559,7 @@ class Table(base.ServiceResource):
                 - *(dict) --* 
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --* 
                     An attribute of type String. For example:
                      ``"S": "Hello"``  
@@ -2573,14 +2590,14 @@ class Table(base.ServiceResource):
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --* 
                     An attribute of type List. For example:
                      ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                     - *(dict) --* 
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --* 
                     An attribute of type Null. For example:
                      ``"NULL": true``  
@@ -2588,7 +2605,7 @@ class Table(base.ServiceResource):
                     An attribute of type Boolean. For example:
                      ``"BOOL": true``  
             - **ConsumedCapacity** *(dict) --* 
-              The capacity units consumed by the ``GetItem`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              The capacity units consumed by the ``GetItem`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **TableName** *(string) --* 
                 The name of the table that was affected by the operation.
               - **CapacityUnits** *(float) --* 
@@ -2635,7 +2652,7 @@ class Table(base.ServiceResource):
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -2666,14 +2683,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -2682,7 +2699,7 @@ class Table(base.ServiceResource):
                  ``\"BOOL\": true``
         :type AttributesToGet: list
         :param AttributesToGet:
-          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
         :type ConsistentRead: boolean
         :param ConsistentRead:
@@ -2697,7 +2714,7 @@ class Table(base.ServiceResource):
         :param ProjectionExpression:
           A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
           If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
-          For more information, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExpressionAttributeNames: dict
         :param ExpressionAttributeNames:
           One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
@@ -2706,13 +2723,13 @@ class Table(base.ServiceResource):
           * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
           * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
           * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
           * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(string) --*
         :rtype: dict
@@ -2750,7 +2767,7 @@ class Table(base.ServiceResource):
         When you add an item, the primary key attribute(s) are the only required attributes. Attribute values cannot be null. String and Binary type attributes must have lengths greater than zero. Set type attributes cannot be empty. Requests with empty values will be rejected with a ``ValidationException`` exception.
         .. note::
           To prevent a new item from replacing an existing item, use a conditional expression that contains the ``attribute_not_exists`` function with the name of the attribute being used as the partition key for the table. Since every record must contain that attribute, the ``attribute_not_exists`` function will only succeed if no matching item exists.
-        For more information about ``PutItem`` , see `Working with Items <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html>`__ in the *Amazon DynamoDB Developer Guide* .
+        For more information about ``PutItem`` , see `Working with Items <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html>`__ in the *Amazon DynamoDB Developer Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/PutItem>`_
         
         **Request Syntax**
@@ -2958,7 +2975,7 @@ class Table(base.ServiceResource):
                 - *(dict) --* 
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --* 
                     An attribute of type String. For example:
                      ``"S": "Hello"``  
@@ -2989,14 +3006,14 @@ class Table(base.ServiceResource):
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --* 
                     An attribute of type List. For example:
                      ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                     - *(dict) --* 
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --* 
                     An attribute of type Null. For example:
                      ``"NULL": true``  
@@ -3004,7 +3021,7 @@ class Table(base.ServiceResource):
                     An attribute of type Boolean. For example:
                      ``"BOOL": true``  
             - **ConsumedCapacity** *(dict) --* 
-              The capacity units consumed by the ``PutItem`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              The capacity units consumed by the ``PutItem`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **TableName** *(string) --* 
                 The name of the table that was affected by the operation.
               - **CapacityUnits** *(float) --* 
@@ -3054,7 +3071,7 @@ class Table(base.ServiceResource):
                   - *(dict) --* 
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **S** *(string) --* 
                       An attribute of type String. For example:
                        ``"S": "Hello"``  
@@ -3085,14 +3102,14 @@ class Table(base.ServiceResource):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **L** *(list) --* 
                       An attribute of type List. For example:
                        ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **NULL** *(boolean) --* 
                       An attribute of type Null. For example:
                        ``"NULL": true``  
@@ -3108,13 +3125,13 @@ class Table(base.ServiceResource):
           A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
           You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.
           If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table\'s attribute definition.
-          For more information about primary keys, see `Primary Key <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information about primary keys, see `Primary Key <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey>`__ in the *Amazon DynamoDB Developer Guide* .
           Each element in the ``Item`` map is an ``AttributeValue`` object.
           - *(string) --*
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -3145,14 +3162,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -3161,7 +3178,7 @@ class Table(base.ServiceResource):
                  ``\"BOOL\": true``
         :type Expected: dict
         :param Expected:
-          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `Expected <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `Expected <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents a condition to be compared with an attribute value. This condition can be used with ``DeleteItem`` , ``PutItem`` or ``UpdateItem`` operations; if the comparison evaluates to true, the operation succeeds; if not, the operation fails. You can use ``ExpectedAttributeValue`` in one of two different ways:
@@ -3171,7 +3188,7 @@ class Table(base.ServiceResource):
               - **Value** *(dict) --*
                 Represents the data for the expected attribute.
                 Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **S** *(string) --*
                   An attribute of type String. For example:
                    ``\"S\": \"Hello\"``
@@ -3202,14 +3219,14 @@ class Table(base.ServiceResource):
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **L** *(list) --*
                   An attribute of type List. For example:
                    ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **NULL** *(boolean) --*
                   An attribute of type Null. For example:
                    ``\"NULL\": true``
@@ -3251,11 +3268,11 @@ class Table(base.ServiceResource):
                 For type Number, value comparisons are numeric.
                 String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, ``a`` is greater than ``A`` , and ``a`` is greater than ``B`` . For a list of code values, see `http\://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>`__ .
                 For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.
-                For information on specifying data types in JSON, see `JSON Data Format <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For information on specifying data types in JSON, see `JSON Data Format <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -3286,14 +3303,14 @@ class Table(base.ServiceResource):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -3318,7 +3335,7 @@ class Table(base.ServiceResource):
           Determines whether item collection metrics are returned. If set to ``SIZE`` , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to ``NONE`` (the default), no statistics are returned.
         :type ConditionalOperator: string
         :param ConditionalOperator:
-          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `ConditionalOperator <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `ConditionalOperator <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ConditionExpression: string
         :param ConditionExpression:
           A condition that must be satisfied in order for a conditional ``PutItem`` operation to succeed.
@@ -3326,7 +3343,7 @@ class Table(base.ServiceResource):
           * Functions: ``attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size``   These function names are case-sensitive.
           * Comparison operators: ``= | <> | < | > | <= | >= | BETWEEN | IN``
           * Logical operators: ``AND | OR | NOT``
-          For more information on condition expressions, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on condition expressions, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExpressionAttributeNames: dict
         :param ExpressionAttributeNames:
           One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
@@ -3335,13 +3352,13 @@ class Table(base.ServiceResource):
           * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
           * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
           * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
           * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(string) --*
         :type ExpressionAttributeValues: dict
@@ -3353,12 +3370,12 @@ class Table(base.ServiceResource):
            ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``
           You could then use these values in an expression, such as this:
            ``ProductStatus IN (:avail, :back, :disc)``
-          For more information on expression attribute values, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute values, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -3389,14 +3406,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -3416,7 +3433,7 @@ class Table(base.ServiceResource):
         .. note::
           DynamoDB calculates the number of read capacity units consumed based on item size, not on the amount of data that is returned to an application. The number of capacity units consumed will be the same whether you request all of the attributes (the default behavior) or just some of them (using a projection expression). The number will also be the same whether or not you use a ``FilterExpression`` . 
          ``Query`` results are always sorted by the sort key value. If the data type of the sort key is Number, the results are returned in numeric order; otherwise, the results are returned in order of UTF-8 bytes. By default, the sort order is ascending. To reverse the order, set the ``ScanIndexForward`` parameter to false. 
-        A single ``Query`` operation will read up to the maximum number of items set (if using the ``Limit`` parameter) or a maximum of 1 MB of data and then apply any filtering to the results using ``FilterExpression`` . If ``LastEvaluatedKey`` is present in the response, you will need to paginate the result set. For more information, see `Paginating the Results <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.Pagination>`__ in the *Amazon DynamoDB Developer Guide* . 
+        A single ``Query`` operation will read up to the maximum number of items set (if using the ``Limit`` parameter) or a maximum of 1 MB of data and then apply any filtering to the results using ``FilterExpression`` . If ``LastEvaluatedKey`` is present in the response, you will need to paginate the result set. For more information, see `Paginating the Results <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.Pagination>`__ in the *Amazon DynamoDB Developer Guide* . 
          ``FilterExpression`` is applied after a ``Query`` finishes, but before the results are returned. A ``FilterExpression`` cannot contain partition key or sort key attributes. You need to specify those attributes in the ``KeyConditionExpression`` . 
         .. note::
           A ``Query`` operation can return an empty result set and a ``LastEvaluatedKey`` if all the items read for the page of results are filtered out. 
@@ -3642,7 +3659,7 @@ class Table(base.ServiceResource):
                   - *(dict) --* 
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **S** *(string) --* 
                       An attribute of type String. For example:
                        ``"S": "Hello"``  
@@ -3673,14 +3690,14 @@ class Table(base.ServiceResource):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **L** *(list) --* 
                       An attribute of type List. For example:
                        ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **NULL** *(boolean) --* 
                       An attribute of type Null. For example:
                        ``"NULL": true``  
@@ -3692,7 +3709,7 @@ class Table(base.ServiceResource):
               If you used a ``QueryFilter`` in the request, then ``Count`` is the number of items returned after the filter was applied, and ``ScannedCount`` is the number of matching items before the filter was applied.
               If you did not use a filter in the request, then ``Count`` and ``ScannedCount`` are the same.
             - **ScannedCount** *(integer) --* 
-              The number of items evaluated, before any ``QueryFilter`` is applied. A high ``ScannedCount`` value with few, or no, ``Count`` results indicates an inefficient ``Query`` operation. For more information, see `Count and ScannedCount <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count>`__ in the *Amazon DynamoDB Developer Guide* .
+              The number of items evaluated, before any ``QueryFilter`` is applied. A high ``ScannedCount`` value with few, or no, ``Count`` results indicates an inefficient ``Query`` operation. For more information, see `Count and ScannedCount <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count>`__ in the *Amazon DynamoDB Developer Guide* .
               If you did not use a filter in the request, then ``ScannedCount`` is the same as ``Count`` .
             - **LastEvaluatedKey** *(dict) --* 
               The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
@@ -3702,7 +3719,7 @@ class Table(base.ServiceResource):
                 - *(dict) --* 
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --* 
                     An attribute of type String. For example:
                      ``"S": "Hello"``  
@@ -3733,14 +3750,14 @@ class Table(base.ServiceResource):
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --* 
                     An attribute of type List. For example:
                      ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                     - *(dict) --* 
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --* 
                     An attribute of type Null. For example:
                      ``"NULL": true``  
@@ -3748,7 +3765,7 @@ class Table(base.ServiceResource):
                     An attribute of type Boolean. For example:
                      ``"BOOL": true``  
             - **ConsumedCapacity** *(dict) --* 
-              The capacity units consumed by the ``Query`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              The capacity units consumed by the ``Query`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **TableName** *(string) --* 
                 The name of the table that was affected by the operation.
               - **CapacityUnits** *(float) --* 
@@ -3802,18 +3819,18 @@ class Table(base.ServiceResource):
             If you use the ``ProjectionExpression`` parameter, then the value for ``Select`` can only be ``SPECIFIC_ATTRIBUTES`` . Any other value for ``Select`` will return an error.
         :type AttributesToGet: list
         :param AttributesToGet:
-          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
         :type Limit: integer
         :param Limit:
-          The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in ``LastEvaluatedKey`` to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in ``LastEvaluatedKey`` to apply in a subsequent operation to continue the operation. For more information, see `Query and Scan <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in ``LastEvaluatedKey`` to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in ``LastEvaluatedKey`` to apply in a subsequent operation to continue the operation. For more information, see `Query and Scan <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ConsistentRead: boolean
         :param ConsistentRead:
           Determines the read consistency model: If set to ``true`` , then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
           Strongly consistent reads are not supported on global secondary indexes. If you query a global secondary index with ``ConsistentRead`` set to ``true`` , you will receive a ``ValidationException`` .
         :type KeyConditions: dict
         :param KeyConditions:
-          This is a legacy parameter. Use ``KeyConditionExpression`` instead. For more information, see `KeyConditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``KeyConditionExpression`` instead. For more information, see `KeyConditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the selection criteria for a ``Query`` or ``Scan`` operation:
@@ -3827,7 +3844,7 @@ class Table(base.ServiceResource):
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -3858,14 +3875,14 @@ class Table(base.ServiceResource):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -3894,10 +3911,10 @@ class Table(base.ServiceResource):
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.
                 * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``
-                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type QueryFilter: dict
         :param QueryFilter:
-          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `QueryFilter <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `QueryFilter <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the selection criteria for a ``Query`` or ``Scan`` operation:
@@ -3911,7 +3928,7 @@ class Table(base.ServiceResource):
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -3942,14 +3959,14 @@ class Table(base.ServiceResource):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -3978,10 +3995,10 @@ class Table(base.ServiceResource):
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.
                 * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``
-                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ConditionalOperator: string
         :param ConditionalOperator:
-          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ConditionalOperator <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ConditionalOperator <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ScanIndexForward: boolean
         :param ScanIndexForward:
           Specifies the order for index traversal: If ``true`` (default), the traversal is performed in ascending order; if ``false`` , the traversal is performed in descending order.
@@ -3995,7 +4012,7 @@ class Table(base.ServiceResource):
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -4026,14 +4043,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -4050,14 +4067,14 @@ class Table(base.ServiceResource):
         :param ProjectionExpression:
           A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
           If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
-          For more information, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type FilterExpression: string
         :param FilterExpression:
           A string that contains conditions that DynamoDB applies after the ``Query`` operation, but before the data is returned to you. Items that do not satisfy the ``FilterExpression`` criteria are not returned.
           A ``FilterExpression`` does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.
           .. note::
             A ``FilterExpression`` is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.
-          For more information, see `Filter Expressions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Filter Expressions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults>`__ in the *Amazon DynamoDB Developer Guide* .
         :type KeyConditionExpression: string
         :param KeyConditionExpression:
           The condition that specifies the key value(s) for items to be retrieved by the ``Query`` action.
@@ -4080,8 +4097,8 @@ class Table(base.ServiceResource):
           * ``Size = :myval``
           To work around this, define a placeholder (such a ``#S`` ) to represent the attribute name *Size* . ``KeyConditionExpression`` then is as follows:
           * ``#S = :myval``
-          For a list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* .
-          For more information on ``ExpressionAttributeNames`` and ``ExpressionAttributeValues`` , see `Using Placeholders for Attribute Names and Values <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For a list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on ``ExpressionAttributeNames`` and ``ExpressionAttributeValues`` , see `Using Placeholders for Attribute Names and Values <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExpressionAttributeNames: dict
         :param ExpressionAttributeNames:
           One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
@@ -4090,13 +4107,13 @@ class Table(base.ServiceResource):
           * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
           * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
           * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
           * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(string) --*
         :type ExpressionAttributeValues: dict
@@ -4108,12 +4125,12 @@ class Table(base.ServiceResource):
            ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``
           You could then use these values in an expression, such as this:
            ``ProductStatus IN (:avail, :back, :disc)``
-          For more information on expression attribute values, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute values, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -4144,14 +4161,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -4179,8 +4196,8 @@ class Table(base.ServiceResource):
         """
         The ``Scan`` operation returns one or more items and item attributes by accessing every item in a table or a secondary index. To have DynamoDB return fewer items, you can provide a ``FilterExpression`` operation.
         If the total number of scanned items exceeds the maximum data set size limit of 1 MB, the scan stops and results are returned to the user as a ``LastEvaluatedKey`` value to continue the scan in a subsequent operation. The results also include the number of items exceeding the limit. A scan can result in no table data meeting the filter criteria. 
-        A single ``Scan`` operation will read up to the maximum number of items set (if using the ``Limit`` parameter) or a maximum of 1 MB of data and then apply any filtering to the results using ``FilterExpression`` . If ``LastEvaluatedKey`` is present in the response, you will need to paginate the result set. For more information, see `Paginating the Results <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination>`__ in the *Amazon DynamoDB Developer Guide* . 
-         ``Scan`` operations proceed sequentially; however, for faster performance on a large table or secondary index, applications can request a parallel ``Scan`` operation by providing the ``Segment`` and ``TotalSegments`` parameters. For more information, see `Parallel Scan <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan>`__ in the *Amazon DynamoDB Developer Guide* .
+        A single ``Scan`` operation will read up to the maximum number of items set (if using the ``Limit`` parameter) or a maximum of 1 MB of data and then apply any filtering to the results using ``FilterExpression`` . If ``LastEvaluatedKey`` is present in the response, you will need to paginate the result set. For more information, see `Paginating the Results <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination>`__ in the *Amazon DynamoDB Developer Guide* . 
+         ``Scan`` operations proceed sequentially; however, for faster performance on a large table or secondary index, applications can request a parallel ``Scan`` operation by providing the ``Segment`` and ``TotalSegments`` parameters. For more information, see `Parallel Scan <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan>`__ in the *Amazon DynamoDB Developer Guide* .
          ``Scan`` uses eventually consistent reads when accessing the data in a table; therefore, the result set might not include the changes to data in the table immediately before the operation began. If you need a consistent copy of the data, as of the time that the ``Scan`` begins, you can set the ``ConsistentRead`` parameter to ``true`` .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/Scan>`_
         
@@ -4374,7 +4391,7 @@ class Table(base.ServiceResource):
                   - *(dict) --* 
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **S** *(string) --* 
                       An attribute of type String. For example:
                        ``"S": "Hello"``  
@@ -4405,14 +4422,14 @@ class Table(base.ServiceResource):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **L** *(list) --* 
                       An attribute of type List. For example:
                        ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **NULL** *(boolean) --* 
                       An attribute of type Null. For example:
                        ``"NULL": true``  
@@ -4424,7 +4441,7 @@ class Table(base.ServiceResource):
               If you set ``ScanFilter`` in the request, then ``Count`` is the number of items returned after the filter was applied, and ``ScannedCount`` is the number of matching items before the filter was applied.
               If you did not use a filter in the request, then ``Count`` is the same as ``ScannedCount`` .
             - **ScannedCount** *(integer) --* 
-              The number of items evaluated, before any ``ScanFilter`` is applied. A high ``ScannedCount`` value with few, or no, ``Count`` results indicates an inefficient ``Scan`` operation. For more information, see `Count and ScannedCount <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count>`__ in the *Amazon DynamoDB Developer Guide* .
+              The number of items evaluated, before any ``ScanFilter`` is applied. A high ``ScannedCount`` value with few, or no, ``Count`` results indicates an inefficient ``Scan`` operation. For more information, see `Count and ScannedCount <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count>`__ in the *Amazon DynamoDB Developer Guide* .
               If you did not use a filter in the request, then ``ScannedCount`` is the same as ``Count`` .
             - **LastEvaluatedKey** *(dict) --* 
               The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
@@ -4434,7 +4451,7 @@ class Table(base.ServiceResource):
                 - *(dict) --* 
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --* 
                     An attribute of type String. For example:
                      ``"S": "Hello"``  
@@ -4465,14 +4482,14 @@ class Table(base.ServiceResource):
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --* 
                     An attribute of type List. For example:
                      ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                     - *(dict) --* 
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --* 
                     An attribute of type Null. For example:
                      ``"NULL": true``  
@@ -4480,7 +4497,7 @@ class Table(base.ServiceResource):
                     An attribute of type Boolean. For example:
                      ``"BOOL": true``  
             - **ConsumedCapacity** *(dict) --* 
-              The capacity units consumed by the ``Scan`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              The capacity units consumed by the ``Scan`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **TableName** *(string) --* 
                 The name of the table that was affected by the operation.
               - **CapacityUnits** *(float) --* 
@@ -4524,11 +4541,11 @@ class Table(base.ServiceResource):
           The name of a secondary index to scan. This index can be any local secondary index or global secondary index. Note that if you use the ``IndexName`` parameter, you must also provide ``TableName`` .
         :type AttributesToGet: list
         :param AttributesToGet:
-          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ProjectionExpression`` instead. For more information, see `AttributesToGet <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
         :type Limit: integer
         :param Limit:
-          The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in ``LastEvaluatedKey`` to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in ``LastEvaluatedKey`` to apply in a subsequent operation to continue the operation. For more information, see `Query and Scan <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in ``LastEvaluatedKey`` to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in ``LastEvaluatedKey`` to apply in a subsequent operation to continue the operation. For more information, see `Query and Scan <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type Select: string
         :param Select:
           The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.
@@ -4541,7 +4558,7 @@ class Table(base.ServiceResource):
             If you use the ``ProjectionExpression`` parameter, then the value for ``Select`` can only be ``SPECIFIC_ATTRIBUTES`` . Any other value for ``Select`` will return an error.
         :type ScanFilter: dict
         :param ScanFilter:
-          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ScanFilter <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ScanFilter <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the selection criteria for a ``Query`` or ``Scan`` operation:
@@ -4555,7 +4572,7 @@ class Table(base.ServiceResource):
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -4586,14 +4603,14 @@ class Table(base.ServiceResource):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -4622,10 +4639,10 @@ class Table(base.ServiceResource):
                 * ``BEGINS_WITH`` : Checks for a prefix.   ``AttributeValueList`` can contain only one ``AttributeValue`` of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).
                 * ``IN`` : Checks for matching elements in a list.  ``AttributeValueList`` can contain one or more ``AttributeValue`` elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.
                 * ``BETWEEN`` : Greater than or equal to the first value, and less than or equal to the second value.   ``AttributeValueList`` must contain two ``AttributeValue`` elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an ``AttributeValue`` element of a different type than the one provided in the request, the value does not match. For example, ``{\"S\":\"6\"}`` does not compare to ``{\"N\":\"6\"}`` . Also, ``{\"N\":\"6\"}`` does not compare to ``{\"NS\":[\"6\", \"2\", \"1\"]}``
-                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For usage examples of ``AttributeValueList`` and ``ComparisonOperator`` , see `Legacy Conditional Parameters <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ConditionalOperator: string
         :param ConditionalOperator:
-          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ConditionalOperator <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``FilterExpression`` instead. For more information, see `ConditionalOperator <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExclusiveStartKey: dict
         :param ExclusiveStartKey:
           The primary key of the first item that this operation will evaluate. Use the value that was returned for ``LastEvaluatedKey`` in the previous operation.
@@ -4635,7 +4652,7 @@ class Table(base.ServiceResource):
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -4666,14 +4683,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -4702,13 +4719,13 @@ class Table(base.ServiceResource):
         :param ProjectionExpression:
           A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
           If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
-          For more information, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type FilterExpression: string
         :param FilterExpression:
           A string that contains conditions that DynamoDB applies after the ``Scan`` operation, but before the data is returned to you. Items that do not satisfy the ``FilterExpression`` criteria are not returned.
           .. note::
             A ``FilterExpression`` is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.
-          For more information, see `Filter Expressions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Filter Expressions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExpressionAttributeNames: dict
         :param ExpressionAttributeNames:
           One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
@@ -4717,13 +4734,13 @@ class Table(base.ServiceResource):
           * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
           * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
           * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
           * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(string) --*
         :type ExpressionAttributeValues: dict
@@ -4735,12 +4752,12 @@ class Table(base.ServiceResource):
            ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``
           You could then use these values in an expression, such as this:
            ``ProductStatus IN (:avail, :back, :disc)``
-          For more information on expression attribute values, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute values, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -4771,14 +4788,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -4886,10 +4903,10 @@ class Table(base.ServiceResource):
         :param ProvisionedThroughput:
           The new provisioned throughput settings for the specified table or index.
           - **ReadCapacityUnits** *(integer) --* **[REQUIRED]**
-            The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+            The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
             If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
           - **WriteCapacityUnits** *(integer) --* **[REQUIRED]**
-            The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+            The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
             If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
         :type GlobalSecondaryIndexUpdates: list
         :param GlobalSecondaryIndexUpdates:
@@ -4897,7 +4914,7 @@ class Table(base.ServiceResource):
           * ``Create`` - add a new global secondary index to the table.
           * ``Update`` - modify the provisioned throughput settings of an existing global secondary index.
           * ``Delete`` - remove a global secondary index from the table.
-          For more information, see `Managing Global Secondary Indexes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information, see `Managing Global Secondary Indexes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(dict) --*
             Represents one of the following:
             * A new global secondary index to be added to an existing table.
@@ -4909,12 +4926,12 @@ class Table(base.ServiceResource):
                 The name of the global secondary index to be updated.
               - **ProvisionedThroughput** *(dict) --* **[REQUIRED]**
                 Represents the provisioned throughput settings for the specified global secondary index.
-                For current minimum and maximum provisioned throughput values, see `Limits <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For current minimum and maximum provisioned throughput values, see `Limits <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **ReadCapacityUnits** *(integer) --* **[REQUIRED]**
-                  The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+                  The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
                   If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
                 - **WriteCapacityUnits** *(integer) --* **[REQUIRED]**
-                  The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+                  The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
                   If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
             - **Create** *(dict) --*
               The parameters required for creating a global secondary index on an existing table:
@@ -4953,12 +4970,12 @@ class Table(base.ServiceResource):
                   - *(string) --*
               - **ProvisionedThroughput** *(dict) --*
                 Represents the provisioned throughput settings for the specified global secondary index.
-                For current minimum and maximum provisioned throughput values, see `Limits <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For current minimum and maximum provisioned throughput values, see `Limits <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **ReadCapacityUnits** *(integer) --* **[REQUIRED]**
-                  The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+                  The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
                   If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
                 - **WriteCapacityUnits** *(integer) --* **[REQUIRED]**
-                  The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
+                  The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__ in the *Amazon DynamoDB Developer Guide* .
                   If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
             - **Delete** *(dict) --*
               The name of an existing global secondary index to be removed.
@@ -5233,7 +5250,7 @@ class Table(base.ServiceResource):
                 - *(dict) --* 
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --* 
                     An attribute of type String. For example:
                      ``"S": "Hello"``  
@@ -5264,14 +5281,14 @@ class Table(base.ServiceResource):
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --* 
                     An attribute of type List. For example:
                      ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                     - *(dict) --* 
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --* 
                     An attribute of type Null. For example:
                      ``"NULL": true``  
@@ -5279,7 +5296,7 @@ class Table(base.ServiceResource):
                     An attribute of type Boolean. For example:
                      ``"BOOL": true``  
             - **ConsumedCapacity** *(dict) --* 
-              The capacity units consumed by the ``UpdateItem`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
+              The capacity units consumed by the ``UpdateItem`` operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. ``ConsumedCapacity`` is only returned if the ``ReturnConsumedCapacity`` parameter was specified. For more information, see `Provisioned Throughput <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__ in the *Amazon DynamoDB Developer Guide* .
               - **TableName** *(string) --* 
                 The name of the table that was affected by the operation.
               - **CapacityUnits** *(float) --* 
@@ -5329,7 +5346,7 @@ class Table(base.ServiceResource):
                   - *(dict) --* 
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **S** *(string) --* 
                       An attribute of type String. For example:
                        ``"S": "Hello"``  
@@ -5360,14 +5377,14 @@ class Table(base.ServiceResource):
                         - *(dict) --* 
                           Represents the data for an attribute.
                           Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                          For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                          For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **L** *(list) --* 
                       An attribute of type List. For example:
                        ``"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]``  
                       - *(dict) --* 
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                     - **NULL** *(boolean) --* 
                       An attribute of type Null. For example:
                        ``"NULL": true``  
@@ -5386,7 +5403,7 @@ class Table(base.ServiceResource):
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -5417,14 +5434,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``
@@ -5433,7 +5450,7 @@ class Table(base.ServiceResource):
                  ``\"BOOL\": true``
         :type AttributeUpdates: dict
         :param AttributeUpdates:
-          This is a legacy parameter. Use ``UpdateExpression`` instead. For more information, see `AttributeUpdates <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``UpdateExpression`` instead. For more information, see `AttributeUpdates <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               For the ``UpdateItem`` operation, represents the attributes to be modified, the action to perform on each, and the new value for each.
@@ -5443,7 +5460,7 @@ class Table(base.ServiceResource):
               - **Value** *(dict) --*
                 Represents the data for an attribute.
                 Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **S** *(string) --*
                   An attribute of type String. For example:
                    ``\"S\": \"Hello\"``
@@ -5474,14 +5491,14 @@ class Table(base.ServiceResource):
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **L** *(list) --*
                   An attribute of type List. For example:
                    ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **NULL** *(boolean) --*
                   An attribute of type Null. For example:
                    ``\"NULL\": true``
@@ -5505,7 +5522,7 @@ class Table(base.ServiceResource):
                 * ``ADD`` - DynamoDB creates an item with the supplied primary key and number (or set of numbers) for the attribute value. The only data types allowed are number and number set; no other data types can be specified.
         :type Expected: dict
         :param Expected:
-          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `Expected <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `Expected <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents a condition to be compared with an attribute value. This condition can be used with ``DeleteItem`` , ``PutItem`` or ``UpdateItem`` operations; if the comparison evaluates to true, the operation succeeds; if not, the operation fails. You can use ``ExpectedAttributeValue`` in one of two different ways:
@@ -5515,7 +5532,7 @@ class Table(base.ServiceResource):
               - **Value** *(dict) --*
                 Represents the data for the expected attribute.
                 Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **S** *(string) --*
                   An attribute of type String. For example:
                    ``\"S\": \"Hello\"``
@@ -5546,14 +5563,14 @@ class Table(base.ServiceResource):
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **L** *(list) --*
                   An attribute of type List. For example:
                    ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                 - **NULL** *(boolean) --*
                   An attribute of type Null. For example:
                    ``\"NULL\": true``
@@ -5595,11 +5612,11 @@ class Table(base.ServiceResource):
                 For type Number, value comparisons are numeric.
                 String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, ``a`` is greater than ``A`` , and ``a`` is greater than ``B`` . For a list of code values, see `http\://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>`__ .
                 For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.
-                For information on specifying data types in JSON, see `JSON Data Format <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html>`__ in the *Amazon DynamoDB Developer Guide* .
+                For information on specifying data types in JSON, see `JSON Data Format <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html>`__ in the *Amazon DynamoDB Developer Guide* .
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **S** *(string) --*
                     An attribute of type String. For example:
                      ``\"S\": \"Hello\"``
@@ -5630,14 +5647,14 @@ class Table(base.ServiceResource):
                       - *(dict) --*
                         Represents the data for an attribute.
                         Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                        For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                        For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **L** *(list) --*
                     An attribute of type List. For example:
                      ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                     - *(dict) --*
                       Represents the data for an attribute.
                       Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                      For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                      For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
                   - **NULL** *(boolean) --*
                     An attribute of type Null. For example:
                      ``\"NULL\": true``
@@ -5646,7 +5663,7 @@ class Table(base.ServiceResource):
                      ``\"BOOL\": true``
         :type ConditionalOperator: string
         :param ConditionalOperator:
-          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `ConditionalOperator <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          This is a legacy parameter. Use ``ConditionExpression`` instead. For more information, see `ConditionalOperator <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ReturnValues: string
         :param ReturnValues:
           Use ``ReturnValues`` if you want to get the item attributes as they appear before or after they are updated. For ``UpdateItem`` , the valid values are:
@@ -5686,7 +5703,7 @@ class Table(base.ServiceResource):
           .. warning::
              The ``DELETE`` action only supports set data types. In addition, ``DELETE`` can only be used on top-level attributes, not nested attributes.
           You can have many actions in a single expression, such as the following: ``SET a=:value1, b=:value2 DELETE :value3, :value4, :value5``
-          For more information on update expressions, see `Modifying Items and Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on update expressions, see `Modifying Items and Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ConditionExpression: string
         :param ConditionExpression:
           A condition that must be satisfied in order for a conditional update to succeed.
@@ -5694,7 +5711,7 @@ class Table(base.ServiceResource):
           * Functions: ``attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size``   These function names are case-sensitive.
           * Comparison operators: ``= | <> | < | > | <= | >= | BETWEEN | IN``
           * Logical operators: ``AND | OR | NOT``
-          For more information on condition expressions, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on condition expressions, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
         :type ExpressionAttributeNames: dict
         :param ExpressionAttributeNames:
           One or more substitution tokens for attribute names in an expression. The following are some use cases for using ``ExpressionAttributeNames`` :
@@ -5703,13 +5720,13 @@ class Table(base.ServiceResource):
           * To prevent special characters in an attribute name from being misinterpreted in an expression.
           Use the **#** character in an expression to dereference an attribute name. For example, consider the following attribute name:
           * ``Percentile``
-          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
+          The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see `Reserved Words <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html>`__ in the *Amazon DynamoDB Developer Guide* ). To work around this, you could specify the following for ``ExpressionAttributeNames`` :
           * ``{\"#P\":\"Percentile\"}``
           You could then use this substitution in an expression, as in this example:
           * ``#P = :val``
           .. note::
             Tokens that begin with the **:** character are *expression attribute values* , which are placeholders for the actual value at runtime.
-          For more information on expression attribute names, see `Accessing Item Attributes <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute names, see `Accessing Item Attributes <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(string) --*
         :type ExpressionAttributeValues: dict
@@ -5721,12 +5738,12 @@ class Table(base.ServiceResource):
            ``{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }``
           You could then use these values in an expression, such as this:
            ``ProductStatus IN (:avail, :back, :disc)``
-          For more information on expression attribute values, see `Specifying Conditions <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
+          For more information on expression attribute values, see `Specifying Conditions <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html>`__ in the *Amazon DynamoDB Developer Guide* .
           - *(string) --*
             - *(dict) --*
               Represents the data for an attribute.
               Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-              For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+              For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **S** *(string) --*
                 An attribute of type String. For example:
                  ``\"S\": \"Hello\"``
@@ -5757,14 +5774,14 @@ class Table(base.ServiceResource):
                   - *(dict) --*
                     Represents the data for an attribute.
                     Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                    For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                    For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **L** *(list) --*
                 An attribute of type List. For example:
                  ``\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]``
                 - *(dict) --*
                   Represents the data for an attribute.
                   Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
-                  For more information, see `Data Types <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
+                  For more information, see `Data Types <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__ in the *Amazon DynamoDB Developer Guide* .
               - **NULL** *(boolean) --*
                 An attribute of type Null. For example:
                  ``\"NULL\": true``

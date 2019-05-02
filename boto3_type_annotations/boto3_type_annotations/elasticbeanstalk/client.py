@@ -1,11 +1,11 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
-from datetime import datetime
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
+from datetime import datetime
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
@@ -24,19 +24,19 @@ class Client(BaseClient):
     def compose_environments(self, ApplicationName: str = None, GroupName: str = None, VersionLabels: List = None) -> Dict:
         pass
 
-    def create_application(self, ApplicationName: str, Description: str = None, ResourceLifecycleConfig: Dict = None) -> Dict:
+    def create_application(self, ApplicationName: str, Description: str = None, ResourceLifecycleConfig: Dict = None, Tags: List = None) -> Dict:
         pass
 
-    def create_application_version(self, ApplicationName: str, VersionLabel: str, Description: str = None, SourceBuildInformation: Dict = None, SourceBundle: Dict = None, BuildConfiguration: Dict = None, AutoCreateApplication: bool = None, Process: bool = None) -> Dict:
+    def create_application_version(self, ApplicationName: str, VersionLabel: str, Description: str = None, SourceBuildInformation: Dict = None, SourceBundle: Dict = None, BuildConfiguration: Dict = None, AutoCreateApplication: bool = None, Process: bool = None, Tags: List = None) -> Dict:
         pass
 
-    def create_configuration_template(self, ApplicationName: str, TemplateName: str, SolutionStackName: str = None, PlatformArn: str = None, SourceConfiguration: Dict = None, EnvironmentId: str = None, Description: str = None, OptionSettings: List = None) -> Dict:
+    def create_configuration_template(self, ApplicationName: str, TemplateName: str, SolutionStackName: str = None, PlatformArn: str = None, SourceConfiguration: Dict = None, EnvironmentId: str = None, Description: str = None, OptionSettings: List = None, Tags: List = None) -> Dict:
         pass
 
     def create_environment(self, ApplicationName: str, EnvironmentName: str = None, GroupName: str = None, Description: str = None, CNAMEPrefix: str = None, Tier: Dict = None, Tags: List = None, VersionLabel: str = None, TemplateName: str = None, SolutionStackName: str = None, PlatformArn: str = None, OptionSettings: List = None, OptionsToRemove: List = None) -> Dict:
         pass
 
-    def create_platform_version(self, PlatformName: str, PlatformVersion: str, PlatformDefinitionBundle: Dict, EnvironmentName: str = None, OptionSettings: List = None) -> Dict:
+    def create_platform_version(self, PlatformName: str, PlatformVersion: str, PlatformDefinitionBundle: Dict, EnvironmentName: str = None, OptionSettings: List = None, Tags: List = None) -> Dict:
         pass
 
     def create_storage_location(self) -> Dict:

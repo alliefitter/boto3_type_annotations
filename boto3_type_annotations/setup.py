@@ -1,12 +1,12 @@
 
 from setuptools import setup, find_packages
 
-with open('README.md', 'r') as f:
+with open('../README.md', 'r') as f:
     long_description = f.read()
 
 setup(
     name='boto3_type_annotations',
-    version='0.3.0',
+    version='0.3.1',
     packages=find_packages(),
     url='https://github.com/alliefitter/boto3_type_annotations',
     license='MIT License',

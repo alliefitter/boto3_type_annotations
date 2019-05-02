@@ -23,10 +23,10 @@ class ListInputs(Paginator):
 
 
 class ListOfferings(Paginator):
-    def paginate(self, ChannelConfiguration: str = None, Codec: str = None, MaximumBitrate: str = None, MaximumFramerate: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, ChannelClass: str = None, ChannelConfiguration: str = None, Codec: str = None, MaximumBitrate: str = None, MaximumFramerate: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None, PaginationConfig: Dict = None) -> Dict:
         pass
 
 
 class ListReservations(Paginator):
-    def paginate(self, Codec: str = None, MaximumBitrate: str = None, MaximumFramerate: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None, PaginationConfig: Dict = None) -> Dict:
+    def paginate(self, ChannelClass: str = None, Codec: str = None, MaximumBitrate: str = None, MaximumFramerate: str = None, Resolution: str = None, ResourceType: str = None, SpecialFeature: str = None, VideoQuality: str = None, PaginationConfig: Dict = None) -> Dict:
         pass

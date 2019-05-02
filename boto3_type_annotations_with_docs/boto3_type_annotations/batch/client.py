@@ -1,10 +1,10 @@
-from typing import Union
-from typing import List
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
 from botocore.paginate import Paginator
 from botocore.waiter import Waiter
-from typing import Optional
-from typing import Dict
-from botocore.client import BaseClient
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -55,10 +55,10 @@ class Client(BaseClient):
     def create_compute_environment(self, computeEnvironmentName: str, type: str, serviceRole: str, state: str = None, computeResources: Dict = None) -> Dict:
         """
         Creates an AWS Batch compute environment. You can create ``MANAGED`` or ``UNMANAGED`` compute environments.
-        In a managed compute environment, AWS Batch manages the capacity and instance types of the compute resources within the environment. This is based on the compute resource specification that you define or the `launch template <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html>`__ that you specify when you create the compute environment. You can choose to use Amazon EC2 On-Demand Instances or Spot Instances in your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is below a specified percentage of the On-Demand price.
+        In a managed compute environment, AWS Batch manages the capacity and instance types of the compute resources within the environment. This is based on the compute resource specification that you define or the `launch template <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html>`__ that you specify when you create the compute environment. You can choose to use Amazon EC2 On-Demand Instances or Spot Instances in your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is below a specified percentage of the On-Demand price.
         .. note::
           Multi-node parallel jobs are not supported on Spot Instances.
-        In an unmanaged compute environment, you can manage your own compute resources. This provides more compute resource configuration options, such as using a custom AMI, but you must ensure that your AMI meets the Amazon ECS container instance AMI specification. For more information, see `Container Instance AMIs <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html>`__ in the *Amazon Elastic Container Service Developer Guide* . After you have created your unmanaged compute environment, you can use the  DescribeComputeEnvironments operation to find the Amazon ECS cluster that is associated with it. Then, manually launch your container instances into that Amazon ECS cluster. For more information, see `Launching an Amazon ECS Container Instance <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+        In an unmanaged compute environment, you can manage your own compute resources. This provides more compute resource configuration options, such as using a custom AMI, but you must ensure that your AMI meets the Amazon ECS container instance AMI specification. For more information, see `Container Instance AMIs <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html>`__ in the *Amazon Elastic Container Service Developer Guide* . After you have created your unmanaged compute environment, you can use the  DescribeComputeEnvironments operation to find the Amazon ECS cluster that is associated with it. Then, manually launch your container instances into that Amazon ECS cluster. For more information, see `Launching an Amazon ECS Container Instance <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
         .. note::
           AWS Batch does not upgrade the AMIs in a compute environment after it is created (for example, when a newer version of the Amazon ECS-optimized AMI is available). You are responsible for the management of the guest operating system (including updates and security patches) and any additional application software or utilities that you install on the compute resources. To use a new AMI for your AWS Batch jobs:
           * Create a new compute environment with the new AMI. 
@@ -123,15 +123,15 @@ class Client(BaseClient):
           The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
         :type type: string
         :param type: **[REQUIRED]**
-          The type of the compute environment. For more information, see `Compute Environments <http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html>`__ in the *AWS Batch User Guide* .
+          The type of the compute environment. For more information, see `Compute Environments <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html>`__ in the *AWS Batch User Guide* .
         :type state: string
         :param state:
           The state of the compute environment. If the state is ``ENABLED`` , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
         :type computeResources: dict
         :param computeResources:
-          Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments.
+          Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see `Compute Environments <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html>`__ in the *AWS Batch User Guide* .
           - **type** *(string) --* **[REQUIRED]**
-            The type of compute environment.
+            The type of compute environment: EC2 or SPOT.
           - **minvCpus** *(integer) --* **[REQUIRED]**
             The minimum number of EC2 vCPUs that an environment should maintain (even if the compute environment is ``DISABLED`` ).
           - **maxvCpus** *(integer) --* **[REQUIRED]**
@@ -139,7 +139,7 @@ class Client(BaseClient):
           - **desiredvCpus** *(integer) --*
             The desired number of EC2 vCPUS in the compute environment.
           - **instanceTypes** *(list) --* **[REQUIRED]**
-            The instances types that may be launched. You can specify instance families to launch any instance type within those families (for example, ``c4`` or ``p3`` ), or you can specify specific sizes within a family (such as ``c4.8xlarge`` ). You can also choose ``optimal`` to pick instance types (from the latest C, M, and R instance families) on the fly that match the demand of your job queues.
+            The instances types that may be launched. You can specify instance families to launch any instance type within those families (for example, ``c4`` or ``p3`` ), or you can specify specific sizes within a family (such as ``c4.8xlarge`` ). You can also choose ``optimal`` to pick instance types (from the C, M, and R instance families) on the fly that match the demand of your job queues.
             - *(string) --*
           - **imageId** *(string) --*
             The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
@@ -152,19 +152,19 @@ class Client(BaseClient):
           - **ec2KeyPair** *(string) --*
             The EC2 key pair that is used for instances launched in the compute environment.
           - **instanceRole** *(string) --* **[REQUIRED]**
-            The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example, ``ecsInstanceRole`` or ``arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole`` . For more information, see `Amazon ECS Instance Role <http://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html>`__ in the *AWS Batch User Guide* .
+            The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example, `` *ecsInstanceRole* `` or ``arn:aws:iam::*<aws_account_id>* :instance-profile/*ecsInstanceRole* `` . For more information, see `Amazon ECS Instance Role <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html>`__ in the *AWS Batch User Guide* .
           - **tags** *(dict) --*
-            Key-value pair tags to be applied to resources that are launched in the compute environment.
+            Key-value pair tags to be applied to resources that are launched in the compute environment. For AWS Batch, these take the form of \"String1\": \"String2\", where String1 is the tag key and String2 is the tag value—for example, { \"Name\": \"AWS Batch Instance - C4OnDemand\" }.
             - *(string) --*
               - *(string) --*
           - **placementGroup** *(string) --*
-            The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel jobs to your compute environment, you should consider creating a cluster placement group and associate it with your compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single Availability Zone with high network flow potential. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+            The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel jobs to your compute environment, you should consider creating a cluster placement group and associate it with your compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single Availability Zone with high network flow potential. For more information, see `Placement Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
           - **bidPercentage** *(integer) --*
             The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your maximum percentage is 20%, then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. You always pay the lowest (market) price and never more than your maximum percentage. If you leave this field empty, the default value is 100% of the On-Demand price.
           - **spotIamFleetRole** *(string) --*
-            The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a ``SPOT`` compute environment.
+            The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a ``SPOT`` compute environment. For more information, see `Amazon EC2 Spot Fleet Role <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html>`__ in the *AWS Batch User Guide* .
           - **launchTemplate** *(dict) --*
-            The launch template to use for your compute resources. Any other compute resource parameters that you specify in a  CreateComputeEnvironment API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+            The launch template to use for your compute resources. Any other compute resource parameters that you specify in a  CreateComputeEnvironment API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see `Launch Template Support <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html>`__ in the *AWS Batch User Guide* .
             - **launchTemplateId** *(string) --*
               The ID of the launch template.
             - **launchTemplateName** *(string) --*
@@ -404,7 +404,7 @@ class Client(BaseClient):
                 - **computeResources** *(dict) --* 
                   The compute resources defined for the compute environment. 
                   - **type** *(string) --* 
-                    The type of compute environment.
+                    The type of compute environment: EC2 or SPOT.
                   - **minvCpus** *(integer) --* 
                     The minimum number of EC2 vCPUs that an environment should maintain (even if the compute environment is ``DISABLED`` ). 
                   - **maxvCpus** *(integer) --* 
@@ -412,7 +412,7 @@ class Client(BaseClient):
                   - **desiredvCpus** *(integer) --* 
                     The desired number of EC2 vCPUS in the compute environment. 
                   - **instanceTypes** *(list) --* 
-                    The instances types that may be launched. You can specify instance families to launch any instance type within those families (for example, ``c4`` or ``p3`` ), or you can specify specific sizes within a family (such as ``c4.8xlarge`` ). You can also choose ``optimal`` to pick instance types (from the latest C, M, and R instance families) on the fly that match the demand of your job queues.
+                    The instances types that may be launched. You can specify instance families to launch any instance type within those families (for example, ``c4`` or ``p3`` ), or you can specify specific sizes within a family (such as ``c4.8xlarge`` ). You can also choose ``optimal`` to pick instance types (from the C, M, and R instance families) on the fly that match the demand of your job queues.
                     - *(string) --* 
                   - **imageId** *(string) --* 
                     The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
@@ -425,19 +425,19 @@ class Client(BaseClient):
                   - **ec2KeyPair** *(string) --* 
                     The EC2 key pair that is used for instances launched in the compute environment.
                   - **instanceRole** *(string) --* 
-                    The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example, ``ecsInstanceRole`` or ``arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole`` . For more information, see `Amazon ECS Instance Role <http://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html>`__ in the *AWS Batch User Guide* .
+                    The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example, `` *ecsInstanceRole* `` or ``arn:aws:iam::*<aws_account_id>* :instance-profile/*ecsInstanceRole* `` . For more information, see `Amazon ECS Instance Role <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html>`__ in the *AWS Batch User Guide* .
                   - **tags** *(dict) --* 
-                    Key-value pair tags to be applied to resources that are launched in the compute environment. 
+                    Key-value pair tags to be applied to resources that are launched in the compute environment. For AWS Batch, these take the form of "String1": "String2", where String1 is the tag key and String2 is the tag value—for example, { "Name": "AWS Batch Instance - C4OnDemand" }.
                     - *(string) --* 
                       - *(string) --* 
                   - **placementGroup** *(string) --* 
-                    The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel jobs to your compute environment, you should consider creating a cluster placement group and associate it with your compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single Availability Zone with high network flow potential. For more information, see `Placement Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
+                    The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel jobs to your compute environment, you should consider creating a cluster placement group and associate it with your compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single Availability Zone with high network flow potential. For more information, see `Placement Groups <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html>`__ in the *Amazon EC2 User Guide for Linux Instances* .
                   - **bidPercentage** *(integer) --* 
                     The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your maximum percentage is 20%, then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. You always pay the lowest (market) price and never more than your maximum percentage. If you leave this field empty, the default value is 100% of the On-Demand price.
                   - **spotIamFleetRole** *(string) --* 
-                    The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a ``SPOT`` compute environment.
+                    The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a ``SPOT`` compute environment. For more information, see `Amazon EC2 Spot Fleet Role <https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html>`__ in the *AWS Batch User Guide* .
                   - **launchTemplate** *(dict) --* 
-                    The launch template to use for your compute resources. Any other compute resource parameters that you specify in a  CreateComputeEnvironment API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. 
+                    The launch template to use for your compute resources. Any other compute resource parameters that you specify in a  CreateComputeEnvironment API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see `Launch Template Support <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html>`__ in the *AWS Batch User Guide* .
                     - **launchTemplateId** *(string) --* 
                       The ID of the launch template.
                     - **launchTemplateName** *(string) --* 
@@ -538,7 +538,13 @@ class Client(BaseClient):
                                 },
                             ],
                             'user': 'string',
-                            'instanceType': 'string'
+                            'instanceType': 'string',
+                            'resourceRequirements': [
+                                {
+                                    'value': 'string',
+                                    'type': 'GPU'
+                                },
+                            ]
                         },
                         'timeout': {
                             'attemptDurationSeconds': 123
@@ -588,7 +594,13 @@ class Client(BaseClient):
                                             },
                                         ],
                                         'user': 'string',
-                                        'instanceType': 'string'
+                                        'instanceType': 'string',
+                                        'resourceRequirements': [
+                                            {
+                                                'value': 'string',
+                                                'type': 'GPU'
+                                            },
+                                        ]
                                     }
                                 },
                             ]
@@ -615,7 +627,7 @@ class Client(BaseClient):
                 - **type** *(string) --* 
                   The type of job definition.
                 - **parameters** *(dict) --* 
-                  Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a ``SubmitJob`` request override any corresponding parameter defaults from the job definition.
+                  Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a ``SubmitJob`` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see `Job Definition Parameters <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html>`__ in the *AWS Batch User Guide* .
                   - *(string) --* 
                     - *(string) --* 
                 - **retryStrategy** *(dict) --* 
@@ -625,19 +637,19 @@ class Client(BaseClient):
                 - **containerProperties** *(dict) --* 
                   An object with various properties specific to container-based jobs. 
                   - **image** *(string) --* 
-                    The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
-                    * Images in Amazon ECR repositories use the full registry and repository URI (for example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`` ).  
+                    The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    * Images in Amazon ECR repositories use the full registry and repository URI (for example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`` ). 
                     * Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo`` ). 
                     * Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent`` ). 
                     * Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu`` ). 
                   - **vcpus** *(integer) --* 
-                    The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
+                    The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
                   - **memory** *(integer) --* 
-                    The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
+                    The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
                     .. note::
-                      If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <http://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
+                      If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
                   - **command** *(list) --* 
-                    The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
+                    The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
                     - *(string) --* 
                   - **jobRoleArn** *(string) --* 
                     The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
@@ -648,11 +660,11 @@ class Client(BaseClient):
                       - **host** *(dict) --* 
                         The contents of the ``host`` parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
                         - **sourcePath** *(string) --* 
-                          The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+                          The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
                       - **name** *(string) --* 
                         The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the ``sourceVolume`` parameter of container definition ``mountPoints`` .
                   - **environment** *(list) --* 
-                    The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     .. warning::
                       We do not recommend using plaintext environment variables for sensitive information, such as credential data.
                     .. note::
@@ -664,9 +676,9 @@ class Client(BaseClient):
                       - **value** *(string) --* 
                         The value of the key-value pair. For environment variables, this is the value of the environment variable.
                   - **mountPoints** *(list) --* 
-                    The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     - *(dict) --* 
-                      Details on a Docker volume mount point that is used in a job's container properties.
+                      Details on a Docker volume mount point that is used in a job's container properties. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container>`__ section of the Docker Remote API and the ``--volume`` option to docker run.
                       - **containerPath** *(string) --* 
                         The path on the container at which to mount the host volume.
                       - **readOnly** *(boolean) --* 
@@ -674,11 +686,11 @@ class Client(BaseClient):
                       - **sourceVolume** *(string) --* 
                         The name of the volume to mount.
                   - **readonlyRootFilesystem** *(boolean) --* 
-                    When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
+                    When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
                   - **privileged** *(boolean) --* 
-                    When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                   - **ulimits** *(list) --* 
-                    A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                     - *(dict) --* 
                       The ``ulimit`` settings to pass to the container.
                       - **hardLimit** *(integer) --* 
@@ -688,9 +700,17 @@ class Client(BaseClient):
                       - **softLimit** *(integer) --* 
                         The soft limit for the ``ulimit`` type.
                   - **user** *(string) --* 
-                    The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                    The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                   - **instanceType** *(string) --* 
                     The instance type to use for a multi-node parallel job. Currently all node groups in a multi-node parallel job must use the same instance type. This parameter is not valid for single-node container jobs.
+                  - **resourceRequirements** *(list) --* 
+                    The type and amount of a resource to assign to a container. Currently, the only supported resource is ``GPU`` .
+                    - *(dict) --* 
+                      The type and amount of a resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
+                      - **value** *(string) --* 
+                        The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+                      - **type** *(string) --* 
+                        The type of resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
                 - **timeout** *(dict) --* 
                   The timeout configuration for jobs that are submitted with this job definition. You can specify a timeout duration after which AWS Batch terminates your jobs if they have not finished.
                   - **attemptDurationSeconds** *(integer) --* 
@@ -700,7 +720,7 @@ class Client(BaseClient):
                   - **numNodes** *(integer) --* 
                     The number of nodes associated with a multi-node parallel job.
                   - **mainNode** *(integer) --* 
-                    Specifies the node index for the main node of a multi-node parallel job.
+                    Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
                   - **nodeRangeProperties** *(list) --* 
                     A list of node ranges and their properties associated with a multi-node parallel job.
                     - *(dict) --* 
@@ -710,19 +730,19 @@ class Client(BaseClient):
                       - **container** *(dict) --* 
                         The container details for the node range.
                         - **image** *(string) --* 
-                          The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
-                          * Images in Amazon ECR repositories use the full registry and repository URI (for example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`` ).  
+                          The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          * Images in Amazon ECR repositories use the full registry and repository URI (for example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`` ). 
                           * Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo`` ). 
                           * Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent`` ). 
                           * Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu`` ). 
                         - **vcpus** *(integer) --* 
-                          The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
+                          The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
                         - **memory** *(integer) --* 
-                          The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
+                          The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
                           .. note::
-                            If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <http://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
+                            If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
                         - **command** *(list) --* 
-                          The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
+                          The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
                           - *(string) --* 
                         - **jobRoleArn** *(string) --* 
                           The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
@@ -733,11 +753,11 @@ class Client(BaseClient):
                             - **host** *(dict) --* 
                               The contents of the ``host`` parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
                               - **sourcePath** *(string) --* 
-                                The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+                                The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
                             - **name** *(string) --* 
                               The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the ``sourceVolume`` parameter of container definition ``mountPoints`` .
                         - **environment** *(list) --* 
-                          The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                           .. warning::
                             We do not recommend using plaintext environment variables for sensitive information, such as credential data.
                           .. note::
@@ -749,9 +769,9 @@ class Client(BaseClient):
                             - **value** *(string) --* 
                               The value of the key-value pair. For environment variables, this is the value of the environment variable.
                         - **mountPoints** *(list) --* 
-                          The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                           - *(dict) --* 
-                            Details on a Docker volume mount point that is used in a job's container properties.
+                            Details on a Docker volume mount point that is used in a job's container properties. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container>`__ section of the Docker Remote API and the ``--volume`` option to docker run.
                             - **containerPath** *(string) --* 
                               The path on the container at which to mount the host volume.
                             - **readOnly** *(boolean) --* 
@@ -759,11 +779,11 @@ class Client(BaseClient):
                             - **sourceVolume** *(string) --* 
                               The name of the volume to mount.
                         - **readonlyRootFilesystem** *(boolean) --* 
-                          When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
+                          When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
                         - **privileged** *(boolean) --* 
-                          When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                         - **ulimits** *(list) --* 
-                          A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                           - *(dict) --* 
                             The ``ulimit`` settings to pass to the container.
                             - **hardLimit** *(integer) --* 
@@ -773,14 +793,22 @@ class Client(BaseClient):
                             - **softLimit** *(integer) --* 
                               The soft limit for the ``ulimit`` type.
                         - **user** *(string) --* 
-                          The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                         - **instanceType** *(string) --* 
                           The instance type to use for a multi-node parallel job. Currently all node groups in a multi-node parallel job must use the same instance type. This parameter is not valid for single-node container jobs.
+                        - **resourceRequirements** *(list) --* 
+                          The type and amount of a resource to assign to a container. Currently, the only supported resource is ``GPU`` .
+                          - *(dict) --* 
+                            The type and amount of a resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
+                            - **value** *(string) --* 
+                              The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+                            - **type** *(string) --* 
+                              The type of resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
             - **nextToken** *(string) --* 
               The ``nextToken`` value to include in a future ``DescribeJobDefinitions`` request. When the results of a ``DescribeJobDefinitions`` request exceed ``maxResults`` , this value can be used to retrieve the next page of results. This value is ``null`` when there are no more results to return.
         :type jobDefinitions: list
         :param jobDefinitions:
-          A space-separated list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.
+          A list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.
           - *(string) --*
         :type maxResults: integer
         :param maxResults:
@@ -994,6 +1022,12 @@ class Client(BaseClient):
                                     'ipv6Address': 'string',
                                     'privateIpv4Address': 'string'
                                 },
+                            ],
+                            'resourceRequirements': [
+                                {
+                                    'value': 'string',
+                                    'type': 'GPU'
+                                },
                             ]
                         },
                         'nodeDetails': {
@@ -1045,7 +1079,13 @@ class Client(BaseClient):
                                             },
                                         ],
                                         'user': 'string',
-                                        'instanceType': 'string'
+                                        'instanceType': 'string',
+                                        'resourceRequirements': [
+                                            {
+                                                'value': 'string',
+                                                'type': 'GPU'
+                                            },
+                                        ]
                                     }
                                 },
                             ]
@@ -1079,7 +1119,7 @@ class Client(BaseClient):
                 - **status** *(string) --* 
                   The current status for the job. 
                   .. note::
-                    If your jobs do not progress to ``STARTING`` , see `Jobs Stuck in ``RUNNABLE`` Status <http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable>`__ in the troubleshooting section of the *AWS Batch User Guide* .
+                    If your jobs do not progress to ``STARTING`` , see `Jobs Stuck in ``RUNNABLE`` Status <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable>`__ in the troubleshooting section of the *AWS Batch User Guide* .
                 - **attempts** *(list) --* 
                   A list of job attempts associated with this job.
                   - *(dict) --* 
@@ -1158,7 +1198,7 @@ class Client(BaseClient):
                       - **host** *(dict) --* 
                         The contents of the ``host`` parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
                         - **sourcePath** *(string) --* 
-                          The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+                          The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
                       - **name** *(string) --* 
                         The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the ``sourceVolume`` parameter of container definition ``mountPoints`` .
                   - **environment** *(list) --* 
@@ -1174,7 +1214,7 @@ class Client(BaseClient):
                   - **mountPoints** *(list) --* 
                     The mount points for data volumes in your container.
                     - *(dict) --* 
-                      Details on a Docker volume mount point that is used in a job's container properties.
+                      Details on a Docker volume mount point that is used in a job's container properties. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container>`__ section of the Docker Remote API and the ``--volume`` option to docker run.
                       - **containerPath** *(string) --* 
                         The path on the container at which to mount the host volume.
                       - **readOnly** *(boolean) --* 
@@ -1219,6 +1259,14 @@ class Client(BaseClient):
                         The private IPv6 address for the network interface.
                       - **privateIpv4Address** *(string) --* 
                         The private IPv4 address for the network interface.
+                  - **resourceRequirements** *(list) --* 
+                    The type and amount of a resource to assign to a container. Currently, the only supported resource is ``GPU`` .
+                    - *(dict) --* 
+                      The type and amount of a resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
+                      - **value** *(string) --* 
+                        The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+                      - **type** *(string) --* 
+                        The type of resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
                 - **nodeDetails** *(dict) --* 
                   An object representing the details of a node that is associated with a multi-node parallel job.
                   - **nodeIndex** *(integer) --* 
@@ -1230,7 +1278,7 @@ class Client(BaseClient):
                   - **numNodes** *(integer) --* 
                     The number of nodes associated with a multi-node parallel job.
                   - **mainNode** *(integer) --* 
-                    Specifies the node index for the main node of a multi-node parallel job.
+                    Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
                   - **nodeRangeProperties** *(list) --* 
                     A list of node ranges and their properties associated with a multi-node parallel job.
                     - *(dict) --* 
@@ -1240,19 +1288,19 @@ class Client(BaseClient):
                       - **container** *(dict) --* 
                         The container details for the node range.
                         - **image** *(string) --* 
-                          The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
-                          * Images in Amazon ECR repositories use the full registry and repository URI (for example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`` ).  
+                          The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          * Images in Amazon ECR repositories use the full registry and repository URI (for example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`` ). 
                           * Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo`` ). 
                           * Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent`` ). 
                           * Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu`` ). 
                         - **vcpus** *(integer) --* 
-                          The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
+                          The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
                         - **memory** *(integer) --* 
-                          The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
+                          The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
                           .. note::
-                            If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <http://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
+                            If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
                         - **command** *(list) --* 
-                          The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
+                          The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
                           - *(string) --* 
                         - **jobRoleArn** *(string) --* 
                           The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
@@ -1263,11 +1311,11 @@ class Client(BaseClient):
                             - **host** *(dict) --* 
                               The contents of the ``host`` parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
                               - **sourcePath** *(string) --* 
-                                The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+                                The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
                             - **name** *(string) --* 
                               The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the ``sourceVolume`` parameter of container definition ``mountPoints`` .
                         - **environment** *(list) --* 
-                          The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                           .. warning::
                             We do not recommend using plaintext environment variables for sensitive information, such as credential data.
                           .. note::
@@ -1279,9 +1327,9 @@ class Client(BaseClient):
                             - **value** *(string) --* 
                               The value of the key-value pair. For environment variables, this is the value of the environment variable.
                         - **mountPoints** *(list) --* 
-                          The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                           - *(dict) --* 
-                            Details on a Docker volume mount point that is used in a job's container properties.
+                            Details on a Docker volume mount point that is used in a job's container properties. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container>`__ section of the Docker Remote API and the ``--volume`` option to docker run.
                             - **containerPath** *(string) --* 
                               The path on the container at which to mount the host volume.
                             - **readOnly** *(boolean) --* 
@@ -1289,11 +1337,11 @@ class Client(BaseClient):
                             - **sourceVolume** *(string) --* 
                               The name of the volume to mount.
                         - **readonlyRootFilesystem** *(boolean) --* 
-                          When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
+                          When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
                         - **privileged** *(boolean) --* 
-                          When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                         - **ulimits** *(list) --* 
-                          A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                           - *(dict) --* 
                             The ``ulimit`` settings to pass to the container.
                             - **hardLimit** *(integer) --* 
@@ -1303,9 +1351,17 @@ class Client(BaseClient):
                             - **softLimit** *(integer) --* 
                               The soft limit for the ``ulimit`` type.
                         - **user** *(string) --* 
-                          The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                          The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                         - **instanceType** *(string) --* 
                           The instance type to use for a multi-node parallel job. Currently all node groups in a multi-node parallel job must use the same instance type. This parameter is not valid for single-node container jobs.
+                        - **resourceRequirements** *(list) --* 
+                          The type and amount of a resource to assign to a container. Currently, the only supported resource is ``GPU`` .
+                          - *(dict) --* 
+                            The type and amount of a resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
+                            - **value** *(string) --* 
+                              The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+                            - **type** *(string) --* 
+                              The type of resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
                 - **arrayProperties** *(dict) --* 
                   The array properties of the job, if it is an array job.
                   - **statusSummary** *(dict) --* 
@@ -1322,7 +1378,7 @@ class Client(BaseClient):
                     The time duration in seconds (measured from the job attempt's ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
         :type jobs: list
         :param jobs: **[REQUIRED]**
-          A space-separated list of up to 100 job IDs.
+          A list of up to 100 job IDs.
           - *(string) --*
         :rtype: dict
         :returns:
@@ -1546,7 +1602,13 @@ class Client(BaseClient):
                       },
                   ],
                   'user': 'string',
-                  'instanceType': 'string'
+                  'instanceType': 'string',
+                  'resourceRequirements': [
+                      {
+                          'value': 'string',
+                          'type': 'GPU'
+                      },
+                  ]
               },
               nodeProperties={
                   'numNodes': 123,
@@ -1593,7 +1655,13 @@ class Client(BaseClient):
                                   },
                               ],
                               'user': 'string',
-                              'instanceType': 'string'
+                              'instanceType': 'string',
+                              'resourceRequirements': [
+                                  {
+                                      'value': 'string',
+                                      'type': 'GPU'
+                                  },
+                              ]
                           }
                       },
                   ]
@@ -1637,19 +1705,19 @@ class Client(BaseClient):
         :param containerProperties:
           An object with various properties specific to single-node container-based jobs. If the job definition\'s ``type`` parameter is ``container`` , then you must specify either ``containerProperties`` or ``nodeProperties`` .
           - **image** *(string) --*
-            The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+            The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
             * Images in Amazon ECR repositories use the full registry and repository URI (for example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`` ).
             * Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo`` ).
             * Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent`` ).
             * Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu`` ).
           - **vcpus** *(integer) --*
-            The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
+            The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
           - **memory** *(integer) --*
-            The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
+            The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
             .. note::
-              If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <http://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
+              If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
           - **command** *(list) --*
-            The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
+            The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
             - *(string) --*
           - **jobRoleArn** *(string) --*
             The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
@@ -1660,11 +1728,11 @@ class Client(BaseClient):
               - **host** *(dict) --*
                 The contents of the ``host`` parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
                 - **sourcePath** *(string) --*
-                  The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+                  The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
               - **name** *(string) --*
                 The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the ``sourceVolume`` parameter of container definition ``mountPoints`` .
           - **environment** *(list) --*
-            The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+            The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
             .. warning::
               We do not recommend using plaintext environment variables for sensitive information, such as credential data.
             .. note::
@@ -1676,9 +1744,9 @@ class Client(BaseClient):
               - **value** *(string) --*
                 The value of the key-value pair. For environment variables, this is the value of the environment variable.
           - **mountPoints** *(list) --*
-            The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+            The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
             - *(dict) --*
-              Details on a Docker volume mount point that is used in a job\'s container properties.
+              Details on a Docker volume mount point that is used in a job\'s container properties. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container>`__ section of the Docker Remote API and the ``--volume`` option to docker run.
               - **containerPath** *(string) --*
                 The path on the container at which to mount the host volume.
               - **readOnly** *(boolean) --*
@@ -1686,11 +1754,11 @@ class Client(BaseClient):
               - **sourceVolume** *(string) --*
                 The name of the volume to mount.
           - **readonlyRootFilesystem** *(boolean) --*
-            When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
+            When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
           - **privileged** *(boolean) --*
-            When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+            When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
           - **ulimits** *(list) --*
-            A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+            A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
             - *(dict) --*
               The ``ulimit`` settings to pass to the container.
               - **hardLimit** *(integer) --* **[REQUIRED]**
@@ -1700,16 +1768,24 @@ class Client(BaseClient):
               - **softLimit** *(integer) --* **[REQUIRED]**
                 The soft limit for the ``ulimit`` type.
           - **user** *(string) --*
-            The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+            The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
           - **instanceType** *(string) --*
             The instance type to use for a multi-node parallel job. Currently all node groups in a multi-node parallel job must use the same instance type. This parameter is not valid for single-node container jobs.
+          - **resourceRequirements** *(list) --*
+            The type and amount of a resource to assign to a container. Currently, the only supported resource is ``GPU`` .
+            - *(dict) --*
+              The type and amount of a resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
+              - **value** *(string) --* **[REQUIRED]**
+                The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+              - **type** *(string) --* **[REQUIRED]**
+                The type of resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
         :type nodeProperties: dict
         :param nodeProperties:
-          An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see `Multi-node Parallel Jobs <http://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html>`__ in the *AWS Batch User Guide* . If the job definition\'s ``type`` parameter is ``container`` , then you must specify either ``containerProperties`` or ``nodeProperties`` .
+          An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see `Multi-node Parallel Jobs <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html>`__ in the *AWS Batch User Guide* . If the job definition\'s ``type`` parameter is ``container`` , then you must specify either ``containerProperties`` or ``nodeProperties`` .
           - **numNodes** *(integer) --* **[REQUIRED]**
             The number of nodes associated with a multi-node parallel job.
           - **mainNode** *(integer) --* **[REQUIRED]**
-            Specifies the node index for the main node of a multi-node parallel job.
+            Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
           - **nodeRangeProperties** *(list) --* **[REQUIRED]**
             A list of node ranges and their properties associated with a multi-node parallel job.
             - *(dict) --*
@@ -1719,19 +1795,19 @@ class Client(BaseClient):
               - **container** *(dict) --*
                 The container details for the node range.
                 - **image** *(string) --*
-                  The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                  The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `` *repository-url* /*image* :*tag* `` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``IMAGE`` parameter of `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                   * Images in Amazon ECR repositories use the full registry and repository URI (for example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`` ).
                   * Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo`` ).
                   * Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent`` ).
                   * Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu`` ).
                 - **vcpus** *(integer) --*
-                  The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
+                  The number of vCPUs reserved for the container. This parameter maps to ``CpuShares`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--cpu-shares`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU.
                 - **memory** *(integer) --*
-                  The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
+                  The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to ``Memory`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--memory`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ . You must specify at least 4 MiB of memory for a job.
                   .. note::
-                    If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <http://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
+                    If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see `Memory Management <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html>`__ in the *AWS Batch User Guide* .
                 - **command** *(list) --*
-                  The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
+                  The command that is passed to the container. This parameter maps to ``Cmd`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``COMMAND`` parameter to `docker run <https://docs.docker.com/engine/reference/run/>`__ . For more information, see `https\://docs.docker.com/engine/reference/builder/#cmd <https://docs.docker.com/engine/reference/builder/#cmd>`__ .
                   - *(string) --*
                 - **jobRoleArn** *(string) --*
                   The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
@@ -1742,11 +1818,11 @@ class Client(BaseClient):
                     - **host** *(dict) --*
                       The contents of the ``host`` parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
                       - **sourcePath** *(string) --*
-                        The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+                        The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
                     - **name** *(string) --*
                       The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the ``sourceVolume`` parameter of container definition ``mountPoints`` .
                 - **environment** *(list) --*
-                  The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                  The environment variables to pass to a container. This parameter maps to ``Env`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--env`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                   .. warning::
                     We do not recommend using plaintext environment variables for sensitive information, such as credential data.
                   .. note::
@@ -1758,9 +1834,9 @@ class Client(BaseClient):
                     - **value** *(string) --*
                       The value of the key-value pair. For environment variables, this is the value of the environment variable.
                 - **mountPoints** *(list) --*
-                  The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                  The mount points for data volumes in your container. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--volume`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                   - *(dict) --*
-                    Details on a Docker volume mount point that is used in a job\'s container properties.
+                    Details on a Docker volume mount point that is used in a job\'s container properties. This parameter maps to ``Volumes`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container>`__ section of the Docker Remote API and the ``--volume`` option to docker run.
                     - **containerPath** *(string) --*
                       The path on the container at which to mount the host volume.
                     - **readOnly** *(boolean) --*
@@ -1768,11 +1844,11 @@ class Client(BaseClient):
                     - **sourceVolume** *(string) --*
                       The name of the volume to mount.
                 - **readonlyRootFilesystem** *(boolean) --*
-                  When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
+                  When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--read-only`` option to ``docker run`` .
                 - **privileged** *(boolean) --*
-                  When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                  When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--privileged`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                 - **ulimits** *(list) --*
-                  A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                  A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--ulimit`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                   - *(dict) --*
                     The ``ulimit`` settings to pass to the container.
                     - **hardLimit** *(integer) --* **[REQUIRED]**
@@ -1782,9 +1858,17 @@ class Client(BaseClient):
                     - **softLimit** *(integer) --* **[REQUIRED]**
                       The soft limit for the ``ulimit`` type.
                 - **user** *(string) --*
-                  The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
+                  The user name to use inside the container. This parameter maps to ``User`` in the `Create a container <https://docs.docker.com/engine/api/v1.23/#create-a-container>`__ section of the `Docker Remote API <https://docs.docker.com/engine/api/v1.23/>`__ and the ``--user`` option to `docker run <https://docs.docker.com/engine/reference/run/>`__ .
                 - **instanceType** *(string) --*
                   The instance type to use for a multi-node parallel job. Currently all node groups in a multi-node parallel job must use the same instance type. This parameter is not valid for single-node container jobs.
+                - **resourceRequirements** *(list) --*
+                  The type and amount of a resource to assign to a container. Currently, the only supported resource is ``GPU`` .
+                  - *(dict) --*
+                    The type and amount of a resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
+                    - **value** *(string) --* **[REQUIRED]**
+                      The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+                    - **type** *(string) --* **[REQUIRED]**
+                      The type of resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
         :type retryStrategy: dict
         :param retryStrategy:
           The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that is specified during a  SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it is not retried.
@@ -1792,7 +1876,7 @@ class Client(BaseClient):
             The number of times to move a job to the ``RUNNABLE`` status. You may specify between 1 and 10 attempts. If the value of ``attempts`` is greater than one, the job is retried on failure the same number of attempts as the value.
         :type timeout: dict
         :param timeout:
-          The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it is not retried. The minimum value for the timeout is 60 seconds. Any timeout configuration that is specified during a  SubmitJob operation overrides the timeout configuration defined here. For more information, see `Job Timeouts <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+          The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it is not retried. The minimum value for the timeout is 60 seconds. Any timeout configuration that is specified during a  SubmitJob operation overrides the timeout configuration defined here. For more information, see `Job Timeouts <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
           - **attemptDurationSeconds** *(integer) --*
             The time duration in seconds (measured from the job attempt\'s ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
         :rtype: dict
@@ -1835,9 +1919,16 @@ class Client(BaseClient):
                           'name': 'string',
                           'value': 'string'
                       },
+                  ],
+                  'resourceRequirements': [
+                      {
+                          'value': 'string',
+                          'type': 'GPU'
+                      },
                   ]
               },
               nodeOverrides={
+                  'numNodes': 123,
                   'nodePropertyOverrides': [
                       {
                           'targetNodes': 'string',
@@ -1852,6 +1943,12 @@ class Client(BaseClient):
                                   {
                                       'name': 'string',
                                       'value': 'string'
+                                  },
+                              ],
+                              'resourceRequirements': [
+                                  {
+                                      'value': 'string',
+                                      'type': 'GPU'
                                   },
                               ]
                           }
@@ -1887,7 +1984,7 @@ class Client(BaseClient):
           The job queue into which the job is submitted. You can specify either the name or the Amazon Resource Name (ARN) of the queue.
         :type arrayProperties: dict
         :param arrayProperties:
-          The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. For more information, see `Array Jobs <http://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html>`__ in the *AWS Batch User Guide* .
+          The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. For more information, see `Array Jobs <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html>`__ in the *AWS Batch User Guide* .
           - **size** *(integer) --*
             The size of the array job.
         :type dependsOn: list
@@ -1929,9 +2026,22 @@ class Client(BaseClient):
                 The name of the key-value pair. For environment variables, this is the name of the environment variable.
               - **value** *(string) --*
                 The value of the key-value pair. For environment variables, this is the value of the environment variable.
+          - **resourceRequirements** *(list) --*
+            The type and amount of a resource to assign to a container. This value overrides the value set in the job definition. Currently, the only supported resource is ``GPU`` .
+            - *(dict) --*
+              The type and amount of a resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
+              - **value** *(string) --* **[REQUIRED]**
+                The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+              - **type** *(string) --* **[REQUIRED]**
+                The type of resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
         :type nodeOverrides: dict
         :param nodeOverrides:
           A list of node overrides in JSON format that specify the node range to target and the container overrides for that node range.
+          - **numNodes** *(integer) --*
+            The number of nodes to use with a multi-node parallel job. This value overrides the number of nodes that are specified in the job definition. To use this override:
+            * There must be at least one node range in your job definition that has an open upper boundary (such as ``:`` or ``n:`` ).
+            * The lower boundary of the node range specified in the job definition must be fewer than the number of nodes specified in the override.
+            * The main node index specified in the job definition must be fewer than the number of nodes specified in the override.
           - **nodePropertyOverrides** *(list) --*
             The node property overrides for the job.
             - *(dict) --*
@@ -1959,6 +2069,14 @@ class Client(BaseClient):
                       The name of the key-value pair. For environment variables, this is the name of the environment variable.
                     - **value** *(string) --*
                       The value of the key-value pair. For environment variables, this is the value of the environment variable.
+                - **resourceRequirements** *(list) --*
+                  The type and amount of a resource to assign to a container. This value overrides the value set in the job definition. Currently, the only supported resource is ``GPU`` .
+                  - *(dict) --*
+                    The type and amount of a resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
+                    - **value** *(string) --* **[REQUIRED]**
+                      The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+                    - **type** *(string) --* **[REQUIRED]**
+                      The type of resource to assign to a container. Currently, the only supported resource type is ``GPU`` .
         :type retryStrategy: dict
         :param retryStrategy:
           The retry strategy to use for failed jobs from this  SubmitJob operation. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition.
@@ -1966,7 +2084,7 @@ class Client(BaseClient):
             The number of times to move a job to the ``RUNNABLE`` status. You may specify between 1 and 10 attempts. If the value of ``attempts`` is greater than one, the job is retried on failure the same number of attempts as the value.
         :type timeout: dict
         :param timeout:
-          The timeout configuration for this  SubmitJob operation. You can specify a timeout duration after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it is not retried. The minimum value for the timeout is 60 seconds. This configuration overrides any timeout configuration specified in the job definition. For array jobs, child jobs have the same timeout configuration as the parent job. For more information, see `Job Timeouts <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
+          The timeout configuration for this  SubmitJob operation. You can specify a timeout duration after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it is not retried. The minimum value for the timeout is 60 seconds. This configuration overrides any timeout configuration specified in the job definition. For array jobs, child jobs have the same timeout configuration as the parent job. For more information, see `Job Timeouts <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html>`__ in the *Amazon Elastic Container Service Developer Guide* .
           - **attemptDurationSeconds** *(integer) --*
             The time duration in seconds (measured from the job attempt\'s ``startedAt`` timestamp) after which AWS Batch terminates your jobs if they have not finished.
         :rtype: dict

@@ -1,9 +1,10 @@
-from typing import Union
-from botocore.client import BaseClient
-from botocore.paginate import Paginator
-from typing import Dict
-from botocore.waiter import Waiter
 from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from botocore.waiter import Waiter
+from typing import Union
+from typing import List
 
 
 class Client(BaseClient):
@@ -96,7 +97,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_project(self, projectName: str, description: str = None, placementTemplate: Dict = None) -> Dict:
+    def create_project(self, projectName: str, description: str = None, placementTemplate: Dict = None, tags: Dict = None) -> Dict:
         """
         Creates an empty project with a placement template. A project contains zero or more placements that adhere to the placement template defined in the project.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot1click-projects-2018-05-14/CreateProject>`_
@@ -118,6 +119,9 @@ class Client(BaseClient):
                           }
                       }
                   }
+              },
+              tags={
+                  'string': 'string'
               }
           )
         
@@ -151,6 +155,11 @@ class Client(BaseClient):
                   An optional Lambda function to invoke instead of the default Lambda function provided by the placement template.
                   - *(string) --*
                     - *(string) --*
+        :type tags: dict
+        :param tags:
+          Optional tags (metadata key/value pairs) to be associated with the project. For example, ``{ {\"key1\": \"value1\", \"key2\": \"value2\"} }`` . For more information, see `AWS Tagging Strategies <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/>`__ .
+          - *(string) --*
+            - *(string) --*
         :rtype: dict
         :returns:
         """
@@ -282,6 +291,7 @@ class Client(BaseClient):
         ::
             {
                 'project': {
+                    'arn': 'string',
                     'projectName': 'string',
                     'description': 'string',
                     'createdDate': datetime(2015, 1, 1),
@@ -298,6 +308,9 @@ class Client(BaseClient):
                                 }
                             }
                         }
+                    },
+                    'tags': {
+                        'string': 'string'
                     }
                 }
             }
@@ -306,6 +319,8 @@ class Client(BaseClient):
           - *(dict) --* 
             - **project** *(dict) --* 
               An object describing the project.
+              - **arn** *(string) --* 
+                The ARN of the project.
               - **projectName** *(string) --* 
                 The name of the project for which to obtain information from.
               - **description** *(string) --* 
@@ -331,6 +346,10 @@ class Client(BaseClient):
                         An optional Lambda function to invoke instead of the default Lambda function provided by the placement template.
                         - *(string) --* 
                           - *(string) --* 
+              - **tags** *(dict) --* 
+                The tags (metadata key/value pairs) associated with the project.
+                - *(string) --* 
+                  - *(string) --* 
         :type projectName: string
         :param projectName: **[REQUIRED]**
           The name of the project to be described.
@@ -530,9 +549,13 @@ class Client(BaseClient):
             {
                 'projects': [
                     {
+                        'arn': 'string',
                         'projectName': 'string',
                         'createdDate': datetime(2015, 1, 1),
-                        'updatedDate': datetime(2015, 1, 1)
+                        'updatedDate': datetime(2015, 1, 1),
+                        'tags': {
+                            'string': 'string'
+                        }
                     },
                 ],
                 'nextToken': 'string'
@@ -544,12 +567,18 @@ class Client(BaseClient):
               An object containing the list of projects.
               - *(dict) --* 
                 An object providing summary information for a particular project for an associated AWS account and region.
+                - **arn** *(string) --* 
+                  The ARN of the project.
                 - **projectName** *(string) --* 
                   The name of the project being summarized.
                 - **createdDate** *(datetime) --* 
                   The date when the project was originally created, in UNIX epoch time format.
                 - **updatedDate** *(datetime) --* 
                   The date when the project was last updated, in UNIX epoch time format. If the project was not updated, then ``createdDate`` and ``updatedDate`` are the same.
+                - **tags** *(dict) --* 
+                  The tags (metadata key/value pairs) associated with the project.
+                  - *(string) --* 
+                    - *(string) --* 
             - **nextToken** *(string) --* 
               The token used to retrieve the next set of results - will be effectively empty if there are no further results.
         :type nextToken: string
@@ -558,6 +587,104 @@ class Client(BaseClient):
         :type maxResults: integer
         :param maxResults:
           The maximum number of results to return per request. If not set, a default value of 100 is used.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def list_tags_for_resource(self, resourceArn: str) -> Dict:
+        """
+        Lists the tags (metadata key/value pairs) which you have assigned to the resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot1click-projects-2018-05-14/ListTagsForResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.list_tags_for_resource(
+              resourceArn='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'tags': {
+                    'string': 'string'
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **tags** *(dict) --* 
+              The tags (metadata key/value pairs) which you have assigned to the resource.
+              - *(string) --* 
+                - *(string) --* 
+        :type resourceArn: string
+        :param resourceArn: **[REQUIRED]**
+          The ARN of the resource whose tags you want to list.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def tag_resource(self, resourceArn: str, tags: Dict) -> Dict:
+        """
+        Creates or modifies tags for a resource. Tags are key/value pairs (metadata) that can be used to manage a resource. For more information, see `AWS Tagging Strategies <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/>`__ .
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot1click-projects-2018-05-14/TagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.tag_resource(
+              resourceArn='string',
+              tags={
+                  'string': 'string'
+              }
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type resourceArn: string
+        :param resourceArn: **[REQUIRED]**
+          The ARN of the resouce for which tag(s) should be added or modified.
+        :type tags: dict
+        :param tags: **[REQUIRED]**
+          The new or modifying tag(s) for the resource. See `AWS IoT 1-Click Service Limits <https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits>`__ for the maximum number of tags allowed per resource.
+          - *(string) --*
+            - *(string) --*
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def untag_resource(self, resourceArn: str, tagKeys: List) -> Dict:
+        """
+        Removes one or more tags (metadata key/value pairs) from a resource.
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iot1click-projects-2018-05-14/UntagResource>`_
+        
+        **Request Syntax**
+        ::
+          response = client.untag_resource(
+              resourceArn='string',
+              tagKeys=[
+                  'string',
+              ]
+          )
+        
+        **Response Syntax**
+        ::
+            {}
+        
+        **Response Structure**
+          - *(dict) --* 
+        :type resourceArn: string
+        :param resourceArn: **[REQUIRED]**
+          The ARN of the resource whose tag you want to remove.
+        :type tagKeys: list
+        :param tagKeys: **[REQUIRED]**
+          The keys of those tags which you want to remove.
+          - *(string) --*
         :rtype: dict
         :returns:
         """

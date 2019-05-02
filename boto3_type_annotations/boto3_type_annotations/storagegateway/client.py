@@ -1,14 +1,14 @@
 from typing import Optional
-from typing import List
 from botocore.client import BaseClient
-from botocore.paginate import Paginator
 from typing import Dict
 from typing import Union
+from botocore.paginate import Paginator
 from botocore.waiter import Waiter
+from typing import List
 
 
 class Client(BaseClient):
-    def activate_gateway(self, ActivationKey: str, GatewayName: str, GatewayTimezone: str, GatewayRegion: str, GatewayType: str = None, TapeDriveType: str = None, MediumChangerType: str = None) -> Dict:
+    def activate_gateway(self, ActivationKey: str, GatewayName: str, GatewayTimezone: str, GatewayRegion: str, GatewayType: str = None, TapeDriveType: str = None, MediumChangerType: str = None, Tags: List = None) -> Dict:
         pass
 
     def add_cache(self, GatewayARN: str, DiskIds: List) -> Dict:
@@ -35,13 +35,13 @@ class Client(BaseClient):
     def cancel_retrieval(self, GatewayARN: str, TapeARN: str) -> Dict:
         pass
 
-    def create_cached_iscsi_volume(self, GatewayARN: str, VolumeSizeInBytes: int, TargetName: str, NetworkInterfaceId: str, ClientToken: str, SnapshotId: str = None, SourceVolumeARN: str = None, KMSEncrypted: bool = None, KMSKey: str = None) -> Dict:
+    def create_cached_iscsi_volume(self, GatewayARN: str, VolumeSizeInBytes: int, TargetName: str, NetworkInterfaceId: str, ClientToken: str, SnapshotId: str = None, SourceVolumeARN: str = None, KMSEncrypted: bool = None, KMSKey: str = None, Tags: List = None) -> Dict:
         pass
 
-    def create_nfs_file_share(self, ClientToken: str, GatewayARN: str, Role: str, LocationARN: str, NFSFileShareDefaults: Dict = None, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ClientList: List = None, Squash: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None) -> Dict:
+    def create_nfs_file_share(self, ClientToken: str, GatewayARN: str, Role: str, LocationARN: str, NFSFileShareDefaults: Dict = None, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ClientList: List = None, Squash: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, Tags: List = None) -> Dict:
         pass
 
-    def create_smb_file_share(self, ClientToken: str, GatewayARN: str, Role: str, LocationARN: str, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, ValidUserList: List = None, InvalidUserList: List = None, Authentication: str = None) -> Dict:
+    def create_smb_file_share(self, ClientToken: str, GatewayARN: str, Role: str, LocationARN: str, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, SMBACLEnabled: bool = None, ValidUserList: List = None, InvalidUserList: List = None, Authentication: str = None, Tags: List = None) -> Dict:
         pass
 
     def create_snapshot(self, VolumeARN: str, SnapshotDescription: str) -> Dict:
@@ -50,13 +50,13 @@ class Client(BaseClient):
     def create_snapshot_from_volume_recovery_point(self, VolumeARN: str, SnapshotDescription: str) -> Dict:
         pass
 
-    def create_stored_iscsi_volume(self, GatewayARN: str, DiskId: str, PreserveExistingData: bool, TargetName: str, NetworkInterfaceId: str, SnapshotId: str = None, KMSEncrypted: bool = None, KMSKey: str = None) -> Dict:
+    def create_stored_iscsi_volume(self, GatewayARN: str, DiskId: str, PreserveExistingData: bool, TargetName: str, NetworkInterfaceId: str, SnapshotId: str = None, KMSEncrypted: bool = None, KMSKey: str = None, Tags: List = None) -> Dict:
         pass
 
-    def create_tape_with_barcode(self, GatewayARN: str, TapeSizeInBytes: int, TapeBarcode: str, KMSEncrypted: bool = None, KMSKey: str = None) -> Dict:
+    def create_tape_with_barcode(self, GatewayARN: str, TapeSizeInBytes: int, TapeBarcode: str, KMSEncrypted: bool = None, KMSKey: str = None, PoolId: str = None, Tags: List = None) -> Dict:
         pass
 
-    def create_tapes(self, GatewayARN: str, TapeSizeInBytes: int, ClientToken: str, NumTapesToCreate: int, TapeBarcodePrefix: str, KMSEncrypted: bool = None, KMSKey: str = None) -> Dict:
+    def create_tapes(self, GatewayARN: str, TapeSizeInBytes: int, ClientToken: str, NumTapesToCreate: int, TapeBarcodePrefix: str, KMSEncrypted: bool = None, KMSKey: str = None, PoolId: str = None, Tags: List = None) -> Dict:
         pass
 
     def delete_bandwidth_rate_limit(self, GatewayARN: str, BandwidthType: str) -> Dict:
@@ -218,13 +218,13 @@ class Client(BaseClient):
     def update_gateway_software_now(self, GatewayARN: str) -> Dict:
         pass
 
-    def update_maintenance_start_time(self, GatewayARN: str, HourOfDay: int, MinuteOfHour: int, DayOfWeek: int) -> Dict:
+    def update_maintenance_start_time(self, GatewayARN: str, HourOfDay: int, MinuteOfHour: int, DayOfWeek: int = None, DayOfMonth: int = None) -> Dict:
         pass
 
     def update_nfs_file_share(self, FileShareARN: str, KMSEncrypted: bool = None, KMSKey: str = None, NFSFileShareDefaults: Dict = None, DefaultStorageClass: str = None, ObjectACL: str = None, ClientList: List = None, Squash: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None) -> Dict:
         pass
 
-    def update_smb_file_share(self, FileShareARN: str, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, ValidUserList: List = None, InvalidUserList: List = None) -> Dict:
+    def update_smb_file_share(self, FileShareARN: str, KMSEncrypted: bool = None, KMSKey: str = None, DefaultStorageClass: str = None, ObjectACL: str = None, ReadOnly: bool = None, GuessMIMETypeEnabled: bool = None, RequesterPays: bool = None, SMBACLEnabled: bool = None, ValidUserList: List = None, InvalidUserList: List = None) -> Dict:
         pass
 
     def update_snapshot_schedule(self, VolumeARN: str, StartAt: int, RecurrenceInHours: int, Description: str = None) -> Dict:

@@ -1,9 +1,9 @@
 from typing import Optional
-from typing import List
-from datetime import datetime
 from typing import Dict
 from typing import Union
+from datetime import datetime
 from boto3.resources.collection import ResourceCollection
+from typing import List
 from boto3.resources import base
 
 
@@ -91,7 +91,7 @@ class Metric(base.ServiceResource):
     def load(self):
         pass
 
-    def put_alarm(self, AlarmName: str, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Period: int = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None, Metrics: List = None) -> 'Alarm':
+    def put_alarm(self, AlarmName: str, EvaluationPeriods: int, Threshold: float, ComparisonOperator: str, AlarmDescription: str = None, ActionsEnabled: bool = None, OKActions: List = None, AlarmActions: List = None, InsufficientDataActions: List = None, Statistic: str = None, ExtendedStatistic: str = None, Dimensions: List = None, Period: int = None, Unit: str = None, DatapointsToAlarm: int = None, TreatMissingData: str = None, EvaluateLowSampleCountPercentile: str = None, Metrics: List = None, Tags: List = None) -> 'Alarm':
         pass
 
     def put_data(self):

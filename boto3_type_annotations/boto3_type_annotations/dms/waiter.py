@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.waiter import Waiter
 
 
@@ -19,22 +19,22 @@ class ReplicationInstanceDeleted(Waiter):
 
 
 class ReplicationTaskDeleted(Waiter):
-    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None, WaiterConfig: Dict = None):
         pass
 
 
 class ReplicationTaskReady(Waiter):
-    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None, WaiterConfig: Dict = None):
         pass
 
 
 class ReplicationTaskRunning(Waiter):
-    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None, WaiterConfig: Dict = None):
         pass
 
 
 class ReplicationTaskStopped(Waiter):
-    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WaiterConfig: Dict = None):
+    def wait(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None, WaiterConfig: Dict = None):
         pass
 
 

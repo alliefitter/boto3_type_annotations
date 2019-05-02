@@ -1,5 +1,5 @@
-from typing import List
 from typing import Dict
+from typing import List
 from botocore.paginate import Paginator
 
 
@@ -306,7 +306,7 @@ class ListSkills(Paginator):
                   Whether the skill is publicly available or is a private skill.
         :type SkillGroupArn: string
         :param SkillGroupArn:
-          The ARN of the skill group for which to list enabled skills.
+          The ARN of the skill group for which to list enabled skills. Required.
         :type EnablementType: string
         :param EnablementType:
           Whether the skill is enabled under the user\'s account, or if it requires linking to be used.

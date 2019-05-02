@@ -1,11 +1,11 @@
+from typing import Optional
+from botocore.client import BaseClient
+from typing import Dict
+from botocore.paginate import Paginator
+from datetime import datetime
+from botocore.waiter import Waiter
 from typing import Union
 from typing import List
-from botocore.paginate import Paginator
-from botocore.waiter import Waiter
-from typing import Optional
-from datetime import datetime
-from typing import Dict
-from botocore.client import BaseClient
 
 
 class Client(BaseClient):
@@ -48,6 +48,76 @@ class Client(BaseClient):
         """
         pass
 
+    def apply_pending_maintenance_action(self, ReplicationInstanceArn: str, ApplyAction: str, OptInType: str) -> Dict:
+        """
+        Applies a pending maintenance action to a resource (for example, to a replication instance).
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/ApplyPendingMaintenanceAction>`_
+        
+        **Request Syntax**
+        ::
+          response = client.apply_pending_maintenance_action(
+              ReplicationInstanceArn='string',
+              ApplyAction='string',
+              OptInType='string'
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'ResourcePendingMaintenanceActions': {
+                    'ResourceIdentifier': 'string',
+                    'PendingMaintenanceActionDetails': [
+                        {
+                            'Action': 'string',
+                            'AutoAppliedAfterDate': datetime(2015, 1, 1),
+                            'ForcedApplyDate': datetime(2015, 1, 1),
+                            'OptInStatus': 'string',
+                            'CurrentApplyDate': datetime(2015, 1, 1),
+                            'Description': 'string'
+                        },
+                    ]
+                }
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **ResourcePendingMaintenanceActions** *(dict) --* 
+              The AWS DMS resource that the pending maintenance action will be applied to.
+              - **ResourceIdentifier** *(string) --* 
+                The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <https://docs.aws.amazon.com/dms/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN>`__ in the DMS documentation.
+              - **PendingMaintenanceActionDetails** *(list) --* 
+                Detailed information about the pending maintenance action.
+                - *(dict) --* 
+                  - **Action** *(string) --* 
+                    The type of pending maintenance action that is available for the resource.
+                  - **AutoAppliedAfterDate** *(datetime) --* 
+                    The date of the maintenance window when the action will be applied. The maintenance action will be applied to the resource during its first maintenance window after this date. If this date is specified, any ``next-maintenance`` opt-in requests are ignored.
+                  - **ForcedApplyDate** *(datetime) --* 
+                    The date when the maintenance action will be automatically applied. The maintenance action will be applied to the resource on this date regardless of the maintenance window for the resource. If this date is specified, any ``immediate`` opt-in requests are ignored.
+                  - **OptInStatus** *(string) --* 
+                    Indicates the type of opt-in request that has been received for the resource.
+                  - **CurrentApplyDate** *(datetime) --* 
+                    The effective date when the pending maintenance action will be applied to the resource. This date takes into account opt-in requests received from the ``ApplyPendingMaintenanceAction`` API, the ``AutoAppliedAfterDate`` , and the ``ForcedApplyDate`` . This value is blank if an opt-in request has not been received and nothing has been specified as ``AutoAppliedAfterDate`` or ``ForcedApplyDate`` .
+                  - **Description** *(string) --* 
+                    A description providing more detail about the maintenance action.
+        :type ReplicationInstanceArn: string
+        :param ReplicationInstanceArn: **[REQUIRED]**
+          The Amazon Resource Name (ARN) of the AWS DMS resource that the pending maintenance action applies to.
+        :type ApplyAction: string
+        :param ApplyAction: **[REQUIRED]**
+          The pending maintenance action to apply to this resource.
+        :type OptInType: string
+        :param OptInType: **[REQUIRED]**
+          A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type ``immediate`` cannot be undone.
+          Valid values:
+          * ``immediate`` - Apply the maintenance action immediately.
+          * ``next-maintenance`` - Apply the maintenance action during the next maintenance window for the resource.
+          * ``undo-opt-in`` - Cancel any existing ``next-maintenance`` opt-in requests.
+        :rtype: dict
+        :returns:
+        """
+        pass
+
     def can_paginate(self, operation_name: str = None):
         """
         Check if an operation can be paginated.
@@ -63,7 +133,7 @@ class Client(BaseClient):
         """
         pass
 
-    def create_endpoint(self, EndpointIdentifier: str, EndpointType: str, EngineName: str, Username: str = None, Password: str = None, ServerName: str = None, Port: int = None, DatabaseName: str = None, ExtraConnectionAttributes: str = None, KmsKeyId: str = None, Tags: List = None, CertificateArn: str = None, SslMode: str = None, ServiceAccessRoleArn: str = None, ExternalTableDefinition: str = None, DynamoDbSettings: Dict = None, S3Settings: Dict = None, DmsTransferSettings: Dict = None, MongoDbSettings: Dict = None, KinesisSettings: Dict = None, ElasticsearchSettings: Dict = None) -> Dict:
+    def create_endpoint(self, EndpointIdentifier: str, EndpointType: str, EngineName: str, Username: str = None, Password: str = None, ServerName: str = None, Port: int = None, DatabaseName: str = None, ExtraConnectionAttributes: str = None, KmsKeyId: str = None, Tags: List = None, CertificateArn: str = None, SslMode: str = None, ServiceAccessRoleArn: str = None, ExternalTableDefinition: str = None, DynamoDbSettings: Dict = None, S3Settings: Dict = None, DmsTransferSettings: Dict = None, MongoDbSettings: Dict = None, KinesisSettings: Dict = None, ElasticsearchSettings: Dict = None, RedshiftSettings: Dict = None) -> Dict:
         """
         Creates an endpoint using the provided settings.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/CreateEndpoint>`_
@@ -101,7 +171,17 @@ class Client(BaseClient):
                   'CsvDelimiter': 'string',
                   'BucketFolder': 'string',
                   'BucketName': 'string',
-                  'CompressionType': 'none'|'gzip'
+                  'CompressionType': 'none'|'gzip',
+                  'EncryptionMode': 'sse-s3'|'sse-kms',
+                  'ServerSideEncryptionKmsKeyId': 'string',
+                  'DataFormat': 'csv'|'parquet',
+                  'EncodingType': 'plain'|'plain-dictionary'|'rle-dictionary',
+                  'DictPageSizeLimit': 123,
+                  'RowGroupLength': 123,
+                  'DataPageSize': 123,
+                  'ParquetVersion': 'parquet-1-0'|'parquet-2-0',
+                  'EnableStatistics': True|False,
+                  'CdcInsertsOnly': True|False
               },
               DmsTransferSettings={
                   'ServiceAccessRoleArn': 'string',
@@ -131,6 +211,33 @@ class Client(BaseClient):
                   'EndpointUri': 'string',
                   'FullLoadErrorPercentage': 123,
                   'ErrorRetryDuration': 123
+              },
+              RedshiftSettings={
+                  'AcceptAnyDate': True|False,
+                  'AfterConnectScript': 'string',
+                  'BucketFolder': 'string',
+                  'BucketName': 'string',
+                  'ConnectionTimeout': 123,
+                  'DatabaseName': 'string',
+                  'DateFormat': 'string',
+                  'EmptyAsNull': True|False,
+                  'EncryptionMode': 'sse-s3'|'sse-kms',
+                  'FileTransferUploadStreams': 123,
+                  'LoadTimeout': 123,
+                  'MaxFileSize': 123,
+                  'Password': 'string',
+                  'Port': 123,
+                  'RemoveQuotes': True|False,
+                  'ReplaceInvalidChars': 'string',
+                  'ReplaceChars': 'string',
+                  'ServerName': 'string',
+                  'ServiceAccessRoleArn': 'string',
+                  'ServerSideEncryptionKmsKeyId': 'string',
+                  'TimeFormat': 'string',
+                  'TrimBlanks': True|False,
+                  'TruncateColumns': True|False,
+                  'Username': 'string',
+                  'WriteBufferSize': 123
               }
           )
         
@@ -165,7 +272,17 @@ class Client(BaseClient):
                         'CsvDelimiter': 'string',
                         'BucketFolder': 'string',
                         'BucketName': 'string',
-                        'CompressionType': 'none'|'gzip'
+                        'CompressionType': 'none'|'gzip',
+                        'EncryptionMode': 'sse-s3'|'sse-kms',
+                        'ServerSideEncryptionKmsKeyId': 'string',
+                        'DataFormat': 'csv'|'parquet',
+                        'EncodingType': 'plain'|'plain-dictionary'|'rle-dictionary',
+                        'DictPageSizeLimit': 123,
+                        'RowGroupLength': 123,
+                        'DataPageSize': 123,
+                        'ParquetVersion': 'parquet-1-0'|'parquet-2-0',
+                        'EnableStatistics': True|False,
+                        'CdcInsertsOnly': True|False
                     },
                     'DmsTransferSettings': {
                         'ServiceAccessRoleArn': 'string',
@@ -195,6 +312,33 @@ class Client(BaseClient):
                         'EndpointUri': 'string',
                         'FullLoadErrorPercentage': 123,
                         'ErrorRetryDuration': 123
+                    },
+                    'RedshiftSettings': {
+                        'AcceptAnyDate': True|False,
+                        'AfterConnectScript': 'string',
+                        'BucketFolder': 'string',
+                        'BucketName': 'string',
+                        'ConnectionTimeout': 123,
+                        'DatabaseName': 'string',
+                        'DateFormat': 'string',
+                        'EmptyAsNull': True|False,
+                        'EncryptionMode': 'sse-s3'|'sse-kms',
+                        'FileTransferUploadStreams': 123,
+                        'LoadTimeout': 123,
+                        'MaxFileSize': 123,
+                        'Password': 'string',
+                        'Port': 123,
+                        'RemoveQuotes': True|False,
+                        'ReplaceInvalidChars': 'string',
+                        'ReplaceChars': 'string',
+                        'ServerName': 'string',
+                        'ServiceAccessRoleArn': 'string',
+                        'ServerSideEncryptionKmsKeyId': 'string',
+                        'TimeFormat': 'string',
+                        'TrimBlanks': True|False,
+                        'TruncateColumns': True|False,
+                        'Username': 'string',
+                        'WriteBufferSize': 123
                     }
                 }
             }
@@ -250,21 +394,59 @@ class Client(BaseClient):
                 - **ExternalTableDefinition** *(string) --* 
                   The external table definition. 
                 - **CsvRowDelimiter** *(string) --* 
-                  The delimiter used to separate rows in the source files. The default is a carriage return (\n). 
+                  The delimiter used to separate rows in the source files. The default is a carriage return (``\n`` ). 
                 - **CsvDelimiter** *(string) --* 
                   The delimiter used to separate columns in the source files. The default is a comma. 
                 - **BucketFolder** *(string) --* 
-                  An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path <bucketFolder>/<schema_name>/<table_name>/. If this parameter is not specified, then the path used is <schema_name>/<table_name>/. 
+                  An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path ``<bucketFolder>/<schema_name>/<table_name>/`` . If this parameter is not specified, then the path used is ``<schema_name>/<table_name>/`` . 
                 - **BucketName** *(string) --* 
                   The name of the S3 bucket. 
                 - **CompressionType** *(string) --* 
-                  An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. 
+                  An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. Applies to both CSV and PARQUET data formats. 
+                - **EncryptionMode** *(string) --* 
+                  The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either ``SSE_S3`` (default) or ``SSE_KMS`` . To use ``SSE_S3`` , you need an IAM role with permission to allow ``"arn:aws:s3:::dms-*"`` to use the following actions:
+                  * s3:CreateBucket 
+                  * s3:ListBucket 
+                  * s3:DeleteBucket 
+                  * s3:GetBucketLocation 
+                  * s3:GetObject 
+                  * s3:PutObject 
+                  * s3:DeleteObject 
+                  * s3:GetObjectVersion 
+                  * s3:GetBucketPolicy 
+                  * s3:PutBucketPolicy 
+                  * s3:DeleteBucketPolicy 
+                - **ServerSideEncryptionKmsKeyId** *(string) --* 
+                  If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+                  Here is a CLI example: ``aws dms create-endpoint --endpoint-identifier <value> --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=<value>,BucketFolder=<value>,BucketName=<value>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<value>``  
+                - **DataFormat** *(string) --* 
+                  The format of the data which you want to use for output. You can choose one of the following: 
+                  * ``CSV`` : This is a row-based format with comma-separated values.  
+                  * ``PARQUET`` : Apache Parquet is a columnar storage format that features efficient compression and provides faster query response.  
+                - **EncodingType** *(string) --* 
+                  The type of encoding you are using: ``RLE_DICTIONARY`` (default), ``PLAIN`` , or ``PLAIN_DICTIONARY`` .
+                  * ``RLE_DICTIONARY`` uses a combination of bit-packing and run-length encoding to store repeated values more efficiently. 
+                  * ``PLAIN`` does not use encoding at all. Values are stored as they are. 
+                  * ``PLAIN_DICTIONARY`` builds a dictionary of the values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk. 
+                - **DictPageSizeLimit** *(integer) --* 
+                  The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of ``PLAIN`` . Defaults to 1024 * 1024 bytes (1MiB), the maximum size of a dictionary page before it reverts to ``PLAIN`` encoding. For ``PARQUET`` format only. 
+                - **RowGroupLength** *(integer) --* 
+                  The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. Defaults to 10,000 (ten thousand) rows. For ``PARQUET`` format only. 
+                  If you choose a value larger than the maximum, ``RowGroupLength`` is set to the max row group length in bytes (64 * 1024 * 1024). 
+                - **DataPageSize** *(integer) --* 
+                  The size of one data page in bytes. Defaults to 1024 * 1024 bytes (1MiB). For ``PARQUET`` format only. 
+                - **ParquetVersion** *(string) --* 
+                  The version of Apache Parquet format you want to use: ``PARQUET_1_0`` (default) or ``PARQUET_2_0`` .
+                - **EnableStatistics** *(boolean) --* 
+                  Enables statistics for Parquet pages and rowGroups. Choose ``TRUE`` to enable statistics, choose ``FALSE`` to disable. Statistics include ``NULL`` , ``DISTINCT`` , ``MAX`` , and ``MIN`` values. Defaults to ``TRUE`` . For ``PARQUET`` format only.
+                - **CdcInsertsOnly** *(boolean) --* 
+                  Option to write only ``INSERT`` operations to the comma-separated value (CSV) output files. By default, the first field in a CSV record contains the letter ``I`` (insert), ``U`` (update) or ``D`` (delete) to indicate whether the row was inserted, updated, or deleted at the source database. If ``cdcInsertsOnly`` is set to true, then only ``INSERT`` s are recorded in the CSV file, without the ``I`` annotation on each line. Valid values are ``TRUE`` and ``FALSE`` .
               - **DmsTransferSettings** *(dict) --* 
                 The settings in JSON format for the DMS transfer type of source endpoint. 
                 Possible attributes include the following:
                 * ``serviceAccessRoleArn`` - The IAM role that has permission to access the Amazon S3 bucket. 
                 * ``bucketName`` - The name of the S3 bucket to use. 
-                * ``compressionType`` - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to ``NONE`` (the default). To keep the files uncompressed, don't use this value.  
+                * ``compressionType`` - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to ``NONE`` (the default). To keep the files uncompressed, don't use this value. 
                 Shorthand syntax for these attributes is as follows: ``ServiceAccessRoleArn=string,BucketName=string,CompressionType=string``  
                 JSON syntax for these attributes is as follows: ``{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" }``  
                 - **ServiceAccessRoleArn** *(string) --* 
@@ -324,6 +506,61 @@ class Client(BaseClient):
                   The maximum percentage of records that can fail to be written before a full load operation stops. 
                 - **ErrorRetryDuration** *(integer) --* 
                   The maximum number of seconds that DMS retries failed API requests to the Elasticsearch cluster.
+              - **RedshiftSettings** *(dict) --* 
+                Settings for the Amazon Redshift endpoint
+                - **AcceptAnyDate** *(boolean) --* 
+                  Allows any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose TRUE or FALSE (default).
+                  This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the data does not match the DATEFORMAT specification, Amazon Redshift inserts a NULL value into that field. 
+                - **AfterConnectScript** *(string) --* 
+                  Code to run after connecting. This should be the code, not a filename.
+                - **BucketFolder** *(string) --* 
+                  The location where the CSV files are stored before being uploaded to the S3 bucket. 
+                - **BucketName** *(string) --* 
+                  The name of the S3 bucket you want to use
+                - **ConnectionTimeout** *(integer) --* 
+                  Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+                - **DatabaseName** *(string) --* 
+                  The name of the Amazon Redshift data warehouse (service) you are working with.
+                - **DateFormat** *(string) --* 
+                  The date format you are using. Valid values are ``auto`` (case-sensitive), your date format string enclosed in quotes, or NULL. If this is left unset (NULL), it defaults to a format of 'YYYY-MM-DD'. Using ``auto`` recognizes most strings, even some that are not supported when you use a date format string. 
+                  If your date and time values use formats different from each other, set this to ``auto`` . 
+                - **EmptyAsNull** *(boolean) --* 
+                  Specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of TRUE sets empty CHAR and VARCHAR fields to null. The default is FALSE.
+                - **EncryptionMode** *(string) --* 
+                  The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either SSE_S3 (default) or SSE_KMS. To use SSE_S3, create an IAM role with a policy that allows ``"arn:aws:s3:::*"`` to use the following actions: ``"s3:PutObject", "s3:ListBucket"`` .
+                - **FileTransferUploadStreams** *(integer) --* 
+                  Specifies the number of threads used to upload a single file. This accepts a value between 1 and 64. It defaults to 10.
+                - **LoadTimeout** *(integer) --* 
+                  Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you begin loading.
+                - **MaxFileSize** *(integer) --* 
+                  Specifies the maximum size (in KB) of any CSV file used to transfer data to Amazon Redshift. This accepts a value between 1 and 1048576. It defaults to 32768 KB (32 MB).
+                - **Password** *(string) --* 
+                  The password for the user named in the username property.
+                - **Port** *(integer) --* 
+                  The port number for Amazon Redshift. The default value is 5439.
+                - **RemoveQuotes** *(boolean) --* 
+                  Removes surrounding quotation marks from strings in the incoming data. All characters within the quotation marks, including delimiters, are retained. Choose TRUE to remove quotation marks. The default is FALSE.
+                - **ReplaceInvalidChars** *(string) --* 
+                  A list of chars you want to replace. Use with ``ReplaceChars`` .
+                - **ReplaceChars** *(string) --* 
+                  Replaces invalid characters specified in ``ReplaceInvalidChars`` , substituting the specified value instead. The default is "?".
+                - **ServerName** *(string) --* 
+                  The name of the Amazon Redshift cluster you are using.
+                - **ServiceAccessRoleArn** *(string) --* 
+                  The ARN of the role that has access to the Redshift service.
+                - **ServerSideEncryptionKmsKeyId** *(string) --* 
+                  If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+                - **TimeFormat** *(string) --* 
+                  The time format you want to use. Valid values are ``auto`` (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'. It defaults to 10. Using ``auto`` recognizes most strings, even some that are not supported when you use a time format string. 
+                  If your date and time values use formats different from each other, set this to ``auto`` . 
+                - **TrimBlanks** *(boolean) --* 
+                  Removes the trailing white space characters from a VARCHAR string. This parameter applies only to columns with a VARCHAR data type. Choose TRUE to remove unneeded white space. The default is FALSE.
+                - **TruncateColumns** *(boolean) --* 
+                  Truncates data in columns to the appropriate number of characters, so that it fits in the column. Applies only to columns with a VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose TRUE to truncate data. The default is FALSE.
+                - **Username** *(string) --* 
+                  An Amazon Redshift user name for a registered user.
+                - **WriteBufferSize** *(integer) --* 
+                  The size of the write buffer to use in rows. Valid values range from 1 to 2048. Defaults to 1024. Use this setting to tune performance. 
         :type EndpointIdentifier: string
         :param EndpointIdentifier: **[REQUIRED]**
           The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
@@ -376,26 +613,64 @@ class Client(BaseClient):
           The external table definition.
         :type DynamoDbSettings: dict
         :param DynamoDbSettings:
-          Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available settings, see `Using Object Mapping to Migrate Data to DynamoDB <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html>`__ in the *AWS Database Migration Service User Guide.*
+          Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available settings, see `Using Object Mapping to Migrate Data to DynamoDB <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html>`__ in the *AWS Database Migration Service User Guide.*
           - **ServiceAccessRoleArn** *(string) --* **[REQUIRED]**
             The Amazon Resource Name (ARN) used by the service access IAM role.
         :type S3Settings: dict
         :param S3Settings:
-          Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see `Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring>`__ in the *AWS Database Migration Service User Guide.*
+          Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see `Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring>`__ in the *AWS Database Migration Service User Guide.*
           - **ServiceAccessRoleArn** *(string) --*
             The Amazon Resource Name (ARN) used by the service access IAM role.
           - **ExternalTableDefinition** *(string) --*
             The external table definition.
           - **CsvRowDelimiter** *(string) --*
-            The delimiter used to separate rows in the source files. The default is a carriage return (\n).
+            The delimiter used to separate rows in the source files. The default is a carriage return (``\n`` ).
           - **CsvDelimiter** *(string) --*
             The delimiter used to separate columns in the source files. The default is a comma.
           - **BucketFolder** *(string) --*
-            An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path <bucketFolder>/<schema_name>/<table_name>/. If this parameter is not specified, then the path used is <schema_name>/<table_name>/.
+            An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path ``<bucketFolder>/<schema_name>/<table_name>/`` . If this parameter is not specified, then the path used is ``<schema_name>/<table_name>/`` .
           - **BucketName** *(string) --*
             The name of the S3 bucket.
           - **CompressionType** *(string) --*
-            An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed.
+            An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. Applies to both CSV and PARQUET data formats.
+          - **EncryptionMode** *(string) --*
+            The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either ``SSE_S3`` (default) or ``SSE_KMS`` . To use ``SSE_S3`` , you need an IAM role with permission to allow ``\"arn:aws:s3:::dms-*\"`` to use the following actions:
+            * s3:CreateBucket
+            * s3:ListBucket
+            * s3:DeleteBucket
+            * s3:GetBucketLocation
+            * s3:GetObject
+            * s3:PutObject
+            * s3:DeleteObject
+            * s3:GetObjectVersion
+            * s3:GetBucketPolicy
+            * s3:PutBucketPolicy
+            * s3:DeleteBucketPolicy
+          - **ServerSideEncryptionKmsKeyId** *(string) --*
+            If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+            Here is a CLI example: ``aws dms create-endpoint --endpoint-identifier <value> --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=<value>,BucketFolder=<value>,BucketName=<value>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<value>``
+          - **DataFormat** *(string) --*
+            The format of the data which you want to use for output. You can choose one of the following:
+            * ``CSV`` : This is a row-based format with comma-separated values.
+            * ``PARQUET`` : Apache Parquet is a columnar storage format that features efficient compression and provides faster query response.
+          - **EncodingType** *(string) --*
+            The type of encoding you are using: ``RLE_DICTIONARY`` (default), ``PLAIN`` , or ``PLAIN_DICTIONARY`` .
+            * ``RLE_DICTIONARY`` uses a combination of bit-packing and run-length encoding to store repeated values more efficiently.
+            * ``PLAIN`` does not use encoding at all. Values are stored as they are.
+            * ``PLAIN_DICTIONARY`` builds a dictionary of the values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk.
+          - **DictPageSizeLimit** *(integer) --*
+            The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of ``PLAIN`` . Defaults to 1024 * 1024 bytes (1MiB), the maximum size of a dictionary page before it reverts to ``PLAIN`` encoding. For ``PARQUET`` format only.
+          - **RowGroupLength** *(integer) --*
+            The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. Defaults to 10,000 (ten thousand) rows. For ``PARQUET`` format only.
+            If you choose a value larger than the maximum, ``RowGroupLength`` is set to the max row group length in bytes (64 * 1024 * 1024).
+          - **DataPageSize** *(integer) --*
+            The size of one data page in bytes. Defaults to 1024 * 1024 bytes (1MiB). For ``PARQUET`` format only.
+          - **ParquetVersion** *(string) --*
+            The version of Apache Parquet format you want to use: ``PARQUET_1_0`` (default) or ``PARQUET_2_0`` .
+          - **EnableStatistics** *(boolean) --*
+            Enables statistics for Parquet pages and rowGroups. Choose ``TRUE`` to enable statistics, choose ``FALSE`` to disable. Statistics include ``NULL`` , ``DISTINCT`` , ``MAX`` , and ``MIN`` values. Defaults to ``TRUE`` . For ``PARQUET`` format only.
+          - **CdcInsertsOnly** *(boolean) --*
+            Option to write only ``INSERT`` operations to the comma-separated value (CSV) output files. By default, the first field in a CSV record contains the letter ``I`` (insert), ``U`` (update) or ``D`` (delete) to indicate whether the row was inserted, updated, or deleted at the source database. If ``cdcInsertsOnly`` is set to true, then only ``INSERT`` s are recorded in the CSV file, without the ``I`` annotation on each line. Valid values are ``TRUE`` and ``FALSE`` .
         :type DmsTransferSettings: dict
         :param DmsTransferSettings:
           The settings in JSON format for the DMS transfer type of source endpoint.
@@ -411,7 +686,7 @@ class Client(BaseClient):
             The name of the S3 bucket to use.
         :type MongoDbSettings: dict
         :param MongoDbSettings:
-          Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the configuration properties section in `Using MongoDB as a Target for AWS Database Migration Service <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html>`__ in the *AWS Database Migration Service User Guide.*
+          Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the configuration properties section in `Using MongoDB as a Target for AWS Database Migration Service <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html>`__ in the *AWS Database Migration Service User Guide.*
           - **Username** *(string) --*
             The user name you use to access the MongoDB source endpoint.
           - **Password** *(string) --*
@@ -447,7 +722,7 @@ class Client(BaseClient):
             The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don\'t specify a value for the ``KmsKeyId`` parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
         :type KinesisSettings: dict
         :param KinesisSettings:
-          Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about the available settings, see `Using Object Mapping to Migrate Data to a Kinesis Data Stream <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping >`__ in the *AWS Database Migration User Guide.*
+          Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about the available settings, see `Using Object Mapping to Migrate Data to a Kinesis Data Stream <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping >`__ in the *AWS Database Migration User Guide.*
           - **StreamArn** *(string) --*
             The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
           - **MessageFormat** *(string) --*
@@ -456,7 +731,7 @@ class Client(BaseClient):
             The Amazon Resource Name (ARN) for the IAM role that DMS uses to write to the Amazon Kinesis data stream.
         :type ElasticsearchSettings: dict
         :param ElasticsearchSettings:
-          Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings, see `Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration>`__ in the *AWS Database Migration User Guide.*
+          Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings, see `Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration>`__ in the *AWS Database Migration User Guide.*
           - **ServiceAccessRoleArn** *(string) --* **[REQUIRED]**
             The Amazon Resource Name (ARN) used by service to access the IAM role.
           - **EndpointUri** *(string) --* **[REQUIRED]**
@@ -465,6 +740,61 @@ class Client(BaseClient):
             The maximum percentage of records that can fail to be written before a full load operation stops.
           - **ErrorRetryDuration** *(integer) --*
             The maximum number of seconds that DMS retries failed API requests to the Elasticsearch cluster.
+        :type RedshiftSettings: dict
+        :param RedshiftSettings:
+          - **AcceptAnyDate** *(boolean) --*
+            Allows any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose TRUE or FALSE (default).
+            This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the data does not match the DATEFORMAT specification, Amazon Redshift inserts a NULL value into that field.
+          - **AfterConnectScript** *(string) --*
+            Code to run after connecting. This should be the code, not a filename.
+          - **BucketFolder** *(string) --*
+            The location where the CSV files are stored before being uploaded to the S3 bucket.
+          - **BucketName** *(string) --*
+            The name of the S3 bucket you want to use
+          - **ConnectionTimeout** *(integer) --*
+            Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+          - **DatabaseName** *(string) --*
+            The name of the Amazon Redshift data warehouse (service) you are working with.
+          - **DateFormat** *(string) --*
+            The date format you are using. Valid values are ``auto`` (case-sensitive), your date format string enclosed in quotes, or NULL. If this is left unset (NULL), it defaults to a format of \'YYYY-MM-DD\'. Using ``auto`` recognizes most strings, even some that are not supported when you use a date format string.
+            If your date and time values use formats different from each other, set this to ``auto`` .
+          - **EmptyAsNull** *(boolean) --*
+            Specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of TRUE sets empty CHAR and VARCHAR fields to null. The default is FALSE.
+          - **EncryptionMode** *(string) --*
+            The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either SSE_S3 (default) or SSE_KMS. To use SSE_S3, create an IAM role with a policy that allows ``\"arn:aws:s3:::*\"`` to use the following actions: ``\"s3:PutObject\", \"s3:ListBucket\"`` .
+          - **FileTransferUploadStreams** *(integer) --*
+            Specifies the number of threads used to upload a single file. This accepts a value between 1 and 64. It defaults to 10.
+          - **LoadTimeout** *(integer) --*
+            Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you begin loading.
+          - **MaxFileSize** *(integer) --*
+            Specifies the maximum size (in KB) of any CSV file used to transfer data to Amazon Redshift. This accepts a value between 1 and 1048576. It defaults to 32768 KB (32 MB).
+          - **Password** *(string) --*
+            The password for the user named in the username property.
+          - **Port** *(integer) --*
+            The port number for Amazon Redshift. The default value is 5439.
+          - **RemoveQuotes** *(boolean) --*
+            Removes surrounding quotation marks from strings in the incoming data. All characters within the quotation marks, including delimiters, are retained. Choose TRUE to remove quotation marks. The default is FALSE.
+          - **ReplaceInvalidChars** *(string) --*
+            A list of chars you want to replace. Use with ``ReplaceChars`` .
+          - **ReplaceChars** *(string) --*
+            Replaces invalid characters specified in ``ReplaceInvalidChars`` , substituting the specified value instead. The default is \"?\".
+          - **ServerName** *(string) --*
+            The name of the Amazon Redshift cluster you are using.
+          - **ServiceAccessRoleArn** *(string) --*
+            The ARN of the role that has access to the Redshift service.
+          - **ServerSideEncryptionKmsKeyId** *(string) --*
+            If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+          - **TimeFormat** *(string) --*
+            The time format you want to use. Valid values are ``auto`` (case-sensitive), \'timeformat_string\', \'epochsecs\', or \'epochmillisecs\'. It defaults to 10. Using ``auto`` recognizes most strings, even some that are not supported when you use a time format string.
+            If your date and time values use formats different from each other, set this to ``auto`` .
+          - **TrimBlanks** *(boolean) --*
+            Removes the trailing white space characters from a VARCHAR string. This parameter applies only to columns with a VARCHAR data type. Choose TRUE to remove unneeded white space. The default is FALSE.
+          - **TruncateColumns** *(boolean) --*
+            Truncates data in columns to the appropriate number of characters, so that it fits in the column. Applies only to columns with a VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose TRUE to truncate data. The default is FALSE.
+          - **Username** *(string) --*
+            An Amazon Redshift user name for a registered user.
+          - **WriteBufferSize** *(integer) --*
+            The size of the write buffer to use in rows. Valid values range from 1 to 2048. Defaults to 1024. Use this setting to tune performance.
         :rtype: dict
         :returns:
         """
@@ -474,7 +804,7 @@ class Client(BaseClient):
         """
         Creates an AWS DMS event notification subscription. 
         You can specify the type of source (``SourceType`` ) you want to be notified of, provide a list of AWS DMS source IDs (``SourceIds`` ) that triggers the events, and provide a list of event categories (``EventCategories`` ) for events you want to be notified of. If you specify both the ``SourceType`` and ``SourceIds`` , such as ``SourceType = replication-instance`` and ``SourceIdentifier = my-replinstance`` , you will be notified of all the replication instance events for the specified source. If you specify a ``SourceType`` but don't specify a ``SourceIdentifier`` , you receive notice of the events for that source type for all your AWS DMS sources. If you don't specify either ``SourceType`` nor ``SourceIdentifier`` , you will be notified of events generated from all AWS DMS sources belonging to your customer account.
-        For more information about AWS DMS events, see `Working with Events and Notifications <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the *AWS Database Migration Service User Guide.*  
+        For more information about AWS DMS events, see `Working with Events and Notifications <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the *AWS Database Migration Service User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/CreateEventSubscription>`_
         
         **Request Syntax**
@@ -559,7 +889,7 @@ class Client(BaseClient):
           Valid values: replication-instance | migration-task
         :type EventCategories: list
         :param EventCategories:
-          A list of event categories for a source type that you want to subscribe to. You can see a list of the categories for a given source type by calling the ``DescribeEventCategories`` action or in the topic `Working with Events and Notifications <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the *AWS Database Migration Service User Guide.*
+          A list of event categories for a source type that you want to subscribe to. You can see a list of the categories for a given source type by calling the ``DescribeEventCategories`` action or in the topic `Working with Events and Notifications <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the *AWS Database Migration Service User Guide.*
           - *(string) --*
         :type SourceIds: list
         :param SourceIds:
@@ -1058,7 +1388,7 @@ class Client(BaseClient):
           For example, --table-mappings file://mappingfile.json
         :type ReplicationTaskSettings: string
         :param ReplicationTaskSettings:
-          Settings for the task, such as target metadata settings. For a complete list of task settings, see `Task Settings for AWS Database Migration Service Tasks <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html>`__ in the *AWS Database Migration User Guide.*
+          Settings for the task, such as target metadata settings. For a complete list of task settings, see `Task Settings for AWS Database Migration Service Tasks <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html>`__ in the *AWS Database Migration User Guide.*
         :type CdcStartTime: datetime
         :param CdcStartTime:
           Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
@@ -1192,7 +1522,17 @@ class Client(BaseClient):
                         'CsvDelimiter': 'string',
                         'BucketFolder': 'string',
                         'BucketName': 'string',
-                        'CompressionType': 'none'|'gzip'
+                        'CompressionType': 'none'|'gzip',
+                        'EncryptionMode': 'sse-s3'|'sse-kms',
+                        'ServerSideEncryptionKmsKeyId': 'string',
+                        'DataFormat': 'csv'|'parquet',
+                        'EncodingType': 'plain'|'plain-dictionary'|'rle-dictionary',
+                        'DictPageSizeLimit': 123,
+                        'RowGroupLength': 123,
+                        'DataPageSize': 123,
+                        'ParquetVersion': 'parquet-1-0'|'parquet-2-0',
+                        'EnableStatistics': True|False,
+                        'CdcInsertsOnly': True|False
                     },
                     'DmsTransferSettings': {
                         'ServiceAccessRoleArn': 'string',
@@ -1222,6 +1562,33 @@ class Client(BaseClient):
                         'EndpointUri': 'string',
                         'FullLoadErrorPercentage': 123,
                         'ErrorRetryDuration': 123
+                    },
+                    'RedshiftSettings': {
+                        'AcceptAnyDate': True|False,
+                        'AfterConnectScript': 'string',
+                        'BucketFolder': 'string',
+                        'BucketName': 'string',
+                        'ConnectionTimeout': 123,
+                        'DatabaseName': 'string',
+                        'DateFormat': 'string',
+                        'EmptyAsNull': True|False,
+                        'EncryptionMode': 'sse-s3'|'sse-kms',
+                        'FileTransferUploadStreams': 123,
+                        'LoadTimeout': 123,
+                        'MaxFileSize': 123,
+                        'Password': 'string',
+                        'Port': 123,
+                        'RemoveQuotes': True|False,
+                        'ReplaceInvalidChars': 'string',
+                        'ReplaceChars': 'string',
+                        'ServerName': 'string',
+                        'ServiceAccessRoleArn': 'string',
+                        'ServerSideEncryptionKmsKeyId': 'string',
+                        'TimeFormat': 'string',
+                        'TrimBlanks': True|False,
+                        'TruncateColumns': True|False,
+                        'Username': 'string',
+                        'WriteBufferSize': 123
                     }
                 }
             }
@@ -1277,21 +1644,59 @@ class Client(BaseClient):
                 - **ExternalTableDefinition** *(string) --* 
                   The external table definition. 
                 - **CsvRowDelimiter** *(string) --* 
-                  The delimiter used to separate rows in the source files. The default is a carriage return (\n). 
+                  The delimiter used to separate rows in the source files. The default is a carriage return (``\n`` ). 
                 - **CsvDelimiter** *(string) --* 
                   The delimiter used to separate columns in the source files. The default is a comma. 
                 - **BucketFolder** *(string) --* 
-                  An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path <bucketFolder>/<schema_name>/<table_name>/. If this parameter is not specified, then the path used is <schema_name>/<table_name>/. 
+                  An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path ``<bucketFolder>/<schema_name>/<table_name>/`` . If this parameter is not specified, then the path used is ``<schema_name>/<table_name>/`` . 
                 - **BucketName** *(string) --* 
                   The name of the S3 bucket. 
                 - **CompressionType** *(string) --* 
-                  An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. 
+                  An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. Applies to both CSV and PARQUET data formats. 
+                - **EncryptionMode** *(string) --* 
+                  The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either ``SSE_S3`` (default) or ``SSE_KMS`` . To use ``SSE_S3`` , you need an IAM role with permission to allow ``"arn:aws:s3:::dms-*"`` to use the following actions:
+                  * s3:CreateBucket 
+                  * s3:ListBucket 
+                  * s3:DeleteBucket 
+                  * s3:GetBucketLocation 
+                  * s3:GetObject 
+                  * s3:PutObject 
+                  * s3:DeleteObject 
+                  * s3:GetObjectVersion 
+                  * s3:GetBucketPolicy 
+                  * s3:PutBucketPolicy 
+                  * s3:DeleteBucketPolicy 
+                - **ServerSideEncryptionKmsKeyId** *(string) --* 
+                  If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+                  Here is a CLI example: ``aws dms create-endpoint --endpoint-identifier <value> --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=<value>,BucketFolder=<value>,BucketName=<value>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<value>``  
+                - **DataFormat** *(string) --* 
+                  The format of the data which you want to use for output. You can choose one of the following: 
+                  * ``CSV`` : This is a row-based format with comma-separated values.  
+                  * ``PARQUET`` : Apache Parquet is a columnar storage format that features efficient compression and provides faster query response.  
+                - **EncodingType** *(string) --* 
+                  The type of encoding you are using: ``RLE_DICTIONARY`` (default), ``PLAIN`` , or ``PLAIN_DICTIONARY`` .
+                  * ``RLE_DICTIONARY`` uses a combination of bit-packing and run-length encoding to store repeated values more efficiently. 
+                  * ``PLAIN`` does not use encoding at all. Values are stored as they are. 
+                  * ``PLAIN_DICTIONARY`` builds a dictionary of the values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk. 
+                - **DictPageSizeLimit** *(integer) --* 
+                  The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of ``PLAIN`` . Defaults to 1024 * 1024 bytes (1MiB), the maximum size of a dictionary page before it reverts to ``PLAIN`` encoding. For ``PARQUET`` format only. 
+                - **RowGroupLength** *(integer) --* 
+                  The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. Defaults to 10,000 (ten thousand) rows. For ``PARQUET`` format only. 
+                  If you choose a value larger than the maximum, ``RowGroupLength`` is set to the max row group length in bytes (64 * 1024 * 1024). 
+                - **DataPageSize** *(integer) --* 
+                  The size of one data page in bytes. Defaults to 1024 * 1024 bytes (1MiB). For ``PARQUET`` format only. 
+                - **ParquetVersion** *(string) --* 
+                  The version of Apache Parquet format you want to use: ``PARQUET_1_0`` (default) or ``PARQUET_2_0`` .
+                - **EnableStatistics** *(boolean) --* 
+                  Enables statistics for Parquet pages and rowGroups. Choose ``TRUE`` to enable statistics, choose ``FALSE`` to disable. Statistics include ``NULL`` , ``DISTINCT`` , ``MAX`` , and ``MIN`` values. Defaults to ``TRUE`` . For ``PARQUET`` format only.
+                - **CdcInsertsOnly** *(boolean) --* 
+                  Option to write only ``INSERT`` operations to the comma-separated value (CSV) output files. By default, the first field in a CSV record contains the letter ``I`` (insert), ``U`` (update) or ``D`` (delete) to indicate whether the row was inserted, updated, or deleted at the source database. If ``cdcInsertsOnly`` is set to true, then only ``INSERT`` s are recorded in the CSV file, without the ``I`` annotation on each line. Valid values are ``TRUE`` and ``FALSE`` .
               - **DmsTransferSettings** *(dict) --* 
                 The settings in JSON format for the DMS transfer type of source endpoint. 
                 Possible attributes include the following:
                 * ``serviceAccessRoleArn`` - The IAM role that has permission to access the Amazon S3 bucket. 
                 * ``bucketName`` - The name of the S3 bucket to use. 
-                * ``compressionType`` - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to ``NONE`` (the default). To keep the files uncompressed, don't use this value.  
+                * ``compressionType`` - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to ``NONE`` (the default). To keep the files uncompressed, don't use this value. 
                 Shorthand syntax for these attributes is as follows: ``ServiceAccessRoleArn=string,BucketName=string,CompressionType=string``  
                 JSON syntax for these attributes is as follows: ``{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" }``  
                 - **ServiceAccessRoleArn** *(string) --* 
@@ -1351,6 +1756,61 @@ class Client(BaseClient):
                   The maximum percentage of records that can fail to be written before a full load operation stops. 
                 - **ErrorRetryDuration** *(integer) --* 
                   The maximum number of seconds that DMS retries failed API requests to the Elasticsearch cluster.
+              - **RedshiftSettings** *(dict) --* 
+                Settings for the Amazon Redshift endpoint
+                - **AcceptAnyDate** *(boolean) --* 
+                  Allows any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose TRUE or FALSE (default).
+                  This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the data does not match the DATEFORMAT specification, Amazon Redshift inserts a NULL value into that field. 
+                - **AfterConnectScript** *(string) --* 
+                  Code to run after connecting. This should be the code, not a filename.
+                - **BucketFolder** *(string) --* 
+                  The location where the CSV files are stored before being uploaded to the S3 bucket. 
+                - **BucketName** *(string) --* 
+                  The name of the S3 bucket you want to use
+                - **ConnectionTimeout** *(integer) --* 
+                  Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+                - **DatabaseName** *(string) --* 
+                  The name of the Amazon Redshift data warehouse (service) you are working with.
+                - **DateFormat** *(string) --* 
+                  The date format you are using. Valid values are ``auto`` (case-sensitive), your date format string enclosed in quotes, or NULL. If this is left unset (NULL), it defaults to a format of 'YYYY-MM-DD'. Using ``auto`` recognizes most strings, even some that are not supported when you use a date format string. 
+                  If your date and time values use formats different from each other, set this to ``auto`` . 
+                - **EmptyAsNull** *(boolean) --* 
+                  Specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of TRUE sets empty CHAR and VARCHAR fields to null. The default is FALSE.
+                - **EncryptionMode** *(string) --* 
+                  The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either SSE_S3 (default) or SSE_KMS. To use SSE_S3, create an IAM role with a policy that allows ``"arn:aws:s3:::*"`` to use the following actions: ``"s3:PutObject", "s3:ListBucket"`` .
+                - **FileTransferUploadStreams** *(integer) --* 
+                  Specifies the number of threads used to upload a single file. This accepts a value between 1 and 64. It defaults to 10.
+                - **LoadTimeout** *(integer) --* 
+                  Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you begin loading.
+                - **MaxFileSize** *(integer) --* 
+                  Specifies the maximum size (in KB) of any CSV file used to transfer data to Amazon Redshift. This accepts a value between 1 and 1048576. It defaults to 32768 KB (32 MB).
+                - **Password** *(string) --* 
+                  The password for the user named in the username property.
+                - **Port** *(integer) --* 
+                  The port number for Amazon Redshift. The default value is 5439.
+                - **RemoveQuotes** *(boolean) --* 
+                  Removes surrounding quotation marks from strings in the incoming data. All characters within the quotation marks, including delimiters, are retained. Choose TRUE to remove quotation marks. The default is FALSE.
+                - **ReplaceInvalidChars** *(string) --* 
+                  A list of chars you want to replace. Use with ``ReplaceChars`` .
+                - **ReplaceChars** *(string) --* 
+                  Replaces invalid characters specified in ``ReplaceInvalidChars`` , substituting the specified value instead. The default is "?".
+                - **ServerName** *(string) --* 
+                  The name of the Amazon Redshift cluster you are using.
+                - **ServiceAccessRoleArn** *(string) --* 
+                  The ARN of the role that has access to the Redshift service.
+                - **ServerSideEncryptionKmsKeyId** *(string) --* 
+                  If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+                - **TimeFormat** *(string) --* 
+                  The time format you want to use. Valid values are ``auto`` (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'. It defaults to 10. Using ``auto`` recognizes most strings, even some that are not supported when you use a time format string. 
+                  If your date and time values use formats different from each other, set this to ``auto`` . 
+                - **TrimBlanks** *(boolean) --* 
+                  Removes the trailing white space characters from a VARCHAR string. This parameter applies only to columns with a VARCHAR data type. Choose TRUE to remove unneeded white space. The default is FALSE.
+                - **TruncateColumns** *(boolean) --* 
+                  Truncates data in columns to the appropriate number of characters, so that it fits in the column. Applies only to columns with a VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose TRUE to truncate data. The default is FALSE.
+                - **Username** *(string) --* 
+                  An Amazon Redshift user name for a registered user.
+                - **WriteBufferSize** *(integer) --* 
+                  The size of the write buffer to use in rows. Valid values range from 1 to 2048. Defaults to 1024. Use this setting to tune performance. 
         :type EndpointArn: string
         :param EndpointArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
@@ -2062,7 +2522,17 @@ class Client(BaseClient):
                             'CsvDelimiter': 'string',
                             'BucketFolder': 'string',
                             'BucketName': 'string',
-                            'CompressionType': 'none'|'gzip'
+                            'CompressionType': 'none'|'gzip',
+                            'EncryptionMode': 'sse-s3'|'sse-kms',
+                            'ServerSideEncryptionKmsKeyId': 'string',
+                            'DataFormat': 'csv'|'parquet',
+                            'EncodingType': 'plain'|'plain-dictionary'|'rle-dictionary',
+                            'DictPageSizeLimit': 123,
+                            'RowGroupLength': 123,
+                            'DataPageSize': 123,
+                            'ParquetVersion': 'parquet-1-0'|'parquet-2-0',
+                            'EnableStatistics': True|False,
+                            'CdcInsertsOnly': True|False
                         },
                         'DmsTransferSettings': {
                             'ServiceAccessRoleArn': 'string',
@@ -2092,6 +2562,33 @@ class Client(BaseClient):
                             'EndpointUri': 'string',
                             'FullLoadErrorPercentage': 123,
                             'ErrorRetryDuration': 123
+                        },
+                        'RedshiftSettings': {
+                            'AcceptAnyDate': True|False,
+                            'AfterConnectScript': 'string',
+                            'BucketFolder': 'string',
+                            'BucketName': 'string',
+                            'ConnectionTimeout': 123,
+                            'DatabaseName': 'string',
+                            'DateFormat': 'string',
+                            'EmptyAsNull': True|False,
+                            'EncryptionMode': 'sse-s3'|'sse-kms',
+                            'FileTransferUploadStreams': 123,
+                            'LoadTimeout': 123,
+                            'MaxFileSize': 123,
+                            'Password': 'string',
+                            'Port': 123,
+                            'RemoveQuotes': True|False,
+                            'ReplaceInvalidChars': 'string',
+                            'ReplaceChars': 'string',
+                            'ServerName': 'string',
+                            'ServiceAccessRoleArn': 'string',
+                            'ServerSideEncryptionKmsKeyId': 'string',
+                            'TimeFormat': 'string',
+                            'TrimBlanks': True|False,
+                            'TruncateColumns': True|False,
+                            'Username': 'string',
+                            'WriteBufferSize': 123
                         }
                     },
                 ]
@@ -2151,21 +2648,59 @@ class Client(BaseClient):
                   - **ExternalTableDefinition** *(string) --* 
                     The external table definition. 
                   - **CsvRowDelimiter** *(string) --* 
-                    The delimiter used to separate rows in the source files. The default is a carriage return (\n). 
+                    The delimiter used to separate rows in the source files. The default is a carriage return (``\n`` ). 
                   - **CsvDelimiter** *(string) --* 
                     The delimiter used to separate columns in the source files. The default is a comma. 
                   - **BucketFolder** *(string) --* 
-                    An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path <bucketFolder>/<schema_name>/<table_name>/. If this parameter is not specified, then the path used is <schema_name>/<table_name>/. 
+                    An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path ``<bucketFolder>/<schema_name>/<table_name>/`` . If this parameter is not specified, then the path used is ``<schema_name>/<table_name>/`` . 
                   - **BucketName** *(string) --* 
                     The name of the S3 bucket. 
                   - **CompressionType** *(string) --* 
-                    An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. 
+                    An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. Applies to both CSV and PARQUET data formats. 
+                  - **EncryptionMode** *(string) --* 
+                    The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either ``SSE_S3`` (default) or ``SSE_KMS`` . To use ``SSE_S3`` , you need an IAM role with permission to allow ``"arn:aws:s3:::dms-*"`` to use the following actions:
+                    * s3:CreateBucket 
+                    * s3:ListBucket 
+                    * s3:DeleteBucket 
+                    * s3:GetBucketLocation 
+                    * s3:GetObject 
+                    * s3:PutObject 
+                    * s3:DeleteObject 
+                    * s3:GetObjectVersion 
+                    * s3:GetBucketPolicy 
+                    * s3:PutBucketPolicy 
+                    * s3:DeleteBucketPolicy 
+                  - **ServerSideEncryptionKmsKeyId** *(string) --* 
+                    If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+                    Here is a CLI example: ``aws dms create-endpoint --endpoint-identifier <value> --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=<value>,BucketFolder=<value>,BucketName=<value>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<value>``  
+                  - **DataFormat** *(string) --* 
+                    The format of the data which you want to use for output. You can choose one of the following: 
+                    * ``CSV`` : This is a row-based format with comma-separated values.  
+                    * ``PARQUET`` : Apache Parquet is a columnar storage format that features efficient compression and provides faster query response.  
+                  - **EncodingType** *(string) --* 
+                    The type of encoding you are using: ``RLE_DICTIONARY`` (default), ``PLAIN`` , or ``PLAIN_DICTIONARY`` .
+                    * ``RLE_DICTIONARY`` uses a combination of bit-packing and run-length encoding to store repeated values more efficiently. 
+                    * ``PLAIN`` does not use encoding at all. Values are stored as they are. 
+                    * ``PLAIN_DICTIONARY`` builds a dictionary of the values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk. 
+                  - **DictPageSizeLimit** *(integer) --* 
+                    The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of ``PLAIN`` . Defaults to 1024 * 1024 bytes (1MiB), the maximum size of a dictionary page before it reverts to ``PLAIN`` encoding. For ``PARQUET`` format only. 
+                  - **RowGroupLength** *(integer) --* 
+                    The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. Defaults to 10,000 (ten thousand) rows. For ``PARQUET`` format only. 
+                    If you choose a value larger than the maximum, ``RowGroupLength`` is set to the max row group length in bytes (64 * 1024 * 1024). 
+                  - **DataPageSize** *(integer) --* 
+                    The size of one data page in bytes. Defaults to 1024 * 1024 bytes (1MiB). For ``PARQUET`` format only. 
+                  - **ParquetVersion** *(string) --* 
+                    The version of Apache Parquet format you want to use: ``PARQUET_1_0`` (default) or ``PARQUET_2_0`` .
+                  - **EnableStatistics** *(boolean) --* 
+                    Enables statistics for Parquet pages and rowGroups. Choose ``TRUE`` to enable statistics, choose ``FALSE`` to disable. Statistics include ``NULL`` , ``DISTINCT`` , ``MAX`` , and ``MIN`` values. Defaults to ``TRUE`` . For ``PARQUET`` format only.
+                  - **CdcInsertsOnly** *(boolean) --* 
+                    Option to write only ``INSERT`` operations to the comma-separated value (CSV) output files. By default, the first field in a CSV record contains the letter ``I`` (insert), ``U`` (update) or ``D`` (delete) to indicate whether the row was inserted, updated, or deleted at the source database. If ``cdcInsertsOnly`` is set to true, then only ``INSERT`` s are recorded in the CSV file, without the ``I`` annotation on each line. Valid values are ``TRUE`` and ``FALSE`` .
                 - **DmsTransferSettings** *(dict) --* 
                   The settings in JSON format for the DMS transfer type of source endpoint. 
                   Possible attributes include the following:
                   * ``serviceAccessRoleArn`` - The IAM role that has permission to access the Amazon S3 bucket. 
                   * ``bucketName`` - The name of the S3 bucket to use. 
-                  * ``compressionType`` - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to ``NONE`` (the default). To keep the files uncompressed, don't use this value.  
+                  * ``compressionType`` - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to ``NONE`` (the default). To keep the files uncompressed, don't use this value. 
                   Shorthand syntax for these attributes is as follows: ``ServiceAccessRoleArn=string,BucketName=string,CompressionType=string``  
                   JSON syntax for these attributes is as follows: ``{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" }``  
                   - **ServiceAccessRoleArn** *(string) --* 
@@ -2225,6 +2760,61 @@ class Client(BaseClient):
                     The maximum percentage of records that can fail to be written before a full load operation stops. 
                   - **ErrorRetryDuration** *(integer) --* 
                     The maximum number of seconds that DMS retries failed API requests to the Elasticsearch cluster.
+                - **RedshiftSettings** *(dict) --* 
+                  Settings for the Amazon Redshift endpoint
+                  - **AcceptAnyDate** *(boolean) --* 
+                    Allows any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose TRUE or FALSE (default).
+                    This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the data does not match the DATEFORMAT specification, Amazon Redshift inserts a NULL value into that field. 
+                  - **AfterConnectScript** *(string) --* 
+                    Code to run after connecting. This should be the code, not a filename.
+                  - **BucketFolder** *(string) --* 
+                    The location where the CSV files are stored before being uploaded to the S3 bucket. 
+                  - **BucketName** *(string) --* 
+                    The name of the S3 bucket you want to use
+                  - **ConnectionTimeout** *(integer) --* 
+                    Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+                  - **DatabaseName** *(string) --* 
+                    The name of the Amazon Redshift data warehouse (service) you are working with.
+                  - **DateFormat** *(string) --* 
+                    The date format you are using. Valid values are ``auto`` (case-sensitive), your date format string enclosed in quotes, or NULL. If this is left unset (NULL), it defaults to a format of 'YYYY-MM-DD'. Using ``auto`` recognizes most strings, even some that are not supported when you use a date format string. 
+                    If your date and time values use formats different from each other, set this to ``auto`` . 
+                  - **EmptyAsNull** *(boolean) --* 
+                    Specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of TRUE sets empty CHAR and VARCHAR fields to null. The default is FALSE.
+                  - **EncryptionMode** *(string) --* 
+                    The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either SSE_S3 (default) or SSE_KMS. To use SSE_S3, create an IAM role with a policy that allows ``"arn:aws:s3:::*"`` to use the following actions: ``"s3:PutObject", "s3:ListBucket"`` .
+                  - **FileTransferUploadStreams** *(integer) --* 
+                    Specifies the number of threads used to upload a single file. This accepts a value between 1 and 64. It defaults to 10.
+                  - **LoadTimeout** *(integer) --* 
+                    Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you begin loading.
+                  - **MaxFileSize** *(integer) --* 
+                    Specifies the maximum size (in KB) of any CSV file used to transfer data to Amazon Redshift. This accepts a value between 1 and 1048576. It defaults to 32768 KB (32 MB).
+                  - **Password** *(string) --* 
+                    The password for the user named in the username property.
+                  - **Port** *(integer) --* 
+                    The port number for Amazon Redshift. The default value is 5439.
+                  - **RemoveQuotes** *(boolean) --* 
+                    Removes surrounding quotation marks from strings in the incoming data. All characters within the quotation marks, including delimiters, are retained. Choose TRUE to remove quotation marks. The default is FALSE.
+                  - **ReplaceInvalidChars** *(string) --* 
+                    A list of chars you want to replace. Use with ``ReplaceChars`` .
+                  - **ReplaceChars** *(string) --* 
+                    Replaces invalid characters specified in ``ReplaceInvalidChars`` , substituting the specified value instead. The default is "?".
+                  - **ServerName** *(string) --* 
+                    The name of the Amazon Redshift cluster you are using.
+                  - **ServiceAccessRoleArn** *(string) --* 
+                    The ARN of the role that has access to the Redshift service.
+                  - **ServerSideEncryptionKmsKeyId** *(string) --* 
+                    If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+                  - **TimeFormat** *(string) --* 
+                    The time format you want to use. Valid values are ``auto`` (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'. It defaults to 10. Using ``auto`` recognizes most strings, even some that are not supported when you use a time format string. 
+                    If your date and time values use formats different from each other, set this to ``auto`` . 
+                  - **TrimBlanks** *(boolean) --* 
+                    Removes the trailing white space characters from a VARCHAR string. This parameter applies only to columns with a VARCHAR data type. Choose TRUE to remove unneeded white space. The default is FALSE.
+                  - **TruncateColumns** *(boolean) --* 
+                    Truncates data in columns to the appropriate number of characters, so that it fits in the column. Applies only to columns with a VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose TRUE to truncate data. The default is FALSE.
+                  - **Username** *(string) --* 
+                    An Amazon Redshift user name for a registered user.
+                  - **WriteBufferSize** *(integer) --* 
+                    The size of the write buffer to use in rows. Valid values range from 1 to 2048. Defaults to 1024. Use this setting to tune performance. 
         :type Filters: list
         :param Filters:
           Filters applied to the describe action.
@@ -2250,7 +2840,7 @@ class Client(BaseClient):
 
     def describe_event_categories(self, SourceType: str = None, Filters: List = None) -> Dict:
         """
-        Lists categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in `Working with Events and Notifications <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the *AWS Database Migration Service User Guide.*  
+        Lists categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in `Working with Events and Notifications <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the *AWS Database Migration Service User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribeEventCategories>`_
         
         **Request Syntax**
@@ -2412,7 +3002,7 @@ class Client(BaseClient):
 
     def describe_events(self, SourceIdentifier: str = None, SourceType: str = None, StartTime: datetime = None, EndTime: datetime = None, Duration: int = None, EventCategories: List = None, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
         """
-        Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on AWS DMS events, see `Working with Events and Notifications <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the *AWS Database Migration User Guide.*  
+        Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on AWS DMS events, see `Working with Events and Notifications <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html>`__ in the *AWS Database Migration User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribeEvents>`_
         
         **Request Syntax**
@@ -2540,7 +3130,10 @@ class Client(BaseClient):
                         'MinAllocatedStorage': 123,
                         'MaxAllocatedStorage': 123,
                         'DefaultAllocatedStorage': 123,
-                        'IncludedAllocatedStorage': 123
+                        'IncludedAllocatedStorage': 123,
+                        'AvailabilityZones': [
+                            'string',
+                        ]
                     },
                 ],
                 'Marker': 'string'
@@ -2566,6 +3159,9 @@ class Client(BaseClient):
                   The default amount of storage (in gigabytes) that is allocated for the replication instance.
                 - **IncludedAllocatedStorage** *(integer) --* 
                   The amount of storage (in gigabytes) that is allocated for the replication instance.
+                - **AvailabilityZones** *(list) --* 
+                  List of availability zones for this replication instance.
+                  - *(string) --* 
             - **Marker** *(string) --* 
               An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
         :type MaxRecords: integer
@@ -2576,6 +3172,96 @@ class Client(BaseClient):
         :type Marker: string
         :param Marker:
           An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
+        :rtype: dict
+        :returns:
+        """
+        pass
+
+    def describe_pending_maintenance_actions(self, ReplicationInstanceArn: str = None, Filters: List = None, Marker: str = None, MaxRecords: int = None) -> Dict:
+        """
+        For internal use only
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribePendingMaintenanceActions>`_
+        
+        **Request Syntax**
+        ::
+          response = client.describe_pending_maintenance_actions(
+              ReplicationInstanceArn='string',
+              Filters=[
+                  {
+                      'Name': 'string',
+                      'Values': [
+                          'string',
+                      ]
+                  },
+              ],
+              Marker='string',
+              MaxRecords=123
+          )
+        
+        **Response Syntax**
+        ::
+            {
+                'PendingMaintenanceActions': [
+                    {
+                        'ResourceIdentifier': 'string',
+                        'PendingMaintenanceActionDetails': [
+                            {
+                                'Action': 'string',
+                                'AutoAppliedAfterDate': datetime(2015, 1, 1),
+                                'ForcedApplyDate': datetime(2015, 1, 1),
+                                'OptInStatus': 'string',
+                                'CurrentApplyDate': datetime(2015, 1, 1),
+                                'Description': 'string'
+                            },
+                        ]
+                    },
+                ],
+                'Marker': 'string'
+            }
+        
+        **Response Structure**
+          - *(dict) --* 
+            - **PendingMaintenanceActions** *(list) --* 
+              The pending maintenance action.
+              - *(dict) --* 
+                - **ResourceIdentifier** *(string) --* 
+                  The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see `Constructing an Amazon Resource Name (ARN) <https://docs.aws.amazon.com/dms/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN>`__ in the DMS documentation.
+                - **PendingMaintenanceActionDetails** *(list) --* 
+                  Detailed information about the pending maintenance action.
+                  - *(dict) --* 
+                    - **Action** *(string) --* 
+                      The type of pending maintenance action that is available for the resource.
+                    - **AutoAppliedAfterDate** *(datetime) --* 
+                      The date of the maintenance window when the action will be applied. The maintenance action will be applied to the resource during its first maintenance window after this date. If this date is specified, any ``next-maintenance`` opt-in requests are ignored.
+                    - **ForcedApplyDate** *(datetime) --* 
+                      The date when the maintenance action will be automatically applied. The maintenance action will be applied to the resource on this date regardless of the maintenance window for the resource. If this date is specified, any ``immediate`` opt-in requests are ignored.
+                    - **OptInStatus** *(string) --* 
+                      Indicates the type of opt-in request that has been received for the resource.
+                    - **CurrentApplyDate** *(datetime) --* 
+                      The effective date when the pending maintenance action will be applied to the resource. This date takes into account opt-in requests received from the ``ApplyPendingMaintenanceAction`` API, the ``AutoAppliedAfterDate`` , and the ``ForcedApplyDate`` . This value is blank if an opt-in request has not been received and nothing has been specified as ``AutoAppliedAfterDate`` or ``ForcedApplyDate`` .
+                    - **Description** *(string) --* 
+                      A description providing more detail about the maintenance action.
+            - **Marker** *(string) --* 
+              An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` . 
+        :type ReplicationInstanceArn: string
+        :param ReplicationInstanceArn:
+          The ARN of the replication instance.
+        :type Filters: list
+        :param Filters:
+          - *(dict) --*
+            - **Name** *(string) --* **[REQUIRED]**
+              The name of the filter.
+            - **Values** *(list) --* **[REQUIRED]**
+              The filter value.
+              - *(string) --*
+        :type Marker: string
+        :param Marker:
+          An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
+        :type MaxRecords: integer
+        :param MaxRecords:
+          The maximum number of records to include in the response. If more records exist than the specified ``MaxRecords`` value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+          Default: 100
+          Constraints: Minimum 20, maximum 100.
         :rtype: dict
         :returns:
         """
@@ -3045,7 +3731,7 @@ class Client(BaseClient):
         """
         pass
 
-    def describe_replication_tasks(self, Filters: List = None, MaxRecords: int = None, Marker: str = None) -> Dict:
+    def describe_replication_tasks(self, Filters: List = None, MaxRecords: int = None, Marker: str = None, WithoutSettings: bool = None) -> Dict:
         """
         Returns information about replication tasks for your account in the current region.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/DescribeReplicationTasks>`_
@@ -3062,7 +3748,8 @@ class Client(BaseClient):
                   },
               ],
               MaxRecords=123,
-              Marker='string'
+              Marker='string',
+              WithoutSettings=True|False
           )
         
         **Response Syntax**
@@ -3180,6 +3867,9 @@ class Client(BaseClient):
         :type Marker: string
         :param Marker:
           An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by ``MaxRecords`` .
+        :type WithoutSettings: boolean
+        :param WithoutSettings:
+          Set this flag to avoid returning setting information. Use this to reduce overhead when settings are too large. Choose TRUE to use this flag, otherwise choose FALSE (default).
         :rtype: dict
         :returns:
         """
@@ -3525,7 +4215,7 @@ class Client(BaseClient):
         """
         pass
 
-    def modify_endpoint(self, EndpointArn: str, EndpointIdentifier: str = None, EndpointType: str = None, EngineName: str = None, Username: str = None, Password: str = None, ServerName: str = None, Port: int = None, DatabaseName: str = None, ExtraConnectionAttributes: str = None, CertificateArn: str = None, SslMode: str = None, ServiceAccessRoleArn: str = None, ExternalTableDefinition: str = None, DynamoDbSettings: Dict = None, S3Settings: Dict = None, DmsTransferSettings: Dict = None, MongoDbSettings: Dict = None, KinesisSettings: Dict = None, ElasticsearchSettings: Dict = None) -> Dict:
+    def modify_endpoint(self, EndpointArn: str, EndpointIdentifier: str = None, EndpointType: str = None, EngineName: str = None, Username: str = None, Password: str = None, ServerName: str = None, Port: int = None, DatabaseName: str = None, ExtraConnectionAttributes: str = None, CertificateArn: str = None, SslMode: str = None, ServiceAccessRoleArn: str = None, ExternalTableDefinition: str = None, DynamoDbSettings: Dict = None, S3Settings: Dict = None, DmsTransferSettings: Dict = None, MongoDbSettings: Dict = None, KinesisSettings: Dict = None, ElasticsearchSettings: Dict = None, RedshiftSettings: Dict = None) -> Dict:
         """
         Modifies the specified endpoint.
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/ModifyEndpoint>`_
@@ -3557,7 +4247,17 @@ class Client(BaseClient):
                   'CsvDelimiter': 'string',
                   'BucketFolder': 'string',
                   'BucketName': 'string',
-                  'CompressionType': 'none'|'gzip'
+                  'CompressionType': 'none'|'gzip',
+                  'EncryptionMode': 'sse-s3'|'sse-kms',
+                  'ServerSideEncryptionKmsKeyId': 'string',
+                  'DataFormat': 'csv'|'parquet',
+                  'EncodingType': 'plain'|'plain-dictionary'|'rle-dictionary',
+                  'DictPageSizeLimit': 123,
+                  'RowGroupLength': 123,
+                  'DataPageSize': 123,
+                  'ParquetVersion': 'parquet-1-0'|'parquet-2-0',
+                  'EnableStatistics': True|False,
+                  'CdcInsertsOnly': True|False
               },
               DmsTransferSettings={
                   'ServiceAccessRoleArn': 'string',
@@ -3587,6 +4287,33 @@ class Client(BaseClient):
                   'EndpointUri': 'string',
                   'FullLoadErrorPercentage': 123,
                   'ErrorRetryDuration': 123
+              },
+              RedshiftSettings={
+                  'AcceptAnyDate': True|False,
+                  'AfterConnectScript': 'string',
+                  'BucketFolder': 'string',
+                  'BucketName': 'string',
+                  'ConnectionTimeout': 123,
+                  'DatabaseName': 'string',
+                  'DateFormat': 'string',
+                  'EmptyAsNull': True|False,
+                  'EncryptionMode': 'sse-s3'|'sse-kms',
+                  'FileTransferUploadStreams': 123,
+                  'LoadTimeout': 123,
+                  'MaxFileSize': 123,
+                  'Password': 'string',
+                  'Port': 123,
+                  'RemoveQuotes': True|False,
+                  'ReplaceInvalidChars': 'string',
+                  'ReplaceChars': 'string',
+                  'ServerName': 'string',
+                  'ServiceAccessRoleArn': 'string',
+                  'ServerSideEncryptionKmsKeyId': 'string',
+                  'TimeFormat': 'string',
+                  'TrimBlanks': True|False,
+                  'TruncateColumns': True|False,
+                  'Username': 'string',
+                  'WriteBufferSize': 123
               }
           )
         
@@ -3621,7 +4348,17 @@ class Client(BaseClient):
                         'CsvDelimiter': 'string',
                         'BucketFolder': 'string',
                         'BucketName': 'string',
-                        'CompressionType': 'none'|'gzip'
+                        'CompressionType': 'none'|'gzip',
+                        'EncryptionMode': 'sse-s3'|'sse-kms',
+                        'ServerSideEncryptionKmsKeyId': 'string',
+                        'DataFormat': 'csv'|'parquet',
+                        'EncodingType': 'plain'|'plain-dictionary'|'rle-dictionary',
+                        'DictPageSizeLimit': 123,
+                        'RowGroupLength': 123,
+                        'DataPageSize': 123,
+                        'ParquetVersion': 'parquet-1-0'|'parquet-2-0',
+                        'EnableStatistics': True|False,
+                        'CdcInsertsOnly': True|False
                     },
                     'DmsTransferSettings': {
                         'ServiceAccessRoleArn': 'string',
@@ -3651,6 +4388,33 @@ class Client(BaseClient):
                         'EndpointUri': 'string',
                         'FullLoadErrorPercentage': 123,
                         'ErrorRetryDuration': 123
+                    },
+                    'RedshiftSettings': {
+                        'AcceptAnyDate': True|False,
+                        'AfterConnectScript': 'string',
+                        'BucketFolder': 'string',
+                        'BucketName': 'string',
+                        'ConnectionTimeout': 123,
+                        'DatabaseName': 'string',
+                        'DateFormat': 'string',
+                        'EmptyAsNull': True|False,
+                        'EncryptionMode': 'sse-s3'|'sse-kms',
+                        'FileTransferUploadStreams': 123,
+                        'LoadTimeout': 123,
+                        'MaxFileSize': 123,
+                        'Password': 'string',
+                        'Port': 123,
+                        'RemoveQuotes': True|False,
+                        'ReplaceInvalidChars': 'string',
+                        'ReplaceChars': 'string',
+                        'ServerName': 'string',
+                        'ServiceAccessRoleArn': 'string',
+                        'ServerSideEncryptionKmsKeyId': 'string',
+                        'TimeFormat': 'string',
+                        'TrimBlanks': True|False,
+                        'TruncateColumns': True|False,
+                        'Username': 'string',
+                        'WriteBufferSize': 123
                     }
                 }
             }
@@ -3706,21 +4470,59 @@ class Client(BaseClient):
                 - **ExternalTableDefinition** *(string) --* 
                   The external table definition. 
                 - **CsvRowDelimiter** *(string) --* 
-                  The delimiter used to separate rows in the source files. The default is a carriage return (\n). 
+                  The delimiter used to separate rows in the source files. The default is a carriage return (``\n`` ). 
                 - **CsvDelimiter** *(string) --* 
                   The delimiter used to separate columns in the source files. The default is a comma. 
                 - **BucketFolder** *(string) --* 
-                  An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path <bucketFolder>/<schema_name>/<table_name>/. If this parameter is not specified, then the path used is <schema_name>/<table_name>/. 
+                  An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path ``<bucketFolder>/<schema_name>/<table_name>/`` . If this parameter is not specified, then the path used is ``<schema_name>/<table_name>/`` . 
                 - **BucketName** *(string) --* 
                   The name of the S3 bucket. 
                 - **CompressionType** *(string) --* 
-                  An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. 
+                  An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. Applies to both CSV and PARQUET data formats. 
+                - **EncryptionMode** *(string) --* 
+                  The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either ``SSE_S3`` (default) or ``SSE_KMS`` . To use ``SSE_S3`` , you need an IAM role with permission to allow ``"arn:aws:s3:::dms-*"`` to use the following actions:
+                  * s3:CreateBucket 
+                  * s3:ListBucket 
+                  * s3:DeleteBucket 
+                  * s3:GetBucketLocation 
+                  * s3:GetObject 
+                  * s3:PutObject 
+                  * s3:DeleteObject 
+                  * s3:GetObjectVersion 
+                  * s3:GetBucketPolicy 
+                  * s3:PutBucketPolicy 
+                  * s3:DeleteBucketPolicy 
+                - **ServerSideEncryptionKmsKeyId** *(string) --* 
+                  If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+                  Here is a CLI example: ``aws dms create-endpoint --endpoint-identifier <value> --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=<value>,BucketFolder=<value>,BucketName=<value>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<value>``  
+                - **DataFormat** *(string) --* 
+                  The format of the data which you want to use for output. You can choose one of the following: 
+                  * ``CSV`` : This is a row-based format with comma-separated values.  
+                  * ``PARQUET`` : Apache Parquet is a columnar storage format that features efficient compression and provides faster query response.  
+                - **EncodingType** *(string) --* 
+                  The type of encoding you are using: ``RLE_DICTIONARY`` (default), ``PLAIN`` , or ``PLAIN_DICTIONARY`` .
+                  * ``RLE_DICTIONARY`` uses a combination of bit-packing and run-length encoding to store repeated values more efficiently. 
+                  * ``PLAIN`` does not use encoding at all. Values are stored as they are. 
+                  * ``PLAIN_DICTIONARY`` builds a dictionary of the values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk. 
+                - **DictPageSizeLimit** *(integer) --* 
+                  The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of ``PLAIN`` . Defaults to 1024 * 1024 bytes (1MiB), the maximum size of a dictionary page before it reverts to ``PLAIN`` encoding. For ``PARQUET`` format only. 
+                - **RowGroupLength** *(integer) --* 
+                  The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. Defaults to 10,000 (ten thousand) rows. For ``PARQUET`` format only. 
+                  If you choose a value larger than the maximum, ``RowGroupLength`` is set to the max row group length in bytes (64 * 1024 * 1024). 
+                - **DataPageSize** *(integer) --* 
+                  The size of one data page in bytes. Defaults to 1024 * 1024 bytes (1MiB). For ``PARQUET`` format only. 
+                - **ParquetVersion** *(string) --* 
+                  The version of Apache Parquet format you want to use: ``PARQUET_1_0`` (default) or ``PARQUET_2_0`` .
+                - **EnableStatistics** *(boolean) --* 
+                  Enables statistics for Parquet pages and rowGroups. Choose ``TRUE`` to enable statistics, choose ``FALSE`` to disable. Statistics include ``NULL`` , ``DISTINCT`` , ``MAX`` , and ``MIN`` values. Defaults to ``TRUE`` . For ``PARQUET`` format only.
+                - **CdcInsertsOnly** *(boolean) --* 
+                  Option to write only ``INSERT`` operations to the comma-separated value (CSV) output files. By default, the first field in a CSV record contains the letter ``I`` (insert), ``U`` (update) or ``D`` (delete) to indicate whether the row was inserted, updated, or deleted at the source database. If ``cdcInsertsOnly`` is set to true, then only ``INSERT`` s are recorded in the CSV file, without the ``I`` annotation on each line. Valid values are ``TRUE`` and ``FALSE`` .
               - **DmsTransferSettings** *(dict) --* 
                 The settings in JSON format for the DMS transfer type of source endpoint. 
                 Possible attributes include the following:
                 * ``serviceAccessRoleArn`` - The IAM role that has permission to access the Amazon S3 bucket. 
                 * ``bucketName`` - The name of the S3 bucket to use. 
-                * ``compressionType`` - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to ``NONE`` (the default). To keep the files uncompressed, don't use this value.  
+                * ``compressionType`` - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to ``NONE`` (the default). To keep the files uncompressed, don't use this value. 
                 Shorthand syntax for these attributes is as follows: ``ServiceAccessRoleArn=string,BucketName=string,CompressionType=string``  
                 JSON syntax for these attributes is as follows: ``{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" }``  
                 - **ServiceAccessRoleArn** *(string) --* 
@@ -3780,6 +4582,61 @@ class Client(BaseClient):
                   The maximum percentage of records that can fail to be written before a full load operation stops. 
                 - **ErrorRetryDuration** *(integer) --* 
                   The maximum number of seconds that DMS retries failed API requests to the Elasticsearch cluster.
+              - **RedshiftSettings** *(dict) --* 
+                Settings for the Amazon Redshift endpoint
+                - **AcceptAnyDate** *(boolean) --* 
+                  Allows any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose TRUE or FALSE (default).
+                  This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the data does not match the DATEFORMAT specification, Amazon Redshift inserts a NULL value into that field. 
+                - **AfterConnectScript** *(string) --* 
+                  Code to run after connecting. This should be the code, not a filename.
+                - **BucketFolder** *(string) --* 
+                  The location where the CSV files are stored before being uploaded to the S3 bucket. 
+                - **BucketName** *(string) --* 
+                  The name of the S3 bucket you want to use
+                - **ConnectionTimeout** *(integer) --* 
+                  Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+                - **DatabaseName** *(string) --* 
+                  The name of the Amazon Redshift data warehouse (service) you are working with.
+                - **DateFormat** *(string) --* 
+                  The date format you are using. Valid values are ``auto`` (case-sensitive), your date format string enclosed in quotes, or NULL. If this is left unset (NULL), it defaults to a format of 'YYYY-MM-DD'. Using ``auto`` recognizes most strings, even some that are not supported when you use a date format string. 
+                  If your date and time values use formats different from each other, set this to ``auto`` . 
+                - **EmptyAsNull** *(boolean) --* 
+                  Specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of TRUE sets empty CHAR and VARCHAR fields to null. The default is FALSE.
+                - **EncryptionMode** *(string) --* 
+                  The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either SSE_S3 (default) or SSE_KMS. To use SSE_S3, create an IAM role with a policy that allows ``"arn:aws:s3:::*"`` to use the following actions: ``"s3:PutObject", "s3:ListBucket"`` .
+                - **FileTransferUploadStreams** *(integer) --* 
+                  Specifies the number of threads used to upload a single file. This accepts a value between 1 and 64. It defaults to 10.
+                - **LoadTimeout** *(integer) --* 
+                  Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you begin loading.
+                - **MaxFileSize** *(integer) --* 
+                  Specifies the maximum size (in KB) of any CSV file used to transfer data to Amazon Redshift. This accepts a value between 1 and 1048576. It defaults to 32768 KB (32 MB).
+                - **Password** *(string) --* 
+                  The password for the user named in the username property.
+                - **Port** *(integer) --* 
+                  The port number for Amazon Redshift. The default value is 5439.
+                - **RemoveQuotes** *(boolean) --* 
+                  Removes surrounding quotation marks from strings in the incoming data. All characters within the quotation marks, including delimiters, are retained. Choose TRUE to remove quotation marks. The default is FALSE.
+                - **ReplaceInvalidChars** *(string) --* 
+                  A list of chars you want to replace. Use with ``ReplaceChars`` .
+                - **ReplaceChars** *(string) --* 
+                  Replaces invalid characters specified in ``ReplaceInvalidChars`` , substituting the specified value instead. The default is "?".
+                - **ServerName** *(string) --* 
+                  The name of the Amazon Redshift cluster you are using.
+                - **ServiceAccessRoleArn** *(string) --* 
+                  The ARN of the role that has access to the Redshift service.
+                - **ServerSideEncryptionKmsKeyId** *(string) --* 
+                  If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+                - **TimeFormat** *(string) --* 
+                  The time format you want to use. Valid values are ``auto`` (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'. It defaults to 10. Using ``auto`` recognizes most strings, even some that are not supported when you use a time format string. 
+                  If your date and time values use formats different from each other, set this to ``auto`` . 
+                - **TrimBlanks** *(boolean) --* 
+                  Removes the trailing white space characters from a VARCHAR string. This parameter applies only to columns with a VARCHAR data type. Choose TRUE to remove unneeded white space. The default is FALSE.
+                - **TruncateColumns** *(boolean) --* 
+                  Truncates data in columns to the appropriate number of characters, so that it fits in the column. Applies only to columns with a VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose TRUE to truncate data. The default is FALSE.
+                - **Username** *(string) --* 
+                  An Amazon Redshift user name for a registered user.
+                - **WriteBufferSize** *(integer) --* 
+                  The size of the write buffer to use in rows. Valid values range from 1 to 2048. Defaults to 1024. Use this setting to tune performance. 
         :type EndpointArn: string
         :param EndpointArn: **[REQUIRED]**
           The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
@@ -3826,26 +4683,64 @@ class Client(BaseClient):
           The external table definition.
         :type DynamoDbSettings: dict
         :param DynamoDbSettings:
-          Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available settings, see `Using Object Mapping to Migrate Data to DynamoDB <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html>`__ in the *AWS Database Migration Service User Guide.*
+          Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available settings, see `Using Object Mapping to Migrate Data to DynamoDB <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html>`__ in the *AWS Database Migration Service User Guide.*
           - **ServiceAccessRoleArn** *(string) --* **[REQUIRED]**
             The Amazon Resource Name (ARN) used by the service access IAM role.
         :type S3Settings: dict
         :param S3Settings:
-          Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see `Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring>`__ in the *AWS Database Migration Service User Guide.*
+          Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see `Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring>`__ in the *AWS Database Migration Service User Guide.*
           - **ServiceAccessRoleArn** *(string) --*
             The Amazon Resource Name (ARN) used by the service access IAM role.
           - **ExternalTableDefinition** *(string) --*
             The external table definition.
           - **CsvRowDelimiter** *(string) --*
-            The delimiter used to separate rows in the source files. The default is a carriage return (\n).
+            The delimiter used to separate rows in the source files. The default is a carriage return (``\n`` ).
           - **CsvDelimiter** *(string) --*
             The delimiter used to separate columns in the source files. The default is a comma.
           - **BucketFolder** *(string) --*
-            An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path <bucketFolder>/<schema_name>/<table_name>/. If this parameter is not specified, then the path used is <schema_name>/<table_name>/.
+            An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path ``<bucketFolder>/<schema_name>/<table_name>/`` . If this parameter is not specified, then the path used is ``<schema_name>/<table_name>/`` .
           - **BucketName** *(string) --*
             The name of the S3 bucket.
           - **CompressionType** *(string) --*
-            An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed.
+            An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. Applies to both CSV and PARQUET data formats.
+          - **EncryptionMode** *(string) --*
+            The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either ``SSE_S3`` (default) or ``SSE_KMS`` . To use ``SSE_S3`` , you need an IAM role with permission to allow ``\"arn:aws:s3:::dms-*\"`` to use the following actions:
+            * s3:CreateBucket
+            * s3:ListBucket
+            * s3:DeleteBucket
+            * s3:GetBucketLocation
+            * s3:GetObject
+            * s3:PutObject
+            * s3:DeleteObject
+            * s3:GetObjectVersion
+            * s3:GetBucketPolicy
+            * s3:PutBucketPolicy
+            * s3:DeleteBucketPolicy
+          - **ServerSideEncryptionKmsKeyId** *(string) --*
+            If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+            Here is a CLI example: ``aws dms create-endpoint --endpoint-identifier <value> --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=<value>,BucketFolder=<value>,BucketName=<value>,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=<value>``
+          - **DataFormat** *(string) --*
+            The format of the data which you want to use for output. You can choose one of the following:
+            * ``CSV`` : This is a row-based format with comma-separated values.
+            * ``PARQUET`` : Apache Parquet is a columnar storage format that features efficient compression and provides faster query response.
+          - **EncodingType** *(string) --*
+            The type of encoding you are using: ``RLE_DICTIONARY`` (default), ``PLAIN`` , or ``PLAIN_DICTIONARY`` .
+            * ``RLE_DICTIONARY`` uses a combination of bit-packing and run-length encoding to store repeated values more efficiently.
+            * ``PLAIN`` does not use encoding at all. Values are stored as they are.
+            * ``PLAIN_DICTIONARY`` builds a dictionary of the values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk.
+          - **DictPageSizeLimit** *(integer) --*
+            The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of ``PLAIN`` . Defaults to 1024 * 1024 bytes (1MiB), the maximum size of a dictionary page before it reverts to ``PLAIN`` encoding. For ``PARQUET`` format only.
+          - **RowGroupLength** *(integer) --*
+            The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. Defaults to 10,000 (ten thousand) rows. For ``PARQUET`` format only.
+            If you choose a value larger than the maximum, ``RowGroupLength`` is set to the max row group length in bytes (64 * 1024 * 1024).
+          - **DataPageSize** *(integer) --*
+            The size of one data page in bytes. Defaults to 1024 * 1024 bytes (1MiB). For ``PARQUET`` format only.
+          - **ParquetVersion** *(string) --*
+            The version of Apache Parquet format you want to use: ``PARQUET_1_0`` (default) or ``PARQUET_2_0`` .
+          - **EnableStatistics** *(boolean) --*
+            Enables statistics for Parquet pages and rowGroups. Choose ``TRUE`` to enable statistics, choose ``FALSE`` to disable. Statistics include ``NULL`` , ``DISTINCT`` , ``MAX`` , and ``MIN`` values. Defaults to ``TRUE`` . For ``PARQUET`` format only.
+          - **CdcInsertsOnly** *(boolean) --*
+            Option to write only ``INSERT`` operations to the comma-separated value (CSV) output files. By default, the first field in a CSV record contains the letter ``I`` (insert), ``U`` (update) or ``D`` (delete) to indicate whether the row was inserted, updated, or deleted at the source database. If ``cdcInsertsOnly`` is set to true, then only ``INSERT`` s are recorded in the CSV file, without the ``I`` annotation on each line. Valid values are ``TRUE`` and ``FALSE`` .
         :type DmsTransferSettings: dict
         :param DmsTransferSettings:
           The settings in JSON format for the DMS transfer type of source endpoint.
@@ -3862,7 +4757,7 @@ class Client(BaseClient):
             The name of the S3 bucket to use.
         :type MongoDbSettings: dict
         :param MongoDbSettings:
-          Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the configuration properties section in `Using MongoDB as a Target for AWS Database Migration Service <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html>`__ in the *AWS Database Migration Service User Guide.*
+          Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the configuration properties section in `Using MongoDB as a Target for AWS Database Migration Service <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html>`__ in the *AWS Database Migration Service User Guide.*
           - **Username** *(string) --*
             The user name you use to access the MongoDB source endpoint.
           - **Password** *(string) --*
@@ -3898,7 +4793,7 @@ class Client(BaseClient):
             The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don\'t specify a value for the ``KmsKeyId`` parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
         :type KinesisSettings: dict
         :param KinesisSettings:
-          Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about the available settings, see `Using Object Mapping to Migrate Data to a Kinesis Data Stream <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping >`__ in the *AWS Database Migration User Guide.*
+          Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more information about the available settings, see `Using Object Mapping to Migrate Data to a Kinesis Data Stream <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping >`__ in the *AWS Database Migration User Guide.*
           - **StreamArn** *(string) --*
             The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
           - **MessageFormat** *(string) --*
@@ -3907,7 +4802,7 @@ class Client(BaseClient):
             The Amazon Resource Name (ARN) for the IAM role that DMS uses to write to the Amazon Kinesis data stream.
         :type ElasticsearchSettings: dict
         :param ElasticsearchSettings:
-          Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings, see `Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration>`__ in the *AWS Database Migration User Guide.*
+          Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings, see `Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration>`__ in the *AWS Database Migration User Guide.*
           - **ServiceAccessRoleArn** *(string) --* **[REQUIRED]**
             The Amazon Resource Name (ARN) used by service to access the IAM role.
           - **EndpointUri** *(string) --* **[REQUIRED]**
@@ -3916,6 +4811,61 @@ class Client(BaseClient):
             The maximum percentage of records that can fail to be written before a full load operation stops.
           - **ErrorRetryDuration** *(integer) --*
             The maximum number of seconds that DMS retries failed API requests to the Elasticsearch cluster.
+        :type RedshiftSettings: dict
+        :param RedshiftSettings:
+          - **AcceptAnyDate** *(boolean) --*
+            Allows any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose TRUE or FALSE (default).
+            This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE with the DATEFORMAT parameter. If the date format for the data does not match the DATEFORMAT specification, Amazon Redshift inserts a NULL value into that field.
+          - **AfterConnectScript** *(string) --*
+            Code to run after connecting. This should be the code, not a filename.
+          - **BucketFolder** *(string) --*
+            The location where the CSV files are stored before being uploaded to the S3 bucket.
+          - **BucketName** *(string) --*
+            The name of the S3 bucket you want to use
+          - **ConnectionTimeout** *(integer) --*
+            Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+          - **DatabaseName** *(string) --*
+            The name of the Amazon Redshift data warehouse (service) you are working with.
+          - **DateFormat** *(string) --*
+            The date format you are using. Valid values are ``auto`` (case-sensitive), your date format string enclosed in quotes, or NULL. If this is left unset (NULL), it defaults to a format of \'YYYY-MM-DD\'. Using ``auto`` recognizes most strings, even some that are not supported when you use a date format string.
+            If your date and time values use formats different from each other, set this to ``auto`` .
+          - **EmptyAsNull** *(boolean) --*
+            Specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of TRUE sets empty CHAR and VARCHAR fields to null. The default is FALSE.
+          - **EncryptionMode** *(string) --*
+            The type of server side encryption you want to use for your data. This is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either SSE_S3 (default) or SSE_KMS. To use SSE_S3, create an IAM role with a policy that allows ``\"arn:aws:s3:::*\"`` to use the following actions: ``\"s3:PutObject\", \"s3:ListBucket\"`` .
+          - **FileTransferUploadStreams** *(integer) --*
+            Specifies the number of threads used to upload a single file. This accepts a value between 1 and 64. It defaults to 10.
+          - **LoadTimeout** *(integer) --*
+            Sets the amount of time to wait (in milliseconds) before timing out, beginning from when you begin loading.
+          - **MaxFileSize** *(integer) --*
+            Specifies the maximum size (in KB) of any CSV file used to transfer data to Amazon Redshift. This accepts a value between 1 and 1048576. It defaults to 32768 KB (32 MB).
+          - **Password** *(string) --*
+            The password for the user named in the username property.
+          - **Port** *(integer) --*
+            The port number for Amazon Redshift. The default value is 5439.
+          - **RemoveQuotes** *(boolean) --*
+            Removes surrounding quotation marks from strings in the incoming data. All characters within the quotation marks, including delimiters, are retained. Choose TRUE to remove quotation marks. The default is FALSE.
+          - **ReplaceInvalidChars** *(string) --*
+            A list of chars you want to replace. Use with ``ReplaceChars`` .
+          - **ReplaceChars** *(string) --*
+            Replaces invalid characters specified in ``ReplaceInvalidChars`` , substituting the specified value instead. The default is \"?\".
+          - **ServerName** *(string) --*
+            The name of the Amazon Redshift cluster you are using.
+          - **ServiceAccessRoleArn** *(string) --*
+            The ARN of the role that has access to the Redshift service.
+          - **ServerSideEncryptionKmsKeyId** *(string) --*
+            If you are using SSE_KMS for the ``EncryptionMode`` , provide the KMS Key ID. The key you use needs an attached policy that enables IAM user permissions and allows use of the key.
+          - **TimeFormat** *(string) --*
+            The time format you want to use. Valid values are ``auto`` (case-sensitive), \'timeformat_string\', \'epochsecs\', or \'epochmillisecs\'. It defaults to 10. Using ``auto`` recognizes most strings, even some that are not supported when you use a time format string.
+            If your date and time values use formats different from each other, set this to ``auto`` .
+          - **TrimBlanks** *(boolean) --*
+            Removes the trailing white space characters from a VARCHAR string. This parameter applies only to columns with a VARCHAR data type. Choose TRUE to remove unneeded white space. The default is FALSE.
+          - **TruncateColumns** *(boolean) --*
+            Truncates data in columns to the appropriate number of characters, so that it fits in the column. Applies only to columns with a VARCHAR or CHAR data type, and rows with a size of 4 MB or less. Choose TRUE to truncate data. The default is FALSE.
+          - **Username** *(string) --*
+            An Amazon Redshift user name for a registered user.
+          - **WriteBufferSize** *(integer) --*
+            The size of the write buffer to use in rows. Valid values range from 1 to 2048. Defaults to 1024. Use this setting to tune performance.
         :rtype: dict
         :returns:
         """
@@ -4303,7 +5253,7 @@ class Client(BaseClient):
         """
         Modifies the specified replication task.
         You can't modify the task endpoints. The task must be stopped before you can modify it. 
-        For more information about AWS DMS tasks, see `Working with Migration Tasks <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html>`__ in the *AWS Database Migration Service User Guide* .
+        For more information about AWS DMS tasks, see `Working with Migration Tasks <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html>`__ in the *AWS Database Migration Service User Guide* .
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/ModifyReplicationTask>`_
         
         **Request Syntax**
@@ -4757,7 +5707,7 @@ class Client(BaseClient):
     def start_replication_task(self, ReplicationTaskArn: str, StartReplicationTaskType: str, CdcStartTime: datetime = None, CdcStartPosition: str = None, CdcStopPosition: str = None) -> Dict:
         """
         Starts the replication task.
-        For more information about AWS DMS tasks, see `Working with Migration Tasks <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html>`__ in the *AWS Database Migration Service User Guide.*  
+        For more information about AWS DMS tasks, see `Working with Migration Tasks <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html>`__ in the *AWS Database Migration Service User Guide.*  
         See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/dms-2016-01-01/StartReplicationTask>`_
         
         **Request Syntax**
