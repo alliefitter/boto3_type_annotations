@@ -1,3 +1,7 @@
+# DEPRECATED
+
+After reaching out to AWS about releasing a stubs only package as detailed in [PEP-561](https://www.python.org/dev/peps/pep-0561/#stub-only-packages), they asked me to hold off on releasing it as they were [working typing support](https://github.com/boto/botostubs). Then I got bogged down at work for about four months and didn't have time to work on this at all. And now I'm deprecating it. Check out [this fork](https://github.com/vemel/mypy_boto3) for a maintained version. They also uploaded a [boto3-stubs](https://pypi.org/project/boto3-stubs/) package. 
+
 # boto3_type_annotations
 
 A programmatically created package that defines `boto3` services as stand in classes with type annotations. `boto3` is 
